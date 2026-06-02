@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- V2: Neon Gradient Wordmark with cat accent -->
+<svg width="260" height="60" viewBox="0 0 260 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#e879f9"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="iconGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e879f9"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="textNeonGlow" x="-5%" y="-30%" width="110%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="iconGlow2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Small cat icon: two ears + eye -->
+  <polygon points="2,28 7,14 14,26" fill="#e879f9"/>
+  <polygon points="28,28 22,14 35,26" fill="#e879f9"/>
+  <!-- Eye almond -->
+  <path d="M2,30 Q18,20 34,30 Q18,40 2,30 Z"
+        fill="url(#iconGrad2)" filter="url(#iconGlow2)"/>
+  <ellipse cx="18" cy="30" rx="3.5" ry="8" fill="#0f0b1e"/>
+  <circle cx="21" cy="25" r="2.5" fill="white" opacity="0.8"/>
+
+  <!-- Separator line -->
+  <line x1="46" y1="14" x2="46" y2="46" stroke="#7c3aed" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- CATZYE with neon glow -->
+  <!-- Glow layer -->
+  <text x="58" y="43"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="900"
+        font-size="30"
+        fill="#a855f7"
+        opacity="0.5"
+        letter-spacing="2"
+        filter="url(#textNeonGlow)">CATZYE</text>
+  <!-- Main text -->
+  <text x="58" y="43"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="900"
+        font-size="30"
+        fill="url(#neonGrad)"
+        letter-spacing="2">CATZYE</text>
+
+  <!-- Subtitle tagline -->
+  <text x="59" y="56"
+        font-family="Arial, sans-serif"
+        font-weight="400"
+        font-size="9"
+        fill="#a855f7"
+        letter-spacing="4"
+        opacity="0.8">MANGA &amp; ANIME NEWS</text>
+</svg>

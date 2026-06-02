@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- V3: Anime Cat Face Mascot + Text -->
+<svg width="255" height="60" viewBox="0 0 255 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
+    </linearGradient>
+    <linearGradient id="eyeGrad3L" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e879f9"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="eyeGrad3R" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e879f9"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="textGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d8b4fe"/>
+    </linearGradient>
+    <filter id="faceGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="eyeSparkle" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Cat ears (large, pointy, anime-style) -->
+  <polygon points="3,26 12,2 24,22" fill="#7c3aed"/>
+  <polygon points="7,25 13,8 21,22" fill="#e879f9" opacity="0.7"/>
+  <polygon points="45,26 36,2 24,22" fill="#7c3aed"/>
+  <polygon points="41,25 35,8 27,22" fill="#e879f9" opacity="0.7"/>
+
+  <!-- Cat head circle -->
+  <circle cx="24" cy="36" r="20" fill="url(#faceGrad)" filter="url(#faceGlow)"/>
+  <circle cx="24" cy="36" r="20" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+
+  <!-- Left eye (large anime eye) -->
+  <ellipse cx="15" cy="34" rx="7" ry="8" fill="url(#eyeGrad3L)" filter="url(#eyeSparkle)"/>
+  <ellipse cx="15" cy="34" rx="4" ry="6" fill="#0f0b1e"/>
+  <circle cx="17" cy="30" r="2.5" fill="white" opacity="0.9"/>
+  <circle cx="13" cy="37" r="1" fill="white" opacity="0.4"/>
+
+  <!-- Right eye (large anime eye) -->
+  <ellipse cx="33" cy="34" rx="7" ry="8" fill="url(#eyeGrad3R)" filter="url(#eyeSparkle)"/>
+  <ellipse cx="33" cy="34" rx="4" ry="6" fill="#0f0b1e"/>
+  <circle cx="35" cy="30" r="2.5" fill="white" opacity="0.9"/>
+  <circle cx="31" cy="37" r="1" fill="white" opacity="0.4"/>
+
+  <!-- Tiny nose -->
+  <path d="M22,43 Q24,45 26,43 L24,44 Z" fill="#e879f9" opacity="0.8"/>
+
+  <!-- Whiskers -->
+  <line x1="2" y1="42" x2="14" y2="44" stroke="#a855f7" stroke-width="0.8" opacity="0.5"/>
+  <line x1="2" y1="46" x2="14" y2="46" stroke="#a855f7" stroke-width="0.8" opacity="0.5"/>
+  <line x1="46" y1="42" x2="34" y2="44" stroke="#a855f7" stroke-width="0.8" opacity="0.5"/>
+  <line x1="46" y1="46" x2="34" y2="46" stroke="#a855f7" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Separator -->
+  <line x1="56" y1="12" x2="56" y2="52" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+
+  <!-- CATZYE text -->
+  <text x="68" y="43"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="900"
+        font-size="28"
+        fill="url(#textGrad3)"
+        letter-spacing="2">CATZYE</text>
+</svg>

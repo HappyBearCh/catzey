@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220" height="90" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Surfboard gradient (ocean blue) -->
+    <linearGradient id="boardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60c0e8"/>
+      <stop offset="100%" stop-color="#2a7fb5"/>
+    </linearGradient>
+    <!-- Eye iris (brand purple→fuchsia) -->
+    <linearGradient id="irisGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="100%" stop-color="#e879f9"/>
+    </linearGradient>
+    <!-- Board underside shadow -->
+    <linearGradient id="boardBottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a7fb5"/>
+      <stop offset="100%" stop-color="#1a5a80"/>
+    </linearGradient>
+    <!-- Subtle eye glow -->
+    <filter id="eyeGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Board glow -->
+    <filter id="boardGlow" x="-5%" y="-20%" width="110%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ── WATER SPRAY (left) ── -->
+  <path d="M50,73 Q42,65 38,58" stroke="#a8dcf0" stroke-width="1.8"
+        fill="none" stroke-linecap="round" opacity="0.75"/>
+  <path d="M47,77 Q38,70 34,64" stroke="#a8dcf0" stroke-width="1.2"
+        fill="none" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="37" cy="57" r="1.8" fill="#a8dcf0" opacity="0.6"/>
+  <circle cx="33" cy="63" r="1.2" fill="#a8dcf0" opacity="0.4"/>
+
+  <!-- ── WATER SPRAY (right) ── -->
+  <path d="M170,73 Q178,65 182,58" stroke="#a8dcf0" stroke-width="1.8"
+        fill="none" stroke-linecap="round" opacity="0.75"/>
+  <path d="M173,77 Q182,70 186,64" stroke="#a8dcf0" stroke-width="1.2"
+        fill="none" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="183" cy="57" r="1.8" fill="#a8dcf0" opacity="0.6"/>
+  <circle cx="187" cy="63" r="1.2" fill="#a8dcf0" opacity="0.4"/>
+
+  <!-- ── SURFBOARD ── -->
+  <!-- Soft glow underneath board -->
+  <ellipse cx="110" cy="74" rx="76" ry="12" fill="#38bdf8" opacity="0.18"
+           filter="url(#boardGlow)"/>
+  <!-- Board main shape -->
+  <path d="M38,73 C62,61 86,59 110,59 C134,59 158,61 182,73
+           C158,85 134,87 110,87 C86,87 62,85 38,73 Z"
+        fill="url(#boardGrad)"/>
+  <!-- Board top highlight stripe -->
+  <path d="M58,64 C78,60 98,59 118,60 C138,61 156,64 172,68
+           C156,64 136,62 116,62 C96,62 76,63 58,67 Z"
+        fill="white" opacity="0.22"/>
+  <!-- Brand accent stripe -->
+  <path d="M76,60 C90,59 102,59 110,59 C118,59 130,59 144,60
+           C130,61 118,62 110,62 C102,62 90,61 76,60 Z"
+        fill="#e879f9" opacity="0.55"/>
+
+  <!-- ── CAT TAIL (behind body, curves right) ── -->
+  <path d="M125,53 C140,41 155,40 157,48 C159,55 147,59 142,55"
+        stroke="#d0d0d0" stroke-width="5.5" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M125,53 C140,41 155,40 157,48 C159,55 147,59 142,55"
+        stroke="white" stroke-width="3.5" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ── CAT BODY ── -->
+  <ellipse cx="108" cy="55" rx="21" ry="14"
+           fill="white" stroke="#d8d8d8" stroke-width="0.6"/>
+
+  <!-- ── CAT EARS (drawn before head so head covers bases) ── -->
+  <!-- Left ear outer -->
+  <polygon points="93,22 95,5 113,19" fill="white" stroke="#d8d8d8" stroke-width="0.5"/>
+  <!-- Left ear inner (warm pink) -->
+  <polygon points="97,20 99,9 110,18" fill="#f9a8d4" opacity="0.75"/>
+  <!-- Right ear outer -->
+  <polygon points="123,22 121,5 103,19" fill="white" stroke="#d8d8d8" stroke-width="0.5"/>
+  <!-- Right ear inner -->
+  <polygon points="119,20 117,9 106,18" fill="#f9a8d4" opacity="0.75"/>
+
+  <!-- ── CAT HEAD ── -->
+  <circle cx="108" cy="31" r="18"
+          fill="white" stroke="#d8d8d8" stroke-width="0.6"/>
+
+  <!-- ── FUR SPOT (like the original's dark patches) ── -->
+  <!-- Forehead patch -->
+  <path d="M 100,17 Q 104,14 108,16 Q 106,21 100,20 Z"
+        fill="#c8c0d8" opacity="0.4"/>
+  <!-- Right cheek patch -->
+  <path d="M 116,20 Q 122,18 123,23 Q 119,26 115,24 Z"
+        fill="#c8c0d8" opacity="0.3"/>
+
+  <!-- ── EYES ── -->
+  <!-- Left eye iris (glowing purple) -->
+  <circle cx="100" cy="32" r="7" fill="url(#irisGrad)" filter="url(#eyeGlow)"/>
+  <!-- Left pupil -->
+  <circle cx="100" cy="32" r="4.8" fill="#0f0b1e"/>
+  <!-- Left highlight (main) -->
+  <circle cx="102.5" cy="29" r="2.2" fill="white" opacity="0.92"/>
+  <!-- Left highlight (secondary) -->
+  <circle cx="98" cy="35" r="1" fill="white" opacity="0.35"/>
+
+  <!-- Right eye iris -->
+  <circle cx="116" cy="32" r="7" fill="url(#irisGrad)" filter="url(#eyeGlow)"/>
+  <!-- Right pupil -->
+  <circle cx="116" cy="32" r="4.8" fill="#0f0b1e"/>
+  <!-- Right highlight (main) -->
+  <circle cx="118.5" cy="29" r="2.2" fill="white" opacity="0.92"/>
+  <!-- Right highlight (secondary) -->
+  <circle cx="114" cy="35" r="1" fill="white" opacity="0.35"/>
+
+  <!-- ── NOSE ── -->
+  <ellipse cx="108" cy="39.5" rx="2.8" ry="1.8" fill="#f9a8d4"/>
+
+  <!-- ── MOUTH ── -->
+  <path d="M 104.5,42 Q 108,45.5 111.5,42"
+        stroke="#d4b0c8" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+  <!-- ── WHISKERS ── -->
+  <!-- Left whiskers -->
+  <line x1="82" y1="37"   x2="101" y2="38.5" stroke="#c8c8c8" stroke-width="1.1" opacity="0.8"/>
+  <line x1="82" y1="41"   x2="101" y2="40.5" stroke="#c8c8c8" stroke-width="1.1" opacity="0.8"/>
+  <line x1="84" y1="44.5" x2="101" y2="42.5" stroke="#c8c8c8" stroke-width="0.9" opacity="0.6"/>
+  <!-- Right whiskers -->
+  <line x1="134" y1="37"   x2="115" y2="38.5" stroke="#c8c8c8" stroke-width="1.1" opacity="0.8"/>
+  <line x1="134" y1="41"   x2="115" y2="40.5" stroke="#c8c8c8" stroke-width="1.1" opacity="0.8"/>
+  <line x1="132" y1="44.5" x2="115" y2="42.5" stroke="#c8c8c8" stroke-width="0.9" opacity="0.6"/>
+
+  <!-- ── PAWS (on board) ── -->
+  <ellipse cx="96" cy="63" rx="8" ry="5.5"
+           fill="white" stroke="#d8d8d8" stroke-width="0.6"/>
+  <!-- Left paw toe lines -->
+  <path d="M92,59  Q92,63  92,66"  stroke="#d8d8d8" stroke-width="0.7" fill="none"/>
+  <path d="M96,58  Q96,63  96,67"  stroke="#d8d8d8" stroke-width="0.7" fill="none"/>
+  <path d="M100,59 Q100,63 100,66" stroke="#d8d8d8" stroke-width="0.7" fill="none"/>
+
+  <ellipse cx="120" cy="63" rx="8" ry="5.5"
+           fill="white" stroke="#d8d8d8" stroke-width="0.6"/>
+  <!-- Right paw toe lines -->
+  <path d="M116,59  Q116,63  116,66"  stroke="#d8d8d8" stroke-width="0.7" fill="none"/>
+  <path d="M120,58  Q120,63  120,67"  stroke="#d8d8d8" stroke-width="0.7" fill="none"/>
+  <path d="M124,59  Q124,63  124,66"  stroke="#d8d8d8" stroke-width="0.7" fill="none"/>
+
+</svg>

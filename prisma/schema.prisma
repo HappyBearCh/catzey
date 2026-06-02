@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ScrapedItem {
+  id        String    @id @default(cuid())
+  title     String
+  sourceUrl String    @unique
+  source    String
+  category  String
+  imageUrl  String?
+  pubDate   DateTime?
+  scrapedAt DateTime  @default(now())
+  status    String    @default("pending") // "pending" | "done" | "dismissed"
+
+  @@index([status])
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  excerpt     String
+  titleBs     String?
+  contentBs   String?
+  excerptBs   String?
+  slug        String   @unique
+  imageUrl    String?
+  category    String
+  source      String
+  sourceUrl   String   @unique
+  publishedAt DateTime
+  published   Boolean   @default(false)
+  scheduledAt DateTime?
+  displayLang String    @default("both")
+  views       Int      @default(0)
+  tags        String[]  @default([])
+  entities    String[]  @default([])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([publishedAt(sort: Desc)])
+  @@index([views(sort: Desc)])
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  token     String   @unique @default(cuid())
+  createdAt DateTime @default(now())
+}

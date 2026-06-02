@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment files — never commit real credentials
+.env
+.env.local
+.env.*.local
+
+# Prisma
+prisma/migrations/
+
+# Claude Code local settings (may contain credentials)
+.claude/settings.local.json
+
+# Editor / OS
+.DS_Store
+*.pem
+Thumbs.db
+
+.vercel
+.env*.local
+.env.vercel
