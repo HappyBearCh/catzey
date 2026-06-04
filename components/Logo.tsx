@@ -3,7 +3,7 @@ import Image from 'next/image';
 export function Logo() {
   return (
     <Image
-      src="/logo.svg"
+      src="/logo.png"
       alt="Catzye"
       width={220}
       height={90}
