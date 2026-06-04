@@ -8,15 +8,16 @@ datasource db {
 }
 
 model ScrapedItem {
-  id        String    @id @default(cuid())
-  title     String
-  sourceUrl String    @unique
-  source    String
-  category  String
-  imageUrl  String?
-  pubDate   DateTime?
-  scrapedAt DateTime  @default(now())
-  status    String    @default("pending") // "pending" | "done" | "dismissed"
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  sourceUrl   String    @unique
+  source      String
+  category    String
+  imageUrl    String?
+  pubDate     DateTime?
+  scrapedAt   DateTime  @default(now())
+  status      String    @default("pending") // "pending" | "done" | "dismissed"
 
   @@index([status])
 }
