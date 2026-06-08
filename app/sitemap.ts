@@ -2,14 +2,22 @@ import type { MetadataRoute } from 'next';
 import { prisma } from '@/lib/db';
 import { CATEGORIES } from '@/lib/types';
 
+export const revalidate = 3600;
+
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const articles = await prisma.article.findMany({
-    where: { published: true },
-    select: { slug: true, updatedAt: true, displayLang: true },
-    orderBy: { publishedAt: 'desc' },
-  });
+  let articles: { slug: string; updatedAt: Date; displayLang: string }[] = [];
+  try {
+    articles = await prisma.article.findMany({
+      where: { published: true },
+      select: { slug: true, updatedAt: true, displayLang: true },
+      orderBy: { publishedAt: 'desc' },
+      take: 5000,
+    });
+  } catch {
+    // DB unavailable — return static pages only
+  }
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: new Date(), changeFrequency: 'hourly' as const, priority: 1 },

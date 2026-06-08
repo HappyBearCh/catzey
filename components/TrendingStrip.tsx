@@ -40,10 +40,10 @@ export async function TrendingStrip({ basePath = '' }: TrendingStripProps) {
     });
   }
 
-  if (articles.length === 0) return null;
+  if (articles.length < 3) return null;
 
   return (
-    <div className="bg-gray-50 border-b border-site-border">
+    <div className="bg-gray-50 dark:bg-gray-900 border-b border-site-border dark:border-gray-700">
       <div className="max-w-8xl mx-auto px-4 py-2 flex items-center gap-4 overflow-x-auto scrollbar-hide">
         <span className="flex-shrink-0 inline-flex items-center gap-1.5 bg-primary text-white text-2xs font-black uppercase tracking-widest px-2.5 py-1 rounded-sm">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
@@ -62,10 +62,10 @@ export async function TrendingStrip({ basePath = '' }: TrendingStripProps) {
                 className="flex-shrink-0 group flex items-center gap-2 px-4 first:pl-0"
               >
                 <span className="text-2xs font-bold text-primary uppercase tracking-wider hidden sm:block">{catLabel}</span>
-                <span className="text-xs font-semibold text-gray-700 group-hover:text-primary transition-colors line-clamp-1 max-w-[180px]">
+                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors line-clamp-1 max-w-[180px]">
                   {title}
                 </span>
-                <span className="text-2xs text-gray-400 hidden md:block">{article.views.toLocaleString()} views</span>
+                <span className="text-2xs text-gray-500 hidden md:block">{article.views.toLocaleString()} views</span>
               </Link>
             );
           })}

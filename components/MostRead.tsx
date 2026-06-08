@@ -56,7 +56,7 @@ export async function MostRead({ currentSlug, basePath = '' }: MostReadProps) {
                   <p className="font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                     {title}
                   </p>
-                  <span className="text-xs text-gray-400 mt-1 block">
+                  <span className="text-xs text-gray-600 mt-1 block">
                     {article.views.toLocaleString()} {isBosnian ? 'pregleda' : 'views'}
                   </span>
                 </div>

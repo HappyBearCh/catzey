@@ -43,7 +43,7 @@ export function NewsletterForm({ isBosnian = false }: { isBosnian?: boolean }) {
         onChange={(e) => setEmail(e.target.value)}
         placeholder={isBosnian ? 'Vaš email…' : 'Your email…'}
         required
-        className="bg-white/10 border border-white/15 text-white placeholder-gray-500 text-xs rounded-sm px-3 py-2 focus:outline-none focus:border-white/40 w-full"
+        className="bg-white/10 border border-white/15 text-white placeholder-gray-400 text-xs rounded-sm px-3 py-2 focus:outline-none focus:border-white/40 w-full"
       />
       <button
         type="submit"

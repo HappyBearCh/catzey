@@ -16,7 +16,7 @@ const config: Config = {
         'primary-accent': '#e879f9',
         'site-dark': '#0f0b1e',
         'site-dark-2': '#1a1530',
-        'site-gray': '#6b7280',
+        'site-gray': '#4b5563',
         'site-light': '#f5f3ff',
         'site-border': '#ddd6fe',
       },

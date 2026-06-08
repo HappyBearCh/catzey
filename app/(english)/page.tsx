@@ -74,7 +74,7 @@ export default async function HomePage() {
               <span className="block w-1 h-6 bg-primary" />
               <h2 className="text-lg font-black uppercase tracking-wide">Top Stories</h2>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {gridArticles.map((article) => (
                 <ArticleCard key={article.id} article={article} size="large" />
               ))}
@@ -92,12 +92,12 @@ export default async function HomePage() {
               </div>
               <Link
                 href={`/${slug}`}
-                className="text-xs font-bold uppercase tracking-wider text-primary hover:underline"
+                className="text-sm font-bold uppercase tracking-wider text-primary hover:underline"
               >
                 See All →
               </Link>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
               {catArticles.map((article) => (
                 <ArticleCard key={article.id} article={article} size="medium" />
               ))}

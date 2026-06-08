@@ -12,6 +12,13 @@ import { TagList } from '@/components/TagList';
 import { BookmarkButton } from '@/components/BookmarkButton';
 import { getCategoryLabel } from '@/lib/types';
 import type { Article } from '@/lib/types';
+import { BackToTop } from '@/components/BackToTop';
+import { ReadingProgress } from '@/components/ReadingProgress';
+import { ArticleStickyHeader } from '@/components/ArticleStickyHeader';
+import { TableOfContents } from '@/components/TableOfContents';
+import { NewsletterCTA } from '@/components/NewsletterCTA';
+import { InlineRelated } from '@/components/InlineRelated';
+import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 
 export const revalidate = 3600;
 
@@ -111,6 +118,10 @@ export default async function ArticlePage({ params }: Props) {
     ? []
     : article.content.split(/\n+/).map((p) => p.trim()).filter(Boolean).filter((p) => !/^sources?\s*:/i.test(p));
 
+  const processedHtml = contentIsHtml ? injectHeadingIds(article.content) : '';
+  const headings = contentIsHtml ? extractHeadings(processedHtml) : [];
+  const [htmlPart1, htmlPart2] = contentIsHtml ? splitHtmlAfterNthParagraph(processedHtml, 3) : ['', ''];
+
   const mins = readingTime(article.content);
 
   const breadcrumbLd = {
@@ -140,13 +151,16 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
+      <ReadingProgress />
+      <ArticleStickyHeader title={article.title} url={`${BASE}/article/${article.slug}`} />
+      <BackToTop />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main article */}
         <article className="lg:col-span-2">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-gray-400 mb-4 uppercase tracking-wider">
+          <nav className="flex items-center gap-2 text-xs text-gray-600 mb-4 uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <span>›</span>
             <Link href={`/${article.category}`} className="hover:text-primary transition-colors">
@@ -162,13 +176,13 @@ export default async function ArticlePage({ params }: Props) {
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 border-b border-site-border pb-4 mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-600 border-b border-site-border pb-4 mb-6">
             <div className="flex items-center gap-3">
               <time dateTime={new Date(article.publishedAt).toISOString()}>
                 {format(new Date(article.publishedAt), 'MMMM d, yyyy')} (
                 {formatDistanceToNow(new Date(article.publishedAt), { addSuffix: true })})
               </time>
-              <span className="text-gray-300">·</span>
+              <span className="text-gray-400">·</span>
               <span>{mins} min read</span>
             </div>
             <div className="flex items-center gap-2">
@@ -203,13 +217,24 @@ export default async function ArticlePage({ params }: Props) {
             )}
           </figure>
 
-          <div className="article-prose text-gray-800">
+          <div className="article-prose text-gray-800 dark:text-gray-200">
             {contentIsHtml ? (
-              <div dangerouslySetInnerHTML={{ __html: article.content }} />
+              <>
+                <div dangerouslySetInnerHTML={{ __html: htmlPart1 }} />
+                {related.length >= 2 && <InlineRelated articles={related.slice(0, 2)} />}
+                {htmlPart2 && <div dangerouslySetInnerHTML={{ __html: htmlPart2 }} />}
+              </>
             ) : (
-              paragraphs.map((para, i) => <p key={i}>{para}</p>)
+              <>
+                {paragraphs.slice(0, 3).map((para, i) => <p key={i}>{para}</p>)}
+                {related.length >= 2 && paragraphs.length > 3 && (
+                  <InlineRelated articles={related.slice(0, 2)} />
+                )}
+                {paragraphs.slice(3).map((para, i) => <p key={`b${i}`}>{para}</p>)}
+              </>
             )}
           </div>
+          <NewsletterCTA />
 
           {/* Tags */}
           {article.tags.length > 0 && (
@@ -221,7 +246,7 @@ export default async function ArticlePage({ params }: Props) {
           {/* Entities */}
           {article.entities.length > 0 && (
             <div className="mt-3">
-              <p className="text-2xs font-bold uppercase tracking-wider text-gray-400 mb-2">People & Places</p>
+              <p className="text-2xs font-bold uppercase tracking-wider text-gray-600 mb-2">People & Places</p>
               <div className="flex flex-wrap gap-2">
                 {article.entities.map((entity) => (
                   <Link
@@ -236,7 +261,7 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           )}
 
-          <div className="mt-6 pt-4 border-t border-site-border text-sm text-gray-500">
+          <div className="mt-6 pt-4 border-t border-site-border text-sm text-gray-600">
             Source:{' '}
             <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
               {article.source}
@@ -244,7 +269,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
 
           <div className="mt-4 pt-4 border-t border-site-border">
-            <Link href={`/bs/article/${article.slug}`} className="text-xs text-gray-400 hover:text-primary transition-colors">
+            <Link href={`/bs/article/${article.slug}`} className="text-xs text-gray-600 hover:text-primary transition-colors">
               Čitajte na bosanskom →
             </Link>
           </div>
@@ -253,6 +278,7 @@ export default async function ArticlePage({ params }: Props) {
         {/* Sidebar */}
         <aside className="lg:col-span-1">
           <div className="sticky top-24">
+            {headings.length >= 3 && <TableOfContents headings={headings} />}
             {related.length > 0 && (
               <>
                 <div className="flex items-center gap-2 mb-4">

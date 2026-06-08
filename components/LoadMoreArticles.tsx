@@ -21,6 +21,18 @@ interface Props {
   basePath?: string;
 }
 
+function SkeletonCard() {
+  return (
+    <div className="flex flex-col animate-pulse">
+      <div className="aspect-video mb-2 bg-gray-200 dark:bg-gray-700" />
+      <div className="h-2.5 w-1/3 bg-gray-200 dark:bg-gray-700 rounded mb-2" />
+      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded mb-1" />
+      <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-700 rounded mb-1" />
+      <div className="h-2.5 w-1/4 bg-gray-200 dark:bg-gray-700 rounded mt-2" />
+    </div>
+  );
+}
+
 export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
   const [articles, setArticles] = useState<ArticleSnippet[]>([]);
   const [skip, setSkip] = useState(initialSkip);
@@ -51,7 +63,7 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
               {basePath === '/bs' ? 'Više vijesti' : 'More Stories'}
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {articles.map((article) => (
               <Link key={article.id} href={`${basePath}/article/${article.slug}`} className="group flex flex-col">
                 {article.imageUrl ? (
@@ -77,7 +89,7 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
                 <h3 className="font-bold text-base leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
                   {article.title}
                 </h3>
-                <time className="text-xs text-gray-400 mt-auto pt-1">
+                <time className="text-xs text-gray-600 mt-auto pt-1">
                   {formatDistanceToNow(new Date(article.publishedAt), { addSuffix: true })}
                 </time>
               </Link>
@@ -86,16 +98,21 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
         </section>
       )}
 
-      {hasMore && (
+      {loading && (
+        <section className="my-8 border-t border-site-border pt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)}
+          </div>
+        </section>
+      )}
+
+      {hasMore && !loading && (
         <div className="flex justify-center mt-8 mb-4">
           <button
             onClick={loadMore}
-            disabled={loading}
-            className="px-8 py-3 text-sm font-bold uppercase tracking-wider border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors disabled:opacity-50"
+            className="px-8 py-3 text-sm font-bold uppercase tracking-wider border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors"
           >
-            {loading
-              ? (basePath === '/bs' ? 'Učitavanje…' : 'Loading…')
-              : (basePath === '/bs' ? 'Učitaj više vijesti' : 'Load More Stories')}
+            {basePath === '/bs' ? 'Učitaj više vijesti' : 'Load More Stories'}
           </button>
         </div>
       )}

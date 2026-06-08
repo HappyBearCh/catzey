@@ -3,6 +3,7 @@ import { Logo } from './Logo';
 import { BosnianCategoryNav } from './BosnianCategoryNav';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
+import { SearchInput } from './SearchInput';
 
 export function BosnianHeader() {
   return (
@@ -13,13 +14,9 @@ export function BosnianHeader() {
             <Logo />
           </Link>
 
-          <form action="/bs/search" method="get" className="hidden md:flex items-center ml-auto">
-            <input
-              name="q"
-              placeholder="Pretraži…"
-              className="text-xs bg-white/10 text-white placeholder-gray-500 border border-white/15 rounded-sm px-3 py-1.5 w-44 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-colors"
-            />
-          </form>
+          <div className="hidden md:flex items-center ml-auto">
+            <SearchInput placeholder="Pretraži…" action="/bs/search" articleBasePath="/bs/article" />
+          </div>
 
           <div className="flex items-center gap-3">
             <a href="/bs/search" className="md:hidden text-gray-400 hover:text-white transition-colors" aria-label="Pretraži">

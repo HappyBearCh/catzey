@@ -3,6 +3,8 @@ import { Logo } from './Logo';
 import { CategoryNav } from './CategoryNav';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
+import { SearchInput } from './SearchInput';
+
 export function Header() {
   return (
     <header className="sticky top-0 z-50 shadow-lg">
@@ -13,13 +15,9 @@ export function Header() {
             <Logo />
           </Link>
 
-          <form action="/search" method="get" className="hidden md:flex items-center ml-auto">
-            <input
-              name="q"
-              placeholder="Search…"
-              className="text-xs bg-white/10 text-white placeholder-gray-500 border border-white/15 rounded-sm px-3 py-1.5 w-44 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-colors"
-            />
-          </form>
+          <div className="hidden md:flex items-center ml-auto">
+            <SearchInput placeholder="Search…" action="/search" articleBasePath="/article" />
+          </div>
 
           <div className="flex items-center gap-3">
             <a href="/search" className="md:hidden text-gray-400 hover:text-white transition-colors" aria-label="Search">

@@ -17,7 +17,7 @@ export function BreakingTicker({ articles }: BreakingTickerProps) {
       <div className="flex-1 overflow-hidden py-2">
         <p
           className="inline-block whitespace-nowrap animate-marquee text-sm font-medium"
-          style={{ animationDuration: `${Math.max(20, tickerText.length * 0.08)}s` }}
+          style={{ animationDuration: `${Math.max(30, tickerText.length * 0.08)}s` }}
         >
           {tickerText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{tickerText}
         </p>

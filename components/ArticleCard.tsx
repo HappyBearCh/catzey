@@ -15,6 +15,13 @@ function timeAgo(date: Date | string) {
 }
 
 const AI_LABEL = 'Illustration';
+const BLUR_DATA_URL = 'data:image/gif;base64,R0lGODlhAQABAPAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+
+function formatViews(v: number): string {
+  if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}M`;
+  if (v >= 1_000) return `${(v / 1_000).toFixed(1)}k`;
+  return v.toString();
+}
 
 function isAiImage(url: string | null | undefined) {
   return !!url?.includes('/articles/ai-');
@@ -79,7 +86,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
           <p className="text-gray-300 text-sm md:text-base line-clamp-2 mb-3 hidden md:block">
             {article.excerpt}
           </p>
-          <div className="flex items-center gap-3 text-gray-400 text-xs">
+          <div className="flex items-center gap-3 text-gray-600 text-xs">
             <time>{timeAgo(article.publishedAt)}</time>
           </div>
         </div>
@@ -91,13 +98,15 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
     return (
       <Link href={href} className="group flex flex-col">
         {article.imageUrl ? (
-          <div className="relative overflow-hidden aspect-video mb-3">
+          <div className="relative overflow-hidden aspect-video mb-3 bg-gray-100 dark:bg-gray-800">
             <Image
               src={article.imageUrl}
               alt={article.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-300"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
             {isAiImage(article.imageUrl) && (
               <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-2xs italic text-center py-0.5">
@@ -114,9 +123,24 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         <h2 className="font-black text-lg leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-3">
           {article.title}
         </h2>
-        <p className="text-site-gray text-sm line-clamp-2 mb-2">{article.excerpt}</p>
-        <div className="flex items-center gap-2 text-xs text-gray-400 mt-auto">
+        <p className="text-site-gray dark:text-gray-400 text-sm line-clamp-2 mb-2">{article.excerpt}</p>
+        {article.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-2">
+            {article.tags.slice(0, 2).map((tag) => (
+              <span key={tag} className="text-2xs px-1.5 py-0.5 bg-site-light dark:bg-gray-800 text-primary border border-primary/20 dark:border-primary/30">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 mt-auto">
           <time>{timeAgo(article.publishedAt)}</time>
+          {article.views > 50 && (
+            <>
+              <span>·</span>
+              <span>{formatViews(article.views)} views</span>
+            </>
+          )}
         </div>
       </Link>
     );
@@ -126,13 +150,15 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
     return (
       <Link href={href} className="group flex gap-3 items-start py-2">
         {article.imageUrl ? (
-          <div className="relative flex-shrink-0 w-20 h-14 overflow-hidden">
+          <div className="relative flex-shrink-0 w-20 h-14 overflow-hidden bg-gray-100 dark:bg-gray-800">
             <Image
               src={article.imageUrl}
               alt={article.title}
               fill
               sizes="80px"
               className="object-cover"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
             {isAiImage(article.imageUrl) && (
               <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-center leading-tight py-0.5" style={{ fontSize: '7px' }}>
@@ -150,7 +176,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
           <h3 className="font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
             {article.title}
           </h3>
-          <time className="text-xs text-gray-400 mt-1 block">
+          <time className="text-xs text-gray-600 dark:text-gray-400 mt-1 block">
             {timeAgo(article.publishedAt)}
           </time>
         </div>
@@ -162,13 +188,15 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
   return (
     <Link href={href} className="group flex flex-col">
       {article.imageUrl ? (
-        <div className="relative overflow-hidden aspect-video mb-2">
+        <div className="relative overflow-hidden aspect-video mb-2 bg-gray-100 dark:bg-gray-800">
           <Image
             src={article.imageUrl}
             alt={article.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
             className="object-cover group-hover:scale-105 transition-transform duration-300"
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
           />
           {isAiImage(article.imageUrl) && (
             <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-2xs italic text-center py-0.5">
@@ -185,7 +213,19 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
       <h3 className="font-bold text-base leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
         {article.title}
       </h3>
-      <time className="text-xs text-gray-400 mt-auto pt-1">
+      {article.tags.length > 0 && (
+        <div className="flex flex-wrap gap-1 mb-1">
+          {article.tags.slice(0, 2).map((tag) => (
+            <span key={tag} className="text-2xs px-1.5 py-0.5 bg-site-light dark:bg-gray-800 text-primary border border-primary/20 dark:border-primary/30">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+      {article.views > 50 && (
+        <span className="text-xs text-gray-500 dark:text-gray-400 mt-auto pt-1">{formatViews(article.views)} views</span>
+      )}
+      <time className="text-xs text-gray-600 dark:text-gray-400 mt-auto pt-1">
         {timeAgo(article.publishedAt)}
       </time>
     </Link>

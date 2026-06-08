@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { BosnianHeader } from '@/components/BosnianHeader';
 import { Footer } from '@/components/Footer';
+import { BottomNav } from '@/components/BottomNav';
 
 export const metadata: Metadata = {
   title: {
@@ -23,8 +24,9 @@ export default function BosnianLayout({ children }: { children: React.ReactNode 
   return (
     <>
       <BosnianHeader />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 pb-16 md:pb-0">{children}</main>
       <Footer basePath="/bs" />
+      <BottomNav basePath="/bs" />
     </>
   );
 }
