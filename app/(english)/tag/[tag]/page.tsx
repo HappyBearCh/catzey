@@ -29,7 +29,6 @@ export default async function TagPage({ params }: Props) {
   const articles = await prisma.article.findMany({
     where: {
       published: true,
-      displayLang: { in: ['en', 'both'] },
       tags: { has: label },
     },
     orderBy: { publishedAt: 'desc' },

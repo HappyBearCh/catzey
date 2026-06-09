@@ -6,7 +6,6 @@ import { formatDistanceToNow, format } from 'date-fns';
 import { getCategoryLabel } from '@/lib/types';
 import { PublishButton } from './PublishButton';
 import { ScheduleButton } from './ScheduleButton';
-import { DisplayLangButton } from './DisplayLangButton';
 import { DeleteArticleButton } from './DeleteButtons';
 import { deleteArticles, publishArticles } from './actions';
 import { useRouter } from 'next/navigation';
@@ -21,7 +20,6 @@ export interface AdminArticle {
   published: boolean;
   scheduledAt: Date | null;
   createdAt: Date;
-  displayLang: string;
 }
 
 interface Props {
@@ -146,8 +144,6 @@ export function ArticleTable({ articles }: Props) {
                     <span>{article.source}</span>
                     <span>·</span>
                     <span>{formatDistanceToNow(new Date(article.createdAt), { addSuffix: true })}</span>
-                    <span>·</span>
-                    <DisplayLangButton id={article.id} displayLang={article.displayLang} />
                   </div>
                   <div className="flex items-center gap-3 flex-wrap">
                     <PublishButton id={article.id} published={article.published} />
@@ -252,9 +248,6 @@ export function ArticleTable({ articles }: Props) {
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap">
                     <StatusBadge article={article} />
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap">
-                    <DisplayLangButton id={article.id} displayLang={article.displayLang} />
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap">
                     <span className="inline-block bg-primary/10 text-primary text-2xs font-bold uppercase tracking-wider px-2 py-0.5 rounded">

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import type { Article } from '@/lib/types';
-import { getCategoryLabel, getCategoryLabelBs } from '@/lib/types';
+import { getCategoryLabel } from '@/lib/types';
 
 interface ArticleCardProps {
   article: Article;
@@ -49,10 +49,7 @@ function TextThumbnail({
 }
 
 export function ArticleCard({ article, size = 'medium', articleBasePath = '/article' }: ArticleCardProps) {
-  const isBosnian = articleBasePath.startsWith('/bs');
-  const categoryLabel = isBosnian
-    ? getCategoryLabelBs(article.category)
-    : getCategoryLabel(article.category);
+  const categoryLabel = getCategoryLabel(article.category);
   const href = `${articleBasePath}/${article.slug}`;
 
   if (size === 'hero') {

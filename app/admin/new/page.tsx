@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CATEGORIES } from '@/lib/types';
 import { createArticle, scrapeAndCreateArticle } from '../actions';
 import { AdminHeader } from '../AdminHeader';
 import { NewArticleForm } from './NewArticleForm';
@@ -17,10 +16,6 @@ export default function NewArticlePage() {
       title: formData.get('title') as string,
       excerpt: formData.get('excerpt') as string,
       content: formData.get('content') as string,
-      titleBs: (formData.get('titleBs') as string) || undefined,
-      excerptBs: (formData.get('excerptBs') as string) || undefined,
-      contentBs: (formData.get('contentBs') as string) || undefined,
-      displayLang: (formData.get('displayLang') as string) || undefined,
       category: formData.get('category') as string,
       source: formData.get('source') as string,
       sourceUrl: formData.get('sourceUrl') as string,
@@ -43,27 +38,24 @@ export default function NewArticlePage() {
         <div className="bg-white rounded-sm shadow-sm p-6">
           <h2 className="text-base font-black mb-1">Generate from URL</h2>
           <p className="text-xs text-gray-400 mb-4">
-            Paste a link to a Bosnian article — it will be scraped and translated automatically,
-            then saved as a draft for you to review. The original Bosnian content is preserved for /bs.
+            Paste a link to a manga or anime article — it will be scraped and rewritten automatically,
+            then saved as a draft for you to review.
           </p>
           <form action={handleScrape} className="flex gap-3">
             <input
               name="url"
               type="url"
               required
-              placeholder="https://istraga.ba/naslov-clanka/ or https://radiosarajevo.ba/..."
+              placeholder="https://animenewsnetwork.com/... or https://myanimelist.net/..."
               className="flex-1 border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary"
             />
             <button
               type="submit"
               className="bg-primary text-white font-bold text-sm px-5 py-2 rounded-sm hover:bg-red-700 transition-colors whitespace-nowrap"
             >
-              ↻ Fetch &amp; Translate
+              ↻ Fetch &amp; Rewrite
             </button>
           </form>
-          <p className="text-2xs text-gray-400 mt-2">
-            Works best with istraga.ba and radiosarajevo.ba.
-          </p>
         </div>
 
         {/* Manual form */}

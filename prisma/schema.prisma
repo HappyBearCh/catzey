@@ -17,33 +17,29 @@ model ScrapedItem {
   imageUrl    String?
   pubDate     DateTime?
   scrapedAt   DateTime  @default(now())
-  status      String    @default("pending") // "pending" | "done" | "dismissed"
+  status      String    @default("pending")
 
   @@index([status])
 }
 
 model Article {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
   content     String
   excerpt     String
-  titleBs     String?
-  contentBs   String?
-  excerptBs   String?
-  slug        String   @unique
+  slug        String    @unique
   imageUrl    String?
   category    String
   source      String
-  sourceUrl   String   @unique
+  sourceUrl   String    @unique
   publishedAt DateTime
   published   Boolean   @default(false)
   scheduledAt DateTime?
-  displayLang String    @default("both")
-  views       Int      @default(0)
+  views       Int       @default(0)
   tags        String[]  @default([])
   entities    String[]  @default([])
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
   @@index([category])
   @@index([publishedAt(sort: Desc)])

@@ -3,9 +3,6 @@ export interface Article {
   title: string;
   content: string;
   excerpt: string;
-  titleBs: string | null;
-  contentBs: string | null;
-  excerptBs: string | null;
   slug: string;
   imageUrl: string | null;
   category: string;
@@ -14,7 +11,6 @@ export interface Article {
   publishedAt: Date;
   createdAt: Date;
   updatedAt: Date;
-  displayLang: string;
   published: boolean;
   scheduledAt: Date | null;
   views: number;
@@ -23,35 +19,22 @@ export interface Article {
 }
 
 export const CATEGORIES = [
-  { label: 'Manga', labelBs: 'Manga', slug: 'manga' },
-  { label: 'Anime', labelBs: 'Anime', slug: 'anime' },
-  { label: 'Industry', labelBs: 'Industrija', slug: 'industry' },
-  { label: 'Reviews', labelBs: 'Recenzije', slug: 'reviews' },
-  { label: 'Light Novels', labelBs: 'Light Novele', slug: 'light-novels' },
-  { label: 'Manhwa', labelBs: 'Manhwa', slug: 'manhwa' },
-  { label: 'Events', labelBs: 'Događaji', slug: 'events' },
-  { label: 'Creators', labelBs: 'Kreatori', slug: 'creators' },
-  { label: 'Shonen', labelBs: 'Shonen', slug: 'shonen' },
-  { label: 'Seinen', labelBs: 'Seinen', slug: 'seinen' },
+  { label: 'Manga', slug: 'manga' },
+  { label: 'Anime', slug: 'anime' },
+  { label: 'Industry', slug: 'industry' },
+  { label: 'Reviews', slug: 'reviews' },
+  { label: 'Light Novels', slug: 'light-novels' },
+  { label: 'Manhwa', slug: 'manhwa' },
+  { label: 'Events', slug: 'events' },
+  { label: 'Creators', slug: 'creators' },
+  { label: 'Shonen', slug: 'shonen' },
+  { label: 'Seinen', slug: 'seinen' },
 ] as const;
 
 export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
 
 export function getCategoryLabel(slug: string): string {
   return CATEGORIES.find((c) => c.slug === slug)?.label ?? slug;
-}
-
-export function getCategoryLabelBs(slug: string): string {
-  return CATEGORIES.find((c) => c.slug === slug)?.labelBs ?? slug;
-}
-
-export function bsArticle(article: Article): Article {
-  return {
-    ...article,
-    title: article.titleBs || article.title,
-    excerpt: article.excerptBs || article.excerpt,
-    content: article.contentBs || article.content,
-  };
 }
 
 export function normalizeCategorySlug(raw: string): CategorySlug {

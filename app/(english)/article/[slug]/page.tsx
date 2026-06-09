@@ -59,7 +59,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       alternates: {
         canonical: `${BASE}/article/${slug}`,
-        languages: { 'bs': `${BASE}/bs/article/${slug}` },
       },
     };
   } catch {
@@ -71,7 +70,6 @@ async function getArticle(slug: string): Promise<Article | null> {
   try {
     const article = await prisma.article.findUnique({ where: { slug, published: true } });
     if (!article) return null;
-    if (article.displayLang === 'bs') return null;
     return article as Article;
   } catch {
     return null;
@@ -85,7 +83,6 @@ async function getRelated(article: Article): Promise<Article[]> {
         where: {
           published: true,
           id: { not: article.id },
-          displayLang: { in: ['en', 'both'] },
           OR: [{ tags: { hasSome: article.tags } }, { category: article.category }],
         },
         orderBy: { publishedAt: 'desc' },
@@ -97,7 +94,7 @@ async function getRelated(article: Article): Promise<Article[]> {
       return scored.slice(0, 4);
     }
     return await prisma.article.findMany({
-      where: { category: article.category, published: true, id: { not: article.id }, displayLang: { in: ['en', 'both'] } },
+      where: { category: article.category, published: true, id: { not: article.id } },
       orderBy: { publishedAt: 'desc' },
       take: 4,
     }) as Article[];
@@ -268,11 +265,6 @@ export default async function ArticlePage({ params }: Props) {
             </a>
           </div>
 
-          <div className="mt-4 pt-4 border-t border-site-border">
-            <Link href={`/bs/article/${article.slug}`} className="text-xs text-gray-600 hover:text-primary transition-colors">
-              Čitajte na bosanskom →
-            </Link>
-          </div>
         </article>
 
         {/* Sidebar */}

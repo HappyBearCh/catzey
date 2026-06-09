@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export function NewsletterForm({ isBosnian = false }: { isBosnian?: boolean }) {
+export function NewsletterForm() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -28,11 +28,7 @@ export function NewsletterForm({ isBosnian = false }: { isBosnian?: boolean }) {
   }
 
   if (status === 'success') {
-    return (
-      <p className="text-green-400 text-sm font-semibold">
-        {isBosnian ? '✓ Pretplaćeni ste!' : '✓ You\'re subscribed!'}
-      </p>
-    );
+    return <p className="text-green-400 text-sm font-semibold">✓ You&apos;re subscribed!</p>;
   }
 
   return (
@@ -41,7 +37,7 @@ export function NewsletterForm({ isBosnian = false }: { isBosnian?: boolean }) {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder={isBosnian ? 'Vaš email…' : 'Your email…'}
+        placeholder="Your email…"
         required
         className="bg-white/10 border border-white/15 text-white placeholder-gray-400 text-xs rounded-sm px-3 py-2 focus:outline-none focus:border-white/40 w-full"
       />
@@ -50,14 +46,10 @@ export function NewsletterForm({ isBosnian = false }: { isBosnian?: boolean }) {
         disabled={status === 'loading'}
         className="bg-primary text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-sm hover:bg-primary-dark transition-colors disabled:opacity-50"
       >
-        {status === 'loading'
-          ? (isBosnian ? 'Slanje…' : 'Subscribing…')
-          : (isBosnian ? 'Pretplati se' : 'Subscribe')}
+        {status === 'loading' ? 'Subscribing…' : 'Subscribe'}
       </button>
       {status === 'error' && (
-        <p className="text-red-400 text-xs">
-          {isBosnian ? 'Greška. Pokušajte ponovo.' : 'Something went wrong. Try again.'}
-        </p>
+        <p className="text-red-400 text-xs">Something went wrong. Try again.</p>
       )}
     </form>
   );

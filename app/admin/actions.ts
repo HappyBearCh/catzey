@@ -10,10 +10,8 @@ import { postToBluesky } from '@/lib/bluesky';
 
 function revalidateSite() {
   revalidatePath('/');
-  revalidatePath('/bs', 'layout');
   for (const { slug } of CATEGORIES) {
     revalidatePath(`/${slug}`);
-    revalidatePath(`/bs/${slug}`);
   }
 }
 
@@ -47,9 +45,6 @@ export async function scrapeAndCreateArticle(url: string) {
       title: processed.title,
       excerpt: processed.summary,
       content: processed.content,
-      titleBs: processed.titleBs,
-      excerptBs: processed.summaryBs,
-      contentBs: processed.contentBs,
       category: raw.category,
       source: raw.source,
       sourceUrl: url,
@@ -79,10 +74,6 @@ export async function createArticle(data: {
   title: string;
   excerpt: string;
   content: string;
-  titleBs?: string;
-  excerptBs?: string;
-  contentBs?: string;
-  displayLang?: string;
   category: string;
   source: string;
   sourceUrl: string;
@@ -97,10 +88,6 @@ export async function createArticle(data: {
       title: data.title,
       excerpt: data.excerpt,
       content: data.content,
-      titleBs: data.titleBs || null,
-      excerptBs: data.excerptBs || null,
-      contentBs: data.contentBs || null,
-      displayLang: data.displayLang || 'both',
       category: validCategory,
       source: data.source || 'Editorial',
       sourceUrl: data.sourceUrl || `https://catzye.com/article/${slug}`,
@@ -174,7 +161,6 @@ export async function publishArticle(id: string) {
   });
   revalidatePath('/admin');
   revalidateSite();
-  // Fire-and-forget Bluesky post — don't block the publish action
   postToBluesky({ title: article.title, excerpt: article.excerpt, slug: article.slug }).catch(() => {});
 }
 
@@ -199,22 +185,12 @@ export async function unscheduleArticle(id: string) {
   revalidateSite();
 }
 
-export async function setArticleDisplayLang(id: string, displayLang: 'en' | 'bs' | 'both') {
-  await prisma.article.update({ where: { id }, data: { displayLang } });
-  revalidatePath('/admin');
-  revalidateSite();
-}
-
 export async function updateArticle(
   id: string,
   data: {
     title: string;
     excerpt: string;
     content: string;
-    titleBs?: string;
-    excerptBs?: string;
-    contentBs?: string;
-    displayLang?: string;
     category: string;
     slug: string;
     imageUrl: string;
@@ -236,10 +212,6 @@ export async function updateArticle(
       title: data.title,
       excerpt: data.excerpt,
       content: data.content,
-      titleBs: data.titleBs ?? null,
-      excerptBs: data.excerptBs ?? null,
-      contentBs: data.contentBs ?? null,
-      ...(data.displayLang ? { displayLang: data.displayLang } : {}),
       category: validCategory,
       slug,
       imageUrl: data.imageUrl || null,
@@ -248,5 +220,4 @@ export async function updateArticle(
   revalidatePath('/admin');
   revalidateSite();
   revalidatePath(`/article/${slug}`);
-  revalidatePath(`/bs/article/${slug}`);
 }

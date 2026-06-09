@@ -35,13 +35,13 @@ async function getCategoryArticles(category: string, page: number, sort: 'latest
     const skip = (page - 1) * PAGE_SIZE;
     const [articles, total] = await Promise.all([
       prisma.article.findMany({
-        where: { category, published: true, displayLang: { in: ['en', 'both'] } },
+        where: { category, published: true },
         orderBy,
         take: PAGE_SIZE,
         skip,
       }),
       prisma.article.count({
-        where: { category, published: true, displayLang: { in: ['en', 'both'] } },
+        where: { category, published: true },
       }),
     ]);
     return { articles: articles as Article[], total, pages: Math.ceil(total / PAGE_SIZE) };

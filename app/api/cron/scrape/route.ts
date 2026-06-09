@@ -6,10 +6,8 @@ import { CATEGORIES } from '@/lib/types';
 
 function revalidateSite() {
   revalidatePath('/');
-  revalidatePath('/bs', 'layout');
   for (const { slug } of CATEGORIES) {
     revalidatePath(`/${slug}`);
-    revalidatePath(`/bs/${slug}`);
   }
   revalidatePath('/admin');
 }

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { CategoryNav } from './CategoryNav';
-import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
 import { SearchInput } from './SearchInput';
 
@@ -26,7 +25,6 @@ export function Header() {
               </svg>
             </a>
             <ThemeToggle />
-            <LanguageSwitcher />
           </div>
         </div>
       </div>

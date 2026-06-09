@@ -83,12 +83,18 @@ async function callWithRetry(fn: () => Promise<string>, label: string): Promise<
   throw lastErr;
 }
 
-async function rewriteInEnglish(fields: {
+export async function summarizeAndTranslate(fields: {
   title: string;
   content: string;
-  source: string;
   sourceUrl: string;
-}): Promise<{ title: string; content: string; summary: string; keywords: string[]; entities: string[] }> {
+  source: string;
+}): Promise<{
+  title: string;
+  summary: string;
+  content: string;
+  keywords: string[];
+  entities: string[];
+}> {
   console.log(`[translator] Gemini EN rewrite: "${fields.title.substring(0, 60)}" (${fields.content.length} chars)`);
 
   const prompt = `You are a journalist. Summarize the following text to 50% of its original length. Use simple syntax. Use simple sentences.
@@ -102,8 +108,8 @@ Field definitions:
 - "title": a fresh English headline — do not copy the original
 - "content": the full rewritten article in clean paragraphs, no links, no markdown formatting
 - "summary": a 2–3 sentence excerpt suitable for article preview cards
-- "keywords": 3–5 comma-separated English search terms describing the article subject (people, places, events), suitable for image search — e.g. "Sarajevo, Bosnian parliament, election vote"
-- "entities": up to 5 comma-separated named people, places, and organizations explicitly mentioned in the article — e.g. "Bakir Izetbegović, Sarajevo, EUFOR, BiH Council of Ministers"
+- "keywords": 3–5 comma-separated English search terms describing the article subject (people, places, events), suitable for image search — e.g. "One Piece, manga release, Eiichiro Oda"
+- "entities": up to 5 comma-separated named people, places, and organizations explicitly mentioned in the article — e.g. "Eiichiro Oda, Shueisha, Weekly Shonen Jump"
 
 Source name: ${fields.source}
 Source URL: ${fields.sourceUrl}
@@ -133,63 +139,4 @@ ${fields.content}`;
     .slice(0, 5);
   console.log(`[translator] EN rewrite done: "${parsed.title.substring(0, 60)}" keywords: ${keywords.join(', ')}`);
   return { title: parsed.title, content: parsed.content, summary: parsed.summary, keywords, entities };
-}
-
-async function translateToBosnian(en: {
-  title: string;
-  content: string;
-  summary: string;
-}): Promise<{ title: string; content: string; summary: string }> {
-  console.log(`[translator] Gemini BS translation: "${en.title.substring(0, 60)}"`);
-
-  const prompt = `Translate the following English news article into Bosnian (standard Bosnian language, ijekavica). Preserve the journalistic quality and paragraph structure. Do not add any hyperlinks or URLs.
-
-Return ONLY valid JSON with exactly these three fields and no markdown code fences:
-{"title": "...", "content": "...", "summary": "..."}
-
-Title: ${en.title}
-Content: ${en.content}
-Summary: ${en.summary}`;
-
-  const text = await callWithRetry(
-    () => model.generateContent(prompt).then((r) => r.response.text()),
-    'BS translation',
-  );
-
-  const parsed = parseGeminiJson(text);
-  if (!parsed.title || !parsed.content || !parsed.summary) {
-    throw new Error(`Gemini BS translation missing fields: ${text.slice(0, 200)}`);
-  }
-  console.log(`[translator] BS translation done: "${parsed.title.substring(0, 60)}" (${parsed.content.length} chars)`);
-  return { title: parsed.title, content: parsed.content, summary: parsed.summary };
-}
-
-export async function summarizeAndTranslate(fields: {
-  title: string;
-  content: string;
-  sourceUrl: string;
-  source: string;
-}): Promise<{
-  title: string;
-  summary: string;
-  content: string;
-  keywords: string[];
-  entities: string[];
-  titleBs: string;
-  summaryBs: string;
-  contentBs: string;
-}> {
-  const en = await rewriteInEnglish(fields);
-  const bs = await translateToBosnian(en);
-
-  return {
-    title: en.title,
-    summary: en.summary,
-    content: en.content,
-    keywords: en.keywords,
-    entities: en.entities,
-    titleBs: bs.title,
-    summaryBs: bs.summary,
-    contentBs: bs.content,
-  };
 }

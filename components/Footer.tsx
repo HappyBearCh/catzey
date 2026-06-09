@@ -3,17 +3,15 @@ import { Logo } from './Logo';
 import { CATEGORIES } from '@/lib/types';
 import { NewsletterForm } from './NewsletterForm';
 
-export function Footer({ basePath = '' }: { basePath?: string }) {
+export function Footer() {
   const currentYear = new Date().getFullYear();
-  const isBosnian = basePath === '/bs';
 
   return (
     <footer className="bg-site-dark text-gray-400 mt-12">
       <div className="max-w-8xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand column */}
           <div>
-            <Link href={basePath || '/'} className="block mb-4">
+            <Link href="/" className="block mb-4">
               <Logo />
             </Link>
             <p className="text-sm leading-relaxed mb-4">
@@ -21,19 +19,13 @@ export function Footer({ basePath = '' }: { basePath?: string }) {
             </p>
           </div>
 
-          {/* Categories */}
           <div>
-            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">
-              {isBosnian ? 'Rubrike' : 'Sections'}
-            </h3>
+            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">Sections</h3>
             <ul className="space-y-2">
-              {CATEGORIES.slice(0, 5).map(({ label, labelBs, slug }) => (
+              {CATEGORIES.slice(0, 5).map(({ label, slug }) => (
                 <li key={slug}>
-                  <Link
-                    href={`${basePath}/${slug}`}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {isBosnian ? labelBs : label}
+                  <Link href={`/${slug}`} className="text-sm hover:text-white transition-colors">
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -41,41 +33,31 @@ export function Footer({ basePath = '' }: { basePath?: string }) {
           </div>
 
           <div>
-            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">
-              {isBosnian ? 'Više' : 'More'}
-            </h3>
+            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">More</h3>
             <ul className="space-y-2">
-              {CATEGORIES.slice(5).map(({ label, labelBs, slug }) => (
+              {CATEGORIES.slice(5).map(({ label, slug }) => (
                 <li key={slug}>
-                  <Link
-                    href={`${basePath}/${slug}`}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {isBosnian ? labelBs : label}
+                  <Link href={`/${slug}`} className="text-sm hover:text-white transition-colors">
+                    {label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div>
-            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">
-              {isBosnian ? 'Newsletter' : 'Newsletter'}
-            </h3>
+            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">Newsletter</h3>
             <p className="text-sm mb-3">
               Weekly digest of the top manga &amp; anime stories.
             </p>
-            <NewsletterForm isBosnian={isBosnian} />
+            <NewsletterForm />
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs">
           <p>© {currentYear} Catzye — Manga &amp; Anime News</p>
           <div className="flex items-center gap-4">
-            <Link href={`${basePath}/feed.xml`} className="hover:text-white transition-colors">
-              RSS
-            </Link>
+            <Link href="/feed.xml" className="hover:text-white transition-colors">RSS</Link>
           </div>
         </div>
       </div>

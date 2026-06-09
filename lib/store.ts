@@ -41,9 +41,6 @@ export interface ArticleRecord {
   title: string;
   content: string;
   excerpt: string;
-  titleBs: string | null;
-  contentBs: string | null;
-  excerptBs: string | null;
   slug: string;
   imageUrl: string | null;
   category: string;
@@ -52,7 +49,6 @@ export interface ArticleRecord {
   publishedAt: string;
   published: boolean;
   scheduledAt: string | null;
-  displayLang: string;
   views: number;
   tags: string[];
   entities: string[];
@@ -262,9 +258,6 @@ const article = {
       title: String(data.title ?? ''),
       content: String(data.content ?? ''),
       excerpt: String(data.excerpt ?? ''),
-      titleBs: (data.titleBs as string | null) ?? null,
-      contentBs: (data.contentBs as string | null) ?? null,
-      excerptBs: (data.excerptBs as string | null) ?? null,
       slug: String(data.slug ?? ''),
       imageUrl: (data.imageUrl as string | null) ?? null,
       category: String(data.category ?? 'manga'),
@@ -277,7 +270,6 @@ const article = {
       scheduledAt: data.scheduledAt instanceof Date
         ? data.scheduledAt.toISOString()
         : (data.scheduledAt as string | null) ?? null,
-      displayLang: String(data.displayLang ?? 'both'),
       views: Number(data.views ?? 0),
       tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
       entities: Array.isArray(data.entities) ? (data.entities as string[]) : [],

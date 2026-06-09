@@ -13,7 +13,7 @@ export const revalidate = 1800; // Revalidate every 30 minutes
 async function getArticles() {
   try {
     return await prisma.article.findMany({
-      where: { published: true, displayLang: { in: ['en', 'both'] } },
+      where: { published: true },
       orderBy: { publishedAt: 'desc' },
       take: 30,
     });

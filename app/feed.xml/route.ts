@@ -8,7 +8,7 @@ function esc(s: string) {
 
 export async function GET() {
   const articles = await prisma.article.findMany({
-    where: { published: true, displayLang: { in: ['en', 'both'] } },
+    where: { published: true },
     orderBy: { publishedAt: 'desc' },
     take: 50,
     select: { title: true, slug: true, excerpt: true, category: true, publishedAt: true, imageUrl: true },

@@ -29,9 +29,7 @@ export default async function PreviewPage({ params }: Props) {
       <div className="sticky top-0 z-50 bg-amber-400 text-amber-900 px-4 py-2 flex items-center justify-between gap-4 text-sm font-bold">
         <div className="flex items-center gap-3">
           <span className="bg-amber-600 text-white px-2 py-0.5 text-xs rounded">PREVIEW</span>
-          <span>
-            {a.published ? 'Published' : 'Draft'} · {a.displayLang === 'both' ? 'EN + BS' : a.displayLang.toUpperCase()}
-          </span>
+          <span>{a.published ? 'Published' : 'Draft'}</span>
         </div>
         <div className="flex items-center gap-4">
           <Link href={`/admin/article/${id}`} className="text-amber-900 hover:text-black transition-colors text-xs">
@@ -93,14 +91,6 @@ export default async function PreviewPage({ params }: Props) {
           </div>
         )}
 
-        {/* Bosnian version */}
-        {(a.titleBs || a.contentBs) && (
-          <div className="mt-8 pt-6 border-t border-site-border">
-            <h2 className="text-sm font-black uppercase tracking-wider text-gray-400 mb-4">Bosnian Version</h2>
-            {a.titleBs && <h3 className="text-xl font-black mb-3">{a.titleBs}</h3>}
-            {a.excerptBs && <p className="text-gray-500 italic mb-4">{a.excerptBs}</p>}
-          </div>
-        )}
       </div>
     </div>
   );

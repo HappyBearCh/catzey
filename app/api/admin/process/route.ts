@@ -17,10 +17,8 @@ function isAuthenticated(request: NextRequest): boolean {
 
 function revalidateSite() {
   revalidatePath('/');
-  revalidatePath('/bs', 'layout');
   for (const { slug } of CATEGORIES) {
     revalidatePath(`/${slug}`);
-    revalidatePath(`/bs/${slug}`);
   }
 }
 
