@@ -9,27 +9,17 @@ const prisma = new PrismaClient();
 
 async function main() {
   const articles = await prisma.article.findMany({
-    select: { id: true, content: true, contentBs: true },
+    select: { id: true, content: true },
   });
 
   let updated = 0;
 
   for (const article of articles) {
     const cleanContent = stripKnownBoilerplate(article.content);
-    const cleanContentBs = article.contentBs
-      ? stripKnownBoilerplate(article.contentBs)
-      : null;
-
-    const contentChanged = cleanContent !== article.content;
-    const contentBsChanged = cleanContentBs !== article.contentBs;
-
-    if (contentChanged || contentBsChanged) {
+    if (cleanContent !== article.content) {
       await prisma.article.update({
         where: { id: article.id },
-        data: {
-          ...(contentChanged ? { content: cleanContent } : {}),
-          ...(contentBsChanged ? { contentBs: cleanContentBs } : {}),
-        },
+        data: { content: cleanContent },
       });
       updated++;
       console.log(`Cleaned article ${article.id}`);
