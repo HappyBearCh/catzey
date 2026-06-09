@@ -49,7 +49,7 @@ export default async function GuidePage({ params }: Props) {
           {validCategory.label}
         </Link>
         <span>/</span>
-        <span className="text-white">Guide</span>
+        <span className="text-gray-900">Guide</span>
       </nav>
 
       {/* Hero image */}
@@ -99,13 +99,13 @@ export default async function GuidePage({ params }: Props) {
 
       {/* Article body */}
       <article
-        className="prose prose-invert prose-sm md:prose-base max-w-none
-          prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
+        className="prose prose-sm md:prose-base max-w-none
+          prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-gray-900
           prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-l-4 prose-h2:border-primary prose-h2:pl-3
-          prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-5
-          prose-a:text-primary-accent prose-a:no-underline hover:prose-a:underline
-          prose-strong:text-white
-          prose-ul:text-gray-300 prose-li:mb-1"
+          prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-5
+          prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-gray-900
+          prose-ul:text-gray-700 prose-li:mb-1"
         dangerouslySetInnerHTML={{ __html: guide.body }}
       />
 
