@@ -14,7 +14,7 @@ export function generateMetadata(): Metadata {
 
 export default async function SearchPage({ searchParams }: Props) {
   const { q = '' } = await searchParams;
-  const results = q.trim().length >= 2 ? await searchArticles(q, 'en') : [];
+  const results = q.trim().length >= 2 ? await searchArticles(q) : [];
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
