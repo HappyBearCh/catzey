@@ -3,6 +3,7 @@ import { Logo } from './Logo';
 import { CategoryNav } from './CategoryNav';
 import { ThemeToggle } from './ThemeToggle';
 import { SearchInput } from './SearchInput';
+import { MobileMenu } from './MobileMenu';
 
 export function Header() {
   return (
@@ -10,6 +11,9 @@ export function Header() {
       {/* Top bar */}
       <div className="bg-site-dark">
         <div className="max-w-8xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
+          {/* Hamburger (mobile only) */}
+          <MobileMenu />
+
           <Link href="/" className="flex-shrink-0">
             <Logo />
           </Link>
@@ -29,8 +33,10 @@ export function Header() {
         </div>
       </div>
 
-      {/* Category nav */}
-      <CategoryNav />
+      {/* Category nav — desktop only */}
+      <div className="hidden md:block">
+        <CategoryNav />
+      </div>
     </header>
   );
 }
