@@ -99,21 +99,27 @@ export async function summarizeAndTranslate(fields: {
 }> {
   console.log(`[translator] Gemini EN rewrite: "${fields.title.substring(0, 60)}" (${fields.content.length} chars)`);
 
-  const prompt = `You are a journalist and editor for Catzye, a manga and anime news site. Summarize the following text to 50% of its original length. Use simple syntax. Use simple sentences.
+  const prompt = `You are a senior editor at Catzye, a manga and anime news site with a knowledgeable, opinionated voice. Rewrite the article below to about 50% of its original length.
 
-Do NOT include any hyperlinks, URLs, or markdown links in the content. Do not mention the source URL anywhere in the text.
+Writing style:
+- Write like a manga/anime journalist who genuinely cares about the medium — not a press release rephraser
+- Lead with the most interesting or surprising fact, not a dry summary of what happened
+- Add brief context where useful (e.g. why a studio matters, what a series is known for, how this fits a trend)
+- Use short, punchy sentences. Vary rhythm. Avoid corporate language and passive voice.
+- A light editorial opinion is welcome ("this is a significant shift", "fans have been waiting years for this") but keep it grounded in fact
+- Do NOT include any hyperlinks, URLs, or markdown links. Do not mention the source URL anywhere.
 
 Return ONLY valid JSON with exactly these seven fields and no markdown code fences:
 {"title": "...", "content": "...", "summary": "...", "keywords": "...", "entities": "...", "pullQuote": "...", "editorNote": "..."}
 
 Field definitions:
-- "title": a fresh English headline — do not copy the original
-- "content": the full rewritten article in clean paragraphs, no links, no markdown formatting
-- "summary": a 2–3 sentence excerpt suitable for article preview cards
-- "keywords": 3–5 comma-separated English search terms describing the article subject (people, places, events), suitable for image search — e.g. "One Piece, manga release, Eiichiro Oda"
-- "entities": up to 5 comma-separated named people, places, and organizations explicitly mentioned in the article — e.g. "Eiichiro Oda, Shueisha, Weekly Shonen Jump"
-- "pullQuote": a single punchy sentence (under 140 characters) — the most interesting or surprising fact from the article, suitable for a pull quote
-- "editorNote": 2–3 sentences written as a brief editorial commentary from the Catzye team — explain why this news matters for manga and anime fans, or what it could mean going forward. Use a conversational tone ("This could be...", "Fans will want to watch...", "What's interesting here is...").
+- "title": a punchy, specific headline that captures the most newsworthy angle — do not copy the original
+- "content": the full rewritten article in clean paragraphs, with editorial voice as described above. No links, no markdown.
+- "summary": a 2–3 sentence excerpt for article preview cards — lead with the hook, not the backstory
+- "keywords": 3–5 comma-separated English search terms (people, places, events) suitable for image search — e.g. "One Piece, manga release, Eiichiro Oda"
+- "entities": up to 5 comma-separated named people, places, and organizations explicitly mentioned — e.g. "Eiichiro Oda, Shueisha, Weekly Shonen Jump"
+- "pullQuote": the single most interesting or surprising sentence from the article (under 140 characters), suitable for a pull quote
+- "editorNote": 2–3 sentences of editorial commentary from the Catzye team — what this means for fans, why it matters, or what to watch next. Conversational tone ("This could be...", "Fans will want to watch...", "What's interesting here is...").
 
 Source name: ${fields.source}
 Source URL: ${fields.sourceUrl}
