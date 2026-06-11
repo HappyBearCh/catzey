@@ -9,6 +9,7 @@ import type { Article } from '@/lib/types';
 
 export const revalidate = 1800;
 
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 const PAGE_SIZE = 12;
 
 interface Props {
@@ -16,12 +17,46 @@ interface Props {
   searchParams: Promise<{ page?: string; sort?: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  manga: 'Latest manga news — new releases, chapter updates, licensing announcements, and industry coverage.',
+  anime: 'Latest anime news — season announcements, episode updates, streaming releases, and studio news.',
+  industry: 'Manga and anime industry news — publisher deals, sales figures, licensing, and business coverage.',
+  reviews: 'Manga and anime reviews — new titles, ongoing series, and classic recommendations.',
+  'light-novels': 'Light novel news — new releases, anime adaptations, licensing, and isekai coverage.',
+  manhwa: 'Manhwa and webtoon news — Korean comics, Solo Leveling, Tower of God, and platform updates.',
+  events: 'Manga and anime events — Comiket, Anime Expo, Jump Festa, conventions, and fan gatherings.',
+  creators: 'Manga and anime creator news — artist announcements, interviews, and industry profiles.',
+  shonen: 'Shōnen manga news — One Piece, Jujutsu Kaisen, Demon Slayer, My Hero Academia updates.',
+  seinen: 'Seinen manga news — Berserk, Vagabond, Dungeon Meshi, and mature title coverage.',
+};
+
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { category } = await params;
+  const { page: pageStr } = await searchParams;
   const label = getCategoryLabel(category);
+  const page = Math.max(1, parseInt(pageStr ?? '1'));
+  const description = CATEGORY_DESCRIPTIONS[category] ?? `Latest ${label} manga and anime news and updates.`;
+  const canonicalUrl = page > 1
+    ? `${BASE}/${category}?page=${page}`
+    : `${BASE}/${category}`;
+  const ogImage = `/og?title=${encodeURIComponent(label + ' News')}&category=${category}`;
+
   return {
-    title: `${label} News`,
-    description: `Latest ${label} news — manga, anime and more.`,
+    title: page > 1 ? `${label} News — Page ${page}` : `${label} News`,
+    description,
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+      title: `${label} News | Catzye`,
+      description,
+      url: canonicalUrl,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${label} News | Catzye`,
+      description,
+      images: [ogImage],
+    },
   };
 }
 
@@ -63,8 +98,33 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const label = validCategory.label;
   const sortParam = sort === 'popular' ? '&sort=popular' : '';
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: label, item: `${BASE}/${category}` },
+    ],
+  };
+
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${label} News`,
+    url: `${BASE}/${category}`,
+    numberOfItems: articles.length,
+    itemListElement: articles.map((a, i) => ({
+      '@type': 'ListItem',
+      position: (page - 1) * PAGE_SIZE + i + 1,
+      url: `${BASE}/article/${a.slug}`,
+      name: a.title,
+    })),
+  };
+
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <nav className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 mb-4 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
         <span>›</span>

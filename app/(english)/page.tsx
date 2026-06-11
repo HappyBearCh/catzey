@@ -8,6 +8,32 @@ import { CATEGORIES } from '@/lib/types';
 import Link from 'next/link';
 import type { Article } from '@/lib/types';
 
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Catzye',
+  url: BASE,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: `${BASE}/search?q={search_term_string}` },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsMediaOrganization',
+  name: 'Catzye',
+  url: BASE,
+  logo: { '@type': 'ImageObject', url: `${BASE}/logo.png`, width: 200, height: 60 },
+  description: 'Manga and anime news, reviews, and industry coverage.',
+  masthead: BASE,
+  publishingPrinciples: BASE,
+  sameAs: [] as string[],
+};
+
 export const revalidate = 1800; // Revalidate every 30 minutes
 
 async function getArticles() {
@@ -57,6 +83,8 @@ export default async function HomePage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
       {/* Breaking news ticker */}
       <BreakingTicker articles={articles.slice(0, 5)} />
       <TrendingStrip />

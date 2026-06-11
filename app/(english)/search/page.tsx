@@ -9,7 +9,10 @@ interface Props {
 }
 
 export function generateMetadata(): Metadata {
-  return { title: 'Search' };
+  return {
+    title: 'Search',
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function SearchPage({ searchParams }: Props) {

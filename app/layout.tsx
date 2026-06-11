@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Manga%20%26%20Anime%20News';
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com'),
   title: {
@@ -14,6 +16,11 @@ export const metadata: Metadata = {
     siteName: 'Catzye',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: 'Catzye — Manga & Anime News' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [DEFAULT_OG],
   },
 };
 
@@ -34,6 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://public.blob.vercel-storage.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://public.blob.vercel-storage.com" />
       </head>
       <body className="min-h-screen flex flex-col bg-white transition-colors">
         {children}

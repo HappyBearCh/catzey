@@ -94,15 +94,17 @@ export async function summarizeAndTranslate(fields: {
   content: string;
   keywords: string[];
   entities: string[];
+  pullQuote: string;
+  editorNote: string;
 }> {
   console.log(`[translator] Gemini EN rewrite: "${fields.title.substring(0, 60)}" (${fields.content.length} chars)`);
 
-  const prompt = `You are a journalist. Summarize the following text to 50% of its original length. Use simple syntax. Use simple sentences.
+  const prompt = `You are a journalist and editor for Catzye, a manga and anime news site. Summarize the following text to 50% of its original length. Use simple syntax. Use simple sentences.
 
 Do NOT include any hyperlinks, URLs, or markdown links in the content. Do not mention the source URL anywhere in the text.
 
-Return ONLY valid JSON with exactly these five fields and no markdown code fences:
-{"title": "...", "content": "...", "summary": "...", "keywords": "...", "entities": "..."}
+Return ONLY valid JSON with exactly these seven fields and no markdown code fences:
+{"title": "...", "content": "...", "summary": "...", "keywords": "...", "entities": "...", "pullQuote": "...", "editorNote": "..."}
 
 Field definitions:
 - "title": a fresh English headline — do not copy the original
@@ -110,6 +112,8 @@ Field definitions:
 - "summary": a 2–3 sentence excerpt suitable for article preview cards
 - "keywords": 3–5 comma-separated English search terms describing the article subject (people, places, events), suitable for image search — e.g. "One Piece, manga release, Eiichiro Oda"
 - "entities": up to 5 comma-separated named people, places, and organizations explicitly mentioned in the article — e.g. "Eiichiro Oda, Shueisha, Weekly Shonen Jump"
+- "pullQuote": a single punchy sentence (under 140 characters) — the most interesting or surprising fact from the article, suitable for a pull quote
+- "editorNote": 2–3 sentences written as a brief editorial commentary from the Catzye team — explain why this news matters for manga and anime fans, or what it could mean going forward. Use a conversational tone ("This could be...", "Fans will want to watch...", "What's interesting here is...").
 
 Source name: ${fields.source}
 Source URL: ${fields.sourceUrl}
@@ -138,5 +142,13 @@ ${fields.content}`;
     .filter(Boolean)
     .slice(0, 5);
   console.log(`[translator] EN rewrite done: "${parsed.title.substring(0, 60)}" keywords: ${keywords.join(', ')}`);
-  return { title: parsed.title, content: parsed.content, summary: parsed.summary, keywords, entities };
+  return {
+    title: parsed.title,
+    content: parsed.content,
+    summary: parsed.summary,
+    keywords,
+    entities,
+    pullQuote: (parsed.pullQuote ?? '').slice(0, 200),
+    editorNote: (parsed.editorNote ?? '').slice(0, 600),
+  };
 }

@@ -509,6 +509,8 @@ export async function processScrapeItemToArticle(item: {
         publishedAt: item.pubDate ?? new Date(),
         tags: processed.keywords,
         entities: processed.entities,
+        pullQuote: processed.pullQuote || null,
+        editorNote: processed.editorNote || null,
       },
     });
 
@@ -575,6 +577,8 @@ async function processArticle(raw: RawArticle, result: ScrapeResult) {
       publishedAt: raw.pubDate ?? new Date(),
       tags: processed.keywords,
       entities: processed.entities,
+      pullQuote: processed.pullQuote || null,
+      editorNote: processed.editorNote || null,
     },
   });
 

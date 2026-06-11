@@ -11,6 +11,7 @@ import { MostRead } from '@/components/MostRead';
 import { TagList } from '@/components/TagList';
 import { BookmarkButton } from '@/components/BookmarkButton';
 import { getCategoryLabel } from '@/lib/types';
+import { getGuide } from '@/lib/guides';
 import type { Article } from '@/lib/types';
 import { BackToTop } from '@/components/BackToTop';
 import { ReadingProgress } from '@/components/ReadingProgress';
@@ -50,6 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         publishedTime: new Date(article.publishedAt).toISOString(),
         section: article.category,
         images: [{ url: ogImageUrl, width: 1200, height: 630 }],
+        tags: article.tags,
       },
       twitter: {
         card: 'summary_large_image',
@@ -60,6 +62,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternates: {
         canonical: `${BASE}/article/${slug}`,
       },
+      ...(article.tags.length > 0 && {
+        other: { news_keywords: article.tags.join(', ') },
+      }),
     };
   } catch {
     return {};
@@ -110,6 +115,7 @@ export default async function ArticlePage({ params }: Props) {
 
   const related = await getRelated(article);
   const categoryLabel = getCategoryLabel(article.category);
+  const guide = getGuide(article.category);
   const contentIsHtml = article.content.trimStart().startsWith('<');
   const paragraphs = contentIsHtml
     ? []
@@ -131,6 +137,11 @@ export default async function ArticlePage({ params }: Props) {
     ],
   };
 
+  const wordCount = article.content
+    .replace(/<[^>]+>/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
@@ -139,11 +150,23 @@ export default async function ArticlePage({ params }: Props) {
     image: article.imageUrl ? [article.imageUrl] : undefined,
     datePublished: new Date(article.publishedAt).toISOString(),
     dateModified: new Date(article.updatedAt).toISOString(),
-    author: { '@type': 'Organization', name: 'Catzye' },
-    publisher: { '@type': 'Organization', name: 'Catzye', url: BASE },
+    author: {
+      '@type': 'Organization',
+      name: 'Catzye Editorial',
+      url: BASE,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Catzye',
+      url: BASE,
+      logo: { '@type': 'ImageObject', url: `${BASE}/logo.png`, width: 200, height: 60 },
+    },
     url: `${BASE}/article/${article.slug}`,
     inLanguage: 'en',
     keywords: article.tags.join(', '),
+    articleSection: article.category,
+    isAccessibleForFree: true,
+    wordCount,
   };
 
   return (
@@ -218,12 +241,26 @@ export default async function ArticlePage({ params }: Props) {
             {contentIsHtml ? (
               <>
                 <div dangerouslySetInnerHTML={{ __html: htmlPart1 }} />
+                {article.pullQuote && (
+                  <blockquote className="my-6 border-l-4 border-primary pl-5 py-3 bg-primary/5 not-prose">
+                    <p className="text-lg md:text-xl font-bold text-gray-900 leading-snug italic">
+                      &ldquo;{article.pullQuote}&rdquo;
+                    </p>
+                  </blockquote>
+                )}
                 {related.length >= 2 && <InlineRelated articles={related.slice(0, 2)} />}
                 {htmlPart2 && <div dangerouslySetInnerHTML={{ __html: htmlPart2 }} />}
               </>
             ) : (
               <>
                 {paragraphs.slice(0, 3).map((para, i) => <p key={i}>{para}</p>)}
+                {article.pullQuote && (
+                  <blockquote className="my-6 border-l-4 border-primary pl-5 py-3 bg-primary/5 not-prose">
+                    <p className="text-lg md:text-xl font-bold text-gray-900 leading-snug italic">
+                      &ldquo;{article.pullQuote}&rdquo;
+                    </p>
+                  </blockquote>
+                )}
                 {related.length >= 2 && paragraphs.length > 3 && (
                   <InlineRelated articles={related.slice(0, 2)} />
                 )}
@@ -231,6 +268,17 @@ export default async function ArticlePage({ params }: Props) {
               </>
             )}
           </div>
+
+          {article.editorNote && (
+            <div className="mt-6 p-4 bg-gray-50 border border-site-border rounded-sm">
+              <p className="text-2xs font-black uppercase tracking-widest text-primary mb-2 flex items-center gap-1.5">
+                <span className="inline-block w-3 h-3 bg-primary rounded-full" />
+                Catzye Take
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed">{article.editorNote}</p>
+            </div>
+          )}
+
           <NewsletterCTA />
 
           {/* Tags */}
@@ -248,7 +296,7 @@ export default async function ArticlePage({ params }: Props) {
                 {article.entities.map((entity) => (
                   <Link
                     key={entity}
-                    href={`/search?q=${encodeURIComponent(entity)}`}
+                    href={`/topic/${encodeURIComponent(entity)}`}
                     className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors rounded-sm"
                   >
                     {entity}
@@ -258,12 +306,45 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           )}
 
+          {/* Guide callout */}
+          {guide && (
+            <div className="mt-6 p-4 border-l-4 border-primary bg-primary/5">
+              <p className="text-2xs font-black uppercase tracking-widest text-primary mb-1">Want to learn more?</p>
+              <Link
+                href={`/${article.category}/guide`}
+                className="font-bold text-sm hover:text-primary transition-colors"
+              >
+                Read our complete {categoryLabel} guide →
+              </Link>
+            </div>
+          )}
+
           <div className="mt-6 pt-4 border-t border-site-border text-sm text-gray-600">
             Source:{' '}
             <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
               {article.source}
             </a>
           </div>
+
+          {related.length > 0 && (
+            <div className="mt-10 pt-6 border-t border-site-border">
+              <div className="flex items-center gap-2 mb-5">
+                <span className="block w-1 h-5 bg-primary" />
+                <h2 className="text-sm font-black uppercase tracking-wider">You May Also Like</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {related.map((rel) => (
+                  <ArticleCard key={rel.id} article={rel} size="small" />
+                ))}
+              </div>
+              <Link
+                href={`/${article.category}`}
+                className="mt-5 block text-center text-xs font-bold uppercase tracking-wider text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors"
+              >
+                All {categoryLabel} News →
+              </Link>
+            </div>
+          )}
 
         </article>
 

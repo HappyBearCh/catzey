@@ -16,6 +16,8 @@ export interface Article {
   views: number;
   tags: string[];
   entities: string[];
+  pullQuote: string | null;
+  editorNote: string | null;
 }
 
 export const CATEGORIES = [
