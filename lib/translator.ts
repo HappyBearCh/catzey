@@ -3,6 +3,31 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
+export function markdownToHtml(text: string): string {
+  if (!text) return text;
+  if (text.trimStart().startsWith('<')) return text;
+  return text
+    .split(/\n{2,}/)
+    .map((paragraph) => {
+      let p = paragraph.trim();
+      if (!p) return '';
+      p = p.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      p = p.replace(/\*([^*\n]+?)\*/g, '<strong>$1</strong>');
+      p = p.replace(/_([^_\n]+?)_/g, '<em>$1</em>');
+      return `<p>${p}</p>`;
+    })
+    .filter(Boolean)
+    .join('\n');
+}
+
+export function stripMarkdownInline(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*([^*\n]+?)\*/g, '$1')
+    .replace(/_([^_\n]+?)_/g, '$1');
+}
+
 function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
 }
@@ -108,13 +133,14 @@ Writing style:
 - Use short, punchy sentences. Vary rhythm. Avoid corporate language and passive voice.
 - A light editorial opinion is welcome ("this is a significant shift", "fans have been waiting years for this") but keep it grounded in fact
 - Do NOT include any hyperlinks, URLs, or markdown links. Do not mention the source URL anywhere.
+- Do NOT use any markdown formatting. No asterisks, no underscores, no pound signs. Plain text only.
 
 Return ONLY valid JSON with exactly these seven fields and no markdown code fences:
 {"title": "...", "content": "...", "summary": "...", "keywords": "...", "entities": "...", "pullQuote": "...", "editorNote": "..."}
 
 Field definitions:
 - "title": a punchy, specific headline that captures the most newsworthy angle — do not copy the original
-- "content": the full rewritten article in clean paragraphs, with editorial voice as described above. No links, no markdown.
+- "content": the full rewritten article in clean paragraphs, with editorial voice as described above. No links, no markdown, no asterisks.
 - "summary": a 2–3 sentence excerpt for article preview cards — lead with the hook, not the backstory
 - "keywords": 3–5 comma-separated English search terms (people, places, events) suitable for image search — e.g. "One Piece, manga release, Eiichiro Oda"
 - "entities": up to 5 comma-separated named people, places, and organizations explicitly mentioned — e.g. "Eiichiro Oda, Shueisha, Weekly Shonen Jump"
@@ -150,11 +176,11 @@ ${fields.content}`;
   console.log(`[translator] EN rewrite done: "${parsed.title.substring(0, 60)}" keywords: ${keywords.join(', ')}`);
   return {
     title: parsed.title,
-    content: parsed.content,
-    summary: parsed.summary,
+    content: markdownToHtml(parsed.content),
+    summary: stripMarkdownInline(parsed.summary),
     keywords,
     entities,
-    pullQuote: (parsed.pullQuote ?? '').slice(0, 200),
-    editorNote: (parsed.editorNote ?? '').slice(0, 600),
+    pullQuote: stripMarkdownInline((parsed.pullQuote ?? '').slice(0, 200)),
+    editorNote: stripMarkdownInline((parsed.editorNote ?? '').slice(0, 600)),
   };
 }
