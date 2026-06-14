@@ -82,6 +82,13 @@ export function AdminHeader() {
               </div>
             )}
 
+            <Link
+              href="/admin/series"
+              className="hidden sm:inline text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-gray-900 transition-colors px-2 py-1.5"
+            >
+              Series
+            </Link>
+
             {/* + New Article */}
             <Link
               href="/admin/new"

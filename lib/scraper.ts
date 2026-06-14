@@ -502,6 +502,7 @@ export async function processScrapeItemToArticle(item: {
         excerpt: processed.summary,
         slug,
         imageUrl: null, // admin will pick from image suggestions
+        imageAlt: processed.imageAlt || null,
         category: normalizeCategorySlug(item.category),
         source: item.source,
         sourceUrl: item.sourceUrl,
@@ -570,6 +571,7 @@ async function processArticle(raw: RawArticle, result: ScrapeResult) {
       excerpt: processed.summary,
       slug,
       imageUrl: blobImageUrl ?? raw.imageUrl,
+      imageAlt: processed.imageAlt || null,
       category: normalizeCategorySlug(raw.category),
       source: raw.source,
       sourceUrl: raw.url,

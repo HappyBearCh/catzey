@@ -76,6 +76,7 @@ export function EditArticleForm({ article, onUpdate }: Props) {
           </label>
           <ImageUploader
             currentUrl={article.imageUrl}
+            currentCredit={article.imageCredit}
             articleId={article.id}
             title={article.title}
             excerpt={article.excerpt}
@@ -131,7 +132,7 @@ export function EditArticleForm({ article, onUpdate }: Props) {
         </div>
       </form>
 
-      <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-2 md:grid-cols-3 gap-4 text-xs text-gray-400">
+      <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-gray-400">
         <div>
           <p className="font-bold uppercase tracking-wider mb-1">ID</p>
           <p className="font-mono text-gray-600 break-all">{article.id}</p>
@@ -143,6 +144,10 @@ export function EditArticleForm({ article, onUpdate }: Props) {
         <div>
           <p className="font-bold uppercase tracking-wider mb-1">Published At</p>
           <p>{new Date(article.publishedAt).toLocaleString()}</p>
+        </div>
+        <div>
+          <p className="font-bold uppercase tracking-wider mb-1">Image Credit</p>
+          <p className="text-gray-600">{article.imageCredit ?? <span className="italic text-gray-400">unknown</span>}</p>
         </div>
       </div>
     </div>

@@ -58,7 +58,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         {article.imageUrl ? (
           <Image
             src={article.imageUrl}
-            alt={article.title}
+            alt={article.imageAlt ?? article.title}
             fill
             sizes="100vw"
             className="object-cover object-top opacity-75 group-hover:opacity-65 transition-opacity duration-300"
@@ -83,7 +83,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
           <p className="text-gray-300 text-sm md:text-base line-clamp-2 mb-3 hidden md:block">
             {article.excerpt}
           </p>
-          <div className="flex items-center gap-3 text-gray-600 text-xs">
+          <div className="flex items-center gap-3 text-gray-300 text-xs">
             <time>{timeAgo(article.publishedAt)}</time>
           </div>
         </div>
@@ -188,7 +188,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         <div className="relative overflow-hidden aspect-video mb-2 bg-gray-100 dark:bg-gray-800">
           <Image
             src={article.imageUrl}
-            alt={article.title}
+            alt={article.imageAlt ?? article.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
             className="object-cover group-hover:scale-105 transition-transform duration-300"

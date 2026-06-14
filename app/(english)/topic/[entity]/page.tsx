@@ -72,9 +72,9 @@ export default async function TopicPage({ params }: Props) {
     <div className="max-w-8xl mx-auto px-4 py-6">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }} />
 
-      <nav className="flex items-center gap-2 text-xs text-gray-600 mb-4 uppercase tracking-wider">
+      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span>›</span>
+        <span aria-hidden="true">›</span>
         <span className="text-primary font-bold">{name}</span>
       </nav>
 

@@ -5,6 +5,7 @@ import type { ImageCandidate } from '@/lib/imageSearch';
 
 interface Props {
   currentUrl: string | null;
+  currentCredit?: string | null;
   articleId?: string;
   title?: string;
   excerpt?: string;
@@ -38,9 +39,10 @@ function compressImage(file: File, maxPx = 2048, quality = 0.85): Promise<File> 
   });
 }
 
-export function ImageUploader({ currentUrl, articleId, title, excerpt, category }: Props) {
+export function ImageUploader({ currentUrl, currentCredit, articleId, title, excerpt, category }: Props) {
   const [url, setUrl] = useState(currentUrl ?? '');
   const [preview, setPreview] = useState(currentUrl ?? '');
+  const [credit, setCredit] = useState(currentCredit ?? '');
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -74,6 +76,7 @@ export function ImageUploader({ currentUrl, articleId, title, excerpt, category 
       if (!res.ok) throw new Error(data.error ?? 'Upload failed');
       setUrl(data.url!);
       setPreview(data.url!);
+      setCredit('Uploaded');
     } catch (err) {
       setUploadError(err instanceof Error ? err.message : 'Upload failed');
     } finally {
@@ -85,6 +88,7 @@ export function ImageUploader({ currentUrl, articleId, title, excerpt, category 
   function pickImage(img: ImageCandidate) {
     setUrl(img.url);
     setPreview(img.url);
+    setCredit(img.credit);
     setPanelOpen(false);
     setCandidates([]);
   }
@@ -127,9 +131,10 @@ export function ImageUploader({ currentUrl, articleId, title, excerpt, category 
         throw new Error(`Server error (HTTP ${res.status}) — check Vercel logs`);
       }
       if (data.image) {
-        setGenLog((prev) => [{ time, ok: true, detail: `${data.model ?? 'AI'} — ${data.cost ?? '?'}` }, ...prev]);
+        const genCredit = `AI Generated — ${data.model ?? 'Imagen'} (${data.cost ?? '?'})`;
+        setGenLog((prev) => [{ time, ok: true, detail: genCredit }, ...prev]);
         // Auto-select immediately — no extra click required
-        pickImage(data.image);
+        pickImage({ ...data.image, credit: genCredit });
       } else {
         throw new Error(data.error ?? 'Generation failed');
       }
@@ -176,7 +181,7 @@ export function ImageUploader({ currentUrl, articleId, title, excerpt, category 
             {url && (
               <button
                 type="button"
-                onClick={() => { setUrl(''); setPreview(''); }}
+                onClick={() => { setUrl(''); setPreview(''); setCredit(''); }}
                 className="text-xs text-gray-400 hover:text-red-500 transition-colors"
               >
                 Remove
@@ -196,6 +201,9 @@ export function ImageUploader({ currentUrl, articleId, title, excerpt, category 
         )}
       </div>
 
+      {/* Hidden field carries the credit string through the form submit */}
+      <input type="hidden" name="imageCredit" value={credit} />
+
       <input
         ref={fileRef}
         type="file"
@@ -203,6 +211,13 @@ export function ImageUploader({ currentUrl, articleId, title, excerpt, category 
         className="hidden"
         onChange={handleFile}
       />
+
+      {credit && (
+        <p className="text-2xs text-gray-500 flex items-center gap-1.5">
+          <span className="font-bold uppercase tracking-wider text-gray-400">Source:</span>
+          {credit}
+        </p>
+      )}
 
       {!url && !panelOpen && (
         <p className="text-2xs text-gray-400">No image — upload a file, paste a URL, or use Find image.</p>

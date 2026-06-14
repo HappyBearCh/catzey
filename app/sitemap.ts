@@ -3,77 +3,126 @@ import { prisma } from '@/lib/db';
 import { CATEGORIES } from '@/lib/types';
 import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
+import { CATEGORY_PAGE_SIZE } from '@/components/CategoryArchive';
 
 export const revalidate = 3600;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
+const MAX_PAGINATED_PAGES = 50;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let articles: { slug: string; updatedAt: Date; tags: string[] }[] = [];
-  let topEntities: string[] = [];
+  let entityRows: { entity: string; last: Date }[] = [];
+  let categoryStats: { category: string; count: number; last: Date | null }[] = [];
+  let seriesList: { slug: string; updatedAt: Date }[] = [];
 
   try {
-    [articles] = await Promise.all([
-      prisma.article.findMany({
-        where: { published: true },
-        select: { slug: true, updatedAt: true, tags: true },
-        orderBy: { publishedAt: 'desc' },
-        take: 5000,
-      }),
-    ]);
+    articles = await prisma.article.findMany({
+      where: { published: true },
+      select: { slug: true, updatedAt: true, tags: true },
+      orderBy: { publishedAt: 'desc' },
+      take: 5000,
+    });
 
-    const entityRows = await prisma.$queryRaw<{ entity: string }[]>`
-      SELECT DISTINCT UNNEST(entities) as entity
+    entityRows = await prisma.$queryRaw<{ entity: string; last: Date }[]>`
+      SELECT UNNEST(entities) as entity, MAX("updatedAt") as last
       FROM "Article"
-      WHERE published = true AND array_length(entities, 1) > 0
+      WHERE published = true
+      GROUP BY 1
       LIMIT 500
     `;
-    topEntities = entityRows.map((r) => r.entity).filter(Boolean);
+
+    const grouped = await prisma.article.groupBy({
+      by: ['category'],
+      where: { published: true },
+      _count: { _all: true },
+      _max: { updatedAt: true },
+    });
+    categoryStats = grouped.map((g) => ({
+      category: g.category,
+      count: g._count._all,
+      last: g._max.updatedAt,
+    }));
+
+    seriesList = await prisma.series.findMany({
+      select: { slug: true, updatedAt: true },
+      orderBy: { updatedAt: 'desc' },
+    });
   } catch {
     // DB unavailable — return static pages only
   }
 
+  const newestUpdate = articles[0]?.updatedAt;
+
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE, lastModified: new Date(), changeFrequency: 'hourly' as const, priority: 1 },
-    { url: `${BASE}/trending`, lastModified: new Date(), changeFrequency: 'daily' as const, priority: 0.8 },
-    { url: `${BASE}/guides`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
-    ...CATEGORIES.map(({ slug }) => (
-      { url: `${BASE}/${slug}`, lastModified: new Date(), changeFrequency: 'hourly' as const, priority: 0.8 }
-    )),
+    { url: BASE, lastModified: newestUpdate, changeFrequency: 'hourly' as const, priority: 1 },
+    { url: `${BASE}/trending`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.8 },
+    { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: `${BASE}/series`, changeFrequency: 'weekly' as const, priority: 0.7 },
+    { url: `${BASE}/about`, changeFrequency: 'yearly' as const, priority: 0.4 },
+    { url: `${BASE}/editorial-policy`, changeFrequency: 'yearly' as const, priority: 0.3 },
+    { url: `${BASE}/contact`, changeFrequency: 'yearly' as const, priority: 0.3 },
+    { url: `${BASE}/privacy`, changeFrequency: 'yearly' as const, priority: 0.2 },
   ];
+
+  const categoryPages: MetadataRoute.Sitemap = [];
+  for (const { slug } of CATEGORIES) {
+    const stats = categoryStats.find((s) => s.category === slug);
+    categoryPages.push({
+      url: `${BASE}/${slug}`,
+      lastModified: stats?.last ?? undefined,
+      changeFrequency: 'hourly' as const,
+      priority: 0.8,
+    });
+    const totalPages = Math.min(
+      Math.ceil((stats?.count ?? 0) / CATEGORY_PAGE_SIZE),
+      MAX_PAGINATED_PAGES,
+    );
+    for (let p = 2; p <= totalPages; p++) {
+      categoryPages.push({
+        url: `${BASE}/${slug}/page/${p}`,
+        lastModified: stats?.last ?? undefined,
+        changeFrequency: 'daily' as const,
+        priority: 0.4,
+      });
+    }
+  }
 
   const guidePages: MetadataRoute.Sitemap = [
     ...getAllGuides().map((g) => ({
       url: `${BASE}/${g.slug}/guide`,
-      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
     ...getAllStandaloneGuides().map((g) => ({
       url: `${BASE}/guides/${g.slug}`,
-      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.65,
     })),
   ];
 
-  const allTags = new Set<string>();
+  const tagLastModified = new Map<string, Date>();
   for (const a of articles) {
-    for (const tag of a.tags) allTags.add(tag);
+    for (const tag of a.tags) {
+      const prev = tagLastModified.get(tag);
+      if (!prev || a.updatedAt > prev) tagLastModified.set(tag, a.updatedAt);
+    }
   }
-  const tagPages: MetadataRoute.Sitemap = Array.from(allTags).map((tag) => ({
+  const tagPages: MetadataRoute.Sitemap = Array.from(tagLastModified.entries()).map(([tag, last]) => ({
     url: `${BASE}/tag/${encodeURIComponent(tag)}`,
-    lastModified: new Date(),
+    lastModified: last,
     changeFrequency: 'daily' as const,
     priority: 0.5,
   }));
 
-  const topicPages: MetadataRoute.Sitemap = topEntities.map((entity) => ({
-    url: `${BASE}/topic/${encodeURIComponent(entity)}`,
-    lastModified: new Date(),
-    changeFrequency: 'daily' as const,
-    priority: 0.55,
-  }));
+  const topicPages: MetadataRoute.Sitemap = entityRows
+    .filter((r) => r.entity)
+    .map((r) => ({
+      url: `${BASE}/topic/${encodeURIComponent(r.entity)}`,
+      lastModified: r.last,
+      changeFrequency: 'daily' as const,
+      priority: 0.55,
+    }));
 
   const articlePages: MetadataRoute.Sitemap = articles.map((a) => ({
     url: `${BASE}/article/${a.slug}`,
@@ -82,5 +131,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...guidePages, ...tagPages, ...topicPages, ...articlePages];
+  const seriesPages: MetadataRoute.Sitemap = seriesList.map((s) => ({
+    url: `${BASE}/series/${s.slug}`,
+    lastModified: s.updatedAt,
+    changeFrequency: 'weekly' as const,
+    priority: 0.75,
+  }));
+
+  return [...staticPages, ...categoryPages, ...guidePages, ...seriesPages, ...tagPages, ...topicPages, ...articlePages];
 }

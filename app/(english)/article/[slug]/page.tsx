@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatDistanceToNow, format } from 'date-fns';
+import { format } from 'date-fns';
+import { RelativeTime } from '@/components/RelativeTime';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { ShareButtons } from '@/components/ShareButtons';
@@ -20,6 +21,7 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { NewsletterCTA } from '@/components/NewsletterCTA';
 import { InlineRelated } from '@/components/InlineRelated';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
+import { linkEntitiesInHtml } from '@/lib/entity-links';
 
 export const revalidate = 3600;
 
@@ -81,6 +83,45 @@ async function getArticle(slug: string): Promise<Article | null> {
   }
 }
 
+interface SeriesContext {
+  id: string;
+  title: string;
+  slug: string;
+  totalParts: number;
+  prev: { title: string; slug: string } | null;
+  next: { title: string; slug: string } | null;
+}
+
+async function getSeriesContext(article: Article): Promise<SeriesContext | null> {
+  if (!article.seriesId || !article.seriesOrder) return null;
+  try {
+    const series = await prisma.series.findUnique({
+      where: { id: article.seriesId },
+      select: { id: true, title: true, slug: true, topics: true },
+    });
+    if (!series) return null;
+    const siblings = await prisma.article.findMany({
+      where: { seriesId: article.seriesId, published: true },
+      select: { title: true, slug: true, seriesOrder: true },
+      orderBy: { seriesOrder: 'asc' },
+    });
+    const order = article.seriesOrder;
+    const prev = siblings.find((s) => s.seriesOrder === order - 1) ?? null;
+    const next = siblings.find((s) => s.seriesOrder === order + 1) ?? null;
+    const topics = series.topics as string[];
+    return {
+      id: series.id,
+      title: series.title,
+      slug: series.slug,
+      totalParts: Math.max(topics.length, siblings.length),
+      prev: prev ? { title: prev.title, slug: prev.slug } : null,
+      next: next ? { title: next.title, slug: next.slug } : null,
+    };
+  } catch {
+    return null;
+  }
+}
+
 async function getRelated(article: Article): Promise<Article[]> {
   try {
     if (article.tags.length > 0) {
@@ -113,7 +154,10 @@ export default async function ArticlePage({ params }: Props) {
   const article = await getArticle(slug);
   if (!article) notFound();
 
-  const related = await getRelated(article);
+  const [related, seriesCtx] = await Promise.all([
+    getRelated(article),
+    getSeriesContext(article),
+  ]);
   const categoryLabel = getCategoryLabel(article.category);
   const guide = getGuide(article.category);
   const contentIsHtml = article.content.trimStart().startsWith('<');
@@ -121,7 +165,9 @@ export default async function ArticlePage({ params }: Props) {
     ? []
     : article.content.split(/\n+/).map((p) => p.trim()).filter(Boolean).filter((p) => !/^sources?\s*:/i.test(p));
 
-  const processedHtml = contentIsHtml ? injectHeadingIds(article.content) : '';
+  const processedHtml = contentIsHtml
+    ? injectHeadingIds(linkEntitiesInHtml(article.content, article.entities))
+    : '';
   const headings = contentIsHtml ? extractHeadings(processedHtml) : [];
   const [htmlPart1, htmlPart2] = contentIsHtml ? splitHtmlAfterNthParagraph(processedHtml, 3) : ['', ''];
 
@@ -180,13 +226,36 @@ export default async function ArticlePage({ params }: Props) {
         {/* Main article */}
         <article className="lg:col-span-2">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-gray-600 mb-4 uppercase tracking-wider">
+          <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <span>›</span>
+            <span aria-hidden="true">›</span>
             <Link href={`/${article.category}`} className="hover:text-primary transition-colors">
               {categoryLabel}
             </Link>
           </nav>
+
+          {/* Series banner */}
+          {seriesCtx && (
+            <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded-sm flex items-center gap-3">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-black flex items-center justify-center">
+                {article.seriesOrder}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-2xs font-black uppercase tracking-wider text-primary">
+                  Part {article.seriesOrder} of {seriesCtx.totalParts}
+                </p>
+                <Link href={`/series/${seriesCtx.slug}`} className="text-sm font-bold hover:text-primary transition-colors line-clamp-1">
+                  {seriesCtx.title}
+                </Link>
+              </div>
+              <Link
+                href={`/series/${seriesCtx.slug}`}
+                className="flex-shrink-0 text-2xs font-bold text-primary border border-primary/30 px-2 py-1 rounded hover:bg-primary hover:text-white transition-colors"
+              >
+                All Parts
+              </Link>
+            </div>
+          )}
 
           <span className="inline-block bg-primary text-white text-2xs font-black uppercase tracking-widest px-2 py-0.5 mb-3">
             {categoryLabel}
@@ -196,13 +265,14 @@ export default async function ArticlePage({ params }: Props) {
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-600 border-b border-site-border pb-4 mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-400 border-b border-site-border pb-4 mb-6">
             <div className="flex items-center gap-3">
               <time dateTime={new Date(article.publishedAt).toISOString()}>
-                {format(new Date(article.publishedAt), 'MMMM d, yyyy')} (
-                {formatDistanceToNow(new Date(article.publishedAt), { addSuffix: true })})
+                {format(new Date(article.publishedAt), 'MMMM d, yyyy')}
               </time>
-              <span className="text-gray-400">·</span>
+              <span aria-hidden="true">·</span>
+              <RelativeTime date={article.publishedAt} />
+              <span aria-hidden="true">·</span>
               <span>{mins} min read</span>
             </div>
             <div className="flex items-center gap-2">
@@ -217,7 +287,7 @@ export default async function ArticlePage({ params }: Props) {
               <div className="relative w-full aspect-video rounded-sm overflow-hidden">
                 <Image
                   src={article.imageUrl}
-                  alt={article.title}
+                  alt={article.imageAlt ?? article.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 66vw"
                   className="object-cover"
@@ -325,6 +395,28 @@ export default async function ArticlePage({ params }: Props) {
               {article.source}
             </a>
           </div>
+
+          {/* Series prev/next */}
+          {seriesCtx && (seriesCtx.prev || seriesCtx.next) && (
+            <div className="mt-8 pt-6 border-t border-site-border grid grid-cols-2 gap-4">
+              {seriesCtx.prev ? (
+                <Link href={`/article/${seriesCtx.prev.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all">
+                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">← Previous part</span>
+                  <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                    {seriesCtx.prev.title}
+                  </span>
+                </Link>
+              ) : <div />}
+              {seriesCtx.next ? (
+                <Link href={`/article/${seriesCtx.next.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all text-right">
+                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">Next part →</span>
+                  <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                    {seriesCtx.next.title}
+                  </span>
+                </Link>
+              ) : <div />}
+            </div>
+          )}
 
           {related.length > 0 && (
             <div className="mt-10 pt-6 border-t border-site-border">

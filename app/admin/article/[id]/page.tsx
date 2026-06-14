@@ -23,6 +23,7 @@ export default async function EditArticlePage({ params }: Props) {
       category: formData.get('category') as string,
       slug: formData.get('slug') as string,
       imageUrl: formData.get('imageUrl') as string,
+      imageCredit: (formData.get('imageCredit') as string) || undefined,
     });
     redirect('/admin');
   }

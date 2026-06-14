@@ -103,14 +103,14 @@ export async function createArticle(data: {
   redirect(`/admin/article/${article.id}`);
 }
 
-export async function setArticleImage(id: string, imageUrl: string) {
+export async function setArticleImage(id: string, imageUrl: string, imageCredit?: string) {
   // Already on Vercel Blob — skip re-upload so ai- prefix is preserved for label detection
   const blobUrl = imageUrl.includes('blob.vercel-storage.com')
     ? imageUrl
     : await mirrorImageToBlob(imageUrl);
   await prisma.article.update({
     where: { id },
-    data: { imageUrl: blobUrl ?? imageUrl },
+    data: { imageUrl: blobUrl ?? imageUrl, ...(imageCredit !== undefined && { imageCredit: imageCredit || null }) },
   });
   revalidatePath('/admin');
 }
@@ -194,6 +194,7 @@ export async function updateArticle(
     category: string;
     slug: string;
     imageUrl: string;
+    imageCredit?: string;
   },
 ) {
   const validCategory = CATEGORIES.find((c) => c.slug === data.category)?.slug ?? 'manga';
@@ -215,6 +216,7 @@ export async function updateArticle(
       category: validCategory,
       slug,
       imageUrl: data.imageUrl || null,
+      imageCredit: data.imageCredit || null,
     },
   });
   revalidatePath('/admin');

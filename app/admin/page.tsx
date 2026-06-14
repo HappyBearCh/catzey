@@ -9,11 +9,12 @@ import { NewArticleButton } from './NewArticleButton';
 import { DeleteArticleButton } from './DeleteButtons';
 import { ArticleTable } from './ArticleTable';
 import { PendingItems } from './PendingItems';
+import { ReplaceLocImages } from './ReplaceLocImages';
 
 export const dynamic = 'force-dynamic';
 
 async function getStats() {
-  const [total, published, drafts, scheduled, bySource, byCategory, totalViews] = await Promise.all([
+  const [total, published, drafts, scheduled, bySource, byCategory, totalViews, locImages] = await Promise.all([
     prisma.article.count(),
     prisma.article.count({ where: { published: true } }),
     prisma.article.count({ where: { published: false, scheduledAt: null } }),
@@ -25,8 +26,9 @@ async function getStats() {
       orderBy: { _count: { id: 'desc' } },
     }),
     prisma.article.aggregate({ _sum: { views: true } }),
+    prisma.article.count({ where: { imageUrl: { contains: 'loc.gov' } } }),
   ]);
-  return { total, published, drafts, scheduled, bySource, byCategory, totalViews: totalViews._sum.views ?? 0 };
+  return { total, published, drafts, scheduled, bySource, byCategory, totalViews: totalViews._sum.views ?? 0, locImages };
 }
 
 async function getSourceHealth() {
@@ -153,6 +155,9 @@ export default async function AdminPage({ searchParams }: Props) {
           <StatCard label="Pending" value={pending.length} accent={pending.length > 0 ? 'violet' : undefined} />
           <StatCard label="Total Views" value={stats.totalViews} accent="green" />
         </div>
+
+        {/* LoC image replacement tool */}
+        <ReplaceLocImages locCount={stats.locImages} />
 
         {/* Pending scraped items */}
         <PendingItems items={pending} />

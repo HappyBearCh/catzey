@@ -1,3 +1,15 @@
+export interface Series {
+  id: string;
+  title: string;
+  slug: string;
+  description: string | null;
+  imageUrl: string | null;
+  category: string;
+  topics: string[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface Article {
   id: string;
   title: string;
@@ -5,6 +17,8 @@ export interface Article {
   excerpt: string;
   slug: string;
   imageUrl: string | null;
+  imageAlt?: string | null;
+  imageCredit?: string | null;
   category: string;
   source: string;
   sourceUrl: string;
@@ -18,6 +32,8 @@ export interface Article {
   entities: string[];
   pullQuote: string | null;
   editorNote: string | null;
+  seriesId: string | null;
+  seriesOrder: number | null;
 }
 
 export const CATEGORIES = [

@@ -33,10 +33,8 @@ export function Header() {
         </div>
       </div>
 
-      {/* Category nav — desktop only */}
-      <div className="hidden md:block">
-        <CategoryNav />
-      </div>
+      {/* Category nav — horizontally scrollable on mobile */}
+      <CategoryNav />
     </header>
   );
 }

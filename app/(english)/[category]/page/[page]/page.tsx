@@ -13,53 +13,49 @@ export const revalidate = 1800;
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 interface Props {
-  params: Promise<{ category: string }>;
-  searchParams: Promise<{ page?: string; sort?: string }>;
+  params: Promise<{ category: string; page: string }>;
+  searchParams: Promise<{ sort?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { category } = await params;
+  const { category, page: pageStr } = await params;
+  const page = parseInt(pageStr);
+  if (!Number.isFinite(page) || page < 2) return {};
   const label = getCategoryLabel(category);
   const description = CATEGORY_DESCRIPTIONS[category] ?? `Latest ${label} manga and anime news and updates.`;
-  const canonicalUrl = `${BASE}/${category}`;
+  const canonicalUrl = `${BASE}/${category}/page/${page}`;
   const ogImage = `/og?title=${encodeURIComponent(label + ' News')}&category=${category}`;
 
   return {
-    title: `${label} News`,
-    description,
+    title: `${label} News — Page ${page}`,
+    description: `${description} Page ${page} of the ${label} archive.`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${label} News | Catzye`,
+      title: `${label} News — Page ${page} | Catzye`,
       description,
       url: canonicalUrl,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${label} News | Catzye`,
+      title: `${label} News — Page ${page} | Catzye`,
       description,
       images: [ogImage],
     },
   };
 }
 
-export function generateStaticParams() {
-  return CATEGORIES.map(({ slug }) => ({ category: slug }));
-}
-
-export default async function CategoryPage({ params, searchParams }: Props) {
-  const { category } = await params;
+export default async function CategoryPaginatedPage({ params, searchParams }: Props) {
+  const { category, page: pageStr } = await params;
   const sp = await searchParams;
   const sort = (sp.sort === 'popular' ? 'popular' : 'latest') as CategorySort;
 
   const validCategory = CATEGORIES.find((c) => c.slug === category);
   if (!validCategory) notFound();
 
-  // Legacy ?page=N URLs → path-based pagination
-  const legacyPage = parseInt(sp.page ?? '1');
-  if (Number.isFinite(legacyPage) && legacyPage > 1) {
-    permanentRedirect(categoryPageHref(category, legacyPage, sort));
-  }
+  const page = parseInt(pageStr);
+  if (!Number.isFinite(page) || !/^\d+$/.test(pageStr) || page < 1) notFound();
+  if (page === 1) permanentRedirect(categoryPageHref(category, 1, sort));
 
-  return <CategoryArchive category={category} page={1} sort={sort} />;
+  return <CategoryArchive category={category} page={page} sort={sort} />;
 }

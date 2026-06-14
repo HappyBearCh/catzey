@@ -4,7 +4,9 @@ import { ArticleCard } from '@/components/ArticleCard';
 import { BreakingTicker } from '@/components/BreakingTicker';
 import { TrendingStrip } from '@/components/TrendingStrip';
 import { LoadMoreArticles } from '@/components/LoadMoreArticles';
+import { MostRead } from '@/components/MostRead';
 import { CATEGORIES } from '@/lib/types';
+import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import Link from 'next/link';
 import type { Article } from '@/lib/types';
 
@@ -29,8 +31,9 @@ const organizationLd = {
   url: BASE,
   logo: { '@type': 'ImageObject', url: `${BASE}/logo.png`, width: 200, height: 60 },
   description: 'Manga and anime news, reviews, and industry coverage.',
-  masthead: BASE,
-  publishingPrinciples: BASE,
+  masthead: `${BASE}/about`,
+  publishingPrinciples: `${BASE}/editorial-policy`,
+  correctionsPolicy: `${BASE}/editorial-policy`,
   sameAs: [] as string[],
 };
 
@@ -109,6 +112,40 @@ export default async function HomePage() {
             </div>
           </section>
         )}
+
+        {/* Most read + guides */}
+        <section className="my-8 border-t border-site-border pt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <MostRead />
+          <div className="mt-8">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="block w-1 h-5 bg-primary" />
+              <h2 className="text-sm font-black uppercase tracking-wider">Catzye Guides</h2>
+            </div>
+            <ul>
+              {getAllStandaloneGuides().slice(0, 5).map((guide) => (
+                <li key={guide.slug}>
+                  <Link
+                    href={`/guides/${guide.slug}`}
+                    className="group block py-3 border-b border-site-border last:border-0"
+                  >
+                    <p className="font-bold text-sm leading-snug group-hover:text-primary transition-colors">
+                      {guide.title}
+                    </p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">
+                      {guide.subtitle} · {guide.readingTime} min read
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/guides"
+              className="mt-4 block text-center text-xs font-bold uppercase tracking-wider text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors"
+            >
+              All Guides →
+            </Link>
+          </div>
+        </section>
 
         {/* Category sections */}
         {recentByCategory.map(({ label, slug, articles: catArticles }) => (

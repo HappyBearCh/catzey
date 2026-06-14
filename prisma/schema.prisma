@@ -29,6 +29,8 @@ model Article {
   excerpt     String
   slug        String    @unique
   imageUrl    String?
+  imageAlt    String?
+  imageCredit String?
   category    String
   source      String
   sourceUrl   String    @unique
@@ -40,12 +42,29 @@ model Article {
   entities    String[]  @default([])
   pullQuote   String?
   editorNote  String?
+  seriesId    String?
+  seriesOrder Int?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  series      Series?   @relation(fields: [seriesId], references: [id])
 
   @@index([category])
   @@index([publishedAt(sort: Desc)])
   @@index([views(sort: Desc)])
+  @@index([seriesId])
+}
+
+model Series {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  description String?
+  imageUrl    String?
+  category    String
+  topics      Json      @default("[]")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  articles    Article[]
 }
 
 model Subscriber {

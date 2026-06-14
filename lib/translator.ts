@@ -121,6 +121,7 @@ export async function summarizeAndTranslate(fields: {
   entities: string[];
   pullQuote: string;
   editorNote: string;
+  imageAlt: string;
 }> {
   console.log(`[translator] Gemini EN rewrite: "${fields.title.substring(0, 60)}" (${fields.content.length} chars)`);
 
@@ -135,8 +136,8 @@ Writing style:
 - Do NOT include any hyperlinks, URLs, or markdown links. Do not mention the source URL anywhere.
 - Do NOT use any markdown formatting. No asterisks, no underscores, no pound signs. Plain text only.
 
-Return ONLY valid JSON with exactly these seven fields and no markdown code fences:
-{"title": "...", "content": "...", "summary": "...", "keywords": "...", "entities": "...", "pullQuote": "...", "editorNote": "..."}
+Return ONLY valid JSON with exactly these eight fields and no markdown code fences:
+{"title": "...", "content": "...", "summary": "...", "keywords": "...", "entities": "...", "pullQuote": "...", "editorNote": "...", "imageAlt": "..."}
 
 Field definitions:
 - "title": a punchy, specific headline that captures the most newsworthy angle — do not copy the original
@@ -146,6 +147,7 @@ Field definitions:
 - "entities": up to 5 comma-separated named people, places, and organizations explicitly mentioned — e.g. "Eiichiro Oda, Shueisha, Weekly Shonen Jump"
 - "pullQuote": the single most interesting or surprising sentence from the article (under 140 characters), suitable for a pull quote
 - "editorNote": 2–3 sentences of editorial commentary from the Catzye team — what this means for fans, why it matters, or what to watch next. Conversational tone ("This could be...", "Fans will want to watch...", "What's interesting here is...").
+- "imageAlt": a short literal description (under 120 characters) of the most likely news image for this story, suitable as image alt text — e.g. "Key visual for the Frieren anime second season" or "Cover of One Piece volume 110". No quotes, plain text.
 
 Source name: ${fields.source}
 Source URL: ${fields.sourceUrl}
@@ -182,5 +184,6 @@ ${fields.content}`;
     entities,
     pullQuote: stripMarkdownInline((parsed.pullQuote ?? '').slice(0, 200)),
     editorNote: stripMarkdownInline((parsed.editorNote ?? '').slice(0, 600)),
+    imageAlt: stripMarkdownInline((parsed.imageAlt ?? '').slice(0, 160)),
   };
 }

@@ -17,6 +17,17 @@ export function Footer() {
             <p className="text-sm leading-relaxed mb-4">
               Latest manga &amp; anime news from around the world.
             </p>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/about" className="text-sm hover:text-white transition-colors">About</Link>
+              </li>
+              <li>
+                <Link href="/editorial-policy" className="text-sm hover:text-white transition-colors">Editorial Policy</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm hover:text-white transition-colors">Contact</Link>
+              </li>
+            </ul>
           </div>
 
           <div>
@@ -42,6 +53,15 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/series" className="text-sm hover:text-white transition-colors">Essay Series</Link>
+              </li>
+              <li>
+                <Link href="/guides" className="text-sm hover:text-white transition-colors">Guides</Link>
+              </li>
+              <li>
+                <Link href="/trending" className="text-sm hover:text-white transition-colors">Trending</Link>
+              </li>
             </ul>
           </div>
 
@@ -57,6 +77,7 @@ export function Footer() {
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs">
           <p>© {currentYear} Catzye — Manga &amp; Anime News</p>
           <div className="flex items-center gap-4">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/feed.xml" className="hover:text-white transition-colors">RSS</Link>
           </div>
         </div>

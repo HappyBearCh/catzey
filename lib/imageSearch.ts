@@ -131,13 +131,13 @@ async function searchWikimediaCommons(query: string, limit: number): Promise<Ima
 }
 
 async function queryAllSources(query: string, count: number): Promise<ImageCandidate[]> {
-  const [wiki, commons, openverse, pexels, pixabay, loc, flickr, unsplash, europeana, smithsonian, nasa, dpla] = await Promise.allSettled([
+  // Library of Congress is disabled — images were irrelevant to manga/anime topics
+  const [wiki, commons, openverse, pexels, pixabay, flickr, unsplash, europeana, smithsonian, nasa, dpla] = await Promise.allSettled([
     searchWikipedia(query, 2),
     searchWikimediaCommons(query, 2),
     searchOpenverse(query, 2),
     searchPexels(query, 2),
     searchPixabay(query, 2),
-    searchLibraryOfCongress(query, 2),
     searchFlickr(query, 2),
     searchUnsplash(query, 2),
     searchEuropeana(query, 2),
@@ -152,7 +152,6 @@ async function queryAllSources(query: string, count: number): Promise<ImageCandi
     openverse.status === 'fulfilled' ? openverse.value : [],
     pexels.status === 'fulfilled' ? pexels.value : [],
     pixabay.status === 'fulfilled' ? pixabay.value : [],
-    loc.status === 'fulfilled' ? loc.value : [],
     flickr.status === 'fulfilled' ? flickr.value : [],
     unsplash.status === 'fulfilled' ? unsplash.value : [],
     europeana.status === 'fulfilled' ? europeana.value : [],
@@ -275,7 +274,7 @@ async function searchLibraryOfCongress(query: string, limit: number): Promise<Im
 }
 
 // Flickr — CC-licensed photos (needs FLICKR_API_KEY)
-async function searchFlickr(query: string, limit: number): Promise<ImageCandidate[]> {
+export async function searchFlickr(query: string, limit: number): Promise<ImageCandidate[]> {
   const apiKey = process.env.FLICKR_API_KEY;
   if (!apiKey) return [];
   try {
