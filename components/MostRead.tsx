@@ -50,8 +50,8 @@ export async function MostRead({ currentSlug }: MostReadProps) {
                   </span>
                 </div>
                 {article.imageUrl && (
-                  <div className="relative flex-shrink-0 w-16 h-12 overflow-hidden rounded-sm">
-                    <Image src={article.imageUrl} alt="" fill sizes="64px" className="object-cover" />
+                  <div className="relative flex-shrink-0 w-20 h-14 overflow-hidden rounded-sm">
+                    <Image src={article.imageUrl} alt="" fill sizes="80px" className="object-cover" />
                   </div>
                 )}
               </Link>

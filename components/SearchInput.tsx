@@ -156,7 +156,7 @@ export function SearchInput({
       </form>
 
       {open && (showRecent || showSuggestions) && (
-        <div className="absolute left-0 right-0 top-full mt-1 bg-white dark:bg-gray-900 border border-site-border dark:border-gray-700 shadow-xl z-50 max-h-72 overflow-y-auto">
+        <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-gray-900 border border-site-border dark:border-gray-700 shadow-xl z-50 max-h-72 overflow-y-auto">
           {showRecent && (
             <>
               <div className="flex items-center justify-between px-3 py-1.5 border-b border-site-border dark:border-gray-700">

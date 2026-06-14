@@ -226,7 +226,7 @@ export default async function ArticlePage({ params }: Props) {
         {/* Main article */}
         <article className="lg:col-span-2">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
+          <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <span aria-hidden="true">›</span>
             <Link href={`/${article.category}`} className="hover:text-primary transition-colors">
@@ -236,7 +236,7 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* Series banner */}
           {seriesCtx && (
-            <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded-sm flex items-center gap-3">
+            <div className="mb-4 p-3 bg-primary/10 border border-primary/30 rounded-sm flex items-center gap-3">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-black flex items-center justify-center">
                 {article.seriesOrder}
               </div>
@@ -265,7 +265,7 @@ export default async function ArticlePage({ params }: Props) {
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-400 border-b border-site-border pb-4 mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-300 border-b border-site-border pb-4 mb-6">
             <div className="flex items-center gap-3">
               <time dateTime={new Date(article.publishedAt).toISOString()}>
                 {format(new Date(article.publishedAt), 'MMMM d, yyyy')}
@@ -284,7 +284,7 @@ export default async function ArticlePage({ params }: Props) {
 
           <figure className="mb-6">
             {article.imageUrl ? (
-              <div className="relative w-full aspect-video rounded-sm overflow-hidden">
+              <div className="relative w-full aspect-video overflow-hidden">
                 <Image
                   src={article.imageUrl}
                   alt={article.imageAlt ?? article.title}
@@ -401,7 +401,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="mt-8 pt-6 border-t border-site-border grid grid-cols-2 gap-4">
               {seriesCtx.prev ? (
                 <Link href={`/article/${seriesCtx.prev.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all">
-                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">← Previous part</span>
+                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-300">← Previous part</span>
                   <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                     {seriesCtx.prev.title}
                   </span>
@@ -409,7 +409,7 @@ export default async function ArticlePage({ params }: Props) {
               ) : <div />}
               {seriesCtx.next ? (
                 <Link href={`/article/${seriesCtx.next.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all text-right">
-                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">Next part →</span>
+                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-300">Next part →</span>
                   <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                     {seriesCtx.next.title}
                   </span>

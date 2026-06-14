@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import { getCategoryLabel } from '@/lib/types';
 
+const BLUR_DATA_URL = 'data:image/gif;base64,R0lGODlhAQABAPAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
+
 interface ArticleSnippet {
   id: string;
   slug: string;
@@ -67,13 +69,15 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
             {articles.map((article) => (
               <Link key={article.id} href={`${basePath}/article/${article.slug}`} className="group flex flex-col">
                 {article.imageUrl ? (
-                  <div className="relative overflow-hidden aspect-video mb-2">
+                  <div className="relative overflow-hidden aspect-video mb-2 bg-gray-200 dark:bg-gray-700">
                     <Image
                       src={article.imageUrl}
                       alt={article.title}
                       fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      placeholder="blur"
+                      blurDataURL={BLUR_DATA_URL}
                     />
                   </div>
                 ) : (
@@ -89,7 +93,7 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
                 <h3 className="font-bold text-base leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
                   {article.title}
                 </h3>
-                <time className="text-xs text-gray-600 mt-auto pt-1">
+                <time className="text-xs text-gray-600 dark:text-gray-300 mt-auto pt-1">
                   {formatDistanceToNow(new Date(article.publishedAt), { addSuffix: true })}
                 </time>
               </Link>
