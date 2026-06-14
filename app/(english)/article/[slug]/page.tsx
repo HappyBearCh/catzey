@@ -20,8 +20,10 @@ import { ArticleStickyHeader } from '@/components/ArticleStickyHeader';
 import { TableOfContents } from '@/components/TableOfContents';
 import { NewsletterCTA } from '@/components/NewsletterCTA';
 import { InlineRelated } from '@/components/InlineRelated';
+import { SpoilerActivator } from '@/components/SpoilerActivator';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
+import type { ReviewData } from '@/lib/types';
 
 export const revalidate = 3600;
 
@@ -281,6 +283,41 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           </div>
           <ViewTracker slug={article.slug} />
+
+          <SpoilerActivator />
+
+          {/* Chapter review scorecard */}
+          {article.reviewData && (() => {
+            const r = article.reviewData as ReviewData;
+            const scores = [
+              { label: 'Story', value: r.story },
+              { label: 'Art', value: r.art },
+              { label: 'Pacing', value: r.pacing },
+              { label: 'Characters', value: r.characters },
+            ].filter((s) => s.value != null);
+            if (scores.length === 0) return null;
+            return (
+              <div className="review-scorecard mb-6">
+                <div className="review-scorecard-header">
+                  <span className="text-xs font-black uppercase tracking-wider">
+                    Chapter Review{r.chapterNumber ? ` — Ch. ${r.chapterNumber}` : ''}
+                  </span>
+                  {r.overall != null && (
+                    <span className="text-2xl font-black">{r.overall}<span className="text-sm font-normal opacity-70">/10</span></span>
+                  )}
+                </div>
+                <div className="review-scorecard-body">
+                  {scores.map((s) => (
+                    <div key={s.label} className="review-score-item">
+                      <div className="review-score-label">{s.label}</div>
+                      <div className="review-score-value">{s.value}</div>
+                    </div>
+                  ))}
+                </div>
+                {r.verdict && <div className="review-score-verdict">&ldquo;{r.verdict}&rdquo;</div>}
+              </div>
+            );
+          })()}
 
           <figure className="mb-6">
             {article.imageUrl ? (

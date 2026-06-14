@@ -1,3 +1,13 @@
+export interface ReviewData {
+  chapterNumber?: string;
+  story?: number;
+  art?: number;
+  pacing?: number;
+  characters?: number;
+  overall?: number;
+  verdict?: string;
+}
+
 export interface Series {
   id: string;
   title: string;
@@ -6,6 +16,10 @@ export interface Series {
   imageUrl: string | null;
   category: string;
   topics: string[];
+  synopsis: string | null;
+  status: string | null;
+  genres: string[];
+  externalUrl: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -32,6 +46,8 @@ export interface Article {
   entities: string[];
   pullQuote: string | null;
   editorNote: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  reviewData: any;
   seriesId: string | null;
   seriesOrder: number | null;
 }

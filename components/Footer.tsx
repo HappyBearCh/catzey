@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-site-dark text-gray-400 mt-12">
       <div className="max-w-8xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           <div>
             <Link href="/" className="block mb-4">
               <Logo />
@@ -62,6 +62,25 @@ export function Footer() {
               <li>
                 <Link href="/trending" className="text-sm hover:text-white transition-colors">Trending</Link>
               </li>
+              <li>
+                <Link href="/calendar" className="text-sm hover:text-white transition-colors">Release Calendar</Link>
+              </li>
+              <li>
+                <Link href="/season/spring-2026" className="text-sm hover:text-white transition-colors">Season Guide</Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="hidden md:block">
+            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">Genres</h3>
+            <ul className="space-y-2">
+              {['isekai', 'shonen', 'romance', 'horror', 'slice-of-life', 'sports', 'mecha', 'seinen'].map((g) => (
+                <li key={g}>
+                  <Link href={`/genre/${g}`} className="text-sm hover:text-white transition-colors capitalize">
+                    {g.replace('-', ' ')}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -17,6 +17,7 @@ export async function PATCH(request: NextRequest, { params }: Params) {
   const { id } = await params;
   const body = await request.json() as {
     title?: string; description?: string; imageUrl?: string; topics?: string[];
+    synopsis?: string; status?: string; genres?: string[]; externalUrl?: string;
   };
   const series = await prisma.series.update({
     where: { id },
@@ -25,6 +26,10 @@ export async function PATCH(request: NextRequest, { params }: Params) {
       ...(body.description !== undefined && { description: body.description }),
       ...(body.imageUrl !== undefined && { imageUrl: body.imageUrl }),
       ...(body.topics !== undefined && { topics: body.topics }),
+      ...(body.synopsis !== undefined && { synopsis: body.synopsis || null }),
+      ...(body.status !== undefined && { status: body.status || null }),
+      ...(body.genres !== undefined && { genres: body.genres }),
+      ...(body.externalUrl !== undefined && { externalUrl: body.externalUrl || null }),
     },
   });
   return NextResponse.json({ id: series.id });

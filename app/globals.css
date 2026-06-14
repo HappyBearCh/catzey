@@ -230,3 +230,150 @@
   height: 0;
   float: left;
 }
+
+/* Spoiler reveal — click to uncover */
+.spoiler {
+  background-color: #222;
+  color: transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 3px;
+  transition: color 0.15s, background-color 0.15s;
+}
+.spoiler.revealed,
+.spoiler:hover {
+  background-color: transparent;
+  color: inherit;
+}
+.dark .spoiler {
+  background-color: #555;
+}
+.dark .spoiler.revealed,
+.dark .spoiler:hover {
+  background-color: transparent;
+}
+
+/* Responsive YouTube / video embed */
+.article-prose .video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  background: #000;
+}
+.article-prose .video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Where to Watch / Read callout box */
+.article-prose .callout-box {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #7c3aed;
+  background-color: #f5f3ff;
+  border-radius: 0 4px 4px 0;
+}
+.dark .article-prose .callout-box {
+  background-color: rgba(124, 58, 237, 0.08);
+}
+.article-prose .callout-box-title {
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7c3aed;
+  margin-bottom: 0.5rem;
+}
+.article-prose .callout-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.article-prose .callout-box ul li {
+  margin: 0;
+  font-size: 0.875rem;
+}
+.article-prose .callout-box ul li a {
+  font-weight: 600;
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+/* Chapter review score card */
+.review-scorecard {
+  margin-bottom: 2rem;
+  border: 1px solid #ddd6fe;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.dark .review-scorecard {
+  border-color: rgba(124, 58, 237, 0.25);
+}
+.review-scorecard-header {
+  background: #7c3aed;
+  color: white;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.review-scorecard-body {
+  padding: 1rem;
+  background: #fafafa;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+.dark .review-scorecard-body {
+  background: rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 640px) {
+  .review-scorecard-body {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.review-score-item {
+  text-align: center;
+  padding: 0.5rem;
+}
+.review-score-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+.dark .review-score-label {
+  color: #9ca3af;
+}
+.review-score-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #7c3aed;
+  line-height: 1;
+}
+.review-score-verdict {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: #374151;
+  font-style: italic;
+  border-top: 1px solid #ede9fe;
+  background: white;
+}
+.dark .review-score-verdict {
+  color: #d1d5db;
+  background: transparent;
+  border-top-color: rgba(124, 58, 237, 0.15);
+}

@@ -1,10 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/lib/types';
 import { WysiwygEditor } from '@/components/admin/WysiwygEditor';
 import { ImageUploader } from './ImageUploader';
-import type { Article } from '@/lib/types';
+import type { Article, ReviewData } from '@/lib/types';
 
 interface Props {
   article: Article & { scheduledAt?: Date | null; published?: boolean };
@@ -12,6 +13,9 @@ interface Props {
 }
 
 export function EditArticleForm({ article, onUpdate }: Props) {
+  const existing = article.reviewData as ReviewData | null | undefined;
+  const [showReview, setShowReview] = useState(!!existing);
+
   return (
     <div className="bg-white rounded-sm shadow-sm p-6">
       <div className="flex items-start justify-between mb-6">
@@ -114,6 +118,70 @@ export function EditArticleForm({ article, onUpdate }: Props) {
             </label>
             <WysiwygEditor name="content" defaultValue={article.content} rows={18} />
           </div>
+        </div>
+
+        {/* Chapter Review Scores */}
+        <div className="border border-gray-200 rounded-sm overflow-hidden">
+          <button
+            type="button"
+            onClick={() => setShowReview((v) => !v)}
+            className="w-full flex items-center justify-between px-5 py-3 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
+          >
+            <span className="text-xs font-black uppercase tracking-wider text-gray-600">
+              Chapter Review Scores {existing ? '✓' : '(optional)'}
+            </span>
+            <span className="text-gray-400 text-xs">{showReview ? '▲ Hide' : '▼ Add'}</span>
+          </button>
+          {showReview && (
+            <div className="p-5 space-y-4">
+              <p className="text-xs text-gray-400">Fill in scores to display a review scorecard on the article. Leave blank to hide.</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {(['story', 'art', 'pacing', 'characters'] as const).map((field) => (
+                  <div key={field}>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1 capitalize">
+                      {field} <span className="normal-case font-normal text-gray-400">(1–10)</span>
+                    </label>
+                    <input
+                      type="number"
+                      name={`review_${field}`}
+                      min={0}
+                      max={10}
+                      step={0.5}
+                      defaultValue={existing?.[field] ?? ''}
+                      placeholder="—"
+                      className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary text-center"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">
+                    Chapter Number
+                  </label>
+                  <input
+                    type="text"
+                    name="review_chapter"
+                    defaultValue={existing?.chapterNumber ?? ''}
+                    placeholder="e.g. 123"
+                    className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">
+                  Verdict <span className="normal-case font-normal text-gray-400">(short summary)</span>
+                </label>
+                <textarea
+                  name="review_verdict"
+                  defaultValue={existing?.verdict ?? ''}
+                  rows={2}
+                  placeholder="A one-sentence verdict on this chapter…"
+                  className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary resize-y"
+                />
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="flex items-center gap-3 pt-2">

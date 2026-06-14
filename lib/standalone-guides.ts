@@ -146,6 +146,123 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
 <p>All titles mentioned are available through <strong>Manga Plus</strong> (free, official, Shueisha titles), the <strong>Viz Manga app</strong> ($2.99/month, extensive library), <strong>Crunchyroll Manga</strong>, and <strong>Amazon Kindle</strong> (individual volume purchases). Physical volumes are available from most major bookshops and Amazon. Reading legally supports the creators who make the medium possible.</p>
     `,
   },
+  {
+    slug: 'new-to-one-piece',
+    title: "New to One Piece? Your Complete Starting Guide",
+    subtitle: 'How to start one of the longest — and most rewarding — stories in manga history',
+    readingTime: 5,
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1519638399535-1b036603ac77?w=1200&q=80&fit=crop&auto=format',
+      alt: 'Open ocean at golden hour',
+      credit: 'Jeremy Perkins',
+      creditUrl: 'https://unsplash.com/@jeremyperkins',
+      license: 'Unsplash License',
+    },
+    body: `
+<p>One Piece has been running since 1997 and currently sits at over 1,100 chapters — which makes it one of the most intimidating starting points in manga. But it is also, by total copies sold (more than 530 million), the best-selling manga series in history, and its fans are among the most passionate in any medium. This guide tells you how to approach it, what to expect, and what not to worry about.</p>
+
+<h2>What Is One Piece About?</h2>
+<p>Monkey D. Luffy wants to become King of the Pirates — the person who finds the legendary treasure "One Piece" and claims freedom beyond any authority. After eating a Devil Fruit that turned his body into rubber, Luffy sets out to sea and builds a crew: a swordsman, a navigator, a sniper, a cook, a doctor, an archaeologist, a shipwright, a musician, and a helmsman. Together, the Straw Hat Pirates sail the Grand Line through increasingly dangerous and emotionally complex arcs.</p>
+<p>The series is known for three things above all: its world-building (arguably the richest in manga history), its long-form payoffs (plot threads planted 500 chapters earlier that resolve in devastating fashion), and its emotional peaks — the moments where the story earns its sentiment through hundreds of pages of setup. People who love One Piece often describe it as nothing quite like it they have ever read.</p>
+
+<h2>Manga or Anime?</h2>
+<p>Both are good starting points, but they have different trade-offs. <strong>The manga is faster</strong> — Toei Animation's adaptation has pacing issues, particularly before the mid-series timeskip. The early arcs in the anime contain significant filler and slower pacing. The manga reads more efficiently and reaches the best arcs sooner.</p>
+<p><strong>The anime improves substantially after the timeskip</strong>, particularly from the Dressrosa arc onward, and the Wano arc is considered one of the most visually accomplished anime runs in years. Many fans read the manga and watch specific anime arcs for the music, voice acting, and visual spectacle.</p>
+<p>Recommendation: start with the manga on Manga Plus or Viz. Switch to the anime for arcs you want to experience with full visual production after you have read them.</p>
+
+<h2>Can I Skip the Early Arcs?</h2>
+<p>No. This is the most common mistake new readers make. The early arcs — East Blue, Alabasta, Skypiea — seem slow or simple compared to later material. They are not. One Piece is a story that <em>builds</em>. Every character introduced, every villain's motivation, every seemingly throwaway detail may return 400 chapters later as a linchpin of the plot. Readers who skip ahead consistently report feeling lost and returning to read what they missed. Trust the early material. It earns its place.</p>
+
+<h2>What Is the Best Arc to Hook Someone?</h2>
+<p>If you are 20 chapters in and still unsure, keep going to the end of the Arlong Park arc (around chapter 90). That arc contains one of the most celebrated moments in the series and is the point at which most people's uncertainty turns into commitment. If Arlong Park does not hook you, One Piece may not be for you — and that is fine. Not every story works for every reader. But if it does hook you, you have 1,000+ chapters of one of the most elaborately constructed long-form stories in any medium waiting ahead.</p>
+
+<h2>Where to Read and Watch</h2>
+<ul>
+  <li><strong>Manga Plus</strong> (mangaplus.shueisha.co.jp) — Free, official, legal. First three and latest chapters available for all volumes. The best free starting point.</li>
+  <li><strong>Viz Manga app</strong> — $2.99/month, complete archive including every chapter. Recommended for the full reading experience.</li>
+  <li><strong>Crunchyroll</strong> — Complete anime archive. Use this for the anime arcs.</li>
+  <li><strong>Physical volumes</strong> — Available from most bookshops. The Viz omnibus format (three-in-one volumes) is excellent value.</li>
+</ul>
+    `,
+  },
+  {
+    slug: 'new-to-jujutsu-kaisen',
+    title: 'New to Jujutsu Kaisen? Everything You Need to Know',
+    subtitle: 'The dark shōnen that changed what action manga could look like',
+    readingTime: 4,
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80&fit=crop&auto=format',
+      alt: 'Night city lights through rain',
+      credit: 'Killian Pham',
+      creditUrl: 'https://unsplash.com/@killianpham',
+      license: 'Unsplash License',
+    },
+    body: `
+<p>Jujutsu Kaisen arrived in Weekly Shōnen Jump in 2018 and almost immediately became one of the fastest-growing manga series in history. By 2021, it had outsold One Piece in Japan for that year — a feat almost no series has achieved. This guide explains what the series is, why it matters, and how to start.</p>
+
+<h2>What Is Jujutsu Kaisen About?</h2>
+<p>Yuji Itadori is a physically extraordinary high schooler who, in a single bad night, swallows a cursed object — a finger belonging to the most powerful and evil sorcerer in history, Ryomen Sukuna. Rather than being killed, Yuji becomes Sukuna's vessel, able to contain the curse. Tokyo Jujutsu High recruits him on one condition: he must swallow all of Sukuna's 20 fingers before being executed. What follows is a dark action story about sorcerers who exorcise monsters made of accumulated human malice.</p>
+<p>The series is written and drawn by Gege Akutami, who is known for subverting shōnen conventions: characters die permanently, protagonists do not always win, and the story's emotional register is closer to tragedy than triumph. This gives it an edge that distinguishes it from peers.</p>
+
+<h2>Manga or Anime?</h2>
+<p>The anime adaptation by MAPPA is excellent — arguably one of the best-produced shōnen anime of the decade. The fight choreography and visual design are exceptional. Either entry point works well. The manga moves faster and has the complete story; the anime offers spectacular production values for the arcs it covers.</p>
+<p>Recommendation: the anime is an excellent starting point for the first two seasons. Continue with the manga from where the anime leaves off, as the later manga arcs have not yet been animated.</p>
+
+<h2>What Makes It Different from Other Shōnen?</h2>
+<p>Three things: the curse system is based on negative human emotions rather than generic magic, which gives the worldbuilding a psychological coherence. The power hierarchy is clear and consistent, meaning fight outcomes feel earned. And the series is genuinely willing to harm its characters — not just temporarily, but permanently. This raises the stakes in a way that most shōnen intentionally avoid. It makes every major battle feel consequential rather than predetermined.</p>
+
+<h2>Where to Start</h2>
+<ul>
+  <li><strong>Manga Plus</strong> — Free, official, includes first and latest chapters.</li>
+  <li><strong>Viz Manga</strong> — Complete archive, $2.99/month. Recommended.</li>
+  <li><strong>Crunchyroll</strong> — Both seasons of the anime are available. Season 2 covers the Shibuya Incident, widely considered one of the strongest arcs in recent shōnen manga.</li>
+</ul>
+    `,
+  },
+  {
+    slug: 'your-first-anime',
+    title: 'Your First Anime: Where to Start in 2025',
+    subtitle: 'A practical guide to entering one of the world\'s most popular storytelling mediums',
+    readingTime: 6,
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&fit=crop&auto=format',
+      alt: 'Neon lights at night',
+      credit: 'Alexandre Debiève',
+      creditUrl: 'https://unsplash.com/@alexkixa',
+      license: 'Unsplash License',
+    },
+    body: `
+<p>Anime has never been more accessible. Major streaming platforms carry thousands of series, many with official English dubs. Studios like MAPPA, Ufotable, and WIT are producing animation that competes visually with any medium in the world. But "where do I start?" remains the question that stops most newcomers — this guide answers it.</p>
+
+<h2>What Is Anime?</h2>
+<p>Anime is Japanese animation — but in practice, "anime" refers to a distinct storytelling tradition with its own visual language, genre conventions, and relationship to source material (most anime adapt manga, light novels, or video games). The medium spans every genre: action, romance, comedy, horror, sports, slice-of-life, science fiction, and fantasy. Its longest-running form is the seasonal television series (typically 12 or 24 episodes), but it also includes films and OVAs (original video animations).</p>
+
+<h2>The Best First Anime by What You Already Like</h2>
+<p>The fastest path to finding anime you love is to map your existing tastes onto the medium:</p>
+<ul>
+  <li><strong>If you liked Avengers or superhero action:</strong> <em>My Hero Academia</em> — a superhero school story with excellent character dynamics and escalating stakes. Available on Crunchyroll. 7 seasons.</li>
+  <li><strong>If you liked Breaking Bad or morally complex drama:</strong> <em>Death Note</em> — a high school student finds a notebook that kills anyone whose name he writes in it. A 37-episode cat-and-mouse psychological thriller. Available on Netflix and Crunchyroll.</li>
+  <li><strong>If you liked Lord of the Rings or epic fantasy:</strong> <em>Frieren: Beyond Journey's End</em> — an elven mage reflects on a completed hero's journey decades later. Emotionally sophisticated, visually beautiful. Available on Crunchyroll.</li>
+  <li><strong>If you liked The Office or relaxed comedy:</strong> <em>Spy × Family</em> — a spy assembles a fake family for a mission, not knowing his adopted daughter is a telepath and his fake wife is an assassin. Available on Crunchyroll.</li>
+  <li><strong>If you liked Game of Thrones or political intrigue:</strong> <em>Vinland Saga</em> — a Viking revenge story that becomes a meditation on violence and what it means to live without enemies. Available on Netflix and Prime Video.</li>
+  <li><strong>If you want pure spectacle and don't mind some emotional devastation:</strong> <em>Demon Slayer</em> — a boy trains to become a demon hunter to cure his sister. The animation is genuinely among the most technically accomplished ever produced for television. Available on Crunchyroll.</li>
+</ul>
+
+<h2>Subtitles or Dub?</h2>
+<p>Both are legitimate. Subtitles give you the original voice performances, which for many series are exceptional; dubs let you watch rather than read. Modern dubs have improved dramatically — Demon Slayer, My Hero Academia, and Attack on Titan all have strong English dubs. Start with whichever feels natural to you. Many people switch between them depending on the series or whether they are doing something else while watching.</p>
+
+<h2>Where to Watch</h2>
+<ul>
+  <li><strong>Crunchyroll</strong> — The largest anime streaming platform. Simulcasts (same-day as Japan) for most major series. Essential for following current seasons.</li>
+  <li><strong>Netflix</strong> — Strong catalogue, original anime productions, and exclusive licenses (Demon Slayer, Vinland Saga).</li>
+  <li><strong>Prime Video</strong> — Includes Vinland Saga, some Studio Ghibli films, and a growing catalogue.</li>
+  <li><strong>Funimation</strong> — Now merged with Crunchyroll; dub-focused library accessible via Crunchyroll.</li>
+</ul>
+
+<h2>How Long Should You Give a Series?</h2>
+<p>A standard anime season is 12 episodes of 22 minutes each — roughly 4 hours total. Give any series at least three episodes before deciding whether it works for you. Some series are slow to start (Vinland Saga's first episode is deliberately quiet); others are immediate. If you have committed three episodes and still feel nothing, try a different series from the list above — not every story works for every person, and anime is broad enough to have something for almost anyone.</p>
+    `,
+  },
 ];
 
 export function getStandaloneGuide(slug: string): StandaloneGuide | null {

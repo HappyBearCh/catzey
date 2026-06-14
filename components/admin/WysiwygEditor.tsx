@@ -91,6 +91,32 @@ export function WysiwygEditor({ name, defaultValue, rows = 18 }: Props) {
     }
   }
 
+  function insertSpoiler() {
+    const { state } = editor!;
+    const { empty, from, to } = state.selection;
+    if (empty) {
+      editor!.chain().focus().insertContent('<span class="spoiler">spoiler text here</span> ').run();
+    } else {
+      const text = state.doc.textBetween(from, to, ' ');
+      editor!.chain().focus().deleteSelection().insertContent(`<span class="spoiler">${text}</span>`).run();
+    }
+  }
+
+  function insertVideo() {
+    const input = window.prompt('Enter YouTube URL:', '');
+    if (!input) return;
+    const match = input.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    const videoId = match?.[1];
+    if (!videoId) { alert('Could not parse YouTube URL. Use a standard youtube.com/watch?v= or youtu.be/ link.'); return; }
+    const html = `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen loading="lazy" title="YouTube video"></iframe></div>`;
+    editor!.chain().focus().insertContent(html).run();
+  }
+
+  function insertCallout() {
+    const html = `<div class="callout-box"><p class="callout-box-title">📺 Where to Watch / Read</p><ul><li><a href="https://mangaplus.shueisha.co.jp" target="_blank" rel="noopener">Manga Plus (Free)</a></li><li><a href="https://www.viz.com/shonenjump" target="_blank" rel="noopener">Viz Manga ($2.99/mo)</a></li><li><a href="https://www.crunchyroll.com" target="_blank" rel="noopener">Crunchyroll</a></li></ul></div>`;
+    editor!.chain().focus().insertContent(html).run();
+  }
+
   const minHeight = `${rows * 1.6}rem`;
 
   return (
@@ -191,6 +217,18 @@ export function WysiwygEditor({ name, defaultValue, rows = 18 }: Props) {
           title="Redo"
         >
           ↪
+        </ToolbarBtn>
+
+        <span className="w-px h-5 bg-gray-200 mx-1" />
+
+        <ToolbarBtn onClick={insertSpoiler} title="Spoiler tag (click to reveal)">
+          🙈
+        </ToolbarBtn>
+        <ToolbarBtn onClick={insertVideo} title="Embed YouTube video">
+          ▶
+        </ToolbarBtn>
+        <ToolbarBtn onClick={insertCallout} title="Insert Where to Watch callout">
+          📺
         </ToolbarBtn>
       </div>
 

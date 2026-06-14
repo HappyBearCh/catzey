@@ -20,7 +20,11 @@ async function getSeries(id: string) {
     },
   });
   if (!series) return null;
-  return { ...series, topics: series.topics as string[] };
+  return {
+    ...series,
+    topics: series.topics as string[],
+    genres: (series.genres as string[]) ?? [],
+  };
 }
 
 export default async function SeriesDetailPage({ params }: Props) {

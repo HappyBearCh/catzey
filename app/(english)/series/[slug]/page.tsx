@@ -27,7 +27,7 @@ async function getSeries(slug: string) {
     },
   });
   if (!series) return null;
-  return { ...series, topics: series.topics as string[] };
+  return { ...series, topics: series.topics as string[], genres: (series.genres as string[]) ?? [] };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -98,8 +98,39 @@ export default async function SeriesPage({ params }: Props) {
           <span className="text-2xs text-gray-500">{publishedParts.length} of {totalParts} parts published</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-black leading-tight mb-3">{series.title}</h1>
+        {/* Status + genres */}
+        <div className="flex flex-wrap items-center gap-2 mb-3">
+          {series.status && (
+            <span className={`text-2xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+              series.status === 'ongoing' ? 'bg-green-100 text-green-700' :
+              series.status === 'complete' ? 'bg-blue-100 text-blue-700' :
+              series.status === 'hiatus' ? 'bg-amber-100 text-amber-700' :
+              'bg-gray-100 text-gray-600'
+            }`}>
+              {series.status.charAt(0).toUpperCase() + series.status.slice(1)}
+            </span>
+          )}
+          {(series.genres as string[]).map((g: string) => (
+            <span key={g} className="text-2xs px-2 py-0.5 bg-site-light dark:bg-gray-800 text-primary border border-primary/30 rounded-sm">
+              {g}
+            </span>
+          ))}
+          {series.externalUrl && (
+            <a
+              href={series.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xs font-semibold text-primary hover:underline"
+            >
+              Official Site ↗
+            </a>
+          )}
+        </div>
+        {series.synopsis && (
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mb-2">{series.synopsis}</p>
+        )}
         {series.description && (
-          <p className="text-gray-600 text-lg leading-relaxed max-w-2xl">{series.description}</p>
+          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-2xl">{series.description}</p>
         )}
         {/* Progress bar */}
         <div className="mt-4 h-1.5 bg-gray-100 rounded-full overflow-hidden max-w-xs">

@@ -42,6 +42,7 @@ model Article {
   entities    String[]  @default([])
   pullQuote   String?
   editorNote  String?
+  reviewData  Json?
   seriesId    String?
   seriesOrder Int?
   createdAt   DateTime  @default(now())
@@ -62,6 +63,10 @@ model Series {
   imageUrl    String?
   category    String
   topics      Json      @default("[]")
+  synopsis    String?
+  status      String?
+  genres      String[]  @default([])
+  externalUrl String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   articles    Article[]

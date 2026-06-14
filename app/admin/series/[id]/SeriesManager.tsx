@@ -17,6 +17,10 @@ interface SeriesData {
   title: string;
   slug: string;
   description: string | null;
+  synopsis: string | null;
+  status: string | null;
+  genres: string[];
+  externalUrl: string | null;
   topics: string[];
   articles: ArticleRow[];
 }
@@ -27,12 +31,32 @@ export function SeriesManager({ series }: { series: SeriesData }) {
   const [topicsText, setTopicsText] = useState(series.topics.join('\n'));
   const [editingTopics, setEditingTopics] = useState(series.topics.length === 0);
   const [savingTopics, setSavingTopics] = useState(false);
+  const [synopsis, setSynopsis] = useState(series.synopsis ?? '');
+  const [status, setStatus] = useState(series.status ?? '');
+  const [genresText, setGenresText] = useState((series.genres ?? []).join(', '));
+  const [externalUrl, setExternalUrl] = useState(series.externalUrl ?? '');
+  const [savingMeta, setSavingMeta] = useState(false);
   const [generating, setGenerating] = useState<Record<number, boolean>>({});
   const [genErrors, setGenErrors] = useState<Record<number, string>>({});
 
   const articleByOrder = Object.fromEntries(
     series.articles.map((a) => [a.seriesOrder, a]),
   );
+
+  async function saveMeta() {
+    setSavingMeta(true);
+    const genres = genresText.split(',').map((g) => g.trim()).filter(Boolean);
+    try {
+      await fetch(`/api/admin/series/${series.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ synopsis: synopsis.trim(), status: status || null, genres, externalUrl: externalUrl.trim() }),
+      });
+      router.refresh();
+    } finally {
+      setSavingMeta(false);
+    }
+  }
 
   async function saveTopics() {
     setSavingTopics(true);
@@ -81,6 +105,69 @@ export function SeriesManager({ series }: { series: SeriesData }) {
 
   return (
     <div className="space-y-5">
+      {/* Series metadata */}
+      <div className="bg-white rounded-sm shadow-sm">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100">
+          <span className="w-2 h-2 rounded-full bg-primary" />
+          <h2 className="text-sm font-black uppercase tracking-wider">Series Info</h2>
+        </div>
+        <div className="p-4 space-y-4">
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Synopsis</label>
+            <textarea
+              value={synopsis}
+              onChange={(e) => setSynopsis(e.target.value)}
+              rows={3}
+              placeholder="Brief description of the manga/anime series for the public page…"
+              className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary resize-y"
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Status</label>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary bg-white"
+              >
+                <option value="">— Not set —</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="complete">Complete</option>
+                <option value="hiatus">Hiatus</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Genres <span className="normal-case font-normal text-gray-400">(comma-separated)</span></label>
+              <input
+                type="text"
+                value={genresText}
+                onChange={(e) => setGenresText(e.target.value)}
+                placeholder="Action, Fantasy, Shōnen"
+                className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">External URL</label>
+              <input
+                type="url"
+                value={externalUrl}
+                onChange={(e) => setExternalUrl(e.target.value)}
+                placeholder="https://..."
+                className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary font-mono"
+              />
+            </div>
+          </div>
+          <button
+            onClick={saveMeta}
+            disabled={savingMeta}
+            className="bg-primary text-white font-bold text-xs px-4 py-2 rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            {savingMeta ? 'Saving…' : 'Save Info'}
+          </button>
+        </div>
+      </div>
+
       {/* Topics editor */}
       <div className="bg-white rounded-sm shadow-sm">
         <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100">

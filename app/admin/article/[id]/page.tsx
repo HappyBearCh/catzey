@@ -16,6 +16,16 @@ export default async function EditArticlePage({ params }: Props) {
 
   async function handleUpdate(formData: FormData) {
     'use server';
+    const story = Number(formData.get('review_story'));
+    const art = Number(formData.get('review_art'));
+    const pacing = Number(formData.get('review_pacing'));
+    const characters = Number(formData.get('review_characters'));
+    const chapterNumber = (formData.get('review_chapter') as string || '').trim();
+    const verdict = (formData.get('review_verdict') as string || '').trim();
+    const hasReview = story > 0 || art > 0 || pacing > 0 || characters > 0;
+    const overall = hasReview
+      ? Math.round(((story + art + pacing + characters) / 4) * 10) / 10
+      : 0;
     await updateArticle(id, {
       title: formData.get('title') as string,
       excerpt: formData.get('excerpt') as string,
@@ -24,6 +34,9 @@ export default async function EditArticlePage({ params }: Props) {
       slug: formData.get('slug') as string,
       imageUrl: formData.get('imageUrl') as string,
       imageCredit: (formData.get('imageCredit') as string) || undefined,
+      reviewData: hasReview
+        ? { chapterNumber, story, art, pacing, characters, overall, verdict }
+        : null,
     });
     redirect('/admin');
   }

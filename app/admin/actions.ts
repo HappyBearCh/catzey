@@ -195,6 +195,8 @@ export async function updateArticle(
     slug: string;
     imageUrl: string;
     imageCredit?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    reviewData?: any;
   },
 ) {
   const validCategory = CATEGORIES.find((c) => c.slug === data.category)?.slug ?? 'manga';
@@ -217,6 +219,7 @@ export async function updateArticle(
       slug,
       imageUrl: data.imageUrl || null,
       imageCredit: data.imageCredit || null,
+      ...(data.reviewData !== undefined && { reviewData: data.reviewData }),
     },
   });
   revalidatePath('/admin');
