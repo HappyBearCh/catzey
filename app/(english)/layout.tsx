@@ -7,9 +7,6 @@ export const metadata: Metadata = {
   alternates: {
     types: { 'application/rss+xml': '/feed.xml' },
   },
-  other: {
-    'theme-color': '#7c3aed',
-  },
 };
 
 export default function EnglishLayout({ children }: { children: React.ReactNode }) {

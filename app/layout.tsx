@@ -1,7 +1,14 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Manga%20%26%20Anime%20News';
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#7c3aed' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f0b1e' },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com'),

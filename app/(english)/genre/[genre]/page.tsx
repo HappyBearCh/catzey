@@ -23,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${info.label} Manga & Anime — News, Reviews & Guides`,
     description: info.description,
-    alternates: { canonical: `${BASE}/genre/${genre}` },
+    alternates: {
+      canonical: `${BASE}/genre/${genre}`,
+      types: { 'application/rss+xml': `${BASE}/genre/${genre}/feed.xml` },
+    },
     openGraph: {
       title: `${info.label} | Catzye`,
       description: info.description,
@@ -75,9 +78,9 @@ export default async function GenrePage({ params }: Props) {
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary">Home</Link>
-        <span>›</span>
+        <span aria-hidden="true">›</span>
         <span>Genre</span>
-        <span>›</span>
+        <span aria-hidden="true">›</span>
         <span className="text-gray-800 dark:text-gray-200">{info.label}</span>
       </nav>
 

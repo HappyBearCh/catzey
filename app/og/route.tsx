@@ -114,6 +114,14 @@ export async function GET(request: NextRequest) {
         </div>
       </div>
     ),
-    { width: 1200, height: 630 },
+    {
+      width: 1200,
+      height: 630,
+      headers: {
+        // OG URLs are derived from title/category/img, so a given URL is
+        // immutable — cache aggressively at the edge and in social scrapers.
+        'Cache-Control': 'public, immutable, no-transform, max-age=31536000',
+      },
+    },
   );
 }

@@ -76,9 +76,9 @@ export default async function SeasonPage({ params }: Props) {
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary">Home</Link>
-        <span>›</span>
+        <span aria-hidden="true">›</span>
         <Link href="/season/spring-2026" className="hover:text-primary">Season Guide</Link>
-        <span>›</span>
+        <span aria-hidden="true">›</span>
         <span className="text-gray-800 dark:text-gray-200">{data.label}</span>
       </nav>
 

@@ -43,7 +43,15 @@ const organizationLd = {
   masthead: `${BASE}/about`,
   publishingPrinciples: `${BASE}/editorial-policy`,
   correctionsPolicy: `${BASE}/editorial-policy`,
-  sameAs: [] as string[],
+  // Populate these env vars with your public profile URLs to strengthen
+  // entity / Knowledge Graph signals (e.g. https://x.com/catzye).
+  sameAs: [
+    process.env.NEXT_PUBLIC_TWITTER_URL,
+    process.env.NEXT_PUBLIC_BLUESKY_URL,
+    process.env.NEXT_PUBLIC_REDDIT_URL,
+    process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+    process.env.NEXT_PUBLIC_YOUTUBE_URL,
+  ].filter(Boolean) as string[],
 };
 
 export const revalidate = 1800; // Revalidate every 30 minutes
