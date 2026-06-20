@@ -20,10 +20,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const label = decodeTag(tag);
   const canonicalUrl = `${BASE}/tag/${tag}`;
   const ogImage = `/og?title=${encodeURIComponent('#' + label + ' — Manga & Anime News')}`;
+  // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
+  // pages eating crawl budget, but stay followable so link equity flows.
+  let count = 0;
+  try {
+    count = await prisma.article.count({ where: { published: true, tags: { has: label } } });
+  } catch {}
   return {
     title: `#${label} — Manga & Anime News`,
     description: `Browse all manga and anime articles tagged "${label}" on Catzye.`,
     alternates: { canonical: canonicalUrl },
+    ...(count < 2 && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `#${label} | Catzye`,
       description: `Browse all manga and anime articles tagged "${label}" on Catzye.`,

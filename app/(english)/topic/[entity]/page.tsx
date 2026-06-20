@@ -21,10 +21,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const name = decodeEntity(entity);
   const canonicalUrl = `${BASE}/topic/${entity}`;
   const ogImage = `/og?title=${encodeURIComponent(name + ' — Manga & Anime News')}`;
+  // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
+  // pages eating crawl budget, but stay followable so link equity flows.
+  let count = 0;
+  try {
+    count = await prisma.article.count({ where: { published: true, entities: { has: name } } });
+  } catch {}
   return {
     title: `${name} — Manga & Anime News`,
     description: `All manga and anime news and updates about ${name} on Catzye.`,
     alternates: { canonical: canonicalUrl },
+    ...(count < 2 && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${name} | Catzye`,
       description: `All manga and anime news and updates about ${name}.`,

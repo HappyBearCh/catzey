@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
 const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Manga%20%26%20Anime%20News';
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen flex flex-col bg-white transition-colors">
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
