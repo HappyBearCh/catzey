@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import type { Article } from '@/lib/types';
@@ -58,6 +59,19 @@ export default async function TagPage({ params }: Props) {
     take: 24,
   }) as Article[];
 
+  // Related tags: most common co-occurring tags across the result set.
+  const tagCounts = new Map<string, number>();
+  for (const a of articles) {
+    for (const t of a.tags) {
+      if (t.toLowerCase() === label.toLowerCase()) continue;
+      tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
+    }
+  }
+  const relatedTags = [...tagCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([t]) => t);
+
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -94,6 +108,23 @@ export default async function TagPage({ params }: Props) {
           {articles.map((article) => (
             <ArticleCard key={article.id} article={article} size="medium" />
           ))}
+        </div>
+      )}
+
+      {relatedTags.length > 0 && (
+        <div className="mt-12 pt-6 border-t border-site-border">
+          <h2 className="text-sm font-black uppercase tracking-wider mb-3">Related Tags</h2>
+          <div className="flex flex-wrap gap-2">
+            {relatedTags.map((t) => (
+              <Link
+                key={t}
+                href={`/tag/${encodeURIComponent(t.replace(/\s+/g, '-'))}`}
+                className="text-xs px-2.5 py-1 bg-site-light dark:bg-gray-800 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-colors rounded-sm"
+              >
+                #{t}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>

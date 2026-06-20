@@ -59,6 +59,19 @@ export default async function TopicPage({ params }: Props) {
     take: 24,
   }) as Article[];
 
+  // Related topics: most common co-occurring entities across the result set.
+  const entityCounts = new Map<string, number>();
+  for (const a of articles) {
+    for (const e of a.entities) {
+      if (e.toLowerCase() === name.toLowerCase()) continue;
+      entityCounts.set(e, (entityCounts.get(e) ?? 0) + 1);
+    }
+  }
+  const relatedTopics = [...entityCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([e]) => e);
+
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -106,6 +119,23 @@ export default async function TopicPage({ params }: Props) {
           {articles.map((article) => (
             <ArticleCard key={article.id} article={article} size="medium" />
           ))}
+        </div>
+      )}
+
+      {relatedTopics.length > 0 && (
+        <div className="mt-12 pt-6 border-t border-site-border">
+          <h2 className="text-sm font-black uppercase tracking-wider mb-3">Related Topics</h2>
+          <div className="flex flex-wrap gap-2">
+            {relatedTopics.map((e) => (
+              <Link
+                key={e}
+                href={`/topic/${encodeURIComponent(e)}`}
+                className="text-xs px-2.5 py-1 bg-blue-50 dark:bg-gray-800 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-900 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors rounded-sm"
+              >
+                {e}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>

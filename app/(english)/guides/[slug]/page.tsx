@@ -77,6 +77,8 @@ export default async function StandaloneGuidePage({ params }: Props) {
     description: guide.subtitle,
     image: [guide.heroImage.src],
     url: `${BASE}/guides/${slug}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/guides/${slug}` },
+    author: { '@type': 'Organization', name: 'Catzye Editorial', url: BASE },
     publisher: {
       '@type': 'Organization',
       name: 'Catzye',
@@ -86,18 +88,29 @@ export default async function StandaloneGuidePage({ params }: Props) {
     inLanguage: 'en',
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE}/guides` },
+      { '@type': 'ListItem', position: 3, name: guide.title, item: `${BASE}/guides/${slug}` },
+    ],
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <nav className="text-xs text-site-gray mb-6 flex items-center gap-2">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span>/</span>
+        <span aria-hidden="true">/</span>
         <Link href="/guides" className="hover:text-primary transition-colors">Guides</Link>
-        <span>/</span>
+        <span aria-hidden="true">/</span>
         <span className="text-gray-900 truncate max-w-xs">{guide.title}</span>
       </nav>
 
