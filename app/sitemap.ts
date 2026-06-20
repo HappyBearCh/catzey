@@ -3,6 +3,8 @@ import { prisma } from '@/lib/db';
 import { CATEGORIES } from '@/lib/types';
 import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
+import { getAllGenres } from '@/lib/genre-info';
+import { getAllSeasons } from '@/lib/seasons';
 import { CATEGORY_PAGE_SIZE } from '@/components/CategoryArchive';
 
 export const revalidate = 3600;
@@ -57,6 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: newestUpdate, changeFrequency: 'hourly' as const, priority: 1 },
     { url: `${BASE}/trending`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.8 },
+    { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${BASE}/series`, changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${BASE}/about`, changeFrequency: 'yearly' as const, priority: 0.4 },
@@ -138,5 +141,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
-  return [...staticPages, ...categoryPages, ...guidePages, ...seriesPages, ...tagPages, ...topicPages, ...articlePages];
+  const genrePages: MetadataRoute.Sitemap = getAllGenres().map((g) => ({
+    url: `${BASE}/genre/${g.slug}`,
+    lastModified: newestUpdate,
+    changeFrequency: 'daily' as const,
+    priority: 0.6,
+  }));
+
+  const seasonPages: MetadataRoute.Sitemap = getAllSeasons().map((s) => ({
+    url: `${BASE}/season/${s.slug}`,
+    changeFrequency: s.status === 'current' ? ('weekly' as const) : ('monthly' as const),
+    priority: s.status === 'current' ? 0.7 : 0.5,
+  }));
+
+  return [...staticPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...tagPages, ...topicPages, ...articlePages];
 }

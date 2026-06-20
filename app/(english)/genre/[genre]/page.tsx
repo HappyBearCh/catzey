@@ -57,9 +57,20 @@ export default async function GenrePage({ params }: Props) {
     numberOfItems: articles.length,
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Genres', item: `${BASE}/genre/${genre}` },
+      { '@type': 'ListItem', position: 3, name: info.label, item: `${BASE}/genre/${genre}` },
+    ],
+  };
+
   return (
     <div className="max-w-8xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-wider">

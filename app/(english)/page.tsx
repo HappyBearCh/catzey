@@ -8,9 +8,18 @@ import { MostRead } from '@/components/MostRead';
 import { CATEGORIES } from '@/lib/types';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import type { Article } from '@/lib/types';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
+
+export const metadata: Metadata = {
+  title: 'Catzye — Manga & Anime News, Reviews & Industry Updates',
+  description:
+    'Breaking manga, anime, and manhwa news with chapter reviews, release calendars, season guides, and in-depth coverage — updated hourly.',
+  alternates: { canonical: '/' },
+  openGraph: { url: BASE },
+};
 
 const websiteLd = {
   '@context': 'https://schema.org',
@@ -75,6 +84,18 @@ export default async function HomePage() {
     );
   }
 
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Latest Manga & Anime News',
+    itemListElement: articles.slice(0, 10).map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${BASE}/article/${a.slug}`,
+      name: a.title,
+    })),
+  };
+
   const [featured, ...rest] = articles;
   const secondary = rest.slice(0, 3);
   const gridArticles = rest.slice(3, 9);
@@ -88,6 +109,7 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       {/* Breaking news ticker */}
       <BreakingTicker articles={articles.slice(0, 5)} />
       <TrendingStrip />

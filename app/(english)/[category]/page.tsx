@@ -61,5 +61,19 @@ export default async function CategoryPage({ params, searchParams }: Props) {
     permanentRedirect(categoryPageHref(category, legacyPage, sort));
   }
 
-  return <CategoryArchive category={category} page={1} sort={sort} />;
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: `${validCategory.label} News`, item: `${BASE}/${category}` },
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <CategoryArchive category={category} page={1} sort={sort} />
+    </>
+  );
 }

@@ -47,8 +47,32 @@ export default async function SeasonPage({ params }: Props) {
   const upcoming = data.shows.filter((s) => s.status === 'upcoming');
   const finished = data.shows.filter((s) => s.status === 'finished');
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Season Guide', item: `${BASE}/season/spring-2026` },
+      { '@type': 'ListItem', position: 3, name: data.label, item: `${BASE}/season/${season}` },
+    ],
+  };
+
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${data.label} Anime`,
+    numberOfItems: data.shows.length,
+    itemListElement: data.shows.map((show, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: show.title,
+    })),
+  };
+
   return (
     <div className="max-w-8xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary">Home</Link>

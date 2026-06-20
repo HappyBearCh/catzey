@@ -14,6 +14,7 @@ export function CategoryNav() {
           <li>
             <Link
               href="/"
+              aria-current={pathname === '/' ? 'page' : undefined}
               className={`block px-3 py-3 text-xs font-semibold uppercase tracking-wider transition-colors ${
                 pathname === '/'
                   ? 'text-white border-b-2 border-primary'
@@ -30,6 +31,7 @@ export function CategoryNav() {
               <li key={slug}>
                 <Link
                   href={href}
+                  aria-current={active ? 'page' : undefined}
                   className={`block px-3 py-3 text-xs font-semibold uppercase tracking-wider transition-colors ${
                     active
                       ? 'text-white border-b-2 border-primary'

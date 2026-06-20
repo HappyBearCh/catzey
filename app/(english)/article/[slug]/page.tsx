@@ -38,6 +38,22 @@ function readingTime(content: string): number {
   return Math.max(1, Math.ceil(words / 200));
 }
 
+// Pre-render the most-read articles at build time for fast TTFB / better Core
+// Web Vitals. Other slugs are rendered on demand (dynamicParams defaults true).
+export async function generateStaticParams() {
+  try {
+    const top = await prisma.article.findMany({
+      where: { published: true },
+      orderBy: { views: 'desc' },
+      take: 50,
+      select: { slug: true },
+    });
+    return top.map((a) => ({ slug: a.slug }));
+  } catch {
+    return [];
+  }
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
@@ -196,6 +212,11 @@ export default async function ArticlePage({ params }: Props) {
     headline: article.title,
     description: article.excerpt,
     image: article.imageUrl ? [article.imageUrl] : undefined,
+    thumbnailUrl: article.imageUrl ?? undefined,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE}/article/${article.slug}`,
+    },
     datePublished: new Date(article.publishedAt).toISOString(),
     dateModified: new Date(article.updatedAt).toISOString(),
     author: {
