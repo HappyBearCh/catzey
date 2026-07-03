@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/SafeImage';
 import { format } from 'date-fns';
 import { RelativeTime } from '@/components/RelativeTime';
 import { prisma } from '@/lib/db';
@@ -24,6 +24,7 @@ import { SpoilerActivator } from '@/components/SpoilerActivator';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
 import { resolveAuthor } from '@/lib/authors';
+import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { ReviewData } from '@/lib/types';
 
 export const revalidate = 3600;
@@ -267,6 +268,33 @@ export default async function ArticlePage({ params }: Props) {
     ...(mentions.length > 0 && { about: mentions, mentions }),
   };
 
+  // Review schema for scored articles — makes them eligible for star rich
+  // results. The reviewed work is the series (if the article belongs to one),
+  // else the primary entity, else the article itself.
+  const reviewScore = reviewOverall(article.reviewData as ReviewData | null);
+  const reviewLd = reviewScore != null
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Review',
+        itemReviewed: {
+          '@type': 'CreativeWorkSeries',
+          name: seriesCtx?.title ?? article.entities[0] ?? article.title,
+        },
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: reviewScore,
+          bestRating: RATING_SCALE,
+          worstRating: 1,
+        },
+        name: article.title,
+        reviewBody: article.excerpt,
+        datePublished: new Date(article.publishedAt).toISOString(),
+        author: { '@type': 'Person', name: author.name, url: `${BASE}/author/${author.slug}` },
+        publisher: { '@type': 'Organization', name: 'Catzye', url: BASE },
+        url: `${BASE}/article/${article.slug}`,
+      }
+    : null;
+
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
       <ReadingProgress />
@@ -274,6 +302,9 @@ export default async function ArticlePage({ params }: Props) {
       <BackToTop />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      {reviewLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewLd) }} />
+      )}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main article */}
         <article className="lg:col-span-2">
@@ -379,13 +410,19 @@ export default async function ArticlePage({ params }: Props) {
           <figure className="mb-6">
             {article.imageUrl ? (
               <div className="relative w-full aspect-video overflow-hidden">
-                <Image
+                <SafeImage
                   src={article.imageUrl}
                   alt={article.imageAlt ?? article.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 66vw"
                   className="object-cover"
                   priority
+                  fallback={
+                    <div className="absolute inset-0 bg-black flex flex-col items-center justify-center text-center px-8">
+                      <span className="text-primary text-xs font-black uppercase tracking-widest mb-3 block">{categoryLabel}</span>
+                      <p className="text-white font-black text-xl md:text-3xl leading-snug">{article.title}</p>
+                    </div>
+                  }
                 />
                 {article.imageUrl.includes('/articles/ai-') && (
                   <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs italic text-center py-1.5">

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/SafeImage';
 import { formatDistanceToNow } from 'date-fns';
 import type { Article } from '@/lib/types';
 import { getCategoryLabel } from '@/lib/types';
@@ -56,13 +56,14 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
     return (
       <Link href={href} className="group relative block overflow-hidden bg-black h-[60vw] max-h-[540px] min-h-[320px]">
         {article.imageUrl ? (
-          <Image
+          <SafeImage
             src={article.imageUrl}
             alt={article.imageAlt ?? article.title}
             fill
             sizes="(max-width: 1024px) 100vw, 66vw"
             className="object-cover object-top opacity-75 group-hover:opacity-65 transition-opacity duration-300"
             priority
+            fallback={<TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" />}
           />
         ) : (
           <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" />
@@ -96,7 +97,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
       <Link href={href} className="group flex flex-col">
         {article.imageUrl ? (
           <div className="relative overflow-hidden aspect-video mb-3 bg-gray-200 dark:bg-gray-800">
-            <Image
+            <SafeImage
               src={article.imageUrl}
               alt={article.title}
               fill
@@ -104,6 +105,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
               className="object-cover group-hover:scale-105 transition-transform duration-300"
               placeholder="blur"
               blurDataURL={BLUR_DATA_URL}
+              fallback={<TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" />}
             />
             {isAiImage(article.imageUrl) && (
               <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-2xs italic text-center py-0.5">
@@ -148,7 +150,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
       <Link href={href} className="group flex gap-3 items-start py-2">
         {article.imageUrl ? (
           <div className="relative flex-shrink-0 w-20 h-14 overflow-hidden bg-gray-200 dark:bg-gray-800">
-            <Image
+            <SafeImage
               src={article.imageUrl}
               alt={article.title}
               fill
@@ -156,6 +158,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
               className="object-cover"
               placeholder="blur"
               blurDataURL={BLUR_DATA_URL}
+              fallback={<TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" />}
             />
             {isAiImage(article.imageUrl) && (
               <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-2xs text-center leading-tight py-0.5">
@@ -186,7 +189,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
     <Link href={href} className="group flex flex-col">
       {article.imageUrl ? (
         <div className="relative overflow-hidden aspect-video mb-2 bg-gray-200 dark:bg-gray-800">
-          <Image
+          <SafeImage
             src={article.imageUrl}
             alt={article.imageAlt ?? article.title}
             fill
@@ -194,6 +197,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             placeholder="blur"
             blurDataURL={BLUR_DATA_URL}
+            fallback={<TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" />}
           />
           {isAiImage(article.imageUrl) && (
             <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-2xs italic text-center py-0.5">

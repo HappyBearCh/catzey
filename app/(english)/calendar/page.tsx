@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getReleasesByDay, DAYS_OF_WEEK } from '@/lib/calendar';
+import { getReleasesByDay, DAYS_OF_WEEK, WEEKLY_RELEASES } from '@/lib/calendar';
 
 export const revalidate = 86400;
 
@@ -17,11 +17,56 @@ export const metadata: Metadata = {
   },
 };
 
+// schema.org day URIs for recurring weekly release schedules.
+const SCHEMA_DAY: Record<string, string> = {
+  Monday: 'https://schema.org/Monday',
+  Tuesday: 'https://schema.org/Tuesday',
+  Wednesday: 'https://schema.org/Wednesday',
+  Thursday: 'https://schema.org/Thursday',
+  Friday: 'https://schema.org/Friday',
+  Saturday: 'https://schema.org/Saturday',
+  Sunday: 'https://schema.org/Sunday',
+};
+
 export default function CalendarPage() {
   const byDay = getReleasesByDay();
 
+  // Expose the weekly schedule as structured data: each series' new-chapter drop
+  // is a recurring online Event, so search engines can answer "when does X
+  // release" directly. Notes like "Bi-weekly"/"Monthly" are surfaced as the
+  // human-readable description since the cadence isn't strictly weekly.
+  const eventsLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Weekly Manga Chapter Release Calendar',
+    itemListElement: WEEKLY_RELEASES.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Event',
+        name: `${r.series} — New Chapter`,
+        description: [`New ${r.series} chapter in ${r.magazine}.`, r.note].filter(Boolean).join(' '),
+        eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventSchedule: {
+          '@type': 'Schedule',
+          repeatFrequency: 'P1W',
+          byDay: SCHEMA_DAY[r.day],
+        },
+        location: {
+          '@type': 'VirtualLocation',
+          name: r.magazine,
+          url: r.platformUrl,
+        },
+        organizer: { '@type': 'Organization', name: r.magazine },
+        url: `${BASE}/tag/${encodeURIComponent(r.series)}`,
+      },
+    })),
+  };
+
   return (
     <div className="max-w-8xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsLd) }} />
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">

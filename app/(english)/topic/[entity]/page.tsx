@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
-import type { Article } from '@/lib/types';
+import { getTopicInfo } from '@/lib/topic-info';
+import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
+import type { Article, ReviewData } from '@/lib/types';
 
 export const revalidate = 3600;
 
@@ -21,6 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const name = decodeEntity(entity);
   const canonicalUrl = `${BASE}/topic/${entity}`;
   const ogImage = `/og?title=${encodeURIComponent(name + ' — Manga & Anime News')}`;
+  const info = getTopicInfo(name);
+  const description = info?.intro ?? `All manga and anime news and updates about ${name} on Catzye.`;
   // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
   // pages eating crawl budget, but stay followable so link equity flows.
   let count = 0;
@@ -29,12 +33,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } catch {}
   return {
     title: `${name} — Manga & Anime News`,
-    description: `All manga and anime news and updates about ${name} on Catzye.`,
+    description,
     alternates: { canonical: canonicalUrl },
-    ...(count < 2 && { robots: { index: false, follow: true } }),
+    // Thin archives are noindexed — but a curated hub is substantial content, so
+    // it stays indexable even before it has accumulated its own articles.
+    ...(count < 2 && !info && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${name} | Catzye`,
-      description: `All manga and anime news and updates about ${name}.`,
+      description,
       url: canonicalUrl,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
@@ -72,11 +78,28 @@ export default async function TopicPage({ params }: Props) {
     .slice(0, 12)
     .map(([e]) => e);
 
+  const topicInfo = getTopicInfo(name);
+
+  // Roll up scored review articles about this entity into an AggregateRating so
+  // the work itself can surface with a star rating in search.
+  const scores = articles
+    .map((a) => reviewOverall(a.reviewData as ReviewData | null))
+    .filter((n): n is number => n != null);
+  const aggregateRating = scores.length >= 2
+    ? {
+        '@type': 'AggregateRating',
+        ratingValue: Math.round((scores.reduce((s, n) => s + n, 0) / scores.length) * 10) / 10,
+        bestRating: RATING_SCALE,
+        worstRating: 1,
+        ratingCount: scores.length,
+      }
+    : null;
+
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name,
-    description: `Manga and anime news about ${name}`,
+    description: topicInfo?.intro ?? `Manga and anime news about ${name}`,
     url: `${BASE}/topic/${entity}`,
     numberOfItems: articles.length,
     ...(articles.length > 0 && {
@@ -88,9 +111,22 @@ export default async function TopicPage({ params }: Props) {
     }),
   };
 
+  const workLd = aggregateRating
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWorkSeries',
+        name,
+        url: `${BASE}/topic/${entity}`,
+        aggregateRating,
+      }
+    : null;
+
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }} />
+      {workLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(workLd) }} />
+      )}
 
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -102,9 +138,27 @@ export default async function TopicPage({ params }: Props) {
         <span className="block w-1 h-8 bg-primary" />
         <h1 className="text-3xl font-black tracking-tight">{name}</h1>
       </div>
-      <p className="text-site-gray text-sm mb-8 ml-4">
+      <p className="text-site-gray text-sm mb-6 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} about {name}
       </p>
+
+      {topicInfo && (
+        <div className="mb-8 ml-4 p-5 bg-site-light dark:bg-gray-900 border border-site-border dark:border-gray-700 rounded-sm">
+          <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+            {topicInfo.intro}
+          </p>
+          <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {topicInfo.facts.map((f) => (
+              <div key={f.label}>
+                <dt className="text-2xs font-black uppercase tracking-wider text-primary mb-0.5">
+                  {f.label}
+                </dt>
+                <dd className="text-sm font-semibold text-gray-800 dark:text-gray-200">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
 
       {articles.length === 0 ? (
         <div className="py-20 text-center text-gray-400">
