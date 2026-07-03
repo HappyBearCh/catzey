@@ -218,36 +218,118 @@ function applyUpdateData<T extends Rec>(record: T, data: Rec): T {
   return updated;
 }
 
-// ─── Article ─────────────────────────────────────────────────────────────────
+// ─── Pure query engine ───────────────────────────────────────────────────────
+// These operate on an arbitrary in-memory array and implement the subset of the
+// Prisma query API the app uses. They back both the file-backed store below and
+// the resilient database fallback in lib/db.ts, so query semantics stay in sync.
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyArgs = any;
 
+export function queryMany<T extends Rec>(data: T[], args?: AnyArgs): T[] {
+  let d = data as Rec[];
+  const where = args?.where as Rec | undefined;
+  if (where) d = d.filter((r) => matchWhere(r, where));
+  d = applyOrderBy(d, args?.orderBy);
+  if (args?.skip) d = d.slice(args.skip as number);
+  if (args?.take) d = d.slice(0, args.take as number);
+  return applySelectMany(d, args?.select) as T[];
+}
+
+export function queryOne<T extends Rec>(data: T[], args?: AnyArgs): T | null {
+  const where = args?.where as Rec | undefined;
+  const found = (where ? data.find((r) => matchWhere(r as Rec, where)) : data[0]) ?? null;
+  if (!found) return null;
+  return applySelect(found, args?.select) as T;
+}
+
+export function countRecords<T extends Rec>(data: T[], args?: AnyArgs): number {
+  const where = args?.where as Rec | undefined;
+  return where ? data.filter((r) => matchWhere(r as Rec, where)).length : data.length;
+}
+
+export function groupByRecords<T extends Rec>(data: T[], args: AnyArgs): Rec[] {
+  let d = data as Rec[];
+  const where = args?.where as Rec | undefined;
+  if (where) d = d.filter((r) => matchWhere(r, where));
+
+  const byFields = args.by as string[];
+  const countField = args._count ? Object.keys(args._count as Rec)[0] : null;
+  const maxField = args._max ? Object.keys(args._max as Rec)[0] : null;
+
+  const groups = new Map<string, Rec[]>();
+  for (const record of d) {
+    const key = byFields.map((f) => String(record[f] ?? '')).join('\x00');
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key)!.push(record);
+  }
+
+  const result: Rec[] = [];
+  for (const [, records] of groups) {
+    const entry: Rec = {};
+    for (const f of byFields) entry[f] = records[0][f];
+    if (countField) {
+      entry._count = { [countField]: records.filter((r) => r[countField] != null).length };
+    }
+    if (maxField) {
+      const vals = records.map((r) => r[maxField]).filter((v) => v != null);
+      entry._max = { [maxField]: vals.length ? vals.reduce((a, b) => (toMs(a) > toMs(b) ? a : b)) : null };
+    }
+    result.push(entry);
+  }
+
+  const orderBy = args.orderBy as Rec | undefined;
+  if (orderBy) {
+    const [aggKey, innerOrDir] = Object.entries(orderBy)[0];
+    if (typeof innerOrDir === 'object' && innerOrDir !== null) {
+      const [subField, dir] = Object.entries(innerOrDir as Rec)[0];
+      result.sort((a, b) => {
+        const av = toMs((a[aggKey] as Rec)?.[subField]);
+        const bv = toMs((b[aggKey] as Rec)?.[subField]);
+        const diff = (isNaN(av) ? 0 : av) - (isNaN(bv) ? 0 : bv);
+        return dir === 'desc' ? -diff : diff;
+      });
+    } else {
+      result.sort((a, b) => {
+        const av = a[aggKey];
+        const bv = b[aggKey];
+        const diff = toMs(av) - toMs(bv);
+        return innerOrDir === 'desc' ? -diff : diff;
+      });
+    }
+  }
+
+  return result;
+}
+
+export function aggregateRecords<T extends Rec>(data: T[], args: AnyArgs): Rec {
+  const result: Rec = {};
+  if (args._sum) {
+    const sumFields = Object.keys(args._sum as Rec);
+    result._sum = Object.fromEntries(
+      sumFields.map((f) => [f, data.reduce((acc, r) => acc + (Number((r as Rec)[f]) || 0), 0)]),
+    );
+  }
+  if (args._count) {
+    const countFields = Object.keys(args._count as Rec);
+    result._count = Object.fromEntries(countFields.map((f) => [f, data.filter((r) => (r as Rec)[f] != null).length]));
+  }
+  return result;
+}
+
+// ─── Article ─────────────────────────────────────────────────────────────────
+
 const article = {
   async findMany(args?: AnyArgs): Promise<AnyArgs[]> {
-    let data = getArticles() as Rec[];
-    const where = args?.where as Rec | undefined;
-    if (where) data = data.filter((r) => matchWhere(r, where));
-    data = applyOrderBy(data, args?.orderBy);
-    if (args?.skip) data = data.slice(args.skip as number);
-    if (args?.take) data = data.slice(0, args.take as number);
-    return applySelectMany(data, args?.select);
+    return queryMany(getArticles() as Rec[], args);
   },
 
   async findUnique(args: AnyArgs): Promise<AnyArgs | null> {
-    const where = args?.where as Rec;
-    const data = getArticles() as Rec[];
-    const found = data.find((r) => matchWhere(r, where)) ?? null;
-    if (!found) return null;
-    return applySelect(found, args?.select);
+    return queryOne(getArticles() as Rec[], args);
   },
 
   async findFirst(args?: AnyArgs): Promise<AnyArgs | null> {
-    const where = args?.where as Rec | undefined;
-    const data = getArticles() as Rec[];
-    const found = (where ? data.find((r) => matchWhere(r, where)) : data[0]) ?? null;
-    if (!found) return null;
-    return applySelect(found, args?.select);
+    return queryOne(getArticles() as Rec[], args);
   },
 
   async create(args: AnyArgs): Promise<AnyArgs> {
@@ -339,82 +421,15 @@ const article = {
   },
 
   async count(args?: AnyArgs): Promise<number> {
-    let data = getArticles() as Rec[];
-    const where = args?.where as Rec | undefined;
-    if (where) data = data.filter((r) => matchWhere(r, where));
-    return data.length;
+    return countRecords(getArticles() as Rec[], args);
   },
 
   async groupBy(args: AnyArgs): Promise<AnyArgs[]> {
-    let data = getArticles() as Rec[];
-    const where = args?.where as Rec | undefined;
-    if (where) data = data.filter((r) => matchWhere(r, where));
-
-    const byFields = args.by as string[];
-    const countField = args._count ? Object.keys(args._count as Rec)[0] : null;
-    const maxField = args._max ? Object.keys(args._max as Rec)[0] : null;
-
-    const groups = new Map<string, Rec[]>();
-    for (const record of data) {
-      const key = byFields.map((f) => String(record[f] ?? '')).join('\x00');
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key)!.push(record);
-    }
-
-    const result: Rec[] = [];
-    for (const [, records] of groups) {
-      const entry: Rec = {};
-      for (const f of byFields) entry[f] = records[0][f];
-      if (countField) {
-        entry._count = { [countField]: records.filter((r) => r[countField] != null).length };
-      }
-      if (maxField) {
-        const vals = records.map((r) => r[maxField]).filter((v) => v != null);
-        entry._max = { [maxField]: vals.length ? vals.reduce((a, b) => (toMs(a) > toMs(b) ? a : b)) : null };
-      }
-      result.push(entry);
-    }
-
-    // Apply orderBy for groupBy
-    const orderBy = args.orderBy as Rec | undefined;
-    if (orderBy) {
-      const [aggKey, innerOrDir] = Object.entries(orderBy)[0];
-      if (typeof innerOrDir === 'object' && innerOrDir !== null) {
-        // e.g. { _count: { id: 'desc' } } or { _max: { publishedAt: 'desc' } }
-        const [subField, dir] = Object.entries(innerOrDir as Rec)[0];
-        result.sort((a, b) => {
-          const av = toMs((a[aggKey] as Rec)?.[subField]);
-          const bv = toMs((b[aggKey] as Rec)?.[subField]);
-          const diff = (isNaN(av) ? 0 : av) - (isNaN(bv) ? 0 : bv);
-          return dir === 'desc' ? -diff : diff;
-        });
-      } else {
-        result.sort((a, b) => {
-          const av = a[aggKey];
-          const bv = b[aggKey];
-          const diff = toMs(av) - toMs(bv);
-          return innerOrDir === 'desc' ? -diff : diff;
-        });
-      }
-    }
-
-    return result;
+    return groupByRecords(getArticles() as Rec[], args);
   },
 
   async aggregate(args: AnyArgs): Promise<AnyArgs> {
-    const data = getArticles();
-    const result: Rec = {};
-    if (args._sum) {
-      const sumFields = Object.keys(args._sum as Rec);
-      result._sum = Object.fromEntries(
-        sumFields.map((f) => [f, data.reduce((acc, r) => acc + (Number((r as Rec)[f]) || 0), 0)]),
-      );
-    }
-    if (args._count) {
-      const countFields = Object.keys(args._count as Rec);
-      result._count = Object.fromEntries(countFields.map((f) => [f, data.filter((r) => (r as Rec)[f] != null).length]));
-    }
-    return result;
+    return aggregateRecords(getArticles() as Rec[], args);
   },
 };
 
