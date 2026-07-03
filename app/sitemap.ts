@@ -27,11 +27,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       take: 5000,
     });
 
+    // Only list topics that clear the same >=2 threshold the topic page uses to
+    // decide indexability. Advertising thin, self-noindexed URLs in the sitemap
+    // just burns crawl budget and depresses Google's quality impression of the
+    // site ("Discovered - currently not indexed").
     entityRows = await prisma.$queryRaw<{ entity: string; last: Date }[]>`
       SELECT UNNEST(entities) as entity, MAX("updatedAt") as last
       FROM "Article"
       WHERE published = true
       GROUP BY 1
+      HAVING COUNT(*) >= 2
       LIMIT 500
     `;
 
@@ -106,18 +111,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const tagLastModified = new Map<string, Date>();
+  const tagCount = new Map<string, number>();
   for (const a of articles) {
     for (const tag of a.tags) {
       const prev = tagLastModified.get(tag);
       if (!prev || a.updatedAt > prev) tagLastModified.set(tag, a.updatedAt);
+      tagCount.set(tag, (tagCount.get(tag) ?? 0) + 1);
     }
   }
-  const tagPages: MetadataRoute.Sitemap = Array.from(tagLastModified.entries()).map(([tag, last]) => ({
-    url: `${BASE}/tag/${encodeURIComponent(tag)}`,
-    lastModified: last,
-    changeFrequency: 'daily' as const,
-    priority: 0.5,
-  }));
+  // Skip single-use tags: their pages self-noindex, so keep them out of the
+  // sitemap to concentrate crawl budget on indexable URLs.
+  const tagPages: MetadataRoute.Sitemap = Array.from(tagLastModified.entries())
+    .filter(([tag]) => (tagCount.get(tag) ?? 0) >= 2)
+    .map(([tag, last]) => ({
+      url: `${BASE}/tag/${encodeURIComponent(tag)}`,
+      lastModified: last,
+      changeFrequency: 'daily' as const,
+      priority: 0.5,
+    }));
 
   const topicPages: MetadataRoute.Sitemap = entityRows
     .filter((r) => r.entity)
