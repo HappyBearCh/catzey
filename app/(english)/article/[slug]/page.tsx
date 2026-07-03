@@ -23,6 +23,7 @@ import { InlineRelated } from '@/components/InlineRelated';
 import { SpoilerActivator } from '@/components/SpoilerActivator';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
+import { resolveAuthor } from '@/lib/authors';
 import type { ReviewData } from '@/lib/types';
 
 export const revalidate = 3600;
@@ -59,16 +60,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const article = await prisma.article.findUnique({ where: { slug } });
     if (!article) return {};
+    const author = resolveAuthor(article);
     const ogImageUrl = `${BASE}/og?title=${encodeURIComponent(article.title)}&category=${article.category}${article.imageUrl ? `&img=${encodeURIComponent(article.imageUrl)}` : ''}`;
     return {
       title: article.title,
       description: article.excerpt,
+      authors: [{ name: author.name, url: `${BASE}/author/${author.slug}` }],
       openGraph: {
         title: article.title,
         description: article.excerpt,
         url: `${BASE}/article/${slug}`,
         type: 'article',
         publishedTime: new Date(article.publishedAt).toISOString(),
+        modifiedTime: new Date(article.updatedAt).toISOString(),
+        authors: [`${BASE}/author/${author.slug}`],
         section: article.category,
         images: [{ url: ogImageUrl, width: 1200, height: 630 }],
         tags: article.tags,
@@ -206,12 +211,30 @@ export default async function ArticlePage({ params }: Props) {
     .split(/\s+/)
     .filter(Boolean).length;
 
+  const author = resolveAuthor(article);
+
+  // Entities are curated people/works/places — expose them as the article's
+  // subject matter, each pointing at its topic hub to reinforce the entity graph.
+  const mentions = article.entities.map((e) => ({
+    '@type': 'Thing',
+    name: e,
+    url: `${BASE}/topic/${encodeURIComponent(e)}`,
+  }));
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: article.title,
     description: article.excerpt,
-    image: article.imageUrl ? [article.imageUrl] : undefined,
+    image: article.imageUrl
+      ? [{
+          '@type': 'ImageObject',
+          url: article.imageUrl,
+          width: 1200,
+          height: 675,
+          caption: article.imageAlt ?? article.title,
+        }]
+      : undefined,
     thumbnailUrl: article.imageUrl ?? undefined,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -220,9 +243,10 @@ export default async function ArticlePage({ params }: Props) {
     datePublished: new Date(article.publishedAt).toISOString(),
     dateModified: new Date(article.updatedAt).toISOString(),
     author: {
-      '@type': 'Organization',
-      name: 'Catzye Editorial',
-      url: BASE,
+      '@type': 'Person',
+      name: author.name,
+      url: `${BASE}/author/${author.slug}`,
+      jobTitle: author.role,
     },
     publisher: {
       '@type': 'Organization',
@@ -236,6 +260,11 @@ export default async function ArticlePage({ params }: Props) {
     articleSection: article.category,
     isAccessibleForFree: true,
     wordCount,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.article-prose p'],
+    },
+    ...(mentions.length > 0 && { about: mentions, mentions }),
   };
 
   return (
@@ -290,6 +319,13 @@ export default async function ArticlePage({ params }: Props) {
 
           <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-300 border-b border-site-border pb-4 mb-6">
             <div className="flex items-center gap-3">
+              <span>
+                By{' '}
+                <Link href={`/author/${author.slug}`} rel="author" className="font-semibold text-gray-700 dark:text-gray-200 hover:text-primary transition-colors">
+                  {author.name}
+                </Link>
+              </span>
+              <span aria-hidden="true">·</span>
               <time dateTime={new Date(article.publishedAt).toISOString()}>
                 {format(new Date(article.publishedAt), 'MMMM d, yyyy')}
               </time>

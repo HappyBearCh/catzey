@@ -25,6 +25,7 @@ export function esc(s: string): string {
 }
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
+const WEBSUB_HUB = process.env.WEBSUB_HUB ?? 'https://pubsubhubbub.appspot.com/';
 
 export function buildRss(channel: RssChannel): string {
   const items = channel.articles
@@ -61,6 +62,7 @@ export function buildRss(channel: RssChannel): string {
     <ttl>30</ttl>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${channel.selfUrl}" rel="self" type="application/rss+xml"/>
+    <atom:link href="${WEBSUB_HUB}" rel="hub"/>
     ${items}
   </channel>
 </rss>`;

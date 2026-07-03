@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getStandaloneGuide, getAllStandaloneGuides } from '@/lib/standalone-guides';
+import { resolveAuthor } from '@/lib/authors';
 
 export const revalidate = false;
 
@@ -12,13 +13,26 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// A heading only counts as an FAQ question if it is genuinely interrogative.
+// Google restricts FAQ rich results to authoritative sites, and emitting FAQ
+// schema for statement-style section headings ("The Best Manga for Beginners")
+// produces junk structured data that risks a manual action — so we require real
+// question form and only emit the schema when the page is substantially Q&A.
+function isQuestion(heading: string): boolean {
+  if (heading.endsWith('?')) return true;
+  return /^(how|what|why|when|where|which|who|can|should|is|are|do|does|will)\b/i.test(heading);
+}
+
 function buildFaqSchema(html: string): object | null {
   const parts = html.split(/<h2[^>]*>/i);
   const entities: Array<{ question: string; answer: string }> = [];
+  let totalHeadings = 0;
   for (let i = 1; i < parts.length; i++) {
     const closeIdx = parts[i].indexOf('</h2>');
     if (closeIdx === -1) continue;
+    totalHeadings++;
     const question = parts[i].slice(0, closeIdx).replace(/<[^>]+>/g, '').trim();
+    if (!isQuestion(question)) continue;
     const answerHtml = parts[i].slice(closeIdx + 5).split(/<h2/i)[0];
     const answer = answerHtml
       .replace(/<[^>]+>/g, ' ')
@@ -28,7 +42,8 @@ function buildFaqSchema(html: string): object | null {
       .slice(0, 600);
     if (question && answer.length > 40) entities.push({ question, answer });
   }
-  if (entities.length === 0) return null;
+  // Only treat the page as an FAQ if it is mostly questions and has a few of them.
+  if (entities.length < 3 || entities.length < totalHeadings / 2) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -69,6 +84,7 @@ export default async function StandaloneGuidePage({ params }: Props) {
   if (!guide) notFound();
 
   const faqSchema = buildFaqSchema(guide.body);
+  const author = resolveAuthor({ slug, category: '' });
 
   const articleLd = {
     '@context': 'https://schema.org',
@@ -78,7 +94,7 @@ export default async function StandaloneGuidePage({ params }: Props) {
     image: [guide.heroImage.src],
     url: `${BASE}/guides/${slug}`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/guides/${slug}` },
-    author: { '@type': 'Organization', name: 'Catzye Editorial', url: BASE },
+    author: { '@type': 'Person', name: author.name, url: `${BASE}/author/${author.slug}`, jobTitle: author.role },
     publisher: {
       '@type': 'Organization',
       name: 'Catzye',
@@ -119,9 +135,9 @@ export default async function StandaloneGuidePage({ params }: Props) {
           src={guide.heroImage.src}
           alt={guide.heroImage.alt}
           fill
+          sizes="(max-width: 896px) 100vw, 896px"
           className="object-cover"
           priority
-          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <p className="absolute bottom-3 right-3 text-2xs text-white/60">
@@ -137,7 +153,13 @@ export default async function StandaloneGuidePage({ params }: Props) {
         <span className="text-xs font-black uppercase tracking-widest text-primary border border-primary px-2 py-0.5 mr-3">
           Guide
         </span>
-        <span className="text-xs text-site-gray">{guide.readingTime} min read</span>
+        <span className="text-xs text-site-gray">
+          By{' '}
+          <Link href={`/author/${author.slug}`} rel="author" className="font-semibold hover:text-primary transition-colors">
+            {author.name}
+          </Link>
+          {' · '}{guide.readingTime} min read
+        </span>
         <h1 className="text-3xl md:text-4xl font-black leading-tight mt-3 mb-3">{guide.title}</h1>
         <p className="text-site-gray text-lg leading-relaxed">{guide.subtitle}</p>
       </div>

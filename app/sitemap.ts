@@ -5,6 +5,7 @@ import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { getAllGenres } from '@/lib/genre-info';
 import { getAllSeasons } from '@/lib/seasons';
+import { getAllAuthors } from '@/lib/authors';
 import { CATEGORY_PAGE_SIZE } from '@/components/CategoryArchive';
 
 export const revalidate = 3600;
@@ -154,5 +155,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: s.status === 'current' ? 0.7 : 0.5,
   }));
 
-  return [...staticPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...tagPages, ...topicPages, ...articlePages];
+  const authorPages: MetadataRoute.Sitemap = getAllAuthors().map((a) => ({
+    url: `${BASE}/author/${a.slug}`,
+    lastModified: newestUpdate,
+    changeFrequency: 'daily' as const,
+    priority: 0.5,
+  }));
+
+  return [...staticPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
 }

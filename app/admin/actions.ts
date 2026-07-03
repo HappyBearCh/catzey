@@ -7,6 +7,7 @@ import { CATEGORIES } from '@/lib/types';
 import { scrapeArticleFromUrl, mirrorImageToBlob } from '@/lib/scraper';
 import { summarizeAndTranslate } from '@/lib/translator';
 import { postToBluesky } from '@/lib/bluesky';
+import { notifyPublished } from '@/lib/instant-index';
 
 function revalidateSite() {
   revalidatePath('/');
@@ -149,8 +150,13 @@ export async function publishArticles(ids: string[]) {
     where: { id: { in: ids } },
     data: { published: true },
   });
+  const rows = await prisma.article.findMany({
+    where: { id: { in: ids } },
+    select: { slug: true },
+  });
   revalidatePath('/admin');
   revalidateSite();
+  notifyPublished(rows.map((r) => r.slug)).catch(() => {});
 }
 
 export async function publishArticle(id: string) {
@@ -162,6 +168,7 @@ export async function publishArticle(id: string) {
   revalidatePath('/admin');
   revalidateSite();
   postToBluesky({ title: article.title, excerpt: article.excerpt, slug: article.slug }).catch(() => {});
+  notifyPublished([article.slug]).catch(() => {});
 }
 
 export async function unpublishArticle(id: string) {

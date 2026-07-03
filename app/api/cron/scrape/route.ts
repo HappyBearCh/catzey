@@ -3,9 +3,9 @@ import { runScrapingLite } from '@/lib/scraper';
 import { prisma } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
 import { CATEGORIES } from '@/lib/types';
+import { notifyPublished } from '@/lib/instant-index';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? 'd7f3b8a291e04c5f';
 
 function revalidateSite() {
   revalidatePath('/');
@@ -13,25 +13,6 @@ function revalidateSite() {
     revalidatePath(`/${slug}`);
   }
   revalidatePath('/admin');
-}
-
-async function submitIndexNow(slugs: string[]) {
-  if (slugs.length === 0) return;
-  const host = BASE.replace(/^https?:\/\//, '');
-  try {
-    await fetch('https://api.indexnow.org/indexnow', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({
-        host,
-        key: INDEXNOW_KEY,
-        keyLocation: `${BASE}/${INDEXNOW_KEY}.txt`,
-        urlList: slugs.map((s) => `${BASE}/article/${s}`),
-      }),
-    });
-  } catch {
-    // Non-fatal — indexing will happen via sitemap crawl
-  }
 }
 
 async function pingSitemaps() {
@@ -70,7 +51,12 @@ export async function GET(request: NextRequest) {
         where: { id: { in: due.map((a) => a.id) } },
         data: { published: true, scheduledAt: null },
       });
+      const dueRows = await prisma.article.findMany({
+        where: { id: { in: due.map((a) => a.id) } },
+        select: { slug: true },
+      });
       revalidateSite();
+      await notifyPublished(dueRows.map((r) => r.slug));
       console.log(`[cron/scrape] Auto-published ${due.length} scheduled article(s)`);
     }
 
@@ -88,7 +74,7 @@ export async function GET(request: NextRequest) {
       const newSlugs = newArticles.map((a) => a.slug);
 
       await Promise.allSettled([
-        submitIndexNow(newSlugs),
+        notifyPublished(newSlugs),
         pingSitemaps(),
       ]);
     }

@@ -3,6 +3,7 @@ import { prisma } from '@/lib/db';
 import { processScrapeItemToArticle, mirrorImageToBlob } from '@/lib/scraper';
 import { revalidatePath } from 'next/cache';
 import { CATEGORIES } from '@/lib/types';
+import { notifyPublished } from '@/lib/instant-index';
 
 export const maxDuration = 300;
 export const runtime = 'nodejs';
@@ -37,6 +38,7 @@ export async function GET(request: NextRequest) {
   });
 
   let published = 0;
+  const publishedSlugs: string[] = [];
   const errors: string[] = [];
 
   for (const item of items) {
@@ -63,17 +65,19 @@ export async function GET(request: NextRequest) {
         if (blobUrl) imageUrl = blobUrl;
       }
 
-      await prisma.article.update({
+      const pub = await prisma.article.update({
         where: { id: result.articleId },
         data: {
           published: true,
           publishedAt: new Date(),
           ...(imageUrl && { imageUrl }),
         },
+        select: { slug: true },
       });
 
       await prisma.scrapedItem.update({ where: { id: item.id }, data: { status: 'done' } });
       published++;
+      publishedSlugs.push(pub.slug);
       console.log(`[cron/process] Published: "${item.title.slice(0, 60)}"`);
     } catch (err) {
       await prisma.scrapedItem.update({ where: { id: item.id }, data: { status: 'error' } }).catch(() => {});
@@ -81,7 +85,10 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  if (published > 0) revalidateSite();
+  if (published > 0) {
+    revalidateSite();
+    await notifyPublished(publishedSlugs);
+  }
 
   return NextResponse.json({
     ok: true,
