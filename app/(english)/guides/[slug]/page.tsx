@@ -99,7 +99,7 @@ export default async function StandaloneGuidePage({ params }: Props) {
       '@type': 'Organization',
       name: 'Catzye',
       url: BASE,
-      logo: { '@type': 'ImageObject', url: `${BASE}/logo.png` },
+      logo: { '@type': 'ImageObject', url: `${BASE}/icons/icon-512.png`, width: 512, height: 512 },
     },
     inLanguage: 'en',
   };

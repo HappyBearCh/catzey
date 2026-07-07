@@ -11,8 +11,11 @@ export async function GET() {
   const articles = await prisma.article.findMany({
     where: { published: true, publishedAt: { gte: twoDaysAgo } },
     orderBy: { publishedAt: 'desc' },
-    select: { slug: true, title: true, publishedAt: true },
+    select: { slug: true, title: true, publishedAt: true, imageUrl: true },
   });
+
+  const esc = (s: string) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
   const items = articles.map((a) => `
   <url>
@@ -23,13 +26,18 @@ export async function GET() {
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${new Date(a.publishedAt).toISOString()}</news:publication_date>
-      <news:title>${a.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</news:title>
-    </news:news>
+      <news:title>${esc(a.title)}</news:title>
+    </news:news>${a.imageUrl ? `
+    <image:image>
+      <image:loc>${esc(a.imageUrl)}</image:loc>
+      <image:title>${esc(a.title)}</image:title>
+    </image:image>` : ''}
   </url>`);
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${items.join('\n')}
 </urlset>`;
 

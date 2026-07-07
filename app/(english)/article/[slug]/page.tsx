@@ -253,7 +253,7 @@ export default async function ArticlePage({ params }: Props) {
       '@type': 'Organization',
       name: 'Catzye',
       url: BASE,
-      logo: { '@type': 'ImageObject', url: `${BASE}/logo.png`, width: 200, height: 60 },
+      logo: { '@type': 'ImageObject', url: `${BASE}/icons/icon-512.png`, width: 512, height: 512 },
     },
     url: `${BASE}/article/${article.slug}`,
     inLanguage: 'en',

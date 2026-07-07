@@ -38,7 +38,7 @@ const organizationLd = {
   '@type': 'NewsMediaOrganization',
   name: 'Catzye',
   url: BASE,
-  logo: { '@type': 'ImageObject', url: `${BASE}/logo.png`, width: 200, height: 60 },
+  logo: { '@type': 'ImageObject', url: `${BASE}/icons/icon-512.png`, width: 512, height: 512 },
   description: 'Manga and anime news, reviews, and industry coverage.',
   masthead: `${BASE}/about`,
   publishingPrinciples: `${BASE}/editorial-policy`,
