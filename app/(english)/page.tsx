@@ -5,6 +5,8 @@ import { BreakingTicker } from '@/components/BreakingTicker';
 import { TrendingStrip } from '@/components/TrendingStrip';
 import { LoadMoreArticles } from '@/components/LoadMoreArticles';
 import { MostRead } from '@/components/MostRead';
+import { TodaysNumber } from '@/components/TodaysNumber';
+import { DAILY_CATEGORY } from '@/lib/daily-analysis';
 import { CATEGORIES } from '@/lib/types';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import Link from 'next/link';
@@ -58,8 +60,10 @@ export const revalidate = 1800; // Revalidate every 30 minutes
 
 async function getArticles() {
   try {
+    // The daily numerology column is surfaced via the Today's Number widget and
+    // /numerology/daily — keep it out of the hero, grid, and category sections.
     return await prisma.article.findMany({
-      where: { published: true },
+      where: { published: true, category: { not: DAILY_CATEGORY } },
       orderBy: { publishedAt: 'desc' },
       take: 30,
     });
@@ -123,6 +127,9 @@ export default async function HomePage() {
       <TrendingStrip />
 
       <div className="max-w-8xl mx-auto px-4">
+        {/* Today's numerological read of the news */}
+        <TodaysNumber articles={articles} />
+
         {/* Hero section */}
         <section className="my-4">
           <HeroSection featured={featured} secondary={secondary} />

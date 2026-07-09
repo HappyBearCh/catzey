@@ -22,6 +22,12 @@ export function Footer() {
                 <Link href="/about" className="text-sm hover:text-white transition-colors">About</Link>
               </li>
               <li>
+                <Link href="/numerology" className="text-sm hover:text-white transition-colors">Numerology Guide</Link>
+              </li>
+              <li>
+                <Link href="/numerology/daily" className="text-sm hover:text-white transition-colors">Daily Analysis</Link>
+              </li>
+              <li>
                 <Link href="/editorial-policy" className="text-sm hover:text-white transition-colors">Editorial Policy</Link>
               </li>
               <li>

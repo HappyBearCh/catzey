@@ -21,6 +21,7 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { NewsletterCTA } from '@/components/NewsletterCTA';
 import { InlineRelated } from '@/components/InlineRelated';
 import { SpoilerActivator } from '@/components/SpoilerActivator';
+import { NumerologyPanel } from '@/components/NumerologyPanel';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
 import { resolveAuthor } from '@/lib/authors';
@@ -479,6 +480,9 @@ export default async function ArticlePage({ params }: Props) {
               <p className="text-sm text-gray-700 leading-relaxed">{article.editorNote}</p>
             </div>
           )}
+
+          {/* Numerological reading of the headline */}
+          <NumerologyPanel title={article.title} className="mt-8" />
 
           <NewsletterCTA />
 

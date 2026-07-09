@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { CategoryInfo } from '@/components/CategoryInfo';
+import { CategoryNumerology } from '@/components/CategoryNumerology';
 import { getCategoryLabel } from '@/lib/types';
 import type { Article } from '@/lib/types';
 
@@ -149,6 +150,7 @@ export async function CategoryArchive({
         </div>
       </div>
 
+      {page === 1 && <CategoryNumerology slug={category} />}
       {page === 1 && <CategoryInfo slug={category} />}
 
       {articles.length === 0 ? (
