@@ -78,6 +78,24 @@ export default function NumerologyPage() {
         </div>
       </div>
 
+      {/* Essay series callout */}
+      <Link
+        href="/series/numbers-behind-the-manga"
+        className="group mb-10 block rounded-sm border border-primary/30 p-5 bg-site-light dark:bg-site-dark-2 hover:border-primary/60 transition-colors"
+      >
+        <span className="text-2xs font-black uppercase tracking-widest text-primary-accent">
+          Essay Series
+        </span>
+        <h2 className="text-xl font-black mt-1 mb-1.5 group-hover:text-primary transition-colors">
+          The Numbers Behind the Manga
+        </h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          A numerological reading of the medium — the Big Three, the heroes, the mangaka, and the
+          studios, seen through the numbers their names reduce to.{' '}
+          <span className="font-bold text-primary group-hover:underline">Read the series →</span>
+        </p>
+      </Link>
+
       {/* How the numbers are calculated */}
       <div className="article-prose text-gray-800 dark:text-gray-200 mb-10">
         <h2>The three core numbers</h2>

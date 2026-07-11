@@ -391,3 +391,104 @@ export function getTodaysNumber(date: Date = new Date()): TodaysNumber {
 export function vibratesTo(title: string, number: number): boolean {
   return destinyNumber(title) === number;
 }
+
+// ── Content-aware article reading ─────────────────────────────────────────────
+// The generic panel reads only a headline and prints a fixed profile. These
+// helpers make each article's reading specific to its real subject (the story's
+// primary entity) and to the news "angle" the headline is taking.
+
+export interface StoryAngle {
+  key: string;
+  phrase: string; // slots into "That this is {phrase} …"
+}
+
+// Map headline signal words to a narrative "move". First match wins; order matters
+// (more specific/decisive moves are tested before softer ones).
+const STORY_ANGLES: { key: string; phrase: string; test: RegExp }[] = [
+  { key: 'ending', phrase: 'an ending', test: /\b(final|finale|ends?|ending|conclu|last chapter|series finale|wraps?\s*up)\b/i },
+  { key: 'return', phrase: 'a story of return', test: /\b(return(s|ing)?|revival|revived|comeback|back|resume(s|d)?|reboot)\b/i },
+  { key: 'pause', phrase: 'a pause', test: /\b(delay(s|ed)?|hiatus|postpone|paused?|halt(s|ed)?|on hold)\b/i },
+  { key: 'joining', phrase: 'a joining', test: /\b(collab(oration)?|crossover|team[- ]?up|partners?(hip)?|joins?)\b/i },
+  { key: 'scale', phrase: 'a reckoning of scale', test: /\b(record|sales|million|billion|box office|top(s|ped)?|best[- ]?sell|highest)\b/i },
+  { key: 'firstlook', phrase: 'a first look', test: /\b(trailer|teaser|\bPV\b|first look|visual|key art|preview|promo)\b/i },
+  { key: 'beginning', phrase: 'a beginning', test: /\b(launch(es|ed)?|debut(s|ed)?|premiere(s|d)?|announce(s|d|ment)?|reveal(s|ed)?|unveil(s|ed)?|new series|greenlit|confirmed|to get|gets? (a )?(anime|manga|season)|renewed)\b/i },
+];
+
+export function detectStoryAngle(title: string): StoryAngle {
+  for (const a of STORY_ANGLES) {
+    if (a.test.test(title)) return { key: a.key, phrase: a.phrase };
+  }
+  return { key: 'default', phrase: 'this development' };
+}
+
+// A short interpretive clause per number — the "so what" of the vibration, phrased
+// to complete "…the {n}'s {gloss}."
+export const ARTICLE_GLOSS: Record<number, string> = {
+  1: 'appetite for a clean, decisive beginning',
+  2: 'search for balance between competing sides',
+  3: 'instinct to turn everything into a story worth telling',
+  4: 'insistence that what lasts must be built patiently',
+  5: 'restlessness and hunger for change',
+  6: 'pull toward responsibility, care, and the people involved',
+  7: 'pull toward the hidden and the unresolved',
+  8: 'concern with power, money, and who is really in charge',
+  9: 'sense of a cycle closing and something being released',
+  11: 'heightened, high-voltage intuition about what comes next',
+  22: 'drive to turn a huge vision into something concrete',
+  33: 'devotion to lifting up everyone it touches',
+};
+
+export function articleGloss(n: number): string {
+  return ARTICLE_GLOSS[n] ?? ARTICLE_GLOSS[9];
+}
+
+export interface ArticleReading {
+  subject: string; // what was actually read (an entity name, or the title)
+  isEntity: boolean; // true when the subject came from the article's entities
+  reading: Reading;
+  sentence: string; // the deterministic, story-specific interpretive line
+}
+
+// Pick the primary subject: the first entity if the article has one (a character
+// or series name reduces more meaningfully than a whole headline sentence), else
+// the headline itself.
+function pickSubject(title: string, entities?: string[]): { subject: string; isEntity: boolean } {
+  const first = (entities ?? []).map((e) => (e || '').trim()).find((e) => e.length > 1);
+  if (first && normalize(first).length) return { subject: first, isEntity: true };
+  return { subject: title, isEntity: false };
+}
+
+// Compose the full, story-specific reading rendered on each article.
+export function composeArticleReading(input: {
+  title: string;
+  entities?: string[];
+  category?: string;
+}): ArticleReading {
+  const { subject, isEntity } = pickSubject(input.title, input.entities);
+  const reading = readTitle(subject);
+  const n = reading.destiny;
+  const profile = reading.profile;
+  const angle = detectStoryAngle(input.title);
+  const gloss = articleGloss(n);
+
+  const lead = isEntity
+    ? `Read through its central name, ${subject}, this story reduces to a Destiny ${n} — ${profile.title}.`
+    : `This headline reduces to a Destiny ${n} — ${profile.title}.`;
+
+  // A few tail shapes, chosen by angle, so the line varies across the site.
+  let tail: string;
+  switch (angle.key) {
+    case 'default':
+      tail = `Its vibration — ${profile.vibration} — is a lens for the ${n}'s ${gloss}.`;
+      break;
+    case 'ending':
+    case 'return':
+    case 'beginning':
+      tail = `That this is ${angle.phrase} sharpens the ${n}'s ${gloss}.`;
+      break;
+    default:
+      tail = `Framed as ${angle.phrase}, it leans into the ${n}'s ${gloss}.`;
+  }
+
+  return { subject, isEntity, reading, sentence: `${lead} ${tail}` };
+}

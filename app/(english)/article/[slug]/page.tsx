@@ -481,8 +481,13 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           )}
 
-          {/* Numerological reading of the headline */}
-          <NumerologyPanel title={article.title} className="mt-8" />
+          {/* Numerological reading of the story's primary subject */}
+          <NumerologyPanel
+            title={article.title}
+            entities={article.entities}
+            category={article.category}
+            className="mt-8"
+          />
 
           <NewsletterCTA />
 

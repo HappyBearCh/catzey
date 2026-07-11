@@ -1,9 +1,11 @@
-import { readTitle, getProfile, type ReducedValue } from '@/lib/numerology';
+import { composeArticleReading, getProfile, type ReducedValue } from '@/lib/numerology';
 
 interface Props {
   title: string;
-  // Optional label describing what is being read, e.g. "This headline"
-  subject?: string;
+  // The article's entities — the first is read as the story's primary subject.
+  entities?: string[];
+  // The article's category, reserved for future category-aware phrasing.
+  category?: string;
   className?: string;
 }
 
@@ -37,10 +39,15 @@ function stepsText(r: ReducedValue): string {
   return r.steps.length > 1 ? r.steps.join(' → ') : String(r.raw);
 }
 
-// A numerological reading of a headline/title — the numbers, the meaning, and a
-// letter-by-letter breakdown. Rendered on every article and reusable elsewhere.
-export function NumerologyPanel({ title, subject = 'This headline', className = '' }: Props) {
-  const reading = readTitle(title);
+// A numerological reading of an article — the numbers, a story-specific
+// interpretation, and a letter-by-letter breakdown of the story's primary
+// subject. Rendered on every article and reusable elsewhere.
+export function NumerologyPanel({ title, entities, category, className = '' }: Props) {
+  const { subject, isEntity, reading, sentence } = composeArticleReading({
+    title,
+    entities,
+    category,
+  });
   const profile = reading.profile;
 
   return (
@@ -56,11 +63,12 @@ export function NumerologyPanel({ title, subject = 'This headline', className = 
             Numerological Reading
           </h2>
         </div>
-        <p className="mt-1.5 text-sm text-gray-300 leading-relaxed">
-          {subject} carries a <strong className="text-white">Destiny Number {reading.destiny}</strong> —{' '}
-          <span className="text-primary-accent font-semibold">{profile.title}</span>. A vibration of{' '}
-          {profile.vibration}.
-        </p>
+        {isEntity && (
+          <p className="mt-1.5 text-2xs font-black uppercase tracking-widest text-gray-400">
+            Reading: <span className="text-white normal-case tracking-normal">{subject}</span>
+          </p>
+        )}
+        <p className="mt-1.5 text-sm text-gray-300 leading-relaxed">{sentence}</p>
       </div>
 
       <div className="bg-white dark:bg-site-dark-2 px-5 py-5">
@@ -136,9 +144,9 @@ export function NumerologyPanel({ title, subject = 'This headline', className = 
         </div>
 
         <p className="mt-4 text-2xs text-gray-400 dark:text-gray-500 leading-relaxed">
-          Every headline is reduced with standard Pythagorean numerology — each letter mapped to a
-          digit 1–9, summed, and reduced to a single digit or master number. A lens for paying
-          attention, not a forecast.
+          {isEntity ? 'The subject' : 'The headline'} is reduced with standard Pythagorean numerology
+          — each letter mapped to a digit 1–9, summed, and reduced to a single digit or master
+          number. A lens for paying attention, not a forecast.
         </p>
       </div>
     </section>

@@ -24,8 +24,14 @@ export const metadata: Metadata = {
 
 async function getColumns(): Promise<Article[]> {
   try {
+    // Daily columns share the "numerology" category with the essay series, so
+    // narrow to the daily desk by its stable slug prefix.
     return (await prisma.article.findMany({
-      where: { published: true, category: DAILY_CATEGORY },
+      where: {
+        published: true,
+        category: DAILY_CATEGORY,
+        slug: { startsWith: 'daily-numerology-' },
+      },
       orderBy: { publishedAt: 'desc' },
       take: 60,
     })) as Article[];
