@@ -143,6 +143,39 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Modern Studios: Trigger, CloverWorks, A-1 Pictures, and Toei Animation',
     subjects: ['Trigger', 'CloverWorks', 'A-1 Pictures', 'Toei Animation'],
   },
+  // ── Fourth batch ──────────────────────────────────────────────────────────
+  {
+    topic: 'The Current Hitmakers: Spy x Family, My Hero Academia, and Tokyo Revengers through the numbers',
+    subjects: ['Spy x Family', 'My Hero Academia', 'Tokyo Revengers'],
+  },
+  {
+    topic: 'The Old Guard of Shonen: Yu Yu Hakusho, Rurouni Kenshin, and Hunter x Hunter',
+    subjects: ['Yu Yu Hakusho', 'Rurouni Kenshin', 'Hunter x Hunter'],
+  },
+  {
+    topic: 'The Numbers of Horror: Tokyo Ghoul, Parasyte, and the work of Junji Ito',
+    subjects: ['Tokyo Ghoul', 'Parasyte', 'Junji Ito'],
+  },
+  {
+    topic: "The Fated Protagonists: what Eren Yeager, Ichigo Kurosaki, and Light Yagami's names vibrate to",
+    subjects: ['Eren Yeager', 'Ichigo Kurosaki', 'Light Yagami'],
+  },
+  {
+    topic: 'The Cyberpunk Canon: Ghost in the Shell, Akira, and Steins;Gate through numerology',
+    subjects: ['Ghost in the Shell', 'Akira', 'Steins;Gate'],
+  },
+  {
+    topic: 'The Master Storytellers: Naoki Urasawa, Takehiko Inoue, and Hirohiko Araki',
+    subjects: ['Naoki Urasawa', 'Takehiko Inoue', 'Hirohiko Araki'],
+  },
+  {
+    topic: "JoJo and the Bizarre: reading JoJo's Bizarre Adventure, Jotaro Kujo, and Dio Brando",
+    subjects: ["JoJo's Bizarre Adventure", 'Jotaro Kujo', 'Dio Brando'],
+  },
+  {
+    topic: 'The Quiet Hearts: slice-of-life and drama in K-On, Clannad, and Your Lie in April',
+    subjects: ['K-On', 'Clannad', 'Your Lie in April'],
+  },
 ];
 
 function slugify(text: string): string {
