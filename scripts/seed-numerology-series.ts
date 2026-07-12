@@ -275,6 +275,105 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Web Manhwa Wave: The Beginning After the End, Omniscient Reader, and Noblesse through the numbers',
     subjects: ['The Beginning After the End', 'Omniscient Reader', 'Noblesse'],
   },
+  // ── Eighth batch ──────────────────────────────────────────────────────────
+  {
+    topic: "The Villain Second Wave: what Meruem, Johan Liebert, and Askeladd's names vibrate to",
+    subjects: ['Meruem', 'Johan Liebert', 'Askeladd'],
+  },
+  {
+    topic: 'The Romantic Comedies: Kaguya-sama, Toradora, and The Quintessential Quintuplets through numerology',
+    subjects: ['Kaguya-sama', 'Toradora', 'The Quintessential Quintuplets'],
+  },
+  {
+    topic: 'The Death Games: numerology of Danganronpa, Future Diary, and Kakegurui',
+    subjects: ['Danganronpa', 'Future Diary', 'Kakegurui'],
+  },
+  {
+    topic: 'The Music Manga: reading Beck, Bocchi the Rock, and Given through the numbers',
+    subjects: ['Beck', 'Bocchi the Rock', 'Given'],
+  },
+  {
+    topic: "The Post-Apocalyptic Visions: Dr. Stone, Made in Abyss, and Girls' Last Tour through numerology",
+    subjects: ['Dr. Stone', 'Made in Abyss', "Girls' Last Tour"],
+  },
+  {
+    topic: 'The Demons and Gods: Blue Exorcist, Noragami, and Nura Rise of the Yokai Clan through the numbers',
+    subjects: ['Blue Exorcist', 'Noragami', 'Nura Rise of the Yokai Clan'],
+  },
+  {
+    topic: 'The Crime Underworld: numerology of Black Lagoon, 91 Days, and The Way of the Househusband',
+    subjects: ['Black Lagoon', '91 Days', 'The Way of the Househusband'],
+  },
+  {
+    topic: 'The Historical Epics: Kingdom, Golden Kamuy, and Drifters through the numbers',
+    subjects: ['Kingdom', 'Golden Kamuy', 'Drifters'],
+  },
+  // ── Ninth batch ───────────────────────────────────────────────────────────
+  {
+    topic: 'The Shonen Newcomers: reading Undead Unluck, Mashle, and Blue Box through their numbers',
+    subjects: ['Undead Unluck', 'Mashle', 'Blue Box'],
+  },
+  {
+    topic: 'The Robots and the Soul: Astro Boy, Vivy, and Plastic Memories through numerology',
+    subjects: ['Astro Boy', 'Vivy', 'Plastic Memories'],
+  },
+  {
+    topic: 'The School-Life Comedies: numerology of Assassination Classroom, Nichijou, and Azumanga Daioh',
+    subjects: ['Assassination Classroom', 'Nichijou', 'Azumanga Daioh'],
+  },
+  {
+    topic: 'The Sci-Fi Minds: Psycho-Pass, Ergo Proxy, and Serial Experiments Lain through the numbers',
+    subjects: ['Psycho-Pass', 'Ergo Proxy', 'Serial Experiments Lain'],
+  },
+  {
+    topic: 'The Fighting Spirits: reading Baki, Kengan Ashura, and Hajime no Ippo through numerology',
+    subjects: ['Baki', 'Kengan Ashura', 'Hajime no Ippo'],
+  },
+  {
+    topic: 'The Vampire Chronicles: Hellsing, Vampire Hunter D, and Seraph of the End through the numbers',
+    subjects: ['Hellsing', 'Vampire Hunter D', 'Seraph of the End'],
+  },
+  {
+    topic: 'The Mind Games: numerology of Akagi, Liar Game, and One Outs',
+    subjects: ['Akagi', 'Liar Game', 'One Outs'],
+  },
+  {
+    topic: 'The Racing Legends: reading Initial D, Redline, and Capeta through the numbers',
+    subjects: ['Initial D', 'Redline', 'Capeta'],
+  },
+  // ── Tenth batch ───────────────────────────────────────────────────────────
+  {
+    topic: "The Josei Hearts: Honey and Clover, Paradise Kiss, and Princess Jellyfish through numerology",
+    subjects: ['Honey and Clover', 'Paradise Kiss', 'Princess Jellyfish'],
+  },
+  {
+    topic: "The Yokai and Folklore: GeGeGe no Kitaro, Mushishi, and Natsume's Book of Friends through the numbers",
+    subjects: ['GeGeGe no Kitaro', 'Mushishi', "Natsume's Book of Friends"],
+  },
+  {
+    topic: 'The Cooking Second Course: Sweetness and Lightning, Yakitate Japan, and Delicious in Dungeon through numerology',
+    subjects: ['Sweetness and Lightning', 'Yakitate Japan', 'Delicious in Dungeon'],
+  },
+  {
+    topic: 'The Sports Underdogs: reading Ping Pong the Animation, Yowamushi Pedal, and Free through the numbers',
+    subjects: ['Ping Pong the Animation', 'Yowamushi Pedal', 'Free'],
+  },
+  {
+    topic: 'The Time Travelers: Orange, The Girl Who Leapt Through Time, and ReLIFE through numerology',
+    subjects: ['Orange', 'The Girl Who Leapt Through Time', 'ReLIFE'],
+  },
+  {
+    topic: 'The Techno Dystopias of Tsutomu Nihei: Blame, Biomega, and Knights of Sidonia through the numbers',
+    subjects: ['Blame', 'Biomega', 'Knights of Sidonia'],
+  },
+  {
+    topic: 'The Gag Legends: numerology of Dr. Slump, Osomatsu-kun, and Cromartie High School',
+    subjects: ['Dr. Slump', 'Osomatsu-kun', 'Cromartie High School'],
+  },
+  {
+    topic: 'The Netflix Era: Cyberpunk Edgerunners, Devilman Crybaby, and Aggretsuko through the numbers',
+    subjects: ['Cyberpunk Edgerunners', 'Devilman Crybaby', 'Aggretsuko'],
+  },
 ];
 
 function slugify(text: string): string {
