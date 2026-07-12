@@ -176,6 +176,105 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Quiet Hearts: slice-of-life and drama in K-On, Clannad, and Your Lie in April',
     subjects: ['K-On', 'Clannad', 'Your Lie in April'],
   },
+  // ── Fifth batch ───────────────────────────────────────────────────────────
+  {
+    topic: 'The New Wave Auteurs: reading Tatsuki Fujimoto, Gege Akutami, and Koyoharu Gotouge through their names',
+    subjects: ['Tatsuki Fujimoto', 'Gege Akutami', 'Koyoharu Gotouge'],
+  },
+  {
+    topic: 'The Rival Publishers: Kodansha, Shogakukan, and Weekly Shonen Magazine through the numbers',
+    subjects: ['Kodansha', 'Shogakukan', 'Weekly Shonen Magazine'],
+  },
+  {
+    topic: 'The Recent Phenomena: numerology of Frieren, Oshi no Ko, and Dandadan',
+    subjects: ['Frieren', 'Oshi no Ko', 'Dandadan'],
+  },
+  {
+    topic: 'The Magical Girls: reading Madoka Magica, Cardcaptor Sakura, and Pretty Cure',
+    subjects: ['Madoka Magica', 'Cardcaptor Sakura', 'Pretty Cure'],
+  },
+  {
+    topic: 'The Fantasy Adventurers: Fairy Tail, Black Clover, and The Seven Deadly Sins through numerology',
+    subjects: ['Fairy Tail', 'Black Clover', 'The Seven Deadly Sins'],
+  },
+  {
+    topic: 'The Retro Titans: reading Fist of the North Star, Saint Seiya, and Ranma ½',
+    subjects: ['Fist of the North Star', 'Saint Seiya', 'Ranma'],
+  },
+  {
+    topic: 'The Isekai Second Wave: Mushoku Tensei, KonoSuba, and Overlord through the numbers',
+    subjects: ['Mushoku Tensei', 'KonoSuba', 'Overlord'],
+  },
+  {
+    topic: "The Ultimate Villains: what Muzan Kibutsuji, Ryomen Sukuna, and All For One's names vibrate to",
+    subjects: ['Muzan Kibutsuji', 'Ryomen Sukuna', 'All For One'],
+  },
+  // ── Sixth batch ───────────────────────────────────────────────────────────
+  {
+    topic: 'The Psychological Thrillers: Monster, Erased, and The Promised Neverland through numerology',
+    subjects: ['Monster', 'Erased', 'The Promised Neverland'],
+  },
+  {
+    topic: 'The Women Who Built Manga: reading CLAMP, Naoko Takeuchi, and Hiromu Arakawa through their names',
+    subjects: ['CLAMP', 'Naoko Takeuchi', 'Hiromu Arakawa'],
+  },
+  {
+    topic: 'The Sports Second String: Captain Tsubasa, Kuroko no Basket, and Ace of Diamond through the numbers',
+    subjects: ['Captain Tsubasa', 'Kuroko no Basket', 'Ace of Diamond'],
+  },
+  {
+    topic: 'The Idols and the Stage: numerology of Love Live, The Idolmaster, and Macross',
+    subjects: ['Love Live', 'The Idolmaster', 'Macross'],
+  },
+  {
+    topic: "Ghibli's Masterworks: reading Spirited Away, Princess Mononoke, and My Neighbor Totoro",
+    subjects: ['Spirited Away', 'Princess Mononoke', 'My Neighbor Totoro'],
+  },
+  {
+    topic: 'The Games of Skill: Hikaru no Go, Chihayafuru, and Kaiji through numerology',
+    subjects: ['Hikaru no Go', 'Chihayafuru', 'Kaiji'],
+  },
+  {
+    topic: 'The Gourmet Numbers: Food Wars, Toriko, and Restaurant to Another World through the numbers',
+    subjects: ['Food Wars', 'Toriko', 'Restaurant to Another World'],
+  },
+  {
+    topic: 'The Great Sensei: reading Katsuhiro Otomo, Mamoru Oshii, and Shinichiro Watanabe',
+    subjects: ['Katsuhiro Otomo', 'Mamoru Oshii', 'Shinichiro Watanabe'],
+  },
+  // ── Seventh batch ─────────────────────────────────────────────────────────
+  {
+    topic: 'The Dark Fantasy Underground: Claymore, Devilman, and Dorohedoro through the numbers',
+    subjects: ['Claymore', 'Devilman', 'Dorohedoro'],
+  },
+  {
+    topic: 'The Comedy Kings: numerology of Gintama, Bobobo-bo Bo-bobo, and Saiki K',
+    subjects: ['Gintama', 'Bobobo-bo Bo-bobo', 'Saiki K'],
+  },
+  {
+    topic: 'The Tearjerkers: reading Anohana, Violet Evergarden, and A Silent Voice through their numbers',
+    subjects: ['Anohana', 'Violet Evergarden', 'A Silent Voice'],
+  },
+  {
+    topic: 'The Space Operas: Legend of the Galactic Heroes, Space Battleship Yamato, and Outlaw Star',
+    subjects: ['Legend of the Galactic Heroes', 'Space Battleship Yamato', 'Outlaw Star'],
+  },
+  {
+    topic: 'The Modern Dark Shonen: Hell&#39;s Paradise, Kaiju No. 8, and Sakamoto Days through numerology',
+    subjects: ["Hell's Paradise", 'Kaiju No. 8', 'Sakamoto Days'],
+  },
+  {
+    topic: 'The Legendary Studios II: Gainax, Production I.G, and Sunrise through the numbers',
+    subjects: ['Gainax', 'Production I.G', 'Sunrise'],
+  },
+  {
+    topic: 'The Enduring Franchises: numerology of Pokemon, Digimon, and Yu-Gi-Oh',
+    subjects: ['Pokemon', 'Digimon', 'Yu-Gi-Oh'],
+  },
+  {
+    topic: 'The Web Manhwa Wave: The Beginning After the End, Omniscient Reader, and Noblesse through the numbers',
+    subjects: ['The Beginning After the End', 'Omniscient Reader', 'Noblesse'],
+  },
 ];
 
 function slugify(text: string): string {
