@@ -671,6 +671,58 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Living Legends: reading Yoshihiro Togashi, Tite Kubo, and Masashi Kishimoto through their names',
     subjects: ['Yoshihiro Togashi', 'Tite Kubo', 'Masashi Kishimoto'],
   },
+  // ── Twentieth batch: "The Nine Vibrations" ────────────────────────────────
+  // A per-number arc. Subjects were chosen by COMPUTING their destiny numbers
+  // first (lib/numerology readTitle), so every subject genuinely reduces to the
+  // number its essay is about — the groupings are findings, not decoration.
+  {
+    topic: 'The Ones: the Leader and Pioneer vibration in anime — why Jujutsu Kaisen, Ghost in the Shell, and Hayao Miyazaki all reduce to 1',
+    subjects: ['Jujutsu Kaisen', 'Ghost in the Shell', 'Hayao Miyazaki'],
+  },
+  {
+    topic: "The Missing Twos: the Diplomat is the rarest vibration in anime — across hundreds of major titles, creators, and studios almost nothing reduces to 2. What it means that a medium built on rivalry has so few peacemakers, read through MAPPA and Ranma, the notable exceptions",
+    subjects: ['MAPPA', 'Ranma'],
+  },
+  {
+    topic: 'The Threes: the Creative Communicator vibration — why Fullmetal Alchemist, Frieren, and Son Goku all reduce to 3',
+    subjects: ['Fullmetal Alchemist', 'Frieren', 'Son Goku'],
+  },
+  {
+    topic: 'The Fours: the Builder vibration — why Monkey D. Luffy, My Hero Academia, and Guts all reduce to 4',
+    subjects: ['Monkey D. Luffy', 'My Hero Academia', 'Guts'],
+  },
+  {
+    topic: 'The Fives: the Freedom Seeker vibration and the most crowded number in anime — Dragon Ball, Attack on Titan, and Neon Genesis Evangelion',
+    subjects: ['Dragon Ball', 'Attack on Titan', 'Neon Genesis Evangelion'],
+  },
+  {
+    topic: 'The Sixes: the Nurturer vibration — why Spy x Family, Eiichiro Oda, and Tanjiro Kamado all reduce to 6',
+    subjects: ['Spy x Family', 'Eiichiro Oda', 'Tanjiro Kamado'],
+  },
+  {
+    topic: 'The Sevens: the Analyst and Seeker vibration — why Chainsaw Man, Hunter x Hunter, and Akira Toriyama all reduce to 7',
+    subjects: ['Chainsaw Man', 'Hunter x Hunter', 'Akira Toriyama'],
+  },
+  {
+    topic: 'The Eights: the Visionary and Achiever vibration — why Naruto, Pokemon, and Naoki Urasawa all reduce to 8',
+    subjects: ['Naruto', 'Pokemon', 'Naoki Urasawa'],
+  },
+  {
+    topic: 'The Nines: the Humanitarian and Sage vibration — why One Piece, Osamu Tezuka, and Studio Ghibli all reduce to 9',
+    subjects: ['One Piece', 'Osamu Tezuka', 'Studio Ghibli'],
+  },
+  {
+    topic: 'The Elevens: the Master Visionary — why Death Note, Steins;Gate, and Kentaro Miura all carry the 11',
+    subjects: ['Death Note', 'Steins;Gate', 'Kentaro Miura'],
+  },
+  {
+    topic: 'The Twenty-Twos: the Master Builder — why Bleach, Akira, and Clannad all carry the 22',
+    subjects: ['Bleach', 'Akira', 'Clannad'],
+  },
+  {
+    topic: 'The Thirty-Threes: the Master Teacher — why Berserk, Haikyuu, and Code Geass all carry the 33, and what the series has learned from reading a whole medium through its names',
+    subjects: ['Berserk', 'Haikyuu', 'Code Geass'],
+  },
 ];
 
 function slugify(text: string): string {
