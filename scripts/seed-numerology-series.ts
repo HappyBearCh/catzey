@@ -374,6 +374,204 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Netflix Era: Cyberpunk Edgerunners, Devilman Crybaby, and Aggretsuko through the numbers',
     subjects: ['Cyberpunk Edgerunners', 'Devilman Crybaby', 'Aggretsuko'],
   },
+  // ── Eleventh batch ────────────────────────────────────────────────────────
+  {
+    topic: "The Eternal Rivals: what Roronoa Zoro, Killua Zoldyck, and Sasuke Uchiha's names vibrate to",
+    subjects: ['Roronoa Zoro', 'Killua Zoldyck', 'Sasuke Uchiha'],
+  },
+  {
+    topic: 'The Mentors: reading Jiraiya, Master Roshi, and Kisuke Urahara through the numbers',
+    subjects: ['Jiraiya', 'Master Roshi', 'Kisuke Urahara'],
+  },
+  {
+    topic: "The Shonen Sunday Canon: Inuyasha, Magi, and Komi Can't Communicate through numerology",
+    subjects: ['Inuyasha', 'Magi', "Komi Can't Communicate"],
+  },
+  {
+    topic: 'The Villainess Turn: My Next Life as a Villainess, Ascendance of a Bookworm, and Bibliophile Princess',
+    subjects: ['My Next Life as a Villainess', 'Ascendance of a Bookworm', 'Bibliophile Princess'],
+  },
+  {
+    topic: 'The Composers: reading Yoko Kanno, Hiroyuki Sawano, and Joe Hisaishi through their names',
+    subjects: ['Yoko Kanno', 'Hiroyuki Sawano', 'Joe Hisaishi'],
+  },
+  {
+    topic: 'The Voices of Anime: numerology of Megumi Hayashibara, Mamoru Miyano, and Kana Hanazawa',
+    subjects: ['Megumi Hayashibara', 'Mamoru Miyano', 'Kana Hanazawa'],
+  },
+  {
+    topic: 'The Captains and Commanders: Levi Ackerman, Roy Mustang, and All Might through the numbers',
+    subjects: ['Levi Ackerman', 'Roy Mustang', 'All Might'],
+  },
+  {
+    topic: 'The Mecha Second Wave: Eureka Seven, Darling in the Franxx, and Aldnoah Zero through numerology',
+    subjects: ['Eureka Seven', 'Darling in the Franxx', 'Aldnoah Zero'],
+  },
+  // ── Twelfth batch ─────────────────────────────────────────────────────────
+  {
+    topic: 'The Shojo Classics: Candy Candy, The Rose of Versailles, and Glass Mask through the numbers',
+    subjects: ['Candy Candy', 'The Rose of Versailles', 'Glass Mask'],
+  },
+  {
+    topic: 'The Modern Shojo: numerology of Horimiya, My Love Story, and Skip Beat',
+    subjects: ['Horimiya', 'My Love Story', 'Skip Beat'],
+  },
+  {
+    topic: 'The Sports Storytellers: Eyeshield 21, Giant Killing, and Cross Game through numerology',
+    subjects: ['Eyeshield 21', 'Giant Killing', 'Cross Game'],
+  },
+  {
+    topic: 'The Cult Classics: FLCL, Paranoia Agent, and Texhnolyze through the numbers',
+    subjects: ['FLCL', 'Paranoia Agent', 'Texhnolyze'],
+  },
+  {
+    topic: "Ghibli's Successors: Studio Ponoc, Science SARU, and Studio Chizu through numerology",
+    subjects: ['Studio Ponoc', 'Science SARU', 'Studio Chizu'],
+  },
+  {
+    topic: 'The Directors of Feeling: reading Mamoru Hosoda, Naoko Yamada, and Masaaki Yuasa',
+    subjects: ['Mamoru Hosoda', 'Naoko Yamada', 'Masaaki Yuasa'],
+  },
+  {
+    topic: 'The Horror Second Wave: Another, Higurashi, and Shiki through the numbers',
+    subjects: ['Another', 'Higurashi', 'Shiki'],
+  },
+  {
+    topic: 'The Magazines Beyond Jump: Weekly Young Jump, Big Comic, and Afternoon through numerology',
+    subjects: ['Weekly Young Jump', 'Big Comic', 'Afternoon'],
+  },
+  // ── Thirteenth batch ──────────────────────────────────────────────────────
+  {
+    topic: 'The Hard Sci-Fi Epics: Planetes, Gunbuster, and Toward the Terra through the numbers',
+    subjects: ['Planetes', 'Gunbuster', 'Toward the Terra'],
+  },
+  {
+    topic: 'The Boxing Ring: Ashita no Joe, Megalo Box, and Rainbow through numerology',
+    subjects: ['Ashita no Joe', 'Megalo Box', 'Rainbow'],
+  },
+  {
+    topic: 'The Trapped Worlds: Gantz, Btooom, and Alice in Borderland through the numbers',
+    subjects: ['Gantz', 'Btooom', 'Alice in Borderland'],
+  },
+  {
+    topic: 'One Hundred Parts In: what the number 100 means, and what this series has learned reading a medium through its names',
+    subjects: ['Catzye', 'The Numbers Behind the Manga', 'Numerology'],
+  },
+  {
+    topic: 'The Pirates and Rebels: Edward Newgate, Shanks, and Trafalgar Law through the numbers',
+    subjects: ['Edward Newgate', 'Shanks', 'Trafalgar Law'],
+  },
+  {
+    topic: 'The Naruto Constellation: Kakashi Hatake, Itachi Uchiha, and Hinata Hyuga through numerology',
+    subjects: ['Kakashi Hatake', 'Itachi Uchiha', 'Hinata Hyuga'],
+  },
+  {
+    topic: 'The Dragon Ball Constellation: Vegeta, Piccolo, and Gohan through the numbers',
+    subjects: ['Vegeta', 'Piccolo', 'Gohan'],
+  },
+  {
+    topic: 'The Bleach Constellation: Rukia Kuchiki, Byakuya Kuchiki, and Kenpachi Zaraki through numerology',
+    subjects: ['Rukia Kuchiki', 'Byakuya Kuchiki', 'Kenpachi Zaraki'],
+  },
+  // ── Fourteenth batch ──────────────────────────────────────────────────────
+  {
+    topic: 'The Straw Hat Crew: Nami, Sanji, and Tony Tony Chopper through the numbers',
+    subjects: ['Nami', 'Sanji', 'Tony Tony Chopper'],
+  },
+  {
+    topic: 'The Survey Corps: Armin Arlert, Erwin Smith, and Zeke Yeager through numerology',
+    subjects: ['Armin Arlert', 'Erwin Smith', 'Zeke Yeager'],
+  },
+  {
+    topic: 'The Jujutsu Students: Yuji Itadori, Megumi Fushiguro, and Nobara Kugisaki through the numbers',
+    subjects: ['Yuji Itadori', 'Megumi Fushiguro', 'Nobara Kugisaki'],
+  },
+  {
+    topic: 'The Hashira: reading Giyu Tomioka, Kyojuro Rengoku, and Shinobu Kocho through numerology',
+    subjects: ['Giyu Tomioka', 'Kyojuro Rengoku', 'Shinobu Kocho'],
+  },
+  {
+    topic: 'Class 1-A: Izuku Midoriya, Katsuki Bakugo, and Shoto Todoroki through the numbers',
+    subjects: ['Izuku Midoriya', 'Katsuki Bakugo', 'Shoto Todoroki'],
+  },
+  {
+    topic: 'The Elric Brothers: Edward Elric, Alphonse Elric, and Winry Rockbell through numerology',
+    subjects: ['Edward Elric', 'Alphonse Elric', 'Winry Rockbell'],
+  },
+  {
+    topic: 'The Hunters: Gon Freecss, Kurapika, and Hisoka through the numbers',
+    subjects: ['Gon Freecss', 'Kurapika', 'Hisoka'],
+  },
+  {
+    topic: 'The Death Note Duel: reading L Lawliet, Misa Amane, and Ryuk through numerology',
+    subjects: ['L Lawliet', 'Misa Amane', 'Ryuk'],
+  },
+  // ── Fifteenth batch ───────────────────────────────────────────────────────
+  {
+    topic: "Ghibli's Second Shelf: Howl's Moving Castle, Kiki's Delivery Service, and Castle in the Sky",
+    subjects: ["Howl's Moving Castle", "Kiki's Delivery Service", 'Castle in the Sky'],
+  },
+  {
+    topic: 'The Shinkai Trilogy: Your Name, Weathering with You, and Suzume through the numbers',
+    subjects: ['Your Name', 'Weathering with You', 'Suzume'],
+  },
+  {
+    topic: 'The Trigger Works: Kill la Kill, Little Witch Academia, and Promare through numerology',
+    subjects: ['Kill la Kill', 'Little Witch Academia', 'Promare'],
+  },
+  {
+    topic: 'The Gundam Pilots: Amuro Ray, Char Aznable, and Setsuna F. Seiei through the numbers',
+    subjects: ['Amuro Ray', 'Char Aznable', 'Setsuna F. Seiei'],
+  },
+  {
+    topic: 'The Eva Pilots: Shinji Ikari, Rei Ayanami, and Asuka Langley through numerology',
+    subjects: ['Shinji Ikari', 'Rei Ayanami', 'Asuka Langley'],
+  },
+  {
+    topic: 'The Sailor Guardians: Usagi Tsukino, Rei Hino, and Ami Mizuno through the numbers',
+    subjects: ['Usagi Tsukino', 'Rei Hino', 'Ami Mizuno'],
+  },
+  {
+    topic: 'The Fate Universe: Fate stay night, Fate Zero, and Saber through numerology',
+    subjects: ['Fate stay night', 'Fate Zero', 'Saber'],
+  },
+  {
+    topic: 'The Berserk Cast: Griffith, Casca, and the Band of the Hawk through the numbers',
+    subjects: ['Griffith', 'Casca', 'Band of the Hawk'],
+  },
+  // ── Sixteenth batch ───────────────────────────────────────────────────────
+  {
+    topic: 'The Akatsuki and the Fallen: Orochimaru, Pain, and Obito Uchiha through numerology',
+    subjects: ['Orochimaru', 'Pain', 'Obito Uchiha'],
+  },
+  {
+    topic: 'The Emperors of the Sea: Doflamingo, Kaido, and Blackbeard through the numbers',
+    subjects: ['Doflamingo', 'Kaido', 'Blackbeard'],
+  },
+  {
+    topic: 'The Cursed and the Blessed: Yuta Okkotsu, Toji Fushiguro, and Kento Nanami through numerology',
+    subjects: ['Yuta Okkotsu', 'Toji Fushiguro', 'Kento Nanami'],
+  },
+  {
+    topic: 'The Digital Platforms: Shonen Jump Plus, Manga Plus, and Webtoon through the numbers',
+    subjects: ['Shonen Jump Plus', 'Manga Plus', 'Webtoon'],
+  },
+  {
+    topic: 'The Streaming Giants: Crunchyroll, Netflix, and Aniplex through numerology',
+    subjects: ['Crunchyroll', 'Netflix', 'Aniplex'],
+  },
+  {
+    topic: 'The Gathering Places: Comiket, Anime Expo, and Jump Festa through the numbers',
+    subjects: ['Comiket', 'Anime Expo', 'Jump Festa'],
+  },
+  {
+    topic: 'The Anthem Makers: LiSA, YOASOBI, and RADWIMPS through numerology',
+    subjects: ['LiSA', 'YOASOBI', 'RADWIMPS'],
+  },
+  {
+    topic: 'The Supporting World of Dragon Ball: Bulma, Krillin, and Trunks through the numbers',
+    subjects: ['Bulma', 'Krillin', 'Trunks'],
+  },
 ];
 
 function slugify(text: string): string {
