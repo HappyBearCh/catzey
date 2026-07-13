@@ -572,6 +572,105 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Supporting World of Dragon Ball: Bulma, Krillin, and Trunks through the numbers',
     subjects: ['Bulma', 'Krillin', 'Trunks'],
   },
+  // ── Seventeenth batch ─────────────────────────────────────────────────────
+  {
+    topic: "The Donghua Wave: The King's Avatar, Mo Dao Zu Shi, and Link Click through the numbers",
+    subjects: ["The King's Avatar", 'Mo Dao Zu Shi', 'Link Click'],
+  },
+  {
+    topic: 'The Korean Webtoon Titans: Lookism, Sweet Home, and True Beauty through numerology',
+    subjects: ['Lookism', 'Sweet Home', 'True Beauty'],
+  },
+  {
+    topic: 'The Western Inheritors: Avatar The Last Airbender, Castlevania, and Arcane through the numbers',
+    subjects: ['Avatar The Last Airbender', 'Castlevania', 'Arcane'],
+  },
+  {
+    topic: 'The Localization Pioneers: Viz Media, Funimation, and Dark Horse through numerology',
+    subjects: ['Viz Media', 'Funimation', 'Dark Horse'],
+  },
+  {
+    topic: "The OVA Era: Bubblegum Crisis, Giant Robo, and Angel's Egg through the numbers",
+    subjects: ['Bubblegum Crisis', 'Giant Robo', "Angel's Egg"],
+  },
+  {
+    topic: 'The Working Life: Wotakoi, Shirobako, and Servant x Service through numerology',
+    subjects: ['Wotakoi', 'Shirobako', 'Servant x Service'],
+  },
+  {
+    topic: 'The Breakout Films: Perfect Blue, Grave of the Fireflies, and Wolf Children through the numbers',
+    subjects: ['Perfect Blue', 'Grave of the Fireflies', 'Wolf Children'],
+  },
+  {
+    topic: 'The Retro Robots: Mazinger Z, Getter Robo, and Tetsujin 28 through numerology',
+    subjects: ['Mazinger Z', 'Getter Robo', 'Tetsujin 28'],
+  },
+  // ── Eighteenth batch ──────────────────────────────────────────────────────
+  {
+    topic: 'The Psychological Heroines: Lain Iwakura, Homura Akemi, and Lucy through the numbers',
+    subjects: ['Lain Iwakura', 'Homura Akemi', 'Lucy'],
+  },
+  {
+    topic: 'The Wanderers: Vash the Stampede, Spike Spiegel, and Mugen through numerology',
+    subjects: ['Vash the Stampede', 'Spike Spiegel', 'Mugen'],
+  },
+  {
+    topic: 'The Samurai: Samurai Champloo, Sword of the Stranger, and Blade of the Immortal',
+    subjects: ['Samurai Champloo', 'Sword of the Stranger', 'Blade of the Immortal'],
+  },
+  {
+    topic: 'The Ninja Beyond Naruto: Ninja Scroll, Basilisk, and Nabari no Ou through the numbers',
+    subjects: ['Ninja Scroll', 'Basilisk', 'Nabari no Ou'],
+  },
+  {
+    topic: 'The Card Battlers: Cardfight Vanguard, Duel Masters, and Beyblade through numerology',
+    subjects: ['Cardfight Vanguard', 'Duel Masters', 'Beyblade'],
+  },
+  {
+    topic: 'The Spirit Mediums: Shaman King, Yo-kai Watch, and Monster Rancher through the numbers',
+    subjects: ['Shaman King', 'Yo-kai Watch', 'Monster Rancher'],
+  },
+  {
+    topic: 'The Underrated Gems: Kaiba, The Tatami Galaxy, and Mind Game through numerology',
+    subjects: ['Kaiba', 'The Tatami Galaxy', 'Mind Game'],
+  },
+  {
+    topic: 'The Traditional Arts: Showa Genroku Rakugo Shinju, Kids on the Slope, and Blue Period',
+    subjects: ['Showa Genroku Rakugo Shinju', 'Kids on the Slope', 'Blue Period'],
+  },
+  // ── Nineteenth batch ──────────────────────────────────────────────────────
+  {
+    topic: 'The Dark Seinen: Goodnight Punpun, Homunculus, and Ichi the Killer through the numbers',
+    subjects: ['Goodnight Punpun', 'Homunculus', 'Ichi the Killer'],
+  },
+  {
+    topic: 'The Slow Life: Laid-Back Camp, Non Non Biyori, and Barakamon through numerology',
+    subjects: ['Laid-Back Camp', 'Non Non Biyori', 'Barakamon'],
+  },
+  {
+    topic: 'The Isekai Comedies: The Saga of Tanya the Evil, The Devil is a Part-Timer, and Cautious Hero',
+    subjects: ['The Saga of Tanya the Evil', 'The Devil is a Part-Timer', 'Cautious Hero'],
+  },
+  {
+    topic: 'The Healers: Black Jack, Cells at Work, and Team Medical Dragon through the numbers',
+    subjects: ['Black Jack', 'Cells at Work', 'Team Medical Dragon'],
+  },
+  {
+    topic: 'The War Stories: Barefoot Gen, In This Corner of the World, and Now and Then Here and There',
+    subjects: ['Barefoot Gen', 'In This Corner of the World', 'Now and Then Here and There'],
+  },
+  {
+    topic: 'The Absurdists: Pop Team Epic, Excel Saga, and Panty and Stocking through numerology',
+    subjects: ['Pop Team Epic', 'Excel Saga', 'Panty and Stocking'],
+  },
+  {
+    topic: 'The Mystery Boxes: the Monogatari Series, Durarara, and Baccano through the numbers',
+    subjects: ['Monogatari', 'Durarara', 'Baccano'],
+  },
+  {
+    topic: 'The Living Legends: reading Yoshihiro Togashi, Tite Kubo, and Masashi Kishimoto through their names',
+    subjects: ['Yoshihiro Togashi', 'Tite Kubo', 'Masashi Kishimoto'],
+  },
 ];
 
 function slugify(text: string): string {
