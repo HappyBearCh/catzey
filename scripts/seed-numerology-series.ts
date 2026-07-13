@@ -723,6 +723,51 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Thirty-Threes: the Master Teacher — why Berserk, Haikyuu, and Code Geass all carry the 33, and what the series has learned from reading a whole medium through its names',
     subjects: ['Berserk', 'Haikyuu', 'Code Geass'],
   },
+  // ── Twenty-first batch: "The Method Under Scrutiny" ───────────────────────
+  // Cross-cutting essays that turn the lens on itself. Where a topic states a
+  // finding, that finding was COMPUTED first (see the translation test below);
+  // where it poses a question, the essay answers it from the injected numbers
+  // rather than asserting a conclusion in advance.
+  {
+    topic:
+      "The Translation Test: does a title's vibration survive translation? We computed the destiny numbers of twenty major titles in both romanized Japanese and English — and only one pair matched (and only because it was the same words). Kimetsu no Yaiba reduces to 3 but Demon Slayer to 5; Shingeki no Kyojin to 6 but Attack on Titan to 5; Kimi no Na wa carries the master 11 but Your Name reduces to 4. The honest conclusion: a title's number is an artifact of the alphabet it is spelled in, not a property of the work. What that means for everything this series has been doing",
+    subjects: ['Kimetsu no Yaiba', 'Demon Slayer', 'Shingeki no Kyojin', 'Attack on Titan'],
+  },
+  {
+    topic:
+      'The Rivalries: do rivals carry opposing numbers? Read Son Goku against Vegeta, and Sasuke Uchiha against his own foil — report what the numbers actually say, including if they refuse to line up neatly',
+    subjects: ['Son Goku', 'Vegeta', 'Sasuke Uchiha'],
+  },
+  {
+    topic:
+      'The Franchise Drift: when a series is renamed, its number changes — Dragon Ball, Dragon Ball Z, and Dragon Ball Super are the same story with three different vibrations. What that says about naming and identity',
+    subjects: ['Dragon Ball', 'Dragon Ball Z', 'Dragon Ball Super'],
+  },
+  {
+    topic:
+      'The Studio and Its Masterpiece: do studios share a number with the work that made them? Test Ufotable against Demon Slayer, MAPPA against Jujutsu Kaisen, and Bones against My Hero Academia — and say plainly whether the pattern holds',
+    subjects: ['Ufotable', 'MAPPA', 'Bones'],
+  },
+  {
+    topic:
+      "The Heart and the Mask: when a work's Heart's Desire (its vowels) disagrees with its Personality (its consonants) — Berserk, One Piece, and Neon Genesis Evangelion as studies in inner versus outer number",
+    subjects: ['Berserk', 'One Piece', 'Neon Genesis Evangelion'],
+  },
+  {
+    topic:
+      'The Pen Names: Gege Akutami and ONE are invented names — chosen, not given. What happens to numerology when the subject picked their own letters?',
+    subjects: ['Gege Akutami', 'ONE', 'Kohei Horikoshi'],
+  },
+  {
+    topic:
+      'The Long Titles: the light-novel habit of sentence-length titles, and what happens to a number when a work is known by an abbreviation instead — KonoSuba, Oregairu, and Bofuri',
+    subjects: ['KonoSuba', 'Oregairu', 'Bofuri'],
+  },
+  {
+    topic:
+      'The Limits of the Lens: a closing essay. After more than 170 parts reading a medium through its names, an honest accounting of what numerology can and cannot tell you about art — what the lens genuinely surfaced, where it flattered coincidence, and why a frame can be worth using without being true',
+    subjects: ['Numerology', 'Manga', 'Catzye'],
+  },
 ];
 
 function slugify(text: string): string {
