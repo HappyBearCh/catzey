@@ -763,6 +763,74 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
       'The Long Titles: the light-novel habit of sentence-length titles, and what happens to a number when a work is known by an abbreviation instead — KonoSuba, Oregairu, and Bofuri',
     subjects: ['KonoSuba', 'Oregairu', 'Bofuri'],
   },
+  // ── Twenty-second batch: the founding generations and the deep cuts ───────
+  // NOTE: these are deliberately placed BEFORE the closing essay below, which
+  // must remain the final part of the series.
+  {
+    topic: 'The Retro Masters: reading Go Nagai, Leiji Matsumoto, and Shotaro Ishinomori through their names',
+    subjects: ['Go Nagai', 'Leiji Matsumoto', 'Shotaro Ishinomori'],
+  },
+  {
+    topic: 'The Year 24 Group: Moto Hagio, Keiko Takemiya, and Riyoko Ikeda, the women who reinvented shojo',
+    subjects: ['Moto Hagio', 'Keiko Takemiya', 'Riyoko Ikeda'],
+  },
+  {
+    topic: 'The Duo: Tsugumi Ohba, Takeshi Obata, and Bakuman — the partnership behind Death Note',
+    subjects: ['Tsugumi Ohba', 'Takeshi Obata', 'Bakuman'],
+  },
+  {
+    topic: 'The Space Pioneers: Galaxy Express 999, Captain Harlock, and Cyborg 009 through the numbers',
+    subjects: ['Galaxy Express 999', 'Captain Harlock', 'Cyborg 009'],
+  },
+  {
+    topic: "The Gentleman Thieves: Lupin III, City Hunter, and Cat's Eye through numerology",
+    subjects: ['Lupin III', 'City Hunter', "Cat's Eye"],
+  },
+  {
+    topic: 'The Assassins: Golgo 13, Lone Wolf and Cub, and Crying Freeman through the numbers',
+    subjects: ['Golgo 13', 'Lone Wolf and Cub', 'Crying Freeman'],
+  },
+  {
+    topic: 'The Cyber Bodies: Battle Angel Alita, Masamune Shirow, and Yukito Kishiro through numerology',
+    subjects: ['Battle Angel Alita', 'Masamune Shirow', 'Yukito Kishiro'],
+  },
+  {
+    topic: 'The Ohkubo Flames: Soul Eater, Fire Force, and Atsushi Ohkubo through the numbers',
+    subjects: ['Soul Eater', 'Fire Force', 'Atsushi Ohkubo'],
+  },
+  {
+    topic: 'The Dungeon Crawlers: Danmachi, Log Horizon, and Goblin Slayer through numerology',
+    subjects: ['Danmachi', 'Log Horizon', 'Goblin Slayer'],
+  },
+  {
+    topic: 'The Thinking Teens: Hyouka, Bunny Girl Senpai, and The Melancholy of Haruhi Suzumiya',
+    subjects: ['Hyouka', 'Bunny Girl Senpai', 'The Melancholy of Haruhi Suzumiya'],
+  },
+  {
+    topic: 'The Gothic: Black Butler, D.Gray-man, and Pandora Hearts through the numbers',
+    subjects: ['Black Butler', 'D.Gray-man', 'Pandora Hearts'],
+  },
+  {
+    topic: 'The Body Horror: Ajin, Terra Formars, and Elfen Lied through numerology',
+    subjects: ['Ajin', 'Terra Formars', 'Elfen Lied'],
+  },
+  {
+    topic: 'The Delinquents: Great Teacher Onizuka, Beelzebub, and Air Gear through the numbers',
+    subjects: ['Great Teacher Onizuka', 'Beelzebub', 'Air Gear'],
+  },
+  {
+    topic: 'The Killers: Akame ga Kill, Deadman Wonderland, and Trigun through numerology',
+    subjects: ['Akame ga Kill', 'Deadman Wonderland', 'Trigun'],
+  },
+  {
+    topic: 'The Ghoul and the Author: Sui Ishida, Tokyo Ghoul, and Choujin X through the numbers',
+    subjects: ['Sui Ishida', 'Tokyo Ghoul', 'Choujin X'],
+  },
+  {
+    topic: 'The Family Institutions: Sazae-san, Chibi Maruko-chan, and Anpanman, the anime that never end',
+    subjects: ['Sazae-san', 'Chibi Maruko-chan', 'Anpanman'],
+  },
+  // ── The closing essay — must always remain the final part ─────────────────
   {
     topic:
       'The Limits of the Lens: a closing essay. After more than 170 parts reading a medium through its names, an honest accounting of what numerology can and cannot tell you about art — what the lens genuinely surfaced, where it flattered coincidence, and why a frame can be worth using without being true',
