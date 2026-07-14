@@ -980,6 +980,81 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     subjects: ['Kamen Rider', 'Ultraman', 'Super Sentai'],
   },
 
+  // ── Batch 25: the neighbours, the pipes, and manga's non-fiction corners ────
+  // As always: appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic: 'The Korean Engine: Naver Webtoon, Kakao Entertainment, and Lezhin, and the numerology of the industry that rewired comics',
+    subjects: ['Naver Webtoon', 'Kakao Entertainment', 'Lezhin'],
+  },
+  {
+    topic: 'The Chinese Wave: Mo Dao Zu Shi, The King’s Avatar, and Link Click — donghua read through its names',
+    subjects: ['Mo Dao Zu Shi', 'The King’s Avatar', 'Link Click'],
+  },
+  {
+    topic: 'The Game Becomes the Anime: Persona, Fate/stay night, and Danganronpa through a numerological lens',
+    subjects: ['Persona', 'Fate/stay night', 'Danganronpa'],
+  },
+  {
+    topic: 'Anime Made Abroad: Cyberpunk Edgerunners, Castlevania, and Devil May Cry, and the numbers of the outsider adaptation',
+    subjects: ['Cyberpunk Edgerunners', 'Castlevania', 'Devil May Cry'],
+  },
+  {
+    topic: 'The Translators: Viz Media, Funimation, and Dark Horse — the numerology of the companies that carried manga into English',
+    subjects: ['Viz Media', 'Funimation', 'Dark Horse'],
+  },
+  {
+    topic: 'The Digital-First Publishers: Manga Plus, Shonen Jump+, and Piccoma, and the numbers of manga without paper',
+    subjects: ['Manga Plus', 'Shonen Jump+', 'Piccoma'],
+  },
+  {
+    topic: 'The War Memory: Barefoot Gen, Showa: A History of Japan, and Onward Towards Our Noble Deaths — manga as testimony',
+    subjects: ['Barefoot Gen', 'Showa: A History of Japan', 'Onward Towards Our Noble Deaths'],
+  },
+  {
+    topic: 'The Melancholy of Inio Asano: Goodnight Punpun, Solanin, and Dead Dead Demon’s Dededede Destruction',
+    subjects: ['Goodnight Punpun', 'Solanin', 'Dead Dead Demon’s Dededede Destruction'],
+  },
+  {
+    topic: 'The Line of Taiyo Matsumoto: Tekkonkinkreet, Sunny, and the numerology of an artist who draws like no one else',
+    subjects: ['Taiyo Matsumoto', 'Tekkonkinkreet', 'Sunny'],
+  },
+  {
+    topic: 'The Grandfather of Fear: Kazuo Umezu, The Drifting Classroom, and Orochi through their numbers',
+    subjects: ['Kazuo Umezu', 'The Drifting Classroom', 'Orochi'],
+  },
+  {
+    topic: 'The Adult Tezuka: Phoenix, Black Jack, and Buddha — the god of manga at his most serious',
+    subjects: ['Phoenix', 'Black Jack', 'Buddha'],
+  },
+  {
+    topic: 'The Families of Mamoru Hosoda: Wolf Children, Mirai, and Belle in numerological reading',
+    subjects: ['Wolf Children', 'Mirai', 'Belle'],
+  },
+  {
+    topic: 'Shinkai Beyond Your Name: Weathering with You, Suzume, and 5 Centimeters per Second',
+    subjects: ['Weathering with You', 'Suzume', '5 Centimeters per Second'],
+  },
+  {
+    topic: 'The Prizes: the Tezuka Osamu Cultural Prize, the Kodansha Manga Award, and the Eisner Award, and the numerology of who gets crowned',
+    subjects: ['Tezuka Osamu Cultural Prize', 'Kodansha Manga Award', 'Eisner Award'],
+  },
+  {
+    topic: 'The Archives of Fandom: Anime News Network, MyAnimeList, and MangaUpdates — the numbers of the infrastructure fans built themselves',
+    subjects: ['Anime News Network', 'MyAnimeList', 'MangaUpdates'],
+  },
+  {
+    topic: 'The Merchandise Economy: Gunpla, Nendoroid, and Good Smile Company, and the numerology of the objects fandom buys',
+    subjects: ['Gunpla', 'Nendoroid', 'Good Smile Company'],
+  },
+  {
+    topic: 'The Autobiographers: My Lesbian Experience with Loneliness, The Bride Was a Boy, and Our Dreams at Dusk — manga telling the truth about a life',
+    subjects: ['My Lesbian Experience with Loneliness', 'The Bride Was a Boy', 'Our Dreams at Dusk'],
+  },
+  {
+    topic: 'The Gentle Domestic: Chi’s Sweet Home, A Man and His Cat, and Yotsuba&! — the numerology of manga about nothing happening',
+    subjects: ['Chi’s Sweet Home', 'A Man and His Cat', 'Yotsuba&!'],
+  },
+
   // ── The closing essay — must always remain the final part ─────────────────
   {
     topic:
