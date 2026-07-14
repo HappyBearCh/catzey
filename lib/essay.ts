@@ -127,6 +127,75 @@ Return ONLY this JSON object (no markdown fences, no extra text):
   };
 }
 
+// ── Craft essay generator ─────────────────────────────────────────────────────
+// For "The Grammar of the Page": formal criticism of how comics actually work on
+// a reader — panel, gutter, page turn, line. The failure mode here is not
+// fabricated statistics (as in the industry series) but empty abstraction, so
+// the prompt forces every claim back down onto a specific page the reader can go
+// and look at.
+export async function generateCraftEssay(
+  seriesTitle: string,
+  seriesDescription: string,
+  topic: string,
+  partNumber: number,
+  totalParts: number,
+  anchors: string[],
+): Promise<GeneratedEssay> {
+  const anchorBlock = anchors.length
+    ? anchors.map((a) => `• ${a}`).join('\n')
+    : '(no fixed anchors — choose your own well-known examples)';
+
+  const prompt = `You are a comics critic writing for Catzye.com — the register of Scott McCloud or Thierry Groensteen, but plainer and less academic. You write about how manga actually works on a reader: the panel, the gutter, the page turn, the line. Formal criticism, close reading, no mysticism and no industry gossip.
+
+You are writing Part ${partNumber} of ${totalParts} in the essay series: "${seriesTitle}"
+Series overview: ${seriesDescription || seriesTitle}
+
+Topic for this part: "${topic}"
+
+THINGS THIS ESSAY MUST GENUINELY ENGAGE WITH (not merely name-drop):
+${anchorBlock}
+
+Requirements:
+- 1800–2400 words of rich, original prose.
+- CLOSE READING IS THE POINT. Every abstract claim must land on a specific, nameable moment a reader could go and look at — this series, this scene, this kind of page. Vague gestures at "dynamic paneling" are the failure mode. Describe what is actually on the page and what it does to the eye.
+- Explain mechanism: not that a technique is effective, but HOW it produces its effect — where the eye goes, what the reader is made to supply, what the timing does.
+- Do not invent facts, quotes, or page numbers. Describe techniques and well-known scenes you are confident about. If unsure of a specific detail, write about the technique in general rather than fabricating a citation.
+- Where useful, contrast manga's conventions with those of American or European comics — but resist the lazy claim that either is simply better.
+- Be honest when a technique is a cliché, or when a famous effect is cruder than its reputation.
+- Structure: a 2-paragraph introduction, 4–5 H2 sections with descriptive headers, and a conclusion that ties back to the series theme.
+- DO NOT use markdown — only HTML tags: <h2>, <h3>, <p>, <strong>, <em>.
+
+Return ONLY this JSON object (no markdown fences, no extra text):
+{
+  "title": "Part ${partNumber}: [an engaging, specific title for this essay]",
+  "excerpt": "1–2 sentence description optimised for search, under 155 chars",
+  "content": "<h2>First Section</h2><p>...</p><h2>Second Section</h2><p>...</p>",
+  "tags": ["manga craft", "tag2", "tag3", "tag4", "tag5"],
+  "entities": ["Manga/Creator names referenced"],
+  "pullQuote": "one memorable sentence from the essay, 15–35 words"
+}`;
+
+  const result = await model.generateContent({
+    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    generationConfig: { responseMimeType: 'application/json' },
+  });
+  const raw = result.response.text();
+  const parsed = parseJson(raw);
+
+  const rawTags = Array.isArray(parsed.tags) ? (parsed.tags as string[]) : [];
+  const tags = Array.from(new Set(['manga craft', ...rawTags])).slice(0, 8);
+  const entities = Array.isArray(parsed.entities) ? (parsed.entities as string[]).slice(0, 12) : [];
+
+  return {
+    title: stripMarkdownInline(String(parsed.title ?? topic)),
+    excerpt: stripMarkdownInline(String(parsed.excerpt ?? '').slice(0, 160)),
+    content: String(parsed.content ?? ''),
+    tags,
+    entities,
+    pullQuote: stripMarkdownInline(String(parsed.pullQuote ?? '')),
+  };
+}
+
 // ── Industry essay generator ──────────────────────────────────────────────────
 // For "The Serialization Machine": reported cultural criticism about the
 // commercial and editorial forces that shape manga. No mystical frame — the
