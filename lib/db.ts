@@ -16,6 +16,7 @@ type Row = Record<string, unknown>;
 const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient;
   articleSnapshot?: Row[];
+  seriesSnapshot?: Row[];
 };
 
 const realPrisma = globalForPrisma.prisma ?? new PrismaClient();
@@ -30,7 +31,8 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = realPrisma;
 // where/orderBy/select/groupBy semantics match Prisma's for the subset we use.
 
 const SNAPSHOT_FILE = path.join(process.cwd(), 'data', 'articles.json');
-const SNAPSHOT_LIMIT = 500;
+const SERIES_SNAPSHOT_FILE = path.join(process.cwd(), 'data', 'series.json');
+const SNAPSHOT_LIMIT = 1000;
 const DATE_FIELDS = ['publishedAt', 'createdAt', 'updatedAt', 'scheduledAt'] as const;
 
 function reviveDates(row: Row): Row {
@@ -45,18 +47,24 @@ function toTime(v: unknown): number {
   return Number.isNaN(t) ? 0 : t;
 }
 
-function loadSeed(): Row[] {
+function loadSeedFrom(file: string): Row[] {
   try {
-    if (!fs.existsSync(SNAPSHOT_FILE)) return [];
-    const parsed = JSON.parse(fs.readFileSync(SNAPSHOT_FILE, 'utf8'));
+    if (!fs.existsSync(file)) return [];
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
     return Array.isArray(parsed) ? parsed.map(reviveDates) : [];
   } catch {
     return [];
   }
 }
 
-const snapshot: Row[] = globalForPrisma.articleSnapshot ?? loadSeed();
+const snapshot: Row[] = globalForPrisma.articleSnapshot ?? loadSeedFrom(SNAPSHOT_FILE);
 globalForPrisma.articleSnapshot = snapshot;
+
+// Series are few and small, so the whole table is snapshotted. Without this, the
+// series index, series detail, article page, and sitemap all throw when the
+// database is down — even though their article reads would have fallen back fine.
+const seriesSnapshot: Row[] = globalForPrisma.seriesSnapshot ?? loadSeedFrom(SERIES_SNAPSHOT_FILE);
+globalForPrisma.seriesSnapshot = seriesSnapshot;
 
 function persistSnapshot(): void {
   // The repo filesystem is read-only in production; keep the in-memory snapshot
@@ -152,19 +160,81 @@ const articleReads = {
   },
 } as const;
 
-const articleDelegate = new Proxy(realPrisma.article as unknown as Row, {
-  get(target, prop: string) {
-    if (prop in articleReads) return (articleReads as Row)[prop];
-    const value = (target as Row)[prop];
-    return typeof value === 'function'
-      ? (value as (...a: unknown[]) => unknown).bind(target)
-      : value;
+function mirrorSeries(rows: Row[]): void {
+  const full = rows.filter((r) => r && typeof r.id === 'string');
+  if (full.length === 0) return;
+  const byId = new Map(seriesSnapshot.map((r) => [r.id as string, r]));
+  for (const r of full) byId.set(r.id as string, r);
+  seriesSnapshot.length = 0;
+  seriesSnapshot.push(...byId.values());
+  if (process.env.NODE_ENV === 'production') return;
+  try {
+    fs.writeFileSync(SERIES_SNAPSHOT_FILE, JSON.stringify(seriesSnapshot, null, 2), 'utf8');
+  } catch {
+    /* best-effort */
+  }
+}
+
+const seriesReads = {
+  async findMany(args?: AnyArgs) {
+    try {
+      const rows = (await realPrisma.series.findMany(args)) as Row[];
+      if (!args?.select) mirrorSeries(rows);
+      return rows;
+    } catch (err) {
+      warnOnce('series.findMany', err);
+      return queryMany(seriesSnapshot, args);
+    }
   },
-});
+  async findUnique(args: AnyArgs) {
+    try {
+      const row = (await realPrisma.series.findUnique(args)) as Row | null;
+      if (row && !args?.select) mirrorSeries([row]);
+      return row;
+    } catch (err) {
+      warnOnce('series.findUnique', err);
+      return queryOne(seriesSnapshot, args);
+    }
+  },
+  async findFirst(args?: AnyArgs) {
+    try {
+      const row = (await realPrisma.series.findFirst(args)) as Row | null;
+      if (row && !args?.select) mirrorSeries([row]);
+      return row;
+    } catch (err) {
+      warnOnce('series.findFirst', err);
+      return queryOne(seriesSnapshot, args);
+    }
+  },
+  async count(args?: AnyArgs) {
+    try {
+      return await realPrisma.series.count(args);
+    } catch (err) {
+      warnOnce('series.count', err);
+      return countRecords(seriesSnapshot, args);
+    }
+  },
+} as const;
+
+function delegate(real: unknown, reads: Record<string, unknown>) {
+  return new Proxy(real as Row, {
+    get(target, prop: string) {
+      if (prop in reads) return reads[prop];
+      const value = (target as Row)[prop];
+      return typeof value === 'function'
+        ? (value as (...a: unknown[]) => unknown).bind(target)
+        : value;
+    },
+  });
+}
+
+const articleDelegate = delegate(realPrisma.article, articleReads as unknown as Record<string, unknown>);
+const seriesDelegate = delegate(realPrisma.series, seriesReads as unknown as Record<string, unknown>);
 
 export const prisma = new Proxy(realPrisma, {
   get(target, prop: string) {
     if (prop === 'article') return articleDelegate;
+    if (prop === 'series') return seriesDelegate;
     const value = (target as unknown as Row)[prop];
     return typeof value === 'function'
       ? (value as (...a: unknown[]) => unknown).bind(target)

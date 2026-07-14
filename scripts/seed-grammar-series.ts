@@ -461,7 +461,9 @@ async function main() {
   });
   console.log(`Series ready: ${series.title} (${series.id})`);
 
-  const baseDate = new Date('2026-07-14T09:00:00Z');
+  // Dates run BACKWARDS from now — see the note in seed-numerology-series.ts.
+  const PART_INTERVAL_MS = 2 * 24 * 60 * 60 * 1000;
+  const seriesEnd = Date.now() - 24 * 60 * 60 * 1000;
   let failures = 0;
 
   for (let i = 0; i < TOPICS.length; i++) {
@@ -501,7 +503,7 @@ async function main() {
     }
 
     const slug = await uniqueSlug(slugify(essay.title));
-    const publishedAt = new Date(baseDate.getTime() + i * 2 * 24 * 60 * 60 * 1000);
+    const publishedAt = new Date(seriesEnd - (TOPICS.length - partNumber) * PART_INTERVAL_MS);
 
     const article = await prisma.article.create({
       data: {

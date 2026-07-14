@@ -1108,7 +1108,12 @@ async function main() {
   });
   console.log(`Series ready: ${series.title} (${series.id})`);
 
-  const baseDate = new Date('2026-07-01T09:00:00Z');
+  // Publication dates run BACKWARDS from now: the final part lands a day ago and
+  // each earlier part steps two days further into the past. Anchoring forwards
+  // from a fixed base date (the old behaviour) put every part of a long series
+  // months into the future, so nothing was actually live.
+  const PART_INTERVAL_MS = 2 * 24 * 60 * 60 * 1000;
+  const seriesEnd = Date.now() - 24 * 60 * 60 * 1000;
   let failures = 0;
 
   for (let i = 0; i < TOPICS.length; i++) {
@@ -1151,7 +1156,7 @@ async function main() {
     }
 
     const slug = await uniqueSlug(slugify(essay.title));
-    const publishedAt = new Date(baseDate.getTime() + i * 2 * 24 * 60 * 60 * 1000); // +2 days per part
+    const publishedAt = new Date(seriesEnd - (TOPICS.length - partNumber) * PART_INTERVAL_MS);
 
     const article = await prisma.article.create({
       data: {

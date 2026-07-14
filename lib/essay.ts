@@ -196,6 +196,75 @@ Return ONLY this JSON object (no markdown fences, no extra text):
   };
 }
 
+// ── Screen essay generator ────────────────────────────────────────────────────
+// For "The Grammar of the Screen": the companion to the craft series, but for
+// anime as a moving image — timing, layouts, compositing, sound. Same failure
+// mode as the craft series (empty abstraction), plus a specific one of its own:
+// gushing about "the sakuga" without saying what the animation is actually doing.
+export async function generateScreenEssay(
+  seriesTitle: string,
+  seriesDescription: string,
+  topic: string,
+  partNumber: number,
+  totalParts: number,
+  anchors: string[],
+): Promise<GeneratedEssay> {
+  const anchorBlock = anchors.length
+    ? anchors.map((a) => `• ${a}`).join('\n')
+    : '(no fixed anchors — choose your own well-known examples)';
+
+  const prompt = `You are an animation critic writing for Catzye.com. You write about how anime works as a moving image — timing, spacing, layouts, compositing, colour, sound, editing. Craft criticism of the frame and the cut, not industry gossip and not plot summary.
+
+You are writing Part ${partNumber} of ${totalParts} in the essay series: "${seriesTitle}"
+Series overview: ${seriesDescription || seriesTitle}
+
+Topic for this part: "${topic}"
+
+THINGS THIS ESSAY MUST GENUINELY ENGAGE WITH (not merely name-drop):
+${anchorBlock}
+
+Requirements:
+- 1800–2400 words of rich, original prose.
+- CLOSE READING IS THE POINT. Every abstract claim must land on a specific, nameable moment a viewer could go and watch. Describe what is actually happening on screen — how many frames a movement is held, where the cut falls, what the camera does, what the sound is doing under it.
+- The signature failure of anime criticism is gushing about "the sakuga" without ever saying what the animation is actually doing. Do not do this. Explain mechanism: why this timing reads as weight, why that hold reads as dread.
+- Use the real vocabulary correctly and explain it in passing: animating on ones, twos, and threes; genga and douga; layouts; the storyboard; compositing; smears; effects animation.
+- Do not invent facts, quotes, episode numbers, or credits. If unsure whether a specific animator worked on a specific cut, describe the technique rather than fabricating an attribution. Never invent a named person's credit.
+- Where useful, contrast anime's conventions with Western animation traditions — but resist the lazy claim that either is simply better, and resist the myth that limited animation is merely cheap.
+- Be honest when an effect is a cliché, or when a famous sequence is cruder than its reputation.
+- Structure: a 2-paragraph introduction, 4–5 H2 sections with descriptive headers, and a conclusion that ties back to the series theme.
+- DO NOT use markdown — only HTML tags: <h2>, <h3>, <p>, <strong>, <em>.
+
+Return ONLY this JSON object (no markdown fences, no extra text):
+{
+  "title": "Part ${partNumber}: [an engaging, specific title for this essay]",
+  "excerpt": "1–2 sentence description optimised for search, under 155 chars",
+  "content": "<h2>First Section</h2><p>...</p><h2>Second Section</h2><p>...</p>",
+  "tags": ["anime craft", "tag2", "tag3", "tag4", "tag5"],
+  "entities": ["Anime/Studio/Director names referenced"],
+  "pullQuote": "one memorable sentence from the essay, 15–35 words"
+}`;
+
+  const result = await model.generateContent({
+    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    generationConfig: { responseMimeType: 'application/json' },
+  });
+  const raw = result.response.text();
+  const parsed = parseJson(raw);
+
+  const rawTags = Array.isArray(parsed.tags) ? (parsed.tags as string[]) : [];
+  const tags = Array.from(new Set(['anime craft', ...rawTags])).slice(0, 8);
+  const entities = Array.isArray(parsed.entities) ? (parsed.entities as string[]).slice(0, 12) : [];
+
+  return {
+    title: stripMarkdownInline(String(parsed.title ?? topic)),
+    excerpt: stripMarkdownInline(String(parsed.excerpt ?? '').slice(0, 160)),
+    content: String(parsed.content ?? ''),
+    tags,
+    entities,
+    pullQuote: stripMarkdownInline(String(parsed.pullQuote ?? '')),
+  };
+}
+
 // ── Industry essay generator ──────────────────────────────────────────────────
 // For "The Serialization Machine": reported cultural criticism about the
 // commercial and editorial forces that shape manga. No mystical frame — the
