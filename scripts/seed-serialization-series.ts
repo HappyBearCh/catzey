@@ -248,6 +248,153 @@ const TOPICS: { topic: string; anchors: string[] }[] = [
       'Refusing both the doom and the hype: what is actually known versus what is being asserted',
     ],
   },
+  // ── Second movement: ownership, law, and the wider media mix ────────────────
+  // Appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic:
+      'Who Actually Owns Naruto: copyright, the mangaka, and the publisher — the ownership question almost no fan can answer correctly',
+    anchors: [
+      'How rights are typically held between a mangaka and their publisher in Japan, and how that contrasts with the American work-for-hire tradition',
+      'What it means in practice that a creator retains copyright but the publisher controls the commercial apparatus around it',
+      'The cases where creators have exercised real control, and the structural reasons most do not',
+    ],
+  },
+  {
+    topic:
+      'Shonen Is Not a Genre: the demographic categories are marketing segments, and mistaking them for genres explains a great deal of bad criticism',
+    anchors: [
+      'What shonen, shojo, seinen, and josei actually denote — the target readership of a magazine, not the content of a story',
+      'Works routinely misfiled by English-language readers because the demographic label was read as a genre',
+      'How the magazine segmentation shapes what a creator is permitted to write, and how creators work around it',
+    ],
+  },
+  {
+    topic:
+      'The Doujinshi Tolerance: an enormous derivative-works economy that is arguably illegal and that the industry deliberately declines to stop',
+    anchors: [
+      'The scale and function of the doujinshi market and Comiket as its central institution',
+      'The legal grey zone: why rights holders generally tolerate derivative fan works, and the commercial logic of that tolerance',
+      'The pipeline argument — doujinshi as an unofficial training ground and talent scout for the professional industry',
+    ],
+  },
+  {
+    topic:
+      'The Censor’s Hand: obscenity law, regulatory pressure, and the quiet ways manga has been shaped by what it is not allowed to draw',
+    anchors: [
+      'Japan’s obscenity provisions and the practical conventions the industry adopted in response',
+      'The Tokyo youth ordinance debates and the publishers’ and creators’ reaction to them',
+      'Self-censorship as the real mechanism: the edits that happen before anyone outside the building ever objects',
+    ],
+  },
+  {
+    topic:
+      'The Media Mix: the theory that manga was never really the product, and that the whole system is a machine for turning a character into every possible object',
+    anchors: [
+      'The media-mix model as scholars such as Marc Steinberg have described it, and its historical roots in Tezuka-era licensing',
+      'How a modern franchise is planned across manga, anime, film, games, and merchandise from an early stage',
+      'What this does to storytelling: characters designed for portability, worlds built to be extended indefinitely',
+    ],
+  },
+  {
+    topic:
+      'The Gacha Subsidy: mobile games, and the uncomfortable fact that a phone game’s whales may be funding the anime you love',
+    anchors: [
+      'How mobile game revenue compares in scale to disc, streaming, and merchandise income for a franchise',
+      'Fate/Grand Order and the model of a game bankrolling a wider media franchise',
+      'The creative consequence: adaptations greenlit as marketing for a game rather than on their own merits',
+    ],
+  },
+  {
+    topic:
+      'The Theatrical Event: Demon Slayer, Mugen Train, and the film as the moment an anime stops being television and becomes an economic phenomenon',
+    anchors: [
+      'The Mugen Train theatrical release and what its performance demonstrated about the ceiling of anime at the box office',
+      'Why the film format changes the economics — ticket revenue, ownership, and the compressed release window',
+      'The strategic consequence: franchises now structured to arrive at a film, and what that does to a series’ pacing',
+    ],
+  },
+  {
+    topic:
+      'The Anisong Economy: the opening theme is not a mood-setter, it is a record label’s promotional slot, and it has been since the beginning',
+    anchors: [
+      'How OP and ED slots function commercially for music labels and artists',
+      'The tie-in structure: labels sitting on production committees and the placement of their artists',
+      'Where the system nevertheless produced genuinely great music, and the artists who built careers through it',
+    ],
+  },
+  {
+    topic:
+      'The Seiyuu Machine: agencies, idol careers, and how voice acting in Japan became a performance industry rather than a booth job',
+    anchors: [
+      'The agency system and the career structure of a working voice actor in Japan',
+      'The idol-ification of the profession — concerts, singles, and public personas as a required second job',
+      'The labour reality beneath the celebrity tier, and the gap between famous seiyuu and the rest',
+    ],
+  },
+  {
+    topic:
+      'The Translators Nobody Credits: manga localisation, the rates, the deadlines, and the fights fans have about the results',
+    anchors: [
+      'The working conditions and pay structure of manga and anime translators, and the freelance basis of much of the work',
+      'The recurring public fights over localisation choices, and what they usually get wrong about how the work is done',
+      'Simultaneous publication and the brutal turnaround it demands from the people doing the translating',
+    ],
+  },
+  {
+    topic:
+      'The Consolidation: Sony, Kadokawa, and the quiet corporate absorption of the anime pipeline',
+    anchors: [
+      'Sony’s position across Aniplex, Funimation, and Crunchyroll, and what that vertical integration means',
+      'Kadokawa’s model — light novels, manga, anime, and games under one roof, with the light novel pipeline feeding the rest',
+      'The argument for and against consolidation: stability and funding on one side, narrowed creative gatekeeping on the other',
+    ],
+  },
+  {
+    topic:
+      'The Light Novel Pipeline: how an amateur web-fiction site became the industry’s primary source of new anime, and what that selection process does to the stories',
+    anchors: [
+      'Shosetsuka ni Naro and the web-novel-to-light-novel-to-manga-to-anime escalator',
+      'What the pipeline selects for, and the structural reason so many adaptations share a house style',
+      'The counter-examples: works that came through this route and are genuinely good, and why dismissing the whole pipeline is lazy',
+    ],
+  },
+  {
+    topic:
+      'The Live-Action Problem: Hollywood, Japanese live-action adaptation, and a failure rate too consistent to be an accident',
+    anchors: [
+      'The recurring structural reasons live-action adaptations of manga struggle, beyond simple fan complaint',
+      'Well-documented adaptations that failed and the specific decisions behind them',
+      'The counter-cases that worked, and what they did differently',
+    ],
+  },
+  {
+    topic:
+      'The Shrinking Shelf: the collapse of print circulation, the manga café, and the secondhand market the industry earns nothing from',
+    anchors: [
+      'The long decline in magazine circulation from its 1990s peak, and what replaced it',
+      'The manga café and rental economy, and the reading that happens entirely outside a sale',
+      'The secondhand market and why publishers are structurally hostile to it',
+    ],
+  },
+  {
+    topic:
+      'No Union: the mangaka is a freelancer with no collective bargaining, and almost every problem in this series traces back to that fact',
+    anchors: [
+      'The contractual position of a serialized mangaka and the absence of collective representation',
+      'How this compares to unionised creative labour elsewhere, and what protections that absence removes',
+      'The recent stirrings of organisation among animators and creators, and whether they have changed anything yet',
+    ],
+  },
+  {
+    topic:
+      'The Remake Economy: reboots, faithful re-adaptations, and the business logic of making the same anime twice',
+    anchors: [
+      'The re-adaptation trend and the commercial reasons a studio remakes a work that already has an anime',
+      'Fullmetal Alchemist: Brotherhood, Hunter x Hunter (2011), and the faithful-remake model',
+      'What is gained and what is lost when the industry mines its own back catalogue rather than taking a risk',
+    ],
+  },
+
   {
     topic:
       'What the Machine Explains: a closing essay. The commercial reading is powerful and it is not everything — an honest accounting of where the mechanics genuinely explain the art, and where they become an excuse not to look at it',
