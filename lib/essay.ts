@@ -81,6 +81,76 @@ Return ONLY this JSON object (no markdown fences, no extra text):
   };
 }
 
+// ── Industry essay generator ──────────────────────────────────────────────────
+// For "The Serialization Machine": reported cultural criticism about the
+// commercial and editorial forces that shape manga. No mystical frame — the
+// claims here are meant to be checkable, so the prompt names the concrete cases
+// the essay has to engage with and forbids inventing figures.
+export async function generateIndustryEssay(
+  seriesTitle: string,
+  seriesDescription: string,
+  topic: string,
+  partNumber: number,
+  totalParts: number,
+  anchors: string[],
+): Promise<GeneratedEssay> {
+  const anchorBlock = anchors.length
+    ? anchors.map((a) => `• ${a}`).join('\n')
+    : '(no fixed anchors — choose your own well-documented cases)';
+
+  const prompt = `You are a senior manga and anime industry writer for Catzye.com. You write reported cultural criticism about how manga actually gets made, sold, and killed — the commercial and editorial machinery behind the art. Think of the register of a good long-form trade feature: specific, sceptical, unsentimental, but written by someone who plainly loves the medium.
+
+You are writing Part ${partNumber} of ${totalParts} in the essay series: "${seriesTitle}"
+Series overview: ${seriesDescription || seriesTitle}
+
+Topic for this part: "${topic}"
+
+ANCHOR CASES — the essay must engage seriously with each of these, not merely name-drop them:
+${anchorBlock}
+
+Requirements:
+- 1800–2400 words of rich, original prose.
+- Be concrete: real titles (with Japanese where helpful), creators, editors, magazines, publishers, dates, and documented events. Explain mechanisms, not vibes — how the reader survey actually feeds back into the page order, what an editor's job really consists of, where the money comes from.
+- ACCURACY IS THE POINT. Do not invent statistics, sales figures, quotes, or events. If you are not confident in a precise number, describe the phenomenon qualitatively instead. It is far better to write "sales collapsed" than to fabricate a figure. Never attribute a quote to a named person unless it is genuinely well documented.
+- Acknowledge uncertainty where it exists: much of this industry is opaque, and where the record is thin, say so rather than papering over it.
+- Connect the mechanics to the art: show how a commercial constraint produced a specific creative result — a rushed ending, a bloated arc, a tone shift, a masterpiece made under duress.
+- Structure: a 2-paragraph introduction, 4–5 H2 sections with descriptive headers, and a conclusion that ties back to the series theme.
+- DO NOT use markdown — only HTML tags: <h2>, <h3>, <p>, <strong>, <em>.
+
+Return ONLY this JSON object (no markdown fences, no extra text):
+{
+  "title": "Part ${partNumber}: [an engaging, specific title for this essay]",
+  "excerpt": "1–2 sentence description optimised for search, under 155 chars",
+  "content": "<h2>First Section</h2><p>...</p><h2>Second Section</h2><p>...</p>",
+  "tags": ["manga industry", "tag2", "tag3", "tag4", "tag5"],
+  "entities": ["Manga/Creator/Publisher/Magazine names referenced"],
+  "pullQuote": "one memorable sentence from the essay, 15–35 words"
+}`;
+
+  // Ask Gemini for a JSON mime type rather than trusting it to emit clean JSON
+  // inside prose. Without this, long essays containing quotes and apostrophes
+  // fail to parse often enough to burn the whole retry budget.
+  const result = await model.generateContent({
+    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    generationConfig: { responseMimeType: 'application/json' },
+  });
+  const raw = result.response.text();
+  const parsed = parseJson(raw);
+
+  const rawTags = Array.isArray(parsed.tags) ? (parsed.tags as string[]) : [];
+  const tags = Array.from(new Set(['manga industry', ...rawTags])).slice(0, 8);
+  const entities = Array.isArray(parsed.entities) ? (parsed.entities as string[]).slice(0, 12) : [];
+
+  return {
+    title: stripMarkdownInline(String(parsed.title ?? topic)),
+    excerpt: stripMarkdownInline(String(parsed.excerpt ?? '').slice(0, 160)),
+    content: String(parsed.content ?? ''),
+    tags,
+    entities,
+    pullQuote: stripMarkdownInline(String(parsed.pullQuote ?? '')),
+  };
+}
+
 // ── Numerology-aware essay generator ──────────────────────────────────────────
 // A variant of generateEssay for "The Numbers Behind the Manga" series. It reads
 // the numerology of each named subject IN CODE and injects the real numbers into
