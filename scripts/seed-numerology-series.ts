@@ -1124,6 +1124,73 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     subjects: ['Pikachu', 'Hello Kitty', 'Rilakkuma'],
   },
 
+  // ── Batch 27: the founders, the institutions, and the places ────────────────
+  // As always: appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic: 'The Founding Directors: Yoshiyuki Tomino, Osamu Dezaki, and Rintaro — the men who built TV anime, through their numbers',
+    subjects: ['Yoshiyuki Tomino', 'Osamu Dezaki', 'Rintaro'],
+  },
+  {
+    topic: 'The Old Studios: Toei Animation, Tatsunoko Production, and Nippon Animation in numerological reading',
+    subjects: ['Toei Animation', 'Tatsunoko Production', 'Nippon Animation'],
+  },
+  {
+    topic: 'The Shojo Magazines: Ribon, Nakayoshi, and Margaret — the numbers of the institutions that raised generations of girls',
+    subjects: ['Ribon', 'Nakayoshi', 'Margaret'],
+  },
+  {
+    topic: 'The Shojo Classics: Candy Candy, Glass Mask, and The Rose of Versailles through a numerological lens',
+    subjects: ['Candy Candy', 'Glass Mask', 'The Rose of Versailles'],
+  },
+  {
+    topic: 'The Quiet Master: Jiro Taniguchi, The Walking Man, and A Distant Neighborhood — the numerology of stillness',
+    subjects: ['Jiro Taniguchi', 'The Walking Man', 'A Distant Neighborhood'],
+  },
+  {
+    topic: 'The Longest Gun: Golgo 13, Takao Saito, and Duke Togo — reading the numbers of manga’s most implacable man',
+    subjects: ['Golgo 13', 'Takao Saito', 'Duke Togo'],
+  },
+  {
+    topic: 'The Voices of the Opening: LiSA, YOASOBI, and Aimer, and the numerology of the anisong era',
+    subjects: ['LiSA', 'YOASOBI', 'Aimer'],
+  },
+  {
+    topic: 'The Songwriters: Kenshi Yonezu, RADWIMPS, and Eve — the numbers behind anime’s defining modern songs',
+    subjects: ['Kenshi Yonezu', 'RADWIMPS', 'Eve'],
+  },
+  {
+    topic: 'The Places: Akihabara, Nakano Broadway, and Otome Road — the numerology of the districts fandom physically built',
+    subjects: ['Akihabara', 'Nakano Broadway', 'Otome Road'],
+  },
+  {
+    topic: 'The Other Fujiko: Fujiko F. Fujio, Perman, and Kiteretsu, beyond the shadow of Doraemon',
+    subjects: ['Fujiko F. Fujio', 'Perman', 'Kiteretsu'],
+  },
+  {
+    topic: 'The Newest Arrivals: Medalist, The Elusive Samurai, and Witch Watch — reading a generation before the verdict is in',
+    subjects: ['Medalist', 'The Elusive Samurai', 'Witch Watch'],
+  },
+  {
+    topic: 'The Designers: Shoji Kawamori, Kunio Okawara, and Yoshiyuki Sadamoto — the hands that drew the machines and the faces',
+    subjects: ['Shoji Kawamori', 'Kunio Okawara', 'Yoshiyuki Sadamoto'],
+  },
+  {
+    topic: 'Where Manga Is Bought and Slept In: Manga Kissa, Book Off, and Mandarake through the numbers',
+    subjects: ['Manga Kissa', 'Book Off', 'Mandarake'],
+  },
+  {
+    topic: 'The Magical Girls of the Toy Aisle: Pretty Cure, Aikatsu, and Jewelpet — franchises built to be sold, read numerologically',
+    subjects: ['Pretty Cure', 'Aikatsu', 'Jewelpet'],
+  },
+  {
+    topic: 'The Anime Children Actually Grew Up On: Chibi Maruko-chan, Hamtaro, and Ojarumaru',
+    subjects: ['Chibi Maruko-chan', 'Hamtaro', 'Ojarumaru'],
+  },
+  {
+    topic: 'The Streaming Originals: Devilman Crybaby, Aggretsuko, and Beastars, and the numbers of anime made for the algorithm',
+    subjects: ['Devilman Crybaby', 'Aggretsuko', 'Beastars'],
+  },
+
   // ── The closing essay — must always remain the final part ─────────────────
   {
     topic:
