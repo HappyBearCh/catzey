@@ -830,10 +830,85 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     topic: 'The Family Institutions: Sazae-san, Chibi Maruko-chan, and Anpanman, the anime that never end',
     subjects: ['Sazae-san', 'Chibi Maruko-chan', 'Anpanman'],
   },
+  // ── Batch 23: the craft behind the page — sound, voice, distribution, genre ──
+  // Again: appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic: 'The Sound of Destiny: reading anime’s three great composers, Yoko Kanno, Yuki Kajiura, and Hiroyuki Sawano, through their numbers',
+    subjects: ['Yoko Kanno', 'Yuki Kajiura', 'Hiroyuki Sawano'],
+  },
+  {
+    topic: 'The Voices Behind the Faces: numerology of seiyuu Megumi Hayashibara, Mamoru Miyano, and Kana Hanazawa',
+    subjects: ['Megumi Hayashibara', 'Mamoru Miyano', 'Kana Hanazawa'],
+  },
+  {
+    topic: 'The New Auteurs: Naoko Yamada, Masaaki Yuasa, and Sayo Yamamoto, three directors remaking what anime looks like',
+    subjects: ['Naoko Yamada', 'Masaaki Yuasa', 'Sayo Yamamoto'],
+  },
+  {
+    topic: 'The Studios of the Streaming Age: Studio Trigger, CloverWorks, and Studio Bind through a numerological lens',
+    subjects: ['Studio Trigger', 'CloverWorks', 'Studio Bind'],
+  },
+  {
+    topic: 'The Historical Epics: Kingdom, Golden Kamuy, and Drifters, and the numbers of manga that reach for the past',
+    subjects: ['Kingdom', 'Golden Kamuy', 'Drifters'],
+  },
+  {
+    topic: 'The Yokai and the Quiet: GeGeGe no Kitaro, Mushishi, and Natsume’s Book of Friends, folklore read through its names',
+    subjects: ['GeGeGe no Kitaro', 'Mushishi', 'Natsume’s Book of Friends'],
+  },
+  {
+    topic: 'The Music Manga: Beck, Nana, and Blue Giant — what happens when a silent medium draws sound',
+    subjects: ['Beck', 'Nana', 'Blue Giant'],
+  },
+  {
+    topic: 'The Hard Science Fiction: Planetes, Blame!, and Knights of Sidonia, and the numerology of the void',
+    subjects: ['Planetes', 'Blame!', 'Knights of Sidonia'],
+  },
+  {
+    topic: 'The Fighting Spirit: Ashita no Joe, Hajime no Ippo, and Ping Pong, three ways of drawing a body pushed to its limit',
+    subjects: ['Ashita no Joe', 'Hajime no Ippo', 'Ping Pong'],
+  },
+  {
+    topic: 'The Vampire Strain: Hellsing, Vampire Hunter D, and Shiki, and the numbers of the undead',
+    subjects: ['Hellsing', 'Vampire Hunter D', 'Shiki'],
+  },
+  {
+    topic: 'The Lone Wanderers: Cowboy Bebop, Trigun, and Kino’s Journey, and the numerology of the drifter',
+    subjects: ['Cowboy Bebop', 'Trigun', 'Kino’s Journey'],
+  },
+  {
+    topic: 'After the End: Dr. Stone, Girls’ Last Tour, and Nausicaa of the Valley of the Wind, three post-apocalypses and their numbers',
+    subjects: ['Dr. Stone', 'Girls’ Last Tour', 'Nausicaa of the Valley of the Wind'],
+  },
+  {
+    topic: 'The Josei Canon: Honey and Clover, Paradise Kiss, and Princess Jellyfish, adult women and the numbers of their stories',
+    subjects: ['Honey and Clover', 'Paradise Kiss', 'Princess Jellyfish'],
+  },
+  {
+    topic: 'The Queer Canon: Given, Banana Fish, and Yuri on Ice, and what numerology hears in them',
+    subjects: ['Given', 'Banana Fish', 'Yuri on Ice'],
+  },
+  {
+    topic: 'The Gatherings: Comiket, Jump Festa, and Anime Expo — the numerology of the places fandom physically assembles',
+    subjects: ['Comiket', 'Jump Festa', 'Anime Expo'],
+  },
+  {
+    topic: 'The Magazines Beyond Jump: Big Comic Spirits, Monthly Afternoon, and Weekly Young Jump, and the numbers of the seinen establishment',
+    subjects: ['Big Comic Spirits', 'Monthly Afternoon', 'Weekly Young Jump'],
+  },
+  {
+    topic: 'The Pipes: Crunchyroll, Netflix, and Bilibili — numerology of the platforms that now decide what the world watches',
+    subjects: ['Crunchyroll', 'Netflix', 'Bilibili'],
+  },
+  {
+    topic: 'The Second String of Crime: Psycho-Pass, Moriarty the Patriot, and Kindaichi, and the numerology of investigation',
+    subjects: ['Psycho-Pass', 'Moriarty the Patriot', 'Kindaichi'],
+  },
+
   // ── The closing essay — must always remain the final part ─────────────────
   {
     topic:
-      'The Limits of the Lens: a closing essay. After more than 170 parts reading a medium through its names, an honest accounting of what numerology can and cannot tell you about art — what the lens genuinely surfaced, where it flattered coincidence, and why a frame can be worth using without being true',
+      'The Limits of the Lens: a closing essay. After more than 200 parts reading a medium through its names, an honest accounting of what numerology can and cannot tell you about art — what the lens genuinely surfaced, where it flattered coincidence, and why a frame can be worth using without being true',
     subjects: ['Numerology', 'Manga', 'Catzye'],
   },
 ];
