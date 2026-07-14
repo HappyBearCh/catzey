@@ -542,6 +542,154 @@ const TOPICS: { topic: string; anchors: string[] }[] = [
     ],
   },
 
+  // ── Fourth movement: how the machine got this way ──────────────────────────
+  // The series has been structural throughout; this movement is historical.
+  // Appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic:
+      'Before the Magazine: kashihon, the rental libraries, and the poor readers who paid for manga by the day',
+    anchors: [
+      'The kashihon rental system of the 1950s and the readership it served',
+      'How the rental market supported a different kind of artist and a darker, rougher body of work than the mainstream magazines',
+      'Why the system died, and what was lost when the magazine model displaced it',
+    ],
+  },
+  {
+    topic:
+      'Gekiga and Garo: the alternative that proved manga did not have to be for children, and the magazine that never made money doing it',
+    anchors: [
+      'Yoshihiro Tatsumi and the coining of gekiga as a deliberate break from Tezuka-style manga',
+      'Garo as a magazine that published uncommercial work and paid its artists almost nothing to do it',
+      'The long influence of an alternative tradition that was, by the machine’s own metrics, a commercial failure',
+    ],
+  },
+  {
+    topic:
+      'The Original Sin: Tezuka, Mushi Production, and the argument that the man who created the TV anime industry also underpriced it forever',
+    anchors: [
+      'The 1963 Astro Boy television deal and the low per-episode budget it established as a benchmark',
+      'The claim that Tezuka set an artificially low price for animation that the industry never recovered from — and the serious counter-arguments to that claim',
+      'Mushi Production’s bankruptcy and what it demonstrated about the economics Tezuka had built',
+    ],
+  },
+  {
+    topic:
+      'Limited Animation: the aesthetic that was invented to save money and became the visual language of a medium',
+    anchors: [
+      'The specific cost-saving techniques of limited animation — held cels, repeated cycles, the pan across a still',
+      'How constraint hardened into style, and the genuinely expressive uses the technique was put to',
+      'The counter-tradition of full animation and what it cost the studios that attempted it',
+    ],
+  },
+  {
+    topic:
+      'The Rise of Jump: how a 1968 latecomer beat its rivals, and the exclusivity contract that gave it the power it still has',
+    anchors: [
+      'Weekly Shonen Jump’s founding in 1968 as an underdog against established rivals',
+      'The exclusive contract system for new artists and how it starved the competition of talent',
+      'The friendship-effort-victory formula as an editorial product rather than an artistic one',
+    ],
+  },
+  {
+    topic:
+      'The OVA Decade: the 1980s direct-to-video boom, an economic experiment that briefly freed anime from the broadcaster',
+    anchors: [
+      'The OVA format and the home video market that made it viable',
+      'The creative latitude it permitted — content, length, and budget freed from a broadcast slot',
+      'Why the boom ended, and what the format proved about the relationship between distribution and creative freedom',
+    ],
+  },
+  {
+    topic:
+      'The Moral Panic: the Miyazaki Tsutomu case, the word otaku, and the decade manga fandom spent as a national suspect',
+    anchors: [
+      'The 1989 case and the press coverage that fused the word otaku with criminality in the Japanese public mind',
+      'The industry and fandom’s response, and the regulatory pressure that followed',
+      'The long shadow: how a moral panic shaped what publishers were willing to print and how fans described themselves',
+    ],
+  },
+  {
+    topic:
+      'The Peak: 1995, six and a half million copies a week, and the high-water mark the industry has never come close to since',
+    anchors: [
+      'Weekly Shonen Jump’s circulation peak in the mid-1990s and the run of hits that produced it',
+      'What ended it — the simultaneous conclusion of era-defining series and the broader collapse of print',
+      'The uncomfortable lesson that the industry’s greatest commercial moment was also the beginning of its decline',
+    ],
+  },
+  {
+    topic:
+      'The Evangelion Shock: 1995, the late-night slot, and the business model that most of modern anime still runs on',
+    anchors: [
+      'Neon Genesis Evangelion’s production circumstances and its unexpected commercial impact',
+      'The late-night broadcast slot and disc-sales model that followed, and why it changed who anime was made for',
+      'How this model made the production committee both necessary and dominant',
+    ],
+  },
+  {
+    topic:
+      'The Lost Decade: what the collapse of the Japanese economy did to a business built on discretionary teenage spending',
+    anchors: [
+      'The post-bubble economic conditions and their effect on publishing and animation budgets',
+      'The consolidation and risk-aversion that followed, and the kinds of work that stopped being commissioned',
+      'The counter-intuitive result that a starved industry produced some of its most celebrated work anyway',
+    ],
+  },
+  {
+    topic:
+      'The DVD Bubble: the 2000s boom, the crash, and the lesson the industry took from it — arguably the wrong one',
+    anchors: [
+      'The disc-sales boom of the 2000s and the production volume it funded',
+      'The crash, and the structural fragility of a model dependent on a small number of buyers purchasing expensive discs',
+      'What replaced it, and whether streaming has actually fixed the underlying problem or simply moved it',
+    ],
+  },
+  {
+    topic:
+      'Manga Comes to America: Akira, Sailor Moon, the unflipped page, and Tokyopop’s rise and collapse',
+    anchors: [
+      'The early American licensing efforts, the flipping of pages for left-to-right reading, and the eventual surrender to the original format',
+      'Tokyopop’s aggressive expansion and what its collapse revealed about the economics of licensed manga',
+      'How the American market’s tastes shaped which Japanese works were exported, and which were not',
+    ],
+  },
+  {
+    topic:
+      'The Animators’ Union That Wasn’t: Toei, the 1960s labour disputes, and the young Hayao Miyazaki as a union organiser',
+    anchors: [
+      'The Toei Animation labour disputes and Miyazaki’s and Takahata’s involvement in them',
+      'What the organised animators actually won, and why it did not hold across the industry',
+      'The long consequence: a workforce that once organised, and a modern industry that mostly does not',
+    ],
+  },
+  {
+    topic:
+      'The False Starts: every failed attempt at digital manga before webtoon got it right',
+    anchors: [
+      'The early digital manga experiments and the reasons they failed to find an audience',
+      'What the vertical scroll and the phone screen solved that the digitised page never could',
+      'The lesson about format: the technology was there long before the form that suited it was found',
+    ],
+  },
+  {
+    topic:
+      'The Ghibli Anomaly: a studio that refused nearly every rule in this series and survived anyway — and the succession problem that refusal created',
+    anchors: [
+      'Studio Ghibli’s unusual practices — salaried staff, feature focus, Miyazaki’s control over production',
+      'The commercial conditions that made this possible, and the extent to which it depended on one man',
+      'The succession problem: what happens to a studio built as the instrument of a single artist',
+    ],
+  },
+  {
+    topic:
+      'The Machine Was Assembled: a historical summing-up. None of this was designed — every part of the system is a fossil of some earlier accident, and knowing that changes what you think can be changed',
+    anchors: [
+      'Tracing the modern industry’s core features back to specific historical contingencies rather than deliberate design',
+      'The difference between a structure that is inevitable and one that is merely old',
+      'What this history implies about which parts of the machine could actually be rebuilt, and which are load-bearing',
+    ],
+  },
+
   {
     topic:
       'What the Machine Explains: a closing essay. The commercial reading is powerful and it is not everything — an honest accounting of where the mechanics genuinely explain the art, and where they become an excuse not to look at it',
