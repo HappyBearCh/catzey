@@ -395,6 +395,153 @@ const TOPICS: { topic: string; anchors: string[] }[] = [
     ],
   },
 
+  // ── Third movement: craft, labour geography, and what outlives the author ───
+  // Appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic:
+      'The Tools: from the G-pen and screentone to Clip Studio Paint, and how the instrument in the artist’s hand quietly rewrote the job',
+    anchors: [
+      'The traditional toolkit — dip pens, ink, screentone — and the specific labour each element demanded',
+      'The move to digital production and Clip Studio Paint’s dominance, and what it actually changed about how a page gets made',
+      'The double edge: digital tools removed drudgery and also removed the excuse for it, raising the expected output per week',
+    ],
+  },
+  {
+    topic:
+      'The Offshore Layer: the anime you watch is drawn in Korea, China, and Vietnam, and has been for decades',
+    anchors: [
+      'The long history of outsourcing in-between and finishing work to studios outside Japan',
+      'How the subcontracting chain actually works, and where in the pipeline the offshore layer sits',
+      'The uncomfortable irony: Korean and Chinese studios that began as subcontractors now producing their own competing work',
+    ],
+  },
+  {
+    topic:
+      'The CG Question: cel-shaded 3D, the fandom’s reflexive contempt for it, and the production maths that makes it inevitable anyway',
+    anchors: [
+      'Why 3DCG entered the pipeline — the specific production problems it solves and the labour it replaces',
+      'Land of the Lustrous, Beastars, and Trigun Stampede as cases where CG was an artistic choice rather than a cost-cutting one',
+      'The honest version of the criticism: what cel-shaded CG still genuinely does worse, and what it plainly does better',
+    ],
+  },
+  {
+    topic:
+      'Sakuga: the fandom that learned to watch the animators instead of the show, and what it revealed about who really makes an anime',
+    anchors: [
+      'What sakuga culture is and how fans came to identify individual key animators by their style',
+      'The key animator as an auteur figure, and the credit structure that makes this recognition so hard-won',
+      'The tension: celebrating individual brilliance in a medium whose economics depend on interchangeable labour',
+    ],
+  },
+  {
+    topic:
+      'The Jobs Nobody Can Name: series composition, storyboards, and the invisible roles that decide whether an adaptation works',
+    anchors: [
+      'What a series composition writer actually does, and why the choice of what to cut is the adaptation',
+      'The storyboard as the real blueprint of an episode, and the episode director’s authorship within it',
+      'How a production schedule collapses, and which of these roles absorbs the damage when it does',
+    ],
+  },
+  {
+    topic:
+      'The Dub Industry: English-language voice acting, its labour fights, and the arrival of synthetic voice',
+    anchors: [
+      'The economics of English dubbing and the working conditions of the actors doing it',
+      'The union questions and the recurring public fights over dub scripts and performances',
+      'AI voice synthesis as a live threat to this specific layer of labour, and what performers have said about it',
+    ],
+  },
+  {
+    topic:
+      'The Charts: Oricon, bestseller lists, and the ranking apparatus that functions as marketing dressed up as measurement',
+    anchors: [
+      'How sales charts are compiled and what they do and do not actually count',
+      'The feedback loop where appearing on a chart drives the sales the chart then reports',
+      'What gets systematically undercounted — digital, secondhand, library, and café reading',
+    ],
+  },
+  {
+    topic:
+      'Cool Japan: what happened when the state decided manga and anime were a foreign policy asset',
+    anchors: [
+      'The Cool Japan initiative and the logic of treating popular culture as soft power and export strategy',
+      'The documented struggles of the Cool Japan Fund and the gap between the policy rhetoric and its results',
+      'The awkward truth that the industry’s global success largely happened without the state, and sometimes despite it',
+    ],
+  },
+  {
+    topic:
+      'The 2.5D Economy: stage musicals, cafés, pop-up shops, and the revenue streams that have nothing to do with reading',
+    anchors: [
+      'The 2.5D musical as a substantial and often overlooked revenue stream',
+      'Collaboration cafés, pop-up shops, and the experience economy built around a franchise',
+      'What this monetisation of presence rather than product does to how a franchise is managed',
+    ],
+  },
+  {
+    topic:
+      'The Glut: isekai, trend-chasing, and the bubble-and-bust cycle that every successful genre in manga eventually triggers',
+    anchors: [
+      'How a single breakout success reliably produces a wave of imitators, with isekai as the clearest recent case',
+      'The commercial logic of chasing a proven trend, from the publisher’s side rather than the fan’s',
+      'What happens when the bubble deflates, and the good work that gets buried in the pile',
+    ],
+  },
+  {
+    topic:
+      'The Second Series: the sophomore problem, and why following a monumental hit may be the hardest job in manga',
+    anchors: [
+      'The commercial and psychological weight on a creator returning after a defining success',
+      'Documented cases of second series that struggled in the shadow of a first, and ones that escaped it',
+      'The publisher’s incentive to want more of the same, and what that pressure does to a creator’s next idea',
+    ],
+  },
+  {
+    topic:
+      'After the Author: Akira Toriyama’s death, unfinished works, estates, and what a serialized medium does when the hand stops',
+    anchors: [
+      'Akira Toriyama’s death in 2024 and the question of what happens to a franchise that has long outgrown its author',
+      'Unfinished works and posthumous continuation — the precedents, and the discomfort they provoke',
+      'The structural fact underneath: the media mix means a franchise is now far too valuable to be allowed to end with its creator',
+    ],
+  },
+  {
+    topic:
+      'The Kyoto Animation Exception: a studio that salaried its animators and trained them in-house, and the argument that it proves the rest of the industry chose its own conditions',
+    anchors: [
+      'Kyoto Animation’s employment model — salaried staff and an in-house training school — against the industry’s freelance piece-rate norm',
+      'What that model demonstrably produced in terms of consistency and craft',
+      'The hard question: if it works, why has it not been copied — and the honest answers about scale, risk, and ownership',
+    ],
+  },
+  {
+    topic:
+      'The Archive Problem: lost episodes, decaying masters, and an industry with a poor record of preserving its own history',
+    anchors: [
+      'The material fragility of the record — film elements, master tapes, and original art that was never treated as worth keeping',
+      'Original manga pages historically discarded or damaged, and the belated recognition of them as artefacts',
+      'Who is actually doing preservation work, and why the commercial incentive to do it is so weak',
+    ],
+  },
+  {
+    topic:
+      'The Missing Critics: manga has an enormous audience, a vast body of work, and almost no serious critical apparatus',
+    anchors: [
+      'The dominance of aggregate scores and rankings as the medium’s de facto critical layer',
+      'Why sustained critical writing about manga is thin compared to film or literature, in both Japanese and English',
+      'What the medium loses by being discussed almost entirely in the language of hype, sales, and power scaling',
+    ],
+  },
+  {
+    topic:
+      'The Reader’s Complicity: every incentive in this series exists because it works on us, and an honest look at the audience’s share of the blame',
+    anchors: [
+      'How reader behaviour — the survey, the click, the merchandise purchase — is the actual input the machine optimises against',
+      'The gap between what audiences say they want and what their spending demonstrably rewards',
+      'Whether "vote with your wallet" is a real remedy or a comforting fiction, given how the system aggregates those votes',
+    ],
+  },
+
   {
     topic:
       'What the Machine Explains: a closing essay. The commercial reading is powerful and it is not everything — an honest accounting of where the mechanics genuinely explain the art, and where they become an excuse not to look at it',

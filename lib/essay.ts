@@ -14,6 +14,51 @@ export interface GeneratedEssay {
   pullQuote: string;
 }
 
+// The model reliably emits a complete JSON object but sometimes leaves a raw `"`
+// inside a string value — it quotes a manga title mid-sentence and forgets to
+// escape it. The object is otherwise sound, so rather than throw the whole essay
+// away, walk it and escape any quote that isn't a real structural delimiter. A
+// closing quote is only structural if the next non-space character is one of
+// , } ] : — anything else means we're still inside the string.
+function escapeStrayQuotes(json: string): string {
+  const out: string[] = [];
+  let inString = false;
+  let escaped = false;
+
+  for (let i = 0; i < json.length; i++) {
+    const ch = json[i];
+
+    if (escaped) { out.push(ch); escaped = false; continue; }
+    if (ch === '\\') { out.push(ch); escaped = true; continue; }
+
+    if (ch === '"') {
+      if (!inString) {
+        inString = true;
+        out.push(ch);
+      } else {
+        let j = i + 1;
+        while (j < json.length && /\s/.test(json[j])) j++;
+        if (j >= json.length || [',', '}', ']', ':'].includes(json[j])) {
+          inString = false;
+          out.push(ch);
+        } else {
+          out.push('\\"'); // stray quote inside a string value
+        }
+      }
+      continue;
+    }
+
+    if (inString && (ch === '\n' || ch === '\r')) {
+      out.push(ch === '\n' ? '\\n' : '\\r');
+      continue;
+    }
+
+    out.push(ch);
+  }
+
+  return out.join('');
+}
+
 function parseJson(raw: string): Record<string, unknown> {
   const text = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
   try { return JSON.parse(text); } catch { /* fall through */ }
@@ -27,6 +72,7 @@ function parseJson(raw: string): Record<string, unknown> {
       );
       return JSON.parse(fixed);
     } catch { /* fall through */ }
+    try { return JSON.parse(escapeStrayQuotes(block[0])); } catch { /* fall through */ }
   }
   throw new Error('Could not parse Gemini JSON response');
 }
