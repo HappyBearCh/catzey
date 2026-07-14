@@ -258,6 +258,155 @@ const TOPICS: { topic: string; anchors: string[] }[] = [
       'The honest observation that some celebrated artists are genuinely weaker at staging than at design or character, that this is a real and sayable thing, and that saying it requires describing the page rather than sneering at the person',
     ],
   },
+  // ── Second movement: the hands ──────────────────────────────────────────────
+  // The first movement built the vocabulary. This one turns it on individual
+  // artists — what specifically their pages do that nobody else's do.
+  // Appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic:
+      'Tezuka’s Camera: the man who taught manga to cut, pan, and zoom, and the cinematic grammar he imported wholesale',
+    anchors: [
+      'The cinematic devices Tezuka brought to the page — the establishing shot, the cut-in, the angle change within a static scene',
+      'What manga looked like before this, and how radical the shift genuinely was',
+      'The honest qualification: he did not invent all of it, and the "god of manga" framing flattens a messier history',
+    ],
+  },
+  {
+    topic:
+      'Toriyama’s Clarity: the cleanest action pages ever drawn, and the argument that legibility is a higher achievement than complexity',
+    anchors: [
+      'The specific qualities of a Toriyama fight page: uncluttered staging, readable spatial relationships, the eye never lost',
+      'His design sense — how a silhouette, a machine, or a creature is built to be instantly parsed and instantly redrawn',
+      'What his imitators consistently fail to copy, and why clarity is harder than density',
+    ],
+  },
+  {
+    topic:
+      'Miura’s Density: Berserk, the engraved page, and what happens when an artist refuses to leave any surface undrawn',
+    anchors: [
+      'The hatching, the armour, the crowds — the sheer information per square inch and what it does to reading speed',
+      'How the density serves the story rather than decorating it: a world that is physically oppressive to look at',
+      'The cost: the human cost of drawing it, and the pages where the density genuinely obscures the action',
+    ],
+  },
+  {
+    topic:
+      'Ito’s Dread: the horror of the perfectly clean line, and why Junji Ito’s calm drawing is scarier than any mess',
+    anchors: [
+      'The controlled, almost clinical line and the flat lighting — horror delivered without visual hysteria',
+      'The structural trick of the reveal panel, and how the page turn is used to detonate it',
+      'Why his spirals and body horror work on a still page in a way they consistently fail to in animation',
+    ],
+  },
+  {
+    topic:
+      'Araki’s Poses: JoJo, fashion photography, and a body language borrowed from a place no other manga was looking',
+    anchors: [
+      'The pose as the fundamental unit of a JoJo page — figures composed as though for a magazine spread, not a fight',
+      'The onomatopoeia treated as a graphic object embedded in the image rather than annotation on top of it',
+      'How the staging deliberately sacrifices spatial legibility for iconic force, and whether that is a flaw or the point',
+    ],
+  },
+  {
+    topic:
+      'Inoue’s Bodies: Slam Dunk, Vagabond, and an artist who draws the weight and balance of a human being better than anyone',
+    anchors: [
+      'The anatomical truth of a body in motion — the shift of weight, the moment of suspension, the fatigue',
+      'The famous wordless sequences and what the absence of dialogue and sound effects forces the reader to feel',
+      'The shift from the pen of Slam Dunk to the brush of Vagabond, and how the tool changed the storytelling',
+    ],
+  },
+  {
+    topic:
+      'Urasawa’s Faces: the thriller built entirely on the eyes, and an artist who stages suspense in a raised eyebrow',
+    anchors: [
+      'The face as the primary site of plot — how much narrative information a single reaction panel is asked to carry',
+      'The restraint of his layouts, and how conventional panelling becomes an asset in a thriller',
+      'The recurring criticism of his endings, and whether the formal machinery of suspense sets a trap the plot cannot escape',
+    ],
+  },
+  {
+    topic:
+      'Asano’s Photorealism: Goodnight Punpun, the photographed background, and the cruelty of a beautiful world drawn around a bird',
+    anchors: [
+      'The photoreal backgrounds set against radically abstracted figures, and the dissonance that produces',
+      'Punpun rendered as a crude bird among detailed humans — the most audacious use of the iconic-face principle in modern manga',
+      'The accusation that the aesthetic is miserabilist decoration, and the honest case for and against it',
+    ],
+  },
+  {
+    topic:
+      'Matsumoto’s Distortion: Tekkonkinkreet, a line that refuses to behave, and the argument that "bad" drawing can be the most alive',
+    anchors: [
+      'The warped perspective and rubbery figures — a deliberate rejection of the polished commercial line',
+      'How the distortion produces a city that feels lived in and a childhood that feels genuinely unstable',
+      'Where the influence of European comics is visible, and what he did with it that no one else did',
+    ],
+  },
+  {
+    topic:
+      'Hagio’s Interiors: the Year 24 Group’s formal revolution, and the page that learned to hold two times at once',
+    anchors: [
+      'The dissolved panel and the overlaid image — memory, feeling, and present action occupying the same space',
+      'How this layout genuinely could not be done in prose or film, and what it therefore proves about the medium',
+      'The subsequent absorption of these techniques into mainstream manga, and how invisible their radicalism has become',
+    ],
+  },
+  {
+    topic:
+      'CLAMP’s Decoration: the page as textile, and an aesthetic where ornament is not excess but structure',
+    anchors: [
+      'The elongated figures, the floating fabric, the panels overwhelmed by pattern',
+      'How ornament carries emotional and narrative weight rather than merely filling space',
+      'The legibility problem: pages where the decoration genuinely defeats the action, and whether they care',
+    ],
+  },
+  {
+    topic:
+      'Fujimoto’s Cuts: Chainsaw Man, Look Back, and a storyteller who paces like a film editor with no respect for the reader’s comfort',
+    anchors: [
+      'The abrupt cut — the violent tonal shift executed across a single gutter',
+      'The deliberately anticlimactic panel, and how withholding the expected money shot becomes its own device',
+      'The Look Back sequence structure, and how a page turn is used to deliver grief rather than spectacle',
+    ],
+  },
+  {
+    topic:
+      'Oda’s Overload: One Piece, the page you cannot see the bottom of, and a crowded chaos that somehow still reads',
+    anchors: [
+      'The maximalist page — dozens of figures, gags in the margins, and a composition that should collapse but does not',
+      'The visual design of the world: silhouettes and shapes built so a character is identifiable at any scale',
+      'Where the maximalism does defeat him — the genuinely hard-to-follow crowd fights of the later arcs',
+    ],
+  },
+  {
+    topic:
+      'Togashi’s Text: Hunter x Hunter, the page overrun with writing, and an artist who broke his own medium and kept going',
+    anchors: [
+      'The famously text-dense pages and the sketchy hiatus-era art, treated as formal choices and as physical necessity',
+      'The information-density approach to tension — rules, conditions, and explanation as the actual engine of suspense',
+      'The honest question of whether the text-heavy pages are brilliant or simply unfinished, and why both can be true',
+    ],
+  },
+  {
+    topic:
+      'Otomo’s Machines: Akira, the collapsing city, and the most rigorous draughtsmanship the medium has produced',
+    anchors: [
+      'The architectural precision — the perspective, the rubble, the consistency of a city drawn from every angle',
+      'The famous destruction sequences and how the panel structure conveys physical scale',
+      'The influence on everything after, and the cost of a standard almost nobody could sustain',
+    ],
+  },
+  {
+    topic:
+      'Mizuki’s Two Registers: the cartoon yokai walking through a photorealist forest, and a split style that carries an argument',
+    anchors: [
+      'The signature contrast: simply drawn cartoon figures placed in meticulously rendered natural backgrounds',
+      'How this split makes the supernatural feel like it genuinely inhabits the real world rather than replacing it',
+      'The same technique turned on his war memoirs, where the cartoon soldier stands in a real jungle — and what that does',
+    ],
+  },
+
   {
     topic:
       'Why the Page: a closing essay. Numerology offered a lens that was only a lens, and economics explains the pressure on every artist equally — but neither can tell you why THIS page works. Only the page can',
