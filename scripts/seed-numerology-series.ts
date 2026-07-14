@@ -905,6 +905,81 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     subjects: ['Psycho-Pass', 'Moriarty the Patriot', 'Kindaichi'],
   },
 
+  // ── Batch 24: the moderns, the healers, and the giants still unread ─────────
+  // As always: appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic: 'The Hunter and the Hiatus: Yoshihiro Togashi, Hunter x Hunter, and Gon Freecss through their numbers',
+    subjects: ['Yoshihiro Togashi', 'Hunter x Hunter', 'Gon Freecss'],
+  },
+  {
+    topic: 'The Power of ONE: reading ONE, One Punch Man, and Mob Psycho 100, and the numerology of overwhelming strength',
+    subjects: ['ONE', 'One Punch Man', 'Mob Psycho 100'],
+  },
+  {
+    topic: 'Rumiko Takahashi’s Other Worlds: Urusei Yatsura, Maison Ikkoku, and Inuyasha in numerological reading',
+    subjects: ['Urusei Yatsura', 'Maison Ikkoku', 'Inuyasha'],
+  },
+  {
+    topic: 'The One-Shots: Tatsuki Fujimoto’s Look Back, Goodbye Eri, and Fire Punch, and the numbers of the short form',
+    subjects: ['Look Back', 'Goodbye Eri', 'Fire Punch'],
+  },
+  {
+    topic: 'The New Jump Vanguard: Kagurabachi, Akane-banashi, and Ruri Dragon — reading the next generation before it arrives',
+    subjects: ['Kagurabachi', 'Akane-banashi', 'Ruri Dragon'],
+  },
+  {
+    topic: 'The Modern Romantic Comedy: Kaguya-sama: Love is War, Horimiya, and Blue Box through the numbers',
+    subjects: ['Kaguya-sama: Love is War', 'Horimiya', 'Blue Box'],
+  },
+  {
+    topic: 'The Art of Making Art: Blue Period, Bocchi the Rock, and Kids on the Slope, and the numerology of the apprentice',
+    subjects: ['Blue Period', 'Bocchi the Rock', 'Kids on the Slope'],
+  },
+  {
+    topic: 'The Thinking Light Novels: The Apothecary Diaries, Ascendance of a Bookworm, and Spice and Wolf',
+    subjects: ['The Apothecary Diaries', 'Ascendance of a Bookworm', 'Spice and Wolf'],
+  },
+  {
+    topic: 'The Worldbuilders: Witch Hat Atelier, Delicious in Dungeon, and Made in Abyss, and the numbers of invented worlds',
+    subjects: ['Witch Hat Atelier', 'Delicious in Dungeon', 'Made in Abyss'],
+  },
+  {
+    topic: 'The Current Jump Roster: Undead Unluck, Mashle, and Wind Breaker in numerological reading',
+    subjects: ['Undead Unluck', 'Mashle', 'Wind Breaker'],
+  },
+  {
+    topic: 'The Beautiful Game: Ao Ashi, Days, and Giant Killing, and the numerology of football manga',
+    subjects: ['Ao Ashi', 'Days', 'Giant Killing'],
+  },
+  {
+    topic: 'The Walking Dead of Manga: Zom 100, Highschool of the Dead, and I Am a Hero through the numbers',
+    subjects: ['Zom 100', 'Highschool of the Dead', 'I Am a Hero'],
+  },
+  {
+    topic: 'The Other Mecha: Macross, Patlabor, and Escaflowne, and the numbers of the machines that never became Gundam',
+    subjects: ['Macross', 'Patlabor', 'Escaflowne'],
+  },
+  {
+    topic: 'The Absurdists: Nichijou, Daily Lives of High School Boys, and Grand Blue, and the numerology of nonsense',
+    subjects: ['Nichijou', 'Daily Lives of High School Boys', 'Grand Blue'],
+  },
+  {
+    topic: 'The Healing Genre: Laid-Back Camp, Barakamon, and Silver Spoon — iyashikei and the numbers of rest',
+    subjects: ['Laid-Back Camp', 'Barakamon', 'Silver Spoon'],
+  },
+  {
+    topic: 'The Sword Tales: Blade of the Immortal, Lone Wolf and Cub, and Samurai Champloo through a numerological lens',
+    subjects: ['Blade of the Immortal', 'Lone Wolf and Cub', 'Samurai Champloo'],
+  },
+  {
+    topic: 'The School of Dread: Another, Higurashi, and School-Live, and the numerology of the haunted classroom',
+    subjects: ['Another', 'Higurashi', 'School-Live'],
+  },
+  {
+    topic: 'The Tokusatsu Bloodline: Kamen Rider, Ultraman, and Super Sentai, and the numbers of the transforming hero',
+    subjects: ['Kamen Rider', 'Ultraman', 'Super Sentai'],
+  },
+
   // ── The closing essay — must always remain the final part ─────────────────
   {
     topic:
