@@ -1055,6 +1055,75 @@ const TOPICS: { topic: string; subjects: string[] }[] = [
     subjects: ['Chi’s Sweet Home', 'A Man and His Cat', 'Yotsuba&!'],
   },
 
+  // ── Batch 26: the adjacent worlds ───────────────────────────────────────────
+  // Subjects the series never reached — the auteurs it skipped, and the fandom
+  // economies (Vocaloid, VTubers, doujin games) that grew up beside the medium.
+  // As always: appended BEFORE the closing essay, which must remain the final part.
+  {
+    topic: 'The Theatre of Kunihiko Ikuhara: Revolutionary Girl Utena, Mawaru Penguindrum, and Sarazanmai through their numbers',
+    subjects: ['Revolutionary Girl Utena', 'Mawaru Penguindrum', 'Sarazanmai'],
+  },
+  {
+    topic: 'The Quiet Bat of Mitsuru Adachi: Touch, Cross Game, and H2 — baseball, grief, and the numerology of restraint',
+    subjects: ['Touch', 'Cross Game', 'H2'],
+  },
+  {
+    topic: 'The Other Ghibli: Isao Takahata’s Grave of the Fireflies, Only Yesterday, and The Tale of the Princess Kaguya',
+    subjects: ['Grave of the Fireflies', 'Only Yesterday', 'The Tale of the Princess Kaguya'],
+  },
+  {
+    topic: 'The Numbers at Speed: Initial D, Capeta, and MF Ghost, and the numerology of the racing line',
+    subjects: ['Initial D', 'Capeta', 'MF Ghost'],
+  },
+  {
+    topic: 'The Sculpted Body: Kinnikuman, Tiger Mask, and Baki — muscle, spectacle, and the numbers behind them',
+    subjects: ['Kinnikuman', 'Tiger Mask', 'Baki'],
+  },
+  {
+    topic: 'The Voice That Is Not a Person: Hatsune Miku, Vocaloid, and Crypton Future Media in numerological reading',
+    subjects: ['Hatsune Miku', 'Vocaloid', 'Crypton Future Media'],
+  },
+  {
+    topic: 'The Faces Behind the Avatars: Hololive, Nijisanji, and Kizuna AI, and the numerology of the VTuber economy',
+    subjects: ['Hololive', 'Nijisanji', 'Kizuna AI'],
+  },
+  {
+    topic: 'The Doujin Empire: Touhou Project, ZUN, and a fandom that built its own universe outside the industry',
+    subjects: ['Touhou Project', 'ZUN', 'Doujin'],
+  },
+  {
+    topic: 'The Games That Became Anime: Persona, Fate/stay night, and Danganronpa through the numbers',
+    subjects: ['Persona', 'Fate/stay night', 'Danganronpa'],
+  },
+  {
+    topic: 'The Corporate Numbers: Sony, Kadokawa, and Aniplex — reading the owners of the pipeline',
+    subjects: ['Sony', 'Kadokawa', 'Aniplex'],
+  },
+  {
+    topic: 'The Men Behind the Desk: Kazuhiko Torishima, Hisashi Sasaki, and the numerology of the manga editor',
+    subjects: ['Kazuhiko Torishima', 'Hisashi Sasaki', 'Shonen Jump+'],
+  },
+  {
+    topic: 'The Gambler’s Arithmetic: Nobuyuki Fukumoto, Akagi, and Ten — risk, nerve, and the numbers',
+    subjects: ['Nobuyuki Fukumoto', 'Akagi', 'Ten'],
+  },
+  {
+    topic: 'The Underdog Sports: Yowamushi Pedal, Ahiru no Sora, and Hanebado, and the numerology of the losing team',
+    subjects: ['Yowamushi Pedal', 'Ahiru no Sora', 'Hanebado'],
+  },
+  {
+    topic: 'The Machines That Want to Be Human: Pluto, Chobits, and Time of Eve through a numerological lens',
+    subjects: ['Pluto', 'Chobits', 'Time of Eve'],
+  },
+  {
+    topic: 'The Genre Nobody Defends: To Love-Ru, High School DxD, and Monster Musume, read honestly through their numbers',
+    subjects: ['To Love-Ru', 'High School DxD', 'Monster Musume'],
+  },
+  {
+    topic: 'The Mascots: Pikachu, Hello Kitty, and Rilakkuma — the numerology of characters designed to be owned',
+    subjects: ['Pikachu', 'Hello Kitty', 'Rilakkuma'],
+  },
+
   // ── The closing essay — must always remain the final part ─────────────────
   {
     topic:
