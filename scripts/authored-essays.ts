@@ -856,4 +856,252 @@ export const AUTHORED: AuthoredEssay[] = [
 
 <p>But the coincidence performed its single honest function once more. It sent me back to <em>Monster</em> and <em>Pluto</em> to ask what, exactly, distinguishes Urasawa from the many fine suspense writers the medium has produced, and the answer the number pointed at turned out to be the true one: that he builds. Not writes, not draws, though he does both superbly — he <em>constructs</em>, with a load-bearing precision that the Master Builder's number names as well as any word could. Two 22s in the interior of a man who plots like architecture. I know it is an accident. I am increasingly convinced that noticing the right accidents, and asking what they point at, is the only thing this series was ever really doing — and very nearly the only thing criticism ever does.</p>`,
   },
+
+  // ── Part 290 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Blame → D6, H6, P9 | Tsutomu Nihei → D3, H8, P22
+  //                     Killy → D6, H9, P6
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 290,
+    title: 'Part 290: The Architect in the Personality: Blame!, Tsutomu Nihei, and the Master Builder Who Drew a City Without End',
+    excerpt:
+      'Tsutomu Nihei trained as an architect. His name carries 22 — the Master Builder — in the Personality. He used it to draw the largest and emptiest structure in manga.',
+    pullQuote:
+      'Nihei is a trained architect carrying the Master Builder in his Personality, and what he built with it is a structure so vast it has forgotten it was ever meant for people.',
+    tags: ['numerology', 'Blame!', 'Tsutomu Nihei', 'seinen', 'science fiction'],
+    entities: ['Blame!', 'Tsutomu Nihei', 'Killy', 'Biomega', 'Knights of Sidonia', 'Monthly Afternoon', 'Kodansha'],
+    content: `<p>Before he drew a single manga page, Tsutomu Nihei trained and worked as an architect. This is the single most important fact about him, and the numerological engine — which knows nothing of his biography — has quietly underlined it. <strong>Tsutomu Nihei</strong> reduces to a Destiny <strong>3</strong>, the Creative Communicator, but carries in his <strong>Personality</strong> number the <strong>22</strong>: the Master Builder, the rarest and highest number in the scheme this series has used for two hundred and ninety parts, the number of those who raise structures that outlast them.</p>
+
+<p>What he built with it is <strong>Blame!</strong> (ブラム, <em>Buramu</em>), serialized in Kodansha's <em>Monthly Afternoon</em> from 1997 — and it is, quite literally, the largest structure in manga: a megastructure called the City, an artificial world that has grown, uncontrolled, across the entire solar system and possibly beyond, level upon level upon level, until its scale has passed out of all human comprehension. The 22 is the number of the builder. Nihei used it to draw a building with no outside.</p>
+
+<h2>The Master Builder's Nightmare</h2>
+
+<p>Here is what makes the reading bite rather than merely fit. The 22, in the traditional scheme, is the benevolent number — the master who builds cathedrals, hospitals, nations, things that shelter and endure for the good of others. <em>Blame!</em> is that number's nightmare inversion: a structure that has never stopped building itself, whose automated systems keep extending it long after any purpose has been lost, and which has become actively hostile to the humans who presumably once designed it. The City is architecture as cancer. It builds and builds and builds, and no one remembers why, and to be inside it is to be a mite in the walls of something too large to know you exist.</p>
+
+<p>Nihei draws this with an architect's precision and an architect's obsessions — the perspective is meticulous, the structures are structurally plausible in a way most manga machinery is not, the sense of scale is achieved through actual draughtsmanship rather than characters shouting about how big things are. The Grammar of the Page series praised Otomo's rigorous draughtsmanship; Nihei is his strangest heir, applying the same discipline not to a collapsing city but to an infinite one. And his pages are famously, deliberately empty — vast black voids, tiny figures, whole chapters with almost no dialogue. The Master Builder built a cathedral to silence.</p>
+
+<h2>Killy, the Nurturer With a Gun</h2>
+
+<p>The protagonist is where the lens does its second strange thing. <strong>Killy</strong> — a near-silent figure who walks the City's endless levels searching for a human with the "Net Terminal Genes" that might restore order — reduces to a Destiny <strong>6</strong>: the Nurturer and Harmonizer, <em>care, community, and the weight of duty</em>. The manga itself, <strong>Blame!</strong>, reduces to a <strong>6</strong> as well.</p>
+
+<p>A Nurturer's number, twice, on the coldest, emptiest, least nurturing work in this entire series. Killy barely speaks. He carries a weapon — the Graviton Beam Emitter — capable of blasting holes through dozens of levels of megastructure at once, and he uses it with the affect of a man closing a door. There is no warmth in <em>Blame!</em>, no community, almost no dialogue, nothing that looks like care.</p>
+
+<p>And yet the 6 is not wrong, which is the unsettling part. Killy's entire, glacial, thousands-of-pages quest is an act of duty on behalf of a humanity that has been reduced to scattered, hunted remnants. He is looking for the one gene that could let the City be commanded again, be made safe for people again — be made, in the deepest sense, a home again. It is the most desolate expression of the 6 imaginable: care reduced to its absolute skeleton, community as a memory worth walking a million miles of dead corridor to restore. The Nurturer, stripped of everything nurturing except the duty itself.</p>
+
+<h2>The Communicator Who Barely Uses Words</h2>
+
+<p>Nihei's surface Destiny <strong>3</strong> — the Creative Communicator, the number of expression and language — is the one I would have bet against, because <em>Blame!</em> is notorious for its refusal to explain itself. It has almost no exposition. Plot is conveyed through architecture and silence. Readers finish the first volume genuinely unsure what they have seen. This is the least verbally communicative major manga of its era.</p>
+
+<p>But communication is not only words, and this is the point the Grammar of the Page series spent twenty-four essays making. Nihei communicates through space — through scale, emptiness, the relationship of a tiny figure to an incomprehensible void, the felt sense of a structure pressing down. He tells you what the City is by making you experience its size, not by describing it. That is communication of a very pure and difficult kind, closer to architecture than to prose, which is exactly where he came from. His later works — <em>Biomega</em>, and the more conventionally successful <em>Knights of Sidonia</em> — soften this, add dialogue, become legible. <em>Blame!</em> is the uncompromised statement, and its 3 lives entirely in the visual.</p>
+
+<h2>The Usual Honest Close</h2>
+
+<p>The caveat is by now a ritual, and I will keep it to a sentence: <em>Blame!</em> and <em>Nihei</em> are romanizations, the numbers are Latin-alphabet artefacts, and part 165 proved with data that they are accidents of transliteration rather than properties of the work.</p>
+
+<p>But an accident that lands the Master Builder's number in the Personality of a trained architect who spent his career drawing the largest structure in the medium is an accident worth stopping on. It sent me back into the City's endless silent levels to ask what Nihei was actually doing there, and the answer is the one the number pointed at: he was building — compulsively, rigorously, beautifully — the thing an architect fears most, which is a structure that has forgotten it was ever meant to hold a human being. The 22 built a home with no room in it for anyone. That is either the bleakest joke in the scheme or a coincidence of spelling, and after 290 essays I am content, finally, to leave it as both.</p>`,
+  },
+
+  // ── Part 291 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Ashita no Joe → D9, H1, P8 | Tetsuya Chiba → D8, H1, P7
+  //                     Joe Yabuki → D9, H6, P3
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 291,
+    title: 'Part 291: Burned Completely White: Ashita no Joe and the Double Nine of the Perfect Ending',
+    excerpt:
+      'Ashita no Joe and Joe Yabuki both reduce to Destiny 9 — endings, the closing of cycles. It has the most famous final panel in manga: a boxer burned to pure white.',
+    pullQuote:
+      'The 9 is the number of endings, and Ashita no Joe has the most famous ending in the medium. Joe burns himself completely white. There is nothing left to close.',
+    tags: ['numerology', 'Ashita no Joe', 'Tetsuya Chiba', 'Ikki Kajiwara', 'boxing', 'classic manga'],
+    entities: ['Ashita no Joe', 'Joe Yabuki', 'Tetsuya Chiba', 'Ikki Kajiwara', 'Weekly Shonen Magazine', 'Kodansha', 'Rikiishi'],
+    content: `<p>The final panel of <strong>Ashita no Joe</strong> (あしたのジョー) is one of the most famous images in the history of the medium. The boxer Joe Yabuki sits slumped in his corner after the fight of his life, and he is white — not pale, but drained utterly of ink, the hatching gone, the shading gone, a figure bleached to nothing. "I feel," he had said, "like I've burned completely white, without a single ember left." Whether he is dead or merely spent has been argued for fifty years, and the argument is the point: he has given everything, down to the last of himself, and there is nothing remaining to give.</p>
+
+<p><strong>Ashita no Joe</strong> — "Tomorrow's Joe," written by Ikki Kajiwara and drawn by Tetsuya Chiba, serialized in Kodansha's <em>Weekly Shonen Magazine</em> from 1968 — reduces to a Destiny <strong>9</strong>. Its protagonist, <strong>Joe Yabuki</strong>, reduces to a Destiny <strong>9</strong>. The Humanitarian and Sage, doubled — <em>endings, compassion, and the closing of cycles</em> — on the manga that gave the medium its most perfect ending.</p>
+
+<h2>The Number of the Last Round</h2>
+
+<p>This series has deployed the 9 many times, and warned each time that a double is what randomness produces at scale. I will not un-warn it. But I have rarely had a number sit so exactly on a work's defining quality, because <em>Ashita no Joe</em> is, from its first chapter, a manga about <em>burning down toward an ending</em>. It is not a story of accumulation — of getting stronger, winning more, climbing higher, in the shonen manner the Serialization Machine essays describe as the survey-driven norm. It is a story of expenditure. Joe spends himself. Every fight costs more than it returns, and the manga is honest, in a way almost no sports story is, that a body used this way is being consumed rather than built.</p>
+
+<p>The 9's <em>closing of cycles</em> is the manga's actual structure. Joe rises from a slum, from juvenile detention, from nothing, and the arc is not toward a championship belt as a prize to be kept. It is toward a single perfect and total expenditure of everything he is. The famous weight-cutting sequences — Joe starving himself down to bantamweight, his body destroying itself to make the limit — are the 9 made flesh: the humanitarian's self-giving turned inward and absolute, compassion for others become a kind of self-immolation. He gives until there is no more, and then the ink runs out.</p>
+
+<h2>Rikiishi, and the Death That Changed an Ending</h2>
+
+<p>The cycle that the manga is really about closing is the one opened by Rikiishi — Joe's great rival, the fighter who defines him, whose own brutal weight-cut to meet Joe in the ring contributes to his death in it. When Rikiishi died in the manga, in 1970, readers held an actual funeral for the fictional character, attended by hundreds, conducted by a real Buddhist priest. This is one of the most remarkable facts in the medium's history, and the Serialization Machine series touched it as a phenomenon of fandom. Read through the 9, it is something else: the recognition, by an entire generation of readers, that an ending had occurred that demanded to be mourned as real. The number of endings, producing a real funeral.</p>
+
+<p>Joe's Personality number is an <strong>8</strong> — money, authority, the machinery of ambition — and his Heart's Desire a <strong>6</strong>, the Nurturer. The 8 on the outside is the fighter, the public figure, the machine that steps into the ring. The 6 in the heart is the thing that draws people to him, the orphan who gathers a family of the discarded around himself. But the Destiny over all of it is the 9, and the 9 tells you where it goes: not to authority kept, not to family held, but to the closing — the white corner, the spent body, the ember-less end.</p>
+
+<h2>The Achiever Who Drew It</h2>
+
+<p><strong>Tetsuya Chiba</strong>, the artist, reduces to a Destiny <strong>8</strong> — the Visionary and Achiever — and it is the right number for one of the towering technical figures of the medium, a draughtsman whose rendering of the human body in motion set a standard that the Grammar of the Page series would recognise as foundational. Chiba drew weight, exhaustion, the specific way a punch lands on a body that is too tired to slip it. The white final panel works because the four thousand pages before it were so physically solid; you feel the ink drain out because you felt every ounce of the body it drained from.</p>
+
+<p>The collaboration itself — Kajiwara's story, Chiba's art — is a reminder of a truth the Serialization Machine essays laboured: that manga's defining works are frequently collaborations flattened by a culture that wants a single genius. <em>Ashita no Joe</em> is two men, a writer of hard, driving, masculine melodrama and an artist of extraordinary tenderness, and the friction between those sensibilities is exactly what makes it more than either would have produced alone.</p>
+
+<h2>The Ending About Endings</h2>
+
+<p>The caveat, once more and briefly: these are romanized names, the 9s are computed by a Latin-alphabet scheme with no access to the Japanese, and part 165 established the fragility. I hold to it.</p>
+
+<p>But consider what the lens did here. It landed the number of endings, twice, on the manga whose ending is the most famous and most complete in the entire medium — a work whose final image is a man who has finished so thoroughly that the ink itself gives out. I do not believe the letters of "Joe Yabuki" know that he burned white. I believe the coincidence is empty, as they all are. And I believe that a coincidence which points this precisely at the truth of a work has done the one thing coincidences can do, which is to make you look at the ending again and see, clearly, what an ending can be: not defeat, not victory, but the moment there is genuinely nothing left, and the page goes white, and the story has the grace to stop.</p>`,
+  },
+
+  // ── Part 292 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Fire Punch → D1, H8, P11 | Tatsuki Fujimoto → D3, H1, P2
+  //                     Agni → D22, H1, P3
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 292,
+    title: 'Part 292: The Body That Cannot Stop Building Itself: Fire Punch, Agni, and a Master Builder Made of Flame',
+    excerpt:
+      'Agni, the burning protagonist of Fire Punch, reduces to 22 — the Master Builder. He is a body that regenerates faster than fire can consume it. The number builds without pause.',
+    pullQuote:
+      'The Master Builder builds without stopping. Agni is a man whose regeneration rebuilds his body as fast as the flames destroy it — construction and destruction fused into one endless burning.',
+    tags: ['numerology', 'Fire Punch', 'Tatsuki Fujimoto', 'Agni', 'seinen'],
+    entities: ['Fire Punch', 'Tatsuki Fujimoto', 'Agni', 'Chainsaw Man', 'Shonen Jump+', 'Shueisha'],
+    content: `<p>Tatsuki Fujimoto's first serialized work is about a boy who cannot stop burning. Agni is a "blessed" — a person with a regenerative power — and he is set on fire by another blessed whose flames burn until their target stops regenerating. Agni's regeneration never stops. So he burns forever: a body consumed and rebuilt, consumed and rebuilt, every second, for years, walking across a frozen wasteland as a screaming pillar of flame that cannot die and cannot be extinguished because it heals as fast as it is destroyed.</p>
+
+<p><strong>Fire Punch</strong> (ファイアパンチ), serialized on Shueisha's <em>Shonen Jump+</em> from 2016, reduces to a Destiny <strong>1</strong> — the Leader and Pioneer, the will to act alone. But its protagonist, <strong>Agni</strong>, reduces to the <strong>22</strong>: the Master Builder, the highest number in the scheme, which this series has now encountered on the black sphere of <em>Gantz</em>, on the five-year-old Yotsuba, and on the endless City of <em>Blame!</em> — and now on a man made of fire.</p>
+
+<h2>Construction and Destruction, Fused</h2>
+
+<p>The 22 is the number of building, and Agni is the strangest possible vessel for it, because his entire existence is building and destruction happening simultaneously in the same body. His regeneration — the Master Builder's compulsion to construct — does not save him. It <em>damns</em> him, because it will not let the fire finish. A body that could not rebuild itself would burn and die and be at peace. Agni's cannot stop building, and so it cannot stop burning. The 22's relentless constructive drive, which in its benevolent form raises cathedrals, is here a curse: the inability to ever stop making the body means the inability to ever stop suffering.</p>
+
+<p>This is Fujimoto's characteristic move in its earliest form, and the Grammar of the Page series identified it in his later work: the abrupt tonal cut, the refusal of the expected catharsis, the willingness to make the reader deeply uncomfortable. <em>Fire Punch</em> is a raw, uneven, frequently shocking manga — Fujimoto himself has been candid about its flaws — but its central image is unforgettable precisely because it takes a power the medium treats as a gift (regeneration, the hero who cannot be killed) and reveals it as a torture. The Master Builder cannot lay down his tools. That is the horror.</p>
+
+<h2>The Communicator's Restless Debut</h2>
+
+<p><strong>Tatsuki Fujimoto</strong> reduces to a Destiny <strong>3</strong> — the Creative Communicator — with a <strong>1</strong> in the Heart's Desire and a <strong>2</strong> in the Personality. The 3 is the number of expression and invention, and Fujimoto is one of the most restlessly inventive voices to arrive in the medium in a decade, the author who would go on to make <em>Chainsaw Man</em> a phenomenon and whose one-shots this series discussed in its earlier batches. The 3's expressiveness in him takes the specific form of unpredictability: a refusal to let a scene resolve the way genre has trained the reader to expect.</p>
+
+<p><em>Fire Punch</em> is where that sensibility first appears in serialized form, not yet disciplined. It swerves between revenge tragedy, meditations on cinema and storytelling, sudden brutal comedy, and genuine philosophical inquiry into what makes a person keep living through unbearable pain. Not all of it works. Fujimoto was learning in public, on <em>Jump+</em>, under exactly the conditions the Serialization Machine essays describe — and the digital platform's greater tolerance for strange, uncommercial work is arguably what allowed a debut this odd to exist at all.</p>
+
+<h2>The Will to Act Alone</h2>
+
+<p>The work's own Destiny <strong>1</strong> — the will to act alone — is the number of Agni's isolation. He walks his frozen world alone, burning, for years, with only the memory of a dead sister and a borrowed idea of who he is supposed to be. Fujimoto is fascinated, here and everywhere in his work, by the way people construct a self out of stories — out of films, out of what others tell them they are — and Agni's identity is literally assembled from fragments other people hand a burning man who has forgotten himself. The 1's solitude and the 22's endless self-construction meet in exactly this: a person alone, building and rebuilding a self out of fire and other people's scripts, unable to stop doing either.</p>
+
+<h2>The Honest Close</h2>
+
+<p>The caveat is unchanged and I keep it short: <em>Agni</em> is a romanization — the name of a Hindu fire god, which the manga surely intends and which the Latin-alphabet engine cannot know it is invoking — and part 165 established that these numbers are transliteration artefacts.</p>
+
+<p>But the 22 on a man made of endless fire is the kind of accident this series exists to notice. The Master Builder's number, the number of unstoppable construction, landing on a body that cannot stop rebuilding itself as it burns — it sent me back to Fujimoto's flawed, unforgettable debut to see the idea underneath the mess, which is that the power to never stop, never end, never be finished, is not a blessing but the cruellest curse the medium has imagined. Yotsuba, a few essays ago, was the 22 that built a single perfect day and let it end. Agni is the 22 that cannot let anything end, and burns forever for the lack. Same number. Opposite fates. The arithmetic cannot tell them apart, and the difference between them is everything.</p>`,
+  },
+
+  // ── Part 293 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Goodnight Punpun → D3, H9, P3 | Inio Asano → D7, H5, P11
+  //                     Punpun Onodera → D3, H6, P6
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 293,
+    title: 'Part 293: The Bird Drawn Small: Goodnight Punpun, Inio Asano, and the Analyst Who Sees Too Much',
+    excerpt:
+      'Inio Asano reduces to Destiny 7 — the Analyst and Seeker — with the master number 11 in the Personality. It is the number of someone who perceives more than is bearable.',
+    pullQuote:
+      'Asano is a 7 with an 11 in the Personality: the analyst who sees, and the visionary who sees too much. His genius and his cruelty are the same faculty.',
+    tags: ['numerology', 'Goodnight Punpun', 'Inio Asano', 'Oyasumi Punpun', 'seinen'],
+    entities: ['Goodnight Punpun', 'Inio Asano', 'Punpun Onodera', 'Solanin', 'Dead Dead Demon', 'Weekly Young Sunday', 'Shogakukan'],
+    content: `<p>The most famous formal decision in <strong>Goodnight Punpun</strong> (おやすみプンプン, <em>Oyasumi Punpun</em>) is that its protagonist, a perfectly ordinary boy growing up in a perfectly ordinary and quietly devastating Japan, is drawn as a crude little bird — a few lines, a beak, a cartoon scrawl — while every other person and every background is rendered in Inio Asano's meticulous, photoreal, almost oppressive detail. Punpun is a doodle walking through a photograph. The Grammar of the Page series called this the most audacious use in modern manga of the iconic-face principle, and it is: the reader pours themselves into the blank scribble and is thereby trapped inside a life that becomes, across eleven volumes, almost unbearably bleak.</p>
+
+<p><strong>Inio Asano</strong> reduces to a Destiny <strong>7</strong> — the Analyst and Seeker, <em>analysis, secrecy, and the search for truth</em> — and carries the master number <strong>11</strong>, the Visionary, in his Personality. Those two numbers together are as precise a diagnosis of Asano's particular genius, and his particular cruelty, as I could write in plain prose.</p>
+
+<h2>The Analyst's Cold Eye</h2>
+
+<p>The 7 is the number of the observer — the one who watches, dissects, and searches for the truth beneath the surface, often at the cost of warmth. And Asano's defining quality as an artist is exactly this analytic coldness: an eye that sees Japanese ordinary life with pitiless clarity and refuses to look away from what it finds. The photoreal backgrounds of <em>Punpun</em> are the 7 made visible. Asano draws the convenience store, the apartment, the overpass, the cluttered bedroom with the precision of a forensic photographer, and the effect is not warmth but exposure. Nothing is allowed to be softened by cartoon abstraction — nothing except Punpun himself, whose blankness is the hole the reader falls through.</p>
+
+<p>What the analyst's eye finds in <em>Goodnight Punpun</em> is despair: domestic violence, mental illness, the slow suffocation of provincial life, a first love that curdles into something genuinely disturbing, a God figure who appears as a photographed human face pasted absurdly into the panel and dispenses advice of no use to anyone. The 7 seeks the truth, and Asano's truth is that ordinary life contains more quiet catastrophe than anyone admits. It is a hard, unforgiving vision, and it is delivered with the analyst's refusal to flinch.</p>
+
+<h2>The 11 That Sees Too Much</h2>
+
+<p>The <strong>11</strong> in the Personality is the number I would press on, because it names the thing that separates Asano from a merely skilled miserabilist. The 11 is the master number of heightened awareness — perception pitched past the bearable, the visionary who sees more than a person can hold. Asano's work is not bleak because he is cynical. It is bleak because he perceives, with genuine and almost painful acuity, the texture of contemporary loneliness — the specific weather of a generation's anxiety, the way a life quietly fails to become what it was supposed to be.</p>
+
+<p>This is why the accusation frequently levelled at him — that the misery is an aesthetic pose, misery as decoration, a boy drawn sad against a beautiful background — does not quite land, though the Grammar of the Page series was right to raise it honestly. The 11's heightened awareness is not a pose; it is a faculty, and Asano's other works confirm it points outward as well as down. <em>Solanin</em> is tender where <em>Punpun</em> is merciless — a genuinely warm story about young adults failing to become musicians — and <em>Dead Dead Demon's Dededede Destruction</em> turns the same acute perception onto an apocalypse played as deadpan slice-of-life. The awareness is the constant. What varies is where he aims it.</p>
+
+<h2>The Communicator's Number, Twice</h2>
+
+<p>The work itself, <strong>Goodnight Punpun</strong>, reduces to a Destiny <strong>3</strong> — the Creative Communicator — and so does its protagonist, <strong>Punpun Onodera</strong>. Two 3s, the number of expression, on a manga about a boy who cannot express himself at all.</p>
+
+<p>This is the productive kind of misfit, the kind that opens rather than closes. Punpun barely speaks; his interior life is so walled off that Asano had to invent the bird-scribble and the intrusive God-narrator just to give the reader any access to it. He is the least communicative protagonist imaginable, and the 3 sits on him like an accusation — or like a diagnosis of what is wrong. Because the tragedy of Punpun is precisely a failure of communication: an inability to say what he feels, to reach the people he loves, to be known. The Creative Communicator's number, on a boy whose entire ruin is that he cannot communicate, is either the arithmetic mocking him or the arithmetic naming the exact shape of the wound. After 293 essays I lean toward the latter reading not because I believe the numbers, but because the manga makes the misfit mean something.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat holds — romanized names, Latin-alphabet artefacts, part 165's data on transliteration — and I will not belabour it this late in the run.</p>
+
+<p>What the lens did here was send me to ask why Asano's work divides readers so sharply between "the finest chronicler of modern loneliness in the medium" and "a purveyor of beautiful misery." The 7 and the 11 answer it. He is an analyst who sees, and a visionary who sees too much, and those are the same faculty pointed at the same subject, and whether the result reads as truth or as pose depends almost entirely on whether the reader recognises what he is seeing. The bird is drawn small so that you will climb inside it. Whether what you find there is Asano's cruelty or your own recognition is, I suspect, the actual question his work exists to ask — and no number, real or invented, can answer it for you.</p>`,
+  },
+
+  // ── Part 294 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Sailor Moon → D5, H1, P22 | Naoko Takeuchi → D8, H4, P22
+  //                     Usagi Tsukino → D4, H4, P9
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 294,
+    title: 'Part 294: The Master Builder Behind the Magic: Sailor Moon, Naoko Takeuchi, and the 22 That Built a Genre',
+    excerpt:
+      'Sailor Moon and Naoko Takeuchi both carry 22 — the Master Builder — in the Personality. She did not just write a hit; she built the template a whole genre still runs on.',
+    pullQuote:
+      'Takeuchi carries the Master Builder in her Personality, and what she built was not a manga but a blueprint — the fusion of magical girl and superhero team that a genre has run on ever since.',
+    tags: ['numerology', 'Sailor Moon', 'Naoko Takeuchi', 'shojo', 'magical girl'],
+    entities: ['Sailor Moon', 'Naoko Takeuchi', 'Usagi Tsukino', 'Nakayoshi', 'Kodansha', 'Codename: Sailor V'],
+    content: `<p>Before <strong>Sailor Moon</strong> (美少女戦士セーラームーン, <em>Bishoujo Senshi Sailor Moon</em>), the magical girl and the superhero team were separate things. There were magical girls — cute heroines with transformation sequences, going back to the 1960s — and there were sentai teams, the color-coded squads of tokusatsu. Naoko Takeuchi's insight, serialized in Kodansha's <em>Nakayoshi</em> from 1991, was to fuse them: a team of magical girls, each with a color and a planet and a power, who transform and fight together. That fusion did not just produce a hit. It produced a <em>template</em>, and thirty years of the genre have been built on the foundation she laid.</p>
+
+<p>The numerological engine has marked this with a precision that made me sit up. <strong>Sailor Moon</strong> carries the <strong>22</strong> — the Master Builder — in its Personality. And so does its creator: <strong>Naoko Takeuchi</strong> reduces to a Destiny <strong>8</strong>, the Visionary and Achiever, with the <strong>22</strong> in <em>her</em> Personality as well. The Master Builder, in both the work and the woman, in the same position.</p>
+
+<h2>The Number of the Blueprint</h2>
+
+<p>The 22 is the number of those who build lasting structures — not single achievements but frameworks, systems, things that others will inhabit and extend for generations. And this is precisely, unusually, what Takeuchi did. The Serialization Machine essays discussed the media-mix model — the way a modern franchise is engineered across manga, anime, film, games, and merchandise. <em>Sailor Moon</em> was one of the works that <em>proved</em> that model for the shojo demographic, demonstrating that a magical-girl property could be a globe-spanning commercial structure. But that is the smaller sense of building. The larger one is formal: Takeuchi built the grammar of an entire genre.</p>
+
+<p>Count what the template contains, all of it codified by <em>Sailor Moon</em>: the ordinary girl who is secretly a warrior; the transformation sequence as recurring spectacle; the team of elementally or planetarily differentiated friends; the animal mascot guide; the distant princely love interest; the escalating cosmic stakes wrapped around intensely ordinary teenage feelings. Every magical-girl team since — and the genre is vast — is building inside the structure Takeuchi raised. That is what a 22 does. It does not make a thing; it makes the thing that other things are made inside of.</p>
+
+<h2>The Achiever's 8</h2>
+
+<p>Takeuchi's surface Destiny <strong>8</strong> — money, authority, the machinery of ambition — is the number of the commercial titan, and <em>Sailor Moon</em> was one of the most commercially colossal manga of its era, a merchandising and licensing empire that the Serialization Machine essays would recognise as the character-economy at full throttle. But the 8 alone would only make her rich. It is the 22 underneath — the builder's number — that made her foundational, and the combination is exactly right: an achiever's public success built on a builder's structural innovation. She got the empire because she built the blueprint, not the other way around.</p>
+
+<h2>Usagi, the Builder Who Would Rather Nap</h2>
+
+<p>The heroine herself is the essay's best joke, and it is the arithmetic's, not mine. <strong>Usagi Tsukino</strong> — Sailor Moon's civilian identity, a crybaby, a klutz, a mediocre student who would rather eat and sleep than do literally anything heroic — reduces to a Destiny <strong>4</strong>: the Builder and Organizer, <em>structure, labour, and the building of lasting systems</em>. The single least organized, least disciplined, least labour-inclined protagonist in shojo, carrying the number of the diligent builder.</p>
+
+<p>And yet — this is the genius of Takeuchi's characterization, and the 4 quietly points at it — Usagi <em>does</em> build. Not through discipline; she has none. She builds through relationship. What she constructs across the series is the team itself, the bonds between the Sailor Guardians, the family of chosen sisters that is the emotional structure holding the cosmic plot together. She is a terrible student and a magnificent friend, and the thing she builds is people. Her Personality number is a <strong>9</strong>, the Humanitarian, and her Heart's Desire a <strong>4</strong> to match her Destiny: the builder's number, twice, on a girl who builds the only durable structure the genre actually cares about, which is love between friends.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat is a formality by now: romanized names, Latin-alphabet arithmetic, part 165's demonstration that these numbers ride on transliteration. All true.</p>
+
+<p>But two Master Builders, in the same position, in the work and the woman who made it — and that woman turning out to be one of the genuine architects of a genre, whose blueprint an entire industry still builds inside — is an accident with an unusually good aim. It sent me to look again at what Takeuchi actually accomplished, past the merchandise and the transformation sequences, and the answer the number pointed at is the true and under-credited one: she was not a hitmaker who got lucky. She was a builder, and what she built is still standing, still being lived in, still the frame inside which the magical girls transform. The 22 raised a structure. Thirty years of the genre are its tenants.</p>`,
+  },
+
+  // ── Part 295 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Hikaru no Go → D11, H7, P4 | Yumi Hotta → D6, H1, P5
+  //                     Sai → D11, H1, P1
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 295,
+    title: 'Part 295: The Ghost in the Goban: Hikaru no Go, Sai, and the Double Eleven of a Vision Across a Thousand Years',
+    excerpt:
+      'Hikaru no Go and the ghost Sai both reduce to Destiny 11 — the Visionary. It is a story about a thousand-year-old spirit seeking the perfect move, seen by a boy who cannot.',
+    pullQuote:
+      'Sai is a ghost who has waited a thousand years to play one perfect game. The 11 is the number of the visionary who sees what others cannot — and Sai can see the board like no living player.',
+    tags: ['numerology', 'Hikaru no Go', 'Yumi Hotta', 'Takeshi Obata', 'Sai', 'shonen'],
+    entities: ['Hikaru no Go', 'Yumi Hotta', 'Takeshi Obata', 'Sai', 'Hikaru Shindo', 'Weekly Shonen Jump', 'Shueisha', 'Death Note'],
+    content: `<p>A boy finds an old go board in his grandfather's shed. Staining it is a bloodstain only he can see, and out of it rises Fujiwara-no-Sai — the ghost of a go master from the Heian court, dead a thousand years, who in life was destroyed by a false accusation of cheating and who has lingered across the centuries for one reason: to keep playing, in pursuit of the "Divine Move," the single perfect play that would touch the hand of God. Sai attaches himself to the boy, Hikaru, who does not care about go at all, and asks only to be allowed to play through him. This is the premise of <strong>Hikaru no Go</strong> (ヒカルの碁), and it is one of the most beautiful in the medium.</p>
+
+<p>The numbers are extraordinary. <strong>Hikaru no Go</strong> reduces to a Destiny <strong>11</strong> — the master number, the Visionary, <em>inspiration, tension, and heightened awareness</em>. And <strong>Sai</strong> — the ghost, the seeker of the perfect move — reduces to a Destiny <strong>11</strong> as well, with a <strong>1</strong> in both the Heart's Desire and the Personality: a 1 through and through, wrapped in the master number. The Visionary, doubled across the work and the spirit who haunts it.</p>
+
+<h2>The Number of the One Who Sees the Board</h2>
+
+<p>The 11 is the number of heightened perception — the visionary who sees what others cannot, pitched to a level that sets them apart and often isolates them. There is no better description of Sai. He is a being of pure vision: a go genius so far beyond the living that watching him play is, for the professionals who encounter his moves through Hikaru, a religious experience. He perceives the board — its patterns, its thousand branching futures, the shape of the perfect game — with a clarity no living player can match, because he is not distracted by a body, a career, an ego, or a life. He is perception with nothing else attached. That is the 11 in its purest and most poignant form: the visionary who sees everything and can touch nothing, because he is a ghost.</p>
+
+<p>And the tragedy the manga builds toward is a tragedy of the 11 specifically. Sai has waited a thousand years to find the Divine Move. What he slowly realizes — the emotional core of the series, and one of the most quietly devastating turns in any shonen — is that he may have returned not to achieve it himself, but to <em>pass the vision on</em>: that his role was never to reach the perfect move but to awaken it in Hikaru, and then to fade. The Visionary's curse is that the vision outlives the one who carries it, and must be handed to someone with a body, a future, a life Sai will never have.</p>
+
+<h2>Hikaru, and the Builder's 4</h2>
+
+<p>The boy is the counterweight, and his numbers say so. The work carries a <strong>4</strong> — the Builder — in its Personality, and this is Hikaru's number more than Sai's. Hikaru cannot see the board the way Sai does; he has no genius, no vision, no thousand years of accumulated understanding. What he has is the thing Sai lacks: a body, and time, and the capacity to <em>build</em> a skill through labour. The whole series is the story of Hikaru slowly, painfully constructing, move by studied move, an ability that Sai simply possessed. The 11 sees; the 4 builds. The ghost has the vision and no future; the boy has the future and must build the vision himself, the hard way, over years.</p>
+
+<p>This is why <em>Hikaru no Go</em> is more than a prodigy story, and why it did what few manga about a board game could: it triggered a genuine go boom among Japanese children in the early 2000s, sending a generation to the goban. It made the labour of getting good look noble rather than tedious, because it set that labour against Sai's effortless genius and argued, gently, that the building was the point — that a vision you inherit means nothing until you have constructed the self capable of holding it.</p>
+
+<h2>Obata's Hand, and the Nurturer Who Wrote It</h2>
+
+<p>The art was by Takeshi Obata — who would later draw <em>Death Note</em> — and it is some of the most elegant linework in Jump's history, rendering the near-static drama of two people sitting at a board with a tension the Grammar of the Page series would recognise as a masterclass in making stillness legible. The story was by <strong>Yumi Hotta</strong>, who reduces to a Destiny <strong>6</strong>, the Nurturer and Harmonizer. It is a quietly perfect number for the author of a story whose deepest subject is mentorship — the passing of a gift from the dead to the living, the care of one generation for the next, the teacher who fades so the student can grow. The 6's <em>care and the weight of duty</em> is the emotional engine of <em>Hikaru no Go</em>: it is, underneath the go, a story about being taught, and about the grief of outgrowing your teacher.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat, one final time in this pass: <em>Sai</em> and <em>Hikaru no Go</em> are romanizations, the 11s are Latin-alphabet artefacts, and part 165 proved with data that a title's number rides on how it was transliterated. I have never claimed otherwise and I do not start now.</p>
+
+<p>But the number of the visionary, landing twice — on a story about a thousand-year-old ghost who can see the perfect game, and on the ghost himself — is a coincidence with an almost unfair elegance. It sent me back to <em>Hikaru no Go</em> to ask what makes a manga about a board most readers cannot play into one of the most beloved in Jump's history, and the answer is Sai: the visionary who waited a thousand years to see the divine move, and whose real destiny was to see it awaken in someone else and then, having seen, to let go. The 11 sees further than anyone. What <em>Hikaru no Go</em> understands — what makes it break your heart — is that seeing furthest means being the one who does not get to stay.</p>`,
+  },
 ];
