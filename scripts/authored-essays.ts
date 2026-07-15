@@ -598,4 +598,262 @@ export const AUTHORED: AuthoredEssay[] = [
 
 <p>The eleven is a joke the alphabet played. What is underneath it is a manga about the fact that nobody scores alone — and if a meaningless coincidence is what it took to get me to look, then the coincidence has done the only job it was ever capable of doing.</p>`,
   },
+
+  // ── Part 284 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Mob Psycho 100 → D8, H3, P5 | Shigeo Kageyama → D1, H1, P9
+  //                     Reigen Arataka → D3, H5, P7
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 284,
+    title: 'Part 284: The Con Man Is a 3: Mob Psycho 100 and the Fraud Whose Only Power Is Talk',
+    excerpt:
+      'Reigen Arataka is a fake psychic with no powers at all. His name reduces to Destiny 3 — the Creative Communicator. It is the most honest number in the manga.',
+    pullQuote:
+      'Reigen has no powers. He has a suit, a confident voice, and an unshakeable belief that most problems are people problems. The 3 does not lie about him. It exposes him.',
+    tags: ['numerology', 'Mob Psycho 100', 'ONE', 'Reigen Arataka', 'shonen'],
+    entities: ['Mob Psycho 100', 'ONE', 'Reigen Arataka', 'Shigeo Kageyama', 'Bones', 'One-Punch Man', 'Shogakukan'],
+    content: `<p>The most powerful character in <strong>Mob Psycho 100</strong> (モブサイコ100) is a middle-school boy who can level a building with his mind. The most important character is his employer, a fraud named Reigen Arataka who runs a storefront psychic-consultation business, charges by the session, and has no supernatural ability of any kind whatsoever. He markets the boy's world-ending power as his own, pays him in ramen, and dispenses, along the way, most of the actual wisdom in the manga.</p>
+
+<p>ONE's series — the second major work by the pseudonymous author of <em>One-Punch Man</em>, serialized on the web and then in Shogakukan's <em>Ura Sunday</em> from 2012 — carries a Destiny <strong>8</strong>, the Visionary and Achiever. Its hero, <strong>Shigeo Kageyama</strong>, called Mob, reduces to a Destiny <strong>1</strong>: the Leader, the will to act alone. But the number that makes this essay is Reigen's, and it is the sharpest character-reading the lens has handed me in a while. <strong>Reigen Arataka</strong> reduces to a Destiny <strong>3</strong> — the Creative Communicator.</p>
+
+<h2>The Number of the Man With Nothing But Words</h2>
+
+<p>The 3, in the scheme this series has used throughout, is the number of expression, performance, and the gift of the tongue. It is the entertainer's number, the salesman's number, the number of the person who can make a room believe them. And Reigen is exactly that and precisely nothing more. Strip away the psychic-business signage and what remains is a man in a cheap suit whose entire toolkit is talk: he talks marks into paying, talks spirits into leaving (sometimes with table salt and a massage, which is to say with nothing), and — crucially — talks Mob down from the ledge of his own power, over and over, across the whole manga.</p>
+
+<p>Because that is the actual engine of the story, and it is why the 3 sitting on the fraud rather than on the god is so apt. <em>Mob Psycho 100</em> is not about whether Mob can win a fight; he can always win the fight, trivially, catastrophically, which is the problem. It is about whether he can remain a decent person while carrying a power that makes everyone around him either a supplicant or a threat. And the person who teaches him this is the one man in his life who wants nothing from his power because he does not really believe in it — the con artist, whose fraudulence turns out to be the most honest relationship the boy has.</p>
+
+<h2>Mob, the 1 Who Refuses to Lead</h2>
+
+<p>Mob's own <strong>1</strong> — the will to act alone — is a number he spends the entire series trying to put down. This is ONE's great structural joke, repeated from <em>One-Punch Man</em> in a different key: take the protagonist the genre is built to worship, the one with unlimited power, and make the story about his desire <em>not</em> to use it. Saitama is bored. Mob is frightened — of himself, of what he becomes when the counter on his chest reaches 100% and the restraint comes off.</p>
+
+<p>The 1 is the number of the solitary hero who stands above everyone else, and Mob has been handed that position by biology and wants no part of it. His whole arc is an attempt to be ordinary: to get in shape, to talk to a girl, to join the body-improvement club, to be a person among people rather than a weapon they happen to know. The number describes the destiny he was assigned. The manga is about his refusal of it. That gap — between the 1 he tests as and the ordinary life he is straining toward — is the same structural move this series found in Bojji a few essays ago, and it is becoming clear that the medium's most interesting protagonists are the ones fighting their own Destiny number rather than fulfilling it.</p>
+
+<h2>The Personality 5 and the Explosion</h2>
+
+<p>The work's Personality number is a <strong>5</strong> — the Freedom Seeker, restless disruption — and it names the thing the manga is visually about. Bones's 2016 adaptation understood that the story's real subject was the <em>uncontrolled release of restrained energy</em>, and built an animation style around it: the shift from Mob's flat, deliberately plain everyday art into the psychedelic, paint-smeared, boundary-dissolving chaos of his power at full percentage. The 5's disruption is literal here. When Mob hits 100%, form itself breaks down on the page.</p>
+
+<p>ONE's art, in the original web version, is famously crude — stick-figure simple, which readers of <em>One-Punch Man</em>'s webcomic will know. And this is the correct place to note something the Grammar of the Page series argued at length: that clarity of staging and quality of rendering are different things. ONE cannot draw, in the technical sense, and ONE is one of the best visual storytellers in modern manga, because he understands exactly where the eye should go and what a panel is for. The polish came later, from other hands. The storytelling was always his.</p>
+
+<h2>Where the Number Sits Honestly</h2>
+
+<p>I have spent much of this hand-written run of essays taking my own results apart, and it would be dishonest to stop now merely because I like this one. Reigen's 3 is attached to a romanized name, computed by a Latin-alphabet scheme with no knowledge of レイゲン, and had the character been rendered surname-first, or with different vowel choices, the number could differ. Part 165 of this series proved with data that these values are artefacts of transliteration. Nothing about the arithmetic knows that Reigen is a talker.</p>
+
+<p>But the coincidence did its one legitimate job. It sent me back to the manga to ask why a fraud is its moral centre, and the answer — that the most valuable thing anyone gives Mob is not power but honest speech, delivered by the one person too much of a con man to be impressed by him — is the truest thing in the book. The 3 is the number of the man whose only tool is his voice. In a series overflowing with people who can move buildings with their minds, ONE gave the wisdom to the one who can only talk. That is worth an essay, whatever the alphabet did or did not intend.</p>`,
+  },
+
+  // ── Part 285 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Vinland Saga → D5, H3, P11 | Makoto Yukimura → D5, H11, P3
+  //                     Thorfinn → D5, H6, P8
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 285,
+    title: 'Part 285: The Triple Five: Vinland Saga and the Long Voyage Away From Vengeance',
+    excerpt:
+      'Vinland Saga, Makoto Yukimura, and Thorfinn all reduce to Destiny 5 — freedom, restless movement. A saga about the search for a land with no slavery and no war.',
+    pullQuote:
+      'A 5 is a voyage. Thorfinn spends the first half of his saga sailing toward a man he wants to kill, and the second half sailing toward a place where no one has to.',
+    tags: ['numerology', 'Vinland Saga', 'Makoto Yukimura', 'Thorfinn', 'seinen', 'historical manga'],
+    entities: ['Vinland Saga', 'Makoto Yukimura', 'Thorfinn', 'Askeladd', 'Planetes', 'Weekly Shonen Magazine', 'Afternoon', 'Kodansha', 'Wit Studio'],
+    content: `<p>Three fives. <strong>Vinland Saga</strong> (ヴィンランド・サガ) reduces to a Destiny <strong>5</strong>. Its author, <strong>Makoto Yukimura</strong>, reduces to a Destiny <strong>5</strong>. Its protagonist, <strong>Thorfinn</strong>, reduces to a Destiny <strong>5</strong>. The Freedom Seeker, three times — <em>freedom, disruption, and restless movement</em> — sitting on a Viking epic whose entire moral argument is a journey away from violence and toward a place where violence is not required.</p>
+
+<p>This series found a triple nine on <em>Real</em> a few essays ago and was properly sceptical of it; a run of three identical numbers is what randomness produces when you sample enough names. So I will not pretend the arithmetic is doing anything but what arithmetic does. What I will say is that the 5 — the number of the voyage, of restless movement, of the search for a freedom that the present place cannot supply — is the most exact one-word description of <em>Vinland Saga</em> that I could give if I had never heard of numerology at all.</p>
+
+<h2>The Land That Gives the Saga Its Name</h2>
+
+<p>Vinland is real, or was. It is the name the Norse gave to the part of North America they reached around the year 1000, five centuries before Columbus, and abandoned. In Yukimura's manga, serialized first in Kodansha's <em>Weekly Shonen Magazine</em> and then, tellingly, moved to the more adult <em>Afternoon</em> in 2005, Vinland is less a place than an idea: a land far to the west, warm and empty and free, where there are no slave-traders and no kings and no wars to be conscripted into. It is the thing Thorfinn eventually decides to sail toward. It is, in the numerological sense the manga could not have known it was invoking, a pure 5 — a freedom that exists only somewhere else, reachable only by movement.</p>
+
+<p>And the structure of the saga is a voyage in two halves, hinged on the number's double meaning. The 5 is freedom, but it is also restlessness, disruption, the inability to stay — and the first half of <em>Vinland Saga</em> is the 5 in its destructive mode.</p>
+
+<h2>The First Voyage: Toward a Death</h2>
+
+<p>Thorfinn begins as a boy consumed by a single purpose: to kill Askeladd, the mercenary commander who murdered his father. He attaches himself to Askeladd's band, fighting in its wars, demanding duels as payment, sharpening himself into a weapon whose only function is one man's death. He is in constant motion — raiding across England, sailing, killing — and none of it is freedom. It is the restless, disruptive 5 with no destination, movement as a way of not having to feel the thing underneath the movement, which is grief.</p>
+
+<p>Yukimura draws these early volumes as brutal, kinetic historical action, and they are magnificent, and they are a trap. Because the manga is setting up its actual argument, which is that this — the vengeance, the raiding, the boy who has made himself into a blade — is a dead end, spiritually and literally. When Askeladd's death finally comes, it does not come at Thorfinn's hands, and it leaves him with nothing. The purpose that organized his entire existence evaporates, and he is revealed as what he always was: a young man who has thrown his whole life into motion toward a point that turns out to be empty.</p>
+
+<h2>The Second Voyage: Toward a Life</h2>
+
+<p><em>"I have no enemies."</em> The line that turns the saga is Thorfinn's, spoken after he has been broken down to nothing and sold into slavery on a farm, where the only work is clearing land and the only philosophy available is that of an old slave who has decided that no person is worth killing. The second half of <em>Vinland Saga</em> is the 5 redeemed — the same restless movement, the same voyaging, but now pointed at a destination worth reaching. Thorfinn resolves to found a settlement in Vinland where escaped slaves and the war-weary can live outside the reach of kings. The voyage continues. Its meaning inverts.</p>
+
+<p>This is a genuinely radical thing for an action manga to do: to spend a hundred chapters making the reader love the fighting, and then to argue, patiently and without sentimentality, that the fighting was the disease. Thorfinn's Personality number is an <strong>8</strong> — money, authority, the machinery of ambition — the number of the warrior he was built into. His Heart's Desire is a <strong>6</strong>, the Nurturer. The interior wants to build and protect; the exterior was forged into a weapon. The whole saga is the distance between those two numbers.</p>
+
+<h2>The Author Who Sailed the Other Way</h2>
+
+<p><strong>Makoto Yukimura</strong>'s own 5 is worth ending on, because his career is itself a voyage in an unexpected direction. He made his name with <em>Planetes</em> (プラネテス), a quiet, humane, scrupulously researched science-fiction manga about people who collect orbital debris — garbage men in space, essentially, and one of the most emotionally grounded hard-SF works the medium has produced. Then he turned from the near future to the eleventh century and wrote a Viking epic. From orbit to the longships; from the debris of tomorrow to the raiders of a thousand years ago.</p>
+
+<p>What connects them, and what the Freedom Seeker's number quietly points at, is that both are about people trying to find a way to live decently inside systems built for other purposes — the corporation, the war-band — and both end up arguing that the only real freedom is the refusal to treat other people as material. Yukimura's Heart's Desire is an <strong>11</strong>, the Visionary's master number. Whatever the alphabet did to produce it, it is not the wrong number for a man who followed a beloved space manga by spending two decades drawing the slow moral education of a killer, in order to say, across a thousand pages, that the boat is worth building only if you know why you are sailing it.</p>`,
+  },
+
+  // ── Part 286 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Dorohedoro → D9, H11, P7 | Q Hayashida → D3, H3, P9
+  //                     Caiman → D5, H11, P3
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 286,
+    title: 'Part 286: The Sage in the Gutter: Dorohedoro and a Destiny 9 Covered in Filth',
+    excerpt:
+      'Dorohedoro reduces to Destiny 9 — the Humanitarian and Sage. It is a manga about a man with a lizard head trying to remember who he is, in the filthiest world ever drawn.',
+    pullQuote:
+      'The 9 is the sage’s number, and Dorohedoro hides its sage under a reptile skull, in a slum full of gyoza and gore. The wisdom is real. It just smells terrible.',
+    tags: ['numerology', 'Dorohedoro', 'Q Hayashida', 'Caiman', 'seinen', 'dark fantasy'],
+    entities: ['Dorohedoro', 'Q Hayashida', 'Caiman', 'Nikaido', 'Monthly Ikki', 'Shogakukan', 'MAPPA'],
+    content: `<p>A man with the head of a lizard walks through a place called the Hole, the poorest and most violent district in a world where sorcerers use human beings as practice material. He is looking for the sorcerer who did this to him — who replaced his head, and erased his memory, and left him with no idea who he used to be. Inside his reptile jaws, improbably, lives another man's head, who speaks to him. He is accompanied by a woman named Nikaido who runs a gyoza restaurant and can turn back time. This is the setup of the most singular manga of its era, and I am not exaggerating for effect.</p>
+
+<p>Q Hayashida's <strong>Dorohedoro</strong> (ドロヘドロ), serialized in Shogakukan's <em>Monthly Ikki</em> from 2000, reduces to a Destiny <strong>9</strong> — the Humanitarian and Sage, <em>endings, compassion, and the closing of cycles</em>. Of all the results this series has produced, this is among the most counterintuitive, because <em>Dorohedoro</em> is, on its surface, the least sage-like manga imaginable: it is filthy, violent, scatological, and gleefully grotesque, a world of blood and mud and severed heads and dumpling grease. And underneath all of it, the number is right.</p>
+
+<h2>The Compassion Under the Gore</h2>
+
+<p>Here is what takes a while to notice about <em>Dorohedoro</em>, buried as it is under one of the densest, most detailed, most aggressively ugly-beautiful art styles in the medium: it is a fundamentally <em>kind</em> manga. Its enormous cast — the lizard-headed Caiman, the gyoza witch Nikaido, the effete crime-lord sorcerer En, his lethal and devoted employees Shin and Noi, an entire underworld of masked magic-users — are drawn with a warmth that is genuinely startling once you tune into it. These people cook for each other. They celebrate holidays. They have friendships that survive the fact that they are frequently trying to kill each other. Hayashida stages mass violence and domestic tenderness with exactly the same affectionate attention, and refuses to rank them.</p>
+
+<p>The 9 — compassion, the sage's long view — is doing honest work here, because <em>Dorohedoro</em>'s actual subject, under the carnage, is the closing of cycles: identity, memory, and who you turn out to have been. Caiman's quest is not really for revenge. It is to find out who he was before, and the terrible engine of the plot is the slow revelation that the answer implicates him, that the victim and the perpetrator may be closer than the amnesia allowed him to believe. That is a 9's story: an ending that turns out to have been a beginning, a cycle that closes on itself.</p>
+
+<h2>Caiman, the Restless 5</h2>
+
+<p><strong>Caiman</strong> reduces to a Destiny <strong>5</strong> — the Freedom Seeker, restless movement — which fits a protagonist defined by relentless forward motion through an unmapped world, killing sorcerer after sorcerer in the hope that the next one will be the one who knows his name. His Heart's Desire is an <strong>11</strong>, the Visionary's master number, the pitch of heightened, unbearable awareness — appropriate for a man haunted by a self he cannot access, a blank where his history should be.</p>
+
+<p>What Hayashida does with this is refuse the reader the catharsis the setup promises. This is not a mystery that resolves into a clean revenge. The truth of Caiman's identity, when it comes, is stranger and sadder and more morally tangled than a simple villain-to-be-punished, and it retroactively recolours everything. The 5's restless movement was, all along, motion away from a truth rather than toward it.</p>
+
+<h2>The 3 in the Author's Hand</h2>
+
+<p><strong>Q Hayashida</strong> herself reduces to a Destiny <strong>3</strong> — the Creative Communicator, the number of pure expression and invention — and if any number in this essay needs no defence, it is that one. <em>Dorohedoro</em> is one of the most thoroughly, obsessively <em>invented</em> worlds in manga. Hayashida designed everything: the masks, the magic-user hierarchy, the architecture of the Hole, the anatomy of the smoke that sorcerers exhale, the recurring motif of mushrooms and rot and regrowth. She is a self-taught artist who reportedly studied reptiles and machinery to get the textures right, and the sheer density of her pages — every surface detailed, every background load-bearing — is the work of someone for whom creation is not a means but the entire point.</p>
+
+<p>This connects to something the Grammar of the Page series argued: that an artist's line is their signature, and that density can be either oppressive or generous depending on whether it serves the world or merely decorates it. Hayashida's density is generous. Her filthy, teeming, over-drawn pages are an act of hospitality toward a world she plainly loves, monsters and gyoza and all. MAPPA's 2020 CG-assisted adaptation captured the plot and lost exactly this — the handmade obsessiveness of the line, which was the thing that made the ugliness beautiful.</p>
+
+<h2>The Sage Smells of Gyoza</h2>
+
+<p>The caveat, as ever, and briefer each time because the reader has surely internalised it: <em>Dorohedoro</em>'s 9 is computed from a romanized title, and the Pythagorean engine has no access to ドロヘドロ, which is itself an onomatopoeia — the sound of sludge, of mud and filth, which is the one aspect of the manga the English letters accidentally preserve. Part 165 established that the number is a translation artefact, and I have not forgotten it.</p>
+
+<p>But the 9 sent me to look, and looking, I found the thing the surface hides: that this manga about severed heads and dumpling grease is, at its core, a compassionate meditation on identity and forgiveness, a story about people who keep choosing tenderness in a world engineered to punish it. The sage's number, on the filthiest manga ever drawn. Hayashida hid her wisdom under a reptile skull in a slum, which is either the best possible joke about where wisdom actually lives, or a coincidence of romanization. I have stopped being able to tell the difference, and I have stopped being sure it matters.</p>`,
+  },
+
+  // ── Part 287 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Yotsuba → D22, H1, P3 | Kiyohiko Azuma → D3, H8, P4
+  //                     Yotsuba Koiwai → D9, H8, P1
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 287,
+    title: 'Part 287: The Master Builder Is Five Years Old: Yotsuba&! and the Number That Builds Nothing',
+    excerpt:
+      'Yotsuba reduces to 22 — the Master Builder, the highest number in the scheme. It belongs to a five-year-old whose greatest project is finding out what a doorbell does.',
+    pullQuote:
+      'The 22 is supposed to build cathedrals. Here it belongs to a child building nothing but a day, out of a swing set and a cicada and an air conditioner. It may be the most it has ever built.',
+    tags: ['numerology', 'Yotsuba&!', 'Kiyohiko Azuma', 'Yotsuba', 'slice of life'],
+    entities: ['Yotsuba&!', 'Kiyohiko Azuma', 'Yotsuba Koiwai', 'Azumanga Daioh', 'Dengeki Daioh', 'ASCII Media Works'],
+    content: `<p>In the numerological scheme this series has used for nearly three hundred essays, the highest and rarest number is <strong>22</strong> — the Master Builder. It is the 4, the Builder, raised to its master pitch: the number of people who construct things that outlast them, who found institutions, who raise cathedrals and nations. It is supposed to belong to the most consequential and driven human beings alive. This series has deployed it exactly once before, on the black sphere of <em>Gantz</em> — a machine for processing human souls.</p>
+
+<p>It belongs, according to the same engine, to <strong>Yotsuba</strong> — the title of Kiyohiko Azuma's <strong>Yotsuba&!</strong> (よつばと!), and the name of its protagonist, a five-year-old girl whose most ambitious construction project across fifteen volumes is finding out what a doorbell does.</p>
+
+<p>I have decided that this is the most beautiful result the lens has produced, and I want to explain why, because it depends entirely on the number being <em>wrong</em> in the most instructive possible way.</p>
+
+<h2>The Manga Where Nothing Happens</h2>
+
+<p><em>Yotsuba&!</em>, serialized in ASCII Media Works' <em>Dengeki Daioh</em> since 2003, is the purest slice-of-life manga ever made, and it achieves its purity by a total refusal of event. Yotsuba Koiwai is a green-haired little girl of mysterious origin, adopted by a single father, who moves to a new town at the start of volume one and proceeds to encounter the ordinary world for the first time. Each chapter is titled "Yotsuba &" something — Yotsuba and global warming, Yotsuba and cicadas, Yotsuba and the zoo, Yotsuba and cake, Yotsuba and an air conditioner. That is the entire structure. A child meets a thing that adults have stopped seeing, and sees it completely.</p>
+
+<p>There is no plot. There is no villain, no stakes, no goal, no arc in the conventional sense. What there is instead is attention — Azuma's, and through him Yotsuba's — trained on the specific texture of an ordinary summer with an intensity that most manga reserve for final battles. A swing set is a revelation. A rainstorm is an emergency and then a wonder. The discovery that milk comes from a farm reorganises Yotsuba's entire cosmology for an afternoon. Nothing is built. Nothing lasts. Each day is complete in itself and then it is over.</p>
+
+<h2>What the 22 Cannot See</h2>
+
+<p>So here is the Master Builder's number, the number of cathedrals and empires, sitting on a manga that is philosophically committed to building <em>nothing</em> — to the proposition that an ordinary day, fully attended to, needs no monument and leaves no institution and is worth everything anyway.</p>
+
+<p>The obvious move is irony: <em>ha, the great builder's number on a child who builds nothing.</em> But I think the truer reading is the opposite, and it is the reading that has quietly been forming across this whole hand-written run. The 22 is supposed to measure consequence — the size of what you leave behind. Azuma's entire manga is an argument that this is the wrong measure. Yotsuba builds nothing that outlasts the day, and the manga insists, page after page, that this is not a lack. The day itself was the cathedral. The cicada, the swing, the air conditioner, the father coming home — that was the thing worth making, and it was made, and then it was allowed to end, and a new one was made tomorrow.</p>
+
+<p>Read that way, Yotsuba is the truest Master Builder in this entire series, because she builds the only thing that was ever actually available to build: a single, complete, unrepeatable day, out of nothing but her own attention. Everyone else in these 287 essays has been trying to construct something permanent. She is the one who understood that permanence was never on offer.</p>
+
+<h2>The Communicator Who Drew Her</h2>
+
+<p><strong>Kiyohiko Azuma</strong> reduces to a Destiny <strong>3</strong> — the Creative Communicator — with a <strong>4</strong>, the Builder, in the Personality. The 3 is the number of expression, and Azuma's gift is a very specific one: he can draw the visible <em>process of a child noticing something</em>, the exact sequence of a small face moving from blankness to comprehension to delight. This is much harder than it sounds. It is the character-acting animation the Grammar of the Screen series praised as the hardest and least-applauded craft, translated to the still page, and Azuma is its master.</p>
+
+<p>He arrived here from <em>Azumanga Daioh</em> (あずまんが大王), a four-panel gag manga about high-school girls, and the move from that to <em>Yotsuba&!</em> is a move from the joke to the moment — from the punchline to the held beat that needs no punchline. The Builder in his Personality is the discipline underneath the apparent effortlessness: the pages look casual and are ruthlessly constructed, every panel timed, the famous clean line and generous white space doing exactly what the shonen page's density does <em>not</em> do. He builds a machine for slowing the reader down.</p>
+
+<h2>The Only Number That Ever Told the Truth by Being Wrong</h2>
+
+<p>The caveat writes itself and I will let it be brief: <em>Yotsuba</em> is a romanization, the 22 is an artefact of the Latin alphabet, and よつば knows nothing of Pythagoras. The name means "four leaf" — as in the four-leaf clover, the lucky accident — which the English letters cannot carry and which is, if anything, a better key to the manga than the number is.</p>
+
+<p>And yet I keep coming back to it. Two hundred and eighty-seven essays into reading a medium through numbers I have repeatedly proven to be meaningless, the highest number in the entire system — the one reserved for the builders of permanent things — landed on a five-year-old who builds nothing and is completely happy. If I believed the numbers meant anything, I would call that the wisest thing the lens has ever said. Since I do not, I will call it what it is: a coincidence of spelling that happened to point at the one manga in this whole series brave enough to argue that building nothing, if you do it with your whole attention, might be the most that anyone ever builds.</p>`,
+  },
+
+  // ── Part 288 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Nausicaa → D6, H6, P9 | Hayao Miyazaki → D1, H1, P9
+  //                     Kaze no Tani no Nausicaa → D7, H7, P9
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 288,
+    title: 'Part 288: The Nurturer of a Poisoned World: Nausicaä and the Number Miyazaki Almost Never Gets',
+    excerpt:
+      'Nausicaä reduces to Destiny 6 — the Nurturer and Harmonizer. For the manga that founded Miyazaki’s entire ethic of care for a ruined world, it is the exactly right number.',
+    pullQuote:
+      'Miyazaki himself reduces to a 1 — the pioneer who acts alone. His greatest heroine reduces to a 6, the nurturer. The gap between those numbers is the argument of his whole career.',
+    tags: ['numerology', 'Nausicaa', 'Hayao Miyazaki', 'Studio Ghibli', 'manga'],
+    entities: ['Nausicaä of the Valley of the Wind', 'Hayao Miyazaki', 'Studio Ghibli', 'Animage', 'Tokuma Shoten', 'Princess Mononoke'],
+    content: `<p>Most readers know <strong>Nausicaä of the Valley of the Wind</strong> as a 1984 film — the one Hayao Miyazaki made just before founding Studio Ghibli, the one that effectively made Ghibli possible. Fewer have read the manga, which Miyazaki drew on and off across twelve years, from 1982 to 1994, in the pages of Tokuma Shoten's <em>Animage</em>, and which is a vastly stranger, darker, more morally difficult work than the film that fits inside its first quarter. It is, by some distance, the most serious thing he ever made, and it is the seed from which everything else grew.</p>
+
+<p><strong>Nausicaä</strong> reduces to a Destiny <strong>6</strong> — the Nurturer and Harmonizer, whose vibration is <em>care, community, and the weight of duty</em>. Her Heart's Desire is also a <strong>6</strong>. And of all the character-readings in this hand-written run, this is the one I would defend hardest, because the 6 is not merely apt for Nausicaä — it is the number of the entire moral philosophy that she introduced to Miyazaki's work and that governed everything he made afterward.</p>
+
+<h2>The Princess Who Heals Instead of Conquers</h2>
+
+<p>Consider what Nausicaä actually does, against what a protagonist of an epic post-apocalyptic fantasy is conventionally built to do. The world is a thousand years past an ecological collapse. A toxic jungle, the Sea of Corruption, spreads across the earth, exhaling poison, defended by enormous insects — the Ohmu — that trample armies. Human kingdoms war over the last habitable land. Into this Miyazaki drops a princess of a small windward valley, and the reader braces for the usual arc: the chosen one who will master the power, win the war, cleanse the world.</p>
+
+<p>Nausicaä does almost none of this. Her defining quality is that she <em>communes</em> — with the insects everyone else fears, with the poisoned plants everyone else burns, with the enemies everyone else kills. She discovers that the toxic jungle is not the world's disease but its cure, a vast purification system slowly cleaning the poison humanity left behind. Her heroism is not conquest but understanding, and the 6's <em>care, community, the weight of duty</em> is the precise shape of it: she carries responsibility for a world that did not ask to be saved and cannot be saved cleanly, and she carries it without the compensation of a victory.</p>
+
+<p>This is the 6 in its most demanding form. The Nurturer's number is easy to sentimentalise — the caregiver, the healer, the warm one. Miyazaki refuses the sentimentality. Nausicaä's care costs her, implicates her in violence she cannot avoid, and leads her, in the manga's devastating final volumes, to a choice about the future of life itself that no amount of kindness makes simple. The 6 is not softness here. It is the hardest duty in the book.</p>
+
+<h2>The 1 Who Made Her</h2>
+
+<p>Here is where the numbers become genuinely eloquent, and I say that as someone who has spent this run mostly taking them apart. <strong>Hayao Miyazaki</strong> reduces to a Destiny <strong>1</strong> — the Leader and Pioneer, <em>the will to act alone</em>. His Heart's Desire is a <strong>1</strong> as well.</p>
+
+<p>The pioneer who acts alone made, as his most personal and enduring creation, a heroine who is the living argument <em>against</em> acting alone — whose entire power is connection, communion, the refusal of the solitary conqueror's path. That gap is not a contradiction. It is the engine of Miyazaki's whole career. He is, by every account including his own, a difficult, driven, solitary perfectionist — a 1 in the fullest sense, a man who built an institution by force of will and could not delegate the drawing of the clouds. And what this 1 spent his life making were stories about the insufficiency of exactly that temperament: about the wisdom of the collective, the intelligence of the natural world, the poverty of domination. San and Ashitaka in <em>Princess Mononoke</em>, the whole ethic of care that runs through every film — it starts here, in the manga, with a princess whose number is the one her creator does not have.</p>
+
+<p>Artists often make what they lack. The 1 dreaming of the 6 is as clean a numerological statement of that truth as this series has stumbled into, and I offer it knowing full well that the arithmetic cannot possibly know it is true.</p>
+
+<h2>The Analyst's Number on the Full Title</h2>
+
+<p>The full romanized title, <strong>Kaze no Tani no Nausicaa</strong>, reduces to a <strong>7</strong> — the Analyst and Seeker, <em>analysis, secrecy, and the search for truth</em> — with a <strong>7</strong> in the Heart's Desire too. This is the number I would put next to the manga rather than the film, because the manga <em>is</em> an inquiry in a way the film does not have time to be. Across its twelve years and thousand-plus pages, it becomes a genuinely searching philosophical work — about whether a world can or should be purified, about the ethics of engineering life, about a truth buried at the heart of the Sea of Corruption so bleak that Miyazaki reportedly struggled with it himself. The 7's search for a hidden truth is the manga's actual structure. It digs, and what it finds is not comforting.</p>
+
+<h2>The One Reading I Will Not Take Apart</h2>
+
+<p>I have spent eleven essays in this hand-written run dismantling my own results, and the reader is entitled to expect the usual caveat: that <em>Nausicaä</em> is a romanization, that the 6 is a Latin-alphabet artefact, that part 165 proved these numbers are accidents of transliteration. All of that remains true and I will not pretend otherwise.</p>
+
+<p>But I notice I do not want to dismantle this one, and I think the reason is instructive. The 6 on Nausicaä, the 1 on Miyazaki, the 7 on the questioning epic — these do not <em>predict</em> anything, and they are not evidence of anything. What they are is a set of coincidences that happen to arrange themselves into a true sentence about an artist and his work: that a solitary man spent his life drawing an argument for connection, and that it began with a princess who heals a poisoned world she is not strong enough to save. The numbers did not know that. I did, before I computed them. But they sent me back to the manga to say it, and some things are worth saying even when the reason you were prompted to say them is an accident of spelling. Especially then, perhaps. That is the whole case for this series, made one last clean time before the closing essay has to make it for good.</p>`,
+  },
+
+  // ── Part 289 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Pluto → D3, H9, P3 | Naoki Urasawa → D8, H22, P22
+  //                     Gesicht → D8, H5, P3
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 289,
+    title: 'Part 289: The Double Master Builder: Pluto, Naoki Urasawa, and the Architecture of Suspense',
+    excerpt:
+      'Naoki Urasawa carries 22 in both the Heart’s Desire and Personality — a doubled Master Builder in the interior. For manga’s great engineer of dread, the number fits.',
+    pullQuote:
+      'Urasawa builds suspense the way an engineer builds a bridge: load-bearing, calculated, every panel holding weight. Two 22s in the interior is the right number for the man who plots like architecture.',
+    tags: ['numerology', 'Pluto', 'Naoki Urasawa', 'Osamu Tezuka', 'seinen'],
+    entities: ['Pluto', 'Naoki Urasawa', 'Osamu Tezuka', 'Astro Boy', 'Gesicht', 'Monster', '20th Century Boys', 'Big Comic Original', 'Shogakukan'],
+    content: `<p>In 2003, Naoki Urasawa — already one of the most commercially and critically successful mangaka alive, the author of <em>Monster</em> and <em>20th Century Boys</em> — did something audacious. He took a single storyline from Osamu Tezuka's <em>Astro Boy</em>, "The Greatest Robot on Earth," a cheerful children's adventure from 1964, and reworked it into <strong>Pluto</strong> (プルートウ): a grave, adult murder mystery about a world of robots being killed one by one, and the robot detective trying to find out why. To rewrite the God of Manga's most beloved property is not a thing one does lightly. Urasawa did it with Tezuka's son's blessing and the supervision of Tezuka's former studio, and the result is one of the finest manga of its century.</p>
+
+<p>The reading here is not about the work's title — <strong>Pluto</strong> reduces to a modest <strong>3</strong>, the Creative Communicator — but about the author, because <strong>Naoki Urasawa</strong> produces a result this series has never once seen: a Destiny <strong>8</strong>, the Visionary and Achiever, with <strong>22</strong> — the Master Builder — in <em>both</em> the Heart's Desire and the Personality. A doubled master number, filling the entire interior of the name.</p>
+
+<h2>The Number of the Man Who Plots Like an Engineer</h2>
+
+<p>The 22 is the Builder's number at master pitch: structure, construction, the raising of things that hold together under enormous load. And there is no better single description of what makes Naoki Urasawa exceptional. He is, above all else, an <em>architect of suspense</em> — a plotter whose mysteries are built rather than improvised, whose every early panel turns out to have been load-bearing, whose page-turns are engineered with a precision the Grammar of the Page series tried to describe and Urasawa simply embodies.</p>
+
+<p><em>Monster</em>, his masterpiece of the late 1990s, is a nine-year, eighteen-volume suspense construction of almost frightening structural integrity: a brain surgeon who saves a boy's life, only to learn the boy is a monster, and the slow continental manhunt that follows. Nothing in it is wasted. Threads planted hundreds of chapters apart lock together with the sound of a vault closing. This is not the improvisational, survey-driven serialization the Serialization Machine essays describe as the shonen norm; it is architecture, pre-load-bearing, the work of someone who knows where the last brick goes before he lays the first. Two 22s in the interior is, whatever the alphabet's role in producing it, the correct number for that.</p>
+
+<h2>The Detective With Freedom in His Heart</h2>
+
+<p><strong>Gesicht</strong> — the robot Europol detective at the centre of <em>Pluto</em>, the name German for "face" — reduces to a Destiny <strong>8</strong>, matching his author, with a <strong>5</strong>, the Freedom Seeker, in the Heart's Desire. The 8 is authority, the machinery of institutions, which fits a police inspector who is himself a machine. The 5 in the heart is the yearning underneath it: Gesicht is a robot who dreams, who has memories he cannot account for, who is discovering — in the manga's central mystery — that he is not as free or as innocent as his programming told him. The Freedom Seeker's number, buried in the interior of an instrument of the state, is the ache the whole story turns on.</p>
+
+<p>What Urasawa does with Tezuka's material is the deepest kind of adaptation, the kind the Grammar of the Screen series praised: not reproduction but reconstruction. Tezuka's original was a robot-fighting-robots adventure with a body count treated lightly. Urasawa asks what it would mean to take those deaths seriously — to make each murdered robot a person with a life, a spouse, a history, and to make the detective's investigation an inquiry into whether artificial beings can hate, grieve, and choose. He keeps Tezuka's plot skeleton and rebuilds the body entirely, and the result honours the original precisely by refusing to merely copy it.</p>
+
+<h2>The 8 and the Weight of the Inheritance</h2>
+
+<p>Urasawa's outer Destiny <strong>8</strong> — money, authority, the machinery of ambition — is the number of a man operating at the summit of an industry, and it carries a quiet aptness for <em>Pluto</em> specifically. To adapt Tezuka is to take on the authority of the medium's founding figure, to stand in the largest shadow manga has. The Serialization Machine essays discussed Tezuka's enormous, ambiguous legacy — the "God of Manga" whose 1963 pricing decisions shaped the industry's economics for sixty years. Urasawa, an 8, took up the most sacred object in that inheritance and had the authority, and the nerve, to remake it.</p>
+
+<p>And he did it as an act of homage rather than conquest, which is where the doubled 22 in the interior matters more than the 8 on the surface. The public gesture was an achiever's — the bestselling author annexing the founder's masterpiece. The private engine was a builder's: the patient, reverent, structurally immaculate reconstruction of something he loved, brick by brick, until it stood up as his own without ceasing to be Tezuka's.</p>
+
+<h2>The Usual Honest Ending</h2>
+
+<p>The caveat holds, as it has held for two hundred and eighty-nine parts. Urasawa's 22s are computed from a romanized name by a scheme that knows nothing of 浦沢直樹, and a different transliteration might yield different numbers; part 165 demonstrated the fragility with data, and nothing here overturns it. The arithmetic does not know that Urasawa plots like an engineer.</p>
+
+<p>But the coincidence performed its single honest function once more. It sent me back to <em>Monster</em> and <em>Pluto</em> to ask what, exactly, distinguishes Urasawa from the many fine suspense writers the medium has produced, and the answer the number pointed at turned out to be the true one: that he builds. Not writes, not draws, though he does both superbly — he <em>constructs</em>, with a load-bearing precision that the Master Builder's number names as well as any word could. Two 22s in the interior of a man who plots like architecture. I know it is an accident. I am increasingly convinced that noticing the right accidents, and asking what they point at, is the only thing this series was ever really doing — and very nearly the only thing criticism ever does.</p>`,
+  },
 ];
