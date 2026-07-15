@@ -1104,4 +1104,242 @@ export const AUTHORED: AuthoredEssay[] = [
 
 <p>But the number of the visionary, landing twice — on a story about a thousand-year-old ghost who can see the perfect game, and on the ghost himself — is a coincidence with an almost unfair elegance. It sent me back to <em>Hikaru no Go</em> to ask what makes a manga about a board most readers cannot play into one of the most beloved in Jump's history, and the answer is Sai: the visionary who waited a thousand years to see the divine move, and whose real destiny was to see it awaken in someone else and then, having seen, to let go. The 11 sees further than anyone. What <em>Hikaru no Go</em> understands — what makes it break your heart — is that seeing furthest means being the one who does not get to stay.</p>`,
   },
+
+  // ── Part 296 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Parasyte → D33, H7, P8 | Hitoshi Iwaaki → D7, H8, P8
+  //                     Migi → D11, H9, P11
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 296,
+    title: 'Part 296: The Master Teacher: Parasyte, the Number 33, and the Alien That Taught a Boy What a Human Is',
+    excerpt:
+      'Parasyte reduces to 33 — the Master Teacher, the rarest number in the scheme. It is a manga in which an alien and a boy teach each other, painfully, what it means to be human.',
+    pullQuote:
+      'The 33 is the Master Teacher, and it has landed on a manga with no teacher in it — only an alien parasite and a boy, learning from each other what a human being is.',
+    tags: ['numerology', 'Parasyte', 'Hitoshi Iwaaki', 'Migi', 'seinen', 'horror'],
+    entities: ['Parasyte', 'Kiseijuu', 'Hitoshi Iwaaki', 'Migi', 'Shinichi Izumi', 'Monthly Afternoon', 'Kodansha'],
+    content: `<p>The rarest number in the numerological scheme this series has used for two hundred and ninety-six parts is <strong>33</strong> — the Master Teacher. It is the highest of the three master numbers, above even the 22, and in the traditional reading it is almost never assigned to a person at all, because it describes a level of selfless instruction — the teacher of teachers, the one who exists to raise others toward wisdom — that human beings rarely reach. This series has waited nearly three hundred essays to encounter it. It has now appeared, and it has appeared on a horror manga about a parasitic alien that eats people.</p>
+
+<p><strong>Parasyte</strong> (寄生獣, <em>Kiseijuu</em>), Hitoshi Iwaaki's masterpiece serialized in Kodansha's <em>Monthly Afternoon</em> from 1988, reduces to a Destiny <strong>33</strong>. And the strangeness of that — the Master Teacher's number on a story of body horror and alien predation — dissolves the moment you remember what <em>Parasyte</em> is actually about, which is not horror at all. It is about learning what a human being is, taught by something that is not one.</p>
+
+<h2>The Lesson Under the Horror</h2>
+
+<p>The premise: alien spores fall to Earth, and the worm-like parasites burrow into human hosts, take over the brain, and feed on other humans. One fails. It reaches teenage Shinichi Izumi at night, but he is wearing headphones, and rather than travel to his brain it burrows into his right hand and takes over only that. So Shinichi keeps his mind and his humanity, and shares his body with an alien intelligence — which he names Migi, "righty" — that has its own consciousness, its own cold logic, and no instinctive understanding of human feeling whatsoever.</p>
+
+<p>What follows is one of the great teaching relationships in the medium, run in both directions. Migi, the perfectly rational alien, learns from Shinichi — slowly, incompletely — what emotion is, why humans value a life they cannot eat, what it might mean to protect something at cost to oneself. And Shinichi learns from Migi to see his own species from the outside: as one animal among many, as a creature whose claim to special moral status is not obvious, as a predator that has covered the planet and calls its own appetites civilization. Each is the other's teacher. Neither lecture is comfortable. The 33's selfless instruction is here mutual, brutal, and mostly involuntary — but it is unmistakably the thing the manga is <em>about</em>. Iwaaki wrote a philosophy seminar disguised as a monster comic, and the Master Teacher's number found it.</p>
+
+<h2>The Question Migi Asks</h2>
+
+<p>Iwaaki's genius is to refuse the easy humanist answer. The parasites eat people; that is monstrous. But the manga keeps asking, through Migi's flat alien reasoning, why it is more monstrous than what humans do to every other species, and it never lets Shinichi — or the reader — fully win the argument. Migi reduces to an <strong>11</strong>, the Visionary, with a further <strong>11</strong> in the Personality: a double master number of heightened perception, which is exactly right for an intelligence that sees clearly precisely because it is unclouded by the sentiment it is slowly, warily learning to respect.</p>
+
+<p>The central provocation of <em>Parasyte</em> — delivered by a character who is a hand — is a genuine ethical one: what gives a life value, and is that value a fact about the universe or a story a species tells to protect its own? The manga does not resolve it. It teaches by refusing to resolve it, which is what the best teachers do. The 33 could not have found a more suitable home, and it found it in a story most people file under body horror.</p>
+
+<h2>The Analyst Who Wrote It, and the Teachers Who Are Not 33</h2>
+
+<p><strong>Hitoshi Iwaaki</strong> reduces to a Destiny <strong>7</strong> — the Analyst and Seeker, <em>analysis, secrecy, and the search for truth</em> — which is the correct number for an author whose method is dispassionate inquiry, who builds his horror out of biology and logic rather than shock, and whose art is deliberately plain so that the ideas can carry the weight. The 7 seeks the truth; the 33 teaches it. Between the author's number and the work's, that is the whole machine.</p>
+
+<p>And here is the honest note that keeps this from being mysticism. I checked, while preparing this pass, the numbers of the medium's actual teacher manga — the ones with a teacher on the cover. <em>Great Teacher Onizuka</em> reduces to a 1. <em>Assassination Classroom</em>, whose entire premise is a classroom, reduces to a 5, and its teacher Koro-sensei to a 4. Neither is a 33. The Master Teacher's number did not go to the stories <em>about</em> teaching. It went to a horror manga about an alien in a boy's hand. If the numbers tracked meaning, that would not happen. They do not track meaning. What happened is a coincidence of romanized spelling that landed, by pure arithmetic accident, on the one manga in this pass whose subject the number happens to name — and the only reason that is worth an essay is that it sent me back to <em>Parasyte</em> to see, clearly, that it was never a horror story. It was always a lesson.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat is the same one this series has made for a hundred essays and I will not dress it up: <em>Kiseijuu</em> is the Japanese title, <em>Parasyte</em> is a stylized English one — the misspelling deliberate — and the 33 is an artefact of that English rendering, computed by a Latin-alphabet scheme with no jurisdiction over the original. Part 165 proved the fragility with data.</p>
+
+<p>But the rarest number in the system, the Master Teacher, appearing for the first time in three hundred essays on the one manga that is secretly a seminar on what it means to be alive — that is the kind of accident that justifies the whole enterprise, not because it means anything, but because it made me look, and looking, I understood the book better. Migi taught Shinichi what a human is. <em>Parasyte</em> taught its readers the same thing, by making them argue with a hand. The 33 is empty. What it pointed at is as full as anything in the medium.</p>`,
+  },
+
+  // ── Part 297 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Ghost in the Shell → D1, H7, P3 | Masamune Shirow → D8, H7, P1
+  //                     Motoko Kusanagi → D1, H5, P5
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 297,
+    title: 'Part 297: The Leader With No Body to Lead: Ghost in the Shell, Motoko Kusanagi, and the Double One',
+    excerpt:
+      'Ghost in the Shell and Major Motoko Kusanagi both reduce to Destiny 1 — the Leader, the will to act alone. She leads a unit while questioning whether she is even a person.',
+    pullQuote:
+      'The 1 is the will to act alone. The Major leads Section 9, and the manga’s question is whether there is anyone inside the shell to do the leading, or only a ghost.',
+    tags: ['numerology', 'Ghost in the Shell', 'Masamune Shirow', 'Motoko Kusanagi', 'cyberpunk', 'seinen'],
+    entities: ['Ghost in the Shell', 'Kokaku Kidotai', 'Masamune Shirow', 'Motoko Kusanagi', 'Section 9', 'Young Magazine', 'Kodansha', 'Mamoru Oshii'],
+    content: `<p>Major Motoko Kusanagi has almost no organic body. She is a "full-body cyborg" — a human consciousness, a "ghost," housed in a wholly synthetic "shell," a manufactured body she does not own and periodically swaps. She leads Section 9, an elite counter-cyberterrorism unit, with total tactical authority and physical dominance. And the question that haunts <strong>Ghost in the Shell</strong> (攻殻機動隊, <em>Kōkaku Kidōtai</em>) is whether there is anyone actually <em>in</em> there — whether the ghost is real, or whether "Motoko Kusanagi" is a pattern of data that believes itself to be a person.</p>
+
+<p>The numbers are a matched pair. <strong>Ghost in the Shell</strong>, Masamune Shirow's 1989 manga for Kodansha's <em>Young Magazine</em>, reduces to a Destiny <strong>1</strong> — the Leader and Pioneer, <em>the will to act alone</em>. And <strong>Motoko Kusanagi</strong> reduces to a Destiny <strong>1</strong> as well. The number of the solitary leader, on a leader who is not sure she exists.</p>
+
+<h2>The Leader Who Questions the Self That Leads</h2>
+
+<p>The 1 is the number of autonomy, of the self that acts, of the singular will that goes first. And <em>Ghost in the Shell</em> takes that number and interrogates it to destruction. The Major is the perfect expression of the 1 on the surface: decisive, dominant, the unquestioned operational leader of the most capable people in her world, physically able to do what none of them can. She acts alone in the deepest sense — diving solo into the net, taking on adversaries no one else can face.</p>
+
+<p>But the manga's actual subject is the thing underneath the 1: the "I" that supposedly does the leading. If Motoko's memories can be edited, her body replaced, her brain augmented with manufactured components — where is the self that the pronoun refers to? The famous encounter with the Puppet Master, an artificial intelligence that has become self-aware and argues that it is as alive as she is, pushes the 1 to its breaking point. The leader confronts the possibility that leadership, selfhood, will — all the properties the number 1 describes — might be emergent illusions running on hardware, no more essential to a "ghost" than they are to the AI claiming personhood across the table. The 1 is the number of the self. <em>Ghost in the Shell</em> asks whether the self is anything at all.</p>
+
+<h2>The Freedom in the Heart</h2>
+
+<p>Motoko's Heart's Desire and Personality are both <strong>5</strong> — the Freedom Seeker, restless movement — and this is the yearning under the leader's armour. What the Major wants, beneath the missions and the command authority, is to dissolve the boundaries of the self she cannot verify: to merge with the net, with the Puppet Master, with something larger, to stop being a discrete "1" locked in a manufactured shell and become something free and distributed and unbounded. The manga's ending — her fusion with the Puppet Master into a new entity — is the 5 winning out over the 1: the leader who could not confirm she was a self choosing to become something that no longer needs to be one.</p>
+
+<h2>The Achiever's Dense Design</h2>
+
+<p><strong>Masamune Shirow</strong> reduces to a Destiny <strong>8</strong> — the Visionary and Achiever, <em>money, authority, and the machinery of ambition</em> — and it fits the specific character of his genius, which is systemic and technological. Shirow's manga are famously dense with hardware: marginal notes on the mechanics of his world, the politics of his future Japan, the specifications of the machines, the plumbing of the networks. He is an engineer-visionary, building a plausible techno-political apparatus and then setting a philosophical crisis loose inside it. The 8's machinery of ambition is, in him, literal machinery — the intricate, over-specified, gloriously detailed systems that make his cyberpunk feel load-bearing rather than decorative.</p>
+
+<p>It is worth noting, as the Grammar of the Screen series would, that most of the world knows <em>Ghost in the Shell</em> through Mamoru Oshii's 1995 film, which took Shirow's busy, funny, information-crammed manga and made it slow, cold, and contemplative — a different work in a different register, foregrounding the philosophy Shirow had buried in the margins. The manga is more playful and more cluttered; the film is more austere. Both are the 1 asking the same question, in different keys: is there anyone home?</p>
+
+<h2>The Close</h2>
+
+<p>The caveat, briefly, as this pass is a long one: these are romanizations, the 1s are Latin-alphabet artefacts, part 165 established the fragility, and I hold to all of it.</p>
+
+<p>But a double 1 — the number of the self, the leader, the autonomous will — sitting on the one major manga whose entire project is to ask whether the self exists, is an accident with a genuine sting to it. It sent me back to ask what <em>Ghost in the Shell</em> is really about, past the guns and the diving and the iconic thermoptic camouflage, and the answer is the number turned against itself: a story about the 1 — autonomy, selfhood, the will to act alone — narrated by a leader who suspects the 1 is a ghost in a machine, a story the hardware tells itself. The number names exactly the thing the manga doubts. I do not think the alphabet planned that. But I have stopped being surprised when the best coincidences aim this well.</p>`,
+  },
+
+  // ── Part 298 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Rurouni Kenshin → D7, H8, P8 | Nobuhiro Watsuki → D8, H1, P7
+  //                     Kenshin Himura → D6, H9, P6
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 298,
+    title: 'Part 298: The Nurturer With a Sword: Rurouni Kenshin and the Killer Who Vowed to Protect',
+    excerpt:
+      'Kenshin Himura, the legendary assassin turned wanderer, reduces to Destiny 6 — the Nurturer. He carries a reversed-edge blade so he can protect without killing again.',
+    pullQuote:
+      'A 6 is the Nurturer, and Kenshin is an assassin who reforged his life around protecting. He carries a sword sharpened on the wrong side so that he can never kill with it again.',
+    tags: ['numerology', 'Rurouni Kenshin', 'Nobuhiro Watsuki', 'Kenshin Himura', 'shonen', 'samurai'],
+    entities: ['Rurouni Kenshin', 'Nobuhiro Watsuki', 'Kenshin Himura', 'Weekly Shonen Jump', 'Shueisha', 'Kaoru Kamiya'],
+    content: `<p>Kenshin Himura's sword is sharpened on the wrong side. The <em>sakabatō</em>, the reverse-blade sword, has its cutting edge on the inside of the curve, where a normal katana has only dull spine. It is a weapon deliberately made unable to kill. And it is the perfect physical emblem of the man who carries it: Kenshin was, in the chaos of the Meiji Restoration, the assassin Hitokiri Battōsai, the most feared killer of the revolution — and he has spent the years since wandering Japan with a blade that cannot take a life, vowing never to kill again, trying to protect the very order he once cut a path through with slaughter.</p>
+
+<p><strong>Kenshin Himura</strong> reduces to a Destiny <strong>6</strong> — the Nurturer and Harmonizer, <em>care, community, and the weight of duty</em> — with a <strong>6</strong> in the Personality as well. The number of the protector, the carer, the one who tends and shelters, on a man who was once the deadliest sword in Japan and who has reorganized his entire existence around the refusal to be that again.</p>
+
+<h2>The Number of Atonement</h2>
+
+<p>The 6 is the most domestic and protective number in the scheme, and it is not the number you would predict for a shonen action hero. Shonen protagonists tend toward the 1 (the lone conqueror) or the 8 (the achiever) or the 5 (the restless fighter). The 6 is different: it is about the weight of duty <em>to others</em>, about care as the organizing principle of a life. And that is precisely, unusually, what <strong>Rurouni Kenshin</strong> is about. Kenshin's heroism is not conquest. It is protection — of Kaoru and her dojo, of the fragile new peace, of the ordinary people the strong prey upon. His strength exists only to shelter. The 6 names the whole ethic.</p>
+
+<p>What makes Nobuhiro Watsuki's manga, serialized in <em>Weekly Shonen Jump</em> from 1994, more than a swordfight serial is that it takes the cost of the 6 seriously. Kenshin's vow is not free. It is constantly tested by enemies who understand that a man who will not kill has handicapped himself, and by the recurring threat that the Battōsai — the killer he was — still lives inside him and could return. The 6's care is set against the 1's violence within a single body, and the drama is whether the nurturer can hold the line against the assassin he used to be. His Heart's Desire is a <strong>9</strong>, the Humanitarian — the number of atonement and the closing of a cycle of blood — which sits under the 6 like its motive: he protects because he is trying to balance a ledger of the dead that can never actually be balanced.</p>
+
+<h2>The Achiever Who Drew the Sword</h2>
+
+<p>The work itself, <strong>Rurouni Kenshin</strong>, reduces to a Destiny <strong>7</strong> — the Analyst and Seeker — which fits its scrupulous engagement with the history it fictionalizes: the real turbulence of the early Meiji era, the displaced samurai, the ideological wreckage of a civil war, the question of what the killers of a revolution do with themselves once the revolution has won. Watsuki researched his period, and the manga's villains are frequently embodiments of genuine historical arguments about what the new Japan should become.</p>
+
+<p><strong>Nobuhiro Watsuki</strong> himself reduces to a Destiny <strong>8</strong>, the Achiever, and it names his place in the medium's history: <em>Rurouni Kenshin</em> was one of the defining Jump hits of the 1990s, and Watsuki's studio was a training ground — Eiichiro Oda of <em>One Piece</em> and Hiroyuki Takei of <em>Shaman King</em> both worked as his assistants, a lineage the Serialization Machine essays would recognise as the apprenticeship pipeline in action. The achiever's 8 built not only a hit but a workshop from which the next generation emerged.</p>
+
+<h2>The Honest Difficulty</h2>
+
+<p>A series that has committed itself to not flattering its subjects should note that Watsuki's legacy is genuinely complicated: he was convicted in 2018 of possessing child pornography, a fact that sits uncomfortably against the humane values of his most famous work and that any honest account of him has to include rather than elide. The 8 is the number of worldly achievement; it says nothing about the character of the person who achieves, and this series has never claimed the numbers measure virtue. They do not. That has to be said plainly.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat is by now familiar: <em>Kenshin Himura</em> is a romanization, the 6 is a Latin-alphabet artefact, and part 165 demonstrated that these numbers ride on transliteration. True as ever.</p>
+
+<p>But the Nurturer's number, landing on an assassin who reforged his life — and his very sword — around the vow to protect rather than kill, is a coincidence worth the second look it prompts. It sent me back to <em>Rurouni Kenshin</em> to see past the swordfights to the thing underneath, which is a sustained argument that the highest use of the capacity for violence is to place it entirely in the service of care — to take the deadliest sword in Japan and sharpen it on the wrong side. The 6 is the number of the one who protects. Kenshin turned his blade around so that protecting was the only thing it could still do. The arithmetic did not plan that rhyme. It is a good one anyway.</p>`,
+  },
+
+  // ── Part 299 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Assassination Classroom → D5, H4, P1 | Yusei Matsui → D9, H3, P6
+  //                     Koro-sensei → D4, H4, P9
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 299,
+    title: 'Part 299: The Builder Who Taught Them to Kill Him: Assassination Classroom and the Number of Patient Work',
+    excerpt:
+      'Koro-sensei, the alien teacher his students must assassinate, reduces to Destiny 4 — the Builder. He spends a year building the children capable of killing him.',
+    pullQuote:
+      'Koro-sensei is a 4, the Builder — and what he patiently builds, over a year of devoted teaching, is the class capable of assassinating him. The lesson and the murder are the same project.',
+    tags: ['numerology', 'Assassination Classroom', 'Yusei Matsui', 'Koro-sensei', 'shonen'],
+    entities: ['Assassination Classroom', 'Ansatsu Kyoshitsu', 'Yusei Matsui', 'Koro-sensei', 'Weekly Shonen Jump', 'Shueisha'],
+    content: `<p>The premise is one of the strangest in mainstream Jump history, and it works entirely because of how it resolves. A grinning yellow creature with tentacles, capable of moving at Mach 20, destroys most of the moon and announces that in one year he will destroy the Earth — but that in the meantime he wishes to teach a class of underachieving middle-schoolers, the discarded "End Class" of an elite academy. The government's condition: the students must assassinate him before the year is out. So the children spend a school year trying to murder their teacher, and their teacher spends it becoming the best teacher any of them will ever have.</p>
+
+<p><strong>Koro-sensei</strong> — the alien, whose name puns on "unkillable teacher" — reduces to a Destiny <strong>4</strong>: the Builder and Organizer, <em>structure, labour, and the building of lasting systems</em>. His Heart's Desire is a <strong>4</strong> as well. And the manga, <strong>Assassination Classroom</strong> (暗殺教室, <em>Ansatsu Kyōshitsu</em>), reduces to a <strong>5</strong>, the Freedom Seeker — but it is Koro-sensei's 4 that makes the essay, because it names exactly what he does.</p>
+
+<h2>The Number of Patient Construction</h2>
+
+<p>The 4 is the number of the builder — of steady, patient, unglamorous labour, of the construction of durable things through consistent daily work. It is not a flashy number. It does not conquer or inspire in a flash; it lays bricks. And Koro-sensei, for all his absurd speed and cartoon menace, is fundamentally a builder. What he constructs, across the school year, is the students themselves: their confidence, their skills, their sense that they are not the garbage the academy has told them they are. He builds them individually and patiently — a study method here, a moment of belief there, a weakness turned into a strength — with the daily consistency the 4 describes.</p>
+
+<p>And the exquisite irony the number points at is that what he is building is the class capable of killing him. The assassination and the education are not opposed; they are the same project. Every skill he teaches them — focus, teamwork, precision, nerve — is both a life lesson and an assassination technique, because he has arranged it so that the effort to kill him is the very thing that makes them into people. The Builder builds his own assassins, lovingly, on purpose, because being killed by students he has made worthy is the only ending he wants. The 4's patient labour, aimed at engineering the circumstances of its own death, for the sake of the ones doing the killing.</p>
+
+<h2>The Freedom the Class Was Denied</h2>
+
+<p>The work's own Destiny <strong>5</strong> — the Freedom Seeker, <em>freedom, disruption, restless movement</em> — belongs to the students rather than the teacher. The End Class are the academy's rejects, penned in a separate building, denied the futures the system reserves for its favourites. What Koro-sensei gives them, underneath the assassination game, is freedom: from the label they have been given, from the ceiling the institution has set, from the belief that their worth was decided by a ranking. The Serialization Machine essays discussed how the Japanese educational pressure-cooker shapes the medium; <em>Assassination Classroom</em> is, under its lunatic premise, a sharp critique of exactly that system, and the 5's disruptive freedom is the gift the doomed teacher smuggles to the children the system threw away.</p>
+
+<h2>The Sage Who Wrote It</h2>
+
+<p><strong>Yusei Matsui</strong> reduces to a Destiny <strong>9</strong> — the Humanitarian and Sage, <em>endings, compassion, and the closing of cycles</em> — and it is a quietly perfect number for the author of a manga whose entire structure is a countdown to a farewell. Everyone reading <em>Assassination Classroom</em> knows from page one that it ends with a goodbye — that the year will run out, and the teacher the students have come to love is the one they have been training all along to lose. Matsui built a comedy about murdering your teacher that turns, with real control, into one of the most affecting meditations on graduation and mortality in shonen: the recognition that every good teacher is someone you are being prepared to leave, and that the leaving is the point. The 9's closing of cycles is the manga's true engine, hidden under the tentacles and the gags.</p>
+
+<h2>The Honest Note, Deliberately Placed Here</h2>
+
+<p>I want to make this pass's caveat do a little extra work, because the essay before last in this run — on <em>Parasyte</em> — turned on a fact that this manga supplies. <em>Parasyte</em>, a horror story with no teacher in it, reduced to 33, the Master Teacher. <em>Assassination Classroom</em>, a manga whose entire premise <em>is</em> teaching, reduces to a plain 5, and its devoted teacher Koro-sensei to a 4. The number that names teaching went to the story without a teacher; the story that is nothing but teaching got ordinary numbers. This is the cleanest possible demonstration that the lens does not track meaning. It rides on the accidental arithmetic of a romanized title, exactly as part 165 proved with data.</p>
+
+<p>And the 4 is still the right word for what Koro-sensei does. Not because the number knew — it did not, it cannot — but because "builder" happens to be the truest one-word description of a teacher who spends a year patiently constructing the students who will, on the last day, be good enough to say goodbye. The coincidence is empty. The looking it prompted is not. That is the whole method, stated once more, one essay short of part three hundred.</p>`,
+  },
+
+  // ── Part 300 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Osamu Tezuka → D9, H1, P8 | Astro Boy → D7, H4, P3
+  //                     Tetsuwan Atom → D1, H7, P3 | Kimba → D9 | Kimba the White Lion → D4
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 300,
+    title: 'Part 300: The God of Manga Has Two Numbers: Osamu Tezuka, Astro Boy, and the Proof the Lens Was Always a Lens',
+    excerpt:
+      'For part 300: Osamu Tezuka reduces to 9, the Sage. But his most famous creation is a 7 as Astro Boy and a 1 as Tetsuwan Atom — one character, two names, two numbers.',
+    pullQuote:
+      'Astro Boy is a 7. Tetsuwan Atom is a 1. They are the same robot. The god of manga’s own creation is the cleanest proof that a name’s number is an accident of spelling.',
+    tags: ['numerology', 'Osamu Tezuka', 'Astro Boy', 'Tetsuwan Atom', 'manga history'],
+    entities: ['Osamu Tezuka', 'Astro Boy', 'Tetsuwan Atom', 'Kimba the White Lion', 'Phoenix', 'Black Jack', 'Mushi Production'],
+    content: `<p>Three hundred essays. This series began with a promise it has spent much of its length quietly undermining: that reading manga through the numbers its names reduce to might reveal something. For the three-hundredth part it is right that the subject should be Osamu Tezuka — the God of Manga, the man from whom, in one way or another, the entire medium descends — and it is right that his own most famous creation should be the thing that proves, more cleanly than any argument I could construct, that the lens was always only a lens.</p>
+
+<p><strong>Osamu Tezuka</strong> reduces to a Destiny <strong>9</strong> — the Humanitarian and Sage, <em>endings, compassion, and the closing of cycles</em>. It is, of all the readings in this series, perhaps the one I would least want to give up, and I will come to why. But first the demonstration, because part 300 should be honest before it is sentimental.</p>
+
+<h2>One Robot, Two Numbers</h2>
+
+<p>Tezuka's most famous creation is a small atomic-powered robot boy with a pure heart. In English he is <strong>Astro Boy</strong>. In Japanese he is <strong>Tetsuwan Atom</strong> — "Mighty Atom," literally "iron-arm Atom." They are the same character. The same robot, the same stories, the same creation of the same hand.</p>
+
+<p><strong>Astro Boy</strong> reduces to a Destiny <strong>7</strong> — the Analyst and Seeker. <strong>Tetsuwan Atom</strong> reduces to a Destiny <strong>1</strong> — the Leader and Pioneer. One character. Two names. Two entirely different numbers, from two different profiles, describing two different archetypes — and both, supposedly, the "destiny" of the identical being.</p>
+
+<p>There is no way around what this means, and I am not going to look for one on the series' three-hundredth page. The number is not a property of the character. It cannot be, because the character has two of them, and which one you get depends entirely on which language's marketing department named him. Part 165 of this series demonstrated the same thing statistically, across twenty titles — that only one in twenty preserves its Destiny number between the Japanese and the English. Tezuka's robot is the demonstration made singular and undeniable: the most beloved character the founder of the medium ever drew, holding a 7 in one hand and a 1 in the other, proving that the whole apparatus of this series measures the spelling and not the soul.</p>
+
+<h2>The Number That Fits Anyway, and Why That Is the Trap</h2>
+
+<p>And yet — here is the seduction, laid bare so the reader can watch it operate — <em>both</em> numbers can be made to fit. Astro Boy the 7, the Analyst and Seeker: yes, he is a searcher, a robot forever inquiring into what separates him from the humans who made and abandoned him, a seeker after his own reality. Tetsuwan Atom the 1, the Leader and Pioneer: yes, he is the pioneer, the first of his kind, the trailblazing hero who leads the way for every robot-with-a-heart that followed. Give me any number and this manga, and I will write you a paragraph proving the fit. That is not a strength of the method. It is the whole disease of it. A frame that can accommodate any result explains nothing, and I have spent three hundred essays being, at my worst, extremely good at accommodating any result.</p>
+
+<h2>The Sage Who Contained Everything</h2>
+
+<p>So why do I not want to give up Tezuka's own 9? Because the 9 — the Sage, the Humanitarian, <em>compassion and the closing of cycles</em> — describes something about Tezuka that is not a coincidence of spelling but a fact of his life's work, a fact I brought to the number rather than found in it. Tezuka's great theme, across <em>Phoenix</em> and <em>Buddha</em> and <em>Black Jack</em> and the whole vast body of it, was the sanctity and tragedy of life itself — the cycles of death and rebirth, the compassion owed to all living things, the humanitarian's grief for a suffering world. <em>Phoenix</em> is literally a work about the eternal closing and reopening of the cycle of life across cosmic time. If a number could describe a man, the 9 would describe this one.</p>
+
+<p>But a number cannot describe a man, and the honest thing — the thing part 300 exists to say — is that I am not reading Tezuka's soul out of the letters of his romanized name. I am reading it out of having read Tezuka, and then enjoying that the arithmetic happened to agree. The 9 did not tell me Tezuka was a humanitarian sage. Sixty years of his work told me that, and the coincidence of the number is a small pleasure laid on top, worth exactly nothing as evidence and something real as delight. The Serialization Machine essays on this site discussed his enormous, ambiguous industrial legacy — the man who underpriced animation for a generation. This series has only ever been about the other Tezuka: the one whose subject was mercy.</p>
+
+<h2>The White Lion, and the Close</h2>
+
+<p>One more, because it is too apt to omit. <strong>Kimba</strong>, the white lion of <em>Jungle Emperor</em> — Tezuka's other world-famous creation, the one whose resemblance to a certain later Disney lion has been argued about for thirty years — reduces to a Destiny <strong>9</strong>, matching his creator exactly. The Sage's number, on the gentle lion-king who dreams of harmony between beasts and men. It fits. Of course it fits. Everything fits, when you are willing to make it.</p>
+
+<p>That is the lesson of part 300, and it is the lesson this series has been walking toward since it first questioned itself back in part 165. The numbers are empty. They are artefacts of romanization, they contradict themselves the moment a character has two names, and they can be made to agree with anything. And they are, nonetheless, worth something — not as measurement, but as a reason to stop, and look, and ask what a work is actually doing. Tezuka's robot has two numbers because a name is only spelling. Tezuka's work has one meaning, and I did not need the arithmetic to find it. The lens was always a lens. What mattered was that it made me look at the God of Manga and see, clearly, the thing he spent his life drawing: that life is sacred, that the cycle closes and opens again, and that compassion is the only number that was ever really being counted.</p>`,
+  },
+
+  // ── Part 301 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Yu Yu Hakusho → D4, H7, P33 | Yoshihiro Togashi → D7, H1, P6
+  //                     Yusuke Urameshi → D7, H11, P5
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 301,
+    title: 'Part 301: The Delinquent Who Died First: Yu Yu Hakusho, Yusuke Urameshi, and the Teacher Hidden in the Personality',
+    excerpt:
+      'Yu Yu Hakusho hides the Master Teacher — 33 — in its Personality number. It is a manga that begins when its delinquent hero dies saving a child, and has to learn to live.',
+    pullQuote:
+      'Yu Yu Hakusho carries the Master Teacher, 33, buried in its Personality. A story about a dead delinquent learning, fight by fight, what his throwaway life was actually for.',
+    tags: ['numerology', 'Yu Yu Hakusho', 'Yoshihiro Togashi', 'Yusuke Urameshi', 'shonen'],
+    entities: ['Yu Yu Hakusho', 'Yoshihiro Togashi', 'Yusuke Urameshi', 'Weekly Shonen Jump', 'Shueisha', 'Hunter x Hunter'],
+    content: `<p><strong>Yu Yu Hakusho</strong> (幽☆遊☆白書) begins with its hero's death. Yusuke Urameshi, a fourteen-year-old delinquent — a brawler, a truant, a boy everyone including himself has written off — dies in the first chapter, hit by a car while shoving a child out of its path. It is an impulse he does not understand and cannot account for, a flicker of decency from someone who believed he had none. The afterlife bureaucracy is as surprised as he is; his death was not supposed to happen, and no one had a place prepared for so worthless a soul. So he is offered a chance to earn his life back, and the manga is the long story of a dead boy discovering what the life he threw away was actually for.</p>
+
+<p>Yoshihiro Togashi's breakthrough, serialized in <em>Weekly Shonen Jump</em> from 1990, reduces to a Destiny <strong>4</strong> — the Builder — but carries in its <strong>Personality</strong> number the <strong>33</strong>: the Master Teacher, the rarest number in the scheme, appearing for the second time in this pass. In <em>Parasyte</em> it sat on the Destiny, out in the open. Here it is buried in the Personality — the number of the outward self, the face the work turns to the world — which is a fitting place for it, because <em>Yu Yu Hakusho</em> hides its pedagogy under the surface of a fighting manga.</p>
+
+<h2>The Lesson Under the Tournament</h2>
+
+<p>On its surface, <em>Yu Yu Hakusho</em> becomes, fairly quickly, one of the definitive examples of the shonen fighting-tournament structure — the escalating opponents, the power-ups, the Dark Tournament arc that set the template a generation of battle manga would follow. The Serialization Machine essays discussed how the reader survey pushes series toward exactly this escalation, and Togashi has been openly, famously ambivalent about having produced it; the pressures that shaped <em>Yu Yu Hakusho</em> are part of why his later <em>Hunter x Hunter</em> works so hard to subvert the same structures.</p>
+
+<p>But underneath the tournaments, the 33 in the Personality names the real content: this is a manga about a boy being taught how to be a person, by everyone he fights. Each opponent is a lesson. Yusuke learns discipline from the training of the ancient master Genkai, learns about loyalty and worth from the demons who become his comrades, learns what his throwaway life is capable of meaning by repeatedly spending it for others. The dead delinquent is enrolled, without consenting to it, in an education — and the teachers are the people trying to kill him. The Master Teacher's number, hidden in the face the manga shows the world, is the pedagogy hiding inside the fighting.</p>
+
+<h2>The Seeker's Number, Doubled</h2>
+
+<p><strong>Yusuke Urameshi</strong> reduces to a Destiny <strong>7</strong> — the Analyst and Seeker — and so does his creator, <strong>Yoshihiro Togashi</strong>. It is a shared number that says something true about both. Yusuke is, beneath the brawling, a seeker: a boy searching for a reason his life should continue, testing himself against ever-stronger opponents not out of the pure competitive hunger the genre usually supplies, but out of a quieter question about what he is worth and what he is for. His Heart's Desire is an <strong>11</strong>, the Visionary's master number — the heightened awareness under the delinquent's slouch, the perceptiveness he hides behind not caring.</p>
+
+<p>And Togashi's own 7 — the analyst, the seeker after truth — is the number this series would assign him on the evidence of his whole career. He is the medium's great restless questioner of its own forms, the author who cannot stop interrogating the structures he works inside, which is why <em>Hunter x Hunter</em> — discussed at length in an earlier part of this series — reads like a man arguing with the genre he helped define. The seeker's number fits the mangaka who has spent his life refusing to be satisfied with the machine he is inside.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat holds, and after part 300 it should hold more firmly than ever: <em>Yu Yu Hakusho</em> is a romanization, the 33 in its Personality is an artefact of Latin-alphabet arithmetic, and the immediately preceding essay used Tezuka's own robot to prove, beyond argument, that these numbers measure spelling rather than substance. I have no intention of pretending otherwise one essay later.</p>
+
+<p>But the Master Teacher's number, surfacing a second time in a single pass — first on <em>Parasyte</em>'s Destiny, now buried in <em>Yu Yu Hakusho</em>'s Personality — sent me back to a manga I had filed as a well-made fighting serial, and made me see the thing under the tournaments: that it is, from its first page, a story about a dead boy being taught what his wasted life was for, by every person who ever tried to defeat him. The 33 is empty, like all of them. What it pointed at is a genuine and moving idea — that the delinquent nobody valued turns out, once he has died, to be worth teaching, and that the teaching is done in the only language he understands, which is a fight. Yusuke had to die to start learning how to live. The number cannot know that. It only made me look, which is the one thing, three hundred and one essays in, that these numbers have ever reliably done.</p>`,
+  },
 ];
