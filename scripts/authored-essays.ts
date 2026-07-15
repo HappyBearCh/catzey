@@ -1790,4 +1790,154 @@ export const AUTHORED: AuthoredEssay[] = [
 
 <p>They do not work. Anya is not a visionary because her name sums to 11; she is a visionary because Tatsuya Endo drew her as a telepath, and the number landed on her by pure arithmetic chance. But the accident sent me, laughing, back to <em>Spy x Family</em> to notice the real thing under the gag — that the funniest character in modern Jump is also a genuinely lonely one, a child alone inside everyone's mind, holding a pretend-family together with a secret she cannot share. The Visionary's number found the visionary. It was luck. It is always luck. And three hundred and thirteen essays in, I have made my peace with a method whose only real power is that its luck, now and then, points somewhere worth looking.</p>`,
   },
+
+  // ── Part 314 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Fullmetal Alchemist → D3, H6, P6 | Hiromu Arakawa → D5, H22, P1
+  //                     Edward Elric → D3, H2, P1
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 314,
+    title: 'Part 314: The Master Builder’s Heart: Fullmetal Alchemist, Hiromu Arakawa, and the Law of Equivalent Exchange',
+    excerpt:
+      'Hiromu Arakawa carries 22 — the Master Builder — in her Heart’s Desire. She built the most flawlessly constructed shonen of its era on a single unbreakable law.',
+    pullQuote:
+      'Arakawa carries the Master Builder in her heart, and what she built is the tightest machine in shonen: a saga where every element pays its debt, obeying the same law of exchange its heroes do.',
+    tags: ['numerology', 'Fullmetal Alchemist', 'Hiromu Arakawa', 'Edward Elric', 'shonen'],
+    entities: ['Fullmetal Alchemist', 'Hiromu Arakawa', 'Edward Elric', 'Alphonse Elric', 'Monthly Shonen Gangan', 'Square Enix'],
+    content: `<p>The law that governs <em>Fullmetal Alchemist</em> is stated on its first pages and never once broken: equivalent exchange. To obtain something, something of equal value must be lost. Alchemy, in Hiromu Arakawa's world, is not free magic; it is a transaction, and the entire saga proceeds from the debt two brothers incurred when they broke the law's deepest prohibition — attempting to resurrect their dead mother, and paying with Edward's arm and leg and Alphonse's entire body, his soul bound to a suit of armour. The manga is, from that opening wound, a story about paying what you owe.</p>
+
+<p><strong>Hiromu Arakawa</strong> reduces to a Destiny <strong>5</strong> — the Freedom Seeker — but carries in her <strong>Heart's Desire</strong> the <strong>22</strong>: the Master Builder, the rare high master number this series has found on the great architects of the medium. And it is the perfect interior number for the author of what is widely, and rightly, considered one of the most flawlessly constructed shonen ever serialized. The work itself, <strong>Fullmetal Alchemist</strong>, reduces to a <strong>3</strong>, and so does <strong>Edward Elric</strong> — but it is Arakawa's hidden 22 that made the machine.</p>
+
+<h2>The Best-Built Shonen of Its Era</h2>
+
+<p>The 22 is the number of the builder of lasting structures, and <em>Fullmetal Alchemist</em> is a structure in the deepest sense — a plot in which nothing is wasted and everything pays its debt. The Serialization Machine essays on this site spent considerable effort on the incentive to pad, the survey-driven pressure to escalate endlessly, the rushed or bloated endings that plague long-runners. Arakawa is the great counter-example. She planned <em>Fullmetal Alchemist</em> as a complete structure, ran it to a defined length, and brought every thread — every minor character, every early mystery, every apparently throwaway detail — home in an ending that pays off the entire construction. The manga obeys, formally, the same law of equivalent exchange its heroes do: every element is set up, and every setup is paid. The 22 in her heart built a machine in which the storytelling itself honours the debt.</p>
+
+<p>This is why the two anime adaptations became, as the Serialization Machine series noted, a natural experiment: the 2003 version, which overtook the manga and invented its own ending, against <em>Brotherhood</em>, which waited and adapted Arakawa's completed structure. The difference is the difference between a story improvised under deadline and one built to a finished blueprint — and it is the clearest demonstration in the medium of what the Master Builder's discipline is worth.</p>
+
+<h2>The Communicators at the Centre</h2>
+
+<p>Both <strong>Edward Elric</strong> and the work reduce to a Destiny <strong>3</strong> — the Creative Communicator — and it fits better than an action number would. Ed's alchemy is spectacular, but his defining weapon is his mind and his mouth: he argues, he reasons, he talks his way through moral problems the genre usually resolves with a bigger punch. The central drama of <em>Fullmetal Alchemist</em> is ethical and rhetorical — what a life is worth, what the state may demand, whether the ends justify the means — and it is conducted in argument as much as in battle. The 3's expressiveness, in Ed, is the relentless moral reasoning of a teenager who will not stop asking whether a thing is right. His Heart's Desire is a <strong>2</strong>, the rare Diplomat, and it names the bond at the story's core: everything Ed does is, finally, for his brother, a partnership of two that the whole saga is built to honour.</p>
+
+<h2>The Freedom Seeker Who Built a Cage of Rules</h2>
+
+<p>Arakawa's surface Destiny <strong>5</strong> — the Freedom Seeker — sits interestingly against the rigor of what she built, and the tension is instructive. She is known, famously, for drawing herself as a cow, for a farm upbringing in Hokkaido that grounds her fantasy in unglamorous physical labour, for a sensibility that is earthy, funny, and deeply unpretentious. The 5's restless disruption is in the texture of her work — the humour, the refusal of self-seriousness, the willingness to break tone. But underneath the free surface is the 22's iron structure. She is a Freedom Seeker who built the most tightly-ruled world in shonen, and the combination — playful surface, immaculate architecture — is exactly what makes <em>Fullmetal Alchemist</em> both beloved and respected, warm and perfectly engineered at once.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat is permanent: romanized names, Latin-alphabet arithmetic, spelling and not soul. Part 300 settled it with Tezuka's own robot, and I hold to it three essays from the end.</p>
+
+<p>But the Master Builder's number, hidden in the heart of the author who built the best-constructed shonen of its generation, is an accident worth the second look it prompts. It sent me back to <em>Fullmetal Alchemist</em> to name what separates it from a hundred competent action serials, and the answer is the 22: Arakawa built, with an architect's discipline, a saga that obeys its own central law — equivalent exchange, every debt paid, every setup honoured, nothing wasted and nothing free. The heroes pay for what they take. So does the storytelling. The number is empty, like all of them. What it pointed at is the rarest thing in a medium the Serialization Machine essays showed is structured against it: a long story that was built, from the first page, to be paid off in full.</p>`,
+  },
+
+  // ── Part 315 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Tokyo Ghoul → D5, H3, P11 | Sui Ishida → D9, H4, P5
+  //                     Ken Kaneki → D9, H2, P7
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 315,
+    title: 'Part 315: The Number of What Is Lost: Tokyo Ghoul, Ken Kaneki, and the Slow Closing of a Human Life',
+    excerpt:
+      'Ken Kaneki, the student turned half-ghoul, reduces to Destiny 9 — endings, the closing of cycles. His story is the long, painful ending of the ordinary person he used to be.',
+    pullQuote:
+      'The 9 is the number of endings, and Kaneki’s whole story is one long ending — the slow, agonized closing of the gentle human he was, replaced piece by piece by what he had to become.',
+    tags: ['numerology', 'Tokyo Ghoul', 'Sui Ishida', 'Ken Kaneki', 'seinen', 'horror'],
+    entities: ['Tokyo Ghoul', 'Sui Ishida', 'Ken Kaneki', 'Weekly Young Jump', 'Shueisha'],
+    content: `<p>Ken Kaneki begins <em>Tokyo Ghoul</em> as almost nothing: a shy, bookish college student, gentle to the point of passivity, whose idea of a good evening is a quiet café and a novel. Then a date goes catastrophically wrong — the girl is a ghoul, one of the human-looking predators who survive only by eating human flesh — and an emergency transplant leaves him a half-ghoul, neither one thing nor the other, cursed with a monster's hunger and a human's horror at it. Everything that follows is the story of that gentle boy being ground away, torture by torture and loss by loss, until the person who sat in the café is simply gone.</p>
+
+<p><strong>Ken Kaneki</strong> reduces to a Destiny <strong>9</strong> — the Humanitarian and Sage, <em>endings, compassion, and the closing of cycles</em> — and so does his creator, <strong>Sui Ishida</strong>. The work itself, <strong>Tokyo Ghoul</strong>, reduces to a <strong>5</strong>, the Freedom Seeker, with an <strong>11</strong> in the Personality. But it is Kaneki's 9 that names the true and painful shape of the thing.</p>
+
+<h2>A Story That Is All Ending</h2>
+
+<p>The 9 is the number of endings and the closing of cycles, and most of this series' 9s have described a single climactic ending — a final gesture, a death, a last sacrifice. Kaneki's 9 is different and, in its way, crueler: his is a story that is <em>all</em> ending, a protracted, chapter-by-chapter closing of a human life that never quite finishes dying. He does not end once. He ends continuously. The gentle boy is closed off in pieces — his innocence taken by torture, his passivity burned away by necessity, his very identity fracturing until, in the manga's notorious mid-point, he emerges white-haired and transformed, the person he was effectively deceased while his body walks on.</p>
+
+<p>This is the 9 as slow attrition. The closing of a cycle stretched across the whole length of a work, so that the reader experiences not a death but a disappearance — the agonized, incremental loss of someone they watched be ordinary and kind, replaced by degrees with someone harder, sadder, and barely recognizable. Sui Ishida's real subject is not horror in the gore sense, though there is plenty of gore; it is the horror of watching a person be subtracted from themselves, the specific grief of loving who someone used to be. The 9's compassion is in the reader's helpless tenderness for the boy in the café, held against the certainty that he is not coming back.</p>
+
+<h2>The Diplomat's Doomed Wish</h2>
+
+<p>Kaneki's Heart's Desire is a <strong>2</strong> — the Diplomat, the rare number of partnership and belonging this series examined at part 274 — and it is the engine of his tragedy. What Kaneki wants, underneath everything, is to belong: to reconcile the human world and the ghoul world that each claim half of him, to find a place where both halves of what he is can be at peace. The 2's yearning for harmony, for cooperation, for a bridge between two sides — it is a beautiful wish and the manga is engineered to deny it utterly. He is torn between worlds that will not be reconciled, and every attempt at the 2's harmony costs him another piece of the 9's slow ending. The peacemaker's number, on a boy the story will not let make peace.</p>
+
+<h2>The Personality of a World Coming Apart</h2>
+
+<p>The work's <strong>5</strong> — the Freedom Seeker, restless disruption — and its <strong>11</strong> in the Personality name the fractured, feverish texture of <em>Tokyo Ghoul</em> itself. Ishida's art, which the Grammar of the Page series would recognise for its unstable, hatching-heavy intensity, is all disruption and heightened awareness — panels that fragment, identities that blur, a visual style pitched at the edge of coherence to match a protagonist pitched at the edge of himself. The 5's restlessness and the 11's overwhelming perception are the manga's nervous system: a work that never sits still because its subject is a self that cannot hold together.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat is permanent, three essays from the end and after part 300 settled it for good: romanized names, Latin-alphabet arithmetic, spelling and not soul.</p>
+
+<p>But the number of endings, on the boy whose entire story is one long ending, sent me back to <em>Tokyo Ghoul</em> to name what makes it linger past its considerable violence. It is not the monsters. It is the loss — the slow, complete, chapter-by-chapter closing of a gentle life, the disappearance of an ordinary kind person into someone the reader mourns while he is still on the page. Kaneki is a 9. The number of the closing of cycles. And what closes, across the whole length of his story, is the boy in the café — ended not with a death but with a disappearance, which is the sadder ending, and the one the number pointed at. The arithmetic did not know. It only made me grieve, one more time, for who someone used to be.</p>`,
+  },
+
+  // ── Part 316 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Great Teacher Onizuka → D1, H9, P1 | Tohru Fujisawa → D1, H5, P5
+  //                     Eikichi Onizuka → D7, H6, P1
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 316,
+    title: 'Part 316: The Great Teacher Is a Seeker, Not a Teacher: Great Teacher Onizuka and the Number the Lens Withheld',
+    excerpt:
+      'Great Teacher Onizuka, the definitive teacher manga, reduces to a plain Destiny 1 — and Onizuka himself to a 7, the Seeker. The Master Teacher number went elsewhere, and that is the point.',
+    pullQuote:
+      'The medium’s greatest fictional teacher is a 7, the Seeker — not the Master Teacher’s 33. That number went to a horror manga. If the lens tracked meaning, it would not do that.',
+    tags: ['numerology', 'Great Teacher Onizuka', 'Tohru Fujisawa', 'Eikichi Onizuka', 'seinen'],
+    entities: ['Great Teacher Onizuka', 'Tohru Fujisawa', 'Eikichi Onizuka', 'Weekly Shonen Magazine', 'Kodansha', 'GTO'],
+    content: `<p>Eikichi Onizuka is a twenty-two-year-old ex-biker gang leader, a virgin obsessed with not being one, a crude, violent, barely-literate delinquent — and the single best teacher in the history of the medium. That is the joke and the genius of <strong>Great Teacher Onizuka</strong> (グレート・ティーチャー・オニヅカ), Tohru Fujisawa's beloved serial for Kodansha's <em>Weekly Shonen Magazine</em> from 1997: the man least qualified on paper to stand in front of a classroom turns out to reach the damaged, cynical, adult-hating students that every credentialed teacher before him has failed, because he sees them in a way the qualified never bothered to.</p>
+
+<p>And here is where this essay becomes a deliberate bookend to one written a few parts ago. This series established, at part 296, that <em>Parasyte</em> — a horror manga about an alien in a boy's hand — reduces to <strong>33</strong>, the Master Teacher, the rarest and highest number in the scheme. So the natural question, near the end of a long run: what does the medium's actual definitive teacher manga reduce to? <strong>Great Teacher Onizuka</strong> reduces to a plain <strong>1</strong>, the Leader. And <strong>Eikichi Onizuka</strong> himself reduces to a <strong>7</strong> — the Analyst and Seeker. Not the Master Teacher. Not even close.</p>
+
+<h2>The Number the Lens Gave Away</h2>
+
+<p>I want to sit in this, because it is the cleanest demonstration this series has of the thing it has spent three hundred essays learning. If the numbers tracked <em>meaning</em> — if a name's Destiny genuinely revealed the soul of the thing it named — then the Master Teacher's number, the number of teaching itself, would land on the teacher manga. It would land on Onizuka, or on <em>GTO</em>, or on <em>Assassination Classroom</em>, whose entire premise is a classroom, and which reduces (part 299) to an ordinary 5. Instead the 33 went to <em>Parasyte</em>, a story with no teacher in it at all. The teaching-number avoided every story about teaching and landed on a horror comic about a parasite.</p>
+
+<p>This is not a flaw in my calculations. It is the whole truth about the method, stated as plainly as three hundred and sixteen essays can state it: the numbers ride on the accidental arithmetic of romanized spelling, and they do not know, and cannot know, what any story is about. The Master Teacher's number is not drawn to teachers. It is drawn to whatever combination of Latin letters happens to sum to 33, which is a fact about the alphabet and nothing else. <em>Great Teacher Onizuka</em> is the control group. It is the teacher manga that proves the teacher-number means nothing.</p>
+
+<h2>And Yet the Seeker Fits</h2>
+
+<p>But — and this series has never been willing to end on pure debunking, because the debunking is not the whole story — Onizuka's <strong>7</strong>, the Seeker, is genuinely the right number for what makes him a great teacher, and noticing that is not a contradiction of everything above. It is the point. The 7 is the number of the one who investigates, who looks past the surface to the hidden truth, and that is precisely Onizuka's gift. He does not teach the curriculum; he could not, he barely knows it. What he does is <em>see</em> his students — the rich girl's loneliness, the bully's fear, the shut-in's wound — with an unschooled, streetwise perceptiveness that the professional teachers, buried in procedure, have lost. His Personality is a <strong>1</strong>, the leader who acts alone and by his own rules; his Heart's Desire a <strong>6</strong>, the Nurturer, the care hidden under the crudeness. The Seeker who looks, the Leader who breaks the rules, the Nurturer who actually cares: that is a better numerological portrait of a great teacher than the Master Teacher's 33 would have been.</p>
+
+<p>So which is it? Does the lens fail, because the teaching-number went to a horror manga? Or does it succeed, because the Seeker's number so aptly names the teacher's real gift? The answer — and this is the thing three hundred and sixteen essays have been for — is <em>both, and the both is the whole lesson</em>. The 33 landing on <em>Parasyte</em> proves the numbers are blind. The 7 fitting Onizuka proves that a blind method, pointed at enough things, will sometimes land somewhere true — and that when it does, the truth was in the work all along, waiting for any excuse to be looked at.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat is, for once, the entire essay, so I will not append the usual one. <em>Great Teacher Onizuka</em> reduces to a 1, Onizuka to a 7, and the Master Teacher's number is somewhere else entirely, on a manga about a parasite — and that is not a coincidence I am explaining away. It is the demonstration itself.</p>
+
+<p>What the lens did here was fail in exactly the way that teaches the most. It withheld the teacher-number from the teacher, and in withholding it, showed me — showed us — what these numbers have always been: a blind machine, aimed by spelling, that means nothing and occasionally, by luck, points at something real. Onizuka the great teacher is a Seeker, and the Seeker's number fits him, and the fit is luck. The Master Teacher's number is on a horror comic, and that is luck too. Two essays from the end of this long strange project, the best teacher in the medium taught me its final lesson by not being assigned the teacher's number — which is that the meaning was never in the number. It was always, only, in the looking.</p>`,
+  },
+
+  // ── Part 317 ───────────────────────────────────────────────────────────────
+  // Numbers (computed): Skip Beat → D11, H6, P5 | Yoshiki Nakamura → D5, H3, P11
+  //                     Kyoko Mogami → D9, H1, P8
+  {
+    seriesSlug: 'numbers-behind-the-manga',
+    seriesOrder: 317,
+    title: 'Part 317: The Girl Who Ended Herself to Begin: Skip Beat, Kyoko Mogami, and the Last Reading Before the Reckoning',
+    excerpt:
+      'Kyoko Mogami, who burns her old devoted self to ash and remakes herself on a stage, reduces to Destiny 9 — endings, and the closing of one life to open another.',
+    pullQuote:
+      'Kyoko is a 9 — but a rare kind, the ending that is a beginning. She burns the girl who lived for a boy to ash, and from that ending builds an actress. The cycle closes so another can open.',
+    tags: ['numerology', 'Skip Beat', 'Yoshiki Nakamura', 'Kyoko Mogami', 'shojo'],
+    entities: ['Skip Beat', 'Yoshiki Nakamura', 'Kyoko Mogami', 'Hana to Yume', 'Hakusensha', 'Sho Fuwa'],
+    content: `<p>Kyoko Mogami has organized her entire life around a boy. She followed Sho Fuwa to Tokyo, worked three jobs to support his ascent to pop stardom, kept his apartment and cooked his meals and asked nothing — until the day she overhears him describe her, to a friend, as a convenient, boring servant he never had feelings for and keeps around only because she is useful. And something in her does not break so much as <em>ignite</em>. The devoted, selfless girl she had been is consumed in an instant, and out of the ash rises someone entirely new: furious, ambitious, and determined to enter show business herself and surpass him. <strong>Skip Beat!</strong> (スキップ・ビート!), Yoshiki Nakamura's long-running shojo for Hakusensha's <em>Hana to Yume</em>, begins at the exact moment a self ends.</p>
+
+<p><strong>Kyoko Mogami</strong> reduces to a Destiny <strong>9</strong> — the Humanitarian and Sage, <em>endings, compassion, and the closing of cycles</em> — and for the last character-reading before this series turns to face its own reckoning, it is a fitting one, because Kyoko's 9 is the rarest and most hopeful variety: the ending that is also a beginning. The work itself, <strong>Skip Beat!</strong>, reduces to an <strong>11</strong>, the Visionary — but it is Kyoko's 9 that names the transformation at its heart.</p>
+
+<h2>The Ending That Opens a Door</h2>
+
+<p>Most of this series' 9s have been endings in the mournful sense — Ashita no Joe burned white, Kaneki's slow disappearance, the closing of a life or an art. Kyoko's is the other face of the number, the one the traditional reading also holds: the closing of a cycle that clears the ground for a new one. The devoted doormat Kyoko is genuinely finished in the first chapter; that self does not survive, and the manga never sentimentally restores it. But the 9's closing is not a death here. It is a molting. The girl who lived entirely for someone else ends, and from that ending a person capable of living for herself begins — an actress, discovering on stage that the capacity for total devotion she wasted on Sho is, redirected, an extraordinary talent for becoming someone else entirely.</p>
+
+<p>This is the 9 as transformation rather than termination, and it is why <em>Skip Beat!</em> is more than a revenge comedy. Kyoko enters show business intending only to destroy Sho by outshining him, but the manga quietly closes that cycle too — the revenge motive burns out, another ending — and what is left is something she did not expect: a genuine vocation, a self built not against a boy but toward an art. Nakamura's long game is the serial closing of Kyoko's false selves, one after another, each ending clearing the way for a truer one. The 9's cycles, closing and reopening, all the way up.</p>
+
+<h2>The Achiever She Becomes</h2>
+
+<p>Kyoko's Personality is an <strong>8</strong> — the Achiever, money and authority and ambition — and it names what she is building on the far side of each ending: a career, a name, a place in an industry that the Serialization Machine essays would recognise as brutal in life as it is in the manga. Her Heart's Desire is a <strong>1</strong>, the will to act alone, and it is the thing Sho's betrayal finally taught her: that a self organized entirely around another person is no self at all, and that the way forward is to act, at last, for herself. The 9 ends the devoted girl; the 1 and the 8 build the woman who takes her place.</p>
+
+<h2>The Visionary's Long Game</h2>
+
+<p>The work's <strong>11</strong> — the Visionary — belongs to Yoshiki Nakamura's patience. <em>Skip Beat!</em> has run for over two decades, and its vision is a long one: not the quick catharsis of revenge but the slow, granular construction of a person becoming herself through the craft of pretending to be other people. There is a real idea in it, one the Grammar of the Screen series brushed against — that acting, the disciplined inhabiting of another self, can be the route by which a person who has lost their own self finds a truer one. Kyoko becomes real by learning to become fictional. The Visionary's number, on a manga that saw, and sustained across twenty years, a genuinely unusual thing to say about how a broken self is remade.</p>
+
+<h2>The Close</h2>
+
+<p>The caveat holds one final time before the reckoning: romanized names, Latin-alphabet arithmetic, spelling and not soul. Part 300 proved it with Tezuka's robot, and the essay that follows this one — the last in the entire series — will have to reckon, honestly and completely, with what it means to have spent three hundred and seventeen parts reading a medium through numbers I have repeatedly shown to be empty.</p>
+
+<p>But the number of endings, on a heroine whose story begins by ending her old self, is the right note to close the readings on. It sent me to <em>Skip Beat!</em> to find the thing under the shojo-comedy surface, and it is a genuinely hopeful idea, rare in this run's late procession of tragic 9s: that an ending can be the best thing that ever happens to a person, that the closing of a false self is not a death but a door, and that the devotion we waste on the wrong things is not lost but waiting to be redirected. Kyoko burned the girl she was to ash and built an artist from it. The 9 is the number of the closing of cycles. Hers closed one life and opened another — which is the most that any of us can hope an ending will do. One essay remains, and it is time, at last, to add up what all these numbers were really worth.</p>`,
+  },
 ];
