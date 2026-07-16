@@ -387,7 +387,7 @@ export const AUTHORED_CROSSING: AuthoredEssay[] = [
 
 <p>What broke the machine was that the fans got the original and compared it. Fansubs, then scanlations, then the internet's ordinary ambient knowledge — and once you can compare, "trust us, this is the show" stops working forever. The lie that 4Kids could tell in 1998 was not tellable by 2006. The machine did not lose an argument about art. It lost an argument about supply.</p>
 
-<p>And the industry that replaced it went the other way so hard that it now over-corrects in the opposite direction — leaving in honorifics that do nothing for a reader who cannot hear the social calculation behind them, which is the next essay's problem and a genuinely harder one than anything in this one.</p>
+<p>And the industry that replaced it went the other way so hard that it now over-corrects in the opposite direction — leaving in honorifics that do nothing for a reader who cannot hear the social calculation behind them, which is a problem this series comes to shortly, and a genuinely harder one than anything in this one.</p>
 
 <h2>The Close</h2>
 
@@ -469,5 +469,503 @@ export const AUTHORED_CROSSING: AuthoredEssay[] = [
 <p>The best English-language manga lettering in the world today is genuinely excellent, done by people who care enormously, and it is still, every single page, a managed defeat. That is not a failure of craft. It is what the border actually looks like when you stand at it: not a wall someone built out of carelessness, but a river that was always there.</p>
 
 <p>And on the other bank, in a language that thought to give silence a sound, a girl walks into an empty classroom and the air says <em>shiin</em>, and every Japanese reader hears it, and there is nothing — not one thing — that I or anyone else can do to hand that across to you. I can only tell you it is there. The word for what silence sounds like. Drawn on the wall, in ink, by the artist's own hand, in the same stroke as the room.</p>`,
+  },
+
+  // ── Part 7 ─────────────────────────────────────────────────────────────────
+  // Numbers (computed): Honorifics → D8 H3 P5 ; Senpai → D1 H6 P4
+  //                     Sensei     → D8 H1 P7 ; Sama   → D7 H2 P5
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 7,
+    title: 'Part 7: The Two Syllables That Carry a Plot: Honorifics and the Social Calculation',
+    excerpt:
+      'Japanese cannot say a name without stating a relationship. English can say nothing else. Between those two facts sits the most common unsolvable problem in the trade.',
+    pullQuote:
+      'She has called him Kirishima-san for two hundred chapters. In chapter 201 she calls him Kirishima. In Japanese that is an earthquake. In English it is nothing at all.',
+    tags: ['translation', 'honorifics', 'localization', 'manga craft', 'subtitles'],
+    entities: ['Viz Media', 'Crunchyroll', 'Kodansha', 'Shonen Jump'],
+    content: `<p>Here is the problem in one line of dialogue.</p>
+
+<p>A woman has, for two hundred chapters, called a man <strong>Kirishima-san</strong>. In chapter two hundred and one, she calls him <strong>Kirishima</strong>.</p>
+
+<p>In Japanese, that is an earthquake. It is the scene. Everything the series has been building toward has just happened, in the space of dropping two syllables, and a Japanese reader's stomach goes over the way yours does at the top of a roller coaster. Nothing else in the panel has to change. No confession, no blush, no dialogue about feelings. The suffix came off.</p>
+
+<p>In English, it is nothing. It is not even nothing — it is invisible. There is no event. The translator has a panel with a name in it and a reader who feels no vertigo whatsoever.</p>
+
+<p>That is the honorific problem, and it is the most frequent unsolvable thing in this trade — more common by orders of magnitude than the drawn sound effects of Part 6, and considerably harder to reason about.</p>
+
+<h2>Not Politeness. Coordinates.</h2>
+
+<p>The usual English explanation is that honorifics are politeness markers, like "Mr." or "sir." This is wrong in a way that makes the whole problem invisible, so it is worth killing properly.</p>
+
+<p>Japanese attaches a suffix to a name that states the speaker's position <em>relative to the person named</em>: <em>-san</em>, the neutral default; <em>-sama</em>, elevated, for a customer or a deity or someone you are being careful with; <em>-kun</em>, typically downward or lateral, often to a younger man; <em>-chan</em>, intimate or diminutive; <em>-senpai</em>, someone above you in an institution you both belong to; <em>-sensei</em>, someone who teaches, doctors, draws manga, or otherwise knows.</p>
+
+<p>And then the loudest option of all, which English discussions constantly miss: <strong>no suffix at all</strong>. <em>Yobisute</em> — "calling and discarding." Using a bare name is not neutral. It is a claim. It says: we are intimate, or I outrank you enough not to bother, or I am being deliberately rude. It is the option with the most voltage in it, and it is made of nothing.</p>
+
+<p>So the system is not a politeness dial. It is a <strong>coordinate system</strong>. Every single time a Japanese speaker says a name, they state the relationship. They cannot decline to state it. There is no neutral address — even silence on the point is a move. Imagine an English in which you could not say "Sarah" without simultaneously declaring, out loud, whether you two are friends, whether you are senior to her, and how much distance you are keeping today. That is what a Japanese page is doing, in the background, constantly, for free.</p>
+
+<p>English has nothing like it. We have honorifics, but they are optional, rare, and do not scale — "Mr. Kirishima" is a costume you put on for a specific scene, not a coordinate you are always transmitting.</p>
+
+<h2>Three Bad Options and One Good One</h2>
+
+<p><strong>Drop them.</strong> Clean English, and the chapter-201 beat ceases to exist. Not weakened: <em>deleted</em>. An entire class of romantic and hierarchical storytelling — which is to say most of the emotional architecture of shojo, a great deal of seinen, and the whole of any workplace or school story — is silently removed from the text, and the English reader never learns there was a scene there. This is the worst option, and it was the standard for years.</p>
+
+<p><strong>Keep them.</strong> Print "Kirishima-san." The information survives on the page, and for a reader who has not internalized the system it is texture — a bit of pleasant foreignness that reads as decoration. When the suffix drops in chapter 201, that reader registers nothing, because you cannot hear a note stop if you never heard it playing. This is the current default and it is <em>not translating</em>. It is exporting the problem to the reader and calling the export respect.</p>
+
+<p><strong>Gloss them.</strong> A translator's note explaining the system. Correct, useful, and by the fourth time you have stopped the story to explain a suffix you have written a textbook with pictures.</p>
+
+<p><strong>Or: compensate.</strong> This is the craft answer, and it is the one that separates a good translator from a fast one.</p>
+
+<p>Because English <em>does</em> have a relational address system. It is simply built from different parts. We encode distance in the <strong>surname / first-name / nickname</strong> ladder, and in register, and in contraction. "Mr. Kirishima," "Kirishima," "Ken," "Kenny" is a real ladder with real rungs, and English speakers climb it with exactly the stomach-drop a Japanese speaker gets from a dropped <em>-san</em>. A skilled translator maps the ladder: <em>-san</em> becomes the surname, <em>yobisute</em> becomes the first name, <em>-chan</em> becomes the nickname. Chapter 201 gets its earthquake, in English, made of English.</p>
+
+<p>It costs something. The mapping is lossy and it will fight the art — the reader can see the lettering, and the <em>-san</em> is audible on the dub track. But it produces a scene where the alternative produces a hole, and I would take a lossy scene over a hole every time.</p>
+
+<h2>The Argument Against Myself</h2>
+
+<p>Except that the "keep them" camp won, and I think they were right, and the reason is worth more than my preference.</p>
+
+<p>Part 6 ended by noting that English readers simply <em>learned</em> a dozen drawn sound effects rather than have the pages mutilated for their convenience — that the audience taught itself the vocabulary. The same thing happened here, and much more completely. <em>Senpai</em> is now functionally an English word. Enormous numbers of people who have never studied a syllable of Japanese know exactly what it means, what it feels like, and how to make a joke with it. <em>Sensei</em> arrived decades ago via martial arts and never left. A generation absorbed the coordinate system by immersion, without a single lesson, purely from retention.</p>
+
+<p>So why did retention work here and not for <em>gitaigo</em>? Part 6 called the sound-effect problem structural and unsolvable, and this one turns out to be neither — and the difference is not profundity. It is <strong>cardinality</strong>.</p>
+
+<p>There are about six honorifics that matter. Six. They recur on nearly every page of nearly every work, forever. A system that small and that frequent is learnable by exposure alone — you will meet <em>-san</em> ten thousand times, and somewhere in the first few hundred it stops being decoration and starts being information. Whereas <em>gitaigo</em> number in the thousands, are productive — writers coin new ones — and any individual one may appear twice in your life. You cannot immerse your way into a thousand-item open class. You can immerse your way into six.</p>
+
+<p>That is a real and transferable rule, and it is the most useful thing this series has found so far: <strong>leave-it works when the foreign system is small, closed, and high-frequency. It fails when the system is large, open, and sparse.</strong> The strategy is not a matter of taste, or of respect. It is a property of the vocabulary you are declining to translate.</p>
+
+<p>Which means the industry's swing from deleting everything to keeping everything — the over-correction I complained about at the end of Part 5 — was not really an over-correction. It was right about honorifics by luck and right about sound effects by the same luck, and it is still wrong wherever the system is big, still quietly exporting problems to readers and calling it fidelity.</p>
+
+<h2>The Numbers, Making a Fool of Themselves</h2>
+
+<p><strong>Honorifics</strong> reduces to a Destiny <strong>8</strong> — the Visionary and Achiever, <em>money, authority, and the machinery of ambition</em>. A very funny result for the machinery of hierarchy, and I note it only to be able to say, again, that it is an accident of spelling.</p>
+
+<p>Here is the proof, and it is the best one this series has produced by accident. <strong>Senpai</strong> reduces to a Destiny <strong>1</strong>: the Leader and Pioneer, whose vibration is <em>beginnings, leadership, and the will to act alone</em>.</p>
+
+<p><em>Senpai</em> is the most relational word in the Japanese language. It is a word that <strong>cannot be used about a person in isolation</strong> — it is not a property of anyone; it exists only as a statement about two people and an institution they share. There is no such thing as a senpai. There is only somebody's senpai. And the arithmetic hands it the number of acting alone.</p>
+
+<p>The method did not merely miss. It landed on the exact opposite, with total confidence, because s-e-n-p-a-i sums the way it sums. Nine hundred essays on this site, and I do not think the emptiness has ever been demonstrated more cleanly than by giving the most relational word in Japanese the number of solitude.</p>
+
+<h2>The Close</h2>
+
+<p><strong>Sensei</strong> comes out a Destiny <strong>8</strong>, authority, which is apt and means nothing. <strong>Sama</strong> comes out a <strong>7</strong>, and means nothing. The bell rings; the door opens; the reading is on the other side, and the arithmetic does not come through with you.</p>
+
+<p>What is actually on the other side is this. Japanese fiction can run an entire arc — years of longing, an institution's whole hierarchy, the precise moment two people become something else — through a suffix. It is the cheapest special effect in world literature and one of the most powerful, and it costs a Japanese author nothing at all, because the language was going to make the character state their position anyway. The author only has to decide when to change it.</p>
+
+<p>And a translator gets that panel, in English, where names carry no coordinates, and has to decide whether to build the earthquake out of different parts or let the reader stand in the doorway feeling nothing while the room comes down.</p>`,
+  },
+
+  // ── Part 8 ─────────────────────────────────────────────────────────────────
+  // Numbers (computed): Shingeki no Kyojin → D6 H8 P7 ; Attack on Titan → D5 H9 P5
+  //                     Eren Yeager → D4 H3 P1 ; Eren Jaeger → D7 H3 P4
+  //                     Hajime Isayama → D7 H9 P7
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 8,
+    title: 'Part 8: The Title That Was a Spoiler: Attack on Titan and the Virtue of Bad English',
+    excerpt:
+      'Shingeki no Kyojin does not mean Attack on Titan. Isayama chose the English himself, it is ungrammatical, and it turned out to be the only version that could have survived the reveal.',
+    pullQuote:
+      'A correct English title would have destroyed the reveal. The broken one survived because it never resolved into a sentence — it just sat there, being a name, for nine years.',
+    tags: ['translation', 'Attack on Titan', 'Hajime Isayama', 'titles', 'wasei-eigo'],
+    entities: ['Attack on Titan', 'Shingeki no Kyojin', 'Hajime Isayama', 'Eren Yeager', 'Kodansha'],
+    content: `<p><strong>Attack on Titan</strong> is not a correct translation of <strong>Shingeki no Kyojin</strong>, and it is not really English, and it is on the Japanese covers, and Hajime Isayama put it there himself.</p>
+
+<p>Take the Japanese apart. <em>Shingeki</em> (進撃) is an advance, a charge — attack in the sense of <em>attacking motion</em>, the forward surge of an army. <em>Kyojin</em> (巨人) is a giant. And <em>no</em> (の) is the particle that links them: roughly possessive, roughly attributive. <em>A no B</em> is B of A, B belonging to A, B characterized by A.</p>
+
+<p>So <em>Shingeki no Kyojin</em> is something like <strong>The Advancing Giant</strong>. The Giant of the Charge. A giant defined by going forward.</p>
+
+<p>It is singular. It is about a giant — not about humans fighting giants. And crucially, the giant is the one doing the attacking: the phrase points <em>at</em> the titan, not at an assault upon it.</p>
+
+<p>"Attack on Titan," parsed as English, says roughly the reverse: an attack directed onto a thing called Titan. If it parses at all. Mostly it does not — "on Titan" wants to be a place, Saturn's moon, and there is no verb, and the whole construction sits in the mouth wrong.</p>
+
+<h2>The Author Did It</h2>
+
+<p>The reflex is to blame a licensing department. Not here. The English title was chosen on the Japanese side, appears on the Japanese volumes, and is Isayama's own. It is <em>wasei-eigo</em> — English-derived material made in Japan, for Japanese readers, chosen substantially for how it looks and sounds rather than for what it says to a native speaker. Part 9 is entirely about that, so I will not spend it here. The relevant fact is that nobody translated this title. It arrived pre-crossed, slightly broken, by design.</p>
+
+<p>The numbers register the movement dutifully and pointlessly: <strong>Shingeki no Kyojin</strong> is a Destiny <strong>6</strong>, <strong>Attack on Titan</strong> is a Destiny <strong>5</strong>. The alarm goes off. It always goes off. It has never once told me anything about these two titles except that they are spelled differently, which I could see.</p>
+
+<h2>The Spoiler That Sat There for Nine Years</h2>
+
+<p>Now the good part.</p>
+
+<p>Late in the series, Isayama reveals that <strong>進撃の巨人</strong> is a proper noun. It is the name of a specific Titan — one of the Nine, a particular inherited power with a particular holder. The Attack Titan. And Eren has it.</p>
+
+<p>The title was never a description of the premise. It was never "humanity is attacked by giants." It was, from volume one, <em>the name of the protagonist's power</em>, printed on the cover of every volume, in plain sight, for years, while everyone read it as scene-setting. It is a spoiler nobody could see because it was disguised as a genre label — one of the great long cons in serialized fiction.</p>
+
+<p>Isayama comes out a Destiny <strong>7</strong>, the Analyst and Seeker, <em>analysis, secrecy, and the search for truth</em>. A pleasing accident on a man who buried a nine-year secret on the front cover, and an accident is all it is: he has the letters he has.</p>
+
+<h2>Why the Broken Title Was the Right One</h2>
+
+<p>Here is the argument, and it runs against everything this series has said so far.</p>
+
+<p>Suppose the English title had been <strong>good</strong>. Suppose a competent, respectful translator had rendered it properly.</p>
+
+<p><em>The Advancing Giant.</em> Clear, accurate, faithful — and it makes the reveal <em>obvious</em>. A singular giant, named in the title, defined by advancing? Readers would have been hunting for that specific titan from volume one. The con collapses, because good English resolves: the phrase means something, and what it means is the answer.</p>
+
+<p>Or suppose they had gone commercial — <em>Attack of the Titans</em>. Clean, punchy, plural, and it destroys the reveal from the other side: now the title is definitively about a category of monster, and when the Attack Titan turns up as an individual, the title cannot retrofit. It has already committed to a plural. The reveal has nowhere to land.</p>
+
+<p>"Attack on Titan" does neither, because it does not mean anything.</p>
+
+<p>It is inert. It refuses to parse, so an English reader's brain gives up on it in about a second and files the whole string as <em>the name of the show</em> — an opaque label, like <em>Bleach</em>, not a sentence making a claim. And an opaque label is exactly, precisely what the Japanese title secretly was: a proper noun wearing a description's clothes.</p>
+
+<p>So when the reveal lands, the English title absorbs it without a fight. There is no prior reading to overturn, because there was never a reading. "Attack on Titan" turns out to be a name — and it had always been sitting there being a name, because it was too broken to be anything else.</p>
+
+<p>The bad English preserved the ambiguity that good English would have resolved. Not through anyone's cleverness: Isayama picked it in 2009 for how it sounded, and nobody was playing this deep. It is luck. But it is luck of a specific and instructive kind — <strong>a translation that fails to communicate can occasionally transmit more than one that succeeds</strong>, because the original's meaning was withheld on purpose, and a competent rendering would have leaked it.</p>
+
+<p>Every other essay in this series has been about a crossing that lost something. This is the one where the crossing kept a secret that a better translator would have spilled.</p>
+
+<h2>Yeager, Jaeger, and the Coin-Flip Again</h2>
+
+<p>The same series reruns Part 2, and it is worth thirty seconds.</p>
+
+<p>The protagonist's surname is written エレン・イェーガー. The official English is <strong>Eren Yeager</strong>. A large part of fandom writes <strong>Eren Jaeger</strong>, on the grounds that the name is German — <em>Jäger</em>, hunter — which fits a cast of Germanic names in a story with a nineteenth-century European surface, and which is almost certainly what Isayama had in mind.</p>
+
+<p>Both are defensible. Neither is wrong, exactly. It is Zoro and Zolo again: a Japanese string that does not commit to a Latin spelling, and two editors flipping the same coin differently.</p>
+
+<p>And, as in Part 2, the arithmetic treats a coin-flip as a spiritual event. <strong>Eren Yeager</strong>: Destiny <strong>4</strong>, the Builder. <strong>Eren Jaeger</strong>: Destiny <strong>7</strong>, the Seeker. The Heart's Desire — <strong>3</strong> in both, because the vowels barely move — stays put, exactly as Zoro's 4 stayed put, and for exactly the same boring reason.</p>
+
+<p>Two romanizations of one boy. Two destinies. He does the same things in both, and the number has opinions about the letters.</p>
+
+<h2>The Close</h2>
+
+<p>There is a version of this essay that is smug about Engrish, and it would be the stupid version. "Attack on Titan" is not a mistake a Japanese author was too unsophisticated to avoid. It is a design choice, made by someone using English the way English-speaking designers use kanji they cannot read: for the shape of it. The difference is that Isayama's t-shirt turned out to have the ending printed on it.</p>
+
+<p>What I keep turning over is the nerve of the thing. The most-watched manga of its generation put its central twist on the cover of volume one, in English, where every reader on earth could see it — and the twist survived nine years, protected in the English-speaking world by nothing but the fact that the title was too broken to read.</p>
+
+<p>The Japanese title hid a proper noun behind a grammatical particle. The English title hid it behind not being grammatical at all. Both worked. Only one of them was trying.</p>`,
+  },
+
+  // ── Part 9 ─────────────────────────────────────────────────────────────────
+  // Numbers (computed): Shin Seiki Evangelion   → D9 H4 P5
+  //                     Neon Genesis Evangelion → D5 H11 P3
+  //                     Hideaki Anno → D1 H4 P6 ; Shinji Ikari → D9 H1 P8
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 9,
+    title: 'Part 9: The English That Japan Wrote: Neon Genesis Evangelion and the Title That Is Greek',
+    excerpt:
+      'Shin Seiki Evangelion means New Century Evangelion. The official English title, printed in Japan by Japanese people, is Neon Genesis — which is not English. It is Greek.',
+    pullQuote:
+      'The authentic title English-speaking fandom defends is a Japanese fantasy of Greek, printed in Latin letters, for readers who could not parse it either. The purity being protected is already a hybrid.',
+    tags: ['translation', 'Neon Genesis Evangelion', 'Hideaki Anno', 'wasei-eigo', 'titles'],
+    entities: ['Neon Genesis Evangelion', 'Hideaki Anno', 'Gainax', 'Shinji Ikari'],
+    content: `<p>The Japanese title is <strong>新世紀エヴァンゲリオン</strong> — <em>Shin Seiki Evangelion</em>. <em>Shin</em> is new. <em>Seiki</em> is century. So: <strong>New Century Evangelion</strong>. In 1995 that is a title with a clock in it. The century was ending, everyone could feel it, and the show is set in a future dated from a catastrophe.</p>
+
+<p>The official English title, chosen in Japan, printed on Japanese materials, is <strong>Neon Genesis Evangelion</strong>.</p>
+
+<p>Which is not a translation of <em>Shin Seiki</em>. It is not even English.</p>
+
+<p><em>Neon</em> (νέον) is Greek for "new." <em>Genesis</em> (γένεσις) is Greek for "origin, coming-into-being." <em>Evangelion</em> (εὐαγγέλιον) is Greek for "good news" — the gospel, the word the New Testament is named after.</p>
+
+<p>So the English title is Greek. All three words. Chosen by Japanese people, for a Japanese audience, rendered in the Latin alphabet — which most of that audience could sound out and few could parse — because it looked and sounded like the future.</p>
+
+<p>An English speaker reading "Neon Genesis" gets a faint hum of neon signs and the first book of the Bible, which is roughly the intended atmosphere and roughly nothing to do with "new century." The title works on English speakers exactly as it works on Japanese speakers: as <em>mood</em>. Nobody was ever meant to translate it. It is not a sentence. It is a light fixture.</p>
+
+<h2>The Direction of the Crossing Reverses</h2>
+
+<p>Every essay in this series so far has had the same shape: a Japanese work is made, and then somebody outside Japan does something to it. A lawyer changes a letter. A distributor cuts twenty minutes. A dub director throws out the script. A machine renames Usagi. The crossing is done <em>to</em> the work, from outside, usually late, usually for money.</p>
+
+<p>This is the other thing, and once you see it you cannot stop.</p>
+
+<p>An enormous amount of manga and anime <strong>arrives pre-crossed</strong>. The English is already in the box — put there in Japan, by the people who made it, before any foreigner was involved. <em>Death Note</em> is called <em>Death Note</em> in Japanese: デスノート, the English words in Japanese script. <em>One Piece</em>. <em>Bleach</em>. <em>Fullmetal Alchemist</em> is printed in English on the covers of <em>Hagane no Renkinjutsushi</em>. <em>Shonen Jump</em> puts a giant Latin-alphabet JUMP on the front of a magazine sold entirely to people who read Japanese.</p>
+
+<p>This is <strong>wasei-eigo</strong> in its broadest sense: English-derived material manufactured in Japan for domestic use. It is not a failed attempt to communicate with foreigners. Foreigners are not in the room. It is a design material — English as texture, as chrome, as a signal meaning <em>modern, technical, cool, slightly clinical</em> — in the same register an English-speaking designer reaches for a kanji they cannot read.</p>
+
+<p>And here is the thing that should make an English-speaking fan sit down: <strong>the title you defend as authentic was made for you by nobody.</strong> "Neon Genesis Evangelion" is not the real title that localizers thankfully preserved. It is a Japanese fantasy of Greek, made in Tokyo, that survived contact with English because there was no reason to touch it. When fandom insists on the "original" title over some hypothetical <em>New Century Evangelion</em>, it is defending an artifact whose foreignness was manufactured domestically. The purity being protected is already a hybrid — and was one from the first draft.</p>
+
+<h2>What Is Actually Lost</h2>
+
+<p>Something did get lost, though, and it is not a joke. It is the clock.</p>
+
+<p><em>Shin Seiki</em> — new century — lands on a Japanese viewer in 1995 with a weight "Neon Genesis" does not carry for anyone. The nineties in Japan were the decade the bubble finished collapsing. 1995 itself brought the Kobe earthquake in January and the Aum Shinrikyo sarin attack on the Tokyo subway in March, both within months of the show's October premiere. "New century," in that year, is not optimism. It is the sound of a clock running out on something that has already broken. Anno made a series about a boy who cannot be persuaded to get in the robot, released it into that, and called it <em>New Century</em>.</p>
+
+<p>"Neon Genesis" says none of it. It cannot. It says <em>science fiction</em>, in a beautiful voice. It is the better-sounding title and the emptier one, and it is the one the whole world got, and it was Japan's own choice.</p>
+
+<p>So this is a loss with no villain in it at all. Nobody did this to Evangelion. Evangelion did it to itself, for aesthetic reasons, and the aesthetic reasons were good, and the cost was the clock.</p>
+
+<h2>The Numbers, Making the Point for Once</h2>
+
+<p><strong>Shin Seiki Evangelion</strong>: Destiny <strong>9</strong> — the Humanitarian and Sage, <em>endings, compassion, and the closing of cycles</em>, keyword <em>reckoning</em>.</p>
+
+<p><strong>Neon Genesis Evangelion</strong>: Destiny <strong>5</strong> — the Freedom Seeker, <em>freedom, disruption, restless movement</em> — with a Heart's Desire of master <strong>11</strong>, the Visionary, <em>inspiration, tension, and heightened awareness</em>.</p>
+
+<p>Spelling. Two strings, two sums. The arithmetic does not know about 1995, or the subway, or the clock.</p>
+
+<p>But I will take this one, with the caveat carried in both hands, because it is an elegant accident. The Japanese title — the one with the century running out in it — lands on the number of <em>endings and reckoning</em>. The Greek title, the beautiful empty one, lands on <em>restless movement</em> with a Visionary's heart, which is exactly what "Neon Genesis" does and exactly what it costs. It is gorgeous and it goes nowhere. It is a vision with no clock in it.</p>
+
+<p>A coincidence. One I could not have engineered, which happens to describe the loss precisely, and which is still a coincidence — <em>Shin Seiki Evangelion</em> has the letters it has. Had Anno called it <em>Shin Seiki Eva</em>, the 9 would be a 4 and this paragraph would not exist.</p>
+
+<p>Hideaki Anno comes out a Destiny <strong>1</strong> — <em>beginnings and the will to act alone</em> — and Shinji Ikari comes out a Destiny <strong>9</strong> with a Heart's Desire of <strong>1</strong>: the boy of endings who wants, in his heart, to act alone. Which is either the most on-the-nose result in nine hundred essays or is what happens when you add up S-H-I-N-J-I. It is the second one. It has always been the second one. And I still went and thought about Shinji for ten minutes because of it, which is the only defence this method has ever had.</p>
+
+<h2>The Close</h2>
+
+<p>There is a habit in English-language fandom of treating the Japanese object as sacred and every English hand as a contaminant — the "ruined by localization" reflex this series has argued with since Part 1. The Evangelion title is the cleanest available refutation, because the contamination is <em>load-bearing</em> and it was applied at the factory.</p>
+
+<p>The show English-speaking fans consider the least compromised, most authorial, least market-sanded work in the medium — the one with its director's breakdown legibly in the frame — is called, by its own author, in its own country, by a Greek phrase meaning "new origin gospel" that communicates nothing to anyone, chosen because it looked right.</p>
+
+<p>It was never pure. It was a mongrel from the first cover. And it is one of the best things anyone has ever made, which suggests that purity was not the ingredient.</p>`,
+  },
+
+  // ── Part 10 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Cowboy Bebop    → D6 H5 P1
+  //                     Koichi Yamadera → D6 H5 P1   (IDENTICAL — 2nd clean match after Nausicaa, Part 3)
+  //                     Steve Blum      → D11 H4 P7  (master 11 — same as Roronoa Zolo, Part 2)
+  //                     Spike Spiegel   → D7 H33 P1 ; Shinichiro Watanabe → D8 H5 P3 ; Yoko Kanno → D4 H1 P3
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 10,
+    title: 'Part 10: The Dub That Won: Cowboy Bebop and the Translation That Went Home',
+    excerpt:
+      'One English dub is widely held to equal or beat the original. The reason is not that the actors were better. It is that Cowboy Bebop was already a translation, and English is where it came from.',
+    pullQuote:
+      'Dubbing Cowboy Bebop into English is not carrying it away from home. It is carrying it home. The work was assembled out of American parts, and the dub hands them back in the language they were made in.',
+    tags: ['translation', 'dubbing', 'Cowboy Bebop', 'Shinichiro Watanabe', 'Steve Blum', 'Yoko Kanno'],
+    entities: ['Cowboy Bebop', 'Shinichiro Watanabe', 'Steve Blum', 'Koichi Yamadera', 'Yoko Kanno', 'Spike Spiegel'],
+    content: `<p>There is exactly one English dub that a large share of subtitle purists will concede is as good as the Japanese, and a fair number will argue is better. It is <strong>Cowboy Bebop</strong>. Steve Blum's Spike Spiegel is, for an entire generation of English speakers, not an interpretation of the character. It is the character.</p>
+
+<p>Part 4 was about a dub that threw its script away and got a cult. This is the opposite pole — the dub that did everything right and got the rarest thing in the trade, which is forgiveness. The interesting question is not whether it is good. It is <em>why it could be</em>, when almost nothing else can.</p>
+
+<p>The usual answer is that the cast was excellent and the director cared. True, and insufficient. Plenty of excellent casts have made dubs nobody defends. The real reason is structural, and it is a little strange.</p>
+
+<h2>The Work Was Already a Translation</h2>
+
+<p><strong>Cowboy Bebop</strong> is a Japanese show assembled almost entirely out of American parts.</p>
+
+<p>The genre furniture is the American Western — bounty hunters, a frontier, a drifter with a past. The visual grammar is film noir and 1970s New Hollywood. The fight choreography is Hong Kong by way of Bruce Lee, who Spike is openly built from. The episode titles are blues, jazz, and rock songs. The score is Yoko Kanno writing American jazz — not jazz-influenced: jazz, played by a big band. The opening is a Saul Bass homage. The cast is deliberately multi-ethnic and rootless, scattered across a solar system where nobody is from anywhere anymore.</p>
+
+<p>The show's subject <em>is</em> American genre — inhabited, loved, and dismantled by a Japanese director who grew up on it. Shinichiro Watanabe made a work whose source material is not Japanese.</p>
+
+<p>Which means the English dub is doing something no other dub gets to do. It is not carrying the work away from home. <strong>It is carrying it home.</strong> When Spike talks like a Blum-voiced noir drifter, the dub is not imposing an American register on a Japanese character. It is returning a character built out of American registers to the language those registers are made of. The translation runs <em>back down</em> the influence, and the parts fit, because they were cut from that stock in the first place.</p>
+
+<p>Every other dub in this series is pushing a work uphill — out of the language it was written in, into a language whose furniture does not match. Bebop is rolling downhill.</p>
+
+<h2>Why It Does Not Generalize</h2>
+
+<p>Worth stating plainly, because "Bebop proves dubs can be great" is a bad lesson drawn from a good example.</p>
+
+<p>Bebop is the special case, not the model. Try the trick on something whose material is actually Japanese and it collapses. A story built on the honorific system of Part 7 has no downhill to roll — English has nowhere to put the coordinates. A story about a bathhouse full of kami, which is Part 12's problem, has no American parts to hand back. Dub <em>March Comes in Like a Lion</em>, whose emotional engine is shogi and a Tokyo winter and the particular loneliness of a boy in a bare apartment, and the best cast on earth is still pushing uphill in a language with no gradient for it.</p>
+
+<p>The Bebop dub is not evidence that dubbing works. It is evidence that <em>this</em> work was reversible, because someone had already run it through the machine once in the other direction.</p>
+
+<p>And I should be honest about the other thing, since this series does not get to be sentimental: a large fraction of "the dub is better" is primacy. Most people who say it watched it first, on Adult Swim, at one in the morning, at the exact age when a show can rearrange you. That is not nothing — it is how art actually reaches people — but it is not a claim about the acting. Some of the reverence is for a bedroom in 2002.</p>
+
+<h2>The Numbers, and a Coincidence I Did Not Want</h2>
+
+<p><strong>Cowboy Bebop</strong> reduces to Destiny <strong>6</strong>, Heart's Desire <strong>5</strong>, Personality <strong>1</strong>.</p>
+
+<p><strong>Koichi Yamadera</strong> — Spike's Japanese voice — reduces to Destiny <strong>6</strong>, Heart's Desire <strong>5</strong>, Personality <strong>1</strong>.</p>
+
+<p>Identical. All three. It is the second clean match this series has turned up, after Nausicaä in Part 3, and this one is sillier, because there is not even a shared word to blame. <em>Cowboy Bebop</em> and <em>Koichi Yamadera</em> have nothing in common except being strings of Latin letters that happen to sum congruently three times.</p>
+
+<p>It is a coincidence. Run enough pairs and you will hit one; I have now run several hundred across two series, and two clean matches is roughly what chance predicts. If I presented this as the universe noting that a man and a show were one flesh, I would be doing the exact thing this project spent three hundred and eighteen essays proving you must not do. So: chance. Nothing. A sum.</p>
+
+<p>Although — and I take this in the spirit of Part 3, gratefully and without building on it — look where the sum landed. The <strong>5</strong>, the Freedom Seeker: <em>freedom, disruption, and restless movement</em>. That is the show; that is four people on a ship who cannot stay anywhere. And the <strong>6</strong>, the Nurturer and Harmonizer, <em>care, community, and the weight of duty</em> — which is Bebop's actual secret, the one under the jazz and the guns. It is a show about a found family that will not admit it is one. The 5 is what they say. The 6 is what they are. The number of restless freedom on the heart, the number of home on the destiny, and the whole tragedy of the show is the gap between them.</p>
+
+<p>That is a beautiful reading of a coincidence. It is still a coincidence. Both sentences are true, and this series only works if I keep saying both.</p>
+
+<h2>Blum Gets the Eleven</h2>
+
+<p>One more, and it is a callback I did not plan.</p>
+
+<p><strong>Steve Blum</strong> reduces to a Destiny <strong>11</strong> — the Master 11, the Visionary.</p>
+
+<p>The same number a nervous trademark lawyer accidentally handed Roronoa Zolo in Part 2 by changing one letter. Two of the exalted master numbers this series has produced, and both are English-language accidents: one from a legal department's caution, one from an American voice actor's parents. Neither has anything to do with any Japanese work. The arithmetic runs on Latin letters, and Latin letters are where English lives, so of course the master numbers pile up on the English side of the crossing. It is not mysticism. It is an alphabet.</p>
+
+<p>And Spike Spiegel comes out with a Heart's Desire of master <strong>33</strong>, the Master Teacher — <em>healing, teaching, and devotion to others</em> — on a man whose defining act is refusing to be healed and walking into a building to die. The method's opinion of Spike is the exact inverse of Spike. Same as <em>senpai</em> getting the number of solitude in Part 7. When it is wrong, it is not wrong by a little.</p>
+
+<h2>The Close</h2>
+
+<p>What survives the crossing here is nearly everything — and not because the translators were heroes, though they were good. It is that Watanabe built a Japanese show out of American lumber, and when it went into English, the lumber recognized the language.</p>
+
+<p>Worth sitting with, because it cuts against the grain of this series. Nine essays of losses — the bomb in Atom's name, twenty minutes of Nausicaä, the rabbit in Usagi, the clock in <em>Shin Seiki</em> — and then one work crosses almost whole, precisely because it was never pure to begin with. Bebop is a hybrid, and hybrids travel. The things destroyed in translation are the things that are deeply, specifically, untransferably <em>from somewhere</em>.</p>
+
+<p>Which is the uncomfortable corollary, and I would rather state it than dodge it: the works that survive the crossing best are not always the best works. They are the most rootless ones. Bebop got to keep everything because it was about having nothing to keep — four people with no home, no country, and no past they will discuss, drifting through a solar system where every culture has been shaken into the same jar. Of course it translates. It is already translated. It is a show about people who have been crossing their whole lives, and at the end Spike goes back for the one piece of his past he could not leave behind, and it kills him.</p>
+
+<p>See you, space cowboy. In two languages, and it lands in both.</p>`,
+  },
+
+  // ── Part 11 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Scanlation → D9 H8 P1
+  //                     Shueisha   → D9 H9 P9  (TRIPLE — 2nd in this series after Gakkou no Kaidan, Part 4)
+  //                     Manga Plus → D5 H5 P9 ; Crunchyroll → D5 H9 P5
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 11,
+    title: 'Part 11: The Pirates Wrote the Spec: Scanlation, Shueisha, and a Shared Destiny 9',
+    excerpt:
+      'Scanlation was theft, it hurt the people who made the work, and it is the most important force in the English-language history of this medium. All three are true at once.',
+    pullQuote:
+      'The pirates and the publisher come out on the same Destiny 9. They wanted the identical thing — the work, read, everywhere — and disagreed only about who pays for it.',
+    tags: ['translation', 'scanlation', 'piracy', 'Shueisha', 'Manga Plus', 'Crunchyroll'],
+    entities: ['Shueisha', 'Manga Plus', 'Crunchyroll', 'Viz Media', 'Shonen Jump'],
+    content: `<p>A group of strangers who have never met buy a Japanese magazine the day it hits the shelves. Someone scans it. Someone else cleans the scans — straightening, de-screening, erasing the Japanese text from the balloons. A translator works through the dialogue. A typesetter letters the English back in, matching fonts, breaking lines to fit balloons drawn for vertical Japanese. A redrawer reconstructs the artwork under the erased sound effects, by hand. A quality checker reads it against the raw. Within about forty-eight hours it is on the internet, free, worldwide.</p>
+
+<p>Nobody was paid. Everyone involved could name their release group and their role and would have called it a hobby. And it was, straightforwardly, theft — of a work whose author was, in many cases, sleeping four hours a night to make it.</p>
+
+<p>It was also the single most important force in the English-language history of this medium, and any account of translation that cannot hold both of those at once is not worth reading.</p>
+
+<h2>The Same Destiny</h2>
+
+<p><strong>Scanlation</strong> reduces to a Destiny <strong>9</strong> — the Humanitarian and Sage, <em>endings, compassion, and the closing of cycles</em>, keyword <em>reckoning</em>.</p>
+
+<p><strong>Shueisha</strong> reduces to Destiny <strong>9</strong>, Heart's Desire <strong>9</strong>, Personality <strong>9</strong>. A perfect triple — the second this series has produced, after <em>Gakkou no Kaidan</em> in Part 4, and only the third I have seen in nine hundred essays.</p>
+
+<p>The largest manga publisher on earth and the pirates who robbed it come out on the same Destiny number.</p>
+
+<p>Spelling. Obviously, spelling — S-h-u-e-i-s-h-a sums the way it sums, and if the company were styled Shueisha Ltd. it would be a 4 and this section would not exist. I say it every time and I will keep saying it.</p>
+
+<p>But it opened the door onto the true thing, which is that <strong>the pirates and the publisher wanted the identical outcome</strong>. Not similar. Identical. Both wanted the work read, by as many people as possible, everywhere on earth, as soon as it existed. There was never an aesthetic disagreement. There was never even a disagreement about the audience. The entire war was about <em>who pays</em>, it lasted twenty years, and — this is the part nobody predicted — the publisher eventually agreed with the pirates about nearly everything else.</p>
+
+<h2>What the Scanlators Were Right About</h2>
+
+<p>Go back to Part 5's renaming machine, and Part 6's erased sound effects, and Part 7's deleted honorifics. That was the licensed, legal, professional product. That is what paying got you: Usagi renamed Serena, the artwork painted over, the coordinate system deleted, and a cheerful assurance that this was the show.</p>
+
+<p>Meanwhile the illegal version, made for free by amateurs, kept the honorifics. Left the sound effects and redrew around them. Kept the names. Added translator's notes explaining the rabbit on the moon, and the pun in Conan Edogawa, and what <em>shiin</em> means. The scanlators shipped, free, in forty-eight hours, the product fandom actually wanted — and the professionals, with budgets and lawyers and licenses, shipped something worse and slower and charged for it.</p>
+
+<p>That is the whole indictment and it is devastating. For roughly a decade, <strong>the pirates were better at the job than the industry</strong>. Not cheaper. Better. More faithful, more informative, more respectful of both the work and the reader's intelligence. The scene proved, at zero price, that Part 5's central assumption — that readers could not cope with foreign material — was false, and proved it by having an audience of millions who were coping fine.</p>
+
+<p>It also trained the professionals. A meaningful share of the people now doing licensed translation, lettering, and editing in English learned the craft in the scene, on stolen pages, for nothing, because it was the only school there was.</p>
+
+<h2>What They Were Wrong About</h2>
+
+<p>And it hurt people. Not abstractly.</p>
+
+<p>The gift economy was real — nobody in a release group was getting rich, and most were losing money and sleep over a work they loved. But the gift was not theirs to give. Every free chapter came from a person in Tokyo who had drawn it in a week and would be dropped by their magazine if the volumes did not sell. The Serialization Machine essays spent seventy parts on exactly how brutal that arithmetic is: a mangaka's survival is measured in volume sales, and a generation of readers who loved the work enormously contributed nothing to the only number that decided whether it continued.</p>
+
+<p>"They wouldn't have bought it anyway" is the standard defence. It is partly true and entirely beside the point, because the harm is not measured in lost sales. It is measured in the works that ended. Somewhere there are series cancelled with an audience of hundreds of thousands of devoted English-language readers, none of whom appeared in the ledger that mattered.</p>
+
+<p>And the scene did not stop when the excuse expired. The argument was always "we do this because the industry will not serve us." The industry then served them, and a large part of the scene carried on regardless — which retroactively clarifies what a portion of it had been about. Not access. Free.</p>
+
+<h2>The Spec Gets Adopted</h2>
+
+<p>Here is the ending nobody in 2004 would have believed.</p>
+
+<p>In 2019 Shueisha launched <strong>Manga Plus</strong>: the newest chapters of its biggest series, free, legal, in English, worldwide, on the day of Japanese publication. Names intact. Honorifics intact. Sound effects intact. Not a compromise wrung out by a lawsuit — a product built to the pirates' specification and given away.</p>
+
+<p>Crunchyroll's history is blunter still. It began as a site hosting unlicensed fansubs. It is now the legal spine of anime distribution outside Japan, owned by Sony. The pirate did not get beaten. The pirate got a suit.</p>
+
+<p>The publisher's realisation, twenty years late, was that the scene had never been a criminal problem. It was <strong>market research it had been receiving for free</strong>. Every release group was a fully worked demo of the product: this is what they want, this is how fast, this is what happens if you leave the suffix in. Shueisha eventually read the spec and built it.</p>
+
+<p>And the numbers, once more and then never again in this essay: <strong>Manga Plus</strong> is a Destiny <strong>5</strong>, the Freedom Seeker — <em>freedom, disruption, restless movement</em> — and <strong>Crunchyroll</strong> is a Destiny <strong>5</strong>. The disruptor's number, sitting on two corporate platforms whose purpose is to end disruption. An accident of spelling and a decent joke, offered as both.</p>
+
+<h2>The Close</h2>
+
+<p>I do not have a clean verdict, and I distrust the ones on offer. "Piracy is theft, full stop" cannot explain why the thieves produced the better edition and the industry copied their homework. "Piracy built the market" cannot look a cancelled mangaka in the eye. Both slogans are ways of not holding two facts at once.</p>
+
+<p>So, the honest ledger. A generation of English-language readers got this medium at all because people broke the law for free, and did it with more care and skill than the people doing it legally. That same generation cost creators real money at the exact moment the money decided whether the work lived. Neither cancels the other. There is no net figure. They are both just true, permanently, and the industry that exists now was built on top of both.</p>
+
+<p>The triple 9 is a coincidence. But the 9's keyword is <em>reckoning</em> and its vibration is <em>the closing of cycles</em>, and the cycle did close: the pirates made the case, the publisher lost the argument and won the war by conceding it, and the free same-day English chapter that a teenager waited forty-eight hours and broke the law for in 2006 is now sitting on an app — legal, licensed, honorifics left in, waiting.</p>
+
+<p>The scanlators won. They just do not get paid, and neither, for years, did the people they stole from.</p>`,
+  },
+
+  // ── Part 12 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Sen to Chihiro no Kamikakushi → D7 H1 P6 ; Spirited Away → D6 H7 P8
+  //                     Chihiro Ogino → D4 H9 P4  ->  Sen → D11 H5 P6  (the stolen name moves the number)
+  //                     Yubaba → D7 H5 P11 ; Hayao Miyazaki → D1 H1 P9
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 12,
+    title: 'Part 12: The Girl Whose Name Was Stolen: Spirited Away and the Villain Who Was a Numerologist',
+    excerpt:
+      'Sen to Chihiro no Kamikakushi holds both her names, the true one and the stolen one. The English title deleted both — which is precisely what the film’s villain does for a living.',
+    pullQuote:
+      'Yubaba believes what this method believes: that a name is a person, and changing the letters changes the being. The film spends two hours proving her wrong. That is the plot.',
+    tags: ['translation', 'Spirited Away', 'Hayao Miyazaki', 'Studio Ghibli', 'titles', 'names'],
+    entities: ['Spirited Away', 'Hayao Miyazaki', 'Studio Ghibli', 'Chihiro Ogino', 'Yubaba', 'Toshio Suzuki'],
+    content: `<p>The Japanese title is <strong>千と千尋の神隠し</strong> — <em>Sen to Chihiro no Kamikakushi</em>. "The Spiriting-Away of Sen and Chihiro."</p>
+
+<p>Two names. Sen and Chihiro. They are the same girl.</p>
+
+<p>The English title is <strong>Spirited Away</strong>.</p>
+
+<p>Both names are gone.</p>
+
+<p>I have been building toward this one for eleven parts, because it is where the series' subject and the series' method collide head-on, and only one of them survives.</p>
+
+<h2>What Yubaba Does for a Living</h2>
+
+<p>Chihiro Ogino is ten years old, sulking in the back of a car, moving to a town she does not want to live in. Her parents take a wrong turn, eat food that is not theirs, and turn into pigs. She is trapped in a bathhouse where the gods come to bathe, run by a witch named Yubaba, and the only way to stay alive is to be given work.</p>
+
+<p>And Yubaba's magic — the actual mechanism of her power, the thing the entire plot runs on — is <strong>taking your name</strong>.</p>
+
+<p>You sign a contract. She takes the name off it. Not metaphorically: on screen, the characters of 荻野千尋 lift off the paper and she closes her hand around them, and what is left is 千. One character. From that moment the girl is called <strong>Sen</strong>.</p>
+
+<p>Haku explains the stakes, and they are the film's spine: if you forget your true name, you can never go home. He knows because it happened to him. He has been in the bathhouse so long he cannot remember what he was — and when Chihiro finally remembers it for him, when she says <em>Kohaku River</em> out loud, the spell breaks and he comes apart into light in mid-air, weeping.</p>
+
+<p>A name is a soul. Taking a name is enslavement. Remembering a name is liberation. That is not a theme in <em>Spirited Away</em>. That is the physics.</p>
+
+<h2>She Is Renamed as a Number</h2>
+
+<p>Now look at what she is renamed <em>to</em>, because I do not think I have found anything better than this in nine hundred essays.</p>
+
+<p>千尋 — Chihiro. 千 is <em>chi</em>: one thousand. 尋 is <em>hiro</em>: a fathom, a span of the arms, the old unit for sounding the depth of water. Her name means something like <em>a thousand fathoms</em>. It is a name about depth — about how far down you would have to go to find the bottom of her. Miyazaki gave a sulking, whining, frightened ten-year-old a name that says: there is more to this child than you can measure, and you are about to find out.</p>
+
+<p>Yubaba takes the 尋. She takes the fathoms. She takes the depth.</p>
+
+<p>What is left is 千 — <em>sen</em> — which means <strong>one thousand</strong>. Nothing else. Just the numeral.</p>
+
+<p>The villain of this film, whose power is stealing names, <strong>renames a little girl as a number</strong>. She reduces a person to a digit and puts her to work. That is what Yubaba does, that is what the bathhouse is, and that is what the film thinks evil is: not cruelty exactly — Yubaba is not especially cruel, she is a businesswoman — but the operation of taking something with a thousand fathoms in it and reducing it, for administrative convenience, to a figure.</p>
+
+<p>And this website has spent nine hundred essays reducing works of art to figures.</p>
+
+<h2>Yubaba Is a Numerologist</h2>
+
+<p>She believes exactly what this method believes.</p>
+
+<p>Yubaba's whole theory of power is that <strong>a name is a person</strong> — that if you change the letters, you change the being. Take the characters away and the girl becomes a different creature: an employee, a thing that works, someone who will gradually stop remembering she was ever anyone. That is a numerologist's metaphysics stated as a spell. The name <em>is</em> the soul; the string <em>is</em> the substance; alter the writing and you have altered what is written about.</p>
+
+<p>And <em>Spirited Away</em> is two hours of Hayao Miyazaki proving her wrong.</p>
+
+<p>Because Chihiro does not become someone else. That is the plot. Yubaba takes her name, calls her Sen, puts her to work — and she stays herself the entire time. She keeps being frightened. She keeps being kind. She scrubs the filth out of a river spirit because it needs doing. She refuses gold from No-Face because she does not want gold, she wants her parents. She walks back across the water to a witch's house to apologize for something she did not do. Every one of those is Chihiro, done by a girl called Sen, wearing a stolen name like borrowed work clothes.</p>
+
+<p>The name changed. The girl did not.</p>
+
+<p>Then the numbers. <strong>Chihiro Ogino</strong> reduces to a Destiny <strong>4</strong> — the Builder and Organizer, <em>structure, labour, the long game</em>. <strong>Sen</strong> reduces to a Destiny <strong>11</strong> — the Master 11, the Visionary, one of the exalted numbers this tradition refuses to reduce.</p>
+
+<p>So the arithmetic reports that Yubaba's theft <em>worked</em>. It says a new being is standing there — a promoted one, elevated to a master number, exactly as a nervous lawyer promoted Zolo in Part 2. The lens looks at the most famous depiction of identity surviving violence in modern animation and reports: <em>different person now</em>.</p>
+
+<p>It is wrong. Not slightly wrong. It is wrong in precisely the way the villain is wrong, for precisely the villain's reason, and the film is <em>about</em> why that reason is wrong. Miyazaki refuted this website's flagship series in 2001, by accident, twenty years before I ran a single title through a function — and he did it better than my three-hundred-and-eighteen-part reckoning did, because he did not argue it. He showed you a girl scrubbing a floor under a name that was not hers and let you notice she was still herself.</p>
+
+<p>Part 300 of the numerology series proved the numbers read spelling by giving Tezuka's robot two names. This film proves the same thing and then explains why it matters: <strong>the name is the part of a person you can steal. Which is exactly why it is not the person.</strong></p>
+
+<h2>Three Deletions in Two Words</h2>
+
+<p>Which brings us back to the title, and what English did to it.</p>
+
+<p><em>Sen to Chihiro no Kamikakushi</em> holds both names — the stolen one and the true one — side by side, joined by <em>to</em>, "and." The title refuses to choose. It says: this is the story of a girl who was two people, and the distance between them is the film. The stolen name comes first. The true name survives to the end of the phrase. You cannot say the title without saying both.</p>
+
+<p><strong>Spirited Away</strong> deletes them both.</p>
+
+<p>The distributors did to the title exactly what Yubaba does to Chihiro. Same operation, same reasoning: keep the function, lose the name, it will be easier to work with. Yubaba takes 荻野千尋 and keeps a syllable that will do for a worker. Marketing takes <em>Sen to Chihiro</em> and keeps a phrase that means "supernatural abduction, family film, ninety seconds of trailer." Both are administrative decisions. Neither is malicious. Both take the fathoms out.</p>
+
+<p>And there is a third deletion in there, quieter. <strong>Kamikakushi</strong> — 神隠し — is not "spirited away." It is <em>hidden by the kami</em>. The gods are in the word; <em>kami</em> is the first thing you say. It is a specific Japanese folk explanation for a specific horror: a child is gone, and the village says the gods took them. "Spirited away" is a decent English idiom meaning vanished mysteriously, and it is generic, and the gods are not in it.</p>
+
+<p>For a film set <em>in a bathhouse where the gods come to wash</em>, losing the kami from the title is not a small thing. The Japanese title tells you who took her. The English title says she went missing.</p>
+
+<p>Sen, Chihiro, and the gods. Three deletions, two words. And the numbers dutifully register a Destiny 7 becoming a Destiny 6 and tell you nothing about any of it, because they cannot read. They can only add.</p>
+
+<h2>What Ghibli Learned in 1985</h2>
+
+<p>And yet the film itself arrived in English essentially intact — uncut, carefully dubbed, released with real respect, and it won the Academy Award.</p>
+
+<p>That is Part 3's ending, paying off sixteen years later. <em>Nausicaä</em> was butchered into <em>Warriors of the Wind</em> in 1985, roughly twenty minutes on the floor, and the studio's response hardened into the policy that no Ghibli film would be cut again — the policy behind the katana story, the one told often enough to be canon and impossible to verify. That policy is why <em>Spirited Away</em> exists in English in one piece.</p>
+
+<p>So the ledger here is genuinely good, and I want to say so, because this series is not a grievance factory. The film crossed. The whole film. Every frame Miyazaki drew, in order, at his pace, with his ending. A distributor gave up a great deal of money to make no cuts, and a generation of English-speaking children got the real thing.</p>
+
+<p>They just do not know she has a name. Or that she had two. Or that one of them was stolen, and one of them means <em>a thousand fathoms</em>, and that the whole film is a girl going down all thousand of them and coming back with herself.</p>
+
+<h2>The Close</h2>
+
+<p>Hayao Miyazaki reduces to a Destiny <strong>1</strong> with a Heart's Desire of <strong>1</strong> — the Pioneer, doubled, <em>the will to act alone</em> — which is what the numerology series found when it read him against his own heroine years ago. It is still an accident of spelling, and it is still funny on a man who has spent sixty years being unable to let anyone else finish a drawing.</p>
+
+<p>But the thing I will carry out of this one is Yubaba's hand closing around the characters.</p>
+
+<p>She is the only villain in this medium who does what critics do. She looks at something alive, takes its name, and works with the abbreviation. And she is not stupid — the abbreviation is genuinely easier to handle, the bathhouse runs, and a thousand is a perfectly serviceable thing to call a girl if what you need from her is labour. Her mistake is not cruelty. Her mistake is <strong>the belief that the name was the thing</strong>.</p>
+
+<p>That is my mistake, professionally, nine hundred times over, and this film named it before I made it.</p>
+
+<p>So: what survives the crossing? Ask Chihiro. She survived having her name taken, which is the most total crossing there is — no title, no letters, nothing left but a numeral and a job. And she came home, because at the bottom of it she remembered a river, and said its name out loud, and the name turned out to be the least of what she was carrying.</p>
+
+<p>The numbers read names. The name is precisely the part that can be stolen. Everything that matters is in the thousand fathoms underneath, where no sum has ever reached, and where you have to go yourself, and look.</p>`,
   },
 ];

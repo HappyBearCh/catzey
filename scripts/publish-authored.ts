@@ -47,9 +47,13 @@ async function uniqueSlug(base: string): Promise<string> {
   return slug;
 }
 
+// --sync also re-pushes prose edits onto already-published parts.
+const SYNC = process.argv.includes('--sync');
+
 async function main() {
   let published = 0;
   let skipped = 0;
+  let synced = 0;
 
   for (const essay of ALL) {
     const series = await prisma.series.findUnique({ where: { slug: essay.seriesSlug } });
@@ -60,7 +64,36 @@ async function main() {
       select: { slug: true },
     });
     if (existing) {
-      console.log(`  [${essay.seriesSlug}] Part ${essay.seriesOrder}: exists (${existing.slug}) — skipping`);
+      if (SYNC) {
+        // Re-push the authored prose over the stored row. Deliberately does NOT
+        // touch slug or publishedAt: the slug is linked from elsewhere and the
+        // date is owned by backdate-series.ts.
+        const before = await prisma.article.findUnique({
+          where: { slug: existing.slug },
+          select: { content: true, title: true, excerpt: true, pullQuote: true },
+        });
+        const changed =
+          before?.content !== essay.content ||
+          before?.title !== essay.title ||
+          before?.excerpt !== essay.excerpt ||
+          before?.pullQuote !== essay.pullQuote;
+        if (changed) {
+          await prisma.article.update({
+            where: { slug: existing.slug },
+            data: {
+              title: essay.title,
+              excerpt: essay.excerpt,
+              content: essay.content,
+              tags: essay.tags,
+              entities: essay.entities,
+              pullQuote: essay.pullQuote,
+            },
+          });
+          console.log(`  [${essay.seriesSlug}] Part ${essay.seriesOrder}: ↻ synced (${existing.slug})`);
+          synced++;
+          continue;
+        }
+      }
       skipped++;
       continue;
     }
@@ -90,7 +123,7 @@ async function main() {
     published++;
   }
 
-  console.log(`\npublished ${published}, skipped ${skipped}`);
+  console.log(`\npublished ${published}, synced ${synced}, skipped ${skipped}${SYNC ? '' : '  (pass --sync to re-push prose edits)'}`);
   console.log('now run: npx tsx scripts/backdate-series.ts');
   await prisma.$disconnect();
 }
