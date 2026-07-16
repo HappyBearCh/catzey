@@ -12,6 +12,9 @@ import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
 import path from 'path';
 import { AUTHORED } from './authored-essays';
+import { AUTHORED_CROSSING } from './authored-crossing';
+
+const ALL = [...AUTHORED, ...AUTHORED_CROSSING];
 
 function loadEnv(file: string) {
   const full = path.resolve(process.cwd(), file);
@@ -48,7 +51,7 @@ async function main() {
   let published = 0;
   let skipped = 0;
 
-  for (const essay of AUTHORED) {
+  for (const essay of ALL) {
     const series = await prisma.series.findUnique({ where: { slug: essay.seriesSlug } });
     if (!series) throw new Error(`series not found: ${essay.seriesSlug}`);
 
@@ -57,7 +60,7 @@ async function main() {
       select: { slug: true },
     });
     if (existing) {
-      console.log(`  Part ${essay.seriesOrder}: exists (${existing.slug}) — skipping`);
+      console.log(`  [${essay.seriesSlug}] Part ${essay.seriesOrder}: exists (${existing.slug}) — skipping`);
       skipped++;
       continue;
     }
@@ -83,7 +86,7 @@ async function main() {
         seriesOrder: essay.seriesOrder,
       },
     });
-    console.log(`  Part ${essay.seriesOrder}: ✓ /article/${article.slug} (${words} words)`);
+    console.log(`  [${essay.seriesSlug}] Part ${essay.seriesOrder}: ✓ /article/${article.slug} (${words} words)`);
     published++;
   }
 
