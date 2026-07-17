@@ -2875,4 +2875,113 @@ export const AUTHORED_CROSSING: AuthoredEssay[] = [
 
 <p>The numbers open the door. It turns out the door was never locked, and it was never a door.</p>`,
   },
+
+  // ── Part 31 ── FINALE ────────────────────────────────────────────────────────
+  // Numbers (computed): the series only uses ONE, and only to demonstrate the Part 30
+  // discipline — feel the click, name it, put it down.
+  //   Translation → D8 H8 P9  == Carrying across → D8 H8 P9  (the word == its own etymology)
+  //   What Survives the Crossing → D9 H11 P7 (unchanged since Part 1)
+  //   Tetsuwan Atom → D1 H7 P3 (the Part 30 bucket; the frame closes where it opened)
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 31,
+    title: 'Part 31: What Survives the Crossing',
+    excerpt:
+      'Thirty parts of loss. The puns die, the honorifics vanish, the drawn sound stays behind, the page turn is gone. And a boy in Ohio still cries at a Japanese cartoon. This is the finale, and it is about the thing the losses were surrounding.',
+    pullQuote:
+      'Everything that can be translated can be damaged. The thing that survives is the thing that was never in the words — which is why no translator could lose it, and why no machine can carry it, and why it always arrives anyway.',
+    tags: ['translation', 'finale', 'Astro Boy', 'reading', 'What Survives the Crossing'],
+    entities: ['Astro Boy', 'Tetsuwan Atom', 'Osamu Tezuka', 'Neon Genesis Evangelion'],
+    content: `<p>Thirty parts ago this series started with a boy who had two names. Tezuka called him Atom, after the thing that had been split above two Japanese cities. America called him Astro Boy, after the stars. I said, in Part 1, that everything the series was about sat in the gap between those two names.</p>
+
+<p>I've spent thirty parts walking that gap and cataloguing what falls into it. This is the last one, and it owes you an answer to the question on the cover. Thirty essays of what is <em>lost</em> in the crossing. So what survives?</p>
+
+<p>Let me first be honest about the size of the wreckage, because the answer is worth nothing if I flinch from the losses now.</p>
+
+<h2>The ledger</h2>
+
+<p>The puns die. Part 20's Naruto is a fish cake and you will never see it. Part 15's Gintama joke is a corpse in a footnote. The wordplay that a language does to itself does not survive contact with another language; it can only be replaced with a different joke or explained until it stops being one.</p>
+
+<p>The names go. Part 2's Zoro lost a letter to a lawyer. Part 5's Satoshi became Ash. Part 12's Chihiro had her name taken by a witch and, in a second theft the film could not depict, by romanization. A name is the first thing to reach for and the first thing to break.</p>
+
+<p>The register goes. Part 7's honorifics, which report the exact distance between two people every time they speak, land in a language that has no slot for them. Part 14's pronouns — the dozen Japanese words for <em>I</em>, each a small act of self-presentation — collapse into one English syllable. Part 27's <em>suki</em> is neither "love" nor "like" and English makes you pick.</p>
+
+<p>The ink stays behind. Part 6's sound effects were drawn, welded into the panel, and you cannot carry them without redrawing the page. Part 25's balloon was shaped for a language that falls downward, and English does not fit, and the furigana — two words printed in one place, both true at once — has no English mechanism at all.</p>
+
+<p>The page itself goes, eventually. Part 29's webtoon dissolved half these problems by giving up the composed spread and the held breath of the page turn, which were among the medium's few genuine gifts to art.</p>
+
+<p>And the largest loss was never on any page. Part 18's sieve: the thousands of works never offered at all. Part 22's thirty-nine years of Moto Hagio on a shelf because an industry was certain girls don't read. Part 27's ending theme that a rights holder couldn't clear. The biggest thing lost in translation is the translation that never happens.</p>
+
+<p>That is a real ledger and I am not going to pretend it nets to zero. Things are lost. Permanently. Some of them are the best things.</p>
+
+<h2>And yet it arrives</h2>
+
+<p>Here is the fact that the whole ledger has to be held against.</p>
+
+<p>A teenager in Ohio, who has never been to Japan, who cannot read a word of Japanese, who does not know what an oni is or what <em>-senpai</em> encodes or why the ending song is a 1954 American standard — that teenager watches <em>Neon Genesis Evangelion</em> and is undone by it. Sits in the dark afterward and cannot speak. Carries it for the rest of their life.</p>
+
+<p>They got the damaged version. Necessarily. They got the flattened pronouns and the missing song and one of two English words for <em>suki</em>, and whichever they got, someone on the internet was furious it was the wrong one. Every loss in that ledger above happened to their copy. And the thing landed anyway. Landed with the full weight Tezuka's tradition intended, on a person the work was never made for, in a language the work was never written in.</p>
+
+<p>That happens millions of times. It is, in fact, the ordinary condition of this entire art form's life outside Japan. The losses are total and the arrival is total and both of those are true at once, and the only way to make sense of that is to conclude that <strong>the thing that arrived was not the thing that was lost.</strong></p>
+
+<p>The losses were all in one layer. What survived was in a different one.</p>
+
+<h2>What was never in the words</h2>
+
+<p>Go back through the ledger and notice what every single loss has in common. The puns, the names, the honorifics, the pronouns, the drawn sound, the balloon, the page turn — every one of them is a property of the <em>medium</em>. They are things a specific language, in a specific writing system, on a specific page, is able to do. They are the how.</p>
+
+<p>None of them is the reason Tezuka made the boy.</p>
+
+<p>Tezuka made a nation that had been destroyed by the atom fall in love with a boy named Atom who protects people. That is not a fact about Japanese. It does not live in the honorifics. It cannot be found in the furigana or lost in the balloon. It is a thing a human being felt about their broken country and built into a story so that other human beings would feel it too — and it is <em>underneath</em> the language, the way the meaning of a piece of music is underneath the notes without being any particular note.</p>
+
+<p>That layer crosses. It crosses because it was never encoded in the parts that don't cross. The loneliness of Shinji Ikari is not in the pronoun he uses; the pronoun is how a Japanese reader receives it, and the flattened English pronoun is how an American receives it, and the loneliness was the thing being received in both cases. Chihiro's courage is not in her name. Take the name and the courage is still there, doing the thing it does to a ten-year-old watching, who has also felt small in a world run by adults with incomprehensible rules.</p>
+
+<p>This is why the machine in Part 24 frightened me and also why it cannot win outright. I said its failure mode was fluency — that it would smooth over the pronoun switch and leave no scar. That's true and it's a real loss. But the thing under the pronoun switch, the reason the scene exists, was never a translation problem in the first place, because it was never in the language. A machine that perfectly renders the meaning of every sentence and a human who agonizes over every honorific are both, in the end, just trying to get out of the way of the thing underneath, which was already in a language everyone speaks.</p>
+
+<h2>The reader does the last mile</h2>
+
+<p>But it does not cross by itself, and this is the part the whole series has been circling without landing.</p>
+
+<p>The work does not arrive in Ohio intact. It arrives damaged — we established that, it's not in dispute. What closes the gap between the damaged thing on the screen and the complete thing in the teenager's chest is <strong>the teenager</strong>. The reader does the last mile of the translation, unpaid, unaware they're doing it, every time.</p>
+
+<p>They meet the strange honorific and, instead of bouncing off it, they lean in — Part 8's virtue of bad English, the little friction that says <em>you are somewhere else now, pay attention</em>. They accept the oni without a Christian frame because the story taught them what it needed them to know. They feel the register shift in the voice acting even when the words went flat, because Part 26 was right that a human ear reads relationship out of sound without needing the lexical marker. They supply, from their own life, the specific weight that the specific lost thing used to carry, and they supply it so fluently they never notice the thing was lost.</p>
+
+<p>This is why this medium's audience audits its translators, which I kept marveling at without explaining. Part 11's scanlators, Part 27's fandom detonating over a word, Part 23's children who could see the triangle and knew they were being lied to. They audit because they are <em>participants</em>. They did part of the carrying. You do not get that furious about a job you had no hand in. The rage over <em>suki</em> is the rage of people who were doing the last mile of that translation themselves and felt someone upstream drop the baton they were reaching for.</p>
+
+<p>What survives the crossing is not carried across by the translator. It is carried the final, decisive distance by the reader, using the translator's damaged delivery as a set of instructions for something they assemble inside themselves. That is why the losses can be total and the arrival can still be complete. The reader is not a recipient. The reader is the last translator, and the best one, and the one nobody credits — same as the letterer, same as the dub writer, same as Schodt, all the way down.</p>
+
+<h2>The far bank</h2>
+
+<p>The series' own metaphor was wrong, and I want to correct it before I put it down.</p>
+
+<p>I called this <em>What Survives the Crossing</em> and I talked, from the first description onward, about carrying a work across a river to the far bank — as if there were a near side, where the real work lives, and a far side, where a lesser copy is delivered, and a river of loss in between.</p>
+
+<p>There is no far bank. That is a story English speakers tell to make the Japanese version the authentic one and their own experience a diminished echo of it. But the teenager in Ohio is not standing on a far shore receiving a degraded transmission of a realer thing happening elsewhere. They are having the experience. It is fully theirs, fully real, fully weighted, and it is happening in the only place any story has ever actually happened, which is inside a person paying attention.</p>
+
+<p>The Japanese reader is not closer to <em>Evangelion</em>. They are having their own version, assembled inside themselves from their own life, using Anno's instructions and the honorifics they can read — and their version is also not the "real" one, because there isn't a real one, because the work does not exist on any page or screen. It exists in the meeting. It has always only existed in the meeting. The page is instructions for a meeting.</p>
+
+<p>Translation, then, is not carrying a finished thing across a river to a lesser shore. It is repairing the instructions enough that a different person, with a different life, can hold their own meeting and arrive at their own complete version of a thing that was never complete anywhere to begin with. The loss is real at the level of instructions. At the level of the meeting there is no crossing. There is just another person, somewhere else, being met.</p>
+
+<h2>The last number, and the last time</h2>
+
+<p>I owe you one number, because the constraint that has governed every essay in this series is that the numbers get computed with the real engine before the prose is written, and I computed these, and I am not going to break the rule on the way out.</p>
+
+<p><strong>Translation</strong> reads Destiny 8, Heart 8, Personality 9.</p>
+
+<p><strong>Carrying across</strong> — which is what the word "translation" literally means, <em>trans latus</em>, carried over — reads Destiny 8, Heart 8, Personality 9.</p>
+
+<p>Identical. All three. The word and its own two-thousand-year-old etymology, the same reading, exact. It is the cleanest match in the entire series and it lands on the one word the series is named for, on the last page, like the machine finally understood what it was for.</p>
+
+<p>Feel it. I felt it. That is the click — the little lift in the chest, the sense that the pattern is speaking, that something under the surface arranged this. I have chased that feeling for thirty parts and three hundred and eighty essays before them, and I know exactly what it is now.</p>
+
+<p>It is a 1-in-114 coincidence, and "translation" and "carrying across" share a great many letters because one is a gloss of the other, and Part 29 already showed you that the engine's matches get <em>stronger</em> exactly where they're most trivial, where the two strings look alike. Of course they match. They were always going to match. I picked a phrase that means the same as the word and fed both to a machine that counts letters, and the letters overlapped, and the machine did the only thing it does.</p>
+
+<p>There is no message in it. Tezuka did not arrange it. The universe is not confirming the thesis. It is four sums agreeing with four sums for the dullest possible reason.</p>
+
+<p>And here, on the last line, is the whole thing the series was trying to learn: <strong>I can feel the click and put it down anyway.</strong> That's it. That's the discipline. Not to stop feeling it — you don't get to stop feeling it, the click is human and the machine is built to produce it and Part 24's fluent, tireless engines are going to produce more of it, more smoothly, forever. The discipline is to feel the pattern arrive with its full weight, and name it for what it is, and then turn away from it and go do the actual work, which is to look at the thing in front of you and say what is really there.</p>
+
+<p>The numbers open the door. Something still has to walk through, and notice, and stop, and say: this one I can carry. Let me show you what it was.</p>
+
+<p>The boy has two names. Neither one is him. He crossed anyway, and he has been protecting people in every language on earth for sixty years, and not one of them is the language he was written in.</p>`,
+  },
 ];
