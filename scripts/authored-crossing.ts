@@ -2210,4 +2210,669 @@ export const AUTHORED_CROSSING: AuthoredEssay[] = [
 
 <p>The numbers open the door. Something still has to walk through, and notice, and stop, and say: this one I cannot carry. Let me show you what it was.</p>`,
   },
+
+  // ── Part 25 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Tategaki → D11 H7 P4 ; Yokogaki → D4 H22 P9
+  //                     Vertical writing → D1 H33 P4 ; Typesetting → D7 H1 P33
+  //                     Lettering → D11 H1 P1 ; Letterer → D4 H6 P7 ; Balloon → D8 H4 P4
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 25,
+    title: 'Part 25: The Container Was Drawn First: Why English Does Not Fit in the Balloon',
+    excerpt:
+      'Japanese runs top to bottom, so manga balloons are tall and narrow. English runs left to right. The translator’s word limit was set by a shape somebody drew before the English sentence existed.',
+    pullQuote:
+      'The balloon is the only editor in publishing that was drawn before the words it would have to hold, in a language it would never have to hold.',
+    tags: ['lettering', 'typesetting', 'localization', 'craft', 'manga'],
+    entities: ['lettering', 'tategaki', 'Comicraft', 'Wildwords', 'letterer'],
+    content: `<p>Japanese is written vertically. Top to bottom, columns running right to left. This is <em>tategaki</em>, and it is not a stylistic flourish — it is the default orientation of the language in print, and it is how manga is written.</p>
+
+<p>So a manga speech balloon is <strong>tall and narrow</strong>. It has to be. It is a container built to hold one or two columns of characters falling downward, and the artist draws it that way — an upright oval, a vertical lozenge, sized by eye to the number of characters the line will need.</p>
+
+<p>English runs left to right, in lines that stack. It wants a container that is wide and short.</p>
+
+<p>Every English-language manga you have ever read is horizontal text poured into a vertical container, and somebody had to solve that, by hand, panel by panel, for every balloon on every page. This part is about them, and about the fact that the shape of that balloon is quietly doing something nobody talks about: <strong>it is setting the word limit.</strong></p>
+
+<h2>The three bad options</h2>
+
+<p>Put an English sentence in a tall narrow oval and you have exactly three moves, all of them lossy.</p>
+
+<p><strong>Shrink the type.</strong> Set it small enough and any sentence fits. Now it's unreadable, or nearly — and there is a floor, because print has a floor, and phones have a worse one. Comics lettering lives in a narrow band of legible sizes and the balloon does not care.</p>
+
+<p><strong>Reshape the balloon.</strong> Widen it, flatten it, push its edges out until the English fits. This works. It is also <em>touching the art</em>. The balloon is not a UI element that floats above the drawing; it was composed into the panel. It sits in a specific relationship to the figure, the negative space, the eye's path across the page. Widen it and you are covering something the artist drew, or shoving the composition sideways. Every letterer does this constantly and every letterer knows what it costs.</p>
+
+<p><strong>Cut words.</strong> Say less. Make the line shorter until it fits the hole.</p>
+
+<p>That third one is the one I want, because Part 17 already told this story from the other end. There, subtitles delete — compressed by reading speed, because a viewer cannot read 40 characters in 1.2 seconds. Here is the same deletion, enforced by a completely different physics: not by the clock, but by a shape.</p>
+
+<p>And note when the shape was decided. The artist drew that balloon in 1994, sizing it by eye to a Japanese line, with no thought of English whatsoever, because why would there be. That drawing is now a hard constraint on a sentence that will be written twenty years later by a stranger in another country. The container was drawn first. <strong>The balloon is the only editor in publishing that was drawn before the words it would have to hold, in a language it would never have to hold.</strong></p>
+
+<h2>The letterer, who you also do not credit</h2>
+
+<p>Part 21 argued that translation is the only craft whose success condition is invisibility — that Frederik Schodt's forty years were designed to leave no fingerprint. Lettering is that, one floor down, with worse lighting.</p>
+
+<p>The letterer decides what typeface carries a character's voice. Whether that shout gets a jagged balloon or a heavier weight. How the tail points. Where the line breaks — and line breaks in comics are <em>rhythm</em>, they are where the reader's eye pauses, they are the difference between a line that lands and a line that shrugs. They decide when to redraw a balloon and how much art to eat doing it. And they inherit Part 6's whole nightmare, because the drawn sound effects are their problem too: erase and replace, gloss in the margin, or leave the ink and let the reader learn.</p>
+
+<p>Those are all interpretive decisions. Every one of them changes how the page reads. And the person making them is credited, if at all, in six-point type on the indicia page, below the printer.</p>
+
+<p>The industry's own vocabulary gives it away. The fonts are off-the-shelf and the good ones became invisible standards — Comicraft's catalogue is lettered across a huge share of English comics, and a face like Wildwords has probably spoken more words to you than most authors. You have read hundreds of thousands of words in it and could not name it. That is the job working correctly, and it is also the job being taken for granted.</p>
+
+<h2>What the balloon is actually for</h2>
+
+<p>Here is the thing that makes the balloon more than a box.</p>
+
+<p>Its shape is <em>semantic</em>. A cloud means thought. A spike means shout. A wobble means fear, a dashed outline means whisper, a balloon that crosses a panel border means the voice arrived from somewhere else. This is a grammar, and it is drawn, and it is doing work the words do not do.</p>
+
+<p>So when a letterer reshapes a balloon to fit English, they are editing inside a grammar. A widened spike is a different spike. A thought-cloud stretched to hold a long English clause reads slower, sits heavier, changes the beat. Nobody notices, which is the point, and which is also why nobody defends it.</p>
+
+<p>And this is where the vertical/horizontal thing stops being a technicality. Japanese falling down a narrow column and English marching across a wide line are <strong>different shapes of speech</strong>. The Japanese line arrives in a vertical stroke, one column, the eye dropping. The English arrives as a horizontal band. The balloon that fit the first one snugly is the wrong garment for the second, and the letterer is a tailor who is not allowed to buy more cloth.</p>
+
+<h2>The two words that are the same word</h2>
+
+<p>And then there is the thing lettering has to face that has no English mechanism at all.</p>
+
+<p>Japanese print carries <em>furigana</em> — small kana printed alongside a kanji, giving its pronunciation. Its ordinary purpose is boring and practical: it's a reading aid, for children, or for a name, or for a character rare enough that a reader might stall. Manga is full of it for exactly that reason.</p>
+
+<p>But because the writing system lets you print a reading next to a character, it lets you print <strong>the wrong one</strong>. Deliberately. And manga does this constantly.</p>
+
+<p>The kanji says one thing. The furigana above it says another. Both are on the page, simultaneously, and both are true: the character is <em>saying</em> the sound in the furigana and <em>meaning</em> the word in the kanji. Write the characters for "destiny" and gloss them with the sound of a person's name, and the character has said a name and the reader has read <em>destiny</em>, in one breath, with no metaphor and no explanation. Write "comrade" and gloss it "friend." Write the formal word for a weapon and gloss it with a nickname. It is a second channel of meaning running above the first, and it is used for irony, for tenderness, for menace, for the thing a character cannot say directly.</p>
+
+<p>English does not have this. Not "English lacks a good equivalent," in the way Part 7 said about honorifics — English has <em>no mechanism</em>. There is no way to print two words in one position and have a reader take both. We have one line of text running left to right, and it says one thing.</p>
+
+<p>So the letterer, who is also frequently the person deciding this, has the options: pick the kanji and lose the spoken word; pick the furigana and lose the meaning; jam both in with a slash or a parenthesis and turn a fluid double exposure into a piece of grammar homework; or footnote it, which is Part 15's corpse in the margin — the joke explained is the joke dead.</p>
+
+<p>All four are bad. There is no fifth. And this happens on ordinary pages, in ordinary chapters, not just at the big moments — it is a routine expressive resource in Japanese comics and it arrives in English as a permanent, unfixable notch.</p>
+
+<h2>The problem that has no villain</h2>
+
+<p>Most of this series has had somebody to be annoyed at. A lawyer renamed Zoro (Part 2). 4Kids painted a rice ball into a donut (Part 23). An industry decided for forty years that girls don't read (Part 22). There is a decision, and someone made it, and it could have gone otherwise.</p>
+
+<p>There is nobody to be annoyed at here. No one chose for Japanese to be vertical. No one chose for English to be horizontal. The artist drew an appropriately sized balloon. The letterer did the best available thing. Every single participant behaved well and the page still lost something, permanently, in a way no amount of care or budget or good faith can recover.</p>
+
+<p>That is worth sitting with, because it is the honest floor of this whole enterprise. Underneath all the vandalism and all the cowardice and all the bad audience models, there is a residue of loss that is nobody's fault — that is just what it costs to move writing between two languages that don't even run in the same direction on the page. You can do everything right and still not get it all across. Part 24 was afraid of a machine that never says <em>I can't carry this</em>. Here is a thing that genuinely cannot be carried, and the reason is geometry.</p>
+
+<h2>The numbers</h2>
+
+<p><strong>Tategaki</strong> — vertical writing — reads Destiny 11, Heart 7, Personality 4. Visionary, Master 11. <strong>Yokogaki</strong> — horizontal writing — reads Destiny 4, Heart 22, Personality 9.</p>
+
+<p>Two ways of arranging the same language on a page. One gets a master number in its Destiny, the other gets a master number in its Heart. They share nothing at all.</p>
+
+<p>I could do something with that. Vertical is the visionary, horizontal is the builder; the crossing moves a work from one master to another and drops both. It would read well. It's rubbish, and Part 22 already showed you why: I ran two romanizations through a machine that counts Latin letters, and the difference I "found" is a fact about the letters <em>tategaki</em> and <em>yokogaki</em>, which are English spellings of Japanese words describing a writing system that uses neither.</p>
+
+<p>The engine cannot see a page. That is not a figure of speech. This entire essay is about a physical property of ink in space — a shape, a direction, a container with dimensions — and there is no operation in the system that has any access to it. It counts letters. Letters have no orientation. The one thing this essay is about is the one thing the engine is structurally incapable of registering, and it will still, cheerfully, on request, tell you what <em>Tategaki</em> means.</p>
+
+<p><strong>Lettering</strong> reads Destiny 11, Heart 1, Personality 1 — a master number, the visionary. <strong>Letterer</strong> reads Destiny 4, Heart 6, Personality 7 — Builder &amp; Organizer, the workhorse, the same plain number the engine handed Moto Hagio.</p>
+
+<p>The craft gets the master. The person doing it gets the 4.</p>
+
+<p>Which is, accidentally and for entirely the wrong reasons, precisely the arrangement. We have a great deal of admiration available for lettering as an idea and almost none for the people who sit there at two in the morning deciding whether this balloon can lose four pixels off its left edge without eating the character's shoulder.</p>`,
+  },
+
+  // ── Part 26 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Lip flap → D9 H1 P8  == Shinji Ikari D9 H1 P8  (8th clean match)
+  //                     Dubbing → D5 H3 P2 ; Voice acting → D9 H3 P6 ; ADR → D5 H1 P4
+  //                     Steve Blum → D11 H4 P7 ; Spike Spiegel → D7 H33 P1
+  //                     Script adaptation → D6 H9 P6
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 26,
+    title: 'Part 26: Writing to the Flaps: The Dub Is Not a Translation, It Is a Verse Form',
+    excerpt:
+      'The mouths were animated to Japanese. Every English line has to mean the right thing, sound like a person, land the beat on the right frame, and fit a mouth that is already moving. That is not translation. That is composition under meter.',
+    pullQuote:
+      'Sub and dub are two solutions to two entirely different problems, and the war between them is thirty years of people comparing answers to questions the other side was never asked.',
+    tags: ['dubbing', 'localization', 'voice acting', 'ADR', 'craft'],
+    entities: ['dubbing', 'ADR', 'lip flap', 'Cowboy Bebop', 'Steve Blum'],
+    content: `<p>The mouth is already moving.</p>
+
+<p>That is the whole problem, and almost nobody arguing about dubs on the internet has ever stated it out loud. By the time an English script exists, the animation is finished. The character's jaw opens and closes on a schedule that was set in Japan, to a Japanese performance, months earlier. The frames are done. Nobody is redrawing them for you.</p>
+
+<p>So the English line has to fit a mouth that is already talking.</p>
+
+<h2>Four constraints, and only one of them is meaning</h2>
+
+<p>Anime mouth animation is famously economical — often a small set of positions cycled to the rhythm of speech rather than articulated to individual phonemes. This is why dubbing anime is possible at all; you are matching a rhythm, not a mouth shape, and English can hit a rhythm that Japanese set. But you are still matching. The industry's word for it is <em>flaps</em>: the count of mouth openings, and where they fall.</p>
+
+<p>An English line for that shot must satisfy, simultaneously:</p>
+
+<p><strong>One.</strong> It has to mean roughly what the Japanese meant.</p>
+
+<p><strong>Two.</strong> It has to sound like something a person would actually say — not translationese, not a subtitle read aloud, but speech.</p>
+
+<p><strong>Three.</strong> It has to have the right number of flaps, in the right places. Syllable count and stress, pinned to specific frames.</p>
+
+<p><strong>Four.</strong> It has to land its emotional beat where the animation lands its emotional beat. The word the character breaks on has to arrive on the frame where the character's face breaks.</p>
+
+<p>Four hard constraints, and exactly one of them is the thing everybody thinks dubbing is.</p>
+
+<p>Now name the other art form with a specification that tight. Not prose. Not screenwriting, which gets to invent its own timing. The honest comparison is <strong>verse</strong> — a fixed meter, a fixed line length, stresses in fixed positions, and a requirement to say a specific thing anyway while sounding unforced. Writing a dub script is writing to scansion. It is the sonnet problem: the form is given, it is not negotiable, and your job is to make the reader believe you would have said it that way regardless.</p>
+
+<p>People who would never call a translated sonnet dishonest for changing a word will call a dub dishonest for changing a word.</p>
+
+<h2>The war is a category error</h2>
+
+<p>Here is the argument this part actually exists to make.</p>
+
+<p>The sub-versus-dub war is three decades of people comparing two solutions to two <em>different problems</em> and concluding that one side is lying.</p>
+
+<p>Part 17 established the subtitle's constraint: reading speed. A subtitle is capped by how fast a human eye can take in text before the cut. It deletes accordingly — it compresses, it drops the softener, it flattens the aside, it loses the third clause. That is not fidelity. That is a different engineering compromise, made against a different physical limit, and it is invisible to the viewer because the viewer cannot see what was cut.</p>
+
+<p>The dub's constraint is flaps. It rewrites accordingly — it pads a line that's too short, trims one that's too long, moves a beat, finds a synonym with the stress in a different place.</p>
+
+<p><strong>Neither one is the Japanese.</strong> Both are lossy. They are lossy in different directions, against different walls, and the sub's losses happen to be the invisible kind while the dub's happen to be the audible kind. Part 23 found exactly this asymmetry with the jelly donut: the visible failure gets punished, the invisible failure gets a pass. The dub speaks its compromises out loud, in a voice, at volume. The sub commits its compromises in silence, in text, and gets called faithful for it.</p>
+
+<p>The sub is not more honest. It is quieter.</p>
+
+<h2>What the good ones are actually doing</h2>
+
+<p>Part 10 called <em>Cowboy Bebop</em>'s English dub the one that won — the translation that went home, that arguably found a register the original was reaching toward. I don't want to re-run that. I want to point at the mechanism.</p>
+
+<p>What a great dub does is not <em>match</em> the Japanese. It's to construct an English performance that is doing the same job in English that the Japanese performance was doing in Japanese — which frequently requires different words, and occasionally requires a different joke, and always requires the writer to have decided what the job actually was. That is a critical act. You cannot write the line until you have made a judgement about what the scene is for.</p>
+
+<p>The dub writer is doing criticism with a stopwatch.</p>
+
+<p>And notice what this means for the accusation. When a fan says "the dub changed the line," they are usually right, and the change is usually not the writer being cavalier — it is the writer solving for four constraints while the fan is checking one. The complaint is real when the change is careless, and Part 4 met a dub that was pure vandalism, so I'm not claiming the accusation is always wrong. I'm claiming it is almost always <em>under-specified</em>. "It's different from the Japanese" is not a finding. It is the starting condition of the medium.</p>
+
+<h2>The channel the subtitle does not have</h2>
+
+<p>Now the argument that ought to make a sub purist uncomfortable, because I think it's the strongest thing in this essay and it runs the other way.</p>
+
+<p>The dub has a channel the subtitle does not have, and it is precisely the channel that carries the stuff this series keeps finding untranslatable.</p>
+
+<p>Go back to Part 7. Honorifics encode a relationship continuously — every time one character addresses another, the suffix reports the distance between them, and English has no slot. Go back to Part 14: <em>boku</em> and <em>ore</em> and <em>watashi</em> are self-presentation, and English has one word for I. In both cases the finding was the same: the information is real, everyone understands it, and there is nowhere in an English <em>sentence</em> to put it.</p>
+
+<p>But a voice is not a sentence.</p>
+
+<p>English carries social information beautifully — just not in the words. It carries it in accent, in register, in pitch, in how much air is behind a line, in whether someone clips their consonants. An English speaker can hear class, region, age, education, deference, contempt, and intimacy in three seconds of speech without a single lexical marker. That is a genuine, high-bandwidth channel, and it is doing exactly the job the honorific does.</p>
+
+<p>A dub can put the relationship in the voice. When a character shifts from <em>boku</em> to <em>ore</em>, an English performance has somewhere to put that — lower, harder, more air, less hedging. It won't be the same event. It will be an event, in the right place, doing the same work, and the viewer will feel it without being told.</p>
+
+<p>The subtitle cannot do any of this. A subtitle is text on a screen. It has no register. It has typography and word choice and that is the whole instrument. The subtitle's only options for the <em>boku</em>/<em>ore</em> switch are: lose it, or footnote it, and Part 28 will show you that the industry deleted the footnotes.</p>
+
+<p>So the received wisdom has it backwards in a specific and interesting way. The sub is closer to the Japanese <em>script</em>. The dub has better hardware for the parts of the Japanese that were never in the script. And since this entire series has been arguing that the hard parts were never the semantic parts — that they were honorifics and pronouns and register and everything else that isn't <em>meaning</em> — that makes the dub, on paper, the better-equipped vehicle for the actual problem.</p>
+
+<p>Most dubs don't use it. That's a fair complaint and often a correct one. But "the dub is less faithful" is a claim about a medium that is doing one thing badly, made by people who have not noticed that the other medium <em>cannot do it at all</em>.</p>
+
+<h2>The performance nobody translated</h2>
+
+<p>One more loss, and it's the one I think is largest.</p>
+
+<p>The Japanese voice performance is itself a text. The seiyuu made choices — a catch in the breath, a register drop, the specific way this character says their own name. Those choices are not in the script. They cannot be read out of the script. They are in the audio.</p>
+
+<p>An English voice actor is not translating that performance. Mostly they cannot even hear it in a useful way, and increasingly they are recorded alone, in a booth, to a click and a waveform, without the other actors, sometimes without the finished picture. What they have is a line, a set of flaps, and a director's description of what is happening.</p>
+
+<p>So the dub is not a translation of the Japanese performance. It is a <em>new performance</em>, generated from a script derived from the Japanese script, timed to animation cut to the Japanese performance. The original acting is not carried across. It is used as a mold and then discarded.</p>
+
+<p>Which means the entire question "is the dub faithful to the original?" is malformed, because the thing people mean by the original — the sound of it, Megumi Hayashibara's voice doing what it does — was never a candidate for crossing. It's not that it was lost in transit. It was never in the truck.</p>
+
+<h2>The numbers</h2>
+
+<p><strong>Lip flap</strong> reads Destiny 9, Heart 1, Personality 8. <strong>Shinji Ikari</strong> reads Destiny 9, Heart 1, Personality 8.</p>
+
+<p>Identical. Every number. The most famous dubbed voice in the medium and the technical constraint that shapes every dubbed line share a complete reading. That's the eighth clean match in this series, and it is exactly the kind of thing I have been serving up as though it were a discovery.</p>
+
+<p>I want to flag something, and then I'm going to leave it alone until Part 30, where it is going to get a full accounting it will not enjoy. <strong>Eight clean matches in twenty-six essays is a lot.</strong> Either the universe is unusually invested in Japanese cartoons, or I have been running a great many strings through a machine with a small number of exits and reporting the collisions as revelation. I know which one it is. I have known for a while. Part 30 does the arithmetic properly.</p>
+
+<p>For now: <strong>Dubbing</strong> reads Destiny 5, Freedom Seeker. <strong>Script adaptation</strong> — the actual industry term for the job of writing to flaps — reads Destiny 6, Heart 9, Personality 6: Nurturer &amp; Harmonizer.</p>
+
+<p>Harmonizer. For the person whose entire job is making a line fit a mouth that has already spoken, in a language it never spoke, on a frame count they did not choose, while sounding like nobody had to try.</p>
+
+<p>The engine got there by adding up the letters in "script adaptation." It has never heard a voice. It does not know what a mouth is. It cannot count a flap, or hear a catch in a breath, or tell you why the beat has to land on <em>that</em> frame and not the next one — and it produced the right word anyway, which after twenty-six parts I have stopped finding impressive and started finding instructive.</p>`,
+  },
+
+  // ── Part 27 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Suki → D6 H3 P3 ; Love → D9 H11 P7 ; Like → D1 H5 P5
+  //                     (all three share NOTHING — the Japanese word maps to neither candidate)
+  //                     Kaworu Nagisa → D5 H3 P11 ; Shinji Ikari → D9 H1 P8
+  //                     Neon Genesis Evangelion → D5 H11 P3 ; Retranslation → D4 H22 P9
+  //                     Netflix → D9 H5 P22 ; Dan Kanemitsu → D6 H1 P5
+  // Facts hedged: exact ADV/Netflix wordings and Kanemitsu's stated reasoning are from
+  // press/fandom reporting, flagged as such in the prose.
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 27,
+    title: 'Part 27: One Word, Two Boys: Suki, and the Retranslation That Proved Nothing Is Neutral',
+    excerpt:
+      'In 2019 a new Evangelion translation rendered Kaworu’s "suki" as "I like you" instead of "I love you," and the fandom detonated. Both versions are wrong. English has no word. And that is exactly why the choice was never neutral.',
+    pullQuote:
+      'When the target language has no equivalent, the translator does not get to decline. There is no safe option. "Like" is as much an interpretation as "love" — it is just an interpretation that gets to call itself literal.',
+    tags: ['translation', 'Evangelion', 'retranslation', 'Netflix', 'localization'],
+    entities: ['Neon Genesis Evangelion', 'Kaworu Nagisa', 'Shinji Ikari', 'Netflix', 'Dan Kanemitsu', 'Hideaki Anno'],
+    content: `<p>In 2019, Netflix acquired <em>Neon Genesis Evangelion</em> and put it in front of a global audience with a new English dub and new subtitles. The translation work was supervised by Dan Kanemitsu. For a great many people it was the first legal, convenient way to watch the most important television anime ever made.</p>
+
+<p>The fandom set itself on fire within about a day, over one word.</p>
+
+<p>In episode 24, Kaworu Nagisa says something to Shinji Ikari. The Japanese word is <em>suki</em>. The older English version — the one a generation grew up on — rendered it, as widely remembered, along the lines of <strong>"I love you."</strong> The 2019 version rendered it <strong>"I like you."</strong></p>
+
+<p>I'm reporting the wordings as they circulated, because this argument has been re-litigated so many times that the quotations have drifted; the shape is what matters and the shape is not in dispute. Kanemitsu defended the choice publicly, on grounds of literalism and preserved ambiguity — the position being, roughly, that the Japanese is not as declarative as the old English made it, and the English should not decide what the Japanese left open.</p>
+
+<p>That defence is correct. It is also, I'm going to argue, one of the more instructive wrong answers in the history of this craft.</p>
+
+<h2>Start with the fact that both are wrong</h2>
+
+<p><em>Suki</em> does not mean "I love you." It also does not mean "I like you."</p>
+
+<p>It covers a range English splits across at least two words and a great deal of social context. You can <em>suki</em> a person you intend to marry. You can <em>suki</em> takoyaki. Japanese keeps a heavier word, <em>aishiteru</em>, for the freighted declaration, and it is used sparingly enough that its absence here is genuinely meaningful — Kaworu did not reach for the big word. So the older translation was doing something: it was resolving an ambiguity in the direction of the maximum, and that is a real liberty.</p>
+
+<p>But look at what "like" does in English. English "like" is not neutral, not ambiguous, and not a midpoint. It is <em>specifically and actively casual</em>. In English, "I like you" is what you say when you are declining to say the other thing. It carries a definite negative charge against romantic weight; it is the word people use to let someone down, or to stay safe. It does not open a space. It closes one.</p>
+
+<p>So: the Japanese word is a wide range. Candidate A resolves it to the top of the range. Candidate B resolves it to the bottom of the range <em>and pretends that isn't a resolution</em>.</p>
+
+<p>This is Part 7's honorifics and Part 14's pronouns wearing yet another coat. English has no slot. The gap is structural, not semantic. Nobody misunderstood the Japanese — everyone involved knew exactly what <em>suki</em> spans — and understanding it perfectly gets you precisely nowhere, because the target language does not have the shape you need.</p>
+
+<h2>Literalism is not neutrality, and it is not a way out</h2>
+
+<p>Here's the move that makes this essay worth writing.</p>
+
+<p>When the target language has no equivalent, <strong>the translator does not get to decline.</strong> There is no abstain option on the form. Something has to be printed on the screen and every available string is an interpretation. The choice is not between interpreting and not interpreting. It is between interpretations.</p>
+
+<p>What literalism offers is not neutrality. It offers <em>deniability</em>. It lets a choice be made while presenting itself as the absence of a choice — I didn't decide anything, I just wrote what it said. But "like" is a decision. It has a direction. It landed somewhere. And in a scene between two boys, at the emotional apex of the loneliest character in the medium, it landed in the direction of <em>less</em>, which is not a random direction, and which a very large number of viewers experienced as the moment being quietly taken away from them.</p>
+
+<p>I don't need to allege intent to make this point and I'm not going to. I'll take the stated reasoning at face value: someone was trying to be accurate. The lesson is more interesting if it was done in good faith, because then it demonstrates the actual thesis — <strong>you cannot get out of the politics of a choice by being literal.</strong> The literal option is also a choice. It just gets to call itself the floor.</p>
+
+<h2>Fidelity to what?</h2>
+
+<p>And now the deeper problem, which Part 8 saw coming when it argued for the virtue of bad English.</p>
+
+<p>A line is not the only thing in a scene. There is framing, and music, and silence, and everything the show spent twenty-three episodes building. The scene around <em>suki</em> is doing enormous work. It is built as an apex. It is shot and scored as an apex. Shinji has been starved of exactly this for the entire series, and the show knows it, and the audience knows it.</p>
+
+<p>Drop "I like you" into that architecture and the English word <em>actively contradicts the scene it is in</em>. Everything visual and musical says <em>this is the largest thing that has ever happened to this boy</em>, and the text says <em>casual, mild, friendly</em>. That is not preserved ambiguity. That is a collision, and the viewer resolves the collision by concluding that something has been withheld from them.</p>
+
+<p>So the more literal version is the less faithful version. Not because the lexicographer was wrong, but because fidelity is a property of the scene, not the sentence — and a translation can be word-accurate and scene-false at the same time. Part 3 found the same thing from the other direction: <em>Nausicaä</em>'s title crossed intact while the film was butchered around it. Accuracy at the level of the string is worth very little if the thing the string is embedded in has been broken.</p>
+
+<h2>The other thing that went missing, which nobody translated at all</h2>
+
+<p>There is a second loss in the 2019 release and it is the more instructive one, because no translator was involved in it whatsoever.</p>
+
+<p>The original series ended every episode with a cover of <em>Fly Me to the Moon</em>. Not incidental — twenty-six episodes of the strangest, loneliest show on television resolving, every single time, into a soft standard from 1954. The tonal joke of it, the tenderness of it, the way it let you down off the ceiling week after week. It is, for a lot of people, inseparable from what the show <em>is</em>.</p>
+
+<p>The Netflix release did not have it. The reporting at the time pointed to music licensing — the song is a Western standard with rights holders and a global streaming deal is not the same instrument as a 1995 Japanese TV broadcast. I'm hedging the specifics because the details were murky then and are murkier now.</p>
+
+<p>What isn't murky: a piece of the work did not cross, and the reason had nothing to do with language, meaning, craft, fidelity, or any decision any translator made. A rights holder and a lawyer somewhere failed to reach a number.</p>
+
+<p>And notice the asymmetry in how those two losses were received. One word — <em>suki</em> — generated weeks of furious argument, thinkpieces, a public defence from the translation supervisor. The missing ending theme generated a shrug and a few sad posts. Yet by any honest accounting the song is <em>more</em> of the work than the word is. Twenty-six occurrences. A structural part of the show's emotional architecture.</p>
+
+<p>Why the difference? Because <em>suki</em> was a <strong>choice</strong>, made by a person, that could have gone otherwise — and Part 23 established the rule that governs this entire field: the visible failure gets punished, the invisible one gets a pass. A licensing failure has no author to argue with. There is no one to be wrong. It reads as weather.</p>
+
+<p>Which is Part 18's sieve arriving in a new place. That essay found that the biggest determinant of what crosses is not craft but a purchasing decision. This is the same fact operating <em>inside</em> a single work: what you receive of <em>Evangelion</em> was shaped more by a music rights negotiation than by any translator's judgement about any line. The translator gets the argument. The lawyer gets the outcome.</p>
+
+<h2>What retranslation is actually for</h2>
+
+<p>The last thing, and it's why this belongs in this series rather than in a fandom postmortem.</p>
+
+<p><strong>Every retranslation is a confession.</strong></p>
+
+<p>As long as there is one English version, it can pass for the work. It is transparent; you look through it and believe you're seeing the thing. It is a window.</p>
+
+<p>Put a second version beside it and the window becomes a pane of glass with fingerprints on it. Two English versions that disagree are proof, sitting right there, that <em>somebody chose</em> — that the first one was never a transcription, that a person sat in a room and decided, and could have decided otherwise. You cannot un-see it afterward. Every line in both versions is now visibly a decision.</p>
+
+<p>This is the single healthiest thing that can happen to a translated work, and it is why the 2019 fight, for all its heat and all its bad faith on every side, was worth more than another decade of quiet consensus. For twenty years English speakers had a version and mostly mistook it for the show. Now they have two, and they know it's a show that has to be carried, and they know somebody's hands are on it.</p>
+
+<p>Part 21 said the translator's success condition is invisibility. Retranslation is the mechanism that makes them visible — the only reliable one the field has. It's an audit. It's the fans doing to the translation exactly what a good editor would have done, twenty years late, at volume, on the internet, badly.</p>
+
+<p>It is still an audit. It is still more than the machine in Part 24 will ever get, because a machine translation that nobody thinks of as authored is a translation nobody will ever think to retranslate.</p>
+
+<h2>The numbers</h2>
+
+<p><strong>Suki</strong> reads Destiny 6, Heart 3, Personality 3. <strong>Love</strong> reads Destiny 9, Heart 11, Personality 7. <strong>Like</strong> reads Destiny 1, Heart 5, Personality 5.</p>
+
+<p>Three words. Three completely disjoint readings. Not one number shared between any pair of them.</p>
+
+<p>The engine says <em>suki</em> is neither "love" nor "like," and is not between them, and does not resemble either. Which is, as it happens, the exact thesis of this essay, arrived at by a machine that counts letters in a romanization of a Japanese word it cannot read, comparing it to two English words it also cannot read.</p>
+
+<p>It's right. It's right the way a stopped clock is right, and I want to be precise about why, because "the engine agrees with me" is the most seductive sentence available to me and I have twenty-six parts of practice writing it. The engine produced three different numbers because <em>s-u-k-i</em>, <em>l-o-v-e</em>, and <em>l-i-k-e</em> are three different strings. It would have produced three different numbers for any three different words. It would have produced three different numbers for <em>suki</em>, <em>suki</em>, and <em>sukiii</em>. There is no finding here. There is a spelling, and a coincidence of shape between what the spelling did and what I wanted to say.</p>
+
+<p><strong>Kaworu Nagisa</strong> reads Personality 11. <strong>Neon Genesis Evangelion</strong> reads Heart 11. <strong>Netflix</strong> reads Personality 22, a master number, which I could tell you means something about a company that carried this show to more people than everyone before it combined and fumbled one word doing it.</p>
+
+<p>I could tell you that. Somebody should stop me. In three parts, somebody does.</p>`,
+  },
+
+  // ── Part 28 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Simulcast → D9 H4 P5  == Fansub D9 H4 P5  (9th clean match)
+  //                     — and Part 11 was "The Pirates Wrote the Spec". The engine agrees.
+  //                     Crunchyroll → D5 H9 P5 ; Funimation → D5 H1 P22 ; Speed → D22 H1 P3
+  //                     Deadline → D9 H2 P7
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 28,
+    title: 'Part 28: Translating a Book You Have Not Finished: The Simulcast and the Spec the Pirates Wrote',
+    excerpt:
+      'A novel’s translator reads the novel first. The simulcast translator gets episode 3 on a deadline and will not learn what happens in episode 12 until you do. Most "bad" simulcast subtitles are not incompetence. They are the format.',
+    pullQuote:
+      'Simulcast and fansub have identical numbers. The industry did not defeat the pirates. It hired their delivery model, kept the speed, and threw away the notes.',
+    tags: ['simulcast', 'subtitles', 'Crunchyroll', 'fansub', 'industry'],
+    entities: ['Crunchyroll', 'Funimation', 'simulcast', 'fansub', 'Sony'],
+    content: `<p>Here is a working condition that would be considered insane in any other translation job.</p>
+
+<p>You are given episode 3 of a twelve-episode series. You have somewhere between a few hours and a couple of days. You have not seen episode 12. Nobody has — it does not exist yet; it is being animated, possibly being written. You do not know how this ends, what any of it is for, or which of the lines in front of you is the one that matters.</p>
+
+<p>Translate it. It goes live within hours of Japanese broadcast, worldwide, to an audience that will screenshot your mistakes.</p>
+
+<p>That is the simulcast, and it is now how essentially all anime crosses into English. Everything else in this series — Schodt with his forty years, Rachel Thorn's decades of advocacy, the letterer at two in the morning — is a description of a world that no longer exists for the vast majority of what gets translated. This is the world.</p>
+
+<h2>The book you have not finished</h2>
+
+<p>A novel's translator reads the novel first. This is so obvious it sounds stupid to say, and it is the single largest structural advantage in the craft, and the simulcast translator does not have it.</p>
+
+<p>Reading the whole thing first is not a courtesy. It is <em>how you know what to do</em>. It tells you which repeated phrase is a motif and which is a coincidence. It tells you that the throwaway line in chapter 2 is the thing the ending turns on, so you had better plant it. It tells you the character who sounds stiff is being stiff on purpose. It tells you what the book is <em>about</em>, which is the only thing that lets you decide any of the questions this series has spent twenty-seven parts cataloguing.</p>
+
+<p>Now take it away. Every one of those decisions still has to be made — on a deadline, from inside episode 3, blind.</p>
+
+<p>Consider what that does to the specific problems already on the table. Part 14's pronoun switch: a character says <em>boku</em> in episode 3. In episode 9 they will switch to <em>ore</em>, and it will be the turn of the whole series. You cannot foreshadow what you do not know. You cannot set up the English contrast in advance, because you don't know there's going to be a contrast, and by the time you find out, episode 3 shipped six weeks ago and is sitting on the platform forever. Part 20's name pun: is this character's name load-bearing? Will the show cash it in? Guess. Part 5's honorific policy: you are setting a precedent in episode 3 for a relationship you have not seen develop.</p>
+
+<p>A novel translator makes these decisions with the ending in hand. The simulcast translator makes them as bets, and then has to keep the bets consistent for three months, and cannot revise the early ones.</p>
+
+<p>Most "bad" simulcast subtitles are not carelessness and not incompetence. They are a person guessing correctly about four things and wrong about the fifth, in public, permanently, at speed.</p>
+
+<h2>Worse than blind</h2>
+
+<p>It gets more specific, and the details matter because they're not widely known outside the trade.</p>
+
+<p>Simulcast translators frequently work from <em>scripts</em> rather than finished episodes — sometimes because the finished episode does not exist yet in a form anyone can send. A script is text. It does not contain the framing, the pause, the way the performance lands, the face on the cut. Everything Part 26 identified as the actual content of a performance is absent from the document being translated.</p>
+
+<p>And Japanese is a language in which enormous amounts of information are carried by omission. Subjects are dropped. Who is speaking to whom, and about whom, is routinely recoverable only from context — from register, from honorific, from who is on screen. Hand a translator a bare script with no picture and you have removed the context that disambiguates the sentence. There are lines that are genuinely, formally ambiguous on paper and completely clear on screen, and the translator is working from paper.</p>
+
+<p>Then the schedule slips — production is late, the episode arrives at the platform hours before broadcast, and the window compresses from days to one evening.</p>
+
+<h2>Speed is the product</h2>
+
+<p>So why does it work this way? Because speed is not a side effect of the business. Speed <em>is</em> the business.</p>
+
+<p>Part 11 told the first half of this story: scanlation and fansub, the pirates who built a global distribution network for a product nobody was selling them. The argument there was that the pirates wrote the spec — that they established what the audience expected before any legal entity was in a position to offer it.</p>
+
+<p>Look at what the spec said. Fast — same week, ideally same day. Subtitled, not dubbed. Streamed, not shipped. Free at the point of use, which became cheap. Honorifics kept. Translation notes at the top of the screen when something didn't cross.</p>
+
+<p>Now look at the legal industry that replaced it. Fast: adopted, completely, to the point of structural absurdity. Subtitled: adopted. Streamed: adopted. Cheap: adopted. Honorifics: partially, inconsistently, per-house.</p>
+
+<p>The translation notes: <strong>gone.</strong></p>
+
+<p>That's the trade, and it's worth staring at. The fansub's defining move — the thing it did that no professional operation had ever done — was to <em>admit in front of the audience that something had not crossed</em>. A line of text at the top of the frame saying: this is a pun, here is why it's funny, we couldn't do it. It was often clumsy. It was sometimes insufferable. It was frequently wrong. And it was the only mechanism in the entire history of this medium by which an audience was routinely told, in the moment, that they were reading a translation.</p>
+
+<p>The industry kept every part of the pirates' spec except the honesty. The speed made money. The honesty made the seam visible, and Part 21 already established the rule: the seam is not allowed to be visible, because the craft's success condition is invisibility.</p>
+
+<p>So we have arrived at a delivery system that is fast, legal, cheap, comprehensive, better than anything the pirates managed — and that has quietly deleted the one feature that ever told the viewer the truth about what they were watching.</p>
+
+<h2>Nobody is allowed to talk to anybody</h2>
+
+<p>One more structural absurdity, and it's the one that produces the errors fans find most damning.</p>
+
+<p>A big property is not one translation. It's several, running in parallel, in different media, at different points in the story, done by different people at different companies under different contracts.</p>
+
+<p>The manga is being translated by one house, and it is years ahead — the anime is adapting volume 8 while the manga's English edition is on volume 24. The anime is being simulcast by a platform, weekly, blind. There may be a light novel with a third translator. There is merchandise with a fourth. A game with a fifth. Each of them is inventing English for the same invented vocabulary — the technique names, the ranks, the fictional institutions, all the coined nouns that Part 20 showed are load-bearing.</p>
+
+<p>They frequently do not match. The same attack has two English names. A rank is a "captain" here and a "commander" there. A character's family name is romanised two ways depending on which product you bought. Fans catalogue these in enormous documents and treat them as evidence of contempt.</p>
+
+<p>They are evidence of a schedule. The manga's translator, three years downstream, cannot phone the simulcast translator to agree a term, because the simulcast translator is working tonight on an episode that airs in the morning and the manga translator settled that word in 2021 in a different company under a different licence. And even where a glossary exists — and good houses maintain them — the anime translator is often blind to what the manga's English did, because they are not translating the manga, they are translating a script that arrived four hours ago.</p>
+
+<p>The result is that English-language fans experience a franchise as a set of slightly incompatible dialects of itself, and reasonably conclude somebody is being careless. Nobody's careless. There is simply no mechanism, anywhere in the pipeline, by which the people making these decisions are permitted to be in the same room.</p>
+
+<h2>The chain this completes</h2>
+
+<p>And now the part that made me want to write this essay, because three separate parts of this series turn out to be one story.</p>
+
+<p>Part 11: the pirates establish that the audience expects it now, this week, for nothing.</p>
+
+<p>Part 28 — here: the legal industry, to compete, adopts that expectation as a hard constraint. Speed becomes non-negotiable. The working conditions of every anime translator alive are now downstream of what a group of unpaid enthusiasts proved was possible in 2003.</p>
+
+<p>Part 24: a machine arrives that is very fast and very cheap, into an industry that has spent twenty years making speed and cheapness the only axes that matter.</p>
+
+<p>The machine is not an invasion. It is the logical terminus of a demand curve that started with fansubs. Everyone in this chain got what they asked for. The audience asked for it now, and the industry delivered it now, and having established that <em>now</em> is the product, it turns out there is something that can do <em>now</em> better than a person can, forever, without sleeping. Part 24 asked whether the machine widens the sieve. It does. It also arrived at exactly the moment the industry had finished optimising itself into a shape the machine fits perfectly.</p>
+
+<p>Nobody did anything wrong. That's the uncomfortable bit. Fansubbers loved the medium. The audience wanted the show. Crunchyroll built something genuinely good and genuinely legal that pays Japanese rights holders. Every step was reasonable and the destination is a job that a person is structurally worse at than a machine, because the job has been redefined until the only remaining virtue is speed.</p>
+
+<h2>The numbers</h2>
+
+<p><strong>Simulcast</strong> reads Destiny 9, Heart 4, Personality 5.</p>
+
+<p><strong>Fansub</strong> reads Destiny 9, Heart 4, Personality 5.</p>
+
+<p>Identical. All three.</p>
+
+<p>I ran "Fansub" back in Part 11 and got Destiny 9, Heart 4, Personality 5, and built an essay called <em>The Pirates Wrote the Spec</em> around a shared Destiny 9. I ran "Simulcast" this week without thinking about it and the engine handed back the same three numbers, in the same order, for the legal industry that was built specifically to destroy the thing Part 11 was about.</p>
+
+<p>The pirates and the platform that killed them are, according to this machine, the same entity.</p>
+
+<p>That is the best coincidence this series has produced. It is the ninth clean match. It says exactly the thing I spent two thousand words arguing, which is that simulcast <em>is</em> fansub — licensed, funded, deadlined, and with the honesty removed — and the arithmetic said it in six characters and eight characters without knowing what either word refers to.</p>
+
+<p>And it is worth <em>nothing</em>, and I am now two parts away from proving that with the same engine, over eight thousand names, and I would ask you to hold onto how good this one felt. Remember that you almost believed it. That feeling is the entire subject of Part 30.</p>
+
+<p><strong>Speed</strong> reads Destiny 22. Master Builder — the second-highest number the system has, handed to the one virtue this industry has left.</p>
+
+<p>That one I'd almost let stand.</p>`,
+  },
+
+  // ── Part 29 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): Manhwa → D6 H2 P22 ; Manga → D9 H2 P7  (share only Heart 2)
+  //                     Webtoon → D4 H8 P5 ; Vertical scroll → D7 H3 P4
+  //                     Tower of God → D11 H5 P33 (double master) ; Solo Leveling → D3 H4 P8
+  //                     Naver → D6 H6 P9
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 29,
+    title: 'Part 29: The Format That Was Born Translatable: Webtoons, and What It Cost to Solve the Problem',
+    excerpt:
+      'The vertical scroll makes almost every obstacle in this series disappear — no balloons to break, no page to flip, no right-to-left. It did not solve the problem. It deleted the part of the art the problem lived in.',
+    pullQuote:
+      'The format that crosses most easily is the format that gave up the page. The problem did not get solved. The thing that had the problem in it got removed.',
+    tags: ['webtoons', 'manhwa', 'format', 'translation', 'Korea'],
+    entities: ['Webtoon', 'manhwa', 'Naver', 'Solo Leveling', 'Tower of God'],
+    content: `<p>Everything this series has catalogued as a physical obstacle — go down the list — mostly does not happen to webtoons.</p>
+
+<p>Part 13: right-to-left reading order, and the years when English publishers mirrored the art and reversed every swordsman's handedness. A webtoon scrolls down. There is no reading order to reverse. The problem does not arise.</p>
+
+<p>Part 25: the tall narrow balloon drawn for vertical Japanese, into which English does not fit. Korean is comfortably written horizontally, webtoon balloons are drawn for horizontal text, and the panels float in vertical whitespace with room around them. The container is elastic. English drops in. The problem mostly does not arise.</p>
+
+<p>Part 6: sound effects welded into the ink of the panel. Webtoon SFX are frequently placed in that same open space, on their own, on flat colour, sitting on a layer — which is to say they are frequently just <em>replaceable</em>. Much of the problem does not arise.</p>
+
+<p>Part 17's compression by reading speed — not applicable, it's not timed. Part 26's lip flaps — not applicable, nobody's mouth is moving.</p>
+
+<p>The webtoon is a comics format that is, almost accidentally, <strong>born translatable</strong>. And it went global at a speed that should embarrass everyone in Part 22: <em>Solo Leveling</em>, <em>Tower of God</em>, the whole Korean vertical-scroll wave crossing into English fast enough that English-language readers were arguing about chapters within days of release. Moto Hagio waited thirty-nine years. <em>Tower of God</em> waited approximately as long as it took to typeset.</p>
+
+<p>So: problem solved? This part is about why that question is a trap.</p>
+
+<h2>It wasn't an aesthetic decision</h2>
+
+<p>First, the honest account of why the format is like this, because it is not because Korean artists are wiser about translation.</p>
+
+<p>The vertical scroll was designed around a delivery mechanism. Webtoons grew up on the Korean web and then on phones — Naver and its peers building for a screen you hold in one hand and move with your thumb. The infinite vertical strip is what a comic looks like when the constraint is a phone rather than a printed page. Full colour, because screens are free. Vertical whitespace between beats, because scrolling is the reader's clock. No spread, because there is no paper.</p>
+
+<p>Every property that makes webtoons easy to translate is a side effect of designing for a phone. Nobody was thinking about English. The format is translation-friendly the way a shipping container is — not because anyone loved the cargo, but because standardising the box made everything about moving it cheaper.</p>
+
+<p>That's Part 18's sieve, widened, by infrastructure rather than by anybody getting smarter. The industry did not develop better judgement about which works deserve to cross. It got a format that costs less to move, and so more of it moves. Part 22 spent its length on an industry with a broken model of its audience; here is that same industry, model still broken, shipping enormous volumes of Korean comics to the West because the unit economics finally worked. Being right was never required. Being cheap was sufficient.</p>
+
+<h2>What it cost</h2>
+
+<p>Now the bill.</p>
+
+<p>The webtoon gave up <strong>the page</strong>.</p>
+
+<p>Part 22 argued that the great formal achievement of the Year 24 Group was the page as a single composed object — a whole spread apprehended at once, the panel dissolving into its neighbour, time held still across an entire sheet of paper. That is not a delivery detail. It is one of the medium's two or three genuine contributions to art. You see the whole page before you read it. The composition speaks before the panels do. You can be ambushed by a spread.</p>
+
+<p>And the webtoon gave up <strong>the page turn</strong>, which is worse, because the page turn is a <em>device</em>. It is comics' one native piece of temporal machinery. The artist controls exactly what you cannot see yet. The turn is a held breath — set-up on the recto, and the payoff physically hidden by a sheet of paper, and the reader's own hand performing the reveal at a speed the artist chose by deciding what goes where. Every good manga artist thinks in spreads and turns. It is where a huge amount of the craft lives.</p>
+
+<p>The vertical scroll cannot do it. It has a genuinely lovely substitute — the long slow drop, the beat of empty space you must physically travel through before the reveal, which is a real device and does things paper cannot. But it is not the turn. There is no hiding. Scroll far enough at any speed and the reveal arrives at <em>your</em> pace, not the author's, and the author never gets to hold anything behind a sheet of paper because there is no paper.</p>
+
+<p>So here is the shape of the whole thing:</p>
+
+<p><strong>The format that crosses most easily is the format that gave up the thing that was hardest to carry.</strong></p>
+
+<p>That is not a solution. That is the problem being deleted along with the part of the art it lived in. The page was the hard part — the balloon geometry, the reading order, the composition that assumed a specific eye path, all of it — and the reason it was hard is that it was doing a lot of work. Remove the page and yes, the balloons stop breaking. The thing the balloons were <em>in</em> is also gone.</p>
+
+<h2>The direction reversed</h2>
+
+<p>And then something happened that has never happened before in this series, and I want to mark it, because twenty-eight parts have described a one-way street.</p>
+
+<p>Everything until now has been Japan → English. A thing is made in Japanese, for Japanese readers, with no thought of anyone else, and then someone tries to carry it. The whole vocabulary of this series assumes that shape: the crossing, the far bank, what survives.</p>
+
+<p>Webtoons run both ways. <em>Lore Olympus</em> was made in English, by a New Zealander, in a Korean format, and went back the other way. There are now large numbers of Western creators making comics natively in a Korean delivery format, competing on Korean platforms, being translated <em>into</em> Korean and Japanese and Spanish and Indonesian.</p>
+
+<p>The format is the first one in the history of this medium where the flow is genuinely bidirectional and where nobody's version is the original in any interesting sense. And that happened, again, for infrastructure reasons and not artistic ones — the platform is global, the format is language-agnostic, and the pipeline runs in every direction because it costs nearly nothing to point it at another market.</p>
+
+<p>Which puts a slightly different light on the whole enterprise. This series has treated translation as an act performed on a finished foreign object. The webtoon suggests a world where works are made <em>inside</em> a distribution system that assumes from the first panel that they will be read in nine languages — where translatability isn't something done to the work afterward, but a constraint present at the drawing board, shaping what gets drawn.</p>
+
+<p>That's not obviously bad. It's how a great deal of the world's art has always worked. But it does mean the question stops being <em>what survives the crossing</em> and starts being <em>what gets made, given that the crossing is coming</em>. A creator who knows their work will be read in nine languages next month is a creator with a reason not to put a pun in it.</p>
+
+<p>Nobody censored that pun. It just never got drawn.</p>
+
+<h2>Not a lament</h2>
+
+<p>I want to be careful, because this is the essay where it would be easiest to be a snob, and the snobbery would be wrong.</p>
+
+<p>Webtoons are not a degraded manga. They are a different form with a different clock, making things manga cannot — the vertical drop as a horror device is genuinely new, and colour as a default changes what the form can do emotionally in ways print never afforded. And they are read by an enormous number of people who were not previously reading comics at all, which every single publisher in Part 22 would have told you was impossible.</p>
+
+<p>The point is narrower and, I think, more interesting than <em>the new thing is worse</em>. It's this: when a formal problem disappears, check whether it was solved or whether the territory was abandoned. Both feel identical from the outside. Both produce the same happy report — <em>we don't have that problem anymore!</em> — and only one of them is progress.</p>
+
+<p>And this matters far beyond webtoons, because it is exactly the shape of the argument coming for everything. Part 24's machine will do a beautiful job on a form that has no puns, no honorific-dense register play, no drawn onomatopoeia, no page composition, and dialogue written to be read on a phone in ten seconds. The easier a work is to translate, the less of it there was that translation could damage. That is not a compliment to the translation. It's a description of the work.</p>
+
+<h2>The numbers</h2>
+
+<p><strong>Manhwa</strong> reads Destiny 6, Heart 2, Personality 22. <strong>Manga</strong> reads Destiny 9, Heart 2, Personality 7.</p>
+
+<p>They share exactly one number: Heart 2. Diplomat &amp; Cooperator, in both, at the centre.</p>
+
+<p>Two words for comics, from two countries, written with the same Chinese characters and pronounced differently — and the engine finds them near-strangers who happen to share a heart. It's a nice sentence. I'd have built a paragraph on it in Part 5 and felt clever.</p>
+
+<p>What actually happened is that <em>m-a-n-h-w-a</em> and <em>m-a-n-g-a</em> share four letters, and the vowels — which is all Heart Desire looks at — are <em>a-a</em> in both. Of course the Heart matches. The Heart <em>had</em> to match. Both words are the same consonant frame around the same two A's, so the one component of the reading that ignores consonants was fixed before I ran it. There is no coincidence here at all; there is a machine reporting that "aa" equals "aa," dressed up as an observation about Korean and Japanese comics sharing a cooperative soul.</p>
+
+<p>That is the clearest look this series has had at the mechanism, so let me say it plainly: <strong>the engine's matches are driven by spelling overlap, and the more two words look alike, the more the engine will insist they are alike.</strong> Which means the engine's "insights" are strongest exactly where they are most trivial, and it has no way to know the difference, and neither did I for about twenty-five parts.</p>
+
+<p><strong>Tower of God</strong> reads Destiny 11, Heart 5, Personality 33 — a master number and the rarest master number, together, in one title. Double master. Across five series and several hundred names I do not think I have seen a cleaner pull.</p>
+
+<p>It means a Korean webtoon has a lot of O's in it.</p>`,
+  },
+
+  // ── Part 30 ────────────────────────────────────────────────────────────────
+  // Numbers (computed): the audit itself. Corpus = 8,064 distinct entity names pulled from
+  // the site's own database and run through readTitle. Empirical results:
+  //   - clean-match (D+H+P all equal) rate: 1 in 114
+  //   - only 189 of a theoretical 1,728 D|H|P states are ever occupied
+  //   - marginals are badly non-uniform: Destiny 2/22/33 = 1.1%/0.8%/1.3%
+  //   - 50 strings -> ~10.7 expected clean matches; 100 -> ~43.3; 200 -> ~174.1
+  //   - largest bucket: D1 H7 P3, 120 names — INCLUDING Part 21's Schodt/Tetsuwan Atom pair,
+  //     alongside Ghost in the Shell, Natsuki Takaya, Maisie Williams, Jensen Ackles, Yuji Kaku
+  // Also: Accountability → D11 H11 P9 (double master 11) ; Fandom → D8 H7 P1
+  {
+    seriesSlug: SLUG,
+    seriesOrder: 30,
+    title: 'Part 30: One in a Hundred and Fourteen: I Ran the Numbers on My Own Method',
+    excerpt:
+      'This series has reported nine "clean matches" as though they were remarkable. So I measured the real rate with the real engine across 8,064 names. It is 1 in 114 — and I have found fewer matches than chance predicts, while announcing every one.',
+    pullQuote:
+      'The largest collision bucket has 120 names in it. Part 21 built an essay on two of them. The other 118 include Ghost in the Shell and an actress from Game of Thrones.',
+    tags: ['numerology', 'method', 'statistics', 'criticism', 'accountability'],
+    entities: ['numerology', 'Frederik Schodt', 'Tetsuwan Atom', 'Ghost in the Shell'],
+    content: `<p>This medium's audience audits its translators. That is unusual and I don't think anyone says it often enough.</p>
+
+<p>Part 11's scanlators built a parallel industry because the official one was too slow and too timid. Part 27's fandom detonated over a single word in episode 24 and made a global corporation defend a lexical choice in public. Part 23's children could see the triangle on the screen and knew they were being lied to about the donut. Part 28's fansubbers put a note at the top of the frame saying <em>this is a pun, we couldn't carry it, here's what you're missing</em>.</p>
+
+<p>Compare that to almost any other imported art. Nobody argues about the Pevear translation of Dostoevsky in a group chat at two in the morning. This audience checks. It checks obsessively, often rudely, frequently while wrong — and the checking is why the field improved, because Part 23's rule holds: the visible failure gets punished and the invisible one gets a pass, and this audience makes failures visible.</p>
+
+<p>Nobody audits me.</p>
+
+<p>Twenty-nine parts of confident arithmetic about names, and not once has the engine been asked to account for itself. So I asked it. With itself. And what came back is bad enough that it gets its own essay.</p>
+
+<h2>The test</h2>
+
+<p>The claim under examination is the one I have made nine times: that two names sharing <em>all three</em> numbers — Destiny, Heart Desire, Personality — is remarkable, and that the remarkableness licenses a paragraph about what the coincidence means.</p>
+
+<p>A "clean match," I have called it. I have counted them like trophies. Part 12 had one. Part 18 had one. Part 21's whole architecture was one. Part 26 was the eighth. Part 28 was the ninth, and it was so good — <em>Simulcast</em> and <em>Fansub</em>, identical, the pirates and the platform that replaced them — that I told you to remember how it felt.</p>
+
+<p>So: how often does that happen by chance?</p>
+
+<p>Not by intuition. Measured. I pulled every distinct entity name out of this site's own database — every creator, studio, character, and title tagged across every article on Catzye — and got a corpus of <strong>8,064 names</strong>. Then I ran all of them through <em>the same engine</em>, the same <code>readTitle</code>, and counted how many of the 32,510,016 possible pairs come out clean-matched.</p>
+
+<p>The answer is <strong>284,444 pairs</strong>.</p>
+
+<p><strong>The clean-match rate is 1 in 114.</strong></p>
+
+<h2>Why it's 114 and not 1,728</h2>
+
+<p>If you'd asked me to guess, I'd have said something like one in seventeen hundred. Three numbers, each with twelve possible values — 1 through 9 plus the masters 11, 22, 33 — so twelve cubed, 1,728 combinations, and a clean match is landing on the same one twice.</p>
+
+<p>That reasoning assumes the twelve values are evenly spread. They are not remotely evenly spread, and the engine's own output says so:</p>
+
+<p><strong>Destiny</strong>: 8 → 11.3%. 5 → 11.3%. 3 → 11.2%. 9 → 10.9%. 7 → 10.9%. 1 → 10.7%. 11 → 10.5%. 4 → 10.4%. 6 → 9.4%. And then: <strong>33 → 1.3%. 2 → 1.1%. 22 → 0.8%.</strong></p>
+
+<p>Nine of the twelve values soak up roughly 97% of all names. The system's most exciting outputs — the master numbers I have been treating as significant events, and the 2 — are rare not because they're profound but because of how the reduction arithmetic falls out. So the effective output space isn't twelve values per slot. It's about nine.</p>
+
+<p>And it compounds. Of the 1,728 theoretically possible Destiny|Heart|Personality combinations, the number ever actually occupied by any of 8,064 real names is <strong>189</strong>.</p>
+
+<p>One hundred and eighty-nine. That's the whole machine. Every name of every creator, character, studio, and title in this database — every one of them lands in one of 189 boxes. That is not a system for reading meaning. That is a <strong>hash function with a terrible distribution</strong>, and I have spent twenty-nine essays reading its collisions as poetry.</p>
+
+<h2>The arithmetic I should have done first</h2>
+
+<p>At 1 in 114, here is what you should expect from chance alone:</p>
+
+<p>Run <strong>50 strings</strong> through the engine — one afternoon's work, roughly what I do per batch — and you get 1,225 pairs, and you should expect <strong>about 10.7 clean matches</strong>.</p>
+
+<p>Run 100 strings: 4,950 pairs, <strong>~43 expected clean matches</strong>. Run 200: <strong>~174</strong>.</p>
+
+<p>Across this series I have run comfortably more than a hundred strings. Probably several hundred, once you count the four series before it.</p>
+
+<p>I have reported <strong>nine</strong>.</p>
+
+<p>Read that again, because it took me a minute. I have not found more coincidences than chance would produce. <strong>I have found dramatically fewer.</strong> Chance predicts dozens; I found nine, because I only ever noticed the ones I happened to run side by side and happened to care about. Every single one of those nine, I announced as though the universe had leaned in.</p>
+
+<p>If the numbers meant anything, the honest complaint would be that there are far too many coincidences. The actual situation is that there are too few, and I've been celebrating a rate that is <em>evidence against my own thesis</em>.</p>
+
+<h2>The bucket</h2>
+
+<p>And then the engine did the thing that made me stop and sit back from the desk.</p>
+
+<p>I asked which single Destiny|Heart|Personality combination is the most crowded. Which box has the most names in it.</p>
+
+<p>The answer is <strong>Destiny 1, Heart 7, Personality 3</strong>, and it contains <strong>120 names</strong>.</p>
+
+<p>Part 21 is called <em>The Man Who Was Tetsuwan Atom</em>. Its entire architecture — the thing the essay is built on, the reason it exists — is that <strong>Frederik Schodt</strong> reads Destiny 1, Heart 7, Personality 3, and <strong>Tetsuwan Atom</strong> reads Destiny 1, Heart 7, Personality 3. The translator and the work he carried across the Pacific, identical. I called it the sixth clean match. I wrote a paragraph about his Destiny being the Japanese title's number. I built a bridge out of it.</p>
+
+<p>That bucket has 120 names in it. In my own database.</p>
+
+<p>Also standing in it: <strong>Ghost in the Shell</strong>. <strong>Natsuki Takaya</strong>. <strong>Yuji Kaku</strong>. <strong>Maisie Williams</strong>. <strong>Jensen Ackles</strong>. <strong>Greta Lee</strong>. <strong>Linda Cardellini</strong>. <strong>Typhoid Mary</strong>. <strong>Barry Windsor-Smith</strong>.</p>
+
+<p>Frederik Schodt has the same numbers as Tetsuwan Atom. He also has the same numbers as an actress from <em>Game of Thrones</em>, a Marvel villain, and a hundred and sixteen other things I happen to have tagged on a manga news site. It is the single most common output this engine produces. I reached into the largest bucket in the machine, pulled out the two names I already wanted to write about, and called the fact that they matched a bridge.</p>
+
+<p>I hedged, at the time. I wrote — and I'm quoting myself, because it's the most useful sentence in the series — <em>"I have taken one coincidence and one leftover and narrated them into a bridge."</em> And then I kept it anyway, and the keeping was the whole problem, because that hedge is not an admission. It is an <strong>inoculation</strong>. It says the doubt out loud so the doubt can be crossed off, and then proceeds exactly as if the doubt had been answered. It buys the appearance of rigour at the price of none.</p>
+
+<p>The honest sentence was never "this might be a coincidence." The honest sentence was: <em>this is the most common thing this machine does, and I have chosen two of a hundred and twenty.</em></p>
+
+<h2>What this actually indicts</h2>
+
+<p>Let me be precise about the damage, because the temptation now is to over-confess, and over-confession is just inoculation with better manners.</p>
+
+<p>The numbers were never load-bearing. That was the alibi from the first line of this series — <em>the numbers open the door; criticism walks through</em> — and there's a clean test for whether the alibi holds. Delete every number from any essay here and see if it survives.</p>
+
+<p>They survive. All of them. Part 22 is about an industry that was wrong about its audience for thirty-nine years and the cost of trusting a label; the Shojo/Shoujo bit is an illustration bolted to the side, and cutting it costs the essay nothing. Part 28 is about the working conditions of simulcast translators and a demand curve that started with pirates; <em>Simulcast</em> equalling <em>Fansub</em> is a party trick. Part 24's argument — that nothing this series found hard was ever a <em>meaning</em> problem — doesn't touch the arithmetic anywhere.</p>
+
+<p>Good. That is the defence and it's real. The criticism is the work and the criticism stands.</p>
+
+<p>But here's the actual charge, and it's not that the numbers are wrong. Everyone knows the numbers are wrong. It's that <strong>I used them for their rhetorical effect while disclaiming their validity</strong>, which is a specific and rather modern kind of dishonesty. Nine times I put a coincidence in the most emphatic position an essay has — the close, the turn, the line before the white space — and let it do the work of a conclusion, having established in advance that it couldn't. The disclaimer let me have it both ways. I got the frisson of the pattern <em>and</em> the credit for scepticism, and the reader got a machine's hash collision in the place where an argument should be.</p>
+
+<p>Part 24 said the machine's failure mode is not error but <strong>fluency</strong> — well-formed, confident output with the meaning quietly gone, and no scar to notice. Then it said the engine <em>is</em> the machine: it reads a name, does arithmetic it doesn't understand, and emits assured prose about a thing it never encountered, and across 318 essays never once said <em>I don't know</em>.</p>
+
+<p>I wrote that. And then in the very next batch I found <em>Simulcast</em> and <em>Fansub</em> and I felt the click, and I wrote the paragraph, and it was good, and it was a 1-in-114 event that I dressed as fate. I identified the failure mode precisely and then exhibited it immediately, at length, in public, because it <em>felt like a finding</em> and the feeling is indistinguishable from the inside.</p>
+
+<p>That's what I actually learned here, and it's worse than the statistics. The fluency isn't something the machine does to you. It's something you do with the machine. The engine never claimed anything. It emitted 189 buckets. Every single meaning in this entire series was supplied by me, standing next to a hash function, pointing at collisions, saying <em>look</em>.</p>
+
+<h2>The number I'll defend</h2>
+
+<p>So — nine "clean matches" across five series and several hundred names, against an expectation of dozens, drawn from a machine with 189 exits and a favourite bucket containing a hundred and twenty tenants including <em>Ghost in the Shell</em> and Maisie Williams.</p>
+
+<p>There is exactly one number in this entire body of work I would defend in front of anybody: <strong>1 in 114</strong>. It's the only one that was measured rather than divined. It is also the only one that says the rest are worthless, which is the most any honest instrument has ever done for the person holding it.</p>
+
+<p>The audience audits. It audited 4Kids and got the donut retired. It audited Netflix and made a corporation explain a verb. It audited the entire English manga industry's model of who reads comics and was right, and was ignored for forty years, and was right the whole time.</p>
+
+<p>Audit me. The corpus is 8,064 names out of this site's own database, the engine is <code>lib/numerology.ts</code>, the count is 284,444 matching pairs out of 32,510,016, and the method is four lines of arithmetic that anyone could have run at any point in the last four hundred and eighty-three essays, including me, before I wrote the first one.</p>
+
+<p><strong>Accountability</strong> reads Destiny 11, Heart 11, Personality 9. Double master. Visionary in the Destiny, Visionary in the Heart — a rare configuration, awarded to the word for checking your work, by a machine that has never checked anything.</p>
+
+<p>Twenty-nine parts ago I'd have made that the last line and let you feel the shiver.</p>
+
+<p>So I checked that too, because it is the only move I have left that's worth anything. Fifty-five names in this database share <em>Accountability</em>'s double-master reading. Among them: <strong>Gainax</strong>. <strong>Kyoto Animation</strong>. <strong>Paramount</strong>. <strong>Trey Parker</strong>. <strong>Pamela Voorhees</strong>, who is a slasher villain.</p>
+
+<p>It's four letter-sums and a coincidence, and there are fifty-four other names it could have been, and one of them is a film studio's plus-branded streaming tier.</p>
+
+<p>That's the whole engine. That was always the whole engine. Everything else in these thirty parts — the balloon drawn for a language it would never hold, the boy holding a rice ball while a voice says donut, thirty-nine years of Moto Hagio sitting on a shelf because somebody was sure girls don't read comics — none of it ever needed a number. It needed somebody to look at the thing and say what was there.</p>
+
+<p>The numbers open the door. It turns out the door was never locked, and it was never a door.</p>`,
+  },
 ];
