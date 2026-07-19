@@ -15,8 +15,9 @@ import { AUTHORED } from './authored-essays';
 import { AUTHORED_CROSSING } from './authored-crossing';
 import { AUTHORED_AUDIENCE } from './authored-audience';
 import { AUTHORED_BELIEF } from './authored-belief';
+import { AUTHORED_CHARACTER } from './authored-character';
 
-const ALL = [...AUTHORED, ...AUTHORED_CROSSING, ...AUTHORED_AUDIENCE, ...AUTHORED_BELIEF];
+const ALL = [...AUTHORED, ...AUTHORED_CROSSING, ...AUTHORED_AUDIENCE, ...AUTHORED_BELIEF, ...AUTHORED_CHARACTER];
 
 function loadEnv(file: string) {
   const full = path.resolve(process.cwd(), file);
