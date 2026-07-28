@@ -175,35 +175,52 @@ function mirrorSeries(rows: Row[]): void {
   }
 }
 
+// data/series.json snapshots the series table only — the `articles` relation is
+// not stored on the row. Callers that ask for `include: { articles }` would
+// otherwise get `undefined` and crash on `.length`, taking down /series, the
+// series detail page, and the article page's series banner during an outage.
+// Rebuild the relation from the article snapshot, honouring the nested
+// where/orderBy/select so the shape matches what Prisma would have returned.
+function hydrateSeriesArticles(row: Row | null, args?: AnyArgs): Row | null {
+  if (!row) return row;
+  const include = args?.include?.articles;
+  if (!include) return row;
+  const nested = include === true ? {} : include;
+  const scoped = snapshot.filter((a) => a.seriesId === row.id);
+  return { ...row, articles: queryMany(scoped, nested) };
+}
+
 const seriesReads = {
   async findMany(args?: AnyArgs) {
     try {
       const rows = (await realPrisma.series.findMany(args)) as Row[];
-      if (!args?.select) mirrorSeries(rows);
+      if (!args?.select && !args?.include) mirrorSeries(rows);
       return rows;
     } catch (err) {
       warnOnce('series.findMany', err);
-      return queryMany(seriesSnapshot, args);
+      return (queryMany(seriesSnapshot, args) as Row[]).map(
+        (r) => hydrateSeriesArticles(r, args) as Row,
+      );
     }
   },
   async findUnique(args: AnyArgs) {
     try {
       const row = (await realPrisma.series.findUnique(args)) as Row | null;
-      if (row && !args?.select) mirrorSeries([row]);
+      if (row && !args?.select && !args?.include) mirrorSeries([row]);
       return row;
     } catch (err) {
       warnOnce('series.findUnique', err);
-      return queryOne(seriesSnapshot, args);
+      return hydrateSeriesArticles(queryOne(seriesSnapshot, args) as Row | null, args);
     }
   },
   async findFirst(args?: AnyArgs) {
     try {
       const row = (await realPrisma.series.findFirst(args)) as Row | null;
-      if (row && !args?.select) mirrorSeries([row]);
+      if (row && !args?.select && !args?.include) mirrorSeries([row]);
       return row;
     } catch (err) {
       warnOnce('series.findFirst', err);
-      return queryOne(seriesSnapshot, args);
+      return hydrateSeriesArticles(queryOne(seriesSnapshot, args) as Row | null, args);
     }
   },
   async count(args?: AnyArgs) {
