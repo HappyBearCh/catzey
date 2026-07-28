@@ -14,7 +14,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 const MAX_PAGINATED_PAGES = 50;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let articles: { slug: string; updatedAt: Date; tags: string[] }[] = [];
+  let articles: { slug: string; updatedAt: Date; tags: string[]; imageUrl: string | null }[] = [];
   let entityRows: { entity: string; last: Date }[] = [];
   let categoryStats: { category: string; count: number; last: Date | null }[] = [];
   let seriesList: { slug: string; updatedAt: Date }[] = [];
@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     articles = await prisma.article.findMany({
       where: { published: true },
-      select: { slug: true, updatedAt: true, tags: true },
+      select: { slug: true, updatedAt: true, tags: true, imageUrl: true },
       orderBy: { publishedAt: 'desc' },
       take: 5000,
     });
@@ -141,11 +141,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.55,
     }));
 
+  // Declaring the lead image makes the article eligible for Google Images,
+  // which is a meaningful discovery surface for manga/anime coverage. Only
+  // absolute URLs are valid in a sitemap, so relative uploads get prefixed.
   const articlePages: MetadataRoute.Sitemap = articles.map((a) => ({
     url: `${BASE}/article/${a.slug}`,
     lastModified: a.updatedAt,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
+    ...(a.imageUrl && {
+      images: [a.imageUrl.startsWith('http') ? a.imageUrl : `${BASE}${a.imageUrl}`],
+    }),
   }));
 
   const seriesPages: MetadataRoute.Sitemap = seriesList.map((s) => ({

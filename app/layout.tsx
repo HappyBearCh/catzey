@@ -21,6 +21,26 @@ export const metadata: Metadata = {
   description:
     'Latest manga and anime news, reviews, and industry updates from around the world.',
   keywords: ['manga', 'anime', 'manhwa', 'light novels', 'reviews', 'industry news'],
+  // Google truncates image previews to a thumbnail and snippets to ~160 chars
+  // unless told otherwise. `max-image-preview:large` is a hard requirement for
+  // Google Discover eligibility and for large thumbnails in Top Stories — the
+  // two surfaces that drive most traffic to a news site. Set sitewide; the few
+  // pages that opt out (search, /saved, admin, thin tag/topic hubs) override
+  // this with their own `robots` block.
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
     siteName: 'Catzye',
     locale: 'en_US',

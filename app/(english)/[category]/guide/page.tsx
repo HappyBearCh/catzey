@@ -35,6 +35,8 @@ function buildFaqSchema(html: string): object | null {
 
 export const revalidate = false; // static — guide content never changes at runtime
 
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
+
 interface Props {
   params: Promise<{ category: string }>;
 }
@@ -43,13 +45,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const guide = getGuide(category);
   if (!guide) return {};
+  const url = `${BASE}/${category}/guide`;
   return {
     title: guide.title,
     description: guide.subtitle,
+    alternates: { canonical: url },
     openGraph: {
       title: guide.title,
       description: guide.subtitle,
-      images: [{ url: guide.heroImage.src }],
+      url,
+      type: 'article',
+      images: [{ url: guide.heroImage.src, width: 1200, height: 630, alt: guide.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: guide.title,
+      description: guide.subtitle,
+      images: [guide.heroImage.src],
     },
   };
 }
@@ -69,6 +81,16 @@ export default async function GuidePage({ params }: Props) {
 
   const faqSchema = buildFaqSchema(guide.body);
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: validCategory.label, item: `${BASE}/${category}` },
+      { '@type': 'ListItem', position: 3, name: 'Guide', item: `${BASE}/${category}/guide` },
+    ],
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       {faqSchema && (
@@ -77,6 +99,11 @@ export default async function GuidePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+
       {/* Breadcrumb */}
       <nav className="text-xs text-site-gray mb-6 flex items-center gap-2">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>

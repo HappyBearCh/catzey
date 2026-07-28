@@ -72,9 +72,20 @@ export default async function SeriesPage({ params }: Props) {
     })),
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Series', item: `${BASE}/series` },
+      { '@type': 'ListItem', position: 3, name: series.title, item: `${BASE}/series/${slug}` },
+    ],
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-500 mb-6 uppercase tracking-wider">
