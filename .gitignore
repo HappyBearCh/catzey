@@ -13,6 +13,11 @@ out/
 # Prisma
 prisma/migrations/
 
+# Generated SQL dumps — regenerate with `npx tsx scripts/dump-sql.ts`.
+# Large, and the article rows already live in the committed data/*.json
+# snapshots, so committing these would just duplicate them.
+dump/
+
 # Claude Code local settings (may contain credentials)
 .claude/settings.local.json
 
