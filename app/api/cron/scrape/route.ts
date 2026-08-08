@@ -56,28 +56,17 @@ export async function GET(request: NextRequest) {
         select: { slug: true },
       });
       revalidateSite();
-      await notifyPublished(dueRows.map((r) => r.slug));
+      await Promise.allSettled([
+        notifyPublished(dueRows.map((r) => r.slug)),
+        pingSitemaps(),
+      ]);
       console.log(`[cron/scrape] Auto-published ${due.length} scheduled article(s)`);
     }
 
-    const scrapeStart = new Date();
+    // The lite scraper only fills the ScrapedItem queue — it publishes nothing,
+    // so neither revalidation nor a sitemap ping belongs here. /api/cron/process
+    // handles both once an item actually becomes a published article.
     const result = await runScrapingLite();
-
-    if (result.added > 0) {
-      revalidateSite();
-
-      // Fetch slugs of articles just created so we can ping IndexNow
-      const newArticles = await prisma.article.findMany({
-        where: { published: true, createdAt: { gte: scrapeStart } },
-        select: { slug: true },
-      });
-      const newSlugs = newArticles.map((a) => a.slug);
-
-      await Promise.allSettled([
-        notifyPublished(newSlugs),
-        pingSitemaps(),
-      ]);
-    }
 
     const duration = ((Date.now() - startTime) / 1000).toFixed(1);
 

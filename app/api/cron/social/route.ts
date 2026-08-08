@@ -179,23 +179,35 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  // Find articles published in the last 32 minutes (30-min cron + 2-min buffer)
-  const windowStart = new Date(Date.now() - 32 * 60 * 1000);
-  let articles: { title: string; slug: string; category: string }[] = [];
+  // Anything published but not yet announced. Unlike the previous "last N
+  // minutes" window this neither misses articles when a run is skipped nor
+  // reposts the ones that land on a window boundary — which matters now that
+  // social and process share a cron slot.
+  //
+  // MAX_AGE_MS keeps a backlog (or a botched backfill of socialPostedAt) from
+  // dumping the archive onto the timelines, and PER_RUN caps the burst rate.
+  const MAX_AGE_MS = 24 * 60 * 60 * 1000;
+  const PER_RUN = 12;
+
+  let articles: { id: string; title: string; slug: string; category: string }[] = [];
 
   try {
     articles = await prisma.article.findMany({
-      where: { published: true, publishedAt: { gte: windowStart } },
+      where: {
+        published: true,
+        socialPostedAt: null,
+        publishedAt: { gte: new Date(Date.now() - MAX_AGE_MS) },
+      },
       orderBy: { publishedAt: 'desc' },
-      take: 10,
-      select: { title: true, slug: true, category: true },
+      take: PER_RUN,
+      select: { id: true, title: true, slug: true, category: true },
     });
   } catch (err) {
     return NextResponse.json({ error: 'DB error', detail: String(err) }, { status: 500 });
   }
 
   if (articles.length === 0) {
-    return NextResponse.json({ ok: true, posted: 0, reason: 'no new articles in window' });
+    return NextResponse.json({ ok: true, posted: 0, reason: 'nothing new to announce' });
   }
 
   const results: Record<string, { bluesky?: boolean; twitter?: boolean; reddit?: boolean }> = {};
@@ -208,8 +220,17 @@ export async function GET(request: NextRequest) {
       postToReddit(article.title, url, article.category),
     ]);
     results[article.slug] = { bluesky: bsky, twitter: tw, reddit: rd };
+
+    // Mark on any success. Retrying the whole article to catch one failed
+    // network would repost it to the platforms that already accepted it.
+    if (bsky || tw || rd) {
+      await prisma.article
+        .update({ where: { id: article.id }, data: { socialPostedAt: new Date() } })
+        .catch(() => {});
+    }
   }
 
-  console.log(`[cron/social] Posted ${articles.length} article(s)`, results);
-  return NextResponse.json({ ok: true, posted: articles.length, results });
+  const posted = Object.values(results).filter((r) => r.bluesky || r.twitter || r.reddit).length;
+  console.log(`[cron/social] Posted ${posted}/${articles.length} article(s)`, results);
+  return NextResponse.json({ ok: true, posted, attempted: articles.length, results });
 }

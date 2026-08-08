@@ -1,5 +1,7 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  // Required by the Neon driver adapter wired up in lib/db.ts.
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -18,8 +20,14 @@ model ScrapedItem {
   pubDate     DateTime?
   scrapedAt   DateTime  @default(now())
   status      String    @default("pending")
+  // Failed items are requeued until this hits MAX_RETRIES (see cron/process).
+  retries     Int       @default(0)
+  // When the item was last claimed, so a run that dies mid-batch can be
+  // detected and its items reclaimed instead of stranding on "processing".
+  claimedAt   DateTime?
 
   @@index([status])
+  @@index([status, retries])
 }
 
 model Article {
@@ -47,6 +55,10 @@ model Article {
   seriesOrder Int?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  // Set once the social cron has announced the article. Replaces the old
+  // "published in the last N minutes" window, which both missed articles when a
+  // run was skipped and double-posted the ones landing on a window boundary.
+  socialPostedAt DateTime?
   series      Series?   @relation(fields: [seriesId], references: [id])
 
   @@index([category])

@@ -1,4 +1,7 @@
 import { PrismaClient } from '@prisma/client';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import { PrismaNeon } from '@prisma/adapter-neon';
+import ws from 'ws';
 import fs from 'fs';
 import path from 'path';
 import {
@@ -19,7 +22,19 @@ const globalForPrisma = globalThis as unknown as {
   seriesSnapshot?: Row[];
 };
 
-const realPrisma = globalForPrisma.prisma ?? new PrismaClient();
+// Route Prisma through Neon's serverless driver rather than a raw TCP socket.
+// It multiplexes over a WebSocket, which survives the short-lived function
+// instances this app runs on far better than a pooled TCP connection and cuts
+// the per-invocation connection setup that keeps the Neon compute busy.
+function createPrisma(): PrismaClient {
+  const connectionString = process.env.DATABASE_URL;
+  if (!connectionString) return new PrismaClient();
+  neonConfig.webSocketConstructor = ws;
+  const adapter = new PrismaNeon(new Pool({ connectionString }));
+  return new PrismaClient({ adapter });
+}
+
+const realPrisma = globalForPrisma.prisma ?? createPrisma();
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = realPrisma;
 
 // ─── Article fallback snapshot ────────────────────────────────────────────────
