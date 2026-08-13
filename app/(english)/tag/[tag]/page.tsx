@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import type { Article } from '@/lib/types';
@@ -10,6 +11,14 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 interface Props {
   params: Promise<{ tag: string }>;
+}
+
+// The tag space is open-ended, so nothing is prerendered at build. Declaring
+// this anyway is what puts the route on ISR: a dynamic segment with no
+// generateStaticParams is rendered per request and never cached, which made
+// `revalidate` above a no-op and billed a function call for every crawler hit.
+export function generateStaticParams() {
+  return [] as { tag: string }[];
 }
 
 function decodeTag(raw: string): string {
@@ -59,6 +68,10 @@ export default async function TagPage({ params }: Props) {
     take: 24,
   }) as Article[];
 
+  // Without this, any string a crawler invents mints a cached 200 "no articles"
+  // page — a soft 404 that also lets the ISR key space grow without bound.
+  if (articles.length === 0) notFound();
+
   // Related tags: most common co-occurring tags across the result set.
   const tagCounts = new Map<string, number>();
   for (const a of articles) {
@@ -99,17 +112,11 @@ export default async function TagPage({ params }: Props) {
         {articles.length} article{articles.length !== 1 ? 's' : ''} tagged with &quot;{label}&quot;
       </p>
 
-      {articles.length === 0 ? (
-        <div className="py-20 text-center text-gray-400">
-          <p className="text-xl font-bold mb-2">No articles yet</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {articles.map((article) => (
-            <ArticleCard key={article.id} article={article} size="medium" />
-          ))}
-        </div>
-      )}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {articles.map((article) => (
+          <ArticleCard key={article.id} article={article} size="medium" />
+        ))}
+      </div>
 
       {relatedTags.length > 0 && (
         <div className="mt-12 pt-6 border-t border-site-border">

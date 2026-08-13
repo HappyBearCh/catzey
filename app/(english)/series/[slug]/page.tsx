@@ -12,6 +12,19 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 interface Props { params: Promise<{ slug: string }> }
 
+// A handful of series, all known at build time. Beyond prerendering them, this
+// is what puts the route on ISR at all — a dynamic segment with no
+// generateStaticParams renders per request and is never cached, which made the
+// `revalidate` above a no-op.
+export async function generateStaticParams() {
+  try {
+    const series = await prisma.series.findMany({ select: { slug: true } });
+    return series.map((s) => ({ slug: s.slug }));
+  } catch {
+    return [];
+  }
+}
+
 async function getSeries(slug: string) {
   const series = await prisma.series.findUnique({
     where: { slug },

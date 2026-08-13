@@ -24,9 +24,13 @@ export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
 
 export type CategorySort = 'latest' | 'popular';
 
+// Sort lives in the path, not a query string. A page that reads searchParams is
+// opted out of static rendering entirely, so `?sort=` made every category view a
+// per-request function call — Next.js ignored both `revalidate` and
+// generateStaticParams on those routes. Path segments keep them on ISR.
 export function categoryPageHref(category: string, page: number, sort: CategorySort = 'latest'): string {
-  const path = page <= 1 ? `/${category}` : `/${category}/page/${page}`;
-  return sort === 'popular' ? `${path}?sort=popular` : path;
+  const base = sort === 'popular' ? `/${category}/popular` : `/${category}`;
+  return page <= 1 ? base : `${base}/page/${page}`;
 }
 
 // Windowed page list: first, last, current ±2, with null marking ellipsis gaps
@@ -90,7 +94,7 @@ export async function CategoryArchive({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${label} News`,
-    url: `${BASE}${categoryPageHref(category, page)}`,
+    url: `${BASE}${categoryPageHref(category, page, sort)}`,
     numberOfItems: articles.length,
     itemListElement: articles.map((a, i) => ({
       '@type': 'ListItem',

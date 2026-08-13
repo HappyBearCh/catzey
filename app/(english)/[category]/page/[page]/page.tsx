@@ -4,7 +4,6 @@ import {
   CategoryArchive,
   CATEGORY_DESCRIPTIONS,
   categoryPageHref,
-  type CategorySort,
 } from '@/components/CategoryArchive';
 import { CATEGORIES, getCategoryLabel } from '@/lib/types';
 
@@ -14,7 +13,13 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 interface Props {
   params: Promise<{ category: string; page: string }>;
-  searchParams: Promise<{ sort?: string }>;
+}
+
+// Nothing is prerendered at build — page counts move with every publish — but
+// declaring this is what opts the route into ISR at all. A dynamic segment with
+// no generateStaticParams is rendered per request and never cached.
+export function generateStaticParams() {
+  return [] as { category: string; page: string }[];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -45,17 +50,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CategoryPaginatedPage({ params, searchParams }: Props) {
+export default async function CategoryPaginatedPage({ params }: Props) {
   const { category, page: pageStr } = await params;
-  const sp = await searchParams;
-  const sort = (sp.sort === 'popular' ? 'popular' : 'latest') as CategorySort;
 
   const validCategory = CATEGORIES.find((c) => c.slug === category);
   if (!validCategory) notFound();
 
   const page = parseInt(pageStr);
   if (!Number.isFinite(page) || !/^\d+$/.test(pageStr) || page < 1) notFound();
-  if (page === 1) permanentRedirect(categoryPageHref(category, 1, sort));
+  if (page === 1) permanentRedirect(categoryPageHref(category, 1, 'latest'));
 
-  return <CategoryArchive category={category} page={page} sort={sort} />;
+  return <CategoryArchive category={category} page={page} sort="latest" />;
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getTopicInfo } from '@/lib/topic-info';
@@ -12,6 +13,14 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 interface Props {
   params: Promise<{ entity: string }>;
+}
+
+// Entities are extracted from articles, so the set is open-ended and nothing is
+// prerendered at build. Declaring this anyway is what puts the route on ISR: a
+// dynamic segment with no generateStaticParams renders per request and is never
+// cached, which made `revalidate` above a no-op.
+export function generateStaticParams() {
+  return [] as { entity: string }[];
 }
 
 function decodeEntity(raw: string): string {
@@ -64,6 +73,11 @@ export default async function TopicPage({ params }: Props) {
     orderBy: { publishedAt: 'desc' },
     take: 24,
   }) as Article[];
+
+  // A curated hub is real content and stays up even before it has articles, but
+  // an arbitrary entity a crawler invented is a soft 404 — and every one of them
+  // would otherwise mint its own cache entry.
+  if (articles.length === 0 && !getTopicInfo(name)) notFound();
 
   // Related topics: most common co-occurring entities across the result set.
   const entityCounts = new Map<string, number>();
