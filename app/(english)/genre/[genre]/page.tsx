@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
+import { tagHref } from '@/lib/tags';
 import type { Article } from '@/lib/types';
 
 export const revalidate = 3600;
@@ -138,7 +139,7 @@ export default async function GenrePage({ params }: Props) {
                 {info.notableWorks.map((work) => (
                   <li key={work}>
                     <Link
-                      href={`/tag/${encodeURIComponent(work)}`}
+                      href={tagHref(work)}
                       className="flex items-center gap-2 py-2 border-b border-site-border dark:border-gray-800 text-sm font-semibold hover:text-primary transition-colors group"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
@@ -160,7 +161,7 @@ export default async function GenrePage({ params }: Props) {
               {info.relatedTags.map((tag) => (
                 <Link
                   key={tag}
-                  href={`/tag/${encodeURIComponent(tag)}`}
+                  href={tagHref(tag)}
                   className="text-2xs px-2 py-1 bg-site-light dark:bg-gray-800 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-colors rounded-sm"
                 >
                   {tag}

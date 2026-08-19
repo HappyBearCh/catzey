@@ -65,6 +65,11 @@ model Article {
   @@index([publishedAt(sort: Desc)])
   @@index([views(sort: Desc)])
   @@index([seriesId])
+  // Tag and topic archives filter with array containment (`has` / `hasSome`),
+  // which without a GIN index is a sequential scan of every article on each
+  // ISR revalidation — the bulk of what those routes cost on Neon.
+  @@index([tags(ops: ArrayOps)], type: Gin)
+  @@index([entities(ops: ArrayOps)], type: Gin)
 }
 
 model Series {

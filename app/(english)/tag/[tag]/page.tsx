@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
+import { tagSlug, tagHref, safeDecode, resolveTag } from '@/lib/tags';
 import type { Article } from '@/lib/types';
 
 export const revalidate = 3600;
@@ -21,29 +22,28 @@ export function generateStaticParams() {
   return [] as { tag: string }[];
 }
 
-function decodeTag(raw: string): string {
-  return decodeURIComponent(raw).replace(/-/g, ' ');
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
-  const label = decodeTag(tag);
-  const canonicalUrl = `${BASE}/tag/${tag}`;
+  const slug = tagSlug(safeDecode(tag));
+  const resolved = await resolveTag(slug);
+  // Unresolvable, or about to be redirected to the canonical slug — either way
+  // the metadata is never the one that ends up in the index.
+  if (!resolved || slug !== tag) return {};
+
+  const label = resolved.label;
+  const canonicalUrl = `${BASE}/tag/${encodeURIComponent(slug)}`;
   const ogImage = `/og?title=${encodeURIComponent('#' + label + ' — Manga & Anime News')}`;
-  // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
-  // pages eating crawl budget, but stay followable so link equity flows.
-  let count = 0;
-  try {
-    count = await prisma.article.count({ where: { published: true, tags: { has: label } } });
-  } catch {}
+  const description = `Browse all manga and anime articles tagged "${label}" on Catzye.`;
   return {
     title: `#${label} — Manga & Anime News`,
-    description: `Browse all manga and anime articles tagged "${label}" on Catzye.`,
+    description,
     alternates: { canonical: canonicalUrl },
-    ...(count < 2 && { robots: { index: false, follow: true } }),
+    // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
+    // pages eating crawl budget, but stay followable so link equity flows.
+    ...(resolved.count < 2 && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `#${label} | Catzye`,
-      description: `Browse all manga and anime articles tagged "${label}" on Catzye.`,
+      description,
       url: canonicalUrl,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
@@ -57,40 +57,55 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
-  const label = decodeTag(tag);
+  const slug = tagSlug(safeDecode(tag));
+  // Non-canonical spellings ("One%20Piece", "Editor-In-Chief") are 308'd to the
+  // canonical slug by the proxy, before this ever renders. Redirecting here
+  // instead would not work: loading.tsx puts a Suspense boundary above this
+  // page, so the 200 shell is already flushed by the time a redirect could be
+  // thrown and Next degrades it to a <meta http-equiv="refresh"> — a soft
+  // redirect that leaves the duplicate URL answering 200.
+  const resolved = await resolveTag(slug);
+  // Without this, any string a crawler invents mints a cached 200 "no articles"
+  // page — a soft 404 that also lets the ISR key space grow without bound.
+  if (!resolved) notFound();
+  const label = resolved.label;
 
   const articles = await prisma.article.findMany({
     where: {
       published: true,
-      tags: { has: label },
+      // Matches every stored spelling that shares this slug, so the merged
+      // archive shows all of them.
+      tags: { hasSome: resolved.labels },
     },
     orderBy: { publishedAt: 'desc' },
     take: 24,
   }) as Article[];
 
-  // Without this, any string a crawler invents mints a cached 200 "no articles"
-  // page — a soft 404 that also lets the ISR key space grow without bound.
   if (articles.length === 0) notFound();
 
-  // Related tags: most common co-occurring tags across the result set.
-  const tagCounts = new Map<string, number>();
+  // Related tags: most common co-occurring tags across the result set, deduped
+  // by slug so variant spellings do not show up twice.
+  const tagCounts = new Map<string, { label: string; count: number }>();
   for (const a of articles) {
     for (const t of a.tags) {
-      if (t.toLowerCase() === label.toLowerCase()) continue;
-      tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
+      const s = tagSlug(t);
+      if (!s || s === slug) continue;
+      const cur = tagCounts.get(s);
+      if (cur) cur.count++;
+      else tagCounts.set(s, { label: t, count: 1 });
     }
   }
-  const relatedTags = [...tagCounts.entries()]
-    .sort((a, b) => b[1] - a[1])
+  const relatedTags = [...tagCounts.values()]
+    .sort((a, b) => b.count - a.count)
     .slice(0, 12)
-    .map(([t]) => t);
+    .map((t) => t.label);
 
   const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: `#${label}`,
     description: `Manga and anime articles tagged "${label}"`,
-    url: `${BASE}/tag/${tag}`,
+    url: `${BASE}/tag/${encodeURIComponent(slug)}`,
     numberOfItems: articles.length,
     ...(articles.length > 0 && {
       hasPart: articles.slice(0, 10).map((a) => ({
@@ -125,7 +140,7 @@ export default async function TagPage({ params }: Props) {
             {relatedTags.map((t) => (
               <Link
                 key={t}
-                href={`/tag/${encodeURIComponent(t.replace(/\s+/g, '-'))}`}
+                href={tagHref(t)}
                 className="text-xs px-2.5 py-1 bg-site-light dark:bg-gray-800 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-colors rounded-sm"
               >
                 #{t}

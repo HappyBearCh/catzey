@@ -128,7 +128,7 @@ function escapeStrayQuotes(json: string): string {
   return out.join('');
 }
 
-function parseJson(raw: string): Record<string, unknown> {
+export function parseJson(raw: string): Record<string, unknown> {
   const text = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
   try { return JSON.parse(text); } catch { /* fall through */ }
   const block = text.match(/\{[\s\S]*\}/);

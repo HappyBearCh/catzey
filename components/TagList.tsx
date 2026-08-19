@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { tagHref } from '@/lib/tags';
 
 interface TagListProps {
   tags: string[];
@@ -13,7 +14,7 @@ export function TagList({ tags, basePath = '' }: TagListProps) {
       {tags.map((tag) => (
         <Link
           key={tag}
-          href={`${basePath}/tag/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
+          href={`${basePath}${tagHref(tag)}`}
           className="inline-block text-xs font-semibold px-2.5 py-1 bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-colors rounded-sm"
         >
           #{tag}

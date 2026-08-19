@@ -1,0 +1,1224 @@
+[
+  {
+    "slug": "anime-adaptation",
+    "term": "Anime Adaptation",
+    "shortDef": "An animated version of a manga, usually produced while the source is still running, which forces structural compromises.",
+    "body": "<h2>What it means</h2><p>An anime adaptation converts a manga into animation, adding voice, colour, motion and music. Most well-known anime are adaptations rather than original works.</p><h2>The core structural problem</h2><p>A weekly episode consumes roughly three to four chapters, while a weekly manga produces one. An adaptation running continuously will overtake its source. Studios respond with filler, an invented ending, or by stopping and waiting — the last of which is now standard and explains the multi-year gaps between modern seasons.</p><h2>What changes beyond pacing</h2><p>Adaptations routinely cut subplots and minor characters, and interior monologue is especially vulnerable since voicing it slows an episode. Conversely, animation genuinely improves action, where drawn motion replaces the implication a static page must rely on.</p><h2>A common misconception</h2><p>Faithfulness is not the same as quality. Several of the best-regarded adaptations restructure their source substantially, while panel-for-panel reproduction can produce badly paced television.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "filler",
+      "canon",
+      "chapter",
+      "manga"
+    ],
+    "examples": [
+      "death-note",
+      "fullmetal-alchemist",
+      "attack-on-titan"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "assistant",
+    "term": "Assistant",
+    "shortDef": "An uncredited artist employed by a mangaka to draw backgrounds, apply tone and ink, making weekly serialisation physically possible.",
+    "body": "<h2>What it means</h2><p>An assistant works under a mangaka on the parts of a page that do not require the lead artist's hand — backgrounds, screentone, effects lines, inking and occasionally crowd figures.</p><h2>Why the role is essential</h2><p>Producing 19 finished pages a week is not achievable alone. Nearly every serialised manga is the product of a small studio, even though only one name appears on the cover.</p><h2>The economics</h2><p>Assistants are frequently paid by the mangaka out of their own page rate rather than directly by the publisher. This means a creator's apparent income substantially overstates what they keep, and it is a recurring source of criticism about how the industry distributes money.</p><h2>As a career path</h2><p>Assisting is a standard route into the profession, giving direct experience of production discipline. A considerable number of well-known creators assisted on a major series before their own debut.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "mangaka",
+      "screentone",
+      "serialization",
+      "editor"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "battle-shonen",
+    "term": "Battle Shonen",
+    "shortDef": "Action manga in which a protagonist fights progressively stronger opponents while growing in capability — the commercial backbone of shonen magazines.",
+    "body": "<h2>What it means</h2><p>Battle shonen describes action-driven series built around escalating confrontation. A protagonist grows through training, resolve or acquired power, facing opponents who each outclass the last.</p><h2>What separates good from bad</h2><p>The strongest predictor of quality is whether the power system has <strong>rules the reader understands</strong>. Tension requires knowing what is possible: if the cost and limits of an ability are established, the reader can anticipate, and anticipation is the pleasure. Where power is only escalating numbers, every fight resolves by producing a bigger one.</p><h2>The structural problem</h2><p>Serialisation pushes constantly toward escalation, until early antagonists become irrelevant and the setting stops cohering. Series manage this by capping raw power and competing on technique, attaching costs to strength, or changing the kind of conflict entirely.</p><h2>Where the characterisation sits</h2><p>Protagonists are often deliberately simple, functioning as a fixed point the story tests. The weight falls on antagonists, which is why these series are usually remembered for their villains rather than their heroes.</p>",
+    "category": "genre",
+    "aliases": [
+      "shonen battle manga"
+    ],
+    "related": [
+      "shonen",
+      "power-system",
+      "tournament-arc",
+      "time-skip",
+      "weekly-shonen-jump"
+    ],
+    "examples": [
+      "dragon-ball",
+      "naruto",
+      "hunter-x-hunter"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "boys-love",
+    "term": "Boys Love",
+    "shortDef": "A genre depicting romantic relationships between men, written and read predominantly by women, and the current standard term for the category.",
+    "body": "<h2>What it means</h2><p>Boys Love, usually abbreviated BL, covers manga centred on romance between male characters. It is a large, commercially significant category with its own magazines, publishers and conventions.</p><h2>The defining fact about it</h2><p>BL is produced and consumed predominantly by women. This is not incidental — it shapes what the genre is interested in, and it is the main reason BL is distinct from media about gay men made by and for gay men, which is a separate tradition with different concerns.</p><h2>Terminology, honestly</h2><p>Several words overlap here and their boundaries are contested. <strong>Boys Love</strong> is the current standard umbrella term and the one publishers use. <strong>Yaoi</strong> is older, and now generally implies more explicit content. <strong>Shonen-ai</strong> is largely archaic in Japanese though it persisted longer in English fandom.</p><p>Usage differs between Japanese and English-speaking communities, so disagreements about which word applies are common and usually not worth resolving.</p><h2>Recurring conventions</h2><p>The genre has well-established roles and dynamics that recur across many works. Criticism from within the readership has increasingly pushed against the more formulaic of these, and contemporary BL is noticeably more varied than its reputation.</p>",
+    "category": "genre",
+    "aliases": [
+      "BL",
+      "shonen-ai"
+    ],
+    "related": [
+      "yaoi",
+      "yuri",
+      "romance-manga",
+      "josei",
+      "doujinshi"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "canon",
+    "term": "Canon",
+    "shortDef": "The material considered part of a work's official story, as opposed to filler, spin-offs or fan-created content.",
+    "body": "<h2>What it means</h2><p>Canon refers to what officially counts. In manga this usually means the creator's serialised chapters and anything they explicitly authored, with adaptations, spin-offs and supplementary material sitting outside it.</p><h2>Why it is contested</h2><p>The boundary is rarely clean. Anime filler is generally not canon, but an anime-original ending occupies an awkward position, particularly when the creator was involved. Spin-offs drawn by other artists, films, light novel side stories and author interviews all sit in a grey zone.</p><p>Omake in collected volumes are usually non-canon jokes, but some authors use them to deliver genuine setting information.</p><h2>How much it matters</h2><p>Less than online argument implies. Canon disputes are mostly a fandom activity rather than a reading problem. For practical purposes, the manga as the creator published it is the story, and everything else is optional.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "filler",
+      "anime-adaptation",
+      "omake",
+      "doujinshi"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "chapter",
+    "term": "Chapter",
+    "shortDef": "A single instalment of a serialised manga as it appeared in its magazine, usually around 19 pages for a weekly series.",
+    "body": "<h2>What it means</h2><p>A chapter is one magazine instalment. Weekly series typically run 17 to 20 pages per chapter; monthly series run considerably longer, often 40 or more.</p><h2>The real creative unit</h2><p>Authors write to the chapter, not the volume. Its shape is dictated by magazine economics: a hook early enough to catch a browsing reader, and a closing beat strong enough to bring them back next week. When serialised manga is described as formulaic, this rhythm read in bulk is usually what is meant.</p><h2>Numbering</h2><p>Chapters are numbered continuously across an entire series, independent of volumes — chapter 400 is the four hundredth instalment regardless of which book contains it. Decimal numbers such as 63.5 mark bonus chapters, prologues or side stories published outside the main run.</p><h2>Why it matters practically</h2><p>Chapter numbers are the only unit that maps precisely between manga and anime, which is why guides describing where an anime season ends give a chapter number rather than a volume.</p>",
+    "category": "craft",
+    "aliases": [],
+    "related": [
+      "tankobon",
+      "serialization",
+      "one-shot",
+      "anime-adaptation"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "color-spread",
+    "term": "Color Spread",
+    "shortDef": "A colour page or double-page illustration published with a magazine chapter, usually marking a milestone or promoting a series.",
+    "body": "<h2>What it means</h2><p>Manga is printed in black and white, but magazines occasionally include colour pages. A colour spread is one of these, often opening a chapter or spanning two facing pages.</p><h2>When they appear</h2><p>Colour is expensive, so its use is itself a signal. Spreads typically mark a chapter milestone, a series anniversary, the opening of a major arc, an adaptation announcement, or a magazine cover feature.</p><p>Receiving the colour page in a given issue indicates standing within the magazine, which makes it a rough proxy for a series' commercial position.</p><h2>What happens to them</h2><p>Colour pages are frequently reprinted in black and white when chapters are collected, since colour throughout a cheap paperback is not viable. Deluxe editions sometimes restore them, which is one of the main reasons those editions exist.</p><h2>Worth knowing</h2><p>Because colour is rare, these pages are often where an artist experiments — with palette, with composition, and with imagery that has no place in the story proper.</p>",
+    "category": "craft",
+    "aliases": [
+      "colour spread"
+    ],
+    "related": [
+      "splash-page",
+      "tankobon",
+      "chapter",
+      "weekly-shonen-jump"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "cooking-manga",
+    "term": "Cooking Manga",
+    "shortDef": "A genre centred on food preparation, using cooking as a vehicle for competition, craft obsession or quiet comfort.",
+    "body": "<h2>What it means</h2><p>Cooking manga takes food as its subject — its preparation, its history, and what it means to the people making and eating it. It is a substantial and long-established category with several distinct modes.</p><h2>The main modes</h2><ul><li><strong>Competitive.</strong> Cooking as combat, with judged contests, escalating opponents and elaborate reaction sequences. Structurally this is battle shonen with knives.</li><li><strong>Craft-focused.</strong> Close attention to technique, ingredients and process, often with genuinely usable detail and recipes.</li><li><strong>Comfort.</strong> Food as the occasion for small human encounters, frequently overlapping with slice of life and iyashikei.</li></ul><h2>Why it works on the page</h2><p>Manga cannot convey taste or smell, so the genre developed conventions to compensate: extreme close-ups on texture, elaborate description delivered as dialogue, and the exaggerated reaction shot, in which the eater's response supplies what the reader cannot experience directly.</p><p>The reaction convention is often ridiculed and is doing real work — it is the only available channel for flavour.</p><h2>Worth knowing</h2><p>Craft-focused cooking manga is one of the more genuinely educational categories in the medium, and several titles are used as actual cooking references.</p>",
+    "category": "genre",
+    "aliases": [
+      "food manga"
+    ],
+    "related": [
+      "shonen",
+      "seinen",
+      "slice-of-life",
+      "tournament-arc"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "dandere",
+    "term": "Dandere",
+    "shortDef": "A character who is quiet and withdrawn from shyness rather than coldness, opening up with people they trust.",
+    "body": "<h2>What it means</h2><p>Dandere combines a Japanese term for silence with the familiar affection suffix. The character speaks little, not because they are aloof but because they are anxious in company.</p><h2>The distinguishing feature</h2><p>The silence is situational. A dandere is markedly different alone with a trusted person than in a group, and that gap is the whole characterisation. Where a kuudere is uniformly composed, a dandere is quiet in public and often talkative in private.</p><h2>Why it functions in a story</h2><p>It gives a relationship a visible marker of progress. Every increment of trust registers as speech, so the reader can measure closeness directly without anything being stated.</p><h2>How manga renders it</h2><p>The type suits the medium well because silence occupies physical space on a page. A character shown not speaking, or given panels of hesitation, communicates without dialogue in a way prose would have to describe explicitly.</p><h2>A note on the terminology</h2><p>These <em>-dere</em> coinages proliferated online and many are jokes rather than established terms. The four in common use are tsundere, yandere, kuudere and dandere; beyond those, invention exceeds usage.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "tsundere",
+      "kuudere",
+      "yandere",
+      "romance-manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "doujinshi",
+    "term": "Doujinshi",
+    "shortDef": "Self-published manga, frequently fan work based on existing series, sold directly at conventions and online.",
+    "body": "<h2>What it means</h2><p>Doujinshi are self-published works produced outside the commercial magazine system. Much of it is derivative fan work using existing characters; a significant portion is entirely original.</p><h2>Scale</h2><p>This is not a marginal practice. Japan's largest doujinshi convention is among the biggest gatherings of any kind in the country, drawing hundreds of thousands of attendees across a few days, with tens of thousands of participating circles.</p><h2>The legal situation</h2><p>Most fan doujinshi is technically copyright infringement, and it is generally tolerated rather than authorised. The prevailing view within the industry treats it as a training ground and a promotional force rather than a threat, and enforcement is rare and usually reserved for work that competes directly with the original.</p><h2>Why it matters professionally</h2><p>A substantial number of professional mangaka began in doujinshi, and some prominent creator groups started as doujinshi circles before moving into commercial serialisation.</p>",
+    "category": "fandom",
+    "aliases": [
+      "doujin"
+    ],
+    "related": [
+      "scanlation",
+      "canon",
+      "mangaka",
+      "one-shot"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "editor",
+    "term": "Editor",
+    "shortDef": "The publisher's representative assigned to a manga series, with unusually direct influence over its story and direction.",
+    "body": "<h2>What it means</h2><p>A manga editor is assigned to a creator and acts as collaborator, first reader, deadline enforcer and the conduit to the magazine's editorial board.</p><h2>More powerful than the title suggests</h2><p>Manga editors intervene at a level that surprises readers from other publishing traditions. They shape premises before serialisation, push for changes to characters and plot direction, relay reader survey data with implicit instructions, and can effectively require course corrections.</p><p>Many well-known series exist in their published form because an editor rejected earlier versions, and creators frequently name a specific editor as decisive to their career.</p><h2>The other side</h2><p>The relationship is not uniformly benign. Editors also transmit commercial pressure, including demands to extend a popular series past its natural ending or to compress an unpopular one.</p><h2>Worth knowing</h2><p>Author sidebars in collected volumes are one of the few public windows into these relationships.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "mangaka",
+      "serialization",
+      "weekly-shonen-jump",
+      "one-shot"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "fanservice",
+    "term": "Fanservice",
+    "shortDef": "Content included to please the audience rather than to serve the story, most often sexual but not exclusively so.",
+    "body": "<h2>What it means</h2><p>Fanservice is material inserted primarily to gratify the audience. In common usage it refers to sexualised content — revealing outfits, gratuitous poses, beach and hot spring episodes — but the term is broader than that.</p><h2>The non-sexual sense</h2><p>A cameo by a fan-favourite character, a callback to an earlier arc, or a scene pairing two characters readers want to see interact are all fanservice in the original sense: content that exists because the audience wants it rather than because the narrative requires it.</p><p>This broader meaning is worth keeping, because it identifies what the word is actually describing — a decision made for the audience rather than the story.</p><h2>Why it is contentious</h2><p>The objection is rarely to sexual content as such. It is that fanservice frequently interrupts, undercutting tension by pausing a serious sequence for an unrelated shot, or contradicting a character's established behaviour.</p><p>There is also a consistent criticism about who is served, given how disproportionately the sexualised variety is aimed at one segment of the readership.</p><h2>The defence</h2><p>Serialised manga is commercial entertainment, and content included because readers enjoy it is not automatically a flaw. The reasonable version of the criticism is about execution and interruption, not existence.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "harem",
+      "shonen",
+      "canon",
+      "waifu"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "filler",
+    "term": "Filler",
+    "shortDef": "Anime-original content not present in the manga, inserted so an adaptation does not overtake its source material.",
+    "body": "<h2>What it means</h2><p>Filler is material invented for an anime — whole episodes, extended fights, added subplots — that has no counterpart in the manga.</p><h2>Why it exists</h2><p>Purely as a pacing mechanism. An adaptation burning three to four chapters a week against a manga producing one will run out of material, and filler buys time for the source to build a buffer.</p><h2>Quality varies more than its reputation suggests</h2><p>Filler is widely disliked, and much of it deserves that. But some filler is genuinely good — side stories that develop minor characters the main plot has no room for, occasionally written with the original creator's involvement.</p><h2>How readers handle it</h2><p>Filler episode lists circulate for most long-running adaptations, letting viewers skip. Note that skipping wholesale occasionally removes a scene later referenced as though it happened.</p><h2>Related</h2><p>Distinct from an anime-original ending, which invents a conclusion rather than padding the middle.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "anime-adaptation",
+      "canon",
+      "chapter"
+    ],
+    "examples": [
+      "naruto",
+      "bleach"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "gutter",
+    "term": "Gutter",
+    "shortDef": "The blank space between panels, where the reader mentally supplies whatever happened in between.",
+    "body": "<h2>What it means</h2><p>The gutter is the gap separating one panel from the next. It contains no art, and it is where a great deal of comic storytelling actually occurs: the reader infers the motion, the elapsed time and the causal link across it.</p><h2>Width is duration</h2><p>Narrow gutters imply moments in tight succession. Wider gutters suggest a longer gap. A gutter rendered fully black frequently marks a scene change, a jump in time, or a shift into memory.</p><h2>Why it matters in manga specifically</h2><p>Manga tends to spend more panels on fewer story beats than Western comics, using tight gutters between near-identical images to stretch a moment out. A character turning their head might take four panels. This produces the sensation of slow motion without any motion being drawn.</p><h2>Commonly confused with</h2><p>In print production, gutter also refers to the inner margin where facing pages meet the spine. Both senses appear in discussions of manga layout, and the intended meaning is usually clear from context.</p>",
+    "category": "craft",
+    "aliases": [],
+    "related": [
+      "panel",
+      "splash-page",
+      "right-to-left-reading"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "harem",
+    "term": "Harem",
+    "shortDef": "A structure in which one protagonist is surrounded by multiple romantic interests, usually without the situation resolving.",
+    "body": "<h2>What it means</h2><p>A harem series places a single protagonist at the centre of a group of characters romantically interested in them. The configuration, rather than any particular tone, is what the label describes.</p><h2>Why the situation never resolves</h2><p>This is the structural point. Choosing removes the premise, so the genre develops elaborate machinery for deferral — interruptions, misunderstandings, contrivances that prevent a conversation from finishing. A harem that resolves has ended.</p><p>Serialisation reinforces this: a commercially successful series has strong incentive to sustain the configuration indefinitely.</p><h2>The protagonist problem</h2><p>Harem leads are frequently criticised as bland, and there is a reason. A strongly characterised protagonist would have preferences, and preferences collapse the structure. The lead is often deliberately neutral so that each reader can attach to whichever character they prefer.</p><h2>What better entries do</h2><p>The more interesting examples give the surrounding characters lives and goals independent of the protagonist, so the cast is not defined solely by their interest in one person. Others acknowledge the absurdity directly, or actually commit to a resolution and deal with the consequences.</p><h2>Related</h2><p><strong>Reverse harem</strong> inverts the genders, with one female protagonist among multiple male interests, and is common in shojo and josei.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "reverse-harem",
+      "romance-manga",
+      "shonen",
+      "isekai",
+      "fanservice"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "hiatus",
+    "term": "Hiatus",
+    "shortDef": "A pause in a manga's serialisation, ranging from a single skipped week to an indefinite suspension lasting years.",
+    "body": "<h2>What it means</h2><p>A hiatus is a break in publication. Short ones are routine and scheduled. Long ones are not, and are among the defining frustrations of following an ongoing series.</p><h2>Why they happen</h2><p>The most common cause is the creator's health. Weekly serialisation is physically punishing, and repetitive strain injuries, exhaustion and stress-related illness are widespread. Other causes include research periods, bereavement, and creators simply needing time to plan a story's next phase properly.</p><h2>Indefinite hiatus</h2><p>Some series stop without a stated return date and do not come back. Because manga is closely identified with a single creator, there is rarely a mechanism for anyone else to continue the work, and a series can be left permanently unfinished.</p><h2>Practical advice</h2><p>Check a series' publication status before committing. Ongoing means waiting; indefinite hiatus may mean never.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "serialization",
+      "mangaka",
+      "weekly-shonen-jump"
+    ],
+    "examples": [
+      "berserk",
+      "hunter-x-hunter"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "horror-manga",
+    "term": "Horror Manga",
+    "shortDef": "Horror in comic form, where black-and-white art and reader-controlled pacing produce effects film struggles to achieve.",
+    "body": "<h2>What it means</h2><p>Horror manga covers the full range — body horror, psychological dread, folk horror, supernatural threat — and is one of the categories where the medium's constraints turn into genuine advantages.</p><h2>Why the format suits it</h2><p><strong>Black and white helps.</strong> Absence of colour removes the information that would make an image merely gruesome and leaves shape and darkness, which the imagination completes worse than any drawing could.</p><p><strong>The reader controls the clock.</strong> Film forces you past an image at a fixed rate. A page lets you stop on something, and horror manga exploits this by rewarding attention with detail you would rather not have noticed.</p><p><strong>The page turn is a jump scare with perfect timing.</strong> The artist knows exactly what you cannot yet see.</p><h2>The characteristic technique</h2><p>Detail escalation. A page of clean, sparse art conditions the reader to a visual baseline, and the horror arrives as a sudden density of rendering — obsessive linework where there was almost none. The shift itself is the shock.</p><h2>Where it sits</h2><p>Horror appears across demographics, but the most formally ambitious work is generally seinen, where slower pacing and unresolved endings are permitted.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "seinen",
+      "screentone",
+      "panel",
+      "splash-page",
+      "shonen"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "isekai",
+    "term": "Isekai",
+    "shortDef": "A premise in which a person from ordinary modern life is transported, summoned or reborn into a fantasy world.",
+    "body": "<h2>What it means</h2><p>Isekai means <em>another world</em>. The protagonist arrives from contemporary reality into a fantasy setting, usually retaining their memories and often gaining an explicit advantage — knowledge, a skill, or game-like statistics.</p><h2>Why there is so much of it</h2><p>The volume is structural. Modern isekai overwhelmingly originates on free web-novel platforms where readership is measured directly, and successful entries progress to light novel, manga and anime adaptations. The premise suits that pipeline unusually well: exposition is natural because the protagonist knows nothing, the reader has a built-in proxy, game logic needs no explaining, and the barrier to writing one is very low.</p><h2>The standard criticisms</h2><p>Protagonists granted overwhelming power at no cost, so tension evaporates. Interchangeable pseudo-medieval settings. Supporting casts that exist to admire the lead. These are fair as descriptions of the median rather than of the whole category.</p><h2>Adjacent forms</h2><p><strong>Reverse isekai</strong> brings a fantasy character into the modern world. <strong>Reincarnation</strong> stories have the protagonist reborn as an infant rather than transported intact. <strong>Villainess</strong> stories, in which a woman is reborn as the antagonist of a novel she read, form a large and largely separate tradition.</p>",
+    "category": "genre",
+    "aliases": [
+      "different world"
+    ],
+    "related": [
+      "shonen",
+      "seinen",
+      "anime-adaptation",
+      "harem"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "iyashikei",
+    "term": "Iyashikei",
+    "shortDef": "A genre of deliberately soothing manga and anime whose explicit purpose is to calm the reader rather than excite them.",
+    "body": "<h2>What it means</h2><p>Iyashikei translates as healing type. It names work built to produce a calming effect — gentle pacing, warm settings, an absence of antagonists, and conflict either minimal or entirely absent.</p><h2>How it achieves the effect</h2><p>Iyashikei tends toward rural or natural settings, generous use of landscape panels with no figures, and a willingness to spend pages on a task being done properly. The reader is given time to look at things.</p><p>The absence of a villain is close to structural. Where a story does contain sadness, it is usually the ordinary kind — time passing, people leaving — presented as bearable.</p><h2>Not a synonym for boring</h2><p>The genre is precisely engineered for an emotional outcome, which is a legitimate design goal. Readers who find it inert are typically looking for narrative propulsion the genre is deliberately withholding.</p><h2>Related genres</h2><p>Iyashikei sits inside the broader slice-of-life category but is distinguished by intent: soothing is the objective, not a side effect.</p>",
+    "category": "genre",
+    "aliases": [
+      "healing"
+    ],
+    "related": [
+      "slice-of-life",
+      "seinen"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "josei",
+    "term": "Josei",
+    "shortDef": "Manga published in magazines aimed at adult women, often dealing with work, relationships and adult life in a realistic register.",
+    "body": "<h2>What it means</h2><p>Josei means woman. It labels manga serialised in magazines targeting adult women, and completes the four-way demographic grid alongside shonen, seinen and shojo.</p><h2>What tends to characterise it</h2><p>Josei frequently deals with careers, marriage, ageing, friendship and the practical texture of adult life. Romance appears often but tends toward the complicated and unresolved rather than the aspirational. Emotional realism is generally prioritised over spectacle.</p><h2>The smallest category in English</h2><p>Josei is significantly underrepresented in English translation relative to its output in Japan. Commercial caution about the market abroad means many well-regarded series remain unlicensed, and this is one of the clearest gaps in the English-language catalogue.</p><h2>Commonly confused with</h2><p>Josei is not simply shojo for older readers, any more than seinen is shonen for adults. The categories developed separately with different magazines, different creators and different conventions.</p>",
+    "category": "demographic",
+    "aliases": [],
+    "related": [
+      "shojo",
+      "seinen",
+      "shonen",
+      "licensing"
+    ],
+    "examples": [
+      "nana"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "kodomomuke",
+    "term": "Kodomomuke",
+    "shortDef": "Manga published in magazines aimed at young children — the genuine children's category that shonen is frequently mistaken for.",
+    "body": "<h2>What it means</h2><p>Kodomomuke means <em>directed at children</em>. It is the fourth and least discussed demographic label, covering manga serialised in magazines for primary-school-age readers and younger.</p><h2>Why you rarely encounter it</h2><p>Very little kodomomuke is licensed in English. Children's media travels badly across languages, tie-in titles depend on toys and games marketed locally, and the category has no crossover adult readership abroad to support a release.</p><p>English-speaking readers therefore meet the other three labels constantly and this one almost never, which feeds the widespread assumption that shonen is the children's category.</p><h2>Why the distinction matters</h2><p>It is the clearest evidence that shonen is not an age rating. Japanese publishing has an actual category for young children, and shonen is not it. Shonen magazines target teenagers and routinely carry material that would never appear in a kodomomuke title.</p><h2>What it contains</h2><p>Gag comedy, low-stakes adventure, and a great deal of tie-in work built around toy lines, trading card games and video games. Some of the commercially largest franchises in the world sit in this category.</p>",
+    "category": "demographic",
+    "aliases": [
+      "kodomo"
+    ],
+    "related": [
+      "shonen",
+      "shojo",
+      "seinen",
+      "josei",
+      "licensing"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "kohai",
+    "term": "Kohai",
+    "shortDef": "The junior counterpart to senpai — someone with less seniority in a shared school, club or workplace.",
+    "body": "<h2>What it means</h2><p>Kohai denotes a person junior to you within an institution: a younger student, a newer colleague, a club member who joined later. It is the reciprocal of senpai and the two only make sense together.</p><h2>How it is used</h2><p>Unlike senpai, kohai is rarely used as a form of address. You would refer to someone as your kohai when speaking about them, but address them by name. This asymmetry is easy to miss and is a common error in fan writing.</p><h2>What the relationship involves</h2><p>The junior is expected to show deference and to learn; the senior is expected to teach, protect and take some responsibility for them. It is a genuine mutual obligation rather than a one-way hierarchy.</p><p>Sports manga uses this structure heavily, since a club with successive year groups produces the relationship automatically — and produces the graduation that ends it, which is one of the genre's reliable emotional mechanisms.</p><h2>Why it matters for reading</h2><p>A character shifting how they address someone is a plot event. Dropping a formal term, or beginning to use a name directly, marks a change in the relationship that the dialogue may never state outright.</p>",
+    "category": "fandom",
+    "aliases": [
+      "kouhai"
+    ],
+    "related": [
+      "senpai",
+      "sports-manga",
+      "official-translation",
+      "shonen"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "kuudere",
+    "term": "Kuudere",
+    "shortDef": "A character who is composed and emotionally flat on the surface, with feeling present but rarely expressed.",
+    "body": "<h2>What it means</h2><p>Kuudere combines the English word <em>cool</em> as borrowed into Japanese with the same affection suffix as tsundere. The character is calm, controlled and undemonstrative rather than hostile.</p><h2>How it differs from neighbouring types</h2><p>A tsundere is actively abrasive; a kuudere is simply unreactive. The distinction is between someone pushing you away and someone who does not visibly respond either way.</p><p>It is also distinct from a dandere, who is quiet through shyness rather than composure. A kuudere is not nervous — they are self-possessed.</p><h2>What makes it work</h2><p>The appeal is inference. Because the character expresses little, small deviations carry enormous weight: a slight change in tone, an action taken without comment. The reader is put in the position of reading someone closely, which is more engaging than being told.</p><p>This suits manga particularly well, since faces can register minute changes that dialogue would have to state.</p><h2>The failure mode</h2><p>Emotional restraint written without interior life produces a character who is merely blank. The type only works when the reader has reason to believe something is being withheld.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "tsundere",
+      "dandere",
+      "yandere",
+      "romance-manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "licensing",
+    "term": "Licensing",
+    "shortDef": "The commercial agreement by which a foreign publisher acquires the rights to translate and sell a manga in its territory.",
+    "body": "<h2>What it means</h2><p>Licensing is the process by which a manga becomes legally available in another language. A publisher negotiates rights with the Japanese rights holder, then handles translation, lettering, printing and distribution.</p><h2>Why some series are never licensed</h2><p>The decision is commercial. Series with narrow appeal abroad, very long back catalogues that would be expensive to bring over, or complicated rights situations often go unlicensed. Older titles are particularly vulnerable, since the market for decades-old manga is small.</p><p>Some works are stranded: licensed years ago by a publisher that has since closed, leaving them out of print and undigitised, with the rights not yet reacquired.</p><h2>How it has changed</h2><p>The licensed English catalogue has expanded enormously over the past decade, driven by digital distribution lowering the cost of bringing over marginal titles. Series considered unlicensable a decade ago are frequently available now.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "official-translation",
+      "simulpub",
+      "scanlation",
+      "josei"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "magical-girl",
+    "term": "Magical Girl",
+    "shortDef": "A genre in which ordinary girls gain magical powers and a transformed identity, traditionally combining spectacle with themes of friendship and growing up.",
+    "body": "<h2>What it means</h2><p>Magical girl stories follow young protagonists who acquire magical abilities and an alternate transformed persona, usually alongside a duty to protect something.</p><h2>The conventions</h2><p>A transformation sequence marking the shift between ordinary and magical identity. A companion creature who explains the situation and supplies exposition. A team of friends with complementary abilities. A structure balancing school and domestic life against the magical role, so the ordinary and extraordinary continually interfere with each other.</p><h2>What it is really about</h2><p>The dual identity is the point. A girl who is powerful, decisive and consequential in one register while remaining a schoolchild in another is a fairly direct treatment of growing up and of expectations placed on young women. The genre has historically been one of the few reliably offering large casts of girls with agency.</p><h2>The dark turn</h2><p>Since the 2010s a substantial strand has interrogated the conventions — asking what it would actually cost a child to carry this responsibility, and treating the companion creature's bargain with suspicion. These deconstructions work precisely because the original conventions are so firmly established.</p>",
+    "category": "genre",
+    "aliases": [
+      "mahou shoujo"
+    ],
+    "related": [
+      "shojo",
+      "shonen",
+      "anime-adaptation",
+      "power-system"
+    ],
+    "examples": [
+      "sailor-moon",
+      "cardcaptor-sakura"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "manga",
+    "term": "Manga",
+    "shortDef": "Comics created in Japan, typically serialised in anthology magazines and collected into paperback volumes.",
+    "body": "<h2>What it means</h2><p>In Japan, <em>manga</em> simply means comics — including translated foreign ones. Outside Japan the word has narrowed to mean comics of Japanese origin, and that narrower sense is now the standard English usage.</p><h2>Where the word comes from</h2><p>The term combines characters usually glossed as something like whimsical or impromptu pictures. It was popularised in the nineteenth century, though the practice of sequential comic art in Japan is considerably older. Its modern form dates to the postwar period.</p><h2>How it is actually used</h2><p>Manga is a medium and an industry, not a genre. It covers horror, sports, romance, cooking, historical epic and office comedy with equal seriousness. The recurring beginner error is treating it as a category of content with a shared tone.</p><p>Its distinctive traits — black-and-white art, right-to-left reading, very high page counts — follow from the magazine serialisation model rather than from any inherent style.</p><h2>Commonly confused with</h2><p>Korean comics are manhwa and Chinese comics are manhua. Using manga as an umbrella for all three is common online and inaccurate, particularly since modern manhwa is dominated by full-colour vertical-scroll webtoons, a genuinely different reading format.</p>",
+    "category": "craft",
+    "aliases": [],
+    "related": [
+      "manhwa",
+      "manhua",
+      "tankobon",
+      "serialization",
+      "right-to-left-reading"
+    ],
+    "examples": [
+      "one-piece",
+      "berserk",
+      "monster"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "manga-cafe",
+    "term": "Manga Cafe",
+    "shortDef": "A Japanese establishment charging by the hour for access to a large manga library, along with drinks, internet and a private booth.",
+    "body": "<h2>What it is</h2><p>A manga cafe, or <em>manga kissa</em>, charges for time rather than for what you read. You pay by the hour or in blocks, and gain access to shelves that can run to tens of thousands of volumes, usually with free soft drinks and a seat or private booth.</p><h2>Why they matter</h2><p>They are a genuine part of how manga is read in Japan. A reader can work through a long series without buying sixty volumes or finding shelf space for them, which makes commitment to enormous back catalogues practical in a way purchase alone would not.</p><p>They also keep older and out-of-print series in circulation long after they leave shops.</p><h2>The other function</h2><p>Most offer overnight rates, showers and reclining seats, and are widely used as inexpensive short-term accommodation — by people who miss a last train, and, more seriously, by people without stable housing. This is a documented social issue rather than a curiosity, and it sits uncomfortably alongside the leisure framing.</p><h2>Why English readers encounter the term</h2><p>Manga cafes appear constantly as settings in manga itself, and the concept has no direct Western equivalent, so translations generally keep the term rather than substituting something inexact.</p>",
+    "category": "industry",
+    "aliases": [
+      "manga kissa"
+    ],
+    "related": [
+      "tankobon",
+      "licensing",
+      "serialization"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "mangaka",
+    "term": "Mangaka",
+    "shortDef": "A manga creator, usually responsible for story and art together, working with uncredited assistants under severe deadline pressure.",
+    "body": "<h2>What it means</h2><p>A mangaka is a manga artist. Unlike the divided labour of mainstream Western comics — separate writer, penciller, inker, colourist, letterer — a mangaka typically handles writing and drawing as one job.</p><h2>Assistants</h2><p>Serialised work at weekly pace is not physically possible alone. Mangaka employ assistants for backgrounds, screentone, inking and effects. Assistants are usually uncredited, and in many arrangements they are paid out of the creator's own fee rather than by the publisher.</p><h2>Working conditions</h2><p>The weekly schedule is punishing and well documented. Health-related hiatuses are common, and the industry's demands on its creators are a persistent subject of criticism from within the profession itself.</p><h2>The exception</h2><p>Some manga splits the role, crediting a separate writer and artist. This is a minority arrangement but produces some of the medium's most polished work, since it halves the workload for each contributor.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "assistant",
+      "editor",
+      "serialization",
+      "hiatus",
+      "one-shot"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "manhua",
+    "term": "Manhua",
+    "shortDef": "Comics created in China, Hong Kong or Taiwan, spanning both traditional print and full-colour digital formats.",
+    "body": "<h2>What it means</h2><p>Manhua is the Chinese word for comics, sharing its written characters with manga and manhwa. It covers work from mainland China, Hong Kong and Taiwan, which have distinct publishing histories.</p><h2>Format</h2><p>Manhua is the least format-uniform of the three. Hong Kong manhua has a long tradition of full-colour, often martial-arts-focused serials. Mainland digital platforms have adopted the vertical-scroll model similar to Korean webtoons. Taiwanese work has historically been closer to Japanese conventions.</p><p>Reading direction varies accordingly: traditional Chinese publishing may read right to left, while simplified Chinese and digital releases generally read left to right.</p><h2>How it is used</h2><p>In English-language fandom, manhua most often refers to translated web-published series, particularly in the cultivation and historical fantasy genres, which have relatively few direct equivalents in Japanese manga.</p>",
+    "category": "craft",
+    "aliases": [],
+    "related": [
+      "manga",
+      "manhwa"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "manhwa",
+    "term": "Manhwa",
+    "shortDef": "Comics created in South Korea, today most often published as full-colour vertical-scroll webtoons read on a phone.",
+    "body": "<h2>What it means</h2><p>Manhwa is the Korean word for comics, cognate with the Japanese <em>manga</em> and the Chinese <em>manhua</em> — the three words share the same written characters.</p><h2>Why it reads differently</h2><p>Modern manhwa is overwhelmingly digital and vertical. Webtoon platforms present a single continuous scrolling strip with no page turns, usually in full colour, designed for a phone screen held upright.</p><p>This changes the craft substantially. There is no two-page spread, no page-turn reveal, and no fixed panel grid. Instead, creators control pace with the length of empty space between panels — a scroll can be stretched to delay a reveal in a way print cannot replicate.</p><h2>Reading direction</h2><p>Older print manhwa reads left to right, unlike manga. Vertical-scroll manhwa has no horizontal reading order at all, which is why readers who begin with webtoons often find print manga a genuinely unfamiliar format rather than a small adjustment.</p><h2>Commonly confused with</h2><p>Manhwa is frequently called manga in casual English use. The distinction matters more than pedantry suggests, because the format, the publishing model and the reading experience all differ.</p>",
+    "category": "craft",
+    "aliases": [
+      "webtoon"
+    ],
+    "related": [
+      "manga",
+      "manhua",
+      "panel",
+      "right-to-left-reading"
+    ],
+    "examples": [
+      "solo-leveling",
+      "tower-of-god"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "mecha",
+    "term": "Mecha",
+    "shortDef": "A genre built around piloted giant robots, frequently using the machines to examine war, politics and the people inside them.",
+    "body": "<h2>What it means</h2><p>Mecha centres on large piloted machines. The defining feature is that a person operates the robot, making the machine an extension of a character rather than a character in itself.</p><h2>Two broad traditions</h2><p><strong>Super robot</strong> treats the machine as heroic and effectively magical, with named attacks and little concern for logistics. It sits closer to superhero fiction.</p><p><strong>Real robot</strong> treats machines as military hardware — mass-produced, requiring fuel and maintenance, operated by soldiers within a chain of command. This tradition uses the premise to write about war and its human cost, with the robots as vehicle rather than subject.</p><h2>What the genre is actually about</h2><p>At its best, mecha uses the pilot-machine relationship to examine agency: a young person placed inside enormous destructive capability, usually by adults, usually without adequate choice. The machine externalises a question about responsibility.</p><h2>Its position now</h2><p>Mecha's commercial peak has passed and it occupies a smaller share of publishing than in the 1980s and 1990s. Its influence on visual design and on how the medium handles war remains substantial.</p>",
+    "category": "genre",
+    "aliases": [
+      "giant robot"
+    ],
+    "related": [
+      "shonen",
+      "seinen",
+      "anime-adaptation"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "official-translation",
+    "term": "Official Translation",
+    "shortDef": "A licensed, professionally produced translation of a manga, as distinct from an unofficial fan translation.",
+    "body": "<h2>What it means</h2><p>An official translation is produced under licence by the publisher holding the rights, typically involving a translator, an adaptor or rewriter, a letterer and an editor.</p><h2>What distinguishes it</h2><p>Officials generally have better English prose, consistent terminology across hundreds of chapters, proper lettering fitted to the artwork, and access to source files rather than scanned pages. They are also accountable: errors get corrected in later printings.</p><p>The usual criticism is timing — historically a volume might arrive months or years after Japan, though simulpub has largely closed that gap for major series.</p><h2>Where fan translations differ</h2><p>Scanlations are often faster and sometimes more literal, retaining honorifics and untranslated terms that officials may localise. Whether that is a virtue is a long-running argument with no settled answer; it is a difference in philosophy rather than simply quality.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "scanlation",
+      "licensing",
+      "simulpub",
+      "onomatopoeia"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "omake",
+    "term": "Omake",
+    "shortDef": "Short bonus comics or extra material added to a collected volume, usually lighter in tone than the main story.",
+    "body": "<h2>What it means</h2><p>Omake translates roughly as extra or bonus. In manga it refers to short strips and supplementary pages included in a tankobon that did not run in the magazine.</p><h2>What they contain</h2><p>Typically four-panel gag strips, character sketches, author commentary about deadlines and assistants, behind-the-scenes notes on how a scene was drawn, or short scenes cut from the main story for space.</p><p>Tonally they are usually comedic even in otherwise grim series, which produces the common experience of finishing a devastating volume and immediately encountering the cast in a chibi-style joke about lunch.</p><h2>Are they canon?</h2><p>Usually not, and rarely intended to be. Omake generally sit outside the story proper, though some authors use them to deliver genuine supplementary information about a setting.</p><h2>Why they matter</h2><p>For readers interested in how manga is actually made, author sidebars are one of the few consistently available windows into working conditions and process.</p>",
+    "category": "craft",
+    "aliases": [],
+    "related": [
+      "tankobon",
+      "canon",
+      "mangaka",
+      "chapter"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "one-shot",
+    "term": "One-Shot",
+    "shortDef": "A self-contained manga story published as a single instalment, with no continuing serialisation.",
+    "body": "<h2>What it means</h2><p>A one-shot is a complete story told in one go, typically 30 to 60 pages, printed in a magazine without any expectation of continuation.</p><h2>Why they exist</h2><p>One-shots are the industry's audition mechanism. New creators publish them to demonstrate they can carry a story, and magazines gauge reader response through survey cards. A strong result can convert a one-shot into a serialised series, sometimes with the premise substantially reworked.</p><p>Established creators also use the format to try something outside their usual register, or to work at a length their serialised commitments do not allow.</p><h2>Where to find them</h2><p>One-shots are frequently collected into anthology volumes alongside an author's other short work, which is often the only route to reading them in English.</p><h2>Worth knowing</h2><p>Several extremely well-regarded manga began as one-shots, and comparing the original against the serialised version is a useful way to see how magazine editing reshapes a premise.</p>",
+    "category": "craft",
+    "aliases": [
+      "oneshot"
+    ],
+    "related": [
+      "chapter",
+      "serialization",
+      "mangaka",
+      "editor"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "onomatopoeia",
+    "term": "Onomatopoeia",
+    "shortDef": "Drawn sound effects integrated into manga artwork, covering not only noises but also states like silence and staring.",
+    "body": "<h2>What it means</h2><p>Japanese has an unusually large inventory of sound-symbolic words, and manga uses them heavily. These are typically hand-drawn into the artwork rather than set as type, making them part of the image.</p><h2>Not just sounds</h2><p>The distinctive feature for English readers is that many of these words describe things that make no noise at all. There are conventional effects for silence, for a steady stare, for glittering, for nervous tension, and for the sensation of a room going still. English has no equivalent category.</p><h2>How translations handle it</h2><p>Approaches vary. Some publishers redraw effects in English, which is expensive and can damage the art. Many leave the original lettering intact and place a small gloss beside it. Others do nothing at all.</p><p>New readers commonly skip these, a habit carried over from prose. It costs a surprising amount of atmosphere, since the effects are often doing the work a soundtrack would do elsewhere.</p>",
+    "category": "craft",
+    "aliases": [
+      "sound effects",
+      "sfx"
+    ],
+    "related": [
+      "panel",
+      "official-translation",
+      "scanlation"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "otaku",
+    "term": "Otaku",
+    "shortDef": "A person with an intense, consuming interest in a hobby — pejorative in Japanese, largely reclaimed in English-speaking fandom.",
+    "body": "<h2>What it means</h2><p>Otaku describes someone whose interest in a subject is unusually consuming. Although English use has narrowed it to anime and manga, in Japanese it applies to any obsessive enthusiasm — trains, idols, cameras, military history.</p><h2>The connotation gap</h2><p>This is the important part. In Japanese the word has carried a genuinely negative charge, implying social withdrawal and an interest pursued at the expense of ordinary life. It is not a neutral descriptor and is not something most people would readily apply to themselves.</p><p>In English-speaking fandom the word was adopted as a self-description and largely reclaimed, so it is used neutrally or with pride.</p><p>The same word therefore lands very differently depending on who says it and where. Someone describing themselves as an otaku in English is doing something quite unlike what the word does in Japanese.</p><h2>Its origin</h2><p>The word is a formal second-person pronoun, roughly <em>your house</em>. The usual account is that it was adopted from how some enthusiasts addressed one another, producing a label built from a mannerism rather than a description.</p><h2>Related terms</h2><p><strong>Weeb</strong> followed a similar path from insult toward in-group use, though it remains an insult when applied from outside.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "weeb",
+      "doujinshi",
+      "waifu",
+      "manga-cafe"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "panel",
+    "term": "Panel",
+    "shortDef": "A single framed image in a comic, and the basic unit from which manga builds sequence and time.",
+    "body": "<h2>What it means</h2><p>A panel is one bordered image. A sequence of panels is what separates comics from illustration: the reader supplies the movement and duration between them.</p><h2>Panels carry timing</h2><p>Panel size and shape tell you how long to linger. A row of small, even panels reads quickly. A single large panel occupying half a page slows the reader and asks for attention. A wide horizontal panel tends to read as a held moment or an establishing view.</p><p>Manga uses this more aggressively than most Western comics, which historically favoured regular grids. A dramatic manga page may abandon the grid entirely.</p><h2>Breaking the frame</h2><p>Art that spills outside its panel border, or bleeds off the page edge, is deliberately escaping the sequence — usually to signal impact, scale or emotional rupture. Borderless panels often indicate memory, dream or interior thought.</p><h2>Related craft</h2><p>The space between panels is the gutter, and it does as much work as the panels themselves.</p>",
+    "category": "craft",
+    "aliases": [],
+    "related": [
+      "gutter",
+      "splash-page",
+      "screentone",
+      "right-to-left-reading"
+    ],
+    "examples": [
+      "berserk",
+      "akira"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "power-system",
+    "term": "Power System",
+    "shortDef": "The internal ruleset governing what abilities exist in a story and what they cost — the main thing making fights suspenseful rather than hollow.",
+    "body": "<h2>What it means</h2><p>A power system is the set of rules defining how abilities work in a setting: where power originates, what it can and cannot do, what it costs, and how it can be countered.</p><h2>Why rules create tension</h2><p>Suspense is a function of reader knowledge. If the audience understands the constraints, they can anticipate how a confrontation might turn and recognise a clever solution when it arrives. Without constraints there is nothing to anticipate — any outcome is equally possible, which means none is interesting.</p><p>This is why the best-regarded battle series almost uniformly feature tightly specified, limited abilities. Victories come from applying a known rule unexpectedly, which only satisfies if the rule was established first.</p><h2>Common designs</h2><ul><li><strong>Ability-based</strong> — each character has one distinct, narrowly defined power.</li><li><strong>Resource-based</strong> — a shared energy that depletes, making stamina a real constraint.</li><li><strong>Cost-based</strong> — greater power demands a proportionate sacrifice.</li><li><strong>Tiered</strong> — discrete levels of strength, and the design most prone to power creep.</li></ul><h2>The failure mode</h2><p>Systems that expand without limit lose the ability to generate tension, because the reader learns any obstacle can be met with a newly revealed capability.</p>",
+    "category": "genre",
+    "aliases": [
+      "magic system"
+    ],
+    "related": [
+      "battle-shonen",
+      "shonen",
+      "tournament-arc",
+      "time-skip"
+    ],
+    "examples": [
+      "hunter-x-hunter",
+      "fullmetal-alchemist"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "reverse-harem",
+    "term": "Reverse Harem",
+    "shortDef": "A harem structure with the genders inverted: one female protagonist surrounded by multiple male romantic interests.",
+    "body": "<h2>What it means</h2><p>A reverse harem places a single female protagonist among a group of male characters interested in her. It is most common in shojo and josei, and in otome game adaptations built around exactly this configuration.</p><h2>How it differs from the standard form</h2><p>The structure is the same but the emphasis usually is not. Reverse harem tends to invest more in differentiating the love interests, giving each a distinct personality, backstory and mode of relating to the protagonist.</p><p>Protagonists are also more likely to be actively characterised rather than deliberately neutral, and considerably more likely to actually choose by the end. Resolution is far more common here than in the standard configuration.</p><h2>The game connection</h2><p>Otome games — dating games aimed at women, offering multiple romantic routes — are a major source. Adapting one to manga means selecting a single route from a branching structure, which is why some adaptations feel as though several plots were compressed into one.</p><h2>Related forms</h2><p>The villainess subgenre frequently overlaps, since a protagonist reborn into an otome game's world inherits its cast configuration along with everything else.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "harem",
+      "shojo",
+      "josei",
+      "romance-manga",
+      "isekai"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "right-to-left-reading",
+    "term": "Right-to-Left Reading",
+    "shortDef": "The panel and page order used by manga, in which you begin at the top-right of the right-hand page and work leftwards.",
+    "body": "<h2>What it means</h2><p>Manga follows the traditional direction of written Japanese: right to left. Within a page, read the rightmost panel of the top row first, move left, then drop to the next row. Pages progress right to left as well, so a volume opens from what an English reader thinks of as the back.</p><h2>Speech bubbles too</h2><p>The same order governs dialogue. When several bubbles share a panel, the rightmost and highest comes first. Bubbles joined by a connecting tail read as one continuous run of speech. Misordered bubbles are the single most common reason a conversation seems to make no sense to a new reader.</p><h2>Why the art is not flipped</h2><p>English publishers mirrored artwork in the 1990s so it read left to right. This reversed handedness, turned drawn signage backwards and broke any plot point depending on which hand a character used. The practice was largely abandoned by the early 2000s.</p><h2>Exceptions</h2><p>Vertical-scroll webtoons have no right-to-left order. Some older series still circulate in flipped editions, so a reprint may read in the opposite direction from an earlier printing of the same book.</p>",
+    "category": "craft",
+    "aliases": [
+      "unflipped"
+    ],
+    "related": [
+      "manga",
+      "panel",
+      "gutter",
+      "manhwa"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "rival-character",
+    "term": "Rival Character",
+    "shortDef": "A recurring figure who competes with the protagonist, embodying an alternative approach rather than simple opposition.",
+    "body": "<h2>What it means</h2><p>The rival is a counterpart the protagonist repeatedly measures themselves against. Crucially, a rival is not a villain — the relationship is competitive rather than hostile, and often becomes genuine respect or friendship.</p><h2>What the role is for</h2><p>The rival externalises an argument. Where the protagonist relies on effort, the rival often has talent; where the protagonist trusts instinct, the rival has discipline. The competition between them is really a comparison of two approaches, which lets a story examine its own values without stating them.</p><p>They also supply escalation that does not require an enemy. A protagonist can be pushed by someone who wishes them no harm, which keeps the stakes personal.</p><h2>Where it appears most</h2><p>Sports manga depends on it almost structurally, since competition is the subject. Battle shonen uses it constantly, frequently converting a first antagonist into a long-term rival once the initial conflict resolves.</p><h2>The strongest versions</h2><p>Good rivals are given their own goals and interiority, so the competition matters to them independently. A rival who exists only to measure the protagonist's growth is a scoreboard rather than a character, and the difference is usually obvious.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "shonen-protagonist",
+      "battle-shonen",
+      "sports-manga",
+      "tournament-arc"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "romance-manga",
+    "term": "Romance Manga",
+    "shortDef": "Manga centred on romantic relationships, spanning every demographic and differing sharply in register between them.",
+    "body": "<h2>What it means</h2><p>Romance manga takes a developing relationship as its central concern. It is one of the largest categories in the medium and appears across all four demographics, which is precisely why the label alone tells you little.</p><h2>How the demographics differ</h2><ul><li><strong>Shojo</strong> — first love, school settings, emotional interiority rendered through layout and tone. The reader is usually positioned close to one character's feelings.</li><li><strong>Josei</strong> — adult relationships with adult complications: work, money, past partners, marriage. Endings are frequently unresolved or ambivalent.</li><li><strong>Shonen</strong> — romantic comedy is a substantial tradition, often built on misunderstanding and delay, and typically ensemble rather than intimate.</li><li><strong>Seinen</strong> — tends toward the melancholy or the deliberately uncomfortable, and is more willing to end badly.</li></ul><h2>The structural challenge</h2><p>Serialisation punishes resolution. A relationship that concludes removes the engine, so long-running romance develops elaborate methods for sustaining tension — which is where the genre's reputation for endless near-misses comes from.</p><p>The stronger entries solve this by letting the relationship happen and finding a different question to ask afterwards.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "shojo",
+      "josei",
+      "shonen",
+      "seinen",
+      "harem",
+      "boys-love"
+    ],
+    "examples": [
+      "fruits-basket",
+      "nana"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "scanlation",
+    "term": "Scanlation",
+    "shortDef": "Unofficial fan translation of manga, produced by scanning or sourcing pages, translating them and re-lettering the result.",
+    "body": "<h2>What it means</h2><p>Scanlation combines scan and translation. Groups acquire raw pages, translate the text, erase the original lettering, and typeset English in its place, then distribute the result online for free.</p><h2>Why it grew</h2><p>For a long stretch, most manga was simply unavailable in English, and what was available arrived years late. Scanlation filled a genuine gap, and a considerable amount of the English-speaking manga readership was built on it.</p><h2>Why the picture has changed</h2><p>Licensing has expanded enormously and simulpub has eliminated the speed advantage for major series. The gap scanlation originally filled is much narrower than it was, though it has not closed — unlicensed and out-of-print series remain genuinely unavailable otherwise.</p><h2>The contested part</h2><p>Scanlation is copyright infringement, and its effect on creator income is the subject of a long argument that neither side has settled with good data. Scanlation groups themselves have historically observed a norm of dropping a series once it is licensed.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "official-translation",
+      "simulpub",
+      "licensing",
+      "doujinshi"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "screentone",
+    "term": "Screentone",
+    "shortDef": "Adhesive sheets of printed dot or line patterns used to add shading, texture and tone to black-and-white manga art.",
+    "body": "<h2>What it means</h2><p>Screentone is a pre-printed pattern — most commonly a field of tiny dots — applied to artwork to produce the appearance of grey. Because manga is printed in pure black and white, tone is how artists get everything between the two.</p><h2>How it was used</h2><p>Traditionally these were adhesive plastic sheets, laid over the art and cut to shape with a blade. Assistants did much of this work, and a skilled assistant could produce effects far beyond flat grey: gradients, textures, fabric patterns, skies.</p><p>Digital tools have largely replaced physical sheets, but the visual vocabulary carried over intact.</p><h2>Beyond shading</h2><p>Tone does emotional work. A sudden dark tone across a character's face signals dread; radiating line tone conveys shock or revelation; floral tone patterns, a shojo convention, indicate romantic feeling. Readers learn to read these as reliably as they read dialogue.</p><h2>Related craft</h2><p>Hatching and spotting blacks achieve some of the same ends by hand, and many artists are known for favouring one approach over the other.</p>",
+    "category": "craft",
+    "aliases": [
+      "tone"
+    ],
+    "related": [
+      "panel",
+      "manga",
+      "shojo"
+    ],
+    "examples": [
+      "berserk",
+      "oyasumi-punpun"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "seinen",
+    "term": "Seinen",
+    "shortDef": "Manga published in magazines aimed primarily at adult men, typically allowing slower pacing and more ambiguous storytelling.",
+    "body": "<h2>What it means</h2><p>Seinen refers to manga serialised in magazines targeting adult men, roughly from late teens upward. Like all demographic labels it describes the publication, not the genre.</p><h2>What tends to follow from it</h2><p>Seinen magazines generally assume a reader with more patience. This shows up as slower pacing, moral ambiguity, unresolved endings, and protagonists who are not straightforwardly admirable. Some of the medium's most formally ambitious work sits here.</p><p>It also permits more explicit violence and sexual content, though this varies enormously by magazine and is not the defining feature.</p><h2>A useful signal for new readers</h2><p>For adults who tried a famous shonen title and found the pacing repetitive, seinen is usually the more productive direction. It is the closest thing to a reliable recommendation heuristic the demographic labels offer.</p><h2>Commonly confused with</h2><p>Seinen is not a maturity ranking above shonen. The two are parallel marketing categories, and there are seinen comedies far lighter than the average shonen adventure.</p>",
+    "category": "demographic",
+    "aliases": [],
+    "related": [
+      "shonen",
+      "josei",
+      "shojo",
+      "serialization"
+    ],
+    "examples": [
+      "berserk",
+      "monster",
+      "vinland-saga",
+      "oyasumi-punpun"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "senpai",
+    "term": "Senpai",
+    "shortDef": "An honorific for someone senior to you in a school, workplace or club, denoting position rather than age or rank.",
+    "body": "<h2>What it means</h2><p>Senpai refers to a person with more seniority in a shared institution — an older student, a longer-serving colleague, a more experienced club member. It is used as both a title and a form of address.</p><h2>What it actually encodes</h2><p>Seniority in this sense is about <em>time in the institution</em>, not age or authority. Someone younger can be your senpai if they joined first. The relationship carries mutual obligation: the senior is expected to guide and look out for the junior, who is expected to show deference.</p><p>This is not merely polite convention. It structures a great deal of ordinary social interaction, and manga set in schools, clubs and workplaces relies on it constantly.</p><h2>Why translations keep it</h2><p>English has no equivalent. Options like <em>senior</em> or <em>upperclassman</em> capture the hierarchy but lose the warmth and obligation. Many translations retain the word for that reason, which is a small example of the larger honorifics debate.</p><h2>In fandom use</h2><p>The word acquired a joking English usage referring to unrequited attention from someone admired. This is an English-fandom development with little relation to how it functions in Japanese.</p>",
+    "category": "fandom",
+    "aliases": [
+      "sempai"
+    ],
+    "related": [
+      "kohai",
+      "official-translation",
+      "shojo",
+      "sports-manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "serialization",
+    "term": "Serialization",
+    "shortDef": "The publishing model in which manga appears as regular instalments in an anthology magazine before being collected into volumes.",
+    "body": "<h2>What it means</h2><p>Serialisation is the arrangement by which a manga runs chapter by chapter in a magazine — weekly, monthly or otherwise — alongside other series, before those chapters are collected into volumes.</p><h2>Why it shapes everything</h2><p>Almost every distinctive feature of manga descends from this model. Black-and-white art is a printing economy. High page counts result from years of weekly instalments. Chapter-level pacing exists to survive a magazine's reader survey.</p><h2>Reader surveys and cancellation</h2><p>Magazines collect reader feedback continuously, and rankings influence editorial decisions directly. A series performing poorly can be cancelled at short notice, sometimes forcing an author to compress a planned multi-year story into a handful of rushed chapters. Abrupt endings frequently have this cause rather than authorial choice.</p><h2>What is changing</h2><p>Digital-first and web serialisation have loosened some of these constraints, allowing colour, variable chapter lengths and series that survive without magazine ranking pressure.</p>",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "weekly-shonen-jump",
+      "editor",
+      "chapter",
+      "tankobon",
+      "hiatus"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "ship",
+    "term": "Ship",
+    "shortDef": "To want two characters in a romantic relationship, or the pairing itself — shortened from the word relationship.",
+    "body": "<h2>What it means</h2><p>Ship works as both verb and noun. To ship two characters is to want them together; a ship is the pairing itself. The word is a clipping of <em>relationship</em> and originated in wider fandom rather than manga specifically.</p><h2>The vocabulary around it</h2><ul><li><strong>Canon ship</strong> — a pairing the work itself establishes.</li><li><strong>Ship name</strong> — a portmanteau of the two characters' names, used as shorthand.</li><li><strong>Shipping war</strong> — sustained argument between supporters of competing pairings for the same character.</li><li><strong>Multishipping</strong> — supporting several incompatible pairings without treating it as a contradiction.</li></ul><h2>Why manga fandom does it so much</h2><p>Serialisation creates ideal conditions. Long-running series leave relationships unresolved for years, giving readers extended periods to speculate. Large ensemble casts generate many plausible combinations. And a weekly release schedule means constant new material to reinterpret.</p><p>Romance-adjacent genres that deliberately defer resolution produce the most intense shipping activity, for exactly this reason.</p><h2>Its relationship to doujinshi</h2><p>Shipping drives a substantial share of self-published fan work, which is one of the more concrete ways fandom activity feeds back into the wider manga economy.</p>",
+    "category": "fandom",
+    "aliases": [
+      "shipping"
+    ],
+    "related": [
+      "canon",
+      "doujinshi",
+      "waifu",
+      "romance-manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "shojo",
+    "term": "Shojo",
+    "shortDef": "Manga published in magazines aimed primarily at teenage girls, with a distinctive visual language built around interiority.",
+    "body": "<h2>What it means</h2><p>Shojo means girl. As a label it identifies manga serialised in magazines targeting teenage girls. Again, it describes the magazine rather than the content.</p><h2>A genuinely distinct visual style</h2><p>Shojo developed the most identifiable craft vocabulary of any demographic category. Panel borders dissolve; layouts overlap and layer rather than sitting in a grid; floral and starburst tone patterns externalise emotion; figures break free of frames entirely. Where shonen layouts drive the eye forward, shojo layouts often ask it to linger.</p><p>This is a technical achievement, not decoration. The style evolved to render internal emotional states directly on the page, which is harder than depicting action.</p><h2>Beyond romance</h2><p>Romance is prominent but far from exclusive. Shojo magazines carry fantasy, horror, sports and historical drama, and several landmark science fiction manga were serialised as shojo.</p><h2>Commonly confused with</h2><p>Shojo is not a content warning or an indicator of low stakes, and its craft influence extends well beyond its own demographic.</p>",
+    "category": "demographic",
+    "aliases": [
+      "shoujo"
+    ],
+    "related": [
+      "josei",
+      "shonen",
+      "seinen",
+      "screentone",
+      "panel"
+    ],
+    "examples": [
+      "fruits-basket",
+      "sailor-moon",
+      "cardcaptor-sakura"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "shonen",
+    "term": "Shonen",
+    "shortDef": "Manga published in magazines aimed primarily at teenage boys — a marketing demographic, not a genre or a content rating.",
+    "body": "<h2>What it means</h2><p>Shonen means boy or youth. As a publishing label it identifies manga serialised in magazines whose target readership is teenage boys. It describes the magazine, not the content.</p><h2>What it does and does not tell you</h2><p>Shonen magazines are the commercial engine of the industry and their best-known titles are action-adventure series about persistent protagonists, escalating opponents and friendship under pressure. That association is real but partial: shonen magazines also carry sports, comedy, romance, horror and cooking manga.</p><p>It is emphatically not an age rating. Plenty of shonen series contain sustained violence and bleak material. Conversely, the label does not mean the audience is boys; readership routinely spans far wider than the target.</p><h2>Commonly confused with</h2><p>Shonen is often used loosely to mean an action manga with power escalation. This usage is entrenched but wrong — the term is about which magazine published the work, which is why the same story would be seinen if serialised elsewhere.</p>",
+    "category": "demographic",
+    "aliases": [
+      "shounen"
+    ],
+    "related": [
+      "seinen",
+      "shojo",
+      "josei",
+      "weekly-shonen-jump",
+      "serialization"
+    ],
+    "examples": [
+      "one-piece",
+      "naruto",
+      "dragon-ball",
+      "hunter-x-hunter"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "shonen-protagonist",
+    "term": "Shonen Protagonist",
+    "shortDef": "The recurring lead type in shonen action manga: persistently determined, socially straightforward, and defined by effort rather than talent.",
+    "body": "<h2>What it means</h2><p>The shonen protagonist is a recognisable character template — energetic, stubborn, morally uncomplicated, and driven by a stated goal declared early and repeated often.</p><h2>The defining trait is persistence, not power</h2><p>The template consistently favours effort over talent. Protagonists are frequently established as unremarkable or actively disadvantaged, and their distinguishing quality is refusal to stop. This maps directly onto the editorial themes the largest shonen magazine is known for.</p><h2>Why they are often deliberately simple</h2><p>A common criticism is that these leads are flat compared with the antagonists around them. This is frequently intentional. The protagonist functions as a fixed moral position that the story tests, while the surrounding cast supplies complexity. The interesting question is usually not what the protagonist will decide but what the world does in response.</p><h2>The costs of the template</h2><p>Applied lazily it produces leads with no interiority, no doubt and no capacity to be changed by events, surrounded by a cast doing the actual work. Series that avoid this tend to let the protagonist be genuinely wrong about something and have to revise.</p><h2>Related</h2><p>The rival character exists largely to give this template something to define itself against.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "shonen",
+      "battle-shonen",
+      "rival-character",
+      "weekly-shonen-jump"
+    ],
+    "examples": [
+      "naruto",
+      "one-piece",
+      "my-hero-academia"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "simulpub",
+    "term": "Simulpub",
+    "shortDef": "The release of an official English chapter at the same time as its Japanese magazine publication.",
+    "body": "<h2>What it means</h2><p>Simulpub, short for simultaneous publication, is the practice of putting out a licensed English chapter the same day or week as Japan, rather than waiting for the collected volume.</p><h2>Why it exists</h2><p>It was a direct response to scanlation. The main advantage unofficial translations had was speed, and simulpub removes it. For major ongoing series the official English chapter now arrives at the same time, often with the most recent chapters free to read.</p><h2>How it works commercially</h2><p>Publishers typically keep the newest few chapters free and move older ones behind a low-cost subscription, which converts speed into a recurring revenue stream while still competing on immediacy.</p><h2>Its limits</h2><p>Simulpub covers a fraction of what is serialised in Japan, concentrated on commercially significant titles. Most series still arrive later, if at all.</p>",
+    "category": "industry",
+    "aliases": [
+      "simulpublication"
+    ],
+    "related": [
+      "official-translation",
+      "scanlation",
+      "licensing",
+      "weekly-shonen-jump"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "slice-of-life",
+    "term": "Slice of Life",
+    "shortDef": "A genre focused on ordinary everyday experience, where little dramatic incident occurs and that is the point.",
+    "body": "<h2>What it means</h2><p>Slice of life stories concentrate on routine daily existence — school, work, meals, friendship — without a driving plot engine. Conflict, where present, is small and human in scale.</p><h2>Why it works in manga</h2><p>Serialisation suits it unusually well. A weekly chapter that captures one small episode does not need escalating stakes to justify itself, and years of accumulated small moments produce a depth of familiarity with a cast that plot-driven work rarely achieves.</p><p>The craft demand shifts from spectacle to observation: expression, body language, the specific texture of a place.</p><h2>Not the same as low stakes</h2><p>Some slice of life is quietly devastating. Removing plot armour and dramatic incident can leave grief, loneliness and disappointment more exposed, not less.</p><h2>Related genres</h2><p>Iyashikei is a specific subset explicitly designed to soothe. All iyashikei is broadly slice of life; much slice of life is not iyashikei.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "iyashikei",
+      "seinen",
+      "josei"
+    ],
+    "examples": [
+      "yotsuba",
+      "march-comes-in-like-a-lion"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "speed-lines",
+    "term": "Speed Lines",
+    "shortDef": "Streaked lines drawn across a panel to imply motion, force or focus in an image that is physically static.",
+    "body": "<h2>What it means</h2><p>Speed lines are dense parallel strokes suggesting movement. A figure drawn against streaking lines reads as travelling fast, though nothing on the page moves.</p><h2>Two distinct uses</h2><p><strong>Background streaks</strong> replace the setting entirely with directional lines, conveying velocity and removing anything that would slow the eye. The character appears to move because their surroundings have dissolved into motion.</p><p><strong>Focus lines</strong> radiate inward toward a point rather than running parallel. These indicate no movement at all — they indicate attention, shock or sudden realisation, pulling the eye to exactly where the artist wants it.</p><h2>Why they work</h2><p>They do two jobs simultaneously. They communicate motion, and they physically drag the reader's gaze along their direction, so the eye travels the same path the action does. A panel of speed lines is steering you as well as informing you.</p><h2>Related conventions</h2><p>The impact frame — a panel of abstract chaos at the moment of collision — is the extreme version of the same logic, replacing depiction entirely on the assumption the reader will supply something better.</p>",
+    "category": "craft",
+    "aliases": [
+      "motion lines",
+      "focus lines"
+    ],
+    "related": [
+      "panel",
+      "gutter",
+      "screentone",
+      "splash-page"
+    ],
+    "examples": [
+      "dragon-ball",
+      "one-piece"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "splash-page",
+    "term": "Splash Page",
+    "shortDef": "A single image occupying a full page, or a double-page spread across two, used for maximum dramatic impact.",
+    "body": "<h2>What it means</h2><p>A splash page devotes an entire page to one image. A double-page spread extends this across both open pages. Both sacrifice narrative economy for impact.</p><h2>Built around the page turn</h2><p>The classic use pairs a splash with the physical act of turning a page. The reader finishes a page, turns, and the spread arrives all at once with nothing else competing for attention. This is a mechanical effect, not just a compositional one, and it is the main reason such pages lose force on a phone screen.</p><h2>Where it appears</h2><p>Chapter openings frequently use splash pages to establish setting or reintroduce a character. In action series they mark the arrival of a threat or the landing of a decisive blow. Overuse is a recognised weakness — a series that splashes constantly has no register left for genuine escalation.</p><h2>Print versus digital</h2><p>Digital readers often display spreads as two separate pages, breaking the composition in half down the middle. This is one of the few concrete advantages print retains.</p>",
+    "category": "craft",
+    "aliases": [
+      "double-page spread",
+      "spread"
+    ],
+    "related": [
+      "panel",
+      "gutter",
+      "chapter",
+      "tankobon"
+    ],
+    "examples": [
+      "berserk",
+      "one-piece"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "spoiler-culture",
+    "term": "Spoiler Culture",
+    "shortDef": "The set of norms around leaked chapter details, which in manga fandom circulate on a predictable weekly cycle before official release.",
+    "body": "<h2>What it means</h2><p>In manga fandom, <em>spoilers</em> often refers to something narrower than the general English sense. It means details from an unreleased chapter — leaked images, plot summaries, or translated fragments — circulating before official publication.</p><h2>Why leaks are systematic</h2><p>Magazines reach distribution channels several days before their official on-sale date, and material escapes from that window consistently. For major series this happens on a predictable schedule every week, which is why organised spoiler discussion exists as a routine activity rather than an occasional accident.</p><h2>The norms that developed</h2><p>Communities evolved fairly strict conventions in response: dedicated spoiler threads, tagging requirements, and rules against posting leaked material outside designated spaces. Enforcement is generally taken seriously, because the alternative makes discussion spaces unusable for anyone reading on the official schedule.</p><h2>Why avoidance is an active practice</h2><p>Because leaks are scheduled rather than random, avoiding them means adjusting behaviour on particular days of the week. This is a genuine and slightly absurd feature of following an ongoing series, and it is why many readers deliberately wait for the volume.</p><h2>The tension underneath</h2><p>Leaked material is unauthorised, and simulpub has made the official chapter available at very nearly the same moment. The gap that spoiler circulation fills is now measured in days rather than months.</p>",
+    "category": "fandom",
+    "aliases": [
+      "spoilers"
+    ],
+    "related": [
+      "simulpub",
+      "scanlation",
+      "serialization",
+      "canon"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "sports-manga",
+    "term": "Sports Manga",
+    "shortDef": "Manga built around competitive sport, and one of the medium's strongest genres even for readers indifferent to the sport itself.",
+    "body": "<h2>What it means</h2><p>Sports manga takes a sport as its subject and structure — training, teams, matches, rivalry, the gap between talent and work.</p><h2>Why it transfers so well</h2><p>Sport supplies a ready-made narrative engine: clear rules, visible stakes, an unambiguous outcome, and natural escalation through rounds and seasons. The genre routinely works for readers with no interest in the sport, because the actual subject is obsession, incremental improvement and the specific loneliness of being outclassed.</p><h2>A craft showcase</h2><p>Depicting a fast physical action in still images is genuinely hard, and sports manga is where the medium's tools for conveying motion, timing and spatial relationships are most rigorously exercised. A well-drawn match makes the geometry of play legible on the page.</p><h2>Common structures</h2><p>The tournament arc is the genre's default engine. Many series also devote significant space to technical explanation, teaching the reader the sport's strategy as the cast learns it.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "tournament-arc",
+      "shonen",
+      "seinen"
+    ],
+    "examples": [
+      "slam-dunk",
+      "blue-lock"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "tankobon",
+    "term": "Tankobon",
+    "shortDef": "A collected paperback volume gathering roughly nine to eleven previously serialised manga chapters.",
+    "body": "<h2>What it means</h2><p>A tankobon is the standalone book edition of a manga, as distinct from the magazine in which the chapters first appeared. It is what a bookshop stocks and what a volume number on a spine refers to.</p><h2>Not merely a bundle</h2><p>The collection stage is where authors revise. Art rushed to meet a weekly deadline gets redrawn, panels are fixed, and dialogue is occasionally altered. The tankobon is generally treated as the definitive version of a work rather than the magazine printing.</p><h2>Bonus material</h2><p>Volumes typically carry content that never ran in the magazine: author sidebars and margin comments, character profiles, design sketches, and omake — short bonus comics, often comedic.</p><h2>Related formats</h2><p>Larger deluxe editions collect multiple volumes at bigger trim size, sometimes with colour pages restored. These are usually reserved for established classics and are the closest manga equivalent to a prestige hardcover.</p>",
+    "category": "craft",
+    "aliases": [
+      "volume"
+    ],
+    "related": [
+      "chapter",
+      "omake",
+      "serialization",
+      "manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "time-skip",
+    "term": "Time Skip",
+    "shortDef": "A deliberate jump forward in a story's timeline, often used to age a cast and reset the stakes.",
+    "body": "<h2>What it means</h2><p>A time skip advances the narrative by months or years between chapters, skipping the intervening period. Long-running manga use it as a structural reset.</p><h2>What it accomplishes</h2><p>It lets characters return visibly stronger without the story having to depict the training. It ages a young cast into different kinds of story. It clears away a resolved status quo so a second act can begin, and it allows a creator to redesign characters after years of drawing them.</p><h2>Why it is contentious</h2><p>Skips ask readers to accept off-page development, and the payoff depends entirely on whether the returning cast feels earned. A skip that hands out power without cost is a common complaint. Some series restart chapter numbering after a major skip, effectively presenting the result as a sequel.</p><h2>Related devices</h2><p>Flashback arcs frequently fill in a skip afterwards, occupying dozens of chapters to explain what happened during the gap.</p>",
+    "category": "craft",
+    "aliases": [
+      "timeskip"
+    ],
+    "related": [
+      "chapter",
+      "serialization",
+      "tournament-arc"
+    ],
+    "examples": [
+      "one-piece",
+      "naruto"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "tournament-arc",
+    "term": "Tournament Arc",
+    "shortDef": "A story structure in which characters compete through a bracketed contest, generating a sequence of escalating one-on-one matches.",
+    "body": "<h2>What it means</h2><p>A tournament arc places the cast into a formal competition with rounds and a bracket. Each round produces a match, and the bracket guarantees escalation without the author having to invent a new reason for conflict.</p><h2>Why it recurs so often</h2><p>It is close to an ideal serialisation structure. It provides a fixed schedule of confrontations, a natural mechanism for introducing new characters with defined abilities, a reason for exposition about how a power system works, and a clear endpoint. For a weekly magazine it solves the problem of what happens next almost automatically.</p><h2>The standard criticisms</h2><p>Tournaments can stall a larger plot for dozens of chapters, and matches involving minor characters are frequently skipped or resolved offscreen. Series that return to the format repeatedly risk feeling structurally repetitive.</p><h2>Where it appears</h2><p>Most closely associated with battle shonen and sports manga, but the shape recurs anywhere a series needs sustained, rule-bound conflict.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "sports-manga",
+      "shonen",
+      "time-skip",
+      "serialization"
+    ],
+    "examples": [
+      "dragon-ball",
+      "hunter-x-hunter",
+      "blue-lock"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "tsundere",
+    "term": "Tsundere",
+    "shortDef": "A character who behaves coldly or abrasively toward someone they actually care about, gradually revealing warmth underneath.",
+    "body": "<h2>What it means</h2><p>Tsundere combines two Japanese sound-symbolic words: one for turning away sharply, and one for being lovestruck or affectionate. The character alternates between the two registers, usually toward one specific person.</p><h2>The two common variants</h2><p>The distinction matters more than the label suggests. In one version the coldness is a genuine defence that erodes as trust develops, and the warmth beneath was always real. In the other, the character simply behaves harshly in public and affectionately in private, with no development involved.</p><p>The first is a characterisation. The second is a running joke. They are frequently discussed as though they were the same thing.</p><h2>Why it recurs</h2><p>It supplies a relationship with built-in tension and a clear trajectory, which suits serialisation well. It also lets a writer delay a romantic resolution indefinitely while appearing to progress toward it.</p><h2>The criticism</h2><p>The archetype has been criticised for presenting hostility as affection, particularly where physical aggression is played for comedy. The better-written examples give the coldness an actual cause rather than treating it as a personality setting.</p><h2>Related terms</h2><p>A family of similar coinages describes adjacent temperaments — reserved, silent or apparently emotionless characters who also warm over time.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "yandere",
+      "kuudere",
+      "dandere",
+      "romance-manga",
+      "shonen"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "waifu",
+    "term": "Waifu",
+    "shortDef": "A fictional character a fan claims particular attachment to, from the Japanese borrowing of the English word wife.",
+    "body": "<h2>What it means</h2><p>Waifu is the Japanese rendering of <em>wife</em>, adopted into English fandom to describe a fictional character someone has declared a favourite in a romantic or possessive register.</p><h2>The tone</h2><p>Usage is overwhelmingly jokey and self-aware. It is used to signal enthusiasm with deliberate excess, and the humour depends on everyone understanding the excess is the point. Taken at face value it describes something the term is rarely used sincerely to mean.</p><p><strong>Husbando</strong> is the male counterpart, formed by the same borrowing logic and used identically.</p><h2>Where it comes from</h2><p>The word entered English fandom through a specific anime scene and spread from there. Its origin as a borrowed English word re-borrowed back into English is part of why it sounds odd in both languages.</p><h2>Why it attracts criticism</h2><p>The term is closely associated with a mode of engagement that treats characters as possessions, and the phrase <em>waifu wars</em> describes the arguments that follow. Whether this is harmless enthusiasm or something worth criticising is a recurring and unresolved fandom argument.</p><h2>Related usage</h2><p>The related term <em>best girl</em> makes the same claim without the marital framing and carries less baggage.</p>",
+    "category": "fandom",
+    "aliases": [
+      "husbando"
+    ],
+    "related": [
+      "ship",
+      "fanservice",
+      "otaku",
+      "harem"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "weeb",
+    "term": "Weeb",
+    "shortDef": "An English-fandom term for a non-Japanese person seen as excessively enthusiastic about Japanese culture, used as both insult and self-deprecation.",
+    "body": "<h2>What it means</h2><p>Weeb is shortened from <em>weeaboo</em>, an English-language internet coinage. It describes a Western fan whose enthusiasm for Japanese culture is judged excessive — particularly one who inserts Japanese vocabulary into English speech or treats Japan as an idealised object rather than a real country.</p><h2>Its origin</h2><p>The longer form originated on English-language forums in the mid-2000s, where it was applied as a straightforward insult. It has no Japanese origin at all, which distinguishes it sharply from otaku.</p><h2>How usage split</h2><p>Like otaku, it underwent partial reclamation. Fans now use it self-deprecatingly and about friends, where it is affectionate. Applied by an outsider it remains an insult, and the same word can be warm or hostile depending entirely on who is speaking.</p><h2>What the criticism is actually about</h2><p>The substantive version of the complaint is not about enjoying manga. It concerns treating a real country as an aesthetic — flattening a culture into a set of consumable traits, or assuming fluency in media amounts to understanding a society.</p><p>That is a reasonable criticism. It is also frequently deployed as a generic put-down against anyone visibly enthusiastic, which is not.</p>",
+    "category": "fandom",
+    "aliases": [
+      "weeaboo"
+    ],
+    "related": [
+      "otaku",
+      "scanlation",
+      "official-translation"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "weekly-shonen-jump",
+    "term": "Weekly Shonen Jump",
+    "shortDef": "The most commercially dominant manga magazine, whose editorial model has shaped mainstream manga more than any other publication.",
+    "body": "<h2>What it is</h2><p>Weekly Shonen Jump is a shonen anthology magazine published by Shueisha since 1968. It runs roughly twenty series concurrently, each contributing a chapter of about 19 pages every week.</p><h2>Why it matters disproportionately</h2><p>Jump's commercial reach means its editorial preferences propagate across the industry. Its reader survey system, its emphasis on strong chapter hooks, and its willingness to cancel underperforming series quickly have all become general expectations of mainstream manga.</p><p>Its stated editorial themes — friendship, effort, victory — are frequently cited as the template for battle shonen, though the magazine's actual catalogue is broader than that summary suggests.</p><h2>The cancellation culture</h2><p>Jump is known for ending series fast when survey rankings drop. This produces a recognisable pattern of promising titles concluding abruptly around chapter twenty, and it exerts constant pressure on creators to front-load appeal.</p><h2>Worth knowing</h2><p>Many of its major series are available in English the same week as Japan through official simulpub.</p>",
+    "category": "industry",
+    "aliases": [
+      "shonen jump",
+      "jump"
+    ],
+    "related": [
+      "shonen",
+      "serialization",
+      "editor",
+      "simulpub",
+      "hiatus"
+    ],
+    "examples": [
+      "one-piece",
+      "naruto",
+      "dragon-ball",
+      "death-note"
+    ],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "yandere",
+    "term": "Yandere",
+    "shortDef": "A character whose romantic devotion becomes obsessive and dangerous, often turning violent toward perceived rivals.",
+    "body": "<h2>What it means</h2><p>Yandere combines a word relating to mental or emotional illness with the same affection term found in tsundere. The character is genuinely devoted, and that devotion is the problem rather than a mask for something else.</p><h2>How it differs from tsundere</h2><p>The two are frequently confused because of the shared suffix. They are close to opposites. A tsundere hides affection behind hostility. A yandere displays affection openly, and the danger emerges from its intensity — possessiveness, surveillance, and hostility toward anyone perceived as a rival.</p><h2>Where it appears</h2><p>Primarily in horror, thriller and psychological romance, where the archetype does real work: it takes the conventions of devoted love and follows them past the point of safety. Used well, it is a critique of how romantic obsession is normally framed as flattering.</p><h2>Used badly</h2><p>The archetype is often deployed as titillation, presenting stalking and coercive behaviour as an expression of desirability. This is a persistent and reasonable criticism of how the type is commonly written.</p><h2>Worth noting</h2><p>The term is now used well beyond manga, frequently by people with no exposure to its origin.</p>",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "tsundere",
+      "kuudere",
+      "horror-manga",
+      "romance-manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "yaoi",
+    "term": "Yaoi",
+    "shortDef": "An older term for manga depicting male-male romance, now generally implying more explicit content than the broader Boys Love label.",
+    "body": "<h2>What it means</h2><p>Yaoi refers to manga centred on romantic and sexual relationships between men. It originated in fan and self-published circles before becoming a commercial category.</p><h2>Its relationship to Boys Love</h2><p>The two terms overlap heavily and the boundary is genuinely contested. In current usage, <strong>Boys Love</strong> is the broad publisher-facing umbrella, while <strong>yaoi</strong> tends to imply explicit content specifically.</p><p>This distinction is stronger in Japanese usage than in English, where yaoi was for a long period the general term. Older English-language discussion uses it as an umbrella; newer discussion mostly does not. Neither usage is wrong so much as differently dated.</p><h2>The doujinshi origin</h2><p>The category grew substantially out of self-published fan work pairing male characters from existing series. That origin still shapes it — a large share of doujinshi production remains in this space, and the traffic between fan and commercial work runs both directions.</p><h2>Worth knowing</h2><p>Because the terminology shifted over time and differs between languages, arguments about which word correctly applies are frequent, largely unresolvable, and rarely illuminating.</p>",
+    "category": "genre",
+    "aliases": [],
+    "related": [
+      "boys-love",
+      "yuri",
+      "doujinshi",
+      "romance-manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  },
+  {
+    "slug": "yuri",
+    "term": "Yuri",
+    "shortDef": "A genre depicting romantic relationships between women, spanning subtle emotional intimacy through to explicit romance.",
+    "body": "<h2>What it means</h2><p>Yuri covers manga centred on romantic or intensely emotional relationships between women. Its range is unusually wide — from work where the relationship is largely unspoken to explicitly romantic and sexual material.</p><h2>Two distinct traditions</h2><p>Yuri developed from more than one source, which is why the category feels less unified than Boys Love.</p><p>One strand descends from shojo magazine traditions of intense female friendship, where emotional closeness is the subject and romance may be implied rather than stated. Another is explicitly romantic and has its own dedicated magazines and readership.</p><h2>Readership</h2><p>Yuri's audience is more mixed than BL's. It is read substantially by women, including queer women writing and reading about their own experience, and also by a male readership — a split that produces recurring disagreement within the genre about who it is for and what it should be doing.</p><h2>Its current position</h2><p>Yuri has grown considerably in the past decade, with more dedicated magazines, more licensed titles in English, and a noticeable shift toward adult protagonists and workplace settings rather than exclusively school ones.</p>",
+    "category": "genre",
+    "aliases": [
+      "shoujo-ai"
+    ],
+    "related": [
+      "boys-love",
+      "yaoi",
+      "shojo",
+      "josei",
+      "romance-manga"
+    ],
+    "examples": [],
+    "updatedAt": "2026-08-17T00:00:00.000Z"
+  }
+]

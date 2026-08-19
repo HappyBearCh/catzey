@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getReleasesByDay, DAYS_OF_WEEK, WEEKLY_RELEASES } from '@/lib/calendar';
+import { tagHref } from '@/lib/tags';
 
 export const revalidate = 86400;
 
@@ -59,7 +60,7 @@ export default function CalendarPage() {
           url: r.platformUrl,
         },
         organizer: { '@type': 'Organization', name: r.magazine },
-        url: `${BASE}/tag/${encodeURIComponent(r.series)}`,
+        url: `${BASE}${tagHref(r.series)}`,
       },
     })),
   };
@@ -183,7 +184,7 @@ export default function CalendarPage() {
           {['One Piece', 'Jujutsu Kaisen', 'My Hero Academia', 'Chainsaw Man', 'Spy × Family', 'Frieren', 'Blue Lock', 'Demon Slayer'].map((tag) => (
             <Link
               key={tag}
-              href={`/tag/${encodeURIComponent(tag)}`}
+              href={tagHref(tag)}
               className="text-xs font-semibold text-primary border border-primary/30 px-3 py-1.5 hover:bg-primary hover:text-white transition-colors rounded-sm"
             >
               {tag}

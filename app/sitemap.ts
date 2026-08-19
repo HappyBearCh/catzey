@@ -6,6 +6,8 @@ import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { getAllGenres } from '@/lib/genre-info';
 import { getAllSeasons } from '@/lib/seasons';
 import { getAllAuthors } from '@/lib/authors';
+import { tagSlug } from '@/lib/tags';
+import { getAllLearnTopics, getAllGlossaryTerms, getAllWorks, getAllCreators } from '@/lib/education';
 import { CATEGORY_PAGE_SIZE } from '@/components/CategoryArchive';
 
 export const revalidate = 3600;
@@ -62,8 +64,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const newestUpdate = articles[0]?.updatedAt;
 
+  // Educational content — the reference + guides layer, read from the checked-in
+  // JSON rather than the database, so this costs no query.
+  const eduPages: MetadataRoute.Sitemap = [
+    ...getAllLearnTopics().map((t) => ({
+      url: `${BASE}/learn/${t.slug}`,
+      lastModified: new Date(t.updatedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
+    ...getAllGlossaryTerms().map((t) => ({
+      url: `${BASE}/glossary/${t.slug}`,
+      lastModified: new Date(t.updatedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...getAllWorks().map((w) => ({
+      url: `${BASE}/wiki/series/${w.slug}`,
+      lastModified: new Date(w.updatedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    ...getAllCreators().map((c) => ({
+      url: `${BASE}/wiki/creator/${c.slug}`,
+      lastModified: new Date(c.updatedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ];
+
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: newestUpdate, changeFrequency: 'hourly' as const, priority: 1 },
+    { url: `${BASE}/learn`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.9 },
+    { url: `${BASE}/glossary`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
+    { url: `${BASE}/wiki`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/trending`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.8 },
     { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
@@ -112,22 +146,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  const tagLastModified = new Map<string, Date>();
-  const tagCount = new Map<string, number>();
+  // Keyed by slug, not by raw label: the label is a display string and several
+  // spellings ("sci-fi" / "sci fi") share one archive. Grouping here also stops
+  // the sitemap advertising the same page under two URLs.
+  const tagStats = new Map<string, { last: Date; count: number }>();
   for (const a of articles) {
     for (const tag of a.tags) {
-      const prev = tagLastModified.get(tag);
-      if (!prev || a.updatedAt > prev) tagLastModified.set(tag, a.updatedAt);
-      tagCount.set(tag, (tagCount.get(tag) ?? 0) + 1);
+      const slug = tagSlug(tag);
+      if (!slug) continue;
+      const cur = tagStats.get(slug);
+      if (!cur) {
+        tagStats.set(slug, { last: a.updatedAt, count: 1 });
+      } else {
+        cur.count++;
+        if (a.updatedAt > cur.last) cur.last = a.updatedAt;
+      }
     }
   }
   // Skip single-use tags: their pages self-noindex, so keep them out of the
   // sitemap to concentrate crawl budget on indexable URLs.
-  const tagPages: MetadataRoute.Sitemap = Array.from(tagLastModified.entries())
-    .filter(([tag]) => (tagCount.get(tag) ?? 0) >= 2)
-    .map(([tag, last]) => ({
-      url: `${BASE}/tag/${encodeURIComponent(tag)}`,
-      lastModified: last,
+  const tagPages: MetadataRoute.Sitemap = Array.from(tagStats.entries())
+    .filter(([, s]) => s.count >= 2)
+    .map(([slug, s]) => ({
+      url: `${BASE}/tag/${encodeURIComponent(slug)}`,
+      lastModified: s.last,
       changeFrequency: 'daily' as const,
       priority: 0.5,
     }));
@@ -181,5 +223,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
+  return [...staticPages, ...eduPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
 }

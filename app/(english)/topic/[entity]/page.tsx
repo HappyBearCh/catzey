@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getTopicInfo } from '@/lib/topic-info';
+import { getTopicArticles } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { Article, ReviewData } from '@/lib/types';
 
@@ -65,14 +66,9 @@ export default async function TopicPage({ params }: Props) {
   const { entity } = await params;
   const name = decodeEntity(entity);
 
-  const articles = await prisma.article.findMany({
-    where: {
-      published: true,
-      entities: { has: name },
-    },
-    orderBy: { publishedAt: 'desc' },
-    take: 24,
-  }) as Article[];
+  // Shared with the gating layout via React's request cache, so the existence
+  // check that keeps notFound() returning a real 404 costs no extra query.
+  const articles = await getTopicArticles(name);
 
   // A curated hub is real content and stays up even before it has articles, but
   // an arbitrary entity a crawler invented is a soft 404 — and every one of them

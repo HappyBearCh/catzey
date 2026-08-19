@@ -3,7 +3,7 @@ import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
-const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Manga%20%26%20Anime%20News';
+const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Learn%20Manga';
 
 export const viewport: Viewport = {
   themeColor: [
@@ -15,12 +15,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com'),
   title: {
-    default: 'Catzye — Manga & Anime News',
+    default: 'Catzye — Learn Manga',
     template: '%s | Catzye',
   },
   description:
-    'Latest manga and anime news, reviews, and industry updates from around the world.',
-  keywords: ['manga', 'anime', 'manhwa', 'light novels', 'reviews', 'industry news'],
+    'Learn how manga works: explainers, a full glossary of manga terminology, and reference entries for series and creators.',
   // Google truncates image previews to a thumbnail and snippets to ~160 chars
   // unless told otherwise. `max-image-preview:large` is a hard requirement for
   // Google Discover eligibility and for large thumbnails in Top Stories — the
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     siteName: 'Catzye',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: 'Catzye — Manga & Anime News' }],
+    images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: 'Catzye — Learn Manga' }],
   },
   twitter: {
     card: 'summary_large_image',

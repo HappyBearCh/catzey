@@ -25,6 +25,7 @@ import { NumerologyPanel } from '@/components/NumerologyPanel';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
 import { resolveAuthor } from '@/lib/authors';
+import { getArticleBySlug } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { ReviewData } from '@/lib/types';
 
@@ -98,15 +99,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-async function getArticle(slug: string): Promise<Article | null> {
-  try {
-    const article = await prisma.article.findUnique({ where: { slug, published: true } });
-    if (!article) return null;
-    return article as Article;
-  } catch {
-    return null;
-  }
-}
+// Shared with the gating layout via React's request cache, so the existence
+// check that keeps notFound() returning a real 404 costs no extra query.
+const getArticle = getArticleBySlug;
 
 interface SeriesContext {
   id: string;

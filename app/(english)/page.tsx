@@ -16,12 +16,32 @@ import type { Article } from '@/lib/types';
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 export const metadata: Metadata = {
-  title: 'Catzye — Manga & Anime News, Reviews & Industry Updates',
+  // `absolute` so the root layout's "%s | Catzye" template does not append a
+  // second "Catzye" to a title that already opens with the brand.
+  title: { absolute: 'Catzye — Learn Manga: Guides, Glossary & Series Reference' },
   description:
-    'Breaking manga, anime, and manhwa news with chapter reviews, release calendars, season guides, and in-depth coverage — updated hourly.',
+    'Learn how manga works: explainers on genres, craft, history and the industry, a full glossary of manga terminology, and reference entries for the series and creators behind them.',
   alternates: { canonical: '/' },
   openGraph: { url: BASE },
 };
+
+const LEARN_ENTRY_POINTS = [
+  {
+    href: '/learn',
+    title: 'Learn',
+    blurb: 'Ordered explainers across basics, genres, craft, history and the industry.',
+  },
+  {
+    href: '/glossary',
+    title: 'Glossary',
+    blurb: 'Every term you will run into, defined in a sentence and explained in full.',
+  },
+  {
+    href: '/wiki',
+    title: 'Wiki',
+    blurb: 'Reference entries for the series themselves and the creators behind them.',
+  },
+];
 
 const websiteLd = {
   '@context': 'https://schema.org',
@@ -127,6 +147,33 @@ export default async function HomePage() {
       <TrendingStrip />
 
       <div className="max-w-8xl mx-auto px-4">
+        {/* The educational sections lead the page — they are what the site is
+            for. The news archive stays below while it is still live. */}
+        <section className="mt-6 mb-8">
+          <div className="border border-site-border rounded-sm overflow-hidden">
+            <div className="bg-site-dark px-5 py-6 md:px-8 md:py-8">
+              <h2 className="text-white text-2xl md:text-3xl font-black tracking-tight mb-2">
+                Learn how manga works
+              </h2>
+              <p className="text-gray-300 text-sm md:text-base max-w-2xl">
+                Explainers, a full glossary, and reference entries for the series and
+                creators behind them. Start from nothing, or look up the one thing you
+                came for.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-site-border">
+              {LEARN_ENTRY_POINTS.map(({ href, title, blurb }) => (
+                <Link key={href} href={href} className="group p-5 hover:bg-primary/5 transition-colors">
+                  <span className="block font-black text-lg mb-1 group-hover:text-primary transition-colors">
+                    {title} <span aria-hidden="true">→</span>
+                  </span>
+                  <span className="block text-sm text-gray-600 dark:text-gray-300 leading-snug">{blurb}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Today's numerological read of the news */}
         <TodaysNumber articles={articles} />
 

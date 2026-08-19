@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { CATEGORIES } from '@/lib/types';
+import { getCurrentSeason, getAllSeasons } from '@/lib/seasons';
 import { NewsletterForm } from './NewsletterForm';
 
 export function Footer() {
@@ -50,6 +51,21 @@ export function Footer() {
           </div>
 
           <div>
+            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">Learn</h3>
+            <ul className="space-y-2 mb-6">
+              <li>
+                <Link href="/learn" className="text-sm hover:text-white transition-colors">All Explainers</Link>
+              </li>
+              <li>
+                <Link href="/glossary" className="text-sm hover:text-white transition-colors">Manga Glossary</Link>
+              </li>
+              <li>
+                <Link href="/wiki" className="text-sm hover:text-white transition-colors">Series &amp; Creators</Link>
+              </li>
+              <li>
+                <Link href="/guides" className="text-sm hover:text-white transition-colors">Guides</Link>
+              </li>
+            </ul>
             <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4">More</h3>
             <ul className="space-y-2">
               {CATEGORIES.slice(5).map(({ label, slug }) => (
@@ -63,16 +79,20 @@ export function Footer() {
                 <Link href="/series" className="text-sm hover:text-white transition-colors">Essay Series</Link>
               </li>
               <li>
-                <Link href="/guides" className="text-sm hover:text-white transition-colors">Guides</Link>
-              </li>
-              <li>
                 <Link href="/trending" className="text-sm hover:text-white transition-colors">Trending</Link>
               </li>
               <li>
                 <Link href="/calendar" className="text-sm hover:text-white transition-colors">Release Calendar</Link>
               </li>
               <li>
-                <Link href="/season/spring-2026" className="text-sm hover:text-white transition-colors">Season Guide</Link>
+                {/* Driven off the season data rather than hardcoded, so this
+                    stops pointing at last season the moment one rolls over. */}
+                <Link
+                  href={`/season/${getCurrentSeason()?.slug ?? getAllSeasons()[0]?.slug ?? ''}`}
+                  className="text-sm hover:text-white transition-colors"
+                >
+                  Season Guide
+                </Link>
               </li>
             </ul>
           </div>
