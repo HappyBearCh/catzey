@@ -16,7 +16,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 const MAX_PAGINATED_PAGES = 50;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let articles: { slug: string; updatedAt: Date; tags: string[]; imageUrl: string | null }[] = [];
+  let articles: { slug: string; updatedAt: Date; tags: string[]; entities: string[]; imageUrl: string | null }[] = [];
   let entityRows: { entity: string; last: Date }[] = [];
   let categoryStats: { category: string; count: number; last: Date | null }[] = [];
   let seriesList: { slug: string; updatedAt: Date }[] = [];
@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     articles = await prisma.article.findMany({
       where: { published: true },
-      select: { slug: true, updatedAt: true, tags: true, imageUrl: true },
+      select: { slug: true, updatedAt: true, tags: true, entities: true, imageUrl: true },
       orderBy: { publishedAt: 'desc' },
       take: 5000,
     });
@@ -33,14 +33,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // decide indexability. Advertising thin, self-noindexed URLs in the sitemap
     // just burns crawl budget and depresses Google's quality impression of the
     // site ("Discovered - currently not indexed").
-    entityRows = await prisma.$queryRaw<{ entity: string; last: Date }[]>`
-      SELECT UNNEST(entities) as entity, MAX("updatedAt") as last
-      FROM "Article"
-      WHERE published = true
-      GROUP BY 1
-      HAVING COUNT(*) >= 2
-      LIMIT 500
-    `;
+    //
+    // Aggregated in JS from the rows already fetched rather than by a second
+    // raw SQL pass. Raw queries bypass the snapshot fallback in lib/db.ts, so
+    // the old SELECT ... UNNEST version threw whenever Postgres was unreachable
+    // and took the rest of this block down with it. Counts over the 5000 rows
+    // above rather than the whole table — the same set the sitemap can list.
+    const entityAgg = new Map<string, { count: number; last: Date }>();
+    for (const a of articles) {
+      for (const entity of a.entities ?? []) {
+        const prev = entityAgg.get(entity);
+        if (!prev) entityAgg.set(entity, { count: 1, last: a.updatedAt });
+        else {
+          prev.count += 1;
+          if (a.updatedAt > prev.last) prev.last = a.updatedAt;
+        }
+      }
+    }
+    entityRows = [...entityAgg.entries()]
+      .filter(([, v]) => v.count >= 2)
+      .slice(0, 500)
+      .map(([entity, v]) => ({ entity, last: v.last }));
 
     const grouped = await prisma.article.groupBy({
       by: ['category'],

@@ -1,5 +1,6 @@
 import { cache } from 'react';
 import { prisma } from '@/lib/db';
+import { tagSlug as tagSlugOf } from '@/lib/tag-slug';
 
 export { tagSlug, tagHref, safeDecode } from '@/lib/tag-slug';
 
@@ -41,6 +42,37 @@ export const resolveTag = cache(async (slug: string): Promise<ResolvedTag | null
       count: rows.reduce((sum, r) => sum + r.count, 0),
     };
   } catch {
-    return null;
+    // Raw SQL bypasses the article snapshot in lib/db.ts, so a Postgres outage
+    // used to turn every tag page into a 404 rather than a thinner archive.
+    // findMany does go through the fallback, so recompute the same aggregate in
+    // JS off whatever rows are available.
+    return resolveTagFromRows(slug);
   }
 });
+
+async function resolveTagFromRows(slug: string): Promise<ResolvedTag | null> {
+  try {
+    const rows = await prisma.article.findMany({
+      where: { published: true },
+      select: { tags: true },
+    });
+    const counts = new Map<string, number>();
+    for (const row of rows) {
+      for (const tag of row.tags ?? []) {
+        if (tagSlugOf(tag) !== slug) continue;
+        counts.set(tag, (counts.get(tag) ?? 0) + 1);
+      }
+    }
+    if (counts.size === 0) return null;
+    const ordered = [...counts.entries()].sort(
+      (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
+    );
+    return {
+      label: ordered[0][0],
+      labels: ordered.map(([tag]) => tag),
+      count: ordered.reduce((sum, [, n]) => sum + n, 0),
+    };
+  } catch {
+    return null;
+  }
+}
