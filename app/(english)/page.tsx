@@ -6,6 +6,7 @@ import { MostRead } from '@/components/MostRead';
 import { TodaysNumber } from '@/components/TodaysNumber';
 import { DAILY_CATEGORY } from '@/lib/daily-analysis';
 import { CATEGORIES } from '@/lib/types';
+import { getTodaysNumber } from '@/lib/numerology';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -99,9 +100,9 @@ export default async function HomePage() {
   if (articles.length === 0) {
     return (
       <div className="max-w-8xl mx-auto px-4 py-24 text-center">
-        <p className="eyebrow mb-5">Manga, explained from the beginning</p>
-        <h1 className="font-serif text-3xl md:text-5xl font-semibold tracking-tight max-w-2xl mx-auto text-ink dark:text-paper-2">
-          A hand-written reference to how manga works
+        <p className="eyebrow mb-5">Manga, read by the numbers</p>
+        <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-wide max-w-2xl mx-auto text-ink dark:text-parchment">
+          A numerological reference to how manga works
         </h1>
         <div className="rule-ornament max-w-md mx-auto mt-10 mb-8">
           <span className="text-seal text-sm" aria-hidden="true">✦</span>
@@ -113,8 +114,8 @@ export default async function HomePage() {
               href={href}
               className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
             >
-              <span className="eyebrow block mb-2">{String(i + 1).padStart(2, '0')}</span>
-              <span className="block font-serif text-xl font-semibold mb-1.5 text-ink dark:text-paper-2 group-hover:text-seal transition-colors">
+              <span className="block font-display text-gold/60 text-lg mb-2" aria-hidden="true">{['Ⅰ','Ⅱ','Ⅲ'][i]}</span>
+              <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
                 {title}
               </span>
               <span className="block text-sm leading-relaxed text-ink-muted dark:text-paper-2/60">{blurb}</span>
@@ -137,6 +138,7 @@ export default async function HomePage() {
     })),
   };
 
+  const today = getTodaysNumber();
   const [featured, ...rest] = articles;
   const secondary = rest.slice(0, 3);
   const gridArticles = rest.slice(3, 9);
@@ -154,36 +156,50 @@ export default async function HomePage() {
       <div className="max-w-8xl mx-auto px-4">
         {/* The educational sections lead the page — they are what the site is
             for. The news archive stays below while it is still live. */}
-        {/* A statement of what the site is, set as the opening of a book
-            rather than as a promotional panel. */}
-        <section className="py-10 md:py-16 text-center">
-          <p className="eyebrow mb-5">Manga, explained from the beginning</p>
-          <h1 className="font-serif text-3xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl mx-auto text-ink dark:text-paper-2">
-            A hand-written reference to how manga works,
-            <span className="italic text-seal"> and where it came from</span>
-          </h1>
-          <p className="mt-5 max-w-xl mx-auto text-lg leading-relaxed text-ink-2 dark:text-paper-2/80">
-            Explainers written to be read in order, a glossary of every term you will
-            meet, and reference entries for the series and the people who drew them.
-            No rankings, no release-day churn.
+        {/* The title plate. The numeral is the real Universal Day figure from
+            lib/numerology, so the ornament is also the day's reading. */}
+        <section className="py-12 md:py-20 text-center">
+          <p className="eyebrow mb-8">Manga, read by the numbers</p>
+
+          <div className="flex items-center justify-center gap-5 mb-8" aria-hidden="true">
+            <span className="text-gold/40 text-sm">⁘</span>
+            <span className="sigil w-20 h-20 md:w-24 md:h-24 text-4xl md:text-5xl">
+              {today.number}
+            </span>
+            <span className="text-gold/40 text-sm">⁘</span>
+          </div>
+          <p className="eyebrow mb-10">
+            Today vibrates to {today.number} · {today.profile.keyword}
           </p>
 
-          <div className="rule-ornament max-w-md mx-auto mt-10 mb-8">
-            <span className="text-seal text-sm" aria-hidden="true">✦</span>
+          <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-wide leading-tight max-w-3xl mx-auto text-ink dark:text-parchment">
+            A numerological reference to how manga works,
+            <span className="italic text-gold"> and where it came from</span>
+          </h1>
+          <p className="mt-6 max-w-xl mx-auto text-lg leading-relaxed text-ink-2 dark:text-parchment/75">
+            Explainers written to be read in order, a glossary of every term you will
+            meet, and reference entries for the series and the people who drew them —
+            each one read against its numbers.
+          </p>
+
+          <div className="rule-ornament max-w-md mx-auto mt-12 mb-10">
+            <span className="text-gold text-sm" aria-hidden="true">✦</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border max-w-4xl mx-auto text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto text-left border-y border-gold/25 sm:divide-x sm:divide-gold/20">
             {LEARN_ENTRY_POINTS.map(({ href, title, blurb }, i) => (
               <Link
                 key={href}
                 href={href}
-                className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
+                className="group p-6 hover:bg-gold/5 transition-colors border-b sm:border-b-0 border-gold/15 last:border-b-0"
               >
-                <span className="eyebrow block mb-2">{String(i + 1).padStart(2, '0')}</span>
-                <span className="block font-serif text-xl font-semibold mb-1.5 text-ink dark:text-paper-2 group-hover:text-seal transition-colors">
+                <span className="block font-display text-gold/60 text-lg mb-2 tracking-wide" aria-hidden="true">
+                  {['Ⅰ', 'Ⅱ', 'Ⅲ'][i]}
+                </span>
+                <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
                   {title}
                 </span>
-                <span className="block text-sm leading-relaxed text-ink-muted dark:text-paper-2/60">
+                <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55">
                   {blurb}
                 </span>
               </Link>
@@ -202,11 +218,11 @@ export default async function HomePage() {
         {/* Top stories grid */}
         {gridArticles.length > 0 && (
           <section className="my-8">
-            <div className="flex items-baseline gap-4 mb-6 pb-2 border-b border-rule dark:border-ink-border">
-              <h2 className="eyebrow">From the news archive</h2>
+            <div className="flex items-baseline gap-4 mb-6 pb-2 border-b border-gold/25">
+              <h2 className="eyebrow">From the archive</h2>
               <span className="flex-1" />
-              <span className="font-sans text-[0.7rem] text-ink-muted dark:text-paper-2/50">
-                Archived reporting, kept while it is still useful
+              <span className="font-display text-[0.8rem] tracking-wide text-ink-muted dark:text-parchment/45">
+                Reporting kept while it is still useful
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

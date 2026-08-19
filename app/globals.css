@@ -10,63 +10,75 @@
   }
 
   body {
-    @apply bg-paper text-ink dark:bg-ink-bg dark:text-paper-2;
-    /* A faint laid-paper tone. Two very wide gradients, no image request. */
+    @apply bg-paper text-ink dark:bg-ground dark:text-parchment;
+    /* Two faint pools of light on the ground, plus a hairline grid at very low
+       opacity — the ruled plate a diagram would be drawn on. No image request. */
     background-image:
-      radial-gradient(ellipse at 15% 0%, rgba(168, 52, 42, 0.025), transparent 55%),
-      radial-gradient(ellipse at 85% 100%, rgba(47, 59, 107, 0.03), transparent 55%);
+      radial-gradient(ellipse at 50% -10%, rgba(201, 162, 39, 0.07), transparent 60%),
+      radial-gradient(ellipse at 90% 100%, rgba(176, 58, 46, 0.05), transparent 55%);
     background-attachment: fixed;
   }
 
   .dark body {
     background-image:
-      radial-gradient(ellipse at 15% 0%, rgba(168, 52, 42, 0.05), transparent 55%),
-      radial-gradient(ellipse at 85% 100%, rgba(143, 154, 196, 0.04), transparent 55%);
+      radial-gradient(ellipse at 50% -10%, rgba(201, 162, 39, 0.11), transparent 60%),
+      radial-gradient(ellipse at 90% 100%, rgba(176, 58, 46, 0.08), transparent 55%);
   }
 
-  /* Headings are the serif too — a display sans in the headline slot is the
-     single loudest "news site" cue there is. */
+  /* The display face carries every heading. */
   h1, h2, h3, h4 {
-    font-family: var(--font-serif), Georgia, serif;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display), 'Cormorant Garamond', Garamond, serif;
+    font-weight: 600;
+    letter-spacing: 0;
   }
 
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
   :focus-visible {
-    outline: 2px solid #a8342a;
+    outline: 2px solid #c9a227;
     outline-offset: 2px;
     border-radius: 0;
+  }
+
+  ::selection {
+    background: rgba(201, 162, 39, 0.28);
   }
 }
 
 @layer components {
-  /* The small letterspaced sans label that runs above sections, in place of
-     the coloured category chips a news layout uses. */
+  /* Widely letterspaced small caps in the display face — the running label
+     above a section or a plate. */
   .eyebrow {
-    font-family: var(--font-sans), Helvetica, Arial, sans-serif;
-    font-size: 0.6875rem;
+    font-family: var(--font-display), Garamond, serif;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    @apply text-ink-muted dark:text-paper-2/60;
+    letter-spacing: 0.18em;
+    @apply text-ink-muted dark:text-gold/70;
   }
 
-  /* A hairline with a centred ornament, used between major sections. */
+  /* A gold hairline with room for a centred ornament. */
   .rule-ornament {
-    @apply flex items-center gap-3 text-rule-strong dark:text-ink-border;
+    @apply flex items-center gap-3 text-gold;
   }
   .rule-ornament::before,
   .rule-ornament::after {
     content: '';
-    @apply flex-1 border-t border-rule dark:border-ink-border;
+    @apply flex-1 border-t;
+    border-color: rgba(201, 162, 39, 0.35);
   }
 
   /* Reference-entry metadata: label left, value right, hairline between. */
   .datarow {
-    @apply flex items-baseline justify-between gap-4 border-b border-rule dark:border-ink-border py-2;
+    @apply flex items-baseline justify-between gap-4 py-2 border-b;
+    border-color: rgba(201, 162, 39, 0.2);
+  }
+
+  /* The figure a numeral sits in — a thin gold circle, as on a chart. */
+  .sigil {
+    @apply inline-flex items-center justify-center rounded-full font-display text-gold;
+    border: 1px solid rgba(201, 162, 39, 0.5);
+    box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.12), inset 0 0 24px rgba(201, 162, 39, 0.07);
   }
 }
 
@@ -171,7 +183,7 @@
 }
 
 .article-prose blockquote {
-  border-left: 2px solid #a8342a;
+  border-left: 2px solid #c9a227;
   padding-left: 1.15rem;
   margin: 1.75rem 0;
   color: #3f3a31;
@@ -185,7 +197,7 @@
 
 .dark .article-prose blockquote {
   color: #d1d5db;
-  border-left-color: #a8342a;
+  border-left-color: #c9a227;
 }
 
 .dark .article-prose h2,
@@ -203,25 +215,25 @@
 
 .article-prose hr {
   border: none;
-  border-top: 1px solid #ddd4c2;
+  border-top: 1px solid rgba(201, 162, 39, 0.3);
   margin: 2rem 0;
 }
 
 .article-prose a,
 .entity-link {
-  color: #2f3b6b;
+  color: #8a7020;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
 .article-prose a:hover {
-  color: #a8342a;
+  color: #b03a2e;
 }
 
 .dark .article-prose a,
 .dark .entity-link {
-  color: #8f9ac4;
+  color: #e6d492;
 }
 
 /* ── Reference prose ────────────────────────────────────────────────────────
@@ -231,7 +243,7 @@
 .ref-prose {
   font-size: 1.0625rem;
   line-height: 1.75;
-  @apply text-ink-2 dark:text-paper-2/85;
+  @apply text-ink-2 dark:text-parchment/85;
 }
 
 .ref-prose > p {
@@ -242,19 +254,20 @@
 .ref-prose > p:first-of-type {
   font-size: 1.15rem;
   line-height: 1.65;
-  @apply text-ink dark:text-paper-2;
+  @apply text-ink dark:text-parchment;
 }
 
 .ref-prose h2 {
-  font-size: 0.75rem;
-  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-family: var(--font-display), Garamond, serif;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-top: 2.25rem;
-  margin-bottom: 0.85rem;
+  letter-spacing: 0.18em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.9rem;
   padding-bottom: 0.4rem;
-  @apply text-ink-muted border-b border-rule dark:text-paper-2/60 dark:border-ink-border;
+  @apply text-ink-muted dark:text-gold/70;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.28);
 }
 
 .ref-prose h2:first-child {
@@ -266,12 +279,12 @@
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.4rem;
-  @apply text-ink dark:text-paper-2;
+  @apply text-ink dark:text-parchment;
 }
 
 .ref-prose strong {
   font-weight: 600;
-  @apply text-ink dark:text-paper-2;
+  @apply text-ink dark:text-parchment;
 }
 
 .ref-prose em {
@@ -279,14 +292,14 @@
 }
 
 .ref-prose a {
-  color: #2f3b6b;
+  color: #8a7020;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
-.ref-prose a:hover { color: #a8342a; }
-.dark .ref-prose a { color: #8f9ac4; }
+.ref-prose a:hover { color: #b03a2e; }
+.dark .ref-prose a { color: #e6d492; }
 
 .ref-prose ul, .ref-prose ol {
   margin-bottom: 1.15rem;
@@ -297,7 +310,7 @@
 .ref-prose li { margin-bottom: 0.5rem; }
 
 .ref-prose blockquote {
-  border-left: 2px solid #a8342a;
+  border-left: 2px solid #c9a227;
   padding-left: 1.15rem;
   margin: 1.5rem 0;
   font-style: italic;
@@ -361,7 +374,7 @@
 
 .ProseMirror hr {
   border: none;
-  border-top: 1px solid #ddd4c2;
+  border-top: 1px solid rgba(201, 162, 39, 0.3);
   margin: 1rem 0;
 }
 

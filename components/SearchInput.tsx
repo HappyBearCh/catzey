@@ -149,9 +149,9 @@ export function SearchInput({
             onFocus={onFocus}
             placeholder={placeholder}
             autoComplete="off"
-            className="text-xs bg-transparent text-ink dark:text-paper-2 placeholder-ink-muted dark:placeholder-paper-2/40 border-0 border-b border-rule dark:border-ink-border px-1 py-1.5 w-full focus:outline-none focus:border-seal transition-colors pr-10"
+            className="text-xs bg-transparent text-ink dark:text-parchment placeholder-ink-muted dark:placeholder-parchment/35 border-0 border-b border-gold/30 px-1 py-1.5 w-full focus:outline-none focus:border-gold transition-colors pr-10"
           />
-          <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-paper-2/40 font-mono hidden md:block">/</kbd>
+          <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-parchment/35 font-mono hidden md:block">/</kbd>
         </div>
       </form>
 

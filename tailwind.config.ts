@@ -11,41 +11,50 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Paper and ink. The old scheme was a violet-on-near-black tabloid
-        // palette; this one is a warm printed page, which is what a reference
-        // work looks like. Everything is low-chroma except the seal.
-        paper: '#faf7f0',
-        'paper-2': '#f2ede2',
-        'paper-sunk': '#ebe4d6',
-        ink: '#1f1c17',
-        'ink-2': '#3f3a31',
-        'ink-muted': '#6d655a',
-        rule: '#ddd4c2',
-        'rule-strong': '#c4b9a3',
+        // A dark ground with gold rules — the plates in an old book of
+        // correspondences rather than a printed textbook page. Light mode is
+        // the same book on aged parchment, so the toggle stays coherent.
+        ground: '#0d0c14',
+        'ground-2': '#15141f',
+        'ground-3': '#1e1b2b',
+        gold: '#c9a227',
+        'gold-dim': '#8a7020',
+        'gold-pale': '#e6d492',
+        parchment: '#ece5d4',
+        'parchment-2': '#d9d0ba',
+        'parchment-dim': '#9a927f',
+        rule: '#2f2a41',
+        'rule-gold': '#5c4a1c',
 
-        // Dark mode is the same page after dark, not a different site.
-        'ink-bg': '#16140f',
-        'ink-bg-2': '#201d16',
-        'ink-border': '#3a352b',
+        // Light mode ground
+        paper: '#f2ebd9',
+        'paper-2': '#e7dec7',
+        'paper-sunk': '#dad0b6',
+        ink: '#1b1826',
+        'ink-2': '#3b3550',
+        'ink-muted': '#6a6280',
 
-        // Indigo for structure, vermilion for emphasis — the two inks a
-        // Japanese printed page actually uses. The seal red is rationed: it
-        // marks the current item and nothing else.
-        primary: '#2f3b6b',
-        'primary-dark': '#222c52',
-        'primary-accent': '#8f9ac4',
-        seal: '#a8342a',
-        'seal-dark': '#7d251d',
+        // Vermilion stays as the seal — the one hot colour, rationed.
+        seal: '#b03a2e',
+        'seal-bright': '#d4553f',
 
-        // Kept so the many components still referencing these keep compiling,
-        // remapped onto the new palette rather than the old violet one.
-        'site-dark': '#16140f',
-        'site-dark-2': '#201d16',
-        'site-gray': '#6d655a',
-        'site-light': '#f2ede2',
-        'site-border': '#ddd4c2',
+        primary: '#c9a227',
+        'primary-dark': '#8a7020',
+        'primary-accent': '#e6d492',
+
+        // Legacy tokens remapped so components still referencing them work.
+        'site-dark': '#0d0c14',
+        'site-dark-2': '#15141f',
+        'site-gray': '#6a6280',
+        'site-light': '#e7dec7',
+        'site-border': '#dad0b6',
+        'ink-bg': '#0d0c14',
+        'ink-bg-2': '#15141f',
+        'ink-border': '#2f2a41',
+        'rule-strong': '#b8ab8c',
       },
       fontFamily: {
+        display: ['var(--font-display)', 'Cormorant Garamond', 'Garamond', 'serif'],
         serif: ['var(--font-serif)', 'Iowan Old Style', 'Georgia', 'serif'],
         sans: ['var(--font-sans)', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
@@ -53,15 +62,14 @@ const config: Config = {
         '2xs': '0.65rem',
       },
       letterSpacing: {
-        label: '0.14em',
+        label: '0.18em',
+        wide2: '0.3em',
       },
       maxWidth: {
         '8xl': '104rem',
-        // A reading measure, roughly 68 characters at the body size.
         reading: '38rem',
       },
       borderRadius: {
-        // Printed matter has corners.
         none: '0',
       },
     },

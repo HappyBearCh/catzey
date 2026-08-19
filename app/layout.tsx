@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Source_Serif_4, Inter } from 'next/font/google';
+import { Source_Serif_4, Cormorant_Garamond, Inter } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
@@ -16,6 +16,16 @@ const serif = Source_Serif_4({
   style: ['normal', 'italic'],
 });
 
+// A high-contrast old-style face for display. This is the voice of the book:
+// the headings, the wordmark and the small-caps labels.
+const display = Cormorant_Garamond({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+});
+
 const sans = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -27,8 +37,8 @@ const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Learn%20Manga';
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#faf7f0' },
-    { media: '(prefers-color-scheme: dark)', color: '#16140f' },
+    { media: '(prefers-color-scheme: light)', color: '#f2ebd9' },
+    { media: '(prefers-color-scheme: dark)', color: '#0d0c14' },
   ],
 };
 
@@ -86,7 +96,7 @@ const themeScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${serif.variable} ${display.variable} ${sans.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="preconnect" href="https://images.unsplash.com" />
@@ -94,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://public.blob.vercel-storage.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://public.blob.vercel-storage.com" />
       </head>
-      <body className="min-h-screen flex flex-col bg-paper text-ink transition-colors">
+      <body className="min-h-screen flex flex-col bg-paper text-ink dark:bg-ground dark:text-parchment transition-colors">
         {children}
         <SpeedInsights />
         <Script

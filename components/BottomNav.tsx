@@ -62,7 +62,7 @@ export function BottomNav({ basePath = '' }: Props) {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper dark:bg-ink-bg border-t border-rule dark:border-ink-border border-t border-white/10 safe-area-inset-bottom">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper dark:bg-ground border-t border-gold/25 border-t border-white/10 safe-area-inset-bottom">
       <ul className="flex items-center">
         {items.map(({ label, href, icon }) => {
           const active = pathname === href;
@@ -71,7 +71,7 @@ export function BottomNav({ basePath = '' }: Props) {
               <Link
                 href={href}
                 className={`flex flex-col items-center gap-0.5 py-2.5 transition-colors ${
-                  active ? 'text-seal' : 'text-ink-muted hover:text-ink dark:text-paper-2/60 dark:hover:text-paper-2'
+                  active ? 'text-gold' : 'text-ink-muted hover:text-ink dark:text-parchment/55 dark:hover:text-parchment'
                 }`}
               >
                 {icon}

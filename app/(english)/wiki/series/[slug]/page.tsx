@@ -131,11 +131,11 @@ export default async function WorkPage({ params }: Props) {
       {/* A compact fact table is what readers scan first on a reference page and
           what assistants tend to lift as the answer. */}
       {facts.length > 0 && (
-        <dl className="mb-10 border-t border-rule dark:border-ink-border">
+        <dl className="mb-10 border-t border-gold/25">
           {facts.map(([k, v]) => (
             <div key={k} className="datarow">
               <dt className="eyebrow">{k}</dt>
-              <dd className="font-serif capitalize text-ink dark:text-paper-2">{v}</dd>
+              <dd className="font-display text-lg capitalize text-ink dark:text-parchment">{v}</dd>
             </div>
           ))}
         </dl>

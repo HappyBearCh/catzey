@@ -14,14 +14,18 @@ const LEARN_LINKS = [
 ];
 
 const linkBase =
-  'block py-2.5 font-sans text-[0.7rem] uppercase tracking-label transition-colors';
+  'block py-2.5 font-display text-[0.82rem] uppercase tracking-label transition-colors';
+
+// Roman numerals mark the three parts of the reference, as the sections of a
+// treatise are numbered rather than tabbed.
+const NUMERALS = ['Ⅰ', 'Ⅱ', 'Ⅲ'];
 
 export function CategoryNav() {
   const pathname = usePathname();
   const homeActive = pathname === '/';
 
   return (
-    <nav className="border-t border-rule dark:border-ink-border overflow-x-auto">
+    <nav className="border-t border-gold/20 overflow-x-auto">
       <div className="max-w-8xl mx-auto px-4">
         <ul className="flex items-center justify-center gap-5 md:gap-7 whitespace-nowrap">
           <li>
@@ -30,15 +34,15 @@ export function CategoryNav() {
               aria-current={homeActive ? 'page' : undefined}
               className={`${linkBase} font-semibold ${
                 homeActive
-                  ? 'text-seal'
-                  : 'text-ink-2 hover:text-seal dark:text-paper-2/80 dark:hover:text-seal'
+                  ? 'text-gold'
+                  : 'text-ink-2 hover:text-gold dark:text-parchment/75 dark:hover:text-gold'
               }`}
             >
               Home
             </Link>
           </li>
 
-          {LEARN_LINKS.map(({ label, href }) => {
+          {LEARN_LINKS.map(({ label, href }, i) => {
             const active = pathname === href || pathname.startsWith(`${href}/`);
             return (
               <li key={href}>
@@ -47,18 +51,19 @@ export function CategoryNav() {
                   aria-current={active ? 'page' : undefined}
                   className={`${linkBase} font-semibold ${
                     active
-                      ? 'text-seal'
-                      : 'text-ink-2 hover:text-seal dark:text-paper-2/80 dark:hover:text-seal'
+                      ? 'text-gold'
+                      : 'text-ink-2 hover:text-gold dark:text-parchment/75 dark:hover:text-gold'
                   }`}
                 >
+                  <span className="text-gold/50 mr-1.5" aria-hidden="true">{NUMERALS[i]}</span>
                   {label}
                 </Link>
               </li>
             );
           })}
 
-          <li aria-hidden="true" className="text-rule-strong dark:text-ink-border select-none">
-            ·
+          <li aria-hidden="true" className="text-gold/40 select-none text-xs">
+            ⁘
           </li>
 
           {CATEGORIES.map(({ label, slug }) => {
@@ -71,8 +76,8 @@ export function CategoryNav() {
                   aria-current={active ? 'page' : undefined}
                   className={`${linkBase} ${
                     active
-                      ? 'text-seal'
-                      : 'text-ink-muted hover:text-ink dark:text-paper-2/50 dark:hover:text-paper-2'
+                      ? 'text-gold'
+                      : 'text-ink-muted hover:text-ink dark:text-parchment/45 dark:hover:text-parchment'
                   }`}
                 >
                   {label}
