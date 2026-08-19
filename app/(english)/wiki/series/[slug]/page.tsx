@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { SafeImage } from '@/components/SafeImage';
 import { getWork, getAllWorks, getCreatorsBySlugs } from '@/lib/education';
 
-export const revalidate = 3600;
+export const revalidate = false; // content is baked in at build time — never revalidate
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 

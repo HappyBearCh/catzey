@@ -7,7 +7,7 @@ import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
 import { tagHref } from '@/lib/tags';
 import type { Article } from '@/lib/types';
 
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 

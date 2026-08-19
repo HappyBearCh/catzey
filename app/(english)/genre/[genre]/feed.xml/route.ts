@@ -2,7 +2,7 @@ import { prisma } from '@/lib/db';
 import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
 import { buildRss, RSS_HEADERS, type RssArticle } from '@/lib/rss';
 
-export const revalidate = 3600;
+export const revalidate = 21600;
 export const runtime = 'nodejs';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';

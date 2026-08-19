@@ -8,7 +8,7 @@ import type { Article } from '@/lib/types';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
-export const revalidate = 1800;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Daily Numerology News Analysis',

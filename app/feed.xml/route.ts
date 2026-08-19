@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/db';
 import { buildRss, RSS_HEADERS, type RssArticle } from '@/lib/rss';
 
-export const revalidate = 1800;
+export const revalidate = 3600;
 export const runtime = 'nodejs';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';

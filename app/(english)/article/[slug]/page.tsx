@@ -29,7 +29,7 @@ import { getArticleBySlug } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { ReviewData } from '@/lib/types';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
 interface Props {
   params: Promise<{ slug: string }>;

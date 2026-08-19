@@ -4,7 +4,7 @@ import { NUMBER_PROFILES, getTodaysNumber } from '@/lib/numerology';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
-export const revalidate = 3600;
+export const revalidate = false; // content is baked in at build time — never revalidate
 
 export const metadata: Metadata = {
   title: 'Numerology Guide — What the Numbers Mean',

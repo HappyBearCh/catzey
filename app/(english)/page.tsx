@@ -76,7 +76,7 @@ const organizationLd = {
   ].filter(Boolean) as string[],
 };
 
-export const revalidate = 1800; // Revalidate every 30 minutes
+export const revalidate = 3600; // hourly; cron revalidatePath('/') covers new publishes
 
 async function getArticles() {
   try {

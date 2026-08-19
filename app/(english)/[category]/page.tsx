@@ -6,7 +6,7 @@ import {
 } from '@/components/CategoryArchive';
 import { CATEGORIES, getCategoryLabel } from '@/lib/types';
 
-export const revalidate = 1800;
+export const revalidate = 3600;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 

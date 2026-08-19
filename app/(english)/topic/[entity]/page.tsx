@@ -8,7 +8,7 @@ import { getTopicArticles } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { Article, ReviewData } from '@/lib/types';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
