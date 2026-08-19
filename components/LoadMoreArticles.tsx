@@ -61,7 +61,7 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
         <section className="my-8 border-t border-site-border pt-6">
           <div className="flex items-center gap-3 mb-5">
             <span className="block w-1 h-6 bg-primary" />
-            <h2 className="text-lg font-black uppercase tracking-wide">
+            <h2 className="text-lg font-semibold uppercase tracking-wide">
               {basePath === '/bs' ? 'Više vijesti' : 'More Stories'}
             </h2>
           </div>
@@ -82,7 +82,7 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
                   </div>
                 ) : (
                   <div className="aspect-video mb-2 bg-black flex items-center justify-center">
-                    <span className="text-primary text-2xs font-black uppercase tracking-widest">
+                    <span className="text-primary text-2xs font-semibold uppercase tracking-widest">
                       {getCategoryLabel(article.category)}
                     </span>
                   </div>

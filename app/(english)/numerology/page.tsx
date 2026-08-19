@@ -47,7 +47,7 @@ export default function NumerologyPage() {
         <span className="text-primary font-bold">Numerology</span>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-black mb-4">The Numbers Behind the News</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold mb-4">The Numbers Behind the News</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
         Catzye reads every headline, category, and day through numerology — an old system that maps
         letters to numbers and numbers to meaning. It&apos;s a lens for paying attention, not a
@@ -57,14 +57,14 @@ export default function NumerologyPage() {
       {/* Today's number callout */}
       <div className="mb-10 rounded-sm border border-primary/30 bg-gradient-to-r from-[#1a1530] to-[#0f0b1e] px-5 py-4 flex items-center gap-4">
         <div
-          className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl font-black text-white"
+          className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl font-semibold text-white"
           style={{ backgroundColor: today.profile.color }}
         >
           {today.number}
         </div>
         <div className="min-w-0">
           <p className="text-sm text-gray-200 leading-relaxed">
-            <span className="font-black text-primary-accent uppercase tracking-widest text-2xs block mb-0.5">
+            <span className="font-semibold text-primary-accent uppercase tracking-widest text-2xs block mb-0.5">
               Today is a {today.number} day
             </span>
             {today.profile.title} — {today.profile.vibration}.
@@ -83,10 +83,10 @@ export default function NumerologyPage() {
         href="/series/numbers-behind-the-manga"
         className="group mb-10 block rounded-sm border border-primary/30 p-5 bg-site-light dark:bg-site-dark-2 hover:border-primary/60 transition-colors"
       >
-        <span className="text-2xs font-black uppercase tracking-widest text-primary-accent">
+        <span className="text-2xs font-semibold uppercase tracking-widest text-primary-accent">
           Essay Series
         </span>
-        <h2 className="text-xl font-black mt-1 mb-1.5 group-hover:text-primary transition-colors">
+        <h2 className="text-xl font-semibold mt-1 mb-1.5 group-hover:text-primary transition-colors">
           The Numbers Behind the Manga
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -127,7 +127,7 @@ export default function NumerologyPage() {
       {/* The number grid */}
       <div className="flex items-center gap-3 mb-5">
         <span className="block w-1 h-6 bg-primary" />
-        <h2 className="text-lg font-black uppercase tracking-wide">Meaning of Each Number</h2>
+        <h2 className="text-lg font-semibold uppercase tracking-wide">Meaning of Each Number</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
         {ORDER.map((n) => {
@@ -138,13 +138,13 @@ export default function NumerologyPage() {
               className="rounded-sm border border-site-border dark:border-primary/20 p-4 flex gap-4 bg-white dark:bg-site-dark-2"
             >
               <div
-                className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xl font-black text-white"
+                className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xl font-semibold text-white"
                 style={{ backgroundColor: p.color }}
               >
                 {n}
               </div>
               <div className="min-w-0">
-                <h3 className="font-black text-sm">
+                <h3 className="font-semibold text-sm">
                   {p.title}
                   {p.master && (
                     <span className="ml-2 text-2xs font-bold uppercase tracking-wider text-primary-accent">

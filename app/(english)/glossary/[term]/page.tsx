@@ -99,12 +99,12 @@ export default async function GlossaryTermPage({ params }: Props) {
       </nav>
 
       {category && (
-        <span className="inline-block bg-primary text-white text-2xs font-black uppercase tracking-widest px-2 py-0.5 mb-3">
+        <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 mb-3">
           {category.label}
         </span>
       )}
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-2">{term.term}</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">{term.term}</h1>
 
       {term.aliases.length > 0 && (
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -119,13 +119,13 @@ export default async function GlossaryTermPage({ params }: Props) {
       </p>
 
       <div
-        className="article-prose text-gray-800 dark:text-gray-200"
+        className="ref-prose"
         dangerouslySetInnerHTML={{ __html: term.body }}
       />
 
       {examples.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-4">Seen in</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Seen in</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {examples.map((w) => (
               <li key={w.slug}>
@@ -144,7 +144,7 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       {related.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-3">Related terms</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Related terms</h2>
           <div className="flex flex-wrap gap-2">
             {related.map((r) => (
               <Link

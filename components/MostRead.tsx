@@ -24,7 +24,7 @@ export async function MostRead({ currentSlug }: MostReadProps) {
     <div className="mt-8">
       <div className="flex items-center gap-2 mb-4">
         <span className="block w-1 h-5 bg-primary" />
-        <h2 className="text-sm font-black uppercase tracking-wider">Most Read</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wider">Most Read</h2>
       </div>
       <ol className="space-y-1">
         {articles.map((article, i) => {
@@ -35,7 +35,7 @@ export async function MostRead({ currentSlug }: MostReadProps) {
                 href={`/article/${article.slug}`}
                 className="group flex gap-3 items-start py-3 border-b border-site-border last:border-0"
               >
-                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary text-white text-xs font-black flex items-center justify-center mt-0.5">
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary text-white text-xs font-semibold flex items-center justify-center mt-0.5">
                   {i + 1}
                 </span>
                 <div className="flex-1 min-w-0">

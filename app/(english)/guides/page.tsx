@@ -35,7 +35,7 @@ export default function GuidesPage() {
 
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-black uppercase tracking-tight">Guides</h1>
+        <h1 className="text-3xl font-semibold uppercase tracking-tight">Guides</h1>
       </div>
       <p className="text-site-gray text-sm mb-10 ml-4">
         In-depth guides to manga, anime, and Japanese pop culture
@@ -43,7 +43,7 @@ export default function GuidesPage() {
 
       {/* Standalone guides */}
       <section className="mb-12">
-        <h2 className="text-lg font-black uppercase tracking-wide mb-5 flex items-center gap-3">
+        <h2 className="text-lg font-semibold uppercase tracking-wide mb-5 flex items-center gap-3">
           <span className="block w-1 h-5 bg-primary" />
           Essential Reading
         </h2>
@@ -64,8 +64,8 @@ export default function GuidesPage() {
                 />
               </div>
               <div className="p-4">
-                <p className="text-2xs font-black uppercase tracking-widest text-primary mb-1">{guide.readingTime} min read</p>
-                <h3 className="font-black text-sm leading-snug group-hover:text-primary transition-colors">{guide.title}</h3>
+                <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-1">{guide.readingTime} min read</p>
+                <h3 className="font-semibold text-sm leading-snug group-hover:text-primary transition-colors">{guide.title}</h3>
                 <p className="text-xs text-site-gray mt-1 line-clamp-2">{guide.subtitle}</p>
               </div>
             </Link>
@@ -75,7 +75,7 @@ export default function GuidesPage() {
 
       {/* Category guides */}
       <section>
-        <h2 className="text-lg font-black uppercase tracking-wide mb-5 flex items-center gap-3">
+        <h2 className="text-lg font-semibold uppercase tracking-wide mb-5 flex items-center gap-3">
           <span className="block w-1 h-5 bg-primary" />
           Category Guides
         </h2>
@@ -98,8 +98,8 @@ export default function GuidesPage() {
                   />
                 </div>
                 <div className="p-4">
-                  <p className="text-2xs font-black uppercase tracking-widest text-primary mb-1">{category?.label}</p>
-                  <h3 className="font-black text-sm leading-snug group-hover:text-primary transition-colors">{guide.title}</h3>
+                  <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-1">{category?.label}</p>
+                  <h3 className="font-semibold text-sm leading-snug group-hover:text-primary transition-colors">{guide.title}</h3>
                   <p className="text-xs text-site-gray mt-1 line-clamp-2">{guide.subtitle}</p>
                 </div>
               </Link>

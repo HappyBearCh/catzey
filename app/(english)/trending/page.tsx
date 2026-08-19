@@ -59,7 +59,7 @@ export default async function TrendingPage() {
 
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-black uppercase tracking-tight">Trending</h1>
+        <h1 className="text-3xl font-semibold uppercase tracking-tight">Trending</h1>
       </div>
       <p className="text-site-gray text-sm mb-8 ml-4">
         Most-read manga and anime news of the past 30 days
@@ -79,7 +79,7 @@ export default async function TrendingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {articles.slice(1).map((article, i) => (
               <div key={article.id} className="relative">
-                <span className="absolute top-2 left-2 z-10 bg-primary text-white text-2xs font-black w-6 h-6 flex items-center justify-center rounded-full">
+                <span className="absolute top-2 left-2 z-10 bg-primary text-white text-2xs font-semibold w-6 h-6 flex items-center justify-center rounded-full">
                   {i + 2}
                 </span>
                 <ArticleCard article={article} size="medium" />

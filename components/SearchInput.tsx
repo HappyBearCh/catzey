@@ -149,9 +149,9 @@ export function SearchInput({
             onFocus={onFocus}
             placeholder={placeholder}
             autoComplete="off"
-            className="text-xs bg-white/10 text-white placeholder-gray-400 border border-white/15 rounded-sm px-3 py-1.5 w-64 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-colors pr-10"
+            className="text-xs bg-transparent text-ink dark:text-paper-2 placeholder-ink-muted dark:placeholder-paper-2/40 border-0 border-b border-rule dark:border-ink-border px-1 py-1.5 w-full focus:outline-none focus:border-seal transition-colors pr-10"
           />
-          <kbd className="pointer-events-none absolute right-3 text-2xs text-gray-500 font-mono hidden md:block">/</kbd>
+          <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-paper-2/40 font-mono hidden md:block">/</kbd>
         </div>
       </form>
 
@@ -160,7 +160,7 @@ export function SearchInput({
           {showRecent && (
             <>
               <div className="flex items-center justify-between px-3 py-1.5 border-b border-site-border dark:border-gray-700">
-                <span className="text-2xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Recent</span>
+                <span className="text-2xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Recent</span>
                 <button
                   type="button"
                   onClick={clearRecent}
@@ -191,7 +191,7 @@ export function SearchInput({
               onClick={() => { saveRecent(query.trim()); setRecentSearches(loadRecent()); clear(); }}
               className="flex flex-col px-3 py-2.5 hover:bg-site-light dark:hover:bg-gray-800 transition-colors border-b border-site-border dark:border-gray-700 last:border-0"
             >
-              <span className="text-2xs font-black uppercase tracking-widest text-primary mb-0.5">
+              <span className="text-2xs font-semibold uppercase tracking-widest text-primary mb-0.5">
                 {getCategoryLabel(s.category)}
               </span>
               <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 leading-snug">

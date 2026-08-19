@@ -72,7 +72,7 @@ export default function CalendarPage() {
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">
           <span className="block w-1 h-8 bg-primary" />
-          <h1 className="text-3xl font-black tracking-tight">Manga Release Calendar</h1>
+          <h1 className="text-3xl font-semibold tracking-tight">Manga Release Calendar</h1>
         </div>
         <p className="text-site-gray dark:text-gray-300 max-w-2xl ml-4">
           Weekly chapter release schedule for the most-read manga series. All times are approximate — check
@@ -103,7 +103,7 @@ export default function CalendarPage() {
                     : 'bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300'
                 }`}
               >
-                <h2 className="font-black text-sm uppercase tracking-wider">{day}</h2>
+                <h2 className="font-semibold text-sm uppercase tracking-wider">{day}</h2>
                 {isToday && (
                   <span className="ml-auto text-2xs font-bold bg-white/20 text-white px-2 py-0.5 rounded-full">
                     Today
@@ -152,7 +152,7 @@ export default function CalendarPage() {
 
       {/* Platform links */}
       <div className="mt-10 p-5 bg-site-light dark:bg-gray-900 border border-site-border dark:border-gray-700 rounded-sm">
-        <p className="text-xs font-black uppercase tracking-wider text-primary mb-3">Read Legally</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Read Legally</p>
         <div className="flex flex-wrap gap-3">
           {[
             { label: 'Manga Plus (Free)', url: 'https://mangaplus.shueisha.co.jp' },
@@ -179,7 +179,7 @@ export default function CalendarPage() {
 
       {/* Browse by tag */}
       <div className="mt-8 border-t border-site-border dark:border-gray-700 pt-6">
-        <p className="text-xs font-black uppercase tracking-wider text-gray-500 mb-3">Browse News by Series</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Browse News by Series</p>
         <div className="flex flex-wrap gap-2">
           {['One Piece', 'Jujutsu Kaisen', 'My Hero Academia', 'Chainsaw Man', 'Spy × Family', 'Frieren', 'Blue Lock', 'Demon Slayer'].map((tag) => (
             <Link

@@ -15,7 +15,7 @@ export function InlineRelated({ articles }: Props) {
 
   return (
     <div className="my-8 not-prose">
-      <p className="text-2xs font-black uppercase tracking-widest text-primary mb-3">More Stories</p>
+      <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-3">More Stories</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-site-light dark:bg-gray-800 border-l-4 border-primary">
         {articles.slice(0, 2).map((article) => {
           const label = getCategoryLabel(article.category);
@@ -39,7 +39,7 @@ export function InlineRelated({ articles }: Props) {
                 </div>
               ) : (
                 <div className="flex-shrink-0 w-20 h-14 bg-black flex items-center justify-center">
-                  <span className="text-primary text-2xs font-black uppercase">{label}</span>
+                  <span className="text-primary text-2xs font-semibold uppercase">{label}</span>
                 </div>
               )}
               <div className="min-w-0">

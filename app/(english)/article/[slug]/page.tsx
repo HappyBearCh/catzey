@@ -316,11 +316,11 @@ export default async function ArticlePage({ params }: Props) {
           {/* Series banner */}
           {seriesCtx && (
             <div className="mb-4 p-3 bg-primary/10 border border-primary/30 rounded-sm flex items-center gap-3">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-black flex items-center justify-center">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">
                 {article.seriesOrder}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-2xs font-black uppercase tracking-wider text-primary">
+                <p className="text-2xs font-semibold uppercase tracking-wider text-primary">
                   Part {article.seriesOrder} of {seriesCtx.totalParts}
                 </p>
                 <Link href={`/series/${seriesCtx.slug}`} className="text-sm font-bold hover:text-primary transition-colors line-clamp-1">
@@ -336,11 +336,11 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           )}
 
-          <span className="inline-block bg-primary text-white text-2xs font-black uppercase tracking-widest px-2 py-0.5 mb-3">
+          <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 mb-3">
             {categoryLabel}
           </span>
 
-          <h1 className="text-2xl md:text-4xl font-black leading-tight mb-4">
+          <h1 className="text-2xl md:text-4xl font-semibold leading-tight mb-4">
             {article.title}
           </h1>
 
@@ -383,11 +383,11 @@ export default async function ArticlePage({ params }: Props) {
             return (
               <div className="review-scorecard mb-6">
                 <div className="review-scorecard-header">
-                  <span className="text-xs font-black uppercase tracking-wider">
+                  <span className="text-xs font-semibold uppercase tracking-wider">
                     Chapter Review{r.chapterNumber ? ` — Ch. ${r.chapterNumber}` : ''}
                   </span>
                   {r.overall != null && (
-                    <span className="text-2xl font-black">{r.overall}<span className="text-sm font-normal opacity-70">/10</span></span>
+                    <span className="text-2xl font-semibold">{r.overall}<span className="text-sm font-normal opacity-70">/10</span></span>
                   )}
                 </div>
                 <div className="review-scorecard-body">
@@ -415,8 +415,8 @@ export default async function ArticlePage({ params }: Props) {
                   priority
                   fallback={
                     <div className="absolute inset-0 bg-black flex flex-col items-center justify-center text-center px-8">
-                      <span className="text-primary text-xs font-black uppercase tracking-widest mb-3 block">{categoryLabel}</span>
-                      <p className="text-white font-black text-xl md:text-3xl leading-snug">{article.title}</p>
+                      <span className="text-primary text-xs font-semibold uppercase tracking-widest mb-3 block">{categoryLabel}</span>
+                      <p className="text-white font-semibold text-xl md:text-3xl leading-snug">{article.title}</p>
                     </div>
                   }
                 />
@@ -428,8 +428,8 @@ export default async function ArticlePage({ params }: Props) {
               </div>
             ) : (
               <div className="w-full h-64 md:h-80 bg-black flex flex-col items-center justify-center text-center px-8 rounded-sm">
-                <span className="text-primary text-xs font-black uppercase tracking-widest mb-3 block">{categoryLabel}</span>
-                <p className="text-white font-black text-xl md:text-3xl leading-snug">{article.title}</p>
+                <span className="text-primary text-xs font-semibold uppercase tracking-widest mb-3 block">{categoryLabel}</span>
+                <p className="text-white font-semibold text-xl md:text-3xl leading-snug">{article.title}</p>
               </div>
             )}
           </figure>
@@ -468,7 +468,7 @@ export default async function ArticlePage({ params }: Props) {
 
           {article.editorNote && (
             <div className="mt-6 p-4 bg-gray-50 border border-site-border rounded-sm">
-              <p className="text-2xs font-black uppercase tracking-widest text-primary mb-2 flex items-center gap-1.5">
+              <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-2 flex items-center gap-1.5">
                 <span className="inline-block w-3 h-3 bg-primary rounded-full" />
                 Catzye Take
               </p>
@@ -514,7 +514,7 @@ export default async function ArticlePage({ params }: Props) {
           {/* Guide callout */}
           {guide && (
             <div className="mt-6 p-4 border-l-4 border-primary bg-primary/5">
-              <p className="text-2xs font-black uppercase tracking-widest text-primary mb-1">Want to learn more?</p>
+              <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-1">Want to learn more?</p>
               <Link
                 href={`/${article.category}/guide`}
                 className="font-bold text-sm hover:text-primary transition-colors"
@@ -557,7 +557,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="mt-10 pt-6 border-t border-site-border">
               <div className="flex items-center gap-2 mb-5">
                 <span className="block w-1 h-5 bg-primary" />
-                <h2 className="text-sm font-black uppercase tracking-wider">You May Also Like</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wider">You May Also Like</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {related.map((rel) => (
@@ -583,7 +583,7 @@ export default async function ArticlePage({ params }: Props) {
               <>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="block w-1 h-5 bg-primary" />
-                  <h2 className="text-sm font-black uppercase tracking-wider">
+                  <h2 className="text-sm font-semibold uppercase tracking-wider">
                     More in {categoryLabel}
                   </h2>
                 </div>

@@ -22,11 +22,11 @@ export function CategoryNumerology({ slug }: Props) {
         className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full flex flex-col items-center justify-center text-white shadow-lg"
         style={{ backgroundColor: profile.color }}
       >
-        <span className="text-3xl md:text-4xl font-black leading-none">{reading.destiny}</span>
+        <span className="text-3xl md:text-4xl font-semibold leading-none">{reading.destiny}</span>
         <span className="text-[0.55rem] uppercase tracking-widest opacity-80 mt-0.5">Number</span>
       </div>
       <div className="min-w-0">
-        <p className="text-2xs font-black uppercase tracking-widest text-primary-accent mb-1">
+        <p className="text-2xs font-semibold uppercase tracking-widest text-primary-accent mb-1">
           The Numerology of {label}
         </p>
         <p className="text-sm text-gray-200 leading-relaxed">

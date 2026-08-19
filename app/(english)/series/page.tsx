@@ -47,7 +47,7 @@ export default async function SeriesIndexPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-black mb-2">Essay Series</h1>
+        <h1 className="text-3xl font-semibold mb-2">Essay Series</h1>
         <p className="text-gray-500 text-sm max-w-xl">
           Long-form explorations of manga history, culture, and society — one series, multiple deep dives.
         </p>
@@ -72,18 +72,18 @@ export default async function SeriesIndexPage() {
                   </div>
                 ) : (
                   <div className="w-full aspect-video bg-site-dark flex items-center justify-center px-6">
-                    <p className="text-white font-black text-xl text-center leading-snug">{s.title}</p>
+                    <p className="text-white font-semibold text-xl text-center leading-snug">{s.title}</p>
                   </div>
                 )}
                 <div className="p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-2xs font-black uppercase tracking-widest text-primary">
+                    <span className="text-2xs font-semibold uppercase tracking-widest text-primary">
                       {getCategoryLabel(s.category)}
                     </span>
                     <span className="text-gray-300 text-xs">·</span>
                     <span className="text-2xs text-gray-400">{publishedCount} of {totalParts} parts</span>
                   </div>
-                  <h2 className="font-black text-lg leading-snug mb-1 group-hover:text-primary transition-colors">
+                  <h2 className="font-semibold text-lg leading-snug mb-1 group-hover:text-primary transition-colors">
                     {s.title}
                   </h2>
                   {s.description && (

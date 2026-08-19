@@ -1,8 +1,6 @@
 import { prisma } from '@/lib/db';
 import { HeroSection } from '@/components/HeroSection';
 import { ArticleCard } from '@/components/ArticleCard';
-import { BreakingTicker } from '@/components/BreakingTicker';
-import { TrendingStrip } from '@/components/TrendingStrip';
 import { LoadMoreArticles } from '@/components/LoadMoreArticles';
 import { MostRead } from '@/components/MostRead';
 import { TodaysNumber } from '@/components/TodaysNumber';
@@ -95,23 +93,34 @@ async function getArticles() {
 export default async function HomePage() {
   const articles = await getArticles();
 
+  // The archive is being retired, so an empty article table is an expected end
+  // state, not a misconfiguration. Send readers to the reference rather than
+  // showing them scraper instructions.
   if (articles.length === 0) {
     return (
-      <div className="max-w-8xl mx-auto px-4 py-20 text-center">
-        <h1 className="text-3xl font-black mb-4 text-gray-800">Welcome to Catzye</h1>
-        <p className="text-gray-500 mb-6 max-w-md mx-auto">
-          No articles yet. The scraper runs every hour pulling from manga &amp; anime news sites and will populate automatically.
-          You can also trigger it manually:
-        </p>
-        <code className="block bg-gray-100 rounded px-4 py-2 text-sm text-gray-700 max-w-lg mx-auto">
-          curl -H &quot;Authorization: Bearer $CRON_SECRET&quot; /api/cron/scrape
-        </code>
-        <p className="text-gray-400 text-sm mt-8">
-          Make sure <code className="bg-gray-100 px-1 rounded">DATABASE_URL</code>,{' '}
-          <code className="bg-gray-100 px-1 rounded">GEMINI_API_KEY</code>, and{' '}
-          <code className="bg-gray-100 px-1 rounded">CRON_SECRET</code> are set in your
-          environment.
-        </p>
+      <div className="max-w-8xl mx-auto px-4 py-24 text-center">
+        <p className="eyebrow mb-5">Manga, explained from the beginning</p>
+        <h1 className="font-serif text-3xl md:text-5xl font-semibold tracking-tight max-w-2xl mx-auto text-ink dark:text-paper-2">
+          A hand-written reference to how manga works
+        </h1>
+        <div className="rule-ornament max-w-md mx-auto mt-10 mb-8">
+          <span className="text-seal text-sm" aria-hidden="true">✦</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border max-w-4xl mx-auto text-left">
+          {LEARN_ENTRY_POINTS.map(({ href, title, blurb }, i) => (
+            <Link
+              key={href}
+              href={href}
+              className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
+            >
+              <span className="eyebrow block mb-2">{String(i + 1).padStart(2, '0')}</span>
+              <span className="block font-serif text-xl font-semibold mb-1.5 text-ink dark:text-paper-2 group-hover:text-seal transition-colors">
+                {title}
+              </span>
+              <span className="block text-sm leading-relaxed text-ink-muted dark:text-paper-2/60">{blurb}</span>
+            </Link>
+          ))}
+        </div>
       </div>
     );
   }
@@ -142,35 +151,43 @@ export default async function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
-      {/* Breaking news ticker */}
-      <BreakingTicker articles={articles.slice(0, 5)} />
-      <TrendingStrip />
-
       <div className="max-w-8xl mx-auto px-4">
         {/* The educational sections lead the page — they are what the site is
             for. The news archive stays below while it is still live. */}
-        <section className="mt-6 mb-8">
-          <div className="border border-site-border rounded-sm overflow-hidden">
-            <div className="bg-site-dark px-5 py-6 md:px-8 md:py-8">
-              <h2 className="text-white text-2xl md:text-3xl font-black tracking-tight mb-2">
-                Learn how manga works
-              </h2>
-              <p className="text-gray-300 text-sm md:text-base max-w-2xl">
-                Explainers, a full glossary, and reference entries for the series and
-                creators behind them. Start from nothing, or look up the one thing you
-                came for.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-site-border">
-              {LEARN_ENTRY_POINTS.map(({ href, title, blurb }) => (
-                <Link key={href} href={href} className="group p-5 hover:bg-primary/5 transition-colors">
-                  <span className="block font-black text-lg mb-1 group-hover:text-primary transition-colors">
-                    {title} <span aria-hidden="true">→</span>
-                  </span>
-                  <span className="block text-sm text-gray-600 dark:text-gray-300 leading-snug">{blurb}</span>
-                </Link>
-              ))}
-            </div>
+        {/* A statement of what the site is, set as the opening of a book
+            rather than as a promotional panel. */}
+        <section className="py-10 md:py-16 text-center">
+          <p className="eyebrow mb-5">Manga, explained from the beginning</p>
+          <h1 className="font-serif text-3xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl mx-auto text-ink dark:text-paper-2">
+            A hand-written reference to how manga works,
+            <span className="italic text-seal"> and where it came from</span>
+          </h1>
+          <p className="mt-5 max-w-xl mx-auto text-lg leading-relaxed text-ink-2 dark:text-paper-2/80">
+            Explainers written to be read in order, a glossary of every term you will
+            meet, and reference entries for the series and the people who drew them.
+            No rankings, no release-day churn.
+          </p>
+
+          <div className="rule-ornament max-w-md mx-auto mt-10 mb-8">
+            <span className="text-seal text-sm" aria-hidden="true">✦</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border max-w-4xl mx-auto text-left">
+            {LEARN_ENTRY_POINTS.map(({ href, title, blurb }, i) => (
+              <Link
+                key={href}
+                href={href}
+                className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
+              >
+                <span className="eyebrow block mb-2">{String(i + 1).padStart(2, '0')}</span>
+                <span className="block font-serif text-xl font-semibold mb-1.5 text-ink dark:text-paper-2 group-hover:text-seal transition-colors">
+                  {title}
+                </span>
+                <span className="block text-sm leading-relaxed text-ink-muted dark:text-paper-2/60">
+                  {blurb}
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 
@@ -185,9 +202,12 @@ export default async function HomePage() {
         {/* Top stories grid */}
         {gridArticles.length > 0 && (
           <section className="my-8">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="block w-1 h-6 bg-primary" />
-              <h2 className="text-lg font-black uppercase tracking-wide">Top Stories</h2>
+            <div className="flex items-baseline gap-4 mb-6 pb-2 border-b border-rule dark:border-ink-border">
+              <h2 className="eyebrow">From the news archive</h2>
+              <span className="flex-1" />
+              <span className="font-sans text-[0.7rem] text-ink-muted dark:text-paper-2/50">
+                Archived reporting, kept while it is still useful
+              </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {gridArticles.map((article) => (
@@ -203,7 +223,7 @@ export default async function HomePage() {
           <div className="mt-8">
             <div className="flex items-center gap-2 mb-4">
               <span className="block w-1 h-5 bg-primary" />
-              <h2 className="text-sm font-black uppercase tracking-wider">Catzye Guides</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wider">Catzye Guides</h2>
             </div>
             <ul>
               {getAllStandaloneGuides().slice(0, 5).map((guide) => (
@@ -237,7 +257,7 @@ export default async function HomePage() {
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-3">
                 <span className="block w-1 h-6 bg-primary" />
-                <h2 className="text-lg font-black uppercase tracking-wide">{label}</h2>
+                <h2 className="text-lg font-semibold uppercase tracking-wide">{label}</h2>
               </div>
               <Link
                 href={`/${slug}`}

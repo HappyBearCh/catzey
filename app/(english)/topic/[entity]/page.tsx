@@ -146,7 +146,7 @@ export default async function TopicPage({ params }: Props) {
 
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-black tracking-tight">{name}</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">{name}</h1>
       </div>
       <p className="text-site-gray text-sm mb-6 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} about {name}
@@ -160,7 +160,7 @@ export default async function TopicPage({ params }: Props) {
           <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {topicInfo.facts.map((f) => (
               <div key={f.label}>
-                <dt className="text-2xs font-black uppercase tracking-wider text-primary mb-0.5">
+                <dt className="text-2xs font-semibold uppercase tracking-wider text-primary mb-0.5">
                   {f.label}
                 </dt>
                 <dd className="text-sm font-semibold text-gray-800 dark:text-gray-200">{f.value}</dd>
@@ -188,7 +188,7 @@ export default async function TopicPage({ params }: Props) {
 
       {relatedTopics.length > 0 && (
         <div className="mt-12 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-3">Related Topics</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Related Topics</h2>
           <div className="flex flex-wrap gap-2">
             {relatedTopics.map((e) => (
               <Link

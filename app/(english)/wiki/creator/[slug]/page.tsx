@@ -94,11 +94,11 @@ export default async function CreatorPage({ params }: Props) {
         <Link href="/wiki" className="hover:text-primary transition-colors">Wiki</Link>
       </nav>
 
-      <span className="inline-block bg-primary text-white text-2xs font-black uppercase tracking-widest px-2 py-0.5 mb-3">
+      <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 mb-3">
         {creator.role}
       </span>
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-1">{creator.name}</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-1">{creator.name}</h1>
       {creator.nativeName && (
         <p className="text-lg text-gray-500 dark:text-gray-400 mb-3">{creator.nativeName}</p>
       )}
@@ -111,13 +111,13 @@ export default async function CreatorPage({ params }: Props) {
       </p>
 
       <div
-        className="article-prose text-gray-800 dark:text-gray-200"
+        className="ref-prose"
         dangerouslySetInnerHTML={{ __html: creator.body }}
       />
 
       {works.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-4">Works</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Works</h2>
           <ul className="border border-site-border rounded-sm divide-y divide-site-border">
             {works.map((w) => (
               <li key={w.slug}>

@@ -96,7 +96,7 @@ export default async function SeasonPage({ params }: Props) {
             </span>
           )}
         </div>
-        <h1 className="text-4xl font-black tracking-tight mb-3">{data.label} Anime</h1>
+        <h1 className="text-4xl font-semibold tracking-tight mb-3">{data.label} Anime</h1>
         <p className="text-site-gray dark:text-gray-300 max-w-2xl">
           {data.shows.length} series · {airing.length} currently airing
           {upcoming.length > 0 && ` · ${upcoming.length} upcoming`}
@@ -125,7 +125,7 @@ export default async function SeasonPage({ params }: Props) {
         <section className="mb-10">
           <div className="flex items-center gap-3 mb-5">
             <span className="block w-1 h-6 bg-primary" />
-            <h2 className="text-lg font-black uppercase tracking-wide">Currently Airing</h2>
+            <h2 className="text-lg font-semibold uppercase tracking-wide">Currently Airing</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             {airing.map((show) => <ShowCard key={show.title} show={show} />)}
@@ -138,7 +138,7 @@ export default async function SeasonPage({ params }: Props) {
         <section className="mb-10">
           <div className="flex items-center gap-3 mb-5">
             <span className="block w-1 h-6 bg-gray-400" />
-            <h2 className="text-lg font-black uppercase tracking-wide text-gray-600 dark:text-gray-300">Upcoming</h2>
+            <h2 className="text-lg font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-300">Upcoming</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             {upcoming.map((show) => <ShowCard key={show.title} show={show} upcoming />)}
@@ -151,7 +151,7 @@ export default async function SeasonPage({ params }: Props) {
         <section className="mb-10">
           <div className="flex items-center gap-3 mb-5">
             <span className="block w-1 h-6 bg-gray-300" />
-            <h2 className="text-lg font-black uppercase tracking-wide text-gray-500">Finished</h2>
+            <h2 className="text-lg font-semibold uppercase tracking-wide text-gray-500">Finished</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             {finished.map((show) => <ShowCard key={show.title} show={show} />)}
@@ -173,7 +173,7 @@ function ShowCard({ show, upcoming = false }: { show: import('@/lib/seasons').An
     <div className={`border rounded-sm overflow-hidden bg-white dark:bg-gray-900 ${upcoming ? 'border-dashed border-gray-300 dark:border-gray-700 opacity-80' : 'border-site-border dark:border-gray-700'}`}>
       <div className="p-4">
         <div className="flex items-start justify-between gap-2 mb-2">
-          <h3 className="font-black text-base leading-snug">{show.title}</h3>
+          <h3 className="font-semibold text-base leading-snug">{show.title}</h3>
           {show.day && (
             <span className="flex-shrink-0 text-2xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">
               {show.day}s

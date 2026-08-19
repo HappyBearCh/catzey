@@ -34,7 +34,7 @@ export default function SavedPage() {
     <div className="max-w-8xl mx-auto px-4 py-6">
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-black uppercase tracking-tight">Saved Articles</h1>
+        <h1 className="text-3xl font-semibold uppercase tracking-tight">Saved Articles</h1>
       </div>
       <p className="text-site-gray text-sm mb-8 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} saved

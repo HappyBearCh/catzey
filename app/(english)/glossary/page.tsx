@@ -61,7 +61,7 @@ export default async function GlossaryIndexPage() {
         <span>Glossary</span>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-3">Manga Glossary</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Manga Glossary</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
         Every term you&apos;ll run into reading manga — what it means, where it comes from, and
         when it actually applies. {terms.length} entries and counting.
@@ -97,7 +97,7 @@ export default async function GlossaryIndexPage() {
 
           {[...groups.entries()].map(([letter, items]) => (
             <section key={letter} id={`letter-${letter}`} className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-black text-primary mb-4 pb-2 border-b border-site-border">{letter}</h2>
+              <h2 className="text-2xl font-semibold text-primary mb-4 pb-2 border-b border-site-border">{letter}</h2>
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                 {items.map((t) => (
                   <div key={t.slug}>

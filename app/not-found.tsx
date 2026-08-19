@@ -19,10 +19,10 @@ const POPULAR = [
 export default function NotFound() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-24 text-center">
-      <div className="inline-block bg-primary text-white text-sm font-black px-3 py-1 mb-6 uppercase tracking-widest">
+      <div className="inline-block bg-primary text-white text-sm font-semibold px-3 py-1 mb-6 uppercase tracking-widest">
         404
       </div>
-      <h1 className="text-4xl font-black mb-4">Page Not Found</h1>
+      <h1 className="text-4xl font-semibold mb-4">Page Not Found</h1>
       <p className="text-gray-500 dark:text-gray-400 mb-8">
         The article or page you&apos;re looking for doesn&apos;t exist or has been moved.
         Try searching, or jump to one of our popular sections below.
@@ -48,7 +48,7 @@ export default function NotFound() {
 
       {/* Browse by category */}
       <div className="pt-6 border-t border-site-border">
-        <p className="text-2xs font-black uppercase tracking-widest text-gray-400 mb-3">Browse by category</p>
+        <p className="text-2xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Browse by category</p>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
           {CATEGORIES.map(({ label, slug }) => (
             <Link

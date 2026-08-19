@@ -38,10 +38,10 @@ function TextThumbnail({
 }) {
   return (
     <div className={`${className} bg-black flex flex-col items-center justify-center p-4 text-center`}>
-      <span className="text-primary text-2xs font-black uppercase tracking-widest mb-2 block">
+      <span className="text-primary text-2xs font-semibold uppercase tracking-widest mb-2 block">
         {categoryLabel}
       </span>
-      <p className="text-white font-black leading-snug line-clamp-4 text-lg">
+      <p className="text-white font-semibold leading-snug line-clamp-4 text-lg">
         {title}
       </p>
     </div>
@@ -78,7 +78,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
           <span className="inline-block bg-primary text-white text-2xs font-bold uppercase tracking-widest px-2 py-0.5 mb-3">
             {categoryLabel}
           </span>
-          <h1 className="text-white text-2xl md:text-4xl font-black leading-tight mb-3 line-clamp-3 group-hover:text-gray-200 transition-colors">
+          <h1 className="text-white text-2xl md:text-4xl font-semibold leading-tight mb-3 line-clamp-3 group-hover:text-gray-200 transition-colors">
             {article.title}
           </h1>
           <p className="text-gray-300 text-sm md:text-base line-clamp-2 mb-3 hidden md:block">
@@ -119,7 +119,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
           {categoryLabel}
         </span>
-        <h2 className="font-black text-lg leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-3">
+        <h2 className="font-semibold text-lg leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-3">
           {article.title}
         </h2>
         <p className="text-site-gray dark:text-gray-300 text-sm line-clamp-2 mb-2">{article.excerpt}</p>

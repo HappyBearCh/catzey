@@ -128,7 +128,7 @@ export default async function LearnTopicPage({ params }: Props) {
       </nav>
 
       <div className="flex items-center gap-2 mb-3">
-        <span className="inline-block bg-primary text-white text-2xs font-black uppercase tracking-widest px-2 py-0.5">
+        <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5">
           {topic.level}
         </span>
         {total > 0 && (
@@ -139,20 +139,20 @@ export default async function LearnTopicPage({ params }: Props) {
         )}
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight leading-tight mb-4">{topic.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-4">{topic.title}</h1>
 
       <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-8">
         {topic.summary}
       </p>
 
       <div
-        className="article-prose text-gray-800 dark:text-gray-200"
+        className="ref-prose"
         dangerouslySetInnerHTML={{ __html: topic.body }}
       />
 
       {faq.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-4">Common questions</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Common questions</h2>
           <dl className="space-y-4">
             {faq.map(({ question, answer }) => (
               <div key={question} className="border border-site-border rounded-sm p-4">
@@ -166,7 +166,7 @@ export default async function LearnTopicPage({ params }: Props) {
 
       {related.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-3">Terms used here</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Terms used here</h2>
           <div className="flex flex-wrap gap-2">
             {related.map((r) => (
               <Link

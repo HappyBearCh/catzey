@@ -69,7 +69,7 @@ export default async function WikiIndexPage() {
         <span>Wiki</span>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-3">Manga Wiki</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Manga Wiki</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-10 max-w-2xl">
         Reference entries for the works themselves and the people who make them — what a
         series is, when it ran, where it was serialised, and who drew it.
@@ -78,7 +78,7 @@ export default async function WikiIndexPage() {
       <section className="mb-12">
         <div className="flex items-center gap-2 mb-4">
           <span className="block w-1 h-6 bg-primary" />
-          <h2 className="text-xl font-black tracking-tight">Series</h2>
+          <h2 className="text-xl font-semibold tracking-tight">Series</h2>
           <span className="text-2xs font-bold text-gray-400 uppercase tracking-wider">{works.length}</span>
         </div>
         {works.length === 0 ? (
@@ -100,7 +100,7 @@ export default async function WikiIndexPage() {
       <section>
         <div className="flex items-center gap-2 mb-4">
           <span className="block w-1 h-6 bg-primary" />
-          <h2 className="text-xl font-black tracking-tight">Creators</h2>
+          <h2 className="text-xl font-semibold tracking-tight">Creators</h2>
           <span className="text-2xs font-bold text-gray-400 uppercase tracking-wider">{creators.length}</span>
         </div>
         {creators.length === 0 ? (

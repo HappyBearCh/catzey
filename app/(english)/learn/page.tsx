@@ -54,7 +54,7 @@ export default async function LearnHubPage() {
         <span>Learn</span>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-3">Learn Manga</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Learn Manga</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-10 max-w-2xl">
         Start anywhere. Each track is a short, ordered path — read it straight through, or
         jump to the one question you came for.
@@ -67,7 +67,7 @@ export default async function LearnHubPage() {
             <section key={track.slug}>
               <div className="flex items-center gap-2 mb-1">
                 <span className="block w-1 h-6 bg-primary" />
-                <h2 className="text-xl font-black tracking-tight">{track.label}</h2>
+                <h2 className="text-xl font-semibold tracking-tight">{track.label}</h2>
                 <span className="text-2xs font-bold text-gray-400 uppercase tracking-wider">
                   {inTrack.length} {inTrack.length === 1 ? 'lesson' : 'lessons'}
                 </span>
@@ -84,7 +84,7 @@ export default async function LearnHubPage() {
                         href={`/learn/${t.slug}`}
                         className="flex items-start gap-4 p-4 hover:bg-primary/5 transition-colors group"
                       >
-                        <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/10 text-primary text-xs font-black flex items-center justify-center mt-0.5">
+                        <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/10 text-primary text-xs font-semibold flex items-center justify-center mt-0.5">
                           {i + 1}
                         </span>
                         <span className="min-w-0">

@@ -144,12 +144,12 @@ export default async function GuidePage({ params }: Props) {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-xs font-black uppercase tracking-widest text-primary border border-primary px-2 py-0.5">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary border border-primary px-2 py-0.5">
             {validCategory.label}
           </span>
           <span className="text-xs text-site-gray">{guide.readingTime} min read</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-black leading-tight mb-3">{guide.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold leading-tight mb-3">{guide.title}</h1>
         <p className="text-site-gray text-lg leading-relaxed">{guide.subtitle}</p>
       </div>
 
@@ -163,7 +163,7 @@ export default async function GuidePage({ params }: Props) {
       {/* Article body */}
       <article
         className="prose prose-sm md:prose-base max-w-none
-          prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-gray-900
+          prose-headings:font-semibold prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-gray-900
           prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-l-4 prose-h2:border-primary prose-h2:pl-3
           prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-5
           prose-a:text-primary prose-a:no-underline hover:prose-a:underline

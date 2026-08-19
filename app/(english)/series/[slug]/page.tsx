@@ -117,11 +117,11 @@ export default async function SeriesPage({ params }: Props) {
           </div>
         )}
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-2xs font-black uppercase tracking-widest text-primary">{categoryLabel}</span>
+          <span className="text-2xs font-semibold uppercase tracking-widest text-primary">{categoryLabel}</span>
           <span className="text-gray-300">·</span>
           <span className="text-2xs text-gray-500">{publishedParts.length} of {totalParts} parts published</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-black leading-tight mb-3">{series.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold leading-tight mb-3">{series.title}</h1>
         {/* Status + genres */}
         <div className="flex flex-wrap items-center gap-2 mb-3">
           {series.status && (
@@ -170,7 +170,7 @@ export default async function SeriesPage({ params }: Props) {
 
       {/* Parts list */}
       <div className="space-y-4">
-        <h2 className="text-xs font-black uppercase tracking-widest text-gray-500 border-b border-site-border pb-2">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 border-b border-site-border pb-2">
           Parts in this series
         </h2>
 
@@ -181,7 +181,7 @@ export default async function SeriesPage({ params }: Props) {
           if (!article) {
             return (
               <div key={i} className="flex items-start gap-4 p-4 bg-gray-50 border border-dashed border-gray-200 rounded-sm opacity-60">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 text-gray-400 text-sm font-black flex items-center justify-center">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 text-gray-400 text-sm font-semibold flex items-center justify-center">
                   {partNum}
                 </span>
                 <div>
@@ -198,12 +198,12 @@ export default async function SeriesPage({ params }: Props) {
               href={`/article/${article.slug}`}
               className="flex items-start gap-4 p-4 bg-white border border-site-border rounded-sm hover:shadow-sm hover:border-primary/30 transition-all group"
             >
-              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-black flex items-center justify-center">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">
                 {partNum}
               </span>
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Part {partNum}</p>
-                <h3 className="font-black text-base leading-snug mb-1 group-hover:text-primary transition-colors">
+                <h3 className="font-semibold text-base leading-snug mb-1 group-hover:text-primary transition-colors">
                   {article.title}
                 </h3>
                 <p className="text-sm text-gray-500 line-clamp-2">{article.excerpt}</p>
@@ -227,11 +227,11 @@ export default async function SeriesPage({ params }: Props) {
             href={`/article/${article.slug}`}
             className="flex items-start gap-4 p-4 bg-white border border-site-border rounded-sm hover:shadow-sm hover:border-primary/30 transition-all group"
           >
-            <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-black flex items-center justify-center">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">
               {article.seriesOrder}
             </span>
             <div className="flex-1 min-w-0">
-              <h3 className="font-black text-base leading-snug mb-1 group-hover:text-primary transition-colors">
+              <h3 className="font-semibold text-base leading-snug mb-1 group-hover:text-primary transition-colors">
                 {article.title}
               </h3>
               <p className="text-sm text-gray-500 line-clamp-2">{article.excerpt}</p>

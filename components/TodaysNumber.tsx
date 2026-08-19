@@ -25,13 +25,13 @@ export function TodaysNumber({ articles = [] }: Props) {
             className="flex-shrink-0 w-16 h-16 rounded-full flex flex-col items-center justify-center text-white shadow-lg"
             style={{ backgroundColor: profile.color }}
           >
-            <span className="text-3xl font-black leading-none">{today.number}</span>
+            <span className="text-3xl font-semibold leading-none">{today.number}</span>
           </div>
           <div>
-            <p className="text-2xs font-black uppercase tracking-widest text-primary-accent">
+            <p className="text-2xs font-semibold uppercase tracking-widest text-primary-accent">
               Today&apos;s Number
             </p>
-            <p className="text-white font-black text-lg leading-tight">{profile.title}</p>
+            <p className="text-white font-semibold text-lg leading-tight">{profile.title}</p>
             <p className="text-2xs text-gray-400">{today.dateLabel}</p>
           </div>
         </div>
@@ -44,7 +44,7 @@ export function TodaysNumber({ articles = [] }: Props) {
           </p>
           {matches.length > 0 && (
             <div className="mt-2">
-              <p className="text-2xs font-black uppercase tracking-widest text-primary-accent mb-1">
+              <p className="text-2xs font-semibold uppercase tracking-widest text-primary-accent mb-1">
                 Headlines vibrating to {today.number}
               </p>
               <ul className="space-y-0.5">

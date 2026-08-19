@@ -11,7 +11,7 @@ export function BreakingTicker({ articles }: BreakingTickerProps) {
 
   return (
     <div className="bg-primary text-white flex items-center overflow-hidden">
-      <span className="flex-shrink-0 bg-black text-white text-xs font-black uppercase tracking-widest px-3 py-2 mr-3">
+      <span className="flex-shrink-0 bg-black text-white text-xs font-semibold uppercase tracking-widest px-3 py-2 mr-3">
         BREAKING
       </span>
       <div className="flex-1 overflow-hidden py-2">

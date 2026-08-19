@@ -121,7 +121,7 @@ export default async function TagPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }} />
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-black tracking-tight">#{label}</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">#{label}</h1>
       </div>
       <p className="text-site-gray text-sm mb-8 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} tagged with &quot;{label}&quot;
@@ -135,7 +135,7 @@ export default async function TagPage({ params }: Props) {
 
       {relatedTags.length > 0 && (
         <div className="mt-12 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-3">Related Tags</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Related Tags</h2>
           <div className="flex flex-wrap gap-2">
             {relatedTags.map((t) => (
               <Link

@@ -4,13 +4,31 @@
 
 @layer base {
   html {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-serif), 'Iowan Old Style', Georgia, serif;
     -webkit-font-smoothing: antialiased;
     font-size: 100%;
   }
 
   body {
-    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+    @apply bg-paper text-ink dark:bg-ink-bg dark:text-paper-2;
+    /* A faint laid-paper tone. Two very wide gradients, no image request. */
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(168, 52, 42, 0.025), transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(47, 59, 107, 0.03), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(168, 52, 42, 0.05), transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(143, 154, 196, 0.04), transparent 55%);
+  }
+
+  /* Headings are the serif too — a display sans in the headline slot is the
+     single loudest "news site" cue there is. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif), Georgia, serif;
+    letter-spacing: -0.01em;
   }
 
   * {
@@ -18,9 +36,37 @@
   }
 
   :focus-visible {
-    outline: 2px solid #7c3aed;
+    outline: 2px solid #a8342a;
     outline-offset: 2px;
-    border-radius: 2px;
+    border-radius: 0;
+  }
+}
+
+@layer components {
+  /* The small letterspaced sans label that runs above sections, in place of
+     the coloured category chips a news layout uses. */
+  .eyebrow {
+    font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    @apply text-ink-muted dark:text-paper-2/60;
+  }
+
+  /* A hairline with a centred ornament, used between major sections. */
+  .rule-ornament {
+    @apply flex items-center gap-3 text-rule-strong dark:text-ink-border;
+  }
+  .rule-ornament::before,
+  .rule-ornament::after {
+    content: '';
+    @apply flex-1 border-t border-rule dark:border-ink-border;
+  }
+
+  /* Reference-entry metadata: label left, value right, hairline between. */
+  .datarow {
+    @apply flex items-baseline justify-between gap-4 border-b border-rule dark:border-ink-border py-2;
   }
 }
 
@@ -81,16 +127,16 @@
 }
 
 .article-prose h2 {
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1.45rem;
+  font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   line-height: 1.3;
 }
 
 .article-prose h3 {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.2rem;
+  font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
@@ -125,10 +171,10 @@
 }
 
 .article-prose blockquote {
-  border-left: 4px solid #7c3aed;
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-  color: #333;
+  border-left: 2px solid #a8342a;
+  padding-left: 1.15rem;
+  margin: 1.75rem 0;
+  color: #3f3a31;
   font-style: italic;
 }
 
@@ -139,7 +185,7 @@
 
 .dark .article-prose blockquote {
   color: #d1d5db;
-  border-left-color: #7c3aed;
+  border-left-color: #a8342a;
 }
 
 .dark .article-prose h2,
@@ -157,18 +203,104 @@
 
 .article-prose hr {
   border: none;
-  border-top: 1px solid #ddd6fe;
+  border-top: 1px solid #ddd4c2;
   margin: 2rem 0;
 }
 
 .article-prose a,
 .entity-link {
-  color: #7c3aed;
+  color: #2f3b6b;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .article-prose a:hover {
-  color: #5b21b6;
+  color: #a8342a;
+}
+
+.dark .article-prose a,
+.dark .entity-link {
+  color: #8f9ac4;
+}
+
+/* ── Reference prose ────────────────────────────────────────────────────────
+   The learn / glossary / wiki bodies. Same ink as the article template but a
+   longer measure and quieter headings, so an entry reads as a page from a
+   book rather than a post. */
+.ref-prose {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  @apply text-ink-2 dark:text-paper-2/85;
+}
+
+.ref-prose > p {
+  margin-bottom: 1.15rem;
+}
+
+/* Opening paragraph gets the slightly larger setting a printed entry has. */
+.ref-prose > p:first-of-type {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  @apply text-ink dark:text-paper-2;
+}
+
+.ref-prose h2 {
+  font-size: 0.75rem;
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-top: 2.25rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.4rem;
+  @apply text-ink-muted border-b border-rule dark:text-paper-2/60 dark:border-ink-border;
+}
+
+.ref-prose h2:first-child {
+  margin-top: 0;
+}
+
+.ref-prose h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+  @apply text-ink dark:text-paper-2;
+}
+
+.ref-prose strong {
+  font-weight: 600;
+  @apply text-ink dark:text-paper-2;
+}
+
+.ref-prose em {
+  font-style: italic;
+}
+
+.ref-prose a {
+  color: #2f3b6b;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.ref-prose a:hover { color: #a8342a; }
+.dark .ref-prose a { color: #8f9ac4; }
+
+.ref-prose ul, .ref-prose ol {
+  margin-bottom: 1.15rem;
+  padding-left: 1.35rem;
+}
+.ref-prose ul { list-style-type: square; }
+.ref-prose ol { list-style-type: decimal; }
+.ref-prose li { margin-bottom: 0.5rem; }
+
+.ref-prose blockquote {
+  border-left: 2px solid #a8342a;
+  padding-left: 1.15rem;
+  margin: 1.5rem 0;
+  font-style: italic;
 }
 
 /* WYSIWYG editor content styles */
@@ -229,7 +361,7 @@
 
 .ProseMirror hr {
   border: none;
-  border-top: 1px solid #ddd6fe;
+  border-top: 1px solid #ddd4c2;
   margin: 1rem 0;
 }
 
@@ -374,8 +506,8 @@
   color: #9ca3af;
 }
 .review-score-value {
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1.45rem;
+  font-weight: 600;
   color: #7c3aed;
   line-height: 1;
 }

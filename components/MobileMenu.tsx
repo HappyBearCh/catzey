@@ -24,7 +24,7 @@ export function MobileMenu() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? 'Close menu' : 'Open menu'}
-        className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 text-gray-300 hover:text-white transition-colors"
+        className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 text-ink-2 hover:text-seal dark:text-paper-2/70 transition-colors"
       >
         <span className={`block w-5 h-0.5 bg-current transition-all duration-200 ${open ? 'translate-y-2 rotate-45' : ''}`} />
         <span className={`block w-5 h-0.5 bg-current transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
@@ -43,11 +43,11 @@ export function MobileMenu() {
       <div className={`md:hidden fixed top-0 left-0 z-50 h-full w-72 bg-site-dark flex flex-col transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : '-translate-x-full'}`}>
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 h-14 border-b border-white/10 flex-shrink-0">
-          <span className="text-white font-black text-sm uppercase tracking-widest">Menu</span>
+          <span className="text-white font-semibold text-sm uppercase tracking-widest">Menu</span>
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-ink-muted hover:text-seal dark:text-paper-2/60 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -60,7 +60,7 @@ export function MobileMenu() {
           <Link
             href="/"
             className={`flex items-center gap-3 px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-colors ${
-              pathname === '/' ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-gray-400 hover:text-white hover:bg-white/5'
+              pathname === '/' ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-seal dark:text-paper-2/60 hover:bg-white/5'
             }`}
           >
             Home
@@ -73,7 +73,7 @@ export function MobileMenu() {
                 key={slug}
                 href={`/${slug}`}
                 className={`flex items-center gap-3 px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-colors ${
-                  active ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  active ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-seal dark:text-paper-2/60 hover:bg-white/5'
                 }`}
               >
                 {label}

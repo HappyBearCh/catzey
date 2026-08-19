@@ -36,7 +36,7 @@ export function TableOfContents({ headings }: Props) {
     <div className="mb-6 pb-6 border-b border-site-border dark:border-gray-700">
       <div className="flex items-center gap-2 mb-3">
         <span className="block w-1 h-5 bg-primary" />
-        <h2 className="text-sm font-black uppercase tracking-wider">Contents</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wider">Contents</h2>
       </div>
       <ol className="space-y-1.5">
         {headings.map(({ id, text, level }) => (

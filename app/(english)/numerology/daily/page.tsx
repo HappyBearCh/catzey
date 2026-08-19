@@ -57,7 +57,7 @@ export default async function DailyAnalysisArchive() {
         <span className="text-primary font-bold">Daily Analysis</span>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-black mb-3">Daily Numerology News Analysis</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold mb-3">Daily Numerology News Analysis</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
         Each day, Catzye reads the biggest manga and anime headlines through the day&apos;s number —
         finding the thread that connects them. A lens for paying attention, not a forecast.
@@ -66,13 +66,13 @@ export default async function DailyAnalysisArchive() {
       {/* Today's number banner */}
       <div className="mb-10 rounded-sm border border-primary/30 bg-gradient-to-r from-[#1a1530] to-[#0f0b1e] px-5 py-4 flex items-center gap-4">
         <div
-          className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl font-black text-white"
+          className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl font-semibold text-white"
           style={{ backgroundColor: todayProfile.color }}
         >
           {today.number}
         </div>
         <p className="text-sm text-gray-200 leading-relaxed">
-          <span className="font-black text-primary-accent uppercase tracking-widest text-2xs block mb-0.5">
+          <span className="font-semibold text-primary-accent uppercase tracking-widest text-2xs block mb-0.5">
             Today is a {today.number} day
           </span>
           {todayProfile.title} — {todayProfile.vibration}.
@@ -97,10 +97,10 @@ export default async function DailyAnalysisArchive() {
             href={`/article/${latest.slug}`}
             className="group block mb-8 rounded-sm border border-site-border dark:border-primary/20 p-6 hover:border-primary/50 transition-colors bg-white dark:bg-site-dark-2"
           >
-            <span className="text-2xs font-black uppercase tracking-widest text-primary-accent">
+            <span className="text-2xs font-semibold uppercase tracking-widest text-primary-accent">
               Latest · {format(new Date(latest.publishedAt), 'MMMM d, yyyy')}
             </span>
-            <h2 className="text-xl md:text-2xl font-black leading-tight mt-2 mb-2 group-hover:text-primary transition-colors">
+            <h2 className="text-xl md:text-2xl font-semibold leading-tight mt-2 mb-2 group-hover:text-primary transition-colors">
               {latest.title}
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{latest.excerpt}</p>
@@ -111,7 +111,7 @@ export default async function DailyAnalysisArchive() {
             <>
               <div className="flex items-center gap-3 mb-4">
                 <span className="block w-1 h-5 bg-primary" />
-                <h2 className="text-sm font-black uppercase tracking-wider">Past Columns</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wider">Past Columns</h2>
               </div>
               <ul className="divide-y divide-site-border dark:divide-primary/20">
                 {rest.map((c) => {
@@ -123,7 +123,7 @@ export default async function DailyAnalysisArchive() {
                         className="group flex items-center gap-4 py-3"
                       >
                         <span
-                          className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-sm font-black text-white"
+                          className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold text-white"
                           style={{ backgroundColor: getProfile(n).color }}
                         >
                           {n}

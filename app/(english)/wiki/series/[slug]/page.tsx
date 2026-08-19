@@ -105,7 +105,7 @@ export default async function WorkPage({ params }: Props) {
         <Link href="/wiki" className="hover:text-primary transition-colors">Wiki</Link>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-2">{work.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">{work.title}</h1>
       {work.altTitles.length > 0 && (
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{work.altTitles.join(' · ')}</p>
       )}
@@ -131,11 +131,11 @@ export default async function WorkPage({ params }: Props) {
       {/* A compact fact table is what readers scan first on a reference page and
           what assistants tend to lift as the answer. */}
       {facts.length > 0 && (
-        <dl className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-site-border border border-site-border mb-8 rounded-sm overflow-hidden">
+        <dl className="mb-10 border-t border-rule dark:border-ink-border">
           {facts.map(([k, v]) => (
-            <div key={k} className="bg-white dark:bg-gray-950 p-3">
-              <dt className="text-2xs font-black uppercase tracking-wider text-gray-400 mb-0.5">{k}</dt>
-              <dd className="text-sm font-semibold capitalize">{v}</dd>
+            <div key={k} className="datarow">
+              <dt className="eyebrow">{k}</dt>
+              <dd className="font-serif capitalize text-ink dark:text-paper-2">{v}</dd>
             </div>
           ))}
         </dl>
@@ -143,7 +143,7 @@ export default async function WorkPage({ params }: Props) {
 
       {creators.length > 0 && (
         <div className="mb-8">
-          <p className="text-2xs font-black uppercase tracking-wider text-gray-400 mb-2">Created by</p>
+          <p className="text-2xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Created by</p>
           <div className="flex flex-wrap gap-2">
             {creators.map((c) => (
               <Link
@@ -159,13 +159,13 @@ export default async function WorkPage({ params }: Props) {
       )}
 
       <div
-        className="article-prose text-gray-800 dark:text-gray-200"
+        className="ref-prose"
         dangerouslySetInnerHTML={{ __html: work.body }}
       />
 
       {work.genres.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-black uppercase tracking-wider mb-3">Genres</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Genres</h2>
           <div className="flex flex-wrap gap-2">
             {work.genres.map((g) => (
               <Link

@@ -92,7 +92,7 @@ export default async function GenrePage({ params }: Props) {
           <div className="mb-8 pb-6 border-b border-site-border dark:border-gray-700">
             <div className="flex items-center gap-3 mb-3">
               <span className="block w-1 h-8 bg-primary" />
-              <h1 className="text-4xl font-black tracking-tight">{info.label}</h1>
+              <h1 className="text-4xl font-semibold tracking-tight">{info.label}</h1>
             </div>
             <p className="text-site-gray dark:text-gray-300 text-lg leading-relaxed max-w-2xl ml-4 mb-4">
               {info.description}
@@ -112,7 +112,7 @@ export default async function GenrePage({ params }: Props) {
             <>
               <div className="flex items-center gap-3 mb-5">
                 <span className="block w-1 h-6 bg-primary" />
-                <h2 className="text-lg font-black uppercase tracking-wide">
+                <h2 className="text-lg font-semibold uppercase tracking-wide">
                   Latest {info.label} News
                 </h2>
                 <span className="ml-auto text-xs text-gray-400">{articles.length} articles</span>
@@ -133,7 +133,7 @@ export default async function GenrePage({ params }: Props) {
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-3">
                 <span className="block w-1 h-5 bg-primary" />
-                <h2 className="text-sm font-black uppercase tracking-wider">Essential {info.label}</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wider">Essential {info.label}</h2>
               </div>
               <ul className="space-y-1">
                 {info.notableWorks.map((work) => (
@@ -155,7 +155,7 @@ export default async function GenrePage({ params }: Props) {
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <span className="block w-1 h-5 bg-primary" />
-              <h2 className="text-sm font-black uppercase tracking-wider">Related Tags</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wider">Related Tags</h2>
             </div>
             <div className="flex flex-wrap gap-1.5">
               {info.relatedTags.map((tag) => (
@@ -174,7 +174,7 @@ export default async function GenrePage({ params }: Props) {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <span className="block w-1 h-5 bg-primary" />
-              <h2 className="text-sm font-black uppercase tracking-wider">Other Genres</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wider">Other Genres</h2>
             </div>
             <ul className="space-y-1">
               {allGenres.filter((g) => g.slug !== genre).map((g) => (

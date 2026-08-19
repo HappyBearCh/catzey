@@ -123,21 +123,21 @@ export default async function AuthorPage({ params }: Props) {
 
       <header className="flex flex-col sm:flex-row items-start gap-5 pb-8 mb-8 border-b border-site-border">
         <div
-          className="flex-shrink-0 w-20 h-20 rounded-full bg-primary text-white text-2xl font-black flex items-center justify-center"
+          className="flex-shrink-0 w-20 h-20 rounded-full bg-primary text-white text-2xl font-semibold flex items-center justify-center"
           aria-hidden="true"
         >
           {initials(author.name)}
         </div>
         <div>
-          <p className="text-2xs font-black uppercase tracking-widest text-primary mb-1">{author.role}</p>
-          <h1 className="text-3xl font-black tracking-tight mb-3">{author.name}</h1>
+          <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-1">{author.role}</p>
+          <h1 className="text-3xl font-semibold tracking-tight mb-3">{author.name}</h1>
           <p className="text-site-gray text-sm leading-relaxed max-w-2xl">{author.longBio}</p>
         </div>
       </header>
 
       <div className="flex items-center gap-2 mb-6">
         <span className="block w-1 h-6 bg-primary" />
-        <h2 className="text-sm font-black uppercase tracking-wider">
+        <h2 className="text-sm font-semibold uppercase tracking-wider">
           Latest by {author.name}
         </h2>
       </div>

@@ -22,12 +22,12 @@ function NumberBadge({
   return (
     <div className="flex flex-col items-center text-center">
       <div
-        className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl font-black text-white shadow-md"
+        className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl font-semibold text-white shadow-md"
         style={{ backgroundColor: profile.color }}
       >
         {n || '—'}
       </div>
-      <span className="mt-2 text-2xs font-black uppercase tracking-widest text-primary">
+      <span className="mt-2 text-2xs font-semibold uppercase tracking-widest text-primary">
         {label}
       </span>
       <span className="text-2xs text-gray-500 dark:text-gray-400 leading-tight">{sub}</span>
@@ -59,12 +59,12 @@ export function NumerologyPanel({ title, entities, category, className = '' }: P
       <div className="bg-gradient-to-r from-[#1a1530] to-[#0f0b1e] px-5 py-4 border-b border-white/10">
         <div className="flex items-center gap-2">
           <span className="text-primary-accent text-lg leading-none">✦</span>
-          <h2 className="text-xs font-black uppercase tracking-widest text-primary-accent">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-primary-accent">
             Numerological Reading
           </h2>
         </div>
         {isEntity && (
-          <p className="mt-1.5 text-2xs font-black uppercase tracking-widest text-gray-400">
+          <p className="mt-1.5 text-2xs font-semibold uppercase tracking-widest text-gray-400">
             Reading: <span className="text-white normal-case tracking-normal">{subject}</span>
           </p>
         )}
@@ -98,7 +98,7 @@ export function NumerologyPanel({ title, entities, category, className = '' }: P
 
         {/* Letter breakdown */}
         <div className="border-t border-site-border pt-4">
-          <h3 className="text-2xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+          <h3 className="text-2xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
             How the numbers are built
           </h3>
           <div className="flex flex-wrap gap-1 mb-3" aria-hidden="true">
@@ -123,19 +123,19 @@ export function NumerologyPanel({ title, entities, category, className = '' }: P
           </div>
           <dl className="grid grid-cols-3 gap-2 text-2xs text-gray-600 dark:text-gray-400">
             <div>
-              <dt className="font-black uppercase tracking-wider text-primary">Destiny</dt>
+              <dt className="font-semibold uppercase tracking-wider text-primary">Destiny</dt>
               <dd>
                 {stepsText(reading.breakdown.destiny)} = <strong>{reading.destiny}</strong>
               </dd>
             </div>
             <div>
-              <dt className="font-black uppercase tracking-wider text-primary">Heart</dt>
+              <dt className="font-semibold uppercase tracking-wider text-primary">Heart</dt>
               <dd>
                 {stepsText(reading.breakdown.heartDesire)} = <strong>{reading.heartDesire}</strong>
               </dd>
             </div>
             <div>
-              <dt className="font-black uppercase tracking-wider text-primary">Personality</dt>
+              <dt className="font-semibold uppercase tracking-wider text-primary">Personality</dt>
               <dd>
                 {stepsText(reading.breakdown.dream)} = <strong>{reading.dream}</strong>
               </dd>
