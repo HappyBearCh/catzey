@@ -1,14 +1,19 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/lib/types';
 import { WysiwygEditor } from '@/components/admin/WysiwygEditor';
+import { ShelfPreview } from '@/components/admin/ShelfPreview';
 
 interface Props {
   onSubmit: (formData: FormData) => Promise<void>;
 }
 
 export function NewArticleForm({ onSubmit }: Props) {
+  // Tracked only so the shelf preview can follow the headline as it is typed.
+  const [title, setTitle] = useState('');
+
   return (
     <div className="bg-white rounded-sm shadow-sm p-6">
       <h2 className="text-base font-black mb-4">Write Manually</h2>
@@ -74,9 +79,12 @@ export function NewArticleForm({ onSubmit }: Props) {
             <input
               name="title"
               required
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               placeholder="Article headline"
               className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary"
             />
+            <ShelfPreview title={title} className="mt-2" />
           </div>
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">

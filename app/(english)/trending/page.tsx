@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import type { Article } from '@/lib/types';
+import { titleValue, getGroup, GROUP_NUMBERS } from '@/lib/number-groups';
 
 export const revalidate = 3600;
 
@@ -33,6 +34,12 @@ export default async function TrendingPage() {
     take: 24,
   }) as Article[];
 
+  // What the most-read stories have in common, numerologically. It is a count
+  // rather than a claim: whichever shelf leads simply led this month.
+  const byShelf = new Map<number, number>();
+  for (const a of articles) byShelf.set(titleValue(a.title), (byShelf.get(titleValue(a.title)) ?? 0) + 1);
+  const leading = [...byShelf.entries()].sort((a, b) => b[1] - a[1])[0];
+
   const itemListLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -61,9 +68,43 @@ export default async function TrendingPage() {
         <span className="block w-1 h-8 bg-primary" />
         <h1 className="text-3xl font-semibold uppercase tracking-tight">Trending</h1>
       </div>
-      <p className="text-site-gray text-sm mb-8 ml-4">
+      <p className="text-site-gray text-sm mb-6 ml-4">
         Most-read manga and anime news of the past 30 days
       </p>
+
+      {leading && (
+        <section className="border-y border-gold/25 py-4 mb-8" aria-label="What the month's reading reduces to">
+          <p className="eyebrow mb-3">What the month reduced to</p>
+          <div className="flex flex-wrap items-center gap-1.5 mb-3">
+            {GROUP_NUMBERS.map((n) => {
+              const count = byShelf.get(n) ?? 0;
+              return (
+                <Link
+                  key={n}
+                  href={`/number/${n}`}
+                  title={`${getGroup(n).shelf} — ${count} of these`}
+                  className={`flex items-center gap-1.5 border px-2 py-1 text-xs transition-colors ${
+                    count > 0
+                      ? 'border-gold/40 hover:bg-gold/10'
+                      : 'border-rule/40 dark:border-rule opacity-40'
+                  }`}
+                >
+                  <span className="font-display text-gold">{n}</span>
+                  <span className="text-ink-muted dark:text-parchment/50">{count}</span>
+                </Link>
+              );
+            })}
+          </div>
+          <p className="text-sm text-ink-2 dark:text-parchment/70 leading-relaxed">
+            {leading[1]} of the {articles.length} most-read pieces reduce to {leading[0]} —{' '}
+            <Link href={`/number/${leading[0]}`} className="text-gold hover:underline">
+              {getGroup(leading[0]).shelf}
+            </Link>
+            , {getGroup(leading[0]).tagline}. Readers were not choosing by number and the reference
+            makes no claim that they were; it only counted afterwards.
+          </p>
+        </section>
+      )}
 
       {articles.length === 0 ? (
         <div className="py-20 text-center text-gray-400">

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SearchInput } from '@/components/SearchInput';
 import { CATEGORIES } from '@/lib/types';
+import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
+import { reduce } from '@/lib/numerology';
 
 export const metadata: Metadata = {
   title: 'Page Not Found',
@@ -10,11 +12,15 @@ export const metadata: Metadata = {
 
 const POPULAR = [
   { label: 'Home', href: '/' },
-  { label: 'Trending', href: '/trending' },
-  { label: 'Release Calendar', href: '/calendar' },
-  { label: 'Season Guide', href: '/season/spring-2026' },
-  { label: 'Guides', href: '/guides' },
+  { label: 'The Shelves', href: '/numbers' },
+  { label: 'Numbered Sets', href: '/sets' },
+  { label: 'Learn', href: '/learn' },
+  { label: 'Glossary', href: '/glossary' },
 ];
+
+// Computed rather than typed, like every other figure on the site.
+const STATUS = 404;
+const STATUS_VALUE = reduce(STATUS);
 
 export default function NotFound() {
   return (
@@ -23,9 +29,14 @@ export default function NotFound() {
         404
       </div>
       <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4 text-ink dark:text-parchment">Page Not Found</h1>
+      <p className="eyebrow mb-5">
+        404 reduces to {STATUS_VALUE} · {getGroup(STATUS_VALUE).shelf}
+      </p>
       <p className="text-ink-2 dark:text-parchment/70 mb-8 max-w-md mx-auto leading-relaxed">
-        The article or page you&apos;re looking for doesn&apos;t exist or has been moved.
-        Try searching, or jump to one of our popular sections below.
+        The page you were looking for does not exist or has moved. For what it is worth, 404
+        reduces to {STATUS_VALUE} — {getGroup(STATUS_VALUE).tagline} — which is a fair description
+        of a missing page: something was counted, and it came up short. Try searching, or take one
+        of the shelves below.
       </p>
 
       {/* Search box for recovery */}
@@ -44,6 +55,23 @@ export default function NotFound() {
             {label}
           </Link>
         ))}
+      </div>
+
+      {/* Browse by shelf — the way the reference is actually arranged. */}
+      <div className="pt-6 border-t border-gold/25 mb-6">
+        <p className="eyebrow block mb-3">Or browse by number</p>
+        <div className="flex flex-wrap justify-center gap-1.5">
+          {GROUP_NUMBERS.map((n) => (
+            <Link
+              key={n}
+              href={`/number/${n}`}
+              title={getGroup(n).shelf}
+              className="sigil w-8 h-8 text-xs border border-gold/30 hover:border-gold hover:text-gold transition-colors"
+            >
+              {n}
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Browse by category */}

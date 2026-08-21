@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue } from '@/lib/number-groups';
 
 const BLUR_DATA_URL = 'data:image/gif;base64,R0lGODlhAQABAPAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 
@@ -27,7 +28,10 @@ function SkeletonCard() {
   return (
     <div className="flex flex-col animate-pulse">
       <div className="aspect-video mb-2 bg-gray-200 dark:bg-gray-700" />
-      <div className="h-2.5 w-1/3 bg-gray-200 dark:bg-gray-700 rounded mb-2" />
+      <div className="flex items-center gap-1.5 mb-2">
+        <div className="h-2.5 w-1/3 bg-gray-200 dark:bg-gray-700 rounded" />
+        <div className="h-2.5 w-2.5 bg-gray-200 dark:bg-gray-700 rounded" />
+      </div>
       <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded mb-1" />
       <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-700 rounded mb-1" />
       <div className="h-2.5 w-1/4 bg-gray-200 dark:bg-gray-700 rounded mt-2" />
@@ -84,11 +88,13 @@ export function LoadMoreArticles({ initialSkip, basePath = '' }: Props) {
                   <div className="aspect-video mb-2 bg-black flex items-center justify-center">
                     <span className="text-primary text-2xs font-semibold uppercase tracking-widest">
                       {getCategoryLabel(article.category)}
+                      <span className="text-gold/70 font-normal"> · {titleValue(article.title)}</span>
                     </span>
                   </div>
                 )}
                 <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
                   {getCategoryLabel(article.category)}
+                  <span className="text-gold/70 font-normal"> · {titleValue(article.title)}</span>
                 </span>
                 <h3 className="font-bold text-base leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
                   {article.title}

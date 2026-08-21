@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { Heading } from '@/lib/headings';
+import { titleValue } from '@/lib/number-groups';
 
 interface Props {
   headings: Heading[];
@@ -37,6 +38,9 @@ export function TableOfContents({ headings }: Props) {
       <div className="flex items-center gap-2 mb-3">
         <span className="block w-1 h-5 bg-primary" />
         <h2 className="text-sm font-semibold uppercase tracking-wider">Contents</h2>
+        <span className="ml-auto text-2xs text-gray-400 dark:text-gray-500" title="Each heading reduced">
+          by number
+        </span>
       </div>
       <ol className="space-y-1.5">
         {headings.map(({ id, text, level }) => (
@@ -50,6 +54,9 @@ export function TableOfContents({ headings }: Props) {
                   : 'text-gray-600 dark:text-gray-400'
               }`}
             >
+              <span className="text-gold/60 font-display mr-1.5" aria-hidden="true">
+                {titleValue(text)}
+              </span>
               {text}
             </button>
           </li>

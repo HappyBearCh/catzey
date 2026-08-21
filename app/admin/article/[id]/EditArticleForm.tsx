@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/lib/types';
 import { WysiwygEditor } from '@/components/admin/WysiwygEditor';
+import { ShelfPreview } from '@/components/admin/ShelfPreview';
 import { ImageUploader } from './ImageUploader';
 import type { Article, ReviewData } from '@/lib/types';
 
@@ -15,6 +16,9 @@ interface Props {
 export function EditArticleForm({ article, onUpdate }: Props) {
   const existing = article.reviewData as ReviewData | null | undefined;
   const [showReview, setShowReview] = useState(!!existing);
+  // Tracked so the shelf preview follows the headline. Editing a title moves the
+  // piece to a different shelf, which is worth seeing before saving.
+  const [title, setTitle] = useState(article.title);
 
   return (
     <div className="bg-white rounded-sm shadow-sm p-6">
@@ -95,10 +99,12 @@ export function EditArticleForm({ article, onUpdate }: Props) {
             </label>
             <input
               name="title"
-              defaultValue={article.title}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
               className="w-full border border-gray-200 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary"
             />
+            <ShelfPreview title={title} className="mt-2" />
           </div>
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">

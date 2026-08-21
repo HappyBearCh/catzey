@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { prisma } from '@/lib/db';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue } from '@/lib/number-groups';
 
 interface MostReadProps {
   currentSlug?: string;
@@ -41,6 +42,7 @@ export async function MostRead({ currentSlug }: MostReadProps) {
                 <div className="flex-1 min-w-0">
                   <span className="text-2xs font-bold uppercase tracking-widest text-primary block mb-0.5">
                     {catLabel}
+                    <span className="text-gold/70 font-normal"> · {titleValue(article.title)}</span>
                   </span>
                   <p className="font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                     {article.title}

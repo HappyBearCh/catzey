@@ -1,4 +1,5 @@
 import type { Article } from '@/lib/types';
+import { titleValue } from '@/lib/number-groups';
 
 interface BreakingTickerProps {
   articles: Article[];
@@ -7,12 +8,12 @@ interface BreakingTickerProps {
 export function BreakingTicker({ articles }: BreakingTickerProps) {
   if (!articles.length) return null;
 
-  const tickerText = articles.map((a) => a.title).join('   ·   ');
+  const tickerText = articles.map((a) => `${titleValue(a.title)} · ${a.title}`).join('   ⁘   ');
 
   return (
     <div className="bg-primary text-white flex items-center overflow-hidden">
       <span className="flex-shrink-0 bg-black text-white text-xs font-semibold uppercase tracking-widest px-3 py-2 mr-3">
-        BREAKING
+        {articles.length} · Breaking
       </span>
       <div className="flex-1 overflow-hidden py-2">
         <p

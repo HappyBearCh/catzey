@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import type { Article } from '@/lib/types';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue } from '@/lib/number-groups';
 
 interface Props {
   articles: Article[];
@@ -43,7 +44,10 @@ export function InlineRelated({ articles }: Props) {
                 </div>
               )}
               <div className="min-w-0">
-                <span className="text-2xs font-bold uppercase tracking-widest text-primary block mb-0.5">{label}</span>
+                <span className="text-2xs font-bold uppercase tracking-widest text-primary block mb-0.5">
+                  {label}
+                  <span className="text-gold/70 font-normal"> · {titleValue(article.title)}</span>
+                </span>
                 <p className="font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors text-gray-900 dark:text-gray-100">
                   {article.title}
                 </p>

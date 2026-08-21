@@ -1,3 +1,5 @@
+import { titleValue, getGroup } from '@/lib/number-groups';
+
 export interface RssArticle {
   title: string;
   slug: string;
@@ -31,7 +33,12 @@ export function buildRss(channel: RssChannel): string {
   const items = channel.articles
     .map((a) => {
       const url = `${BASE}/article/${a.slug}`;
-      const categories = [a.category, ...a.tags]
+      // A feed reader shows a title and a category list and nothing else, so the
+      // shelf has to travel inside those or it does not travel at all. The
+      // excerpt already leads with the number; these make it filterable.
+      const shelf = titleValue(a.title);
+      const categories = [a.category, ...a.tags, `Number ${shelf}`, getGroup(shelf).shelf]
+        .filter((t, i, all) => all.indexOf(t) === i)
         .map((t) => `<category>${esc(t)}</category>`)
         .join('');
       const media = a.imageUrl

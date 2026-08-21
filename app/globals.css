@@ -602,6 +602,10 @@
 .num-working {
   display: flex;
   flex-wrap: wrap;
+  /* Shrink to the cells. The container draws the top and left rules, so at full
+     width those rules run past the last cell and read as an empty one. */
+  width: fit-content;
+  max-width: 100%;
   border-top: 1px solid rgba(201, 162, 39, 0.22);
   border-left: 1px solid rgba(201, 162, 39, 0.22);
   margin: 1.4rem 0 1.6rem;
@@ -642,6 +646,24 @@
 .dark .num-word-value {
   color: #ece5d4;
 }
+/* A figure that landed on the same number the text is filed under. That
+   agreement is the reason the two rows are printed together, so it is marked. */
+.num-word-match {
+  background: rgba(201, 162, 39, 0.09);
+}
+.num-word-match .num-word-value {
+  color: #b03a2e;
+}
+.dark .num-word-match .num-word-value {
+  color: #d4553f;
+}
+
+/* The second row — numbers the subject carries rather than ones derived from
+   its letters — is set tight under the first so they read as one working. */
+.num-working-figures {
+  margin-top: -1.6rem;
+}
+
 .num-word-total .num-word-text {
   color: #b03a2e;
 }

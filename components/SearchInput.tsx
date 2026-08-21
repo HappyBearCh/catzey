@@ -7,7 +7,10 @@ import { getCategoryLabel } from '@/lib/types';
 interface Suggestion {
   slug: string;
   title: string;
+  /** An article's category, or the literal 'shelf' for a shelf suggestion. */
   category: string;
+  /** The number this suggestion is filed under. */
+  shelf?: number;
 }
 
 interface Props {
@@ -184,21 +187,31 @@ export function SearchInput({
               ))}
             </>
           )}
-          {showSuggestions && suggestions.map((s) => (
-            <Link
-              key={s.slug}
-              href={`${articleBasePath}/${s.slug}`}
-              onClick={() => { saveRecent(query.trim()); setRecentSearches(loadRecent()); clear(); }}
-              className="flex flex-col px-3 py-2.5 hover:bg-site-light dark:hover:bg-gray-800 transition-colors border-b border-site-border dark:border-gray-700 last:border-0"
-            >
-              <span className="text-2xs font-semibold uppercase tracking-widest text-primary mb-0.5">
-                {getCategoryLabel(s.category)}
-              </span>
-              <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 leading-snug">
-                {s.title}
-              </span>
-            </Link>
-          ))}
+          {showSuggestions && suggestions.map((s) => {
+            // A shelf suggestion carries its own absolute path; an article
+            // suggestion is a slug under the article base path.
+            const isShelf = s.category === 'shelf';
+            return (
+              <Link
+                key={s.slug}
+                href={isShelf ? `/${s.slug}` : `${articleBasePath}/${s.slug}`}
+                onClick={() => { saveRecent(query.trim()); setRecentSearches(loadRecent()); clear(); }}
+                className={`flex flex-col px-3 py-2.5 hover:bg-site-light dark:hover:bg-gray-800 transition-colors border-b border-site-border dark:border-gray-700 last:border-0 ${
+                  isShelf ? 'bg-gold/5' : ''
+                }`}
+              >
+                <span className="text-2xs font-semibold uppercase tracking-widest text-primary mb-0.5">
+                  {isShelf ? 'Shelf' : getCategoryLabel(s.category)}
+                  {!isShelf && s.shelf !== undefined && (
+                    <span className="text-gold/70 font-normal"> · {s.shelf}</span>
+                  )}
+                </span>
+                <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 leading-snug">
+                  {s.title}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>

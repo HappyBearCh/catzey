@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue } from '@/lib/number-groups';
 
 export async function TrendingStrip() {
   const since = new Date(Date.now() - 48 * 60 * 60 * 1000);
@@ -41,6 +42,7 @@ export async function TrendingStrip() {
             >
               <span className="text-2xs font-bold text-primary uppercase tracking-wider hidden sm:block">
                 {getCategoryLabel(article.category)}
+                <span className="text-gold/70 font-normal"> · {titleValue(article.title)}</span>
               </span>
               <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors line-clamp-1 max-w-[180px]">
                 {article.title}

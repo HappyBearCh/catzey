@@ -3,6 +3,7 @@ import { SafeImage } from '@/components/SafeImage';
 import { formatDistanceToNow } from 'date-fns';
 import type { Article } from '@/lib/types';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue } from '@/lib/number-groups';
 
 interface ArticleCardProps {
   article: Article;
@@ -23,6 +24,20 @@ function formatViews(v: number): string {
   return v.toString();
 }
 
+/**
+ * The shelf figure, set after the category kicker. Every card on the site shows
+ * both taxonomies at once: what the piece is about, and what it reduces to.
+ * Deliberately not a link — a card is already wrapped in one.
+ */
+function ShelfMark({ n }: { n: number }) {
+  return (
+    <span className="text-gold/70 font-normal" aria-label={`filed under ${n}`}>
+      {' · '}
+      {n}
+    </span>
+  );
+}
+
 function isAiImage(url: string | null | undefined) {
   return !!url?.includes('/articles/ai-');
 }
@@ -40,6 +55,7 @@ function TextThumbnail({
     <div className={`${className} bg-black flex flex-col items-center justify-center p-4 text-center`}>
       <span className="text-primary text-2xs font-semibold uppercase tracking-widest mb-2 block">
         {categoryLabel}
+        <ShelfMark n={titleValue(title)} />
       </span>
       <p className="text-white font-semibold leading-snug line-clamp-4 text-lg">
         {title}
@@ -51,6 +67,7 @@ function TextThumbnail({
 export function ArticleCard({ article, size = 'medium', articleBasePath = '/article' }: ArticleCardProps) {
   const categoryLabel = getCategoryLabel(article.category);
   const href = `${articleBasePath}/${article.slug}`;
+  const shelf = titleValue(article.title);
 
   if (size === 'hero') {
     return (
@@ -77,6 +94,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
           <span className="inline-block bg-primary text-white text-2xs font-bold uppercase tracking-widest px-2 py-0.5 mb-3">
             {categoryLabel}
+          <ShelfMark n={shelf} />
           </span>
           <h1 className="text-white text-2xl md:text-4xl font-semibold leading-tight mb-3 line-clamp-3 group-hover:text-gray-200 transition-colors">
             {article.title}
@@ -118,6 +136,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         )}
         <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
           {categoryLabel}
+          <ShelfMark n={shelf} />
         </span>
         <h2 className="font-semibold text-lg leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-3">
           {article.title}
@@ -172,6 +191,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         <div className="min-w-0">
           <span className="text-2xs font-bold uppercase tracking-widest text-primary block mb-0.5">
             {categoryLabel}
+          <ShelfMark n={shelf} />
           </span>
           <h3 className="font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
             {article.title}
@@ -210,6 +230,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
       )}
       <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
         {categoryLabel}
+          <ShelfMark n={shelf} />
       </span>
       <h3 className="font-bold text-base leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
         {article.title}

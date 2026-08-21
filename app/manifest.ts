@@ -2,23 +2,27 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Catzye — Manga & Anime News',
+    name: 'Catzye — Manga, Filed by Number',
     short_name: 'Catzye',
-    description: 'Latest manga and anime news, reviews, and industry updates.',
+    description:
+      'A reference to how manga works, arranged by the number each title reduces to: explainers, a glossary, series and creator entries, and an index of the numbered sets manga invented for itself.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0f0b1e',
-    theme_color: '#7c3aed',
+    // The old purple belonged to the news site. These are the reference's own
+    // ground and gold, matching the theme colours in app/layout.tsx.
+    background_color: '#0d0c14',
+    theme_color: '#c9a227',
     orientation: 'portrait',
-    categories: ['news', 'entertainment'],
+    categories: ['education', 'books', 'reference'],
     icons: [
       { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
       { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
       { src: '/icons/icon-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
     shortcuts: [
-      { name: 'Manga', url: '/manga', icons: [{ src: '/icons/icon-192.png', sizes: '192x192' }] },
-      { name: 'Anime', url: '/anime', icons: [{ src: '/icons/icon-192.png', sizes: '192x192' }] },
+      { name: 'The Shelves', url: '/numbers', icons: [{ src: '/icons/icon-192.png', sizes: '192x192' }] },
+      { name: 'Numbered Sets', url: '/sets', icons: [{ src: '/icons/icon-192.png', sizes: '192x192' }] },
+      { name: 'Glossary', url: '/glossary', icons: [{ src: '/icons/icon-192.png', sizes: '192x192' }] },
     ],
   };
 }

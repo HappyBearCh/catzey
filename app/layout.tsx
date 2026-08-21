@@ -45,11 +45,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com'),
   title: {
-    default: 'Catzye — Learn Manga',
+    default: 'Catzye — Manga, Filed by Number',
     template: '%s | Catzye',
   },
   description:
-    'Learn how manga works: explainers, a full glossary of manga terminology, and reference entries for series and creators.',
+    'How manga works — explainers, a full glossary, and reference entries for series and creators — arranged not by topic but by the number each title reduces to, across twelve shelves.',
   // Google truncates image previews to a thumbnail and snippets to ~160 chars
   // unless told otherwise. `max-image-preview:large` is a hard requirement for
   // Google Discover eligibility and for large thumbnails in Top Stories — the

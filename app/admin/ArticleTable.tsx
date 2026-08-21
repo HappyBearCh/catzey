@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import { formatDistanceToNow, format } from 'date-fns';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue, getGroup } from '@/lib/number-groups';
 import { PublishButton } from './PublishButton';
 import { ScheduleButton } from './ScheduleButton';
 import { DeleteArticleButton } from './DeleteButtons';
@@ -140,6 +141,12 @@ export function ArticleTable({ articles }: Props) {
                     <span className="inline-block bg-primary/10 text-primary font-bold uppercase tracking-wider px-1.5 py-0.5 rounded">
                       {getCategoryLabel(article.category)}
                     </span>
+                    <span
+                      className="inline-block border border-amber-500/40 text-amber-700 font-bold uppercase tracking-wider px-1.5 py-0.5 rounded"
+                      title={`Filed under ${titleValue(article.title)} — ${getGroup(titleValue(article.title)).shelf}`}
+                    >
+                      {titleValue(article.title)} {getGroup(titleValue(article.title)).shelf}
+                    </span>
                     <span>·</span>
                     <span>{article.source}</span>
                     <span>·</span>
@@ -206,6 +213,7 @@ export function ArticleTable({ articles }: Props) {
               <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-500">Status</th>
               <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-500">Display</th>
               <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-500">Category</th>
+              <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-500">Shelf</th>
               <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-500">Source</th>
               <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-500">Created</th>
               <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-500">Actions</th>
@@ -214,7 +222,7 @@ export function ArticleTable({ articles }: Props) {
           <tbody className="divide-y divide-gray-50">
             {articles.length === 0 && (
               <tr>
-                <td colSpan={8} className="px-4 py-12 text-center text-gray-400 text-sm">
+                <td colSpan={9} className="px-4 py-12 text-center text-gray-400 text-sm">
                   No articles found.
                 </td>
               </tr>
@@ -252,6 +260,17 @@ export function ArticleTable({ articles }: Props) {
                   <td className="px-4 py-3 whitespace-nowrap">
                     <span className="inline-block bg-primary/10 text-primary text-2xs font-bold uppercase tracking-wider px-2 py-0.5 rounded">
                       {getCategoryLabel(article.category)}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 whitespace-nowrap">
+                    <span
+                      className="inline-flex items-center gap-1.5 text-2xs font-bold uppercase tracking-wider text-amber-700"
+                      title={getGroup(titleValue(article.title)).tagline}
+                    >
+                      <span className="w-5 h-5 rounded-full border border-amber-500/50 flex items-center justify-center">
+                        {titleValue(article.title)}
+                      </span>
+                      {getGroup(titleValue(article.title)).shelf}
                     </span>
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap text-xs text-gray-500 font-medium">{article.source}</td>

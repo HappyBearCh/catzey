@@ -1,4 +1,4 @@
-import { SkeletonBox } from '@/components/Skeleton';
+import { SkeletonBox, SkeletonReading } from '@/components/Skeleton';
 
 export default function Loading() {
   return (
@@ -6,7 +6,11 @@ export default function Loading() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <SkeletonBox className="h-3 w-40 mb-4" />
-          <SkeletonBox className="h-5 w-20 mb-3" />
+          {/* Category badge and shelf badge sit side by side. */}
+          <div className="flex items-center gap-2 mb-3">
+            <SkeletonBox className="h-5 w-20" />
+            <SkeletonBox className="h-5 w-28" />
+          </div>
           <SkeletonBox className="h-10 w-full mb-2" />
           <SkeletonBox className="h-10 w-2/3 mb-4" />
           <SkeletonBox className="h-4 w-64 mb-6" />
@@ -18,6 +22,7 @@ export default function Loading() {
             <SkeletonBox className="h-4 w-full" />
             <SkeletonBox className="h-4 w-3/4" />
           </div>
+          <SkeletonReading />
         </div>
         <div className="hidden lg:block">
           <SkeletonBox className="h-5 w-40 mb-4" />

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { titleValue, getGroup } from '@/lib/number-groups';
 import Link from 'next/link';
 import { getReleasesByDay, DAYS_OF_WEEK, WEEKLY_RELEASES } from '@/lib/calendar';
 import { tagHref } from '@/lib/tags';
@@ -78,6 +79,12 @@ export default function CalendarPage() {
           Weekly chapter release schedule for the most-read manga series. All times are approximate — check
           each platform for exact release windows.
         </p>
+        <p className="text-sm text-ink-muted dark:text-parchment/55 max-w-2xl ml-4 mt-3 leading-relaxed">
+          The weekday names carry numbers like anything else here, and each day header shows what
+          its own name reduces to. Serialisation is the most numerical thing about manga —
+          the week is the unit the whole industry is built on — so the calendar may as well be
+          read the same way the rest of the reference is.
+        </p>
       </div>
 
       {/* Day grid */}
@@ -103,7 +110,15 @@ export default function CalendarPage() {
                     : 'bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300'
                 }`}
               >
-                <h2 className="font-semibold text-sm uppercase tracking-wider">{day}</h2>
+                <h2 className="font-semibold text-sm uppercase tracking-wider flex items-baseline gap-2">
+                  {day}
+                  <span
+                    className={isToday ? 'text-white/70 font-normal' : 'text-gold font-normal'}
+                    title={`${day} reduces to ${titleValue(day)} — ${getGroup(titleValue(day)).shelf}`}
+                  >
+                    {titleValue(day)}
+                  </span>
+                </h2>
                 {isToday && (
                   <span className="ml-auto text-2xs font-bold bg-white/20 text-white px-2 py-0.5 rounded-full">
                     Today
@@ -131,8 +146,14 @@ export default function CalendarPage() {
                         rel="noopener noreferrer"
                         className="flex flex-col px-4 py-3 hover:bg-site-light dark:hover:bg-gray-800 transition-colors group"
                       >
-                        <span className="font-bold text-sm leading-snug group-hover:text-primary transition-colors">
+                        <span className="font-bold text-sm leading-snug group-hover:text-primary transition-colors flex items-baseline gap-2">
                           {r.series}
+                          <span
+                            className="text-2xs font-normal font-display text-gold"
+                            title={`${r.series} reduces to ${titleValue(r.series)} — ${getGroup(titleValue(r.series)).shelf}`}
+                          >
+                            {titleValue(r.series)}
+                          </span>
                         </span>
                         <span className="text-2xs text-gray-500 dark:text-gray-400 mt-0.5">
                           {r.magazine}

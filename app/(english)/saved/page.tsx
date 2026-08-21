@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue, getGroup } from '@/lib/number-groups';
 import type { SavedArticle } from '@/components/BookmarkButton';
 
 const KEY = 'Catzye_saved';
@@ -36,9 +37,34 @@ export default function SavedPage() {
         <span className="block w-1 h-8 bg-primary" />
         <h1 className="text-3xl font-semibold uppercase tracking-tight">Saved Articles</h1>
       </div>
-      <p className="text-site-gray text-sm mb-8 ml-4">
+      <p className="text-site-gray text-sm mb-6 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} saved
       </p>
+
+      {/* What the reader has been keeping, by number. Computed in the browser
+          from local storage — the site never sees this list. */}
+      {articles.length > 0 && (() => {
+        const byShelf = new Map<number, number>();
+        for (const a of articles) {
+          const n = titleValue(a.title);
+          byShelf.set(n, (byShelf.get(n) ?? 0) + 1);
+        }
+        const [top, count] = [...byShelf.entries()].sort((a, b) => b[1] - a[1])[0];
+        return (
+          <section className="border-y border-gold/25 py-4 mb-8" aria-label="What you have been saving">
+            <p className="eyebrow mb-2">What you have been keeping</p>
+            <p className="text-sm text-ink-2 dark:text-parchment/70 leading-relaxed">
+              {count} of your {articles.length} saved {articles.length === 1 ? 'piece' : 'pieces'}{' '}
+              {count === 1 ? 'reduces' : 'reduce'} to {top} —{' '}
+              <Link href={`/number/${top}`} className="text-gold hover:underline">
+                {getGroup(top).shelf}
+              </Link>
+              , {getGroup(top).tagline}. This is counted in your browser and never leaves it; the
+              site has no idea what you have saved.
+            </p>
+          </section>
+        );
+      })()}
 
       {articles.length === 0 ? (
         <div className="py-20 text-center text-gray-400">
