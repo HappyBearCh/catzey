@@ -123,7 +123,7 @@ export default async function NumbersIndexPage() {
       </section>
 
       {/* The shelves themselves. */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gold/20 border border-gold/20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {GROUP_NUMBERS.map((n) => {
           const group = getGroup(n);
           const count = byNumber.get(n);
@@ -131,10 +131,10 @@ export default async function NumbersIndexPage() {
             <Link
               key={n}
               href={`/number/${n}`}
-              className="group bg-paper dark:bg-ground p-6 md:p-7 hover:bg-gold/5 dark:hover:bg-gold/5 transition-colors flex gap-5"
+              className="group panel tone-fill p-6 md:p-7 hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors flex gap-5"
             >
               <span
-                className="sigil shrink-0 w-14 h-14 text-2xl border border-gold/40 group-hover:border-gold transition-colors"
+                className="sigil shrink-0 w-14 h-14 text-2xl"
                 aria-hidden="true"
               >
                 {n}

@@ -286,29 +286,18 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/20 border border-gold/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {shelves.map(({ n, group, entries: shelfEntries }) => (
-              <div key={n} className="bg-paper dark:bg-ground p-6 flex flex-col">
-                <div className="flex items-start gap-4 mb-4">
-                  <Link
-                    href={`/number/${n}`}
-                    className="sigil shrink-0 w-11 h-11 text-lg border border-gold/40 hover:border-gold transition-colors"
-                    aria-label={`Shelf ${n}, ${group.shelf}`}
-                  >
-                    {n}
-                  </Link>
-                  <div className="min-w-0">
-                    <Link
-                      href={`/number/${n}`}
-                      className="font-display text-xl font-semibold text-ink dark:text-parchment hover:text-gold transition-colors"
-                    >
-                      {group.shelf}
-                    </Link>
-                    <p className="text-sm leading-snug text-ink-muted dark:text-parchment/50 mt-0.5">
-                      {group.tagline}
-                    </p>
-                  </div>
-                </div>
+              <div key={n} className="panel tone-fill flex flex-col">
+                {/* A stamped title bar, the way a chapter is ruled off. */}
+                <Link href={`/number/${n}`} className="panel-head hover:opacity-80 transition-opacity">
+                  <span className="text-base leading-none">{n}</span>
+                  <span>{group.shelf}</span>
+                </Link>
+                <div className="p-5 flex flex-col flex-1">
+                  <p className="text-sm leading-snug text-ink-muted dark:text-parchment/50 mb-4">
+                    {group.tagline}
+                  </p>
 
                 <ul className="flex-1">
                   {shelfEntries.map((entry) => (
@@ -328,12 +317,13 @@ export default async function HomePage() {
                   ))}
                 </ul>
 
-                <Link
-                  href={`/number/${n}`}
-                  className="eyebrow mt-4 text-gold hover:text-seal dark:hover:text-gold-pale transition-colors"
-                >
-                  The whole shelf →
-                </Link>
+                  <Link
+                    href={`/number/${n}`}
+                    className="eyebrow mt-4 text-seal hover:opacity-70 transition-opacity"
+                  >
+                    The whole shelf →
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
