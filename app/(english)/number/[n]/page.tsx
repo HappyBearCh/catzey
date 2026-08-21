@@ -127,11 +127,11 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
 
       <header className="text-center max-w-2xl mx-auto mb-12">
         <div className="flex items-center justify-center gap-5 mb-7" aria-hidden="true">
-          <span className="text-gold/40 text-sm">⁘</span>
+          <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
           <span className="sigil w-20 h-20 md:w-24 md:h-24 text-4xl md:text-5xl border border-gold/40">
             {n}
           </span>
-          <span className="text-gold/40 text-sm">⁘</span>
+          <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
         </div>
         <p className="eyebrow mb-5">
           {group.master ? 'Master number' : 'Shelf'} {group.roman} · {profile.keyword}

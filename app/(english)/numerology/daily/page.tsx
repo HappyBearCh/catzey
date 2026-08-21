@@ -64,7 +64,7 @@ export default async function DailyAnalysisArchive() {
       </p>
 
       {/* Today's number banner */}
-      <div className="mb-10 rounded-sm border border-primary/30 bg-gradient-to-r from-[#1a1530] to-[#0f0b1e] px-5 py-4 flex items-center gap-4">
+      <div className="mb-10 border-2 border-ink dark:border-parchment bg-ground px-5 py-4 flex items-center gap-4">
         <div
           className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl font-semibold text-white"
           style={{ backgroundColor: todayProfile.color }}

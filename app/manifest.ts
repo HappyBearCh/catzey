@@ -10,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
     display: 'standalone',
     // The old purple belonged to the news site. These are the reference's own
     // ground and gold, matching the theme colours in app/layout.tsx.
-    background_color: '#0d0c14',
-    theme_color: '#c9a227',
+    background_color: '#14110f',
+    theme_color: '#d0342c',
     orientation: 'portrait',
     categories: ['education', 'books', 'reference'],
     icons: [

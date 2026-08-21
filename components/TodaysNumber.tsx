@@ -15,7 +15,7 @@ export function TodaysNumber({ articles = [] }: Props) {
 
   return (
     <section
-      className="my-4 rounded-sm overflow-hidden border border-primary/30 bg-gradient-to-r from-[#1a1530] to-[#0f0b1e]"
+      className="my-4 rounded-sm overflow-hidden border-2 border-ink dark:border-parchment bg-ground"
       aria-label="Today's number"
     >
       <div className="flex flex-col sm:flex-row items-stretch">

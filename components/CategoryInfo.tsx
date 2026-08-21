@@ -21,7 +21,7 @@ export function CategoryInfo({ slug }: Props) {
   return (
     <div className="mb-10 rounded-sm overflow-hidden border border-site-border">
       {/* Header strip */}
-      <div className="bg-gradient-to-r from-[#1a1530] to-[#0f0b1e] px-6 py-5 border-b border-white/10 flex items-start justify-between gap-6">
+      <div className="bg-ground px-6 py-5 border-b border-white/10 flex items-start justify-between gap-6">
         <p className="text-gray-300 text-sm leading-relaxed max-w-4xl">
           {info.intro}{' '}
           <span className="text-primary-accent">

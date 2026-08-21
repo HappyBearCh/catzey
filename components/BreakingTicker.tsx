@@ -8,7 +8,7 @@ interface BreakingTickerProps {
 export function BreakingTicker({ articles }: BreakingTickerProps) {
   if (!articles.length) return null;
 
-  const tickerText = articles.map((a) => `${titleValue(a.title)} · ${a.title}`).join('   ⁘   ');
+  const tickerText = articles.map((a) => `${titleValue(a.title)} · ${a.title}`).join('   ・   ');
 
   return (
     <div className="bg-primary text-white flex items-center overflow-hidden">

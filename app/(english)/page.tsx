@@ -115,7 +115,7 @@ export default async function HomePage() {
               href={href}
               className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
             >
-              <span className="block font-display text-gold/60 text-lg mb-2" aria-hidden="true">{['Ⅰ','Ⅱ','Ⅲ'][i]}</span>
+              <span className="block font-display font-bold text-seal text-lg mb-2" aria-hidden="true">{i + 1}</span>
               <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
                 {title}
               </span>
@@ -167,11 +167,11 @@ export default async function HomePage() {
           <p className="eyebrow mb-8">Manga, read by the numbers</p>
 
           <div className="flex items-center justify-center gap-5 mb-8" aria-hidden="true">
-            <span className="text-gold/40 text-sm">⁘</span>
+            <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
             <span className="sigil w-20 h-20 md:w-24 md:h-24 text-4xl md:text-5xl">
               {today.number}
             </span>
-            <span className="text-gold/40 text-sm">⁘</span>
+            <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
           </div>
           <p className="eyebrow mb-10">
             Today vibrates to {today.number} · {today.profile.keyword}
@@ -191,15 +191,15 @@ export default async function HomePage() {
             <span className="text-gold text-sm" aria-hidden="true">✦</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto text-left border-y border-gold/25 sm:divide-x sm:divide-gold/20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto text-left border-y-2 border-ink dark:border-parchment sm:divide-x-2 sm:divide-ink dark:sm:divide-parchment">
             {LEARN_ENTRY_POINTS.map(({ href, title, blurb }, i) => (
               <Link
                 key={href}
                 href={href}
-                className="group p-6 hover:bg-gold/5 transition-colors border-b sm:border-b-0 border-gold/15 last:border-b-0"
+                className="group p-6 hover:bg-gold/5 transition-colors border-b-2 sm:border-b-0 border-ink/20 dark:border-parchment/20 last:border-b-0"
               >
                 <span className="block font-display text-gold/60 text-lg mb-2 tracking-wide" aria-hidden="true">
-                  {['Ⅰ', 'Ⅱ', 'Ⅲ'][i]}
+                  {i + 1}
                 </span>
                 <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
                   {title}

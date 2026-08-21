@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Source_Serif_4, Cormorant_Garamond, Inter } from 'next/font/google';
+import { Source_Serif_4, Zen_Kaku_Gothic_New, Inter } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
@@ -16,14 +16,15 @@ const serif = Source_Serif_4({
   style: ['normal', 'italic'],
 });
 
-// A high-contrast old-style face for display. This is the voice of the book:
-// the headings, the wordmark and the small-caps labels.
-const display = Cormorant_Garamond({
+// A Japanese Gothic for display. Textbooks there set headings in Gothic and
+// body in Mincho, which is the opposite of what this site used to do — and it
+// means the kanji in the stroke-count readings render in the same voice as the
+// headings around them rather than dropping to a system fallback.
+const display = Zen_Kaku_Gothic_New({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-display',
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+  weight: ['400', '500', '700', '900'],
 });
 
 const sans = Inter({
@@ -37,8 +38,8 @@ const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Learn%20Manga';
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f2ebd9' },
-    { media: '(prefers-color-scheme: dark)', color: '#0d0c14' },
+    { media: '(prefers-color-scheme: light)', color: '#f7f4ee' },
+    { media: '(prefers-color-scheme: dark)', color: '#14110f' },
   ],
 };
 

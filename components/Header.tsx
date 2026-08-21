@@ -12,26 +12,27 @@ export function Header() {
   const today = getTodaysNumber();
 
   return (
-    <header className="bg-paper dark:bg-ground border-b border-gold/25">
+    <header className="bg-paper dark:bg-ground border-b-2 border-ink dark:border-parchment">
       <div className="max-w-8xl mx-auto px-4">
         <div className="flex items-center justify-between gap-4 py-4 md:py-6">
           <div className="flex-1 flex items-center min-w-0">
             <MobileMenu />
             <div className="hidden md:flex items-baseline gap-2">
-              <span className="eyebrow">Today vibrates to</span>
-              <span className="sigil w-6 h-6 text-sm">{today.number}</span>
+              <span className="eyebrow">Today</span>
+              <span className="sigil w-7 h-7 text-sm">{today.number}</span>
             </div>
           </div>
 
           <Link href="/" className="group flex-shrink-0 text-center">
-            <span className="flex items-center justify-center gap-3">
-              <span className="text-gold/60 text-xs" aria-hidden="true">✦</span>
-              <span className="block font-display text-4xl md:text-5xl font-semibold tracking-wide text-ink dark:text-parchment group-hover:text-gold transition-colors">
+            <span className="flex items-center justify-center">
+              <span className="block font-display text-4xl md:text-5xl font-black tracking-tight text-ink dark:text-parchment group-hover:text-seal transition-colors">
                 Catzye
               </span>
-              <span className="text-gold/60 text-xs" aria-hidden="true">✦</span>
             </span>
-            <span className="mt-1 block eyebrow">The Numbers · Est. 2024</span>
+            {/* A vermilion bar under the wordmark, the way a cover rules off a
+                title from its subtitle. */}
+            <span className="mx-auto mt-1.5 mb-1.5 block h-1 w-16 bg-seal" aria-hidden="true" />
+            <span className="block eyebrow">Manga, filed by number</span>
           </Link>
 
           <div className="flex-1 flex items-center justify-end gap-3">

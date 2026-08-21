@@ -11,58 +11,78 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // A dark ground with gold rules — the plates in an old book of
-        // correspondences rather than a printed textbook page. Light mode is
-        // the same book on aged parchment, so the toggle stays coherent.
-        ground: '#0d0c14',
-        'ground-2': '#15141f',
-        'ground-3': '#1e1b2b',
-        gold: '#c9a227',
-        'gold-dim': '#8a7020',
-        'gold-pale': '#e6d492',
-        parchment: '#ece5d4',
-        'parchment-2': '#d9d0ba',
-        'parchment-dim': '#9a927f',
-        rule: '#2f2a41',
-        'rule-gold': '#5c4a1c',
+        // Manga is printed black on cheap paper, and a study guide is printed
+        // the same way with one spot colour for the parts that matter. So: ink,
+        // newsprint, and vermilion — the colour of a hanko, which is the only
+        // red that appears on a Japanese page by convention rather than by
+        // decoration.
+        //
+        // The token *names* are inherited from the previous design on purpose.
+        // `gold` is now vermilion everywhere it is used, which re-skins some
+        // fifty files without touching one of them; the names are a palette
+        // slot, not a claim about hue.
 
-        // Light mode ground
-        paper: '#f2ebd9',
-        'paper-2': '#e7dec7',
-        'paper-sunk': '#dad0b6',
-        ink: '#1b1826',
-        'ink-2': '#3b3550',
-        'ink-muted': '#6a6280',
+        // Ink — the dark ground, and the text colour on paper.
+        ground: '#14110f',
+        'ground-2': '#1e1a17',
+        'ground-3': '#2b2521',
 
-        // Vermilion stays as the seal — the one hot colour, rationed.
-        seal: '#b03a2e',
-        'seal-bright': '#d4553f',
+        // The single accent. `gold` is the slot every accent already uses.
+        gold: '#d0342c',
+        'gold-dim': '#9c2620',
+        'gold-pale': '#f0a49e',
 
-        primary: '#c9a227',
-        'primary-dark': '#8a7020',
-        'primary-accent': '#e6d492',
+        // Newsprint, for text on the ink ground.
+        parchment: '#f7f4ee',
+        'parchment-2': '#e6e1d8',
+        'parchment-dim': '#9c968c',
+
+        // Rules. Manga panels are drawn, not hinted at — these are meant to be
+        // seen, unlike the hairlines they replace.
+        rule: '#3a332e',
+        'rule-gold': '#6b241f',
+
+        // Paper mode.
+        paper: '#f7f4ee',
+        'paper-2': '#ece7dd',
+        'paper-sunk': '#ddd7cb',
+        ink: '#14110f',
+        'ink-2': '#3d3630',
+        'ink-muted': '#6f675e',
+
+        seal: '#d0342c',
+        'seal-bright': '#e8564a',
+
+        primary: '#d0342c',
+        'primary-dark': '#9c2620',
+        'primary-accent': '#f0a49e',
 
         // Legacy tokens remapped so components still referencing them work.
-        'site-dark': '#0d0c14',
-        'site-dark-2': '#15141f',
-        'site-gray': '#6a6280',
-        'site-light': '#e7dec7',
-        'site-border': '#dad0b6',
-        'ink-bg': '#0d0c14',
-        'ink-bg-2': '#15141f',
-        'ink-border': '#2f2a41',
-        'rule-strong': '#b8ab8c',
+        'site-dark': '#14110f',
+        'site-dark-2': '#1e1a17',
+        'site-gray': '#6f675e',
+        'site-light': '#ece7dd',
+        'site-border': '#ddd7cb',
+        'ink-bg': '#14110f',
+        'ink-bg-2': '#1e1a17',
+        'ink-border': '#3a332e',
+        'rule-strong': '#14110f',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Cormorant Garamond', 'Garamond', 'serif'],
-        serif: ['var(--font-serif)', 'Iowan Old Style', 'Georgia', 'serif'],
+        // Japanese textbooks set headings in Gothic and body in Mincho. This
+        // keeps that convention and inverts the previous design, which set
+        // everything in an old-style serif. Zen Kaku Gothic New is a real
+        // Japanese Gothic, so the kanji in the stroke-count readings render in
+        // the same voice as the headings around them.
+        display: ['var(--font-display)', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Hiragino Mincho ProN', 'Yu Mincho', 'Georgia', 'serif'],
         sans: ['var(--font-sans)', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       fontSize: {
         '2xs': '0.65rem',
       },
       letterSpacing: {
-        label: '0.18em',
+        label: '0.14em',
         wide2: '0.3em',
       },
       maxWidth: {
@@ -71,6 +91,16 @@ const config: Config = {
       },
       borderRadius: {
         none: '0',
+      },
+      backgroundImage: {
+        // Screentone. The defining texture of the medium: shading done with
+        // adhesive sheets of printed dots rather than with grey ink, because
+        // the presses could only manage black.
+        screentone: 'radial-gradient(currentColor 1px, transparent 1.2px)',
+      },
+      backgroundSize: {
+        screentone: '5px 5px',
+        'screentone-fine': '3px 3px',
       },
     },
   },

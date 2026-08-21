@@ -13,74 +13,137 @@
     @apply bg-paper text-ink dark:bg-ground dark:text-parchment;
     /* Two faint pools of light on the ground, plus a hairline grid at very low
        opacity — the ruled plate a diagram would be drawn on. No image request. */
-    background-image:
-      radial-gradient(ellipse at 50% -10%, rgba(201, 162, 39, 0.07), transparent 60%),
-      radial-gradient(ellipse at 90% 100%, rgba(176, 58, 46, 0.05), transparent 55%);
-    background-attachment: fixed;
+    /* Flat stock, the way a page is. Depth on this site comes from panel
+       borders and screentone, not from light. */
+    background-image: none;
   }
 
   .dark body {
-    background-image:
-      radial-gradient(ellipse at 50% -10%, rgba(201, 162, 39, 0.11), transparent 60%),
-      radial-gradient(ellipse at 90% 100%, rgba(176, 58, 46, 0.08), transparent 55%);
+    background-image: none;
   }
 
   /* The display face carries every heading. */
   h1, h2, h3, h4 {
-    font-family: var(--font-display), 'Cormorant Garamond', Garamond, serif;
-    font-weight: 600;
-    letter-spacing: 0;
+    font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
   * { box-sizing: border-box; }
 
   :focus-visible {
-    outline: 2px solid #c9a227;
+    outline: 2px solid #d0342c;
     outline-offset: 2px;
     border-radius: 0;
   }
 
   ::selection {
-    background: rgba(201, 162, 39, 0.28);
+    background: rgba(208, 52, 44, 0.28);
   }
 }
 
 @layer components {
   /* Widely letterspaced small caps in the display face — the running label
      above a section or a plate. */
+  /* A Gothic run-in label. Study guides mark their sections with a short heavy
+     word, not with letterspaced small caps. */
   .eyebrow {
-    font-family: var(--font-display), Garamond, serif;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    @apply text-ink-muted dark:text-gold/70;
+    letter-spacing: 0.14em;
+    @apply text-ink-muted dark:text-parchment-dim;
   }
 
   /* A gold hairline with room for a centred ornament. */
   .rule-ornament {
-    @apply flex items-center gap-3 text-gold;
+    @apply flex items-center gap-3;
   }
   .rule-ornament::before,
   .rule-ornament::after {
     content: '';
-    @apply flex-1 border-t;
-    border-color: rgba(201, 162, 39, 0.35);
+    flex: 1 1 auto;
+    height: 2px;
+    background: currentColor;
+    @apply text-ink dark:text-parchment;
+    opacity: 0.85;
+  }
+  .rule-ornament > * {
+    font-size: 0 !important;
+    width: 0.6rem;
+    height: 0.6rem;
+    background: #d0342c;
+    flex: 0 0 auto;
   }
 
   /* Reference-entry metadata: label left, value right, hairline between. */
   .datarow {
     @apply flex items-baseline justify-between gap-4 py-2 border-b;
-    border-color: rgba(201, 162, 39, 0.2);
+    border-color: rgba(20, 17, 15, 0.15);
+  }
+  .dark .datarow {
+    border-color: rgba(247, 244, 238, 0.15);
   }
 
   /* The figure a numeral sits in — a thin gold circle, as on a chart. */
   .sigil {
-    @apply inline-flex items-center justify-center rounded-full font-display text-gold;
-    border: 1px solid rgba(201, 162, 39, 0.5);
-    box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.12), inset 0 0 24px rgba(201, 162, 39, 0.07);
+    @apply inline-flex items-center justify-center rounded-full font-display font-bold;
+    color: #d0342c;
+    border: 2px solid #d0342c;
+    box-shadow: none;
+    letter-spacing: -0.02em;
   }
 }
+
+  /* A panel. Manga borders are drawn with a pen and meant to be seen — the
+     whole grammar of the page is boxes and the gutters between them. */
+  .panel {
+    border: 2px solid #14110f;
+    background: #f7f4ee;
+  }
+  .dark .panel {
+    border-color: #f7f4ee;
+    background: #14110f;
+  }
+
+  /* A panel's title bar: solid ink, reversed out, like a chapter rule. */
+  .panel-head {
+    @apply flex items-center gap-2 px-3 py-1.5;
+    background: #14110f;
+    color: #f7f4ee;
+    font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .dark .panel-head {
+    background: #f7f4ee;
+    color: #14110f;
+  }
+
+  /* Screentone. Shading was done with adhesive sheets of printed dots because
+     the presses could only manage black, and it became the look of the medium. */
+  .tone {
+    background-image: radial-gradient(currentColor 1px, transparent 1.2px);
+    background-size: 5px 5px;
+    opacity: 0.14;
+  }
+  .tone-fill {
+    position: relative;
+    isolation: isolate;
+  }
+  .tone-fill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(currentColor 1px, transparent 1.2px);
+    background-size: 5px 5px;
+    opacity: 0.12;
+    pointer-events: none;
+  }
 
 @layer utilities {
   .line-clamp-2 {
@@ -183,7 +246,7 @@
 }
 
 .article-prose blockquote {
-  border-left: 2px solid #c9a227;
+  border-left: 2px solid #d0342c;
   padding-left: 1.15rem;
   margin: 1.75rem 0;
   color: #3f3a31;
@@ -197,7 +260,7 @@
 
 .dark .article-prose blockquote {
   color: #d1d5db;
-  border-left-color: #c9a227;
+  border-left-color: #d0342c;
 }
 
 .dark .article-prose h2,
@@ -215,25 +278,25 @@
 
 .article-prose hr {
   border: none;
-  border-top: 1px solid rgba(201, 162, 39, 0.3);
+  border-top: 1px solid rgba(208, 52, 44, 0.3);
   margin: 2rem 0;
 }
 
 .article-prose a,
 .entity-link {
-  color: #8a7020;
+  color: #9c2620;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
 .article-prose a:hover {
-  color: #b03a2e;
+  color: #d0342c;
 }
 
 .dark .article-prose a,
 .dark .entity-link {
-  color: #e6d492;
+  color: #f0a49e;
 }
 
 /* ── Reference prose ────────────────────────────────────────────────────────
@@ -259,7 +322,7 @@
 
 .ref-prose h2 {
   font-size: 0.82rem;
-  font-family: var(--font-display), Garamond, serif;
+  font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -267,7 +330,7 @@
   margin-bottom: 0.9rem;
   padding-bottom: 0.4rem;
   @apply text-ink-muted dark:text-gold/70;
-  border-bottom: 1px solid rgba(201, 162, 39, 0.28);
+  border-bottom: 1px solid rgba(208, 52, 44, 0.28);
 }
 
 .ref-prose h2:first-child {
@@ -292,14 +355,14 @@
 }
 
 .ref-prose a {
-  color: #8a7020;
+  color: #9c2620;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
-.ref-prose a:hover { color: #b03a2e; }
-.dark .ref-prose a { color: #e6d492; }
+.ref-prose a:hover { color: #d0342c; }
+.dark .ref-prose a { color: #f0a49e; }
 
 .ref-prose ul, .ref-prose ol {
   margin-bottom: 1.15rem;
@@ -310,7 +373,7 @@
 .ref-prose li { margin-bottom: 0.5rem; }
 
 .ref-prose blockquote {
-  border-left: 2px solid #c9a227;
+  border-left: 2px solid #d0342c;
   padding-left: 1.15rem;
   margin: 1.5rem 0;
   font-style: italic;
@@ -365,7 +428,7 @@
 }
 
 .ProseMirror blockquote {
-  border-left: 3px solid #7c3aed;
+  border-left: 3px solid #d0342c;
   padding-left: 0.75rem;
   margin: 0.75rem 0;
   color: #444;
@@ -374,12 +437,12 @@
 
 .ProseMirror hr {
   border: none;
-  border-top: 1px solid rgba(201, 162, 39, 0.3);
+  border-top: 1px solid rgba(208, 52, 44, 0.3);
   margin: 1rem 0;
 }
 
 .ProseMirror a {
-  color: #7c3aed;
+  color: #d0342c;
   text-decoration: underline;
 }
 
@@ -437,7 +500,7 @@
 .article-prose .callout-box {
   margin: 1.5rem 0;
   padding: 1rem 1.25rem;
-  border-left: 4px solid #7c3aed;
+  border-left: 4px solid #d0342c;
   background-color: #f5f3ff;
   border-radius: 0 4px 4px 0;
 }
@@ -449,7 +512,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #7c3aed;
+  color: #d0342c;
   margin-bottom: 0.5rem;
 }
 .article-prose .callout-box ul {
@@ -466,7 +529,7 @@
 }
 .article-prose .callout-box ul li a {
   font-weight: 600;
-  color: #7c3aed;
+  color: #d0342c;
   text-decoration: underline;
 }
 
@@ -481,7 +544,7 @@
   border-color: rgba(124, 58, 237, 0.25);
 }
 .review-scorecard-header {
-  background: #7c3aed;
+  background: #d0342c;
   color: white;
   padding: 0.75rem 1rem;
   display: flex;
@@ -521,7 +584,7 @@
 .review-score-value {
   font-size: 1.45rem;
   font-weight: 600;
-  color: #7c3aed;
+  color: #d0342c;
   line-height: 1;
 }
 .review-score-verdict {
@@ -529,13 +592,13 @@
   font-size: 0.9rem;
   color: #374151;
   font-style: italic;
-  border-top: 1px solid #ede9fe;
+  border-top: 1px solid #e6e1d8;
   background: white;
 }
 .dark .review-score-verdict {
   color: #d1d5db;
   background: transparent;
-  border-top-color: rgba(124, 58, 237, 0.15);
+  border-top-color: rgba(208, 52, 44, 0.2);
 }
 
 /* ─── The numerological reading ──────────────────────────────────────────────
@@ -550,12 +613,13 @@
   gap: 0.85rem;
   margin: 0 0 1.6rem;
   padding-bottom: 1.1rem;
-  border-bottom: 1px solid rgba(201, 162, 39, 0.28);
-  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
-  font-size: 1.08rem;
-  line-height: 1.55;
-  font-style: italic;
-  color: #3b3550;
+  border-bottom: 2px solid #14110f;
+  font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.6;
+  font-style: normal;
+  color: #3d3630;
 }
 .dark .num-standfirst {
   color: rgba(236, 229, 212, 0.82);
@@ -573,23 +637,23 @@
   justify-content: center;
   width: 2.4rem;
   height: 2.4rem;
-  border: 1px solid rgba(201, 162, 39, 0.45);
+  border: 2px solid #d0342c;
   border-radius: 9999px;
-  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
+  font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   font-size: 1.15rem;
   font-style: normal;
   line-height: 1;
-  color: #c9a227;
+  color: #d0342c;
   text-decoration: none;
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 .num-sigil:hover {
-  background: rgba(201, 162, 39, 0.12);
-  border-color: #c9a227;
+  background: rgba(208, 52, 44, 0.12);
+  border-color: #d0342c;
 }
 .article-prose .num-sigil,
 .ref-prose .num-sigil {
-  border-bottom: 1px solid rgba(201, 162, 39, 0.45);
+  border-bottom: 1px solid rgba(208, 52, 44, 0.45);
 }
 
 /* The working: one cell per word, wrapping like a line of type rather than
@@ -606,9 +670,13 @@
      width those rules run past the last cell and read as an empty one. */
   width: fit-content;
   max-width: 100%;
-  border-top: 1px solid rgba(201, 162, 39, 0.22);
-  border-left: 1px solid rgba(201, 162, 39, 0.22);
+  border-top: 2px solid #14110f;
+  border-left: 2px solid #14110f;
   margin: 1.4rem 0 1.6rem;
+}
+.dark .num-working {
+  border-top-color: #f7f4ee;
+  border-left-color: #f7f4ee;
 }
 .num-word {
   /* Cells share the row evenly, but a two-word title must not stretch two of
@@ -621,14 +689,18 @@
   gap: 0.2rem;
   min-width: 4.25rem;
   padding: 0.5rem 0.6rem;
-  border-right: 1px solid rgba(201, 162, 39, 0.22);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.22);
+  border-right: 2px solid #14110f;
+  border-bottom: 2px solid #14110f;
+}
+.dark .num-word {
+  border-right-color: #f7f4ee;
+  border-bottom-color: #f7f4ee;
 }
 .num-word-text {
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: lowercase;
-  color: #6a6280;
+  color: #6f675e;
   max-width: 100%;
   overflow-wrap: anywhere;
   text-align: center;
@@ -637,25 +709,25 @@
   color: rgba(236, 229, 212, 0.5);
 }
 .num-word-value {
-  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
+  font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   font-size: 1.05rem;
   line-height: 1;
   font-variant-numeric: tabular-nums;
-  color: #1b1826;
+  color: #14110f;
 }
 .dark .num-word-value {
-  color: #ece5d4;
+  color: #f7f4ee;
 }
 /* A figure that landed on the same number the text is filed under. That
    agreement is the reason the two rows are printed together, so it is marked. */
 .num-word-match {
-  background: rgba(201, 162, 39, 0.09);
+  background: rgba(208, 52, 44, 0.09);
 }
 .num-word-match .num-word-value {
-  color: #b03a2e;
+  color: #d0342c;
 }
 .dark .num-word-match .num-word-value {
-  color: #d4553f;
+  color: #e8564a;
 }
 
 /* The second row — numbers the subject carries rather than ones derived from
@@ -665,13 +737,13 @@
 }
 
 .num-word-total .num-word-text {
-  color: #b03a2e;
+  color: #d0342c;
 }
 .dark .num-word-total .num-word-text {
-  color: #d4553f;
+  color: #e8564a;
 }
 .num-word-total .num-word-value {
-  color: #c9a227;
+  color: #d0342c;
   white-space: nowrap;
 }
 
@@ -679,28 +751,47 @@
    from it — a rule above, the same measure, slightly quieter type. */
 .num-reading {
   margin-top: 2.75rem;
-  padding-top: 1.6rem;
-  border-top: 1px solid rgba(201, 162, 39, 0.3);
+  padding: 1.4rem 1.5rem 1.5rem;
+  border: 2px solid #14110f;
+  position: relative;
+  isolation: isolate;
+}
+.num-reading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(#14110f 1px, transparent 1.2px);
+  background-size: 5px 5px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.dark .num-reading {
+  border-color: #f7f4ee;
+}
+.dark .num-reading::before {
+  background-image: radial-gradient(#f7f4ee 1px, transparent 1.2px);
+  opacity: 0.08;
 }
 .num-reading > h2 {
-  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
+  font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #6a6280;
+  color: #6f675e;
   margin: 0 0 0.4rem;
   border: 0;
   padding: 0;
 }
 .dark .num-reading > h2 {
-  color: rgba(201, 162, 39, 0.7);
+  color: rgba(208, 52, 44, 0.7);
 }
 .num-reading > p {
   font-size: 0.95rem;
   line-height: 1.75;
   margin: 0 0 1rem;
-  color: #3b3550;
+  color: #3d3630;
   text-indent: 0;
 }
 .dark .num-reading > p {
@@ -710,10 +801,10 @@
   margin-bottom: 0;
 }
 .num-reading a {
-  color: #b03a2e;
+  color: #d0342c;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 .dark .num-reading a {
-  color: #e6d492;
+  color: #f0a49e;
 }

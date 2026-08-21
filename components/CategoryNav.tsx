@@ -19,16 +19,16 @@ const LEARN_LINKS = [
 const linkBase =
   'block py-2.5 font-display text-[0.82rem] uppercase tracking-label transition-colors';
 
-// Roman numerals mark the three parts of the reference, as the sections of a
-// treatise are numbered rather than tabbed.
-const NUMERALS = ['Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ'];
+// The parts of the reference are numbered, as the chapters of a study guide
+// are. Arabic rather than roman: this is a site about arithmetic.
+const NUMERALS = ['1', '2', '3', '4', '5'];
 
 export function CategoryNav() {
   const pathname = usePathname();
   const homeActive = pathname === '/';
 
   return (
-    <nav className="border-t border-gold/20 overflow-x-auto">
+    <nav className="border-t-2 border-ink dark:border-parchment overflow-x-auto">
       <div className="max-w-8xl mx-auto px-4">
         <ul className="flex items-center justify-center gap-5 md:gap-7 whitespace-nowrap">
           <li>
@@ -58,15 +58,15 @@ export function CategoryNav() {
                       : 'text-ink-2 hover:text-gold dark:text-parchment/75 dark:hover:text-gold'
                   }`}
                 >
-                  <span className="text-gold/50 mr-1.5" aria-hidden="true">{NUMERALS[i]}</span>
+                  <span className="text-seal mr-1.5 font-bold" aria-hidden="true">{NUMERALS[i]}</span>
                   {label}
                 </Link>
               </li>
             );
           })}
 
-          <li aria-hidden="true" className="text-gold/40 select-none text-xs">
-            ⁘
+          <li aria-hidden="true" className="select-none">
+            <span className="block w-px h-4 bg-ink/25 dark:bg-parchment/25" />
           </li>
 
           {CATEGORIES.map(({ label, slug }) => {
@@ -94,7 +94,7 @@ export function CategoryNav() {
       {/* The shelves themselves, as twelve figures. Categories say what a text
           is about; these say what it reduces to, which is how the reference is
           actually arranged — so they get a rule of their own. */}
-      <div className="border-t border-gold/15 bg-paper-2/40 dark:bg-ground-2/50">
+      <div className="border-t border-ink/20 dark:border-parchment/20 bg-paper-2 dark:bg-ground-2">
         <div className="max-w-8xl mx-auto px-4">
           <ul className="flex items-center justify-center gap-1 md:gap-1.5 py-1.5 whitespace-nowrap">
             <li className="eyebrow text-ink-muted dark:text-parchment/40 pr-2 hidden sm:block">
