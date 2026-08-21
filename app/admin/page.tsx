@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/db';
 import { CATEGORIES, getCategoryLabel } from '@/lib/types';
+import { titleValue, getGroup, GROUP_NUMBERS } from '@/lib/number-groups';
 import { formatDistanceToNow, format } from 'date-fns';
 import Link from 'next/link';
 import { AdminHeader } from './AdminHeader';
@@ -29,6 +30,16 @@ async function getStats() {
     prisma.article.count({ where: { imageUrl: { contains: 'loc.gov' } } }),
   ]);
   return { total, published, drafts, scheduled, bySource, byCategory, totalViews: totalViews._sum.views ?? 0, locImages };
+}
+
+async function getShelfSpread() {
+  const rows = await prisma.article.findMany({ select: { title: true } });
+  const counts = new Map<number, number>();
+  for (const r of rows) {
+    const n = titleValue(r.title);
+    counts.set(n, (counts.get(n) ?? 0) + 1);
+  }
+  return GROUP_NUMBERS.map((n: number) => ({ n, count: counts.get(n) ?? 0 }));
 }
 
 async function getSourceHealth() {
@@ -124,7 +135,7 @@ export default async function AdminPage({ searchParams }: Props) {
   const category = params.category ?? '';
   const filter = params.filter ?? '';
 
-  const [stats, pending, drafts, scheduled, { articles, count, pages }, topArticles, sourceHealth] = await Promise.all([
+  const [stats, pending, drafts, scheduled, { articles, count, pages }, topArticles, sourceHealth, shelfSpread] = await Promise.all([
     getStats(),
     getPending(),
     getDrafts(),
@@ -132,6 +143,7 @@ export default async function AdminPage({ searchParams }: Props) {
     getArticles(page, search, category, filter),
     getTopArticles(),
     getSourceHealth(),
+    getShelfSpread(),
   ]);
 
   return (
@@ -322,6 +334,24 @@ export default async function AdminPage({ searchParams }: Props) {
 
         {/* Category breakdown */}
         <div className="bg-white rounded-sm shadow-sm p-4">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">By Shelf</h2>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {shelfSpread.map(({ n, count: shelfCount }) => (
+              <a
+                key={n}
+                href={`/number/${n}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={getGroup(n).tagline}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 hover:bg-primary hover:text-white text-gray-700 transition-colors"
+              >
+                <span className="font-black">{n}</span>
+                {getGroup(n).shelf}
+                <span className="bg-black/10 px-1.5 py-0.5 rounded-full">{shelfCount}</span>
+              </a>
+            ))}
+          </div>
+
           <h2 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">By Category</h2>
           <div className="flex flex-wrap gap-2">
             <Link

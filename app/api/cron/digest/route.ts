@@ -1,10 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
+import { titleValue, getGroup } from '@/lib/number-groups';
 
 export const maxDuration = 60;
 export const runtime = 'nodejs';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
+
+/** Which shelf this week's selection leaned on, counted after the fact. */
+function weekLine(articles: { title: string }[]): string {
+  if (articles.length === 0) return '';
+  const byShelf = new Map<number, number>();
+  for (const a of articles) {
+    const n = titleValue(a.title);
+    byShelf.set(n, (byShelf.get(n) ?? 0) + 1);
+  }
+  const [n, count] = [...byShelf.entries()].sort((a, b) => b[1] - a[1])[0];
+  const group = getGroup(n);
+  return `${count} of this week's ${articles.length} reduce to ${n} &mdash; ${group.shelf}, ${group.tagline}.`;
+}
 
 function buildEmailHtml(articles: { title: string; excerpt: string; slug: string; imageUrl: string | null; category: string }[]): string {
   const items = articles
@@ -13,7 +27,7 @@ function buildEmailHtml(articles: { title: string; excerpt: string; slug: string
     <tr>
       <td style="padding: 16px 0; border-bottom: 1px solid #e5e7eb;">
         ${a.imageUrl ? `<img src="${a.imageUrl}" alt="" width="120" height="80" style="float:left;margin-right:16px;object-fit:cover;border-radius:2px;" />` : ''}
-        <p style="margin:0 0 4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7c3aed;">${a.category}</p>
+        <p style="margin:0 0 4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#d0342c;">${a.category} &middot; ${titleValue(a.title)} ${getGroup(titleValue(a.title)).shelf}</p>
         <p style="margin:0 0 6px;font-size:16px;font-weight:800;line-height:1.3;color:#0c0c0c;">
           <a href="${BASE}/article/${a.slug}" style="color:#0c0c0c;text-decoration:none;">${a.title}</a>
         </p>
@@ -33,9 +47,16 @@ function buildEmailHtml(articles: { title: string; excerpt: string; slug: string
       <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:4px;overflow:hidden;">
         <!-- Header -->
         <tr>
-          <td style="background:#0f0b1e;padding:20px 32px;border-top:4px solid #7c3aed;">
-            <span style="font-size:24px;font-weight:900;letter-spacing:-.02em;color:#e879f9;">Catzye</span>
-            <p style="margin:4px 0 0;color:#999;font-size:12px;">Weekly Digest — Top Manga &amp; Anime Stories</p>
+          <td style="background:#14110f;padding:20px 32px;border-top:4px solid #d0342c;">
+            <span style="font-size:24px;font-weight:900;letter-spacing:-.02em;color:#f7f4ee;">Catzye</span>
+            <p style="margin:4px 0 0;color:#9c968c;font-size:12px;">A week, read by its numbers</p>
+          </td>
+        </tr>
+        <!-- What the week reduced to. A count made afterwards, not a claim
+             that anything was chosen by number. -->
+        <tr>
+          <td style="padding:16px 32px 0;">
+            <p style="margin:0;font-size:12px;color:#6f675e;line-height:1.6;">${weekLine(articles)}</p>
           </td>
         </tr>
         <!-- Articles -->
@@ -50,7 +71,8 @@ function buildEmailHtml(articles: { title: string; excerpt: string; slug: string
         <tr>
           <td style="padding:24px 32px;background:#f9fafb;border-top:1px solid #e5e7eb;text-align:center;">
             <p style="margin:0;font-size:12px;color:#9ca3af;">
-              <a href="${BASE}" style="color:#7c3aed;text-decoration:none;">Catzye</a> — Manga &amp; Anime News
+              <a href="${BASE}" style="color:#d0342c;text-decoration:none;">Catzye</a> — manga, filed by number
+              · <a href="${BASE}/numbers" style="color:#9ca3af;">The shelves</a>
               · <a href="${BASE}/feed.xml" style="color:#9ca3af;">RSS</a>
             </p>
           </td>
