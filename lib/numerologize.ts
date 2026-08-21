@@ -48,6 +48,8 @@ export type TextKind =
   | 'creator'
   | 'series'
   | 'guide'
+  /** A numbered set the medium itself invented — see lib/numbered-sets.ts. */
+  | 'set'
   /** An index assembled from a label and a query — a category, genre, tag. */
   | 'section';
 
@@ -68,6 +70,7 @@ const KIND_WORDS: Record<TextKind, KindWords> = {
   creator: { unit: 'name', text: 'entry', texts: 'entries' },
   series: { unit: 'title', text: 'sequence', texts: 'sequences' },
   guide: { unit: 'title', text: 'guide', texts: 'guides' },
+  set: { unit: 'name', text: 'set', texts: 'sets' },
   section: { unit: 'name', text: 'section', texts: 'texts' },
 };
 
@@ -77,9 +80,37 @@ export function kindWords(kind: TextKind): KindWords {
 
 // ── The composed reading ─────────────────────────────────────────────────────
 
+/**
+ * A number the subject carries in its own right, rather than one derived from
+ * the letters of its title.
+ *
+ * This is the honest half of the reference. Reducing a title is an imposition —
+ * for a manga it usually reduces an English licensing decision rather than
+ * anything the author wrote. A figure is not imposed: a series really does run
+ * to 22 volumes, a pen name really is written in that many strokes, and a
+ * numbered set really was numbered by the person who invented it. Where a
+ * figure and the title disagree, the reading says so and the figure wins.
+ */
+export interface Figure {
+  /** What was counted: "volumes", "years of serialisation", "総格". */
+  label: string;
+  /** The figure as counted, before reduction. */
+  raw: number;
+  /** That figure reduced, master numbers preserved. */
+  value: number;
+  /** Where it came from, printed so a reader can check it. */
+  note?: string;
+}
+
+export function figure(label: string, raw: number, note?: string): Figure {
+  return { label, raw, value: reduce(raw), note };
+}
+
 export interface ReadingInput {
   title: string;
   kind: TextKind;
+  /** Numbers the subject carries in its own right. See Figure. */
+  figures?: Figure[];
   /** Named subjects — the first usable one is read in its own right. */
   entities?: string[];
   /** Article category or entry track, mentioned when it sharpens the reading. */
@@ -107,6 +138,14 @@ const ORDINAL_WORD: Record<number, string> = {
 
 function numWord(n: number): string {
   return ORDINAL_WORD[n] ?? String(n);
+}
+
+/**
+ * The indefinite article for a figure, chosen by how the numeral is said rather
+ * than how it is spelled: "an 8", "an 11", "an 18", but "a 7".
+ */
+function article(n: number): string {
+  return /^(8|11|18)/.test(String(n)) ? 'an' : 'a';
 }
 
 function esc(s: string): string {
@@ -144,8 +183,8 @@ const STANDFIRST: ((c: Ctx) => string)[] = [
   (c) =>
     c.whole
       ? `The letters of this ${c.unit} total ${c.n} outright — the number of ${c.profile.vibration}.`
-      : `The letters of this ${c.unit} total ${c.numbers.raw}, a ${c.n} — the number of ${c.profile.vibration}.`,
-  (c) => `A ${c.n} by its ${c.unit}: ${c.profile.title.toLowerCase()}, and therefore ${c.group.shelf.toLowerCase()}.`,
+      : `The letters of this ${c.unit} total ${c.numbers.raw}, ${article(c.n)} ${c.n} — the number of ${c.profile.vibration}.`,
+  (c) => `${cap(article(c.n))} ${c.n} by its ${c.unit}: ${c.profile.title.toLowerCase()}, and therefore ${c.group.shelf.toLowerCase()}.`,
   (c) => `Reduced, this ${c.unit} gives ${c.n}. It sits on ${c.group.shelf} with the rest of ${c.group.shape}.`,
   (c) => `${cap(numWord(c.n))} — ${c.profile.keyword}. That is the reduction of this ${c.unit}, and the shelf it is read from.`,
 ];
@@ -194,6 +233,27 @@ const SPLIT_PARA: ((c: Ctx) => string)[] = [
     `Heart's Desire ${c.heart}, Personality ${c.personality}: ${c.splitGloss}`,
 ];
 
+/**
+ * The figures paragraph, inserted before the instruction when the subject has
+ * numbers of its own. Three cases, because pretending they always agree would
+ * be the dishonest version: they agree, they part company, or the subject
+ * carries figures that simply say something else.
+ */
+const FIGURE_PARA: ((c: Ctx) => string)[] = [
+  (c) =>
+    c.agreeing.length > 0
+      ? `It does not rest on the letters alone. ${cap(c.figureList)} — and the ${c.n} arrives there too, by a route that owes nothing to the alphabet. A title can be translated; ${c.agreeingList} cannot.`
+      : `The letters give ${c.n}; the subject's own figures do not agree. ${cap(c.figureList)}. Where the two part company the reference trusts the figures, because ${c.figureRationale}.`,
+  (c) =>
+    c.agreeing.length > 0
+      ? `${cap(c.figureList)}. That the ${c.n} turns up in ${c.agreeingList} as well as in the letters is the sort of coincidence this reference collects rather than explains.`
+      : `${cap(c.figureList)} — none of which lands on the ${c.n} the title gives. That disagreement is worth more than an agreement would be: ${c.gapClause}.`,
+  (c) =>
+    c.agreeing.length > 0
+      ? `Counted another way the answer holds. ${cap(c.figureList)}, and ${c.agreeingList} reduces to the same ${c.n}. Two systems, one figure.`
+      : `Counted another way the answer changes. ${cap(c.figureList)}. The title says ${c.n}; the subject says otherwise, and the subject is the harder evidence.`,
+];
+
 /** Paragraph four: the instruction, and the way back to the shelf. */
 const ASK_PARA: ((c: Ctx) => string)[] = [
   (c) => `The ${c.n} asks you to ${c.group.asks}. ${c.group.shadow} ${c.shelfLink}`,
@@ -222,6 +282,17 @@ interface Ctx {
   splitGloss: string;
   shelfLink: string;
   wordCount: number;
+  figures: Figure[];
+  /** Figures that landed on the same number the title did. */
+  agreeing: Figure[];
+  /** "volumes is 22, a 22 and years serialised is 8, an 8" */
+  figureList: string;
+  /** Why a figure outranks the letters — different for a name than for a work. */
+  figureRationale: string;
+  /** What the gap between letters and figures is a gap between. */
+  gapClause: string;
+  /** "its volume count" — the agreeing figures, named. */
+  agreeingList: string;
   /**
    * True when the raw sum is already the filed number and no reduction happened
    * — "totals 33, reduces to 33" is not a sentence worth printing, so the
@@ -232,6 +303,13 @@ interface Ctx {
 
 function cap(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/** "a", "a and b", "a, b and c" — the reference sets lists the English way. */
+function joinList(parts: string[]): string {
+  if (parts.length === 0) return '';
+  if (parts.length === 1) return parts[0];
+  return `${parts.slice(0, -1).join(', ')} and ${parts[parts.length - 1]}`;
 }
 
 /**
@@ -299,6 +377,24 @@ function buildCtx(input: ReadingInput): Ctx {
     subjectClause,
     splitGloss: splitGloss(numbers.heart, numbers.personality, kind),
     whole: numbers.raw === n,
+    figures: input.figures ?? [],
+    agreeing: (input.figures ?? []).filter((f) => f.value === n),
+    figureList: joinList(
+      (input.figures ?? []).map((f) =>
+        f.raw === f.value
+          ? `${f.label} is ${f.raw}`
+          : `${f.label} is ${f.raw}, ${article(f.value)} ${f.value}`,
+      ),
+    ),
+    agreeingList: joinList((input.figures ?? []).filter((f) => f.value === n).map((f) => f.label)),
+    figureRationale:
+      kind === 'creator'
+        ? 'the romanisation is a convenience for readers abroad, while the strokes are what the pen name was actually built from'
+        : 'a title is a decision somebody made about the thing, and these are the thing',
+    gapClause:
+      kind === 'creator'
+        ? 'it marks the distance between how a name travels and how it was written'
+        : 'it marks the gap between what a work is called and what it is',
     shelfLink: `The other ${words.texts} that reduce to ${n} are collected on <a href="/number/${n}">${group.shelf}</a>.`,
     wordCount: numbers.words.length,
   };
@@ -318,9 +414,10 @@ export function composeReading(input: ReadingInput): ComposedReading {
       pick(ARITHMETIC_PARA, seed, 'p1')(c),
       pick(MEANING_PARA, seed, 'p2')(c),
       pick(SPLIT_PARA, seed, 'p3')(c),
+      ...(c.figures.length > 0 ? [pick(FIGURE_PARA, seed, 'pf')(c)] : []),
       pick(ASK_PARA, seed, 'p4')(c),
     ],
-    arithmetic: arithmeticHtml(c.numbers),
+    arithmetic: arithmeticHtml(c.numbers) + figuresHtml(c.figures, c.n),
   };
 }
 
@@ -340,6 +437,26 @@ export function arithmeticHtml(numbers: TitleNumbers): string {
     }</span></span>` +
     `</div>`
   );
+}
+
+/**
+ * The figures, ruled like the letter working above them. Figures matching the
+ * filed number are marked, since that agreement is the whole reason to print
+ * them side by side.
+ */
+export function figuresHtml(figures: Figure[], filed: number): string {
+  if (figures.length === 0) return '';
+  const cells = figures
+    .map(
+      (f) =>
+        `<span class="num-word${f.value === filed ? ' num-word-match' : ''}"${
+          f.note ? ` title="${esc(f.note)}"` : ''
+        }><span class="num-word-text">${esc(f.label)}</span><span class="num-word-value">${
+          f.raw === f.value ? f.raw : `${f.raw} → ${f.value}`
+        }</span></span>`,
+    )
+    .join('');
+  return `<div class="num-working num-working-figures" role="group" aria-label="Numbers the subject carries in its own right">${cells}</div>`;
 }
 
 // ── Injection into stored text ───────────────────────────────────────────────
@@ -426,7 +543,7 @@ export function readingLine(input: ReadingInput): string {
     [
       `${c.n} · ${c.group.shelf} — ${c.profile.vibration}.`,
       `Reduces to ${c.n}: ${c.group.shelf.toLowerCase()}, ${c.profile.keyword}.`,
-      `A ${c.n} — ${c.profile.title.toLowerCase()}, filed under ${c.group.shelf.toLowerCase()}.`,
+      `${cap(article(c.n))} ${c.n} — ${c.profile.title.toLowerCase()}, filed under ${c.group.shelf.toLowerCase()}.`,
       c.whole
         ? `${c.n}, unreduced. ${cap(c.group.shelf)}: ${c.group.tagline}.`
         : `${c.numbers.raw} → ${c.n}. ${cap(c.group.shelf)}: ${c.group.tagline}.`,
@@ -466,7 +583,7 @@ export function numerologizeSummary(
         c.whole
           ? `${c.n} in the letters, with nothing left to reduce.`
           : `${c.numbers.raw} in the letters, reducing to ${c.n}.`,
-        `Read from ${c.group.shelf.toLowerCase()}, as a ${c.n}.`,
+        `Read from ${c.group.shelf.toLowerCase()}, as ${article(c.n)} ${c.n}.`,
       ],
       seed,
       'coda-sum',
@@ -478,10 +595,10 @@ export function numerologizeSummary(
   const lead = pick(
     [
       `Filed under ${c.n}, ${c.group.shelf.toLowerCase()}.`,
-      `A ${c.n} — ${c.profile.keyword}.`,
+      `${cap(article(c.n))} ${c.n} — ${c.profile.keyword}.`,
       c.whole ? `${c.n} exactly, before any reduction.` : `${c.numbers.raw}, reducing to ${c.n}.`,
       `${cap(c.group.shelf)}: this one reduces to ${c.n}.`,
-      `${cap(c.group.shelf)}, by the arithmetic — a ${c.n}.`,
+      `${cap(c.group.shelf)}, by the arithmetic — ${article(c.n)} ${c.n}.`,
     ],
     seed,
     'ex',
@@ -498,7 +615,7 @@ export function editorCoda(input: ReadingInput): string {
   const c = buildCtx(input);
   return pick(
     [
-      `Numerologically this is a ${c.n}, which is why it is shelved with ${c.group.shelf.toLowerCase()} — ${c.group.tagline}.`,
+      `Numerologically this is ${article(c.n)} ${c.n}, which is why it is shelved with ${c.group.shelf.toLowerCase()} — ${c.group.tagline}.`,
       `We file it under ${c.n}. Read it as ${c.group.shape}, and ${c.group.asks}.`,
       `On this reference that reduces to ${c.n} — ${c.group.shelf.toLowerCase()}, where ${c.group.shape} is kept.`,
       `The ${c.unit} reduces to ${c.n}: ${c.profile.vibration}. That is the frame we read it in.`,

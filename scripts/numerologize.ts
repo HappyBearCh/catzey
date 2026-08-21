@@ -20,10 +20,14 @@ import {
   injectReading,
   numerologizeSummary,
   editorCoda,
+  figure,
+  type Figure,
   type TextKind,
   type ReadingInput,
 } from '@/lib/numerologize';
 import { titleNumbers, getGroup } from '@/lib/number-groups';
+import { workFigures } from '@/lib/work-numbers';
+import { readName, readTitleStrokes, findJapaneseTitle } from '@/lib/strokes';
 
 const DATA = path.join(process.cwd(), 'data');
 const CHECK = process.argv.includes('--check');
@@ -93,6 +97,12 @@ interface Spec {
   seedKey?: string;
   /** Heading for the injected reading section. */
   heading?: (n: number) => string;
+  /**
+   * Numbers this record carries in its own right — volume counts, stroke
+   * counts, years. Unlike the title reduction these were not imposed by the
+   * reference, so where they contradict it the reading says so.
+   */
+  figures?: (row: Row) => Figure[];
 }
 
 const SPECS: Spec[] = [
@@ -138,6 +148,17 @@ const SPECS: Spec[] = [
     seedKey: 'slug',
     summaryPosition: 'coda',
     heading: () => 'The title by its numbers',
+    figures: (row) => {
+      const figures = workFigures(row as never);
+      // 総画 — the strokes of the title as the author wrote it. This is the one
+      // reading of a manga that is not filtered through a translation.
+      const japanese = findJapaneseTitle(row.altTitles as string[] | undefined);
+      const strokes = japanese ? readTitleStrokes(japanese) : null;
+      if (strokes) {
+        figures.unshift(figure('総画 strokes', strokes.total, `${japanese}, as written`));
+      }
+      return figures;
+    },
   },
   {
     file: 'creators.json',
@@ -149,6 +170,23 @@ const SPECS: Spec[] = [
     seedKey: 'slug',
     summaryPosition: 'coda',
     heading: () => 'The name by its numbers',
+    figures: (row) => {
+      const figures: Figure[] = [];
+      // 姓名判断 on the native name. A pen name is a constructed thing and
+      // stroke count is one of the things it is constructed around, so of every
+      // reading on this site these are the likeliest to have been intended.
+      const reading = readName(String(row.nativeName ?? ''));
+      if (reading) {
+        figures.push(
+          figure('人格 core', reading.jinkaku, `${reading.surname} / ${reading.given}, at the join`),
+          figure('総格 total', reading.soukaku, `every stroke of ${reading.surname}${reading.given}`),
+        );
+      }
+      if (typeof row.bornYear === 'number' && row.bornYear > 0) {
+        figures.push(figure('born', row.bornYear, `born ${row.bornYear}`));
+      }
+      return figures;
+    },
   },
   {
     file: 'series.json',
@@ -175,6 +213,7 @@ function processFile(spec: Spec): { file: string; rows: number; byNumber: Map<nu
       entities: spec.entitiesKey ? (row[spec.entitiesKey] as string[] | undefined) : undefined,
       category: spec.categoryKey ? str(row, spec.categoryKey) : undefined,
       seed: (spec.seedKey && str(row, spec.seedKey)) || title,
+      figures: spec.figures?.(row),
     };
 
     const n = stamp(row, title);
