@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ShelfBand } from '@/components/ShelfBand';
+import { titleValue } from '@/lib/number-groups';
 import { getAllWorks, getAllCreators } from '@/lib/education';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -94,8 +95,9 @@ export default async function WikiIndexPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {works.map((w) => (
               <li key={w.slug}>
-                <Link href={`/wiki/series/${w.slug}`} className="block p-3 border border-site-border rounded-sm hover:border-primary/40 transition-colors group">
-                  <span className="font-bold text-sm block group-hover:text-primary transition-colors">{w.title}</span>
+                <Link href={`/wiki/series/${w.slug}`} className="block panel p-3 h-full hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors group">
+                  <span className="font-bold text-sm block group-hover:text-seal transition-colors">{w.title}</span>
+                  <span className="ml-2 text-2xs font-bold text-seal">{titleValue(w.title)}</span>
                   <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{w.synopsis}</span>
                 </Link>
               </li>
@@ -116,8 +118,9 @@ export default async function WikiIndexPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {creators.map((c) => (
               <li key={c.slug}>
-                <Link href={`/wiki/creator/${c.slug}`} className="block p-3 border border-site-border rounded-sm hover:border-primary/40 transition-colors group">
-                  <span className="font-bold text-sm block group-hover:text-primary transition-colors">{c.name}</span>
+                <Link href={`/wiki/creator/${c.slug}`} className="block panel p-3 h-full hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors group">
+                  <span className="font-bold text-sm block group-hover:text-seal transition-colors">{c.name}</span>
+                  <span className="ml-2 text-2xs font-bold text-seal">{titleValue(c.name)}</span>
                   <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{c.bio}</span>
                 </Link>
               </li>

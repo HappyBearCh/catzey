@@ -112,15 +112,15 @@ export default function SetsIndexPage() {
               </Link>
             </div>
 
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {sets.map((set) => (
                 <li key={set.slug}>
                   <Link
                     href={`/sets/${set.slug}`}
-                    className="group block py-4 border-b border-rule/40 dark:border-rule"
+                    className="group block panel tone-fill p-4 h-full hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors"
                   >
                     <span className="flex items-baseline gap-2 flex-wrap">
-                      <span className="font-display text-lg text-ink dark:text-parchment group-hover:text-gold transition-colors">
+                      <span className="font-display text-lg font-bold text-ink dark:text-parchment group-hover:text-seal transition-colors">
                         {set.name}
                       </span>
                       {set.nativeName && (
