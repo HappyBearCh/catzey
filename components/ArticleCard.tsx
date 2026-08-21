@@ -71,7 +71,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
 
   if (size === 'hero') {
     return (
-      <Link href={href} className="group relative block overflow-hidden bg-black h-[60vw] max-h-[540px] min-h-[320px]">
+      <Link href={href} className="group relative block overflow-hidden panel bg-black h-[60vw] max-h-[540px] min-h-[320px]">
         {article.imageUrl ? (
           <SafeImage
             src={article.imageUrl}
@@ -92,9 +92,13 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-          <span className="inline-block bg-primary text-white text-2xs font-bold uppercase tracking-widest px-2 py-0.5 mb-3">
-            {categoryLabel}
-          <ShelfMark n={shelf} />
+          <span className="inline-flex items-center gap-2 mb-3">
+            <span className="inline-block bg-primary text-white text-2xs font-bold uppercase tracking-widest px-2 py-0.5">
+              {categoryLabel}
+            </span>
+            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-white text-white text-2xs font-bold">
+              {shelf}
+            </span>
           </span>
           <h1 className="text-white text-2xl md:text-4xl font-semibold leading-tight mb-3 line-clamp-3 group-hover:text-gray-200 transition-colors">
             {article.title}
