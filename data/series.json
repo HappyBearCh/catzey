@@ -3,7 +3,7 @@
     "id": "cmrgn2nl70000t2qgkn2glpdu",
     "title": "The Numbers Behind the Manga",
     "slug": "numbers-behind-the-manga",
-    "description": "A numerological reading of anime and manga — the franchises, heroes, creators, and studios of the medium, seen through the numbers their names reduce to. A lens for paying attention, not a forecast.",
+    "description": "A numerological reading of anime and manga — the franchises, heroes, creators, and studios of the medium, seen through the numbers their names reduce to. A lens for paying attention, not a forecast. 110 in the letters, reducing to 2.",
     "imageUrl": null,
     "category": "numerology",
     "topics": [
@@ -287,13 +287,21 @@
     "genres": [],
     "externalUrl": null,
     "createdAt": "2026-07-11T17:29:07.048Z",
-    "updatedAt": "2026-07-14T19:16:38.745Z"
+    "updatedAt": "2026-07-14T19:16:38.745Z",
+    "numerology": {
+      "value": 2,
+      "raw": 110,
+      "heart": 7,
+      "personality": 4,
+      "shelf": "The Pairing"
+    },
+    "descriptionSource": "A numerological reading of anime and manga — the franchises, heroes, creators, and studios of the medium, seen through the numbers their names reduce to. A lens for paying attention, not a forecast."
   },
   {
     "id": "cmrkjhb6h0000gofr3wtg7i7y",
     "title": "The Serialization Machine",
     "slug": "the-serialization-machine",
-    "description": "How manga actually gets made, sold, and killed. A reported essay series on the machinery behind the medium — the weekly deadline, the reader survey, the editor, the production committee, and the creative consequences of all of it.",
+    "description": "How manga actually gets made, sold, and killed. A reported essay series on the machinery behind the medium — the weekly deadline, the reader survey, the editor, the production committee, and the creative consequences of all of it. 118 in the letters, reducing to 1.",
     "imageUrl": null,
     "category": "industry",
     "topics": [
@@ -374,13 +382,21 @@
     "genres": [],
     "externalUrl": null,
     "createdAt": "2026-07-14T10:59:37.049Z",
-    "updatedAt": "2026-07-14T15:49:46.873Z"
+    "updatedAt": "2026-07-14T15:49:46.873Z",
+    "numerology": {
+      "value": 1,
+      "raw": 118,
+      "heart": 6,
+      "personality": 4,
+      "shelf": "The Opening"
+    },
+    "descriptionSource": "How manga actually gets made, sold, and killed. A reported essay series on the machinery behind the medium — the weekly deadline, the reader survey, the editor, the production committee, and the creative consequences of all of it."
   },
   {
     "id": "cmrkub8ie0000vhadjo11b5q7",
     "title": "The Grammar of the Page",
     "slug": "the-grammar-of-the-page",
-    "description": "How manga actually works on a reader. A close-reading series on the formal machinery of comics — the panel, the gutter, the page turn, the line, and the silence between them.",
+    "description": "How manga actually works on a reader. A close-reading series on the formal machinery of comics — the panel, the gutter, the page turn, the line, and the silence between them. Read from the inquiry, as a 7.",
     "imageUrl": null,
     "category": "manga",
     "topics": [
@@ -430,13 +446,21 @@
     "genres": [],
     "externalUrl": null,
     "createdAt": "2026-07-14T16:02:49.430Z",
-    "updatedAt": "2026-07-14T16:43:03.828Z"
+    "updatedAt": "2026-07-14T16:43:03.828Z",
+    "numerology": {
+      "value": 7,
+      "raw": 97,
+      "heart": 6,
+      "personality": 1,
+      "shelf": "The Inquiry"
+    },
+    "descriptionSource": "How manga actually works on a reader. A close-reading series on the formal machinery of comics — the panel, the gutter, the page turn, the line, and the silence between them."
   },
   {
     "id": "cmrkxr69y00001xe4tod20fv4",
     "title": "The Grammar of the Screen",
     "slug": "the-grammar-of-the-screen",
-    "description": "How anime works as a moving image. A close-reading series on the craft of the frame and the cut — timing, layouts, compositing, colour, sound, and the art of deciding which drawings not to make.",
+    "description": "How anime works as a moving image. A close-reading series on the craft of the frame and the cut — timing, layouts, compositing, colour, sound, and the art of deciding which drawings not to make. Filed under 6, the care.",
     "imageUrl": null,
     "category": "anime",
     "topics": [
@@ -470,13 +494,21 @@
     "genres": [],
     "externalUrl": null,
     "createdAt": "2026-07-14T17:39:11.878Z",
-    "updatedAt": "2026-07-14T17:55:57.709Z"
+    "updatedAt": "2026-07-14T17:55:57.709Z",
+    "numerology": {
+      "value": 6,
+      "raw": 105,
+      "heart": 1,
+      "personality": 5,
+      "shelf": "The Care"
+    },
+    "descriptionSource": "How anime works as a moving image. A close-reading series on the craft of the frame and the cut — timing, layouts, compositing, colour, sound, and the art of deciding which drawings not to make."
   },
   {
     "id": "cmrnofc1x000012ho8bqu2cvq",
     "title": "What Survives the Crossing",
     "slug": "what-survives-the-crossing",
-    "description": "What changes when manga and anime cross languages. A close-reading series on translation, localization, dubbing, and lettering — on titles renamed by lawyers, sound effects drawn into the art, and the difference between carrying a work across and rebuilding it on the far bank.",
+    "description": "What changes when manga and anime cross languages. A close-reading series on translation, localization, dubbing, and lettering — on titles renamed by lawyers, sound effects drawn into the art, and the difference between carrying a work across and rebuilding it on the far bank. Read from the closing, as a 9.",
     "imageUrl": null,
     "category": "manga",
     "topics": [],
@@ -485,13 +517,21 @@
     "genres": [],
     "externalUrl": null,
     "createdAt": "2026-07-16T15:41:21.475Z",
-    "updatedAt": "2026-07-16T15:41:21.475Z"
+    "updatedAt": "2026-07-16T15:41:21.475Z",
+    "numerology": {
+      "value": 9,
+      "raw": 108,
+      "heart": 11,
+      "personality": 7,
+      "shelf": "The Closing"
+    },
+    "descriptionSource": "What changes when manga and anime cross languages. A close-reading series on translation, localization, dubbing, and lettering — on titles renamed by lawyers, sound effects drawn into the art, and the difference between carrying a work across and rebuilding it on the far bank."
   },
   {
     "id": "cmrp7ept30000sywecw2rvg3v",
     "title": "The Audience Draws Back",
     "slug": "the-audience-draws-back",
-    "description": "The audience as coauthor. A series on the social life of manga and anime — doujinshi and Comiket, shipping and reading against the text, the parasocial bond, cosplay, and the collector’s shelf. On the only audience in art that answers a drawing with a drawing, and on why the fan and the numerologist are the same person.",
+    "description": "The audience as coauthor. A series on the social life of manga and anime — doujinshi and Comiket, shipping and reading against the text, the parasocial bond, cosplay, and the collector’s shelf. On the only audience in art that answers a drawing with a drawing, and on why the fan and the numerologist are the same person. 78 in the letters, reducing to 6.",
     "imageUrl": null,
     "category": "anime",
     "topics": [],
@@ -500,13 +540,21 @@
     "genres": [],
     "externalUrl": null,
     "createdAt": "2026-07-17T17:20:31.527Z",
-    "updatedAt": "2026-07-17T17:20:31.527Z"
+    "updatedAt": "2026-07-17T17:20:31.527Z",
+    "numerology": {
+      "value": 6,
+      "raw": 78,
+      "heart": 3,
+      "personality": 3,
+      "shelf": "The Care"
+    },
+    "descriptionSource": "The audience as coauthor. A series on the social life of manga and anime — doujinshi and Comiket, shipping and reading against the text, the parasocial bond, cosplay, and the collector’s shelf. On the only audience in art that answers a drawing with a drawing, and on why the fan and the numerologist are the same person."
   },
   {
     "id": "cmrq834wk000010vvjcmzbdhl",
     "title": "What the Stories Believe",
     "slug": "what-the-stories-believe",
-    "description": "What manga and anime actually argue. A close-reading series on the moral architecture of the medium — the creed of effort, friendship, and victory; the villain handed a real case; the death that never sticks; work as salvation; and the war memory buried under all of it. On the beliefs a story carries whether or not it means to, written by a critic who has spent six series believing in numbers.",
+    "description": "What manga and anime actually argue. A close-reading series on the moral architecture of the medium — the creed of effort, friendship, and victory; the villain handed a real case; the death that never sticks; work as salvation; and the war memory buried under all of it. On the beliefs a story carries whether or not it means to, written by a critic who has spent six series believing in numbers. The title reduces to 7 — the inquiry.",
     "imageUrl": null,
     "category": "manga",
     "topics": [],
@@ -515,6 +563,14 @@
     "genres": [],
     "externalUrl": null,
     "createdAt": "2026-07-18T10:27:17.005Z",
-    "updatedAt": "2026-07-18T10:27:17.005Z"
+    "updatedAt": "2026-07-18T10:27:17.005Z",
+    "numerology": {
+      "value": 7,
+      "raw": 97,
+      "heart": 5,
+      "personality": 11,
+      "shelf": "The Inquiry"
+    },
+    "descriptionSource": "What manga and anime actually argue. A close-reading series on the moral architecture of the medium — the creed of effort, friendship, and victory; the villain handed a real case; the death that never sticks; work as salvation; and the war memory buried under all of it. On the beliefs a story carries whether or not it means to, written by a critic who has spent six series believing in numbers."
   }
 ]
