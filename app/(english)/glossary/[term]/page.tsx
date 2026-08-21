@@ -23,6 +23,15 @@ interface Props {
 // with no generateStaticParams is rendered per request and never cached, which
 // would make `revalidate` above a no-op and bill a function call for every
 // crawler hit — the same trap the tag and topic routes document.
+// Every valid slug comes from a closed, file-backed set, so anything outside
+// generateStaticParams is a genuine 404 and there is nothing to render on
+// demand. Saying so lets Next 404 at the routing layer — which is also what
+// makes the sibling loading.tsx safe: a loading boundary flushes a 200 shell,
+// and once that is sent notFound() can no longer set a status. The article, tag
+// and topic routes solve the same problem with gating layouts; here the params
+// are finite, so the simpler answer applies.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const terms = await getAllGlossaryTerms();
   return terms.map((t) => ({ term: t.slug }));
@@ -118,7 +127,7 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       {/* The one-line definition is what gets quoted in featured snippets, so it
           sits first, alone, and reads as a complete sentence. */}
-      <p className="text-lg md:text-xl font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-8">
+      <p className="text-lg md:text-xl font-semibold leading-snug border-l-4 border-primary pl-4 pr-4 py-3 tone-fill mb-8">
         {term.shortDef}
       </p>
 

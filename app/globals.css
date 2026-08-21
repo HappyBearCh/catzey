@@ -425,6 +425,29 @@
 .ref-prose a:hover { color: #d0342c; }
 .dark .ref-prose a { color: #f0a49e; }
 
+.ref-prose blockquote {
+  position: relative;
+  isolation: isolate;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.15rem;
+  border-left: 3px solid #d0342c;
+  font-style: italic;
+}
+.ref-prose blockquote::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(#14110f 1px, transparent 1.2px);
+  background-size: 5px 5px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.dark .ref-prose blockquote::before {
+  background-image: radial-gradient(#f7f4ee 1px, transparent 1.2px);
+  opacity: 0.09;
+}
+
 .ref-prose ul, .ref-prose ol {
   margin-bottom: 1.15rem;
   padding-left: 1.35rem;

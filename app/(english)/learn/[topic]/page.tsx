@@ -21,6 +21,15 @@ interface Props {
 }
 
 // Prerendered at build, ISR thereafter — see the note on the glossary route.
+// Every valid slug comes from a closed, file-backed set, so anything outside
+// generateStaticParams is a genuine 404 and there is nothing to render on
+// demand. Saying so lets Next 404 at the routing layer — which is also what
+// makes the sibling loading.tsx safe: a loading boundary flushes a 200 shell,
+// and once that is sent notFound() can no longer set a status. The article, tag
+// and topic routes solve the same problem with gating layouts; here the params
+// are finite, so the simpler answer applies.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const topics = await getAllLearnTopics();
   return topics.map((t) => ({ topic: t.slug }));
@@ -145,7 +154,7 @@ export default async function LearnTopicPage({ params }: Props) {
 
       <ShelfBadge title={topic.title} showSum className="mb-5" />
 
-      <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-8">
+      <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 pr-4 py-3 tone-fill mb-8">
         {topic.summary}
       </p>
 
