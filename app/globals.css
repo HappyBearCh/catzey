@@ -87,12 +87,53 @@
   }
 
   /* The figure a numeral sits in — a thin gold circle, as on a chart. */
+  /* The hanko. A seal is struck at a handful of sizes, not at whatever width a
+     call site happened to type — these keep the ring weight and the numeral in
+     proportion to each other, which ad-hoc w-/text- pairs did not. */
   .sigil {
     @apply inline-flex items-center justify-center rounded-full font-display font-bold;
     color: #d0342c;
     border: 2px solid #d0342c;
     box-shadow: none;
     letter-spacing: -0.02em;
+    /* Default: the size most call sites want. */
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.8rem;
+  }
+  .sigil-xs {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.65rem;
+    border-width: 1.5px;
+  }
+  .sigil-sm {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.8rem;
+  }
+  .sigil-md {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  .sigil-lg {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+  .sigil-xl {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.5rem;
+    border-width: 3px;
+  }
+  @media (min-width: 768px) {
+    .sigil-xl {
+      width: 6rem;
+      height: 6rem;
+      font-size: 3rem;
+    }
   }
 }
 

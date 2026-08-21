@@ -24,7 +24,7 @@ export function ShelfBadge({ title, showSum = false, className = '' }: Props) {
       className={`inline-flex items-center gap-2 border border-seal pl-1 pr-3 py-1 hover:bg-seal/10 transition-colors group ${className}`}
       aria-label={`Filed under ${n}, ${group.shelf}`}
     >
-      <span className="sigil w-7 h-7 text-sm border border-ink dark:border-parchment group-hover:border-seal transition-colors">
+      <span className="sigil sigil-sm">
         {n}
       </span>
       <span className="eyebrow text-ink-2 dark:text-parchment/70 group-hover:text-gold transition-colors">

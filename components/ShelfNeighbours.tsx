@@ -33,7 +33,7 @@ export async function ShelfNeighbours({ title, selfHref, limit = 6, className = 
       <div className="flex items-baseline gap-3 mb-4">
         <Link
           href={`/number/${n}`}
-          className="sigil w-9 h-9 text-base border border-seal hover:border-seal transition-colors shrink-0"
+          className="sigil sigil-md shrink-0 hover:opacity-75 transition-opacity"
           aria-hidden="true"
         >
           {n}

@@ -272,7 +272,7 @@ export default async function AdminPage({ searchParams }: Props) {
                     <p className="text-2xs text-gray-400">{getCategoryLabel(article.category)} · {format(new Date(article.publishedAt), 'MMM d, yyyy')}</p>
                   </div>
                   <span className="flex-shrink-0 text-xs font-bold text-primary">
-                    {article.views.toLocaleString()} views
+                    {article.views.toLocaleString('en-US')} views
                   </span>
                 </li>
               ))}

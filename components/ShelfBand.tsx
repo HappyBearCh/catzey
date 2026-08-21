@@ -50,7 +50,7 @@ export function ShelfBand({ titles, noun, className = '' }: Props) {
                     : 'border-rule/40 dark:border-rule opacity-50 hover:opacity-100'
                 }`}
               >
-                <span className="sigil w-6 h-6 text-xs border border-ink dark:border-parchment">{n}</span>
+                <span className="sigil sigil-xs">{n}</span>
                 <span className="text-xs leading-tight">
                   <span className="block font-display text-ink dark:text-parchment">
                     {group.shelf}

@@ -19,7 +19,7 @@ export function Header() {
             <MobileMenu />
             <div className="hidden md:flex items-baseline gap-2">
               <span className="eyebrow">Today</span>
-              <span className="sigil w-7 h-7 text-sm">{today.number}</span>
+              <span className="sigil sigil-sm">{today.number}</span>
             </div>
           </div>
 

@@ -48,7 +48,7 @@ export async function MostRead({ currentSlug }: MostReadProps) {
                     {article.title}
                   </p>
                   <span className="text-xs text-gray-600 mt-1 block">
-                    {article.views.toLocaleString()} views
+                    {article.views.toLocaleString('en-US')} views
                   </span>
                 </div>
                 {article.imageUrl && (

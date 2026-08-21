@@ -128,7 +128,7 @@ export async function CategoryArchive({
       </div>
       <div className="flex items-center justify-between mb-6 ml-4 mr-0">
         <p className="text-site-gray text-sm">
-          Latest {label} news — {total.toLocaleString()} article{total !== 1 ? 's' : ''}
+          Latest {label} news — {total.toLocaleString('en-US')} article{total !== 1 ? 's' : ''}
         </p>
         <div className="flex items-center gap-1.5">
           <Link

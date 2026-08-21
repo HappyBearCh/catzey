@@ -25,7 +25,7 @@ const STATUS_VALUE = reduce(STATUS);
 export default function NotFound() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-24 text-center">
-      <div className="sigil w-16 h-16 text-2xl mb-6">
+      <div className="sigil sigil-lg mb-6">
         404
       </div>
       <h1 className="font-display text-4xl md:text-5xl font-semibold mb-4 text-ink dark:text-parchment">Page Not Found</h1>
@@ -66,7 +66,7 @@ export default function NotFound() {
               key={n}
               href={`/number/${n}`}
               title={getGroup(n).shelf}
-              className="sigil w-8 h-8 text-xs border border-ink dark:border-parchment hover:border-seal hover:text-gold transition-colors"
+              className="sigil sigil-sm hover:opacity-75 transition-opacity"
             >
               {n}
             </Link>

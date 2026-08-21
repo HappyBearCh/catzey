@@ -109,7 +109,7 @@ export function CategoryNav() {
                     href={href}
                     aria-current={active ? 'page' : undefined}
                     title={`${n} — ${getGroup(n).shelf}`}
-                    className={`sigil w-7 h-7 text-xs border transition-colors ${
+                    className={`sigil sigil-sm transition-colors ${
                       active
                         ? 'border-seal bg-seal text-white'
                         : 'border-ink dark:border-parchment text-ink-muted hover:border-seal hover:text-gold dark:text-parchment/50'

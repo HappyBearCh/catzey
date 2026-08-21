@@ -168,7 +168,7 @@ export default async function HomePage() {
 
           <div className="flex items-center justify-center gap-5 mb-8" aria-hidden="true">
             <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
-            <span className="sigil w-20 h-20 md:w-24 md:h-24 text-4xl md:text-5xl">
+            <span className="sigil sigil-xl">
               {today.number}
             </span>
             <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />

@@ -100,7 +100,7 @@ export default function SetsIndexPage() {
         return (
           <section key={count} className="mb-12">
             <div className="flex items-center gap-4 mb-5 pb-2 border-b-2 border-ink dark:border-parchment">
-              <span className="sigil w-10 h-10 text-base border border-seal shrink-0" aria-hidden="true">
+              <span className="sigil sigil-md shrink-0" aria-hidden="true">
                 {count}
               </span>
               <h2 className="font-display text-2xl text-ink dark:text-parchment">

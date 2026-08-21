@@ -47,7 +47,7 @@ export async function TrendingStrip() {
               <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors line-clamp-1 max-w-[180px]">
                 {article.title}
               </span>
-              <span className="text-2xs text-gray-500 hidden md:block">{article.views.toLocaleString()} views</span>
+              <span className="text-2xs text-gray-500 hidden md:block">{article.views.toLocaleString('en-US')} views</span>
             </Link>
           ))}
         </div>

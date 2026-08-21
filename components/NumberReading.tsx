@@ -44,7 +44,7 @@ export function NumberReading({
       <div className="flex items-start gap-5">
         <Link
           href={`/number/${n}`}
-          className="sigil shrink-0 w-16 h-16 text-2xl border border-seal hover:border-seal transition-colors"
+          className="sigil sigil-lg shrink-0 hover:opacity-75 transition-opacity"
           aria-label={`Filed under ${n}, ${group.shelf}`}
         >
           {n}

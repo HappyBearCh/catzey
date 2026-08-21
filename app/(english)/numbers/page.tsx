@@ -78,7 +78,7 @@ export default async function NumbersIndexPage() {
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-ink-2 dark:text-parchment/75">
           Categories tell you what a text is <em>about</em>. They are useful and they are not
-          how this reference is arranged. Every one of the {total.toLocaleString()} texts here is
+          how this reference is arranged. Every one of the {total.toLocaleString('en-US')} texts here is
           filed instead by the number its title reduces to — which turns out to say something
           about what shape the text has, and puts a glossary entry, a thirty-year-old
           serialisation and last week&apos;s announcement on the same shelf when they are doing
@@ -134,7 +134,7 @@ export default async function NumbersIndexPage() {
               className="group panel tone-fill p-6 md:p-7 hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors flex gap-5"
             >
               <span
-                className="sigil shrink-0 w-14 h-14 text-2xl"
+                className="sigil sigil-lg shrink-0"
                 aria-hidden="true"
               >
                 {n}
