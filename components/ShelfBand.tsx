@@ -27,7 +27,7 @@ export function ShelfBand({ titles, noun, className = '' }: Props) {
   }
 
   return (
-    <section className={`border-y border-gold/25 py-4 ${className}`} aria-label="Filed by number">
+    <section className={`border-y-2 border-ink dark:border-parchment py-4 ${className}`} aria-label="Filed by number">
       <div className="flex items-baseline justify-between gap-4 mb-3">
         <h2 className="eyebrow">Filed by number</h2>
         <Link href="/numbers" className="eyebrow text-gold hover:underline">
@@ -46,11 +46,11 @@ export function ShelfBand({ titles, noun, className = '' }: Props) {
                 title={`${group.shelf} — ${group.tagline}`}
                 className={`flex items-center gap-2 border px-2 py-1.5 transition-colors ${
                   count > 0
-                    ? 'border-gold/40 hover:bg-gold/10'
+                    ? 'border-seal hover:bg-seal/10'
                     : 'border-rule/40 dark:border-rule opacity-50 hover:opacity-100'
                 }`}
               >
-                <span className="sigil w-6 h-6 text-xs border border-gold/30">{n}</span>
+                <span className="sigil w-6 h-6 text-xs border border-ink dark:border-parchment">{n}</span>
                 <span className="text-xs leading-tight">
                   <span className="block font-display text-ink dark:text-parchment">
                     {group.shelf}

@@ -99,8 +99,8 @@ export default function SetsIndexPage() {
         const group = getGroup(value);
         return (
           <section key={count} className="mb-12">
-            <div className="flex items-center gap-4 mb-5 pb-2 border-b border-gold/25">
-              <span className="sigil w-10 h-10 text-base border border-gold/40 shrink-0" aria-hidden="true">
+            <div className="flex items-center gap-4 mb-5 pb-2 border-b-2 border-ink dark:border-parchment">
+              <span className="sigil w-10 h-10 text-base border border-seal shrink-0" aria-hidden="true">
                 {count}
               </span>
               <h2 className="font-display text-2xl text-ink dark:text-parchment">

@@ -86,7 +86,7 @@ export function CategoryInfo({ slug }: Props) {
                     key={work}
                     href={`/number/${n}`}
                     title={`${work} reduces to ${n} — ${getGroup(n).shelf}`}
-                    className="text-xs font-semibold px-2.5 py-1 bg-site-light text-primary border border-site-border rounded-sm hover:border-gold transition-colors"
+                    className="text-xs font-semibold px-2.5 py-1 bg-site-light text-primary border border-site-border rounded-sm hover:border-seal transition-colors"
                   >
                     {work}
                     <span className="text-gold/70 font-normal"> · {n}</span>

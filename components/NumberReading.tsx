@@ -38,13 +38,13 @@ export function NumberReading({
 
   return (
     <section
-      className={`border-y border-gold/25 py-6 ${className}`}
+      className={`border-y-2 border-ink dark:border-parchment py-6 ${className}`}
       aria-label={`Numerological reading of ${title}`}
     >
       <div className="flex items-start gap-5">
         <Link
           href={`/number/${n}`}
-          className="sigil shrink-0 w-16 h-16 text-2xl border border-gold/40 hover:border-gold transition-colors"
+          className="sigil shrink-0 w-16 h-16 text-2xl border border-seal hover:border-seal transition-colors"
           aria-label={`Filed under ${n}, ${group.shelf}`}
         >
           {n}

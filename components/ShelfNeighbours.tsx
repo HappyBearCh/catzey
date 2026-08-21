@@ -27,13 +27,13 @@ export async function ShelfNeighbours({ title, selfHref, limit = 6, className = 
 
   return (
     <aside
-      className={`border-t border-gold/30 pt-5 ${className}`}
+      className={`border-t-2 border-ink dark:border-parchment pt-5 ${className}`}
       aria-label={`Also filed under ${n}`}
     >
       <div className="flex items-baseline gap-3 mb-4">
         <Link
           href={`/number/${n}`}
-          className="sigil w-9 h-9 text-base border border-gold/40 hover:border-gold transition-colors shrink-0"
+          className="sigil w-9 h-9 text-base border border-seal hover:border-seal transition-colors shrink-0"
           aria-hidden="true"
         >
           {n}

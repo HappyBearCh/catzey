@@ -50,7 +50,7 @@ export default function NotFound() {
           <Link
             key={href}
             href={href}
-            className="font-display text-sm uppercase tracking-label px-3 py-2 border border-gold/40 text-ink dark:text-parchment hover:border-gold hover:text-gold transition-colors"
+            className="font-display text-sm uppercase tracking-label px-3 py-2 border border-seal text-ink dark:text-parchment hover:border-seal hover:text-gold transition-colors"
           >
             {label}
           </Link>
@@ -58,7 +58,7 @@ export default function NotFound() {
       </div>
 
       {/* Browse by shelf — the way the reference is actually arranged. */}
-      <div className="pt-6 border-t border-gold/25 mb-6">
+      <div className="pt-6 border-t-2 border-ink dark:border-parchment mb-6">
         <p className="eyebrow block mb-3">Or browse by number</p>
         <div className="flex flex-wrap justify-center gap-1.5">
           {GROUP_NUMBERS.map((n) => (
@@ -66,7 +66,7 @@ export default function NotFound() {
               key={n}
               href={`/number/${n}`}
               title={getGroup(n).shelf}
-              className="sigil w-8 h-8 text-xs border border-gold/30 hover:border-gold hover:text-gold transition-colors"
+              className="sigil w-8 h-8 text-xs border border-ink dark:border-parchment hover:border-seal hover:text-gold transition-colors"
             >
               {n}
             </Link>
@@ -75,7 +75,7 @@ export default function NotFound() {
       </div>
 
       {/* Browse by category */}
-      <div className="pt-6 border-t border-gold/25">
+      <div className="pt-6 border-t-2 border-ink dark:border-parchment">
         <p className="eyebrow block mb-3">Browse by category</p>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
           {CATEGORIES.map(({ label, slug }) => (

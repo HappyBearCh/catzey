@@ -35,7 +35,7 @@ export function TagList({ tags, basePath = '' }: TagListProps) {
           <Link
             key={tag}
             href={`/number/${n}`}
-            className="inline-block text-xs font-semibold px-2.5 py-1 border border-gold/40 text-gold hover:bg-gold/10 transition-colors rounded-sm"
+            className="inline-block text-xs font-semibold px-2.5 py-1 border border-seal text-gold hover:bg-seal/10 transition-colors rounded-sm"
           >
             {tag}
           </Link>

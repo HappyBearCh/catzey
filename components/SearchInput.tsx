@@ -152,7 +152,7 @@ export function SearchInput({
             onFocus={onFocus}
             placeholder={placeholder}
             autoComplete="off"
-            className="text-xs bg-transparent text-ink dark:text-parchment placeholder-ink-muted dark:placeholder-parchment/35 border-0 border-b border-gold/30 px-1 py-1.5 w-full focus:outline-none focus:border-gold transition-colors pr-10"
+            className="text-xs bg-transparent text-ink dark:text-parchment placeholder-ink-muted dark:placeholder-parchment/35 border-0 border-b-2 border-ink dark:border-parchment px-1 py-1.5 w-full focus:outline-none focus:border-gold transition-colors pr-10"
           />
           <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-parchment/35 font-mono hidden md:block">/</kbd>
         </div>
@@ -197,7 +197,7 @@ export function SearchInput({
                 href={isShelf ? `/${s.slug}` : `${articleBasePath}/${s.slug}`}
                 onClick={() => { saveRecent(query.trim()); setRecentSearches(loadRecent()); clear(); }}
                 className={`flex flex-col px-3 py-2.5 hover:bg-site-light dark:hover:bg-gray-800 transition-colors border-b border-site-border dark:border-gray-700 last:border-0 ${
-                  isShelf ? 'bg-gold/5' : ''
+                  isShelf ? 'bg-seal/10' : ''
                 }`}
               >
                 <span className="text-2xs font-semibold uppercase tracking-widest text-primary mb-0.5">

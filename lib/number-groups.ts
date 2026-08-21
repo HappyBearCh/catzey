@@ -24,7 +24,6 @@ export const MASTER_NUMBERS = [11, 22, 33] as const;
 
 export interface NumberGroup {
   n: number;
-  roman: string;
   /** The shelf's name — what this group of texts is called. */
   shelf: string;
   /** One line, used as a subtitle under the numeral. */
@@ -47,7 +46,6 @@ export interface NumberGroup {
 export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   1: {
     n: 1,
-    roman: 'Ⅰ',
     shelf: 'The Opening',
     tagline: 'first moves, single authors, and things that had no precedent',
     intro:
@@ -62,7 +60,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   2: {
     n: 2,
-    roman: 'Ⅱ',
     shelf: 'The Pairing',
     tagline: 'two names, two markets, and everything negotiated between them',
     intro:
@@ -77,7 +74,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   3: {
     n: 3,
-    roman: 'Ⅲ',
     shelf: 'The Telling',
     tagline: 'craft, voice, and the machinery of putting a story across',
     intro:
@@ -92,7 +88,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   4: {
     n: 4,
-    roman: 'Ⅳ',
     shelf: 'The Structure',
     tagline: 'schedules, formats, volumes, and the frames that hold everything up',
     intro:
@@ -107,7 +102,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   5: {
     n: 5,
-    roman: 'Ⅴ',
     shelf: 'The Turn',
     tagline: 'change, escape, and the moment a form stops behaving',
     intro:
@@ -122,7 +116,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   6: {
     n: 6,
-    roman: 'Ⅵ',
     shelf: 'The Care',
     tagline: 'audiences, communities, and who a story is responsible to',
     intro:
@@ -137,7 +130,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   7: {
     n: 7,
-    roman: 'Ⅶ',
     shelf: 'The Inquiry',
     tagline: 'what is unresolved, unexplained, or deliberately withheld',
     intro:
@@ -152,7 +144,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   8: {
     n: 8,
-    roman: 'Ⅷ',
     shelf: 'The Ledger',
     tagline: 'money, scale, ownership, and who actually decides',
     intro:
@@ -167,7 +158,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   9: {
     n: 9,
-    roman: 'Ⅸ',
     shelf: 'The Closing',
     tagline: 'endings, legacies, and what a finished thing leaves behind',
     intro:
@@ -182,7 +172,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   11: {
     n: 11,
-    roman: 'ⅩⅠ',
     shelf: 'The Signal',
     tagline: 'master number — work that saw something early',
     intro:
@@ -197,7 +186,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   22: {
     n: 22,
-    roman: 'ⅩⅩⅡ',
     shelf: 'The Edifice',
     tagline: 'master number — the vision that actually got built',
     intro:
@@ -212,7 +200,6 @@ export const NUMBER_GROUPS: Record<number, NumberGroup> = {
   },
   33: {
     n: 33,
-    roman: 'ⅩⅩⅩⅢ',
     shelf: 'The Teaching',
     tagline: 'master number — work that made other work possible',
     intro:

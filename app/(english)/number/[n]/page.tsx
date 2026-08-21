@@ -128,13 +128,13 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
       <header className="text-center max-w-2xl mx-auto mb-12">
         <div className="flex items-center justify-center gap-5 mb-7" aria-hidden="true">
           <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
-          <span className="sigil w-20 h-20 md:w-24 md:h-24 text-4xl md:text-5xl border border-gold/40">
+          <span className="sigil w-20 h-20 md:w-24 md:h-24 text-4xl md:text-5xl border border-seal">
             {n}
           </span>
           <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
         </div>
         <p className="eyebrow mb-5">
-          {group.master ? 'Master number' : 'Shelf'} {group.roman} · {profile.keyword}
+          {group.master ? 'Master number' : 'Shelf'} · {profile.keyword}
         </p>
         <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-wide text-ink dark:text-parchment">
           {group.shelf}
@@ -169,7 +169,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
 
           {sections.map((section) => (
             <section key={section.kind} className="mb-12">
-              <div className="flex items-baseline gap-4 mb-5 pb-2 border-b border-gold/25">
+              <div className="flex items-baseline gap-4 mb-5 pb-2 border-b-2 border-ink dark:border-parchment">
                 <h2 className="eyebrow">{section.heading}</h2>
                 <span className="flex-1" />
                 <span className="eyebrow text-ink-muted dark:text-parchment/45">
@@ -182,7 +182,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="group flex gap-4 py-4 border-b border-rule/40 dark:border-rule last:border-0 hover:bg-gold/5 transition-colors -mx-2 px-2"
+                      className="group flex gap-4 py-4 border-b border-rule/40 dark:border-rule last:border-0 hover:bg-seal/10 transition-colors -mx-2 px-2"
                     >
                       <span
                         className="shrink-0 font-display text-sm text-gold/60 tabular-nums w-12 pt-1 text-right"
@@ -207,7 +207,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
         </>
       )}
 
-      <nav className="flex items-stretch justify-between gap-4 border-t border-gold/25 pt-6 mt-14">
+      <nav className="flex items-stretch justify-between gap-4 border-t-2 border-ink dark:border-parchment pt-6 mt-14">
         {prev ? (
           <Link href={`/number/${prev}`} className="group flex-1 text-left">
             <span className="eyebrow block mb-1">Previous shelf</span>

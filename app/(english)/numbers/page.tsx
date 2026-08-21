@@ -90,7 +90,7 @@ export default async function NumbersIndexPage() {
       </header>
 
       {/* The rule, worked on a real title so the reader can check it. */}
-      <section className="max-w-2xl mx-auto mb-16 border-y border-gold/25 py-8">
+      <section className="max-w-2xl mx-auto mb-16 border-y-2 border-ink dark:border-parchment py-8">
         <h2 className="eyebrow mb-5 text-center">How a text is filed</h2>
         <p className="text-ink-2 dark:text-parchment/75 leading-relaxed mb-6">
           Each letter carries a digit — A is 1, B is 2, on to I at 9, then the alphabet starts

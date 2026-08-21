@@ -99,8 +99,8 @@ export function MobileMenu() {
                 title={`${n} — ${getGroup(n).shelf}`}
                 className={`flex items-center justify-center h-9 border text-sm font-display transition-colors ${
                   pathname === `/number/${n}`
-                    ? 'border-gold bg-gold/15 text-gold'
-                    : 'border-gold/25 text-gold/70 hover:border-gold hover:text-gold'
+                    ? 'border-seal bg-seal text-white'
+                    : 'border-ink dark:border-parchment text-gold/70 hover:border-seal hover:text-gold'
                 }`}
               >
                 {n}

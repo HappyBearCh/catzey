@@ -31,7 +31,7 @@ export function ArticleStickyHeader({ title, url }: Props) {
       style={{ top: '97px' }}
     >
       <div className="max-w-8xl mx-auto px-4 py-2.5 flex items-center justify-between gap-4">
-        <span className="sigil w-6 h-6 text-xs border border-gold/40 shrink-0" aria-hidden="true">
+        <span className="sigil w-6 h-6 text-xs border border-seal shrink-0" aria-hidden="true">
           {titleValue(title)}
         </span>
         <p className="font-bold text-sm line-clamp-1 flex-1 text-gray-900 dark:text-gray-100">{title}</p>

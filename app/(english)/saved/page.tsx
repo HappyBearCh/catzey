@@ -51,7 +51,7 @@ export default function SavedPage() {
         }
         const [top, count] = [...byShelf.entries()].sort((a, b) => b[1] - a[1])[0];
         return (
-          <section className="border-y border-gold/25 py-4 mb-8" aria-label="What you have been saving">
+          <section className="border-y-2 border-ink dark:border-parchment py-4 mb-8" aria-label="What you have been saving">
             <p className="eyebrow mb-2">What you have been keeping</p>
             <p className="text-sm text-ink-2 dark:text-parchment/70 leading-relaxed">
               {count} of your {articles.length} saved {articles.length === 1 ? 'piece' : 'pieces'}{' '}

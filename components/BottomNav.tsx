@@ -64,7 +64,7 @@ export function BottomNav({ basePath = '' }: Props) {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper dark:bg-ground border-t border-gold/25 border-t border-white/10 safe-area-inset-bottom">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper dark:bg-ground border-t-2 border-ink dark:border-parchment border-t border-white/10 safe-area-inset-bottom">
       <ul className="flex items-center">
         {items.map(({ label, href, icon }) => {
           const active = pathname === href;

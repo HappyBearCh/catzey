@@ -73,7 +73,7 @@ export default async function TrendingPage() {
       </p>
 
       {leading && (
-        <section className="border-y border-gold/25 py-4 mb-8" aria-label="What the month's reading reduces to">
+        <section className="border-y-2 border-ink dark:border-parchment py-4 mb-8" aria-label="What the month's reading reduces to">
           <p className="eyebrow mb-3">What the month reduced to</p>
           <div className="flex flex-wrap items-center gap-1.5 mb-3">
             {GROUP_NUMBERS.map((n) => {
@@ -85,7 +85,7 @@ export default async function TrendingPage() {
                   title={`${getGroup(n).shelf} — ${count} of these`}
                   className={`flex items-center gap-1.5 border px-2 py-1 text-xs transition-colors ${
                     count > 0
-                      ? 'border-gold/40 hover:bg-gold/10'
+                      ? 'border-seal hover:bg-seal/10'
                       : 'border-rule/40 dark:border-rule opacity-40'
                   }`}
                 >

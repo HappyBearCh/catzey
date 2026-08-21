@@ -21,10 +21,10 @@ export function ShelfBadge({ title, showSum = false, className = '' }: Props) {
   return (
     <Link
       href={`/number/${n}`}
-      className={`inline-flex items-center gap-2 border border-gold/40 pl-1 pr-3 py-1 hover:bg-gold/10 transition-colors group ${className}`}
+      className={`inline-flex items-center gap-2 border border-seal pl-1 pr-3 py-1 hover:bg-seal/10 transition-colors group ${className}`}
       aria-label={`Filed under ${n}, ${group.shelf}`}
     >
-      <span className="sigil w-7 h-7 text-sm border border-gold/30 group-hover:border-gold/60 transition-colors">
+      <span className="sigil w-7 h-7 text-sm border border-ink dark:border-parchment group-hover:border-seal transition-colors">
         {n}
       </span>
       <span className="eyebrow text-ink-2 dark:text-parchment/70 group-hover:text-gold transition-colors">

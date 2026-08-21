@@ -196,7 +196,7 @@ export default async function HomePage() {
               <Link
                 key={href}
                 href={href}
-                className="group p-6 hover:bg-gold/5 transition-colors border-b-2 sm:border-b-0 border-ink/20 dark:border-parchment/20 last:border-b-0"
+                className="group p-6 hover:bg-seal/10 transition-colors border-b-2 sm:border-b-0 border-ink/20 dark:border-parchment/20 last:border-b-0"
               >
                 <span className="block font-display text-gold/60 text-lg mb-2 tracking-wide" aria-hidden="true">
                   {i + 1}
@@ -223,7 +223,7 @@ export default async function HomePage() {
         {/* Top stories grid */}
         {gridArticles.length > 0 && (
           <section className="my-8">
-            <div className="flex items-baseline gap-4 mb-6 pb-2 border-b border-gold/25">
+            <div className="flex items-baseline gap-4 mb-6 pb-2 border-b-2 border-ink dark:border-parchment">
               <h2 className="eyebrow">From the archive</h2>
               <span className="flex-1" />
               <span className="font-display text-[0.8rem] tracking-wide text-ink-muted dark:text-parchment/45">
@@ -273,7 +273,7 @@ export default async function HomePage() {
         </section>
 
         {/* The reference, shelf by shelf */}
-        <section className="my-12 border-t border-gold/25 pt-10">
+        <section className="my-12 border-t-2 border-ink dark:border-parchment pt-10">
           <div className="text-center max-w-xl mx-auto mb-10">
             <p className="eyebrow mb-4">The whole reference, by number</p>
             <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-wide text-ink dark:text-parchment">

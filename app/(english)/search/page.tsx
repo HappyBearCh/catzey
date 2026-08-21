@@ -63,9 +63,9 @@ export default async function SearchPage({ searchParams }: Props) {
       {shelfMatch !== null && (
         <Link
           href={`/number/${shelfMatch}`}
-          className="group flex items-center gap-4 border border-gold/40 p-4 mb-8 hover:bg-gold/5 transition-colors"
+          className="group flex items-center gap-4 border border-seal p-4 mb-8 hover:bg-seal/10 transition-colors"
         >
-          <span className="sigil w-12 h-12 text-xl border border-gold/40 shrink-0">{shelfMatch}</span>
+          <span className="sigil w-12 h-12 text-xl border border-seal shrink-0">{shelfMatch}</span>
           <span className="min-w-0">
             <span className="eyebrow block">Shelf</span>
             <span className="block font-display text-xl text-ink dark:text-parchment group-hover:text-gold transition-colors">

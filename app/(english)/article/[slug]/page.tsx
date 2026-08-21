@@ -358,7 +358,7 @@ export default async function ArticlePage({ params }: Props) {
             </span>
             <Link
               href={`/number/${shelfNumber}`}
-              className="inline-flex items-center gap-1.5 text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 border border-gold/50 text-gold hover:bg-gold/10 transition-colors"
+              className="inline-flex items-center gap-1.5 text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 border border-seal text-gold hover:bg-seal/10 transition-colors"
             >
               <span aria-hidden="true">{shelfNumber}</span>
               <span>{shelf.shelf}</span>

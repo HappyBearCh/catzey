@@ -111,8 +111,8 @@ export function CategoryNav() {
                     title={`${n} — ${getGroup(n).shelf}`}
                     className={`sigil w-7 h-7 text-xs border transition-colors ${
                       active
-                        ? 'border-gold bg-gold/15 text-gold'
-                        : 'border-gold/25 text-ink-muted hover:border-gold hover:text-gold dark:text-parchment/50'
+                        ? 'border-seal bg-seal text-white'
+                        : 'border-ink dark:border-parchment text-ink-muted hover:border-seal hover:text-gold dark:text-parchment/50'
                     }`}
                   >
                     {n}
