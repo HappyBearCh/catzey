@@ -33,9 +33,10 @@ export default function AboutPage() {
           news archive sits underneath it, kept for as long as it is useful.
         </p>
         <p>
-          What makes it unusual is the arrangement. Nothing here is filed by topic. Every text on
-          the site is filed by <strong>the number its title reduces to</strong>, on one of{' '}
-          <Link href="/numbers">twelve shelves</Link>.
+          What makes it unusual is the arrangement. Nothing here is filed by topic. Almost every
+          text on the site is filed by <strong>the number its title reduces to</strong>, on one of{' '}
+          <Link href="/numbers">twelve shelves</Link>. The exception is the one section where the
+          number was never ours to impose — see below.
         </p>
 
         <h2>How a text is filed</h2>
@@ -50,6 +51,34 @@ export default function AboutPage() {
           therefore read from{' '}
           <Link href={`/number/${example.value}`}>{getGroup(example.value).shelf}</Link>, next to
           everything else that reduced the same way.
+        </p>
+
+        <h2>The sets we did not number</h2>
+        <p>
+          Manga numbers itself constantly. The Four Emperors, the Nine Tailed Beasts, the Twelve
+          Kizuki split into an Upper Six and a Lower Six, the Gotei 13 — shōnen is full of sets
+          whose size an author chose deliberately, usually to make relative strength legible at a
+          glance without a word of explanation. Those entries live in{' '}
+          <Link href="/sets">Numbered Sets</Link>, and they are filed by their own count rather
+          than by their titles, because a number somebody chose outranks one this reference
+          calculated. It is the only section here where the shelf is not an imposition.
+        </p>
+
+        <h2>Reading the Japanese</h2>
+        <p>
+          The Pythagorean reduction has a real weakness and it is worth naming: applied to a manga
+          it usually reduces an English title, and an English title is a licensing decision.
+          &ldquo;Attack on Titan&rdquo; was settled by a publisher in 2012;{' '}
+          <span lang="ja">進撃の巨人</span> is what Isayama wrote.
+        </p>
+        <p>
+          So series and creator entries also carry <span lang="ja">画数</span> — the stroke count
+          of the name as it is actually written — and, for people, the five figures of{' '}
+          <span lang="ja">姓名判断</span>, the Japanese system of name divination by stroke count.
+          That system matters here for a specific reason: it is used in Japan to choose names,
+          including pen names, so of every reading on this site those are the likeliest to have
+          been intended by their subject. The stroke tables are hand-entered and the code prints
+          nothing for a character it cannot count.
         </p>
 
         <h2>What the arrangement claims</h2>
@@ -90,6 +119,14 @@ export default function AboutPage() {
             );
           })}
         </ul>
+
+        <h2>Where a number is not imposed</h2>
+        <p>
+          Three kinds of number on this site were not calculated by us, and where they contradict
+          the title reduction the entry says so and the figure wins: a series&apos; volume count
+          and run length, the stroke count of a Japanese name, and the size of a set its author
+          numbered. A title is a decision somebody made about a thing. Those are the thing.
+        </p>
 
         <h2>How the readings are written</h2>
         <p>

@@ -43,6 +43,9 @@ export async function generateMetadata({
 // Shelves list explainers and glossary before reporting: the reference is meant
 // to be read, and the archive is the part that ages.
 const KIND_ORDER: ShelfEntry['kind'][] = [
+  // Numbered sets lead: they are the one kind on the shelf that arrived at this
+  // number by its author's choice rather than by the reference's arithmetic.
+  'set',
   'lesson',
   'glossary',
   'work',
@@ -53,6 +56,7 @@ const KIND_ORDER: ShelfEntry['kind'][] = [
 ];
 
 const KIND_HEADING: Record<string, string> = {
+  set: 'Numbered by their authors',
   lesson: 'Explainers',
   glossary: 'Glossary',
   work: 'Series',

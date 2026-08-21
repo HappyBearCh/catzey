@@ -12,6 +12,7 @@ const LEARN_LINKS = [
   { label: 'Learn', href: '/learn' },
   { label: 'Glossary', href: '/glossary' },
   { label: 'Wiki', href: '/wiki' },
+  { label: 'Sets', href: '/sets' },
   { label: 'Shelves', href: '/numbers' },
 ];
 
@@ -20,7 +21,7 @@ const linkBase =
 
 // Roman numerals mark the three parts of the reference, as the sections of a
 // treatise are numbered rather than tabbed.
-const NUMERALS = ['Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ'];
+const NUMERALS = ['Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ'];
 
 export function CategoryNav() {
   const pathname = usePathname();

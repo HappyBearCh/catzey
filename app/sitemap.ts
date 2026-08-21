@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { prisma } from '@/lib/db';
 import { CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS } from '@/lib/number-groups';
+import { getAllNumberedSets } from '@/lib/numbered-sets';
 import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { getAllGenres } from '@/lib/genre-info';
@@ -113,6 +114,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/glossary`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/wiki`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/numbers`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
+    { url: `${BASE}/sets`, changeFrequency: 'monthly' as const, priority: 0.85 },
     { url: `${BASE}/trending`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.8 },
     { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
@@ -132,6 +134,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: newestUpdate,
     changeFrequency: 'weekly' as const,
     priority: 0.75,
+  }));
+
+  const setPages: MetadataRoute.Sitemap = getAllNumberedSets().map((set) => ({
+    url: `${BASE}/sets/${set.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
   }));
 
   const categoryPages: MetadataRoute.Sitemap = [];
@@ -247,5 +255,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...eduPages, ...shelfPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
+  return [...staticPages, ...eduPages, ...shelfPages, ...setPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
 }

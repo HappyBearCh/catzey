@@ -72,6 +72,7 @@ export function MobileMenu() {
             { label: 'Learn', href: '/learn' },
             { label: 'Glossary', href: '/glossary' },
             { label: 'Wiki', href: '/wiki' },
+            { label: 'Sets', href: '/sets' },
             { label: 'Shelves', href: '/numbers' },
           ].map(({ label, href }) => {
             const active = pathname === href || pathname.startsWith(`${href}/`);

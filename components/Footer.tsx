@@ -58,6 +58,9 @@ export function Footer() {
             <Link href="/numbers" className="eyebrow hover:text-gold transition-colors">
               How filing works →
             </Link>
+            <Link href="/sets" className="eyebrow hover:text-gold transition-colors block mt-2">
+              Numbered sets →
+            </Link>
           </div>
 
           <div>

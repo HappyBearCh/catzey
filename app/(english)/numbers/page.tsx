@@ -164,6 +164,13 @@ export default async function NumbersIndexPage() {
       </div>
 
       <p className="text-sm text-ink-muted dark:text-parchment/55 mt-10 max-w-2xl mx-auto text-center leading-relaxed">
+        One section is filed differently.{' '}
+        <Link href="/sets" className="text-gold hover:underline">Numbered sets</Link> — the Four
+        Emperors, the Twelve Kizuki, the Gotei 13 — go on the shelf of their own count, because
+        their authors chose a number and a chosen number outranks a calculated one.
+      </p>
+
+      <p className="text-sm text-ink-muted dark:text-parchment/55 mt-4 max-w-2xl mx-auto text-center leading-relaxed">
         The shelves are uneven on purpose. Nothing was moved to balance them, and 2, 22 and 33 are
         nearly empty because the arithmetic rarely lands there — a sum that reduces to 11 stops at
         11 rather than continuing down to 2. What each number means is set out in the{' '}

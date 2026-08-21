@@ -16,6 +16,7 @@ import {
 } from '@/lib/education';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { getAllGuides } from '@/lib/guides';
+import { getAllNumberedSets, setValue } from '@/lib/numbered-sets';
 import { GROUP_NUMBERS, titleValue, titleNumbers } from '@/lib/number-groups';
 import { readingLine, type TextKind } from '@/lib/numerologize';
 
@@ -43,6 +44,7 @@ const KIND_LABEL: Record<TextKind, string> = {
   creator: 'Creator',
   series: 'Sequence',
   guide: 'Guide',
+  set: 'Numbered set',
   // Sections are indexes rather than texts, so nothing is ever shelved as one.
   section: 'Section',
 };
@@ -64,6 +66,25 @@ function entry(
     value: n.value,
     raw: n.raw,
     date,
+  };
+}
+
+/**
+ * A numbered set is filed by its own count rather than by its title's letters.
+ * "The Twelve Kizuki" reduced as a phrase would say something about wording this
+ * reference chose; reduced as a count it says twelve, which is what its author
+ * chose. It is the only kind here whose shelf was not imposed, so `raw` carries
+ * the count itself rather than a letter sum.
+ */
+function setEntry(set: ReturnType<typeof getAllNumberedSets>[number]): ShelfEntry {
+  return {
+    title: set.name,
+    href: `/sets/${set.slug}`,
+    kind: 'set',
+    kindLabel: KIND_LABEL.set,
+    summary: set.shortDef,
+    value: setValue(set),
+    raw: set.count,
   };
 }
 
@@ -92,6 +113,7 @@ export const getAllEntries = cache(async (): Promise<ShelfEntry[]> => {
     ...getAllCreators().map((c) =>
       entry(c.name, `/wiki/creator/${c.slug}`, 'creator', c.bio, c.updatedAt),
     ),
+    ...getAllNumberedSets().map(setEntry),
     ...getAllStandaloneGuides().map((g) => entry(g.title, `/guides/${g.slug}`, 'guide', g.subtitle)),
     // Category guides live at /{category}/guide rather than under /guides.
     ...getAllGuides().map((g) => entry(g.title, `/${g.slug}/guide`, 'guide', g.subtitle)),
