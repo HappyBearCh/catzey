@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { CATEGORIES } from '@/lib/types';
+import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 import { getCurrentSeason, getAllSeasons } from '@/lib/seasons';
 import { NewsletterForm } from './NewsletterForm';
 
@@ -10,7 +11,7 @@ export function Footer() {
   return (
     <footer className="border-t border-gold/25 bg-paper-2 dark:bg-ground-2 text-ink-muted dark:text-parchment/55 mt-16">
       <div className="max-w-8xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
           <div>
             <Link href="/" className="block mb-4">
               <Logo />
@@ -35,6 +36,28 @@ export function Footer() {
                 <Link href="/contact" className="text-sm hover:text-gold transition-colors">Contact</Link>
               </li>
             </ul>
+          </div>
+
+          {/* The shelves get the first column after the masthead: they are the
+              arrangement, and the category list below is the older cross-cut. */}
+          <div>
+            <h3 className="eyebrow block mb-4">The Shelves</h3>
+            <ul className="space-y-1.5 mb-4">
+              {GROUP_NUMBERS.map((n) => (
+                <li key={n}>
+                  <Link
+                    href={`/number/${n}`}
+                    className="text-sm hover:text-gold transition-colors flex items-baseline gap-2"
+                  >
+                    <span className="font-display text-gold/60 w-5 tabular-nums" aria-hidden="true">{n}</span>
+                    <span>{getGroup(n).shelf}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link href="/numbers" className="eyebrow hover:text-gold transition-colors">
+              How filing works →
+            </Link>
           </div>
 
           <div>

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { NumberReading } from '@/components/NumberReading';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
@@ -100,6 +101,13 @@ export default async function GenrePage({ params }: Props) {
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl ml-4">
               {info.longDescription}
             </p>
+
+            <NumberReading
+              title={info.label}
+              label="genre"
+              seed={info.slug}
+              className="mt-6 ml-4 max-w-2xl"
+            />
           </div>
 
           {/* Articles */}

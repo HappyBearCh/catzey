@@ -1,3 +1,5 @@
+import { injectReading } from '@/lib/numerologize';
+
 export interface GuideImage {
   src: string;
   alt: string;
@@ -457,10 +459,28 @@ const GUIDES: Record<string, Guide> = {
   },
 };
 
+// Category guides live in this file rather than in data/, so the rewrite script
+// never sees them. Their readings are fitted here instead — same composer, same
+// arithmetic, so a guide is read exactly as a glossary entry is.
+const READ_GUIDES: Record<string, Guide> = Object.fromEntries(
+  Object.entries(GUIDES).map(([slug, guide]) => [
+    slug,
+    {
+      ...guide,
+      body: injectReading(guide.body, {
+        title: guide.title,
+        kind: 'guide',
+        seed: guide.slug,
+        heading: 'The guide by its numbers',
+      }),
+    },
+  ]),
+);
+
 export function getGuide(slug: string): Guide | null {
-  return GUIDES[slug] ?? null;
+  return READ_GUIDES[slug] ?? null;
 }
 
 export function getAllGuides(): Guide[] {
-  return Object.values(GUIDES);
+  return Object.values(READ_GUIDES);
 }

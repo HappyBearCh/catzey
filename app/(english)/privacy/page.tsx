@@ -11,12 +11,17 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-semibold mb-6">Privacy Policy</h1>
+      <h1 className="font-display text-3xl md:text-4xl font-semibold tracking-wide mb-2">Privacy Policy</h1>
+      <p className="eyebrow mb-8">What is counted, and what is not</p>
       <div className="article-prose text-gray-800 dark:text-gray-200">
         <p>
-          Catzye is built to collect as little personal data as possible. This page explains what
-          we do collect and why.
+          Catzye counts letters, not readers. The site is built to collect as little personal
+          data as possible, and it holds no database of visitors: the reference itself is a set
+          of files in a repository, and every reading on it is computed from a title rather than
+          from anything about the person reading it. Which shelf you browse is not recorded, and
+          nothing you read here is used to decide what you are shown next.
         </p>
+        <p>This page explains the little that is collected, and why.</p>
 
         <h2>What we collect</h2>
         <ul>

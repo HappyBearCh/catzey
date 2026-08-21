@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { NumberReading } from '@/components/NumberReading';
 import { getSeason, getAllSeasons } from '@/lib/seasons';
 
 export const revalidate = 86400;
@@ -101,6 +102,13 @@ export default async function SeasonPage({ params }: Props) {
           {data.shows.length} series · {airing.length} currently airing
           {upcoming.length > 0 && ` · ${upcoming.length} upcoming`}
         </p>
+
+        <NumberReading
+          title={`${data.label} Anime`}
+          label="season"
+          seed={data.slug}
+          className="mt-6 max-w-3xl"
+        />
       </div>
 
       {/* Season navigation */}

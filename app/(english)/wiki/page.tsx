@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBand } from '@/components/ShelfBand';
 import { getAllWorks, getAllCreators } from '@/lib/education';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -74,6 +75,12 @@ export default async function WikiIndexPage() {
         Reference entries for the works themselves and the people who make them — what a
         series is, when it ran, where it was serialised, and who drew it.
       </p>
+
+      <ShelfBand
+        titles={[...works.map((w) => w.title), ...creators.map((c) => c.name)]}
+        noun="entries"
+        className="mb-10"
+      />
 
       <section className="mb-12">
         <div className="flex items-center gap-2 mb-4">

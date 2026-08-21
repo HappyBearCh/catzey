@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { NUMBER_PROFILES, getTodaysNumber } from '@/lib/numerology';
+import { getGroup } from '@/lib/number-groups';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
@@ -49,9 +50,14 @@ export default function NumerologyPage() {
 
       <h1 className="text-3xl md:text-4xl font-semibold mb-4">The Numbers Behind the News</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
-        Catzye reads every headline, category, and day through numerology — an old system that maps
-        letters to numbers and numbers to meaning. It&apos;s a lens for paying attention, not a
-        forecast. Here&apos;s how it works, and what each number means.
+        Catzye files every text on the site by the number its title reduces to, and reads every
+        day through the same system — an old one, mapping letters to numbers and numbers to
+        meaning. It is a lens for paying attention, not a forecast. Here is how the arithmetic
+        works, what each number means, and which{' '}
+        <Link href="/numbers" className="text-primary font-semibold hover:underline">
+          shelf
+        </Link>{' '}
+        each one governs.
       </p>
 
       {/* Today's number callout */}
@@ -144,6 +150,12 @@ export default function NumerologyPage() {
                 {n}
               </div>
               <div className="min-w-0">
+                <Link
+                  href={`/number/${n}`}
+                  className="text-2xs font-bold uppercase tracking-widest text-primary hover:underline block mb-0.5"
+                >
+                  {getGroup(n).shelf} →
+                </Link>
                 <h3 className="font-semibold text-sm">
                   {p.title}
                   {p.master && (
@@ -173,12 +185,13 @@ export default function NumerologyPage() {
 
       <div className="rounded-sm border border-site-border dark:border-primary/20 p-5 bg-site-light dark:bg-site-dark-2">
         <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-          Every article on Catzye carries a numerological reading of its headline, and every section
-          has its own governing number. Browse the{' '}
-          <Link href="/" className="text-primary font-semibold hover:underline">
-            latest news
+          Every text on Catzye carries a reading of its title — the working printed underneath it,
+          computed rather than written — and every one of them lives on the shelf its number
+          governs. Start with{' '}
+          <Link href="/numbers" className="text-primary font-semibold hover:underline">
+            the twelve shelves
           </Link>{' '}
-          to see the numbers in action.
+          to see how a title is filed, or open a shelf and read what landed there.
         </p>
       </div>
     </div>

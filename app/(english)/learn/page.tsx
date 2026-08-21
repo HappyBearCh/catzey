@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBand } from '@/components/ShelfBand';
 import { getAllLearnTopics, LEARN_TRACKS } from '@/lib/education';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -59,6 +60,8 @@ export default async function LearnHubPage() {
         Start anywhere. Each track is a short, ordered path — read it straight through, or
         jump to the one question you came for.
       </p>
+
+      <ShelfBand titles={topics.map((t) => t.title)} noun="explainers" className="mb-10" />
 
       <div className="space-y-10">
         {LEARN_TRACKS.map((track) => {

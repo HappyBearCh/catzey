@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBadge } from '@/components/ShelfBadge';
+import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import Image from 'next/image';
 import { getStandaloneGuide, getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { resolveAuthor } from '@/lib/authors';
@@ -161,6 +163,8 @@ export default async function StandaloneGuidePage({ params }: Props) {
           {' · '}{guide.readingTime} min read
         </span>
         <h1 className="text-3xl md:text-4xl font-semibold leading-tight mt-3 mb-3">{guide.title}</h1>
+
+        <ShelfBadge title={guide.title} showSum className="mb-4" />
         <p className="text-site-gray text-lg leading-relaxed">{guide.subtitle}</p>
       </div>
 
@@ -179,6 +183,12 @@ export default async function StandaloneGuidePage({ params }: Props) {
           prose-strong:text-gray-900
           prose-ul:text-gray-700 prose-li:mb-1"
         dangerouslySetInnerHTML={{ __html: guide.body }}
+      />
+
+      <ShelfNeighbours
+        title={guide.title}
+        selfHref={`/guides/${guide.slug}`}
+        className="mt-10"
       />
 
       <div className="mt-12 pt-8 border-t border-site-border flex items-center justify-between">

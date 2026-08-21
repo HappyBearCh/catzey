@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { prisma } from '@/lib/db';
 import { CATEGORIES } from '@/lib/types';
+import { GROUP_NUMBERS } from '@/lib/number-groups';
 import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { getAllGenres } from '@/lib/genre-info';
@@ -111,6 +112,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/learn`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.9 },
     { url: `${BASE}/glossary`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/wiki`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
+    { url: `${BASE}/numbers`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/trending`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.8 },
     { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
@@ -122,6 +124,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/contact`, changeFrequency: 'yearly' as const, priority: 0.3 },
     { url: `${BASE}/privacy`, changeFrequency: 'yearly' as const, priority: 0.2 },
   ];
+
+  // The twelve shelves are how the reference is arranged, so they rank with the
+  // category pages rather than below them.
+  const shelfPages: MetadataRoute.Sitemap = GROUP_NUMBERS.map((n) => ({
+    url: `${BASE}/number/${n}`,
+    lastModified: newestUpdate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.75,
+  }));
 
   const categoryPages: MetadataRoute.Sitemap = [];
   for (const { slug } of CATEGORIES) {
@@ -236,5 +247,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...eduPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
+  return [...staticPages, ...eduPages, ...shelfPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
 }

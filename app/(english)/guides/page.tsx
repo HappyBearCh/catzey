@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBand } from '@/components/ShelfBand';
 import Image from 'next/image';
 import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
@@ -40,6 +41,8 @@ export default function GuidesPage() {
       <p className="text-site-gray text-sm mb-10 ml-4">
         In-depth guides to manga, anime, and Japanese pop culture
       </p>
+
+      <ShelfBand titles={standaloneGuides.map((g) => g.title)} noun="guides" className="mb-10" />
 
       {/* Standalone guides */}
       <section className="mb-12">

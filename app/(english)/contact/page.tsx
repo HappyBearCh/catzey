@@ -6,14 +6,16 @@ const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'hello@catzye.com
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with the Catzye team — news tips, corrections, and image or rights inquiries.',
+  description:
+    'Get in touch with Catzye — corrections, entries we are missing, arguments with a shelf, and image or rights inquiries.',
   alternates: { canonical: `${BASE}/contact` },
 };
 
 export default function ContactPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-semibold mb-6">Contact</h1>
+      <h1 className="font-display text-3xl md:text-4xl font-semibold tracking-wide mb-2">Contact</h1>
+      <p className="eyebrow mb-8">Corrections first, arguments welcome</p>
       <div className="article-prose text-gray-800 dark:text-gray-200">
         <p>
           The fastest way to reach us is by email:{' '}
@@ -29,10 +31,20 @@ export default function ContactPage() {
           <Link href="/editorial-policy">editorial policy</Link> for how we handle them.
         </p>
 
-        <h2>News tips</h2>
+        <h2>Missing entries</h2>
         <p>
-          Have a story we should cover? Send the details and a source we can verify. We read
-          every tip.
+          A term the glossary does not define, a series the wiki has no page for, an explainer
+          that should exist? Send it. Nothing gets added because a shelf looks thin — a text is
+          written because it is worth writing, and then its title decides where it lands.
+        </p>
+
+        <h2>Arguments with a shelf</h2>
+        <p>
+          If a text reads wrong where it has been filed, say so. The arithmetic is not up for
+          negotiation and neither is the filing rule, but{' '}
+          <Link href="/numbers">what a shelf is taken to mean</Link> is editorial, and that part
+          is worth arguing about. We will not move a text off its number; we will happily rewrite
+          a shelf that describes its contents badly.
         </p>
 
         <h2>Rights &amp; image inquiries</h2>

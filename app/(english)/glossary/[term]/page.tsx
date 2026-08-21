@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBadge } from '@/components/ShelfBadge';
+import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import {
   getGlossaryTerm,
@@ -106,6 +108,8 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">{term.term}</h1>
 
+      <ShelfBadge title={term.term} showSum className="mb-4" />
+
       {term.aliases.length > 0 && (
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Also written: {term.aliases.join(', ')}
@@ -121,6 +125,12 @@ export default async function GlossaryTermPage({ params }: Props) {
       <div
         className="ref-prose"
         dangerouslySetInnerHTML={{ __html: term.body }}
+      />
+
+      <ShelfNeighbours
+        title={term.term}
+        selfHref={`/glossary/${term.slug}`}
+        className="mt-10"
       />
 
       {examples.length > 0 && (

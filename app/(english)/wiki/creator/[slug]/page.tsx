@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBadge } from '@/components/ShelfBadge';
+import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import { getCreator, getAllCreators, getWorksByCreator, getWorksBySlugs } from '@/lib/education';
 
@@ -99,6 +101,8 @@ export default async function CreatorPage({ params }: Props) {
       </span>
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-1">{creator.name}</h1>
+
+      <ShelfBadge title={creator.name} showSum className="mt-3 mb-4" />
       {creator.nativeName && (
         <p className="text-lg text-gray-500 dark:text-gray-400 mb-3">{creator.nativeName}</p>
       )}
@@ -113,6 +117,12 @@ export default async function CreatorPage({ params }: Props) {
       <div
         className="ref-prose"
         dangerouslySetInnerHTML={{ __html: creator.body }}
+      />
+
+      <ShelfNeighbours
+        title={creator.name}
+        selfHref={`/wiki/creator/${creator.slug}`}
+        className="mt-10"
       />
 
       {works.length > 0 && (

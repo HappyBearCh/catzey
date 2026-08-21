@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
 import { getCategoryLabel } from '@/lib/types';
+import { titleValue, getGroup } from '@/lib/number-groups';
 
 export const runtime = 'edge';
 
@@ -11,6 +12,11 @@ export async function GET(request: NextRequest) {
   const imageUrl = searchParams.get('img');
   const categoryLabel = category ? getCategoryLabel(category) : '';
 
+  // The share card carries the same two labels the page does: what the text is
+  // about, and the number its title reduces to.
+  const shelfNumber = titleValue(title);
+  const shelf = getGroup(shelfNumber);
+
   return new ImageResponse(
     (
       <div
@@ -19,7 +25,7 @@ export async function GET(request: NextRequest) {
           height: '630px',
           display: 'flex',
           flexDirection: 'column',
-          background: '#0f0b1e',
+          background: '#0d0c14',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -46,12 +52,45 @@ export async function GET(request: NextRequest) {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to top, rgba(15,11,30,0.98) 0%, rgba(15,11,30,0.6) 50%, rgba(15,11,30,0.25) 100%)',
+            background:
+              'linear-gradient(to top, rgba(13,12,20,0.98) 0%, rgba(13,12,20,0.62) 50%, rgba(13,12,20,0.25) 100%)',
           }}
         />
 
-        {/* Purple accent top bar */}
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '5px', background: '#7c3aed' }} />
+        {/* Gold rule, as on the page */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '5px', background: '#c9a227' }} />
+
+        {/* The numeral, set in the margin the way the plate sets it */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '48px',
+            right: '48px',
+            width: '128px',
+            height: '128px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '999px',
+            border: '2px solid rgba(201,162,39,0.55)',
+            color: '#c9a227',
+          }}
+        >
+          <div style={{ display: 'flex', fontSize: '58px', lineHeight: 1 }}>{String(shelfNumber)}</div>
+          <div
+            style={{
+              display: 'flex',
+              fontSize: '11px',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              marginTop: '8px',
+              opacity: 0.8,
+            }}
+          >
+            {shelf.shelf}
+          </div>
+        </div>
 
         {/* Content */}
         <div
@@ -76,8 +115,8 @@ export async function GET(request: NextRequest) {
             >
               <div
                 style={{
-                  background: '#7c3aed',
-                  color: 'white',
+                  background: '#c9a227',
+                  color: '#0d0c14',
                   fontSize: '13px',
                   fontWeight: 800,
                   letterSpacing: '0.12em',
@@ -92,11 +131,11 @@ export async function GET(request: NextRequest) {
 
           <div
             style={{
-              color: 'white',
+              color: '#ece5d4',
               fontSize: title.length > 80 ? '36px' : title.length > 50 ? '44px' : '52px',
               fontWeight: 900,
               lineHeight: 1.15,
-              maxWidth: '900px',
+              maxWidth: '860px',
             }}
           >
             {title}
@@ -104,11 +143,11 @@ export async function GET(request: NextRequest) {
 
           {/* Brand */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '8px' }}>
-            <div style={{ color: '#e879f9', fontSize: '22px', fontWeight: 900, letterSpacing: '-0.02em' }}>
+            <div style={{ color: '#e6d492', fontSize: '22px', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Catzye
             </div>
-            <div style={{ color: '#666', fontSize: '14px', marginLeft: '8px' }}>
-              catzye.com
+            <div style={{ color: '#9a927f', fontSize: '14px', marginLeft: '8px' }}>
+              {shelf.tagline}
             </div>
           </div>
         </div>

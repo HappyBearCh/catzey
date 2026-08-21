@@ -5,8 +5,9 @@ import { LoadMoreArticles } from '@/components/LoadMoreArticles';
 import { MostRead } from '@/components/MostRead';
 import { TodaysNumber } from '@/components/TodaysNumber';
 import { DAILY_CATEGORY } from '@/lib/daily-analysis';
-import { CATEGORIES } from '@/lib/types';
 import { getTodaysNumber } from '@/lib/numerology';
+import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
+import { getAllEntries } from '@/lib/shelves';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -142,11 +143,15 @@ export default async function HomePage() {
   const [featured, ...rest] = articles;
   const secondary = rest.slice(0, 3);
   const gridArticles = rest.slice(3, 9);
-  const recentByCategory = CATEGORIES.map(({ label, slug }) => ({
-    label,
-    slug,
-    articles: articles.filter((a) => a.category === slug).slice(0, 4),
-  })).filter((c) => c.articles.length > 0);
+  // The front page is arranged the way the reference is: by what each title
+  // reduces to, not by what it is about. Explainers and glossary entries come
+  // before reporting within a shelf because they are the part that keeps.
+  const entries = await getAllEntries();
+  const shelves = GROUP_NUMBERS.map((n) => ({
+    n,
+    group: getGroup(n),
+    entries: entries.filter((e) => e.value === n).slice(0, 4),
+  })).filter((s) => s.entries.length > 0);
 
   return (
     <>
@@ -267,28 +272,79 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Category sections */}
-        {recentByCategory.map(({ label, slug, articles: catArticles }) => (
-          <section key={slug} className="my-8 border-t border-site-border pt-6">
-            <div className="flex items-center justify-between mb-5">
-              <div className="flex items-center gap-3">
-                <span className="block w-1 h-6 bg-primary" />
-                <h2 className="text-lg font-semibold uppercase tracking-wide">{label}</h2>
+        {/* The reference, shelf by shelf */}
+        <section className="my-12 border-t border-gold/25 pt-10">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <p className="eyebrow mb-4">The whole reference, by number</p>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-wide text-ink dark:text-parchment">
+              Twelve shelves
+            </h2>
+            <p className="mt-4 text-ink-2 dark:text-parchment/70 leading-relaxed">
+              Every text here — explainer, glossary entry, reference page, report —
+              is filed by the number its title reduces to. Titles that reduce alike
+              turn out to be doing alike, which is the only claim this arrangement makes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/20 border border-gold/20">
+            {shelves.map(({ n, group, entries: shelfEntries }) => (
+              <div key={n} className="bg-paper dark:bg-ground p-6 flex flex-col">
+                <div className="flex items-start gap-4 mb-4">
+                  <Link
+                    href={`/number/${n}`}
+                    className="sigil shrink-0 w-11 h-11 text-lg border border-gold/40 hover:border-gold transition-colors"
+                    aria-label={`Shelf ${n}, ${group.shelf}`}
+                  >
+                    {n}
+                  </Link>
+                  <div className="min-w-0">
+                    <Link
+                      href={`/number/${n}`}
+                      className="font-display text-xl font-semibold text-ink dark:text-parchment hover:text-gold transition-colors"
+                    >
+                      {group.shelf}
+                    </Link>
+                    <p className="text-sm leading-snug text-ink-muted dark:text-parchment/50 mt-0.5">
+                      {group.tagline}
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="flex-1">
+                  {shelfEntries.map((entry) => (
+                    <li key={entry.href}>
+                      <Link
+                        href={entry.href}
+                        className="group flex items-baseline gap-2.5 py-2 border-b border-rule/25 dark:border-rule/60"
+                      >
+                        <span className="eyebrow shrink-0 whitespace-nowrap basis-[5.5rem] text-ink-muted dark:text-parchment/35">
+                          {entry.kindLabel}
+                        </span>
+                        <span className="min-w-0 font-display text-[0.95rem] leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors line-clamp-2">
+                          {entry.title}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={`/number/${n}`}
+                  className="eyebrow mt-4 text-gold hover:text-seal dark:hover:text-gold-pale transition-colors"
+                >
+                  The whole shelf →
+                </Link>
               </div>
-              <Link
-                href={`/${slug}`}
-                className="text-sm font-bold uppercase tracking-wider text-primary hover:underline"
-              >
-                See All →
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-              {catArticles.map((article) => (
-                <ArticleCard key={article.id} article={article} size="medium" />
-              ))}
-            </div>
-          </section>
-        ))}
+            ))}
+          </div>
+
+          <p className="text-center mt-8">
+            <Link href="/numbers" className="eyebrow text-gold hover:underline">
+              How a text gets its number →
+            </Link>
+          </p>
+        </section>
+
         <LoadMoreArticles initialSkip={30} />
       </div>
     </>

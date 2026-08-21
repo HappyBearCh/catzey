@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { NumberReading } from '@/components/NumberReading';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getAuthor, getAllAuthors, resolveAuthor } from '@/lib/authors';
@@ -132,6 +133,14 @@ export default async function AuthorPage({ params }: Props) {
           <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-1">{author.role}</p>
           <h1 className="text-3xl font-semibold tracking-tight mb-3">{author.name}</h1>
           <p className="text-site-gray text-sm leading-relaxed max-w-2xl">{author.longBio}</p>
+
+          <NumberReading
+            title={author.name}
+            kind="creator"
+            label="byline"
+            seed={author.slug}
+            className="mt-6 max-w-2xl"
+          />
         </div>
       </header>
 

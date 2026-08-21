@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBadge } from '@/components/ShelfBadge';
+import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import { SafeImage } from '@/components/SafeImage';
 import { getWork, getAllWorks, getCreatorsBySlugs } from '@/lib/education';
@@ -106,6 +108,8 @@ export default async function WorkPage({ params }: Props) {
       </nav>
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">{work.title}</h1>
+
+      <ShelfBadge title={work.title} showSum className="mb-4" />
       {work.altTitles.length > 0 && (
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{work.altTitles.join(' · ')}</p>
       )}
@@ -161,6 +165,12 @@ export default async function WorkPage({ params }: Props) {
       <div
         className="ref-prose"
         dangerouslySetInnerHTML={{ __html: work.body }}
+      />
+
+      <ShelfNeighbours
+        title={work.title}
+        selfHref={`/wiki/series/${work.slug}`}
+        className="mt-10"
       />
 
       {work.genres.length > 0 && (

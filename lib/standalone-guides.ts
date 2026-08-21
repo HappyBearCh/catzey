@@ -1,3 +1,5 @@
+import { injectReading } from '@/lib/numerologize';
+
 export interface StandaloneGuide {
   slug: string;
   title: string;
@@ -265,10 +267,29 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
   },
 ];
 
+// The guides are written here rather than in data/, so scripts/numerologize.ts
+// never sees them. Their readings are therefore fitted on the way out — the same
+// composer, the same arithmetic, computed from the same title, so a guide reads
+// exactly as a glossary entry does. injectReading is deterministic and pure, so
+// this costs one string build per guide and nothing else.
+function withReading(guide: StandaloneGuide): StandaloneGuide {
+  return {
+    ...guide,
+    body: injectReading(guide.body, {
+      title: guide.title,
+      kind: 'guide',
+      seed: guide.slug,
+      heading: 'The guide by its numbers',
+    }),
+  };
+}
+
+const READ_GUIDES: StandaloneGuide[] = STANDALONE_GUIDES.map(withReading);
+
 export function getStandaloneGuide(slug: string): StandaloneGuide | null {
-  return STANDALONE_GUIDES.find((g) => g.slug === slug) ?? null;
+  return READ_GUIDES.find((g) => g.slug === slug) ?? null;
 }
 
 export function getAllStandaloneGuides(): StandaloneGuide[] {
-  return STANDALONE_GUIDES;
+  return READ_GUIDES;
 }

@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBadge } from '@/components/ShelfBadge';
+import { NumberReading } from '@/components/NumberReading';
 import Image from 'next/image';
 import { format } from 'date-fns';
 import { prisma } from '@/lib/db';
@@ -122,6 +124,8 @@ export default async function SeriesPage({ params }: Props) {
           <span className="text-2xs text-gray-500">{publishedParts.length} of {totalParts} parts published</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-semibold leading-tight mb-3">{series.title}</h1>
+
+        <ShelfBadge title={series.title} showSum className="mb-4" />
         {/* Status + genres */}
         <div className="flex flex-wrap items-center gap-2 mb-3">
           {series.status && (
@@ -156,6 +160,14 @@ export default async function SeriesPage({ params }: Props) {
         {series.description && (
           <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-2xl">{series.description}</p>
         )}
+
+        <NumberReading
+          title={series.title}
+          kind="series"
+          label="sequence"
+          seed={series.slug}
+          className="mt-6 max-w-3xl"
+        />
         {/* Progress bar */}
         <div className="mt-4 h-1.5 bg-gray-100 rounded-full overflow-hidden max-w-xs">
           <div

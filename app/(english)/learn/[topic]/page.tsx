@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ShelfBadge } from '@/components/ShelfBadge';
+import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import {
   getLearnTopic,
@@ -141,6 +143,8 @@ export default async function LearnTopicPage({ params }: Props) {
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-4">{topic.title}</h1>
 
+      <ShelfBadge title={topic.title} showSum className="mb-5" />
+
       <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-8">
         {topic.summary}
       </p>
@@ -148,6 +152,12 @@ export default async function LearnTopicPage({ params }: Props) {
       <div
         className="ref-prose"
         dangerouslySetInnerHTML={{ __html: topic.body }}
+      />
+
+      <ShelfNeighbours
+        title={topic.title}
+        selfHref={`/learn/${topic.slug}`}
+        className="mt-10"
       />
 
       {faq.length > 0 && (

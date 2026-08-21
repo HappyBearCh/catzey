@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CATEGORIES } from '@/lib/types';
+import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -65,6 +66,47 @@ export function MobileMenu() {
           >
             Home
           </Link>
+          {/* The reference proper, then the twelve shelves it is filed on,
+              then the news categories — the same hierarchy as the desktop nav. */}
+          {[
+            { label: 'Learn', href: '/learn' },
+            { label: 'Glossary', href: '/glossary' },
+            { label: 'Wiki', href: '/wiki' },
+            { label: 'Shelves', href: '/numbers' },
+          ].map(({ label, href }) => {
+            const active = pathname === href || pathname.startsWith(`${href}/`);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`flex items-center gap-3 px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-colors ${
+                  active ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-gold dark:text-gold/60 hover:bg-white/5'
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
+
+          <div className="mx-5 my-2 border-t border-white/10" />
+          <p className="px-5 pb-2 text-2xs uppercase tracking-widest text-gold/60">Filed by number</p>
+          <div className="px-5 pb-3 grid grid-cols-4 gap-1.5">
+            {GROUP_NUMBERS.map((n) => (
+              <Link
+                key={n}
+                href={`/number/${n}`}
+                title={`${n} — ${getGroup(n).shelf}`}
+                className={`flex items-center justify-center h-9 border text-sm font-display transition-colors ${
+                  pathname === `/number/${n}`
+                    ? 'border-gold bg-gold/15 text-gold'
+                    : 'border-gold/25 text-gold/70 hover:border-gold hover:text-gold'
+                }`}
+              >
+                {n}
+              </Link>
+            ))}
+          </div>
+
           <div className="mx-5 my-2 border-t border-white/10" />
           {CATEGORIES.map(({ label, slug }) => {
             const active = pathname === `/${slug}`;

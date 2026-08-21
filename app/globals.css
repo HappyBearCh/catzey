@@ -537,3 +537,161 @@
   background: transparent;
   border-top-color: rgba(124, 58, 237, 0.15);
 }
+
+/* ─── The numerological reading ──────────────────────────────────────────────
+   Injected into every stored text by scripts/numerologize.ts, so these rules
+   have to work inside .article-prose and .ref-prose alike, and inside the plain
+   prose of a page that uses neither. They are deliberately quiet: the reading is
+   apparatus around the text, not a second headline competing with the first. */
+
+.num-standfirst {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin: 0 0 1.6rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.28);
+  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: #3b3550;
+}
+.dark .num-standfirst {
+  color: rgba(236, 229, 212, 0.82);
+}
+.article-prose .num-standfirst,
+.ref-prose .num-standfirst {
+  text-indent: 0;
+}
+
+/* The numeral doubles as the link to the shelf the text is filed on. */
+.num-sigil {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 9999px;
+  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
+  font-size: 1.15rem;
+  font-style: normal;
+  line-height: 1;
+  color: #c9a227;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.num-sigil:hover {
+  background: rgba(201, 162, 39, 0.12);
+  border-color: #c9a227;
+}
+.article-prose .num-sigil,
+.ref-prose .num-sigil {
+  border-bottom: 1px solid rgba(201, 162, 39, 0.45);
+}
+
+/* The working: one cell per word, wrapping like a line of type rather than
+   scrolling, because a headline can run to a dozen words. */
+/* Ruled like a ledger rather than tiled: the wrapper draws the top and left
+   rules and each cell draws its own right and bottom. A grid built from a gap
+   over a coloured background would show that background wherever the last row
+   of a wrapped title falls short of the full measure — which, with headlines
+   running to a dozen words, is most of them. */
+.num-working {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(201, 162, 39, 0.22);
+  border-left: 1px solid rgba(201, 162, 39, 0.22);
+  margin: 1.4rem 0 1.6rem;
+}
+.num-word {
+  /* Cells share the row evenly, but a two-word title must not stretch two of
+     them across the full measure — hence the cap. */
+  flex: 1 1 auto;
+  max-width: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 4.25rem;
+  padding: 0.5rem 0.6rem;
+  border-right: 1px solid rgba(201, 162, 39, 0.22);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.22);
+}
+.num-word-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: #6a6280;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.dark .num-word-text {
+  color: rgba(236, 229, 212, 0.5);
+}
+.num-word-value {
+  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
+  font-size: 1.05rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #1b1826;
+}
+.dark .num-word-value {
+  color: #ece5d4;
+}
+.num-word-total .num-word-text {
+  color: #b03a2e;
+}
+.dark .num-word-total .num-word-text {
+  color: #d4553f;
+}
+.num-word-total .num-word-value {
+  color: #c9a227;
+  white-space: nowrap;
+}
+
+/* The closing reading. Set apart from the text it reads without being boxed off
+   from it — a rule above, the same measure, slightly quieter type. */
+.num-reading {
+  margin-top: 2.75rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.3);
+}
+.num-reading > h2 {
+  font-family: var(--font-display), Cormorant Garamond, Garamond, serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6a6280;
+  margin: 0 0 0.4rem;
+  border: 0;
+  padding: 0;
+}
+.dark .num-reading > h2 {
+  color: rgba(201, 162, 39, 0.7);
+}
+.num-reading > p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0 0 1rem;
+  color: #3b3550;
+  text-indent: 0;
+}
+.dark .num-reading > p {
+  color: rgba(236, 229, 212, 0.72);
+}
+.num-reading > p:last-child {
+  margin-bottom: 0;
+}
+.num-reading a {
+  color: #b03a2e;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.dark .num-reading a {
+  color: #e6d492;
+}

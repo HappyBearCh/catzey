@@ -21,13 +21,15 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { NewsletterCTA } from '@/components/NewsletterCTA';
 import { InlineRelated } from '@/components/InlineRelated';
 import { SpoilerActivator } from '@/components/SpoilerActivator';
-import { NumerologyPanel } from '@/components/NumerologyPanel';
+import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
 import { resolveAuthor } from '@/lib/authors';
 import { getArticleBySlug } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { ReviewData } from '@/lib/types';
+import { STANDFIRST_OPEN, splitOffReading } from '@/lib/numerologize';
+import { titleValue, getGroup } from '@/lib/number-groups';
 
 export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
@@ -189,7 +191,19 @@ export default async function ArticlePage({ params }: Props) {
     ? injectHeadingIds(linkEntitiesInHtml(article.content, article.entities))
     : '';
   const headings = contentIsHtml ? extractHeadings(processedHtml) : [];
-  const [htmlPart1, htmlPart2] = contentIsHtml ? splitHtmlAfterNthParagraph(processedHtml, 3) : ['', ''];
+  // The pull quote and the related rail interrupt the reporting after its third
+  // paragraph. Two things must not be caught in that: the numerological
+  // standfirst, which is apparatus rather than reporting and so does not count
+  // toward the three, and the closing reading, which is one argument and cannot
+  // be cut in half. The reading is lifted off first and put back at the end.
+  const [bodyHtml, readingHtml] = contentIsHtml ? splitOffReading(processedHtml) : ['', ''];
+  const leadOffset = bodyHtml.includes(STANDFIRST_OPEN) ? 1 : 0;
+  const [htmlPart1, htmlPart2] = contentIsHtml
+    ? splitHtmlAfterNthParagraph(bodyHtml, 3 + leadOffset)
+    : ['', ''];
+
+  const shelfNumber = titleValue(article.title);
+  const shelf = getGroup(shelfNumber);
 
   const mins = readingTime(article.content);
 
@@ -336,9 +350,20 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           )}
 
-          <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 mb-3">
-            {categoryLabel}
-          </span>
+          {/* What it is about, then what it reduces to — the two taxonomies the
+              reference keeps side by side. */}
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5">
+              {categoryLabel}
+            </span>
+            <Link
+              href={`/number/${shelfNumber}`}
+              className="inline-flex items-center gap-1.5 text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 border border-gold/50 text-gold hover:bg-gold/10 transition-colors"
+            >
+              <span aria-hidden="true">{shelfNumber}</span>
+              <span>{shelf.shelf}</span>
+            </Link>
+          </div>
 
           <h1 className="text-2xl md:text-4xl font-semibold leading-tight mb-4">
             {article.title}
@@ -447,6 +472,7 @@ export default async function ArticlePage({ params }: Props) {
                 )}
                 {related.length >= 2 && <InlineRelated articles={related.slice(0, 2)} />}
                 {htmlPart2 && <div dangerouslySetInnerHTML={{ __html: htmlPart2 }} />}
+                {readingHtml && <div dangerouslySetInnerHTML={{ __html: readingHtml }} />}
               </>
             ) : (
               <>
@@ -476,12 +502,13 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           )}
 
-          {/* Numerological reading of the story's primary subject */}
-          <NumerologyPanel
+          {/* The reading itself is written into the body by
+              scripts/numerologize.ts; what it cannot know is the rest of the
+              shelf, so that is assembled here. */}
+          <ShelfNeighbours
             title={article.title}
-            entities={article.entities}
-            category={article.category}
-            className="mt-8"
+            selfHref={`/article/${article.slug}`}
+            className="mt-10"
           />
 
           <NewsletterCTA />

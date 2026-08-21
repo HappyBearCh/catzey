@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { NumberReading } from '@/components/NumberReading';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
@@ -151,6 +152,8 @@ export default async function TopicPage({ params }: Props) {
       <p className="text-site-gray text-sm mb-6 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} about {name}
       </p>
+
+      <NumberReading title={name} label="subject" className="mb-8 ml-4 max-w-3xl" />
 
       {topicInfo && (
         <div className="mb-8 ml-4 p-5 bg-site-light dark:bg-gray-900 border border-site-border dark:border-gray-700 rounded-sm">

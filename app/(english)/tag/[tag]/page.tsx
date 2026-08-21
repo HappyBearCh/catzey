@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { NumberReading } from '@/components/NumberReading';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
@@ -126,6 +127,8 @@ export default async function TagPage({ params }: Props) {
       <p className="text-site-gray text-sm mb-8 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} tagged with &quot;{label}&quot;
       </p>
+
+      <NumberReading title={label} label="tag" className="mb-8 ml-4 max-w-3xl" />
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {articles.map((article) => (
