@@ -112,9 +112,9 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
 
   if (size === 'large') {
     return (
-      <Link href={href} className="group flex flex-col">
+      <Link href={href} className="group flex flex-col panel p-2 hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors">
         {article.imageUrl ? (
-          <div className="relative overflow-hidden aspect-video mb-3 bg-gray-200 dark:bg-gray-800">
+          <div className="relative overflow-hidden aspect-video mb-3 bg-gray-200 dark:bg-gray-800 border-2 border-ink dark:border-parchment">
             <SafeImage
               src={article.imageUrl}
               alt={article.title}
@@ -132,7 +132,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
             )}
           </div>
         ) : (
-          <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-3" />
+          <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-3 border-2 border-ink dark:border-parchment" />
         )}
         <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
           {categoryLabel}
@@ -206,9 +206,9 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
 
   // Default: medium
   return (
-    <Link href={href} className="group flex flex-col">
+    <Link href={href} className="group flex flex-col panel p-2 hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors">
       {article.imageUrl ? (
-        <div className="relative overflow-hidden aspect-video mb-2 bg-gray-200 dark:bg-gray-800">
+        <div className="relative overflow-hidden aspect-video mb-2 bg-gray-200 dark:bg-gray-800 border-2 border-ink dark:border-parchment">
           <SafeImage
             src={article.imageUrl}
             alt={article.imageAlt ?? article.title}
@@ -226,7 +226,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
           )}
         </div>
       ) : (
-        <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-2" />
+        <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-2 border-2 border-ink dark:border-parchment" />
       )}
       <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
         {categoryLabel}
