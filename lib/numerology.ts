@@ -348,6 +348,28 @@ export function readTitle(title: string): Reading {
   };
 }
 
+// ── Word-by-word arithmetic ───────────────────────────────────────────────────
+// The reference prints the working under every title, so the same title always
+// shows the same sum. Punctuation and digits carry no value and are dropped;
+// words that survive as nothing (a lone "&", "3") are left out entirely.
+
+export interface WordValue {
+  word: string; // the word as it appears in the title
+  sum: number; // the raw Pythagorean sum of its letters
+  value: number; // that sum reduced, master numbers preserved
+}
+
+export function wordValues(title: string): WordValue[] {
+  return (title || '')
+    .split(/\s+/)
+    .map((word) => ({ word, letters: normalize(word) }))
+    .filter((w) => w.letters.length > 0)
+    .map((w) => {
+      const sum = [...w.letters].reduce((s, l) => s + (LETTER_VALUES[l] || 0), 0);
+      return { word: w.word, sum, value: reduce(sum) };
+    });
+}
+
 // ── The day's number ──────────────────────────────────────────────────────────
 // The Universal Day number: sum the digits of the full calendar date and reduce.
 export function universalDayNumber(date: Date = new Date()): number {
