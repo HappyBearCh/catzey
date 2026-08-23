@@ -10,9 +10,13 @@ export const revalidate = false; // content is baked in at build time — never 
 export const metadata: Metadata = {
   title: 'Numerology Guide — What the Numbers Mean',
   description:
-    'How Catzye reads every headline, category, and day through numerology. The meaning of numbers 1–9 and the master numbers 11, 22, and 33, plus how Destiny, Heart, and Personality numbers are calculated.',
+    'The meaning of the numbers 1–9 and the master numbers 11, 22 and 33, plus how the Destiny, Heart and Personality readings on every Catzye page are worked out.',
   alternates: { canonical: `${BASE}/numerology` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
+    images: [{ url: '/og?title=Numerology%20Guide', width: 1200, height: 630 }],
     title: 'Numerology Guide | Catzye',
     description:
       'The meaning of numbers 1–9 and the master numbers 11, 22, 33 — the numerological lens behind every Catzye story.',
@@ -48,7 +52,7 @@ export default function NumerologyPage() {
         <span className="text-primary font-bold">Numerology</span>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-semibold mb-4">The Numbers Behind the News</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold mb-4">The Numbers Behind the Manga</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
         Catzye files every text on the site by the number its title reduces to, and reads every
         day through the same system — an old one, mapping letters to numbers and numbers to

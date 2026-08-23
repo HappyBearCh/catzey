@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     'A plain-English glossary of manga and anime terminology: demographics, genres, craft, industry and fandom terms, each defined and explained with examples.',
   alternates: { canonical: `${BASE}/glossary` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
     title: 'Manga Glossary — Every Term, Explained',
     description: 'Plain-English definitions for manga and anime terminology.',
     url: `${BASE}/glossary`,

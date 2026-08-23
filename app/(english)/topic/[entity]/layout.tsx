@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getTopicArticles } from '@/lib/articles';
 import { getTopicInfo } from '@/lib/topic-info';
+import { entityFromSlug } from '@/lib/entity-canon';
 
 // Existence is checked in the layout rather than the page so notFound()
 // still produces a real 404. A layout renders outside its segment loading.tsx
@@ -17,8 +18,10 @@ export default async function TopicLayout({
   params: Promise<{ entity: string }>;
 }) {
   const { entity } = await params;
-  let name = entity;
-  try { name = decodeURIComponent(entity); } catch {}
+  let decoded = entity;
+  try { decoded = decodeURIComponent(entity); } catch {}
+  // The segment is a slug; legacy raw-name URLs fall through as themselves.
+  const name = (await entityFromSlug(decoded)) ?? decoded;
   // A curated hub is real content and stays up even before it has articles.
   if (!getTopicInfo(name) && (await getTopicArticles(name)).length === 0) notFound();
   return <>{children}</>;

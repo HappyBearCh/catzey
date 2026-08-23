@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_URL, breadcrumbLd } from '@/lib/seo';
 import Link from 'next/link';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
@@ -6,13 +7,28 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const metadata: Metadata = {
   title: 'Editorial Policy',
   description:
-    'How Catzye sources and corrects its manga and anime reference, how the numerological readings on every page are produced, and what the numbers are and are not claimed to mean.',
+    'How Catzye sources and corrects its manga reference, how the numerological reading on every page is produced, and what the numbers are not claimed to mean.',
   alternates: { canonical: `${BASE}/editorial-policy` },
 };
+
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Editorial Policy',
+  url: `${SITE_URL}/editorial-policy`,
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+};
+
+const crumbs = breadcrumbLd([
+  { name: 'Home', url: SITE_URL },
+  { name: 'Editorial Policy', url: `${SITE_URL}/editorial-policy` },
+]);
 
 export default function EditorialPolicyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <h1 className="font-display text-3xl md:text-4xl font-semibold tracking-wide mb-2">
         Editorial Policy
       </h1>

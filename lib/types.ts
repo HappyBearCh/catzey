@@ -68,7 +68,16 @@ export const CATEGORIES = [
 export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
 
 export function getCategoryLabel(slug: string): string {
-  return CATEGORIES.find((c) => c.slug === slug)?.label ?? slug;
+  const known = CATEGORIES.find((c) => c.slug === slug);
+  if (known) return known.label;
+  // "numerology" is a real category on 300-odd essays but is not one of the ten
+  // nav categories, so it fell through as a bare lowercase slug — into the
+  // visible breadcrumb and into the BreadcrumbList name with it.
+  return slug
+    .split('-')
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
 }
 
 export function normalizeCategorySlug(raw: string): CategorySlug {

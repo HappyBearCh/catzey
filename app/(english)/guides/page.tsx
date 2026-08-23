@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { CATEGORIES } from '@/lib/types';
+import { breadcrumbLd } from '@/lib/seo';
 
 export const revalidate = false;
 
@@ -12,9 +13,13 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 export const metadata: Metadata = {
   title: 'Guides — Manga & Anime',
-  description: 'In-depth guides to manga and anime: history, genres, how to start reading, best series, and more.',
+  description:
+    'In-depth guides to manga and anime: two centuries of history, the genres and what separates them, where to start reading, and how the industry works.',
   alternates: { canonical: `${BASE}/guides` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
     title: 'Manga & Anime Guides | Catzye',
     description: 'In-depth guides to manga and anime history, genres, and the best series to read.',
     url: `${BASE}/guides`,
@@ -26,8 +31,39 @@ export default function GuidesPage() {
   const categoryGuides = getAllGuides();
   const standaloneGuides = getAllStandaloneGuides();
 
+  // The index was the only hub on the site emitting no structured data at all,
+  // so the guides it links to had nothing tying them together as a set.
+  const crumbs = breadcrumbLd([
+    { name: 'Home', url: BASE },
+    { name: 'Guides', url: `${BASE}/guides` },
+  ]);
+
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Manga & Anime Guides',
+    url: `${BASE}/guides`,
+    numberOfItems: standaloneGuides.length + categoryGuides.length,
+    itemListElement: [
+      ...standaloneGuides.map((g, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${BASE}/guides/${g.slug}`,
+        name: g.title,
+      })),
+      ...categoryGuides.map((g, i) => ({
+        '@type': 'ListItem',
+        position: standaloneGuides.length + i + 1,
+        url: `${BASE}/${g.slug}/guide`,
+        name: g.title,
+      })),
+    ],
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <nav className="text-xs text-site-gray mb-6 flex items-center gap-2">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
         <span>/</span>

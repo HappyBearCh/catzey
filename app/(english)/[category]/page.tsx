@@ -5,6 +5,8 @@ import {
   CATEGORY_DESCRIPTIONS,
 } from '@/components/CategoryArchive';
 import { CATEGORIES, getCategoryLabel } from '@/lib/types';
+import { categoryCount } from '@/lib/articles';
+import { metaDescription, openGraph, twitter } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -22,29 +24,35 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const label = getCategoryLabel(category);
-  const description = CATEGORY_DESCRIPTIONS[category] ?? `Latest ${label} manga and anime news and updates.`;
+  const description = metaDescription(
+    CATEGORY_DESCRIPTIONS[category] ?? `Everything Catzye files under ${label}.`,
+  );
   const canonicalUrl = `${BASE}/${category}`;
-  const ogImage = `/og?title=${encodeURIComponent(label + ' News')}&category=${category}`;
+  const title = label;
+  const ogImage = `/og?title=${encodeURIComponent(title)}&category=${category}`;
+
+  // Six of the ten declared categories have never carried an article. They
+  // still render — the standing description is real copy — but an archive with
+  // an empty list is a thin page, and shipping six of them indexable invites
+  // exactly the "crawled, currently not indexed" verdict that drags on the
+  // rest of the site. They stay followable so the nav still passes equity.
+  const count = await categoryCount(category);
 
   return {
-    title: `${label} News`,
+    title,
     description,
+    ...(count === 0 && { robots: { index: false, follow: true } }),
     alternates: {
       canonical: canonicalUrl,
       types: { 'application/rss+xml': `${BASE}/${category}/feed.xml` },
     },
-    openGraph: {
-      title: `${label} News | Catzye`,
+    openGraph: openGraph({
+      title: `${title} | Catzye`,
       description,
       url: canonicalUrl,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${label} News | Catzye`,
-      description,
-      images: [ogImage],
-    },
+      image: ogImage,
+    }),
+    twitter: twitter({ title: `${title} | Catzye`, description, image: ogImage }),
   };
 }
 
@@ -58,19 +66,8 @@ export default async function CategoryPage({ params }: Props) {
   const validCategory = CATEGORIES.find((c) => c.slug === category);
   if (!validCategory) notFound();
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-      { '@type': 'ListItem', position: 2, name: `${validCategory.label} News`, item: `${BASE}/${category}` },
-    ],
-  };
-
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <CategoryArchive category={category} page={1} sort="latest" />
-    </>
-  );
+  // The breadcrumb trail is emitted by CategoryArchive, which renders on page 1
+  // and on every paginated page alike. Emitting a second, near-identical
+  // BreadcrumbList here only gave page 1 two conflicting trails.
+  return <CategoryArchive category={category} page={1} sort="latest" />;
 }

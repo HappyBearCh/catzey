@@ -23,6 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Complete guide to ${data.label} anime: every series airing this season with synopsis, studios, and where to watch.`,
     alternates: { canonical: `${BASE}/season/${season}` },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
+      type: 'website',
+      images: [{ url: `/og?title=${encodeURIComponent(data.label + ' Anime')}`, width: 1200, height: 630 }],
       title: `${data.label} Anime Season | Catzye`,
       description: `Every anime airing in ${data.label} — synopsis, studios, and streaming platforms.`,
       url: `${BASE}/season/${season}`,

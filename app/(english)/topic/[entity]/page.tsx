@@ -8,6 +8,9 @@ import { getTopicInfo } from '@/lib/topic-info';
 import { getTopicArticles } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { Article, ReviewData } from '@/lib/types';
+import { metaDescription } from '@/lib/seo';
+import { canonicalEntity, entityFromSlug } from '@/lib/entity-canon';
+import { entityHref } from '@/lib/entity-slug';
 
 export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
@@ -25,31 +28,41 @@ export function generateStaticParams() {
   return [] as { entity: string }[];
 }
 
-function decodeEntity(raw: string): string {
-  return decodeURIComponent(raw);
+// The segment is a slug ("weekly-shonen-jump"). Legacy links carrying the raw
+// name still resolve — the proxy 308s them to the slug, but a direct hit must
+// not 404 in the meantime — so an unmatched slug falls back to the decoded
+// value and is canonicalised from there.
+async function resolveEntity(raw: string): Promise<string> {
+  let decoded = raw;
+  try { decoded = decodeURIComponent(raw); } catch {}
+  return (await entityFromSlug(decoded)) ?? decoded;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { entity } = await params;
-  const name = decodeEntity(entity);
-  const canonicalUrl = `${BASE}/topic/${entity}`;
-  const ogImage = `/og?title=${encodeURIComponent(name + ' — Manga & Anime News')}`;
+  const name = await resolveEntity(entity);
+  // The archive spells several entities more than one way. Every spelling keeps
+  // resolving, but they all point their canonical at the elected one so the
+  // variants consolidate into a single hub instead of competing as duplicates.
+  const canonicalName = await canonicalEntity(name);
+  const canonicalUrl = `${BASE}${entityHref(canonicalName)}`;
+  const ogImage = `/og?title=${encodeURIComponent(name)}`;
   const info = getTopicInfo(name);
-  const description = info?.intro ?? `All manga and anime news and updates about ${name} on Catzye.`;
+  const description = info?.intro ?? `Everything on Catzye about ${name} — reporting, explainers and reference entries, filed by number.`;
   // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
   // pages eating crawl budget, but stay followable so link equity flows.
-  let count = 0;
-  try {
-    count = await prisma.article.count({ where: { published: true, entities: { has: name } } });
-  } catch {}
+  const count = (await getTopicArticles(name)).length;
   return {
-    title: `${name} — Manga & Anime News`,
-    description,
+    title: `${name} — Manga & Anime`,
+    description: metaDescription(description),
     alternates: { canonical: canonicalUrl },
     // Thin archives are noindexed — but a curated hub is substantial content, so
     // it stays indexable even before it has accumulated its own articles.
     ...(count < 2 && !info && { robots: { index: false, follow: true } }),
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
+      type: 'website',
       title: `${name} | Catzye`,
       description,
       url: canonicalUrl,
@@ -65,7 +78,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TopicPage({ params }: Props) {
   const { entity } = await params;
-  const name = decodeEntity(entity);
+  const name = await resolveEntity(entity);
 
   // Shared with the gating layout via React's request cache, so the existence
   // check that keeps notFound() returning a real 404 costs no extra query.
@@ -110,12 +123,12 @@ export default async function TopicPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name,
-    description: topicInfo?.intro ?? `Manga and anime news about ${name}`,
-    url: `${BASE}/topic/${entity}`,
+    description: topicInfo?.intro ?? `Everything on Catzye about ${name}`,
+    url: `${BASE}${entityHref(name)}`,
     numberOfItems: articles.length,
     ...(articles.length > 0 && {
       hasPart: articles.slice(0, 10).map((a) => ({
-        '@type': 'NewsArticle',
+        '@type': 'Article',
         headline: a.title,
         url: `${BASE}/article/${a.slug}`,
       })),
@@ -127,7 +140,7 @@ export default async function TopicPage({ params }: Props) {
         '@context': 'https://schema.org',
         '@type': 'CreativeWorkSeries',
         name,
-        url: `${BASE}/topic/${entity}`,
+        url: `${BASE}${entityHref(name)}`,
         aggregateRating,
       }
     : null;
@@ -196,7 +209,7 @@ export default async function TopicPage({ params }: Props) {
             {relatedTopics.map((e) => (
               <Link
                 key={e}
-                href={`/topic/${encodeURIComponent(e)}`}
+                href={entityHref(e)}
                 className="text-xs px-2.5 py-1 bg-blue-50 dark:bg-gray-800 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-900 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors rounded-sm"
               >
                 {e}

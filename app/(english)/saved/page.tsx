@@ -73,7 +73,7 @@ export default function SavedPage() {
           </svg>
           <p className="text-xl font-bold mb-2">No saved articles</p>
           <p className="text-sm mb-6">Bookmark articles to read later.</p>
-          <Link href="/" className="text-primary hover:underline text-sm font-semibold">Browse News →</Link>
+          <Link href="/" className="text-primary hover:underline text-sm font-semibold">Browse the reference →</Link>
         </div>
       ) : (
         <div className="divide-y divide-site-border">

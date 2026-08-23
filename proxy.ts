@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { CATEGORIES } from '@/lib/types';
 import { tagSlug, safeDecode } from '@/lib/tag-slug';
+import { entitySlug } from '@/lib/entity-slug';
 
 const CATEGORY_SLUGS = new Set<string>(CATEGORIES.map((c) => c.slug));
 
@@ -45,8 +46,32 @@ function canonicalTagTarget(pathname: string): string | null {
   return canonical === pathname ? null : canonical;
 }
 
+// Topic hubs moved from the raw entity name to a slug, for the same reasons the
+// tag archives did — and one more. The name came straight out of 900 articles'
+// hand-written entity lists, so the URL space inherited every colon, plus sign
+// and full stop in it: /topic/Magic%3A%20The%20Gathering. Next's ISR cache
+// writes a directory per rendered route, and a colon is not a legal filename
+// character on every platform this can run on, so those thirteen URLs took the
+// server process down rather than rendering. Slugging removes the whole class.
+function canonicalTopicTarget(pathname: string): string | null {
+  const raw = pathname.slice('/topic/'.length);
+  if (!raw || raw.includes('/')) return null;
+  const slug = entitySlug(safeDecode(raw));
+  if (!slug) return null;
+  const canonical = `/topic/${encodeURIComponent(slug)}`;
+  return canonical === pathname ? null : canonical;
+}
+
 export function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
+
+  if (pathname.startsWith('/topic/')) {
+    const canonical = canonicalTopicTarget(pathname);
+    if (canonical) {
+      return NextResponse.redirect(new URL(canonical, request.url), 308);
+    }
+    return NextResponse.next();
+  }
 
   if (pathname.startsWith('/tag/')) {
     const canonical = canonicalTagTarget(pathname);
@@ -94,6 +119,9 @@ export const config = {
     // lowercase ASCII and skips the proxy entirely. Percent-escaped non-ASCII
     // slugs (Japanese titles) match and harmlessly fall through to next().
     "/tag/:tag([^/]*[A-Z%'][^/]*)",
+    // Same shape for topics: an already-canonical slug is lowercase ASCII with
+    // no escapes and skips the proxy entirely.
+    "/topic/:entity([^/]*[A-Z%'][^/]*)",
     { source: '/:category', has: [{ type: 'query', key: 'sort' }] },
     { source: '/:category', has: [{ type: 'query', key: 'page' }] },
     { source: '/:category/page/:page', has: [{ type: 'query', key: 'sort' }] },

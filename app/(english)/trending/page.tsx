@@ -4,35 +4,36 @@ import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import type { Article } from '@/lib/types';
 import { titleValue, getGroup, GROUP_NUMBERS } from '@/lib/number-groups';
+import { getTrendingArticles } from '@/lib/articles';
 
 export const revalidate = 3600;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
-export const metadata: Metadata = {
-  title: 'Trending — Most Read Manga & Anime News',
-  description: 'The most-read manga and anime news articles of the past 30 days on Catzye.',
+export async function generateMetadata(): Promise<Metadata> {
+  // Nothing ranked in the window means nothing to rank — the page still
+  // renders its explanation, but it does not ask to be indexed as a ranking.
+  const empty = (await getTrendingArticles()).length === 0;
+  return {
+  title: 'Trending — Most Read on Catzye',
+  description:
+    'The manga and anime coverage readers have returned to most over the past 30 days, ranked — reporting, explainers and reference entries alike.',
   alternates: { canonical: `${BASE}/trending` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
     title: 'Trending | Catzye',
-    description: 'The most-read manga and anime news of the past 30 days.',
+    description: 'The manga and anime writing readers returned to most over the past 30 days.',
     url: `${BASE}/trending`,
-    images: [{ url: `/og?title=Trending%20Manga%20%26%20Anime%20News`, width: 1200, height: 630 }],
+    images: [{ url: `/og?title=Trending%20on%20Catzye`, width: 1200, height: 630 }],
   },
-};
+  ...(empty && { robots: { index: false, follow: true } }),
+  };
+}
 
 export default async function TrendingPage() {
-  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-
-  const articles = await prisma.article.findMany({
-    where: {
-      published: true,
-      publishedAt: { gte: thirtyDaysAgo },
-      views: { gt: 0 },
-    },
-    orderBy: { views: 'desc' },
-    take: 24,
-  }) as Article[];
+  const articles = await getTrendingArticles();
 
   // What the most-read stories have in common, numerologically. It is a count
   // rather than a claim: whichever shelf leads simply led this month.
@@ -40,10 +41,12 @@ export default async function TrendingPage() {
   for (const a of articles) byShelf.set(titleValue(a.title), (byShelf.get(titleValue(a.title)) ?? 0) + 1);
   const leading = [...byShelf.entries()].sort((a, b) => b[1] - a[1])[0];
 
-  const itemListLd = {
+  // An ItemList with no items describes nothing; emit it only when there is a
+  // ranking to describe.
+  const itemListLd = articles.length === 0 ? null : {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Trending Manga & Anime News',
+    name: 'Trending on Catzye',
     url: `${BASE}/trending`,
     numberOfItems: articles.length,
     itemListElement: articles.map((a, i) => ({
@@ -56,7 +59,9 @@ export default async function TrendingPage() {
 
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
+      {itemListLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
+      )}
 
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -69,7 +74,7 @@ export default async function TrendingPage() {
         <h1 className="text-3xl font-semibold uppercase tracking-tight">Trending</h1>
       </div>
       <p className="text-site-gray text-sm mb-6 ml-4">
-        Most-read manga and anime news of the past 30 days
+        Most-read on Catzye over the past 30 days
       </p>
 
       {leading && (

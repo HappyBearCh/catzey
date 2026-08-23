@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_URL, breadcrumbLd } from '@/lib/seo';
 import Link from 'next/link';
 import { GROUP_NUMBERS, getGroup, titleNumbers } from '@/lib/number-groups';
 
@@ -7,7 +8,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const metadata: Metadata = {
   title: 'About Catzye',
   description:
-    'Catzye is a reference to how manga works, arranged by numerology: every text is filed by the number its title reduces to, across twelve shelves. What that means, why it was done, and what it does not claim.',
+    'Catzye is a reference to how manga works, arranged by numerology: every text filed by the number its title reduces to. What that means, and what it does not claim.',
   alternates: { canonical: `${BASE}/about` },
 };
 
@@ -15,11 +16,29 @@ export const metadata: Metadata = {
 // arithmetic the site does not actually perform.
 const EXAMPLE = 'Weekly Shonen Jump';
 
+  // The About page is the masthead the Organization node points at, so it says
+  // so in its own markup: an AboutPage whose mainEntity is the publisher.
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Catzye',
+  url: `${SITE_URL}/about`,
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+    mainEntity: { '@id': `${SITE_URL}/#organization` },
+};
+
+const crumbs = breadcrumbLd([
+  { name: 'Home', url: SITE_URL },
+  { name: 'About Catzye', url: `${SITE_URL}/about` },
+]);
+
 export default function AboutPage() {
   const example = titleNumbers(EXAMPLE);
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <h1 className="font-display text-3xl md:text-4xl font-semibold tracking-wide mb-2">
         About Catzye
       </h1>

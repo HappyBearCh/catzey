@@ -6,6 +6,7 @@ import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getAuthor, getAllAuthors, resolveAuthor } from '@/lib/authors';
 import type { Article } from '@/lib/types';
+import { metaDescription } from '@/lib/seo';
 
 export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
@@ -27,9 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = `/og?title=${encodeURIComponent(author.name + ' — ' + author.role)}`;
   return {
     title: `${author.name} — ${author.role}`,
-    description: author.bio,
+    description: metaDescription(author.bio),
     alternates: { canonical: canonicalUrl },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
       title: `${author.name} — ${author.role} | Catzye`,
       description: author.bio,
       url: canonicalUrl,

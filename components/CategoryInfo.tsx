@@ -39,7 +39,7 @@ export function CategoryInfo({ slug }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-2 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-ink dark:divide-parchment bg-paper dark:bg-ground tone-fill">
         {/* Timeline */}
         <div className="px-6 py-5">
-          <h3 className="panel-head -mx-6 -mt-5 mb-4">Key Milestones</h3>
+          <h2 className="panel-head -mx-6 -mt-5 mb-4">Key Milestones</h2>
           <ol className="space-y-3">
             {info.history.map((item, i) => (
               <li key={i} className="flex gap-3 items-start">
@@ -63,7 +63,7 @@ export function CategoryInfo({ slug }: Props) {
         {/* Facts + Notable Works */}
         <div className="px-6 py-5 space-y-6">
           <div>
-            <h3 className="panel-head -mx-6 -mt-5 mb-4">Did You Know?</h3>
+            <h2 className="panel-head -mx-6 -mt-5 mb-4">Did You Know?</h2>
             <ul className="space-y-2.5">
               {info.facts.map((fact, i) => (
                 <li key={i} className="flex gap-2.5 items-start">
@@ -75,7 +75,7 @@ export function CategoryInfo({ slug }: Props) {
           </div>
 
           <div>
-            <h3 className="panel-head -mx-6 mb-3">Notable Works &amp; Names</h3>
+            <h2 className="panel-head -mx-6 mb-3">Notable Works &amp; Names</h2>
             {/* Each name carries its own shelf, so the tag doubles as a way in
                 to everything else that reduced the same way. */}
             <div className="flex flex-wrap gap-2">

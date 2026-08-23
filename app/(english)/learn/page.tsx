@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     'Learn how manga works, from first steps to craft and industry: what the genres mean, how a page is built, how the medium got here, and where to start reading.',
   alternates: { canonical: `${BASE}/learn` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
     title: 'Learn Manga — Guides, Explainers & Reading Paths',
     description: 'Structured explainers covering manga basics, genres, craft, history and industry.',
     url: `${BASE}/learn`,

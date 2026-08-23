@@ -11,7 +11,9 @@ export const revalidate = 3600;
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 export const metadata: Metadata = {
-  title: 'Essay Series — Catzye',
+  // The root layout appends "| Catzye"; spelling the brand out here too gave
+  // the tab "Essay Series — Catzye | Catzye".
+  title: 'Essay Series',
   description: 'In-depth essay series on manga history, culture, and society — from the origins of the medium to its most provocative modern works.',
   alternates: { canonical: `${BASE}/series` },
 };

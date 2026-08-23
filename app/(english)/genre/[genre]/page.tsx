@@ -23,13 +23,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const info = getGenreInfo(genre);
   if (!info) return {};
   return {
-    title: `${info.label} Manga & Anime — News, Reviews & Guides`,
+    title: `${info.label} Manga & Anime — Guides, Series & Reference`,
     description: info.description,
     alternates: {
       canonical: `${BASE}/genre/${genre}`,
       types: { 'application/rss+xml': `${BASE}/genre/${genre}/feed.xml` },
     },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
+      type: 'website',
+      images: [{ url: `/og?title=${encodeURIComponent(info.label + ' Manga & Anime')}`, width: 1200, height: 630 }],
       title: `${info.label} | Catzye`,
       description: info.description,
       url: `${BASE}/genre/${genre}`,
@@ -121,7 +125,7 @@ export default async function GenrePage({ params }: Props) {
               <div className="flex items-center gap-3 mb-5">
                 <span className="block w-1 h-6 bg-primary" />
                 <h2 className="text-lg font-semibold uppercase tracking-wide">
-                  Latest {info.label} News
+                  Latest in {info.label}
                 </h2>
                 <span className="ml-auto text-xs text-gray-400">{articles.length} articles</span>
               </div>

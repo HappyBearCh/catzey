@@ -42,6 +42,9 @@ export async function generateMetadata({
     description: set.shortDef,
     alternates: { canonical: `${BASE}/sets/${set.slug}` },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
+      type: 'website',
       title: `${title} | Catzye`,
       description: set.shortDef,
       url: `${BASE}/sets/${set.slug}`,

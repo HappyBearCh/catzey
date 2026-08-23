@@ -100,9 +100,13 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
               {shelf}
             </span>
           </span>
-          <h1 className="text-white text-2xl md:text-4xl font-semibold leading-tight mb-3 line-clamp-3 group-hover:text-gray-200 transition-colors">
+          {/* h2, not h1: this card is a link to another page, and every page
+              that renders it already carries its own h1. Two h1s left the
+              homepage and each category archive describing themselves to a
+              crawler as being about whichever story happened to lead. */}
+          <h2 className="text-white text-2xl md:text-4xl font-semibold leading-tight mb-3 line-clamp-3 group-hover:text-gray-200 transition-colors">
             {article.title}
-          </h1>
+          </h2>
           <p className="text-gray-300 text-sm md:text-base line-clamp-2 mb-3 hidden md:block">
             {article.excerpt}
           </p>
@@ -236,9 +240,13 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
         {categoryLabel}
           <ShelfMark n={shelf} />
       </span>
-      <h3 className="font-bold text-base leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
+      {/* h2: the medium card is the archive grid on /[category], /genre and
+          /author, so each title is a top-level item under that page's h1. The
+          small variant below stays h3 — it only appears in sidebars and related
+          rails, which sit under an h2 section label of their own. */}
+      <h2 className="font-bold text-base leading-snug line-clamp-2 mb-1 group-hover:text-primary transition-colors">
         {article.title}
-      </h3>
+      </h2>
       {article.tags.length > 0 && (
         <div className="flex flex-wrap gap-1 mb-1">
           {article.tags.slice(0, 2).map((tag) => (

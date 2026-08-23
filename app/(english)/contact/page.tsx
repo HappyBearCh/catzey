@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_URL, breadcrumbLd } from '@/lib/seo';
 import Link from 'next/link';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
@@ -11,9 +12,24 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE}/contact` },
 };
 
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact',
+  url: `${SITE_URL}/contact`,
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+};
+
+const crumbs = breadcrumbLd([
+  { name: 'Home', url: SITE_URL },
+  { name: 'Contact', url: `${SITE_URL}/contact` },
+]);
+
 export default function ContactPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <h1 className="font-display text-3xl md:text-4xl font-semibold tracking-wide mb-2">Contact</h1>
       <p className="eyebrow mb-8">Corrections first, arguments welcome</p>
       <div className="article-prose text-gray-800 dark:text-gray-200">

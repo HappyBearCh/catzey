@@ -8,6 +8,7 @@ import {
   groupProfile,
 } from '@/lib/number-groups';
 import { getShelf, type ShelfEntry } from '@/lib/shelves';
+import { metaDescription } from '@/lib/seo';
 
 export const revalidate = false; // the edition is baked in at build time
 
@@ -38,9 +39,12 @@ export async function generateMetadata({
   const description = `Every text on Catzye whose title reduces to ${n}: ${group.tagline}. ${group.howToRead}`;
   return {
     title,
-    description,
+    description: metaDescription(description),
     alternates: { canonical: `${BASE}/number/${n}` },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
+      type: 'website',
       title: `${title} | Catzye`,
       description,
       url: `${BASE}/number/${n}`,

@@ -29,3 +29,6 @@ Thumbs.db
 .vercel
 .env*.local
 .env.vercel
+
+# TypeScript incremental build cache — regenerated on every build.
+tsconfig.tsbuildinfo

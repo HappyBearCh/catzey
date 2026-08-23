@@ -10,9 +10,12 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const metadata: Metadata = {
   title: 'Numbered Sets — The Numerology Manga Practises on Itself',
   description:
-    "The Four Emperors, the Twelve Kizuki, the Gotei 13, the Eight Inner Gates: manga is full of sets whose authors chose the number. What each number does, where it was borrowed from, and why shōnen keeps reaching for the device.",
+    'The Four Emperors, the Twelve Kizuki, the Gotei 13, the Eight Inner Gates — the numbered sets manga invented for itself, and what each number is doing.',
   alternates: { canonical: `${BASE}/sets` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
     title: 'Numbered Sets | Catzye',
     description: 'The numbered hierarchies manga invented for itself, and what each number is doing.',
     url: `${BASE}/sets`,

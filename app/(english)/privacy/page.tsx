@@ -1,16 +1,33 @@
 import type { Metadata } from 'next';
+import { SITE_URL, breadcrumbLd } from '@/lib/seo';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How Catzye handles your data: what we collect, what we store, and your choices.',
+  description:
+    'How Catzye handles your data: what is collected, what is stored, how long it is kept, and the choices you have. The site counts letters, not readers.',
   alternates: { canonical: `${BASE}/privacy` },
 };
+
+const pageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Privacy Policy',
+  url: `${SITE_URL}/privacy`,
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+};
+
+const crumbs = breadcrumbLd([
+  { name: 'Home', url: SITE_URL },
+  { name: 'Privacy Policy', url: `${SITE_URL}/privacy` },
+]);
 
 export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <h1 className="font-display text-3xl md:text-4xl font-semibold tracking-wide mb-2">Privacy Policy</h1>
       <p className="eyebrow mb-8">What is counted, and what is not</p>
       <div className="article-prose text-gray-800 dark:text-gray-200">

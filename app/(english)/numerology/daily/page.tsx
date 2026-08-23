@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_URL, breadcrumbLd } from '@/lib/seo';
 import Link from 'next/link';
 import { format } from 'date-fns';
 import { prisma } from '@/lib/db';
@@ -11,13 +12,17 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Daily Numerology News Analysis',
+  title: 'Daily Numerology Analysis',
   description:
-    "Catzye's daily column reads the day's manga and anime headlines through the day's number — the connective thread between the biggest stories, one number at a time.",
+    "Catzye's daily column reads the day's manga and anime headlines through the day's number — the thread connecting the biggest stories, one number at a time.",
   alternates: { canonical: `${BASE}/numerology/daily` },
   openGraph: {
-    title: 'Daily Numerology News Analysis | Catzye',
-    description: "The day's manga and anime news, read through the day's number.",
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
+    images: [{ url: '/og?title=Daily%20Numerology', width: 1200, height: 630 }],
+    title: 'Daily Numerology Analysis | Catzye',
+    description: "The day's manga and anime headlines, read through the day's number.",
     url: `${BASE}/numerology/daily`,
   },
 };
@@ -47,8 +52,32 @@ export default async function DailyAnalysisArchive() {
 
   const [latest, ...rest] = columns;
 
+  // The visible trail and the column list were both invisible to a crawler:
+  // this was the last hub on the site carrying no structured data.
+  const crumbs = breadcrumbLd([
+    { name: 'Home', url: SITE_URL },
+    { name: 'Numerology', url: `${SITE_URL}/numerology` },
+    { name: 'Daily Analysis', url: `${SITE_URL}/numerology/daily` },
+  ]);
+
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Daily Numerology Analysis',
+    url: `${SITE_URL}/numerology/daily`,
+    numberOfItems: columns.length,
+    itemListElement: columns.slice(0, 30).map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE_URL}/article/${c.slug}`,
+      name: c.title,
+    })),
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
         <span aria-hidden="true">›</span>
@@ -57,7 +86,7 @@ export default async function DailyAnalysisArchive() {
         <span className="text-primary font-bold">Daily Analysis</span>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-semibold mb-3">Daily Numerology News Analysis</h1>
+      <h1 className="text-3xl md:text-4xl font-semibold mb-3">Daily Numerology Analysis</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
         Each day, Catzye reads the biggest manga and anime headlines through the day&apos;s number —
         finding the thread that connects them. A lens for paying attention, not a forecast.

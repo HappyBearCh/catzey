@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { format } from 'date-fns';
 import { prisma } from '@/lib/db';
 import { getCategoryLabel } from '@/lib/types';
+import { metaDescription } from '@/lib/seo';
 
 export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
@@ -50,15 +51,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const series = await getSeries(slug);
   if (!series) return {};
   return {
-    title: `${series.title} — Essay Series — Catzye`,
-    description: series.description ?? `An essay series on ${series.title}.`,
+    title: `${series.title} — Essay Series`,
+    description: metaDescription(series.description ?? `An essay series on ${series.title}.`),
     alternates: { canonical: `${BASE}/series/${slug}` },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
       title: series.title,
       description: series.description ?? '',
       url: `${BASE}/series/${slug}`,
       type: 'website',
-      images: series.imageUrl ? [{ url: series.imageUrl, width: 1200, height: 630 }] : [],
+      images: [{ url: series.imageUrl ?? `/og?title=${encodeURIComponent(series.title)}`, width: 1200, height: 630 }],
     },
   };
 }

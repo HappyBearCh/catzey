@@ -53,6 +53,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: guide.subtitle,
     alternates: { canonical: url },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
       title: guide.title,
       description: guide.subtitle,
       url,

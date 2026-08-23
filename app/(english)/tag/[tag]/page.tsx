@@ -6,6 +6,7 @@ import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { tagSlug, tagHref, safeDecode, resolveTag } from '@/lib/tags';
 import type { Article } from '@/lib/types';
+import { topicCanonicalForTag } from '@/lib/hub-duplicates';
 
 export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
@@ -32,20 +33,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!resolved || slug !== tag) return {};
 
   const label = resolved.label;
-  const canonicalUrl = `${BASE}/tag/${encodeURIComponent(slug)}`;
-  const ogImage = `/og?title=${encodeURIComponent('#' + label + ' — Manga & Anime News')}`;
+  // Where the same slug names an entity carrying effectively the same articles,
+  // the topic hub is the canonical page for that subject and this archive is a
+  // second address for it. See lib/hub-duplicates.ts.
+  const duplicateOfTopic = await topicCanonicalForTag(slug);
+  const canonicalUrl = duplicateOfTopic
+    ? `${BASE}/topic/${encodeURIComponent(duplicateOfTopic)}`
+    : `${BASE}/tag/${encodeURIComponent(slug)}`;
+  const ogImage = `/og?title=${encodeURIComponent('#' + label)}`;
   const description = `Browse all manga and anime articles tagged "${label}" on Catzye.`;
   return {
-    title: `#${label} — Manga & Anime News`,
+    title: `#${label} — Manga & Anime`,
     description,
     alternates: { canonical: canonicalUrl },
     // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
     // pages eating crawl budget, but stay followable so link equity flows.
     ...(resolved.count < 2 && { robots: { index: false, follow: true } }),
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
+      type: 'website',
       title: `#${label} | Catzye`,
       description,
-      url: canonicalUrl,
+      url: `${BASE}/tag/${encodeURIComponent(slug)}`,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
@@ -110,7 +120,7 @@ export default async function TagPage({ params }: Props) {
     numberOfItems: articles.length,
     ...(articles.length > 0 && {
       hasPart: articles.slice(0, 10).map((a) => ({
-        '@type': 'NewsArticle',
+        '@type': 'Article',
         headline: a.title,
         url: `${BASE}/article/${a.slug}`,
       })),
