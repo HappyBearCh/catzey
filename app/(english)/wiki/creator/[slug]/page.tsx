@@ -4,6 +4,7 @@ import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import { getCreator, getAllCreators, getWorksByCreator, getWorksBySlugs } from '@/lib/education';
+import { metaDescription } from '@/lib/seo';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
 
@@ -37,9 +38,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = `/og?title=${encodeURIComponent(creator.name)}`;
   return {
     title,
-    description: creator.bio,
+    description: metaDescription(creator.bio),
     alternates: { canonical: url },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
       title,
       description: creator.bio,
       url,

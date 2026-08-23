@@ -11,10 +11,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/api/'],
       },
     ],
-    sitemap: [
-      `${BASE}/sitemap.xml`,
-      `${BASE}/news-sitemap.xml`,
-    ],
+    // One sitemap. The Google News sitemap that used to sit beside it covered a
+    // rolling two-day window, and the archive stopped taking new reporting long
+    // before that — so it served an empty urlset on every fetch. Catzye is a
+    // reference now, not a wire.
+    sitemap: `${BASE}/sitemap.xml`,
     host: BASE,
   };
 }

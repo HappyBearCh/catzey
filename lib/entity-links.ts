@@ -1,4 +1,5 @@
 import { load } from 'cheerio';
+import { entityHref } from '@/lib/entity-slug';
 
 function escapeRegex(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -61,7 +62,7 @@ export function linkEntitiesInHtml(html: string, entities: string[]): string {
           }
           parts.push(escapeHtml(text.slice(cursor, next.index)));
           parts.push(
-            `<a href="/topic/${encodeURIComponent(next.entity)}" class="entity-link">${escapeHtml(next.entity)}</a>`,
+            `<a href="${entityHref(next.entity)}" class="entity-link">${escapeHtml(next.entity)}</a>`,
           );
           remaining.delete(next.entity);
           cursor = next.index + next.entity.length;

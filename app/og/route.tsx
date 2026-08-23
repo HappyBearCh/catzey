@@ -3,6 +3,10 @@ import { NextRequest } from 'next/server';
 import { getCategoryLabel } from '@/lib/types';
 import { titleValue, getGroup } from '@/lib/number-groups';
 
+// The build warns that the Edge Runtime is deprecated, and it is — but moving
+// this route to 'nodejs' makes the bundler crash while compiling next/og, so it
+// stays here until that is fixed upstream. The cards are immutable per URL and
+// cached for a year by the header below, so the runtime costs one render each.
 export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {

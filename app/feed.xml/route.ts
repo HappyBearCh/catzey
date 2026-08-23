@@ -21,9 +21,9 @@ export async function GET() {
   }
 
   const xml = buildRss({
-    title: 'Catzye — Manga & Anime News',
+    title: 'Catzye — Manga, Filed by Number',
     link: BASE,
-    description: 'The latest manga and anime news, reviews, and industry updates.',
+    description: 'A reference to how manga works — explainers, a glossary, and entries on series and creators, filed by number.',
     selfUrl: `${BASE}/feed.xml`,
     articles,
   });

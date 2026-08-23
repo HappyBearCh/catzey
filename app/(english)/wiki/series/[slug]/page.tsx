@@ -5,6 +5,7 @@ import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import { SafeImage } from '@/components/SafeImage';
 import { getWork, getAllWorks, getCreatorsBySlugs } from '@/lib/education';
+import { getGenreInfo } from '@/lib/genre-info';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
 
@@ -48,6 +49,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: work.synopsis,
     alternates: { canonical: url },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
       title,
       description: work.synopsis,
       url,
@@ -185,16 +188,29 @@ export default async function WorkPage({ params }: Props) {
       {work.genres.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
           <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Genres</h2>
+          {/* Only eight genre hubs exist. This used to mint a link for every
+              genre on the work regardless, so a page tagged "drama, action,
+              supernatural" shipped three dead links — twelve distinct 404s
+              across the wiki, all of them crawlable. Genres without a hub still
+              show, as plain chips. */}
           <div className="flex flex-wrap gap-2">
-            {work.genres.map((g) => (
-              <Link
-                key={g}
-                href={`/genre/${g.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-xs px-2.5 py-1 bg-site-light dark:bg-gray-800 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-colors rounded-sm"
-              >
-                {g}
-              </Link>
-            ))}
+            {work.genres.map((g) => {
+              const slug = g.toLowerCase().replace(/\s+/g, '-');
+              const chip = 'text-xs px-2.5 py-1 bg-site-light dark:bg-gray-800 border rounded-sm';
+              return getGenreInfo(slug) ? (
+                <Link
+                  key={g}
+                  href={`/genre/${slug}`}
+                  className={`${chip} text-primary border-primary/30 hover:bg-primary hover:text-white transition-colors`}
+                >
+                  {g}
+                </Link>
+              ) : (
+                <span key={g} className={`${chip} text-ink-muted dark:text-gray-400 border-site-border dark:border-gray-700`}>
+                  {g}
+                </span>
+              );
+            })}
           </div>
         </section>
       )}

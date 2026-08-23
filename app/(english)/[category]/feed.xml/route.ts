@@ -33,9 +33,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ categor
   }
 
   const xml = buildRss({
-    title: `Catzye — ${label} News`,
+    title: `Catzye — ${label}`,
     link: `${BASE}/${category}`,
-    description: `The latest ${label} manga and anime news, reviews, and updates from Catzye.`,
+    description: `Everything Catzye files under ${label} — reporting, explainers and reference entries.`,
     selfUrl: `${BASE}/${category}/feed.xml`,
     articles,
   });

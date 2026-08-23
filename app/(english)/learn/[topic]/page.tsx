@@ -11,6 +11,7 @@ import {
   getTrack,
   parseFaq,
 } from '@/lib/education';
+import { metaDescription } from '@/lib/seo';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
 
@@ -43,9 +44,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = `/og?title=${encodeURIComponent(topic.title)}`;
   return {
     title: topic.title,
-    description: topic.summary,
+    description: metaDescription(topic.summary),
     alternates: { canonical: url },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
       title: topic.title,
       description: topic.summary,
       url,

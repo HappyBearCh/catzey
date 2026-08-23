@@ -10,9 +10,12 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const metadata: Metadata = {
   title: 'The Twelve Shelves — Everything Filed by Its Number',
   description:
-    'Catzye files every text by the numerological value of its title. Twelve shelves — the nine cardinal numbers and the master numbers 11, 22 and 33 — each holding the reports, explainers, glossary entries and reference pages that reduce to it.',
+    'Every text on Catzye filed by the numerological value of its title: twelve shelves, the nine cardinal numbers plus the master numbers 11, 22 and 33.',
   alternates: { canonical: `${BASE}/numbers` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
     title: 'The Twelve Shelves | Catzye',
     description: 'Every text on the site, filed by the number its title reduces to.',
     url: `${BASE}/numbers`,

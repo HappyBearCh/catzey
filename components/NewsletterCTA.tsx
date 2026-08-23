@@ -13,7 +13,7 @@ export function NewsletterCTA() {
       <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-2">
         Newsletter · today is a {today.number}
       </p>
-      <h3 className="font-semibold text-xl mb-2">A week, read by its numbers</h3>
+      <h2 className="font-semibold text-xl mb-2">A week, read by its numbers</h2>
       <p className="text-gray-400 text-sm mb-4 max-w-sm">
         Once a week: what was added to the reference, and which shelf it landed on. Today the
         reference reads as {group.shelf.toLowerCase()} — {group.tagline}. No spam, unsubscribe any

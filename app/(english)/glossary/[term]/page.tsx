@@ -49,6 +49,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: term.shortDef,
     alternates: { canonical: url },
     openGraph: {
+      siteName: 'Catzye',
+      locale: 'en_US',
       title,
       description: term.shortDef,
       url,

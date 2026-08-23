@@ -30,6 +30,9 @@ import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { ReviewData } from '@/lib/types';
 import { STANDFIRST_OPEN, splitOffReading } from '@/lib/numerologize';
 import { titleValue, getGroup } from '@/lib/number-groups';
+import { metaDescription } from '@/lib/seo';
+import { canonicalEntity } from '@/lib/entity-canon';
+import { entityHref } from '@/lib/entity-slug';
 
 export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
 
@@ -69,9 +72,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const ogImageUrl = `${BASE}/og?title=${encodeURIComponent(article.title)}&category=${article.category}${article.imageUrl ? `&img=${encodeURIComponent(article.imageUrl)}` : ''}`;
     return {
       title: article.title,
-      description: article.excerpt,
+      description: metaDescription(article.excerpt),
       authors: [{ name: author.name, url: `${BASE}/author/${author.slug}` }],
       openGraph: {
+        siteName: 'Catzye',
+        locale: 'en_US',
         title: article.title,
         description: article.excerpt,
         url: `${BASE}/article/${slug}`,
@@ -92,9 +97,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternates: {
         canonical: `${BASE}/article/${slug}`,
       },
-      ...(article.tags.length > 0 && {
-        other: { news_keywords: article.tags.join(', ') },
-      }),
     };
   } catch {
     return {};
@@ -226,15 +228,24 @@ export default async function ArticlePage({ params }: Props) {
 
   // Entities are curated people/works/places — expose them as the article's
   // subject matter, each pointing at its topic hub to reinforce the entity graph.
-  const mentions = article.entities.map((e) => ({
-    '@type': 'Thing',
-    name: e,
-    url: `${BASE}/topic/${encodeURIComponent(e)}`,
-  }));
+  // Pointed at the entity's elected spelling so every article naming a thing
+  // any way round cites the same hub URL, rather than splitting the graph
+  // across "Pokémon" and "Pokemon".
+  const mentions = await Promise.all(
+    article.entities.map(async (e) => ({
+      '@type': 'Thing',
+      name: e,
+      url: `${BASE}${entityHref(await canonicalEntity(e))}`,
+    })),
+  );
 
+  // Article, not NewsArticle. NewsArticle is a claim about the kind of thing a
+  // page is, and Google reads it that way — it belongs to a publication filing
+  // despatches. Catzye is a reference: the texts are finished, they are meant
+  // to keep, and nothing here should be judged on how recently it was filed.
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': 'Article',
     headline: article.title,
     description: article.excerpt,
     image: article.imageUrl
@@ -528,7 +539,7 @@ export default async function ArticlePage({ params }: Props) {
                 {article.entities.map((entity) => (
                   <Link
                     key={entity}
-                    href={`/topic/${encodeURIComponent(entity)}`}
+                    href={entityHref(entity)}
                     className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors rounded-sm"
                   >
                     {entity}
@@ -595,7 +606,7 @@ export default async function ArticlePage({ params }: Props) {
                 href={`/${article.category}`}
                 className="mt-5 block text-center text-xs font-bold uppercase tracking-wider text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors"
               >
-                All {categoryLabel} News →
+                All of {categoryLabel} →
               </Link>
             </div>
           )}
@@ -623,7 +634,7 @@ export default async function ArticlePage({ params }: Props) {
                   href={`/${article.category}`}
                   className="mt-4 block text-center text-xs font-bold uppercase tracking-wider text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors"
                 >
-                  All {categoryLabel} News →
+                  All of {categoryLabel} →
                 </Link>
               </>
             )}

@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const label = getCategoryLabel(category);
 
   return {
-    title: `Most Read ${label} News — Page ${page}`,
+    title: `Most Read in ${label} — Page ${page}`,
     description: `The most read ${label} stories on Catzye, page ${page}.`,
     alternates: { canonical: `${BASE}/${category}` },
     robots: { index: false, follow: true },

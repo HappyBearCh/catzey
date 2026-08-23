@@ -12,6 +12,7 @@ import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import type { Article } from '@/lib/types';
+import { openGraph, twitter } from '@/lib/seo';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
@@ -20,9 +21,15 @@ export const metadata: Metadata = {
   // second "Catzye" to a title that already opens with the brand.
   title: { absolute: 'Catzye — Learn Manga: Guides, Glossary & Series Reference' },
   description:
-    'Learn how manga works: explainers on genres, craft, history and the industry, a full glossary of manga terminology, and reference entries for the series and creators behind them.',
+    'Learn how manga works: explainers on genres, craft, history and industry, a full glossary of manga terminology, and reference entries for series and creators.',
   alternates: { canonical: '/' },
-  openGraph: { url: BASE },
+  openGraph: openGraph({
+    title: 'Catzye — Learn Manga: Guides, Glossary & Series Reference',
+    description:
+      'Learn how manga works: explainers on genres, craft, history and industry, a full glossary of manga terminology, and reference entries for series and creators.',
+    url: BASE,
+  }),
+  twitter: twitter({ title: 'Catzye — Learn Manga' }),
 };
 
 const LEARN_ENTRY_POINTS = [
@@ -42,39 +49,6 @@ const LEARN_ENTRY_POINTS = [
     blurb: 'Reference entries for the series themselves and the creators behind them.',
   },
 ];
-
-const websiteLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Catzye',
-  url: BASE,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: `${BASE}/search?q={search_term_string}` },
-    'query-input': 'required name=search_term_string',
-  },
-};
-
-const organizationLd = {
-  '@context': 'https://schema.org',
-  '@type': 'NewsMediaOrganization',
-  name: 'Catzye',
-  url: BASE,
-  logo: { '@type': 'ImageObject', url: `${BASE}/icons/icon-512.png`, width: 512, height: 512 },
-  description: 'Manga and anime news, reviews, and industry coverage.',
-  masthead: `${BASE}/about`,
-  publishingPrinciples: `${BASE}/editorial-policy`,
-  correctionsPolicy: `${BASE}/editorial-policy`,
-  // Populate these env vars with your public profile URLs to strengthen
-  // entity / Knowledge Graph signals (e.g. https://x.com/catzye).
-  sameAs: [
-    process.env.NEXT_PUBLIC_TWITTER_URL,
-    process.env.NEXT_PUBLIC_BLUESKY_URL,
-    process.env.NEXT_PUBLIC_REDDIT_URL,
-    process.env.NEXT_PUBLIC_INSTAGRAM_URL,
-    process.env.NEXT_PUBLIC_YOUTUBE_URL,
-  ].filter(Boolean) as string[],
-};
 
 export const revalidate = 3600; // hourly; cron revalidatePath('/') covers new publishes
 
@@ -130,7 +104,7 @@ export default async function HomePage() {
   const itemListLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Latest Manga & Anime News',
+    name: 'Latest from Catzye',
     itemListElement: articles.slice(0, 10).map((a, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -155,8 +129,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <div className="max-w-8xl mx-auto px-4">
         {/* The educational sections lead the page — they are what the site is

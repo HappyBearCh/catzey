@@ -41,7 +41,7 @@ export function Footer() {
           {/* The shelves get the first column after the masthead: they are the
               arrangement, and the category list below is the older cross-cut. */}
           <div>
-            <h3 className="eyebrow block mb-4">The Shelves</h3>
+            <h2 className="eyebrow block mb-4">The Shelves</h2>
             <ul className="space-y-1.5 mb-4">
               {GROUP_NUMBERS.map((n) => (
                 <li key={n}>
@@ -64,7 +64,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="eyebrow block mb-4">Sections</h3>
+            <h2 className="eyebrow block mb-4">Sections</h2>
             <ul className="space-y-2">
               {CATEGORIES.slice(0, 5).map(({ label, slug }) => (
                 <li key={slug}>
@@ -77,7 +77,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="eyebrow block mb-4">Learn</h3>
+            <h2 className="eyebrow block mb-4">Learn</h2>
             <ul className="space-y-2 mb-6">
               <li>
                 <Link href="/learn" className="text-sm hover:text-gold transition-colors">All Explainers</Link>
@@ -92,7 +92,7 @@ export function Footer() {
                 <Link href="/guides" className="text-sm hover:text-gold transition-colors">Guides</Link>
               </li>
             </ul>
-            <h3 className="eyebrow block mb-4">More</h3>
+            <h2 className="eyebrow block mb-4">More</h2>
             <ul className="space-y-2">
               {CATEGORIES.slice(5).map(({ label, slug }) => (
                 <li key={slug}>
@@ -124,7 +124,7 @@ export function Footer() {
           </div>
 
           <div className="hidden md:block">
-            <h3 className="eyebrow block mb-4">Genres</h3>
+            <h2 className="eyebrow block mb-4">Genres</h2>
             <ul className="space-y-2">
               {['isekai', 'shonen', 'romance', 'horror', 'slice-of-life', 'sports', 'mecha', 'seinen'].map((g) => (
                 <li key={g}>
@@ -137,7 +137,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="eyebrow block mb-4">Newsletter</h3>
+            <h2 className="eyebrow block mb-4">Newsletter</h2>
             <p className="text-sm mb-3">
               Weekly digest of the top manga &amp; anime stories.
             </p>
@@ -146,7 +146,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs">
-          <p>© {currentYear} Catzye — Manga &amp; Anime News</p>
+          <p>© {currentYear} Catzye — Manga, filed by number</p>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-gold transition-colors">Privacy</Link>
             <Link href="/feed.xml" className="hover:text-gold transition-colors">RSS</Link>

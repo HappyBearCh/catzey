@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   description: 'Weekly manga chapter release schedule — know exactly which day your favourite series drops new chapters.',
   alternates: { canonical: `${BASE}/calendar` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
+    images: [{ url: '/og?title=Manga%20Release%20Calendar', width: 1200, height: 630 }],
     title: 'Manga Release Calendar | Catzye',
     description: 'Weekly chapter release schedule for One Piece, Jujutsu Kaisen, Spy × Family, and more.',
     url: `${BASE}/calendar`,
@@ -200,7 +204,7 @@ export default function CalendarPage() {
 
       {/* Browse by tag */}
       <div className="mt-8 border-t border-site-border dark:border-gray-700 pt-6">
-        <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Browse News by Series</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Browse by Series</p>
         <div className="flex flex-wrap gap-2">
           {['One Piece', 'Jujutsu Kaisen', 'My Hero Academia', 'Chainsaw Man', 'Spy × Family', 'Frieren', 'Blue Lock', 'Demon Slayer'].map((tag) => (
             <Link

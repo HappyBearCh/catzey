@@ -93,7 +93,7 @@ export async function CategoryArchive({
   const itemListLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `${label} News`,
+    name: label,
     url: `${BASE}${categoryPageHref(category, page, sort)}`,
     numberOfItems: articles.length,
     itemListElement: articles.map((a, i) => ({

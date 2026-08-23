@@ -134,9 +134,27 @@ function matchValue(fieldValue: unknown, condition: unknown): boolean {
       if (typeof notVal === 'object' && notVal !== null) return !matchValue(fieldValue, notVal);
       return fieldValue !== notVal;
     }
+    if ('equals' in c) return fieldValue === c.equals;
+    if ('notIn' in c && Array.isArray(c.notIn)) return !(c.notIn as unknown[]).includes(fieldValue);
     if ('gt' in c) return Number(fieldValue) > Number(c.gt);
     if ('gte' in c) return toMs(fieldValue) >= toMs(c.gte);
+    // `lt` sat missing beside its three siblings, so the scraper's retry and
+    // stuck-claim sweeps in app/api/cron/process silently matched nothing.
+    if ('lt' in c) return toMs(fieldValue) < toMs(c.lt);
     if ('lte' in c) return toMs(fieldValue) <= toMs(c.lte);
+    // Same omission as `has`: /numerology/daily narrows the daily desk out of
+    // the shared "numerology" category by slug prefix, and with no startsWith
+    // the archive rendered empty even though five columns were published.
+    if ('startsWith' in c) {
+      const s = String(fieldValue ?? '');
+      const q = String(c.startsWith ?? '');
+      return c.mode === 'insensitive' ? s.toLowerCase().startsWith(q.toLowerCase()) : s.startsWith(q);
+    }
+    if ('endsWith' in c) {
+      const s = String(fieldValue ?? '');
+      const q = String(c.endsWith ?? '');
+      return c.mode === 'insensitive' ? s.toLowerCase().endsWith(q.toLowerCase()) : s.endsWith(q);
+    }
     if ('contains' in c) {
       const s = String(fieldValue ?? '');
       const q = String(c.contains ?? '');
@@ -147,6 +165,18 @@ function matchValue(fieldValue: unknown, condition: unknown): boolean {
     if ('hasSome' in c && Array.isArray(c.hasSome)) {
       if (!Array.isArray(fieldValue)) return false;
       return (c.hasSome as string[]).some((t) => (fieldValue as string[]).includes(t));
+    }
+    // Prisma's scalar-list membership test. Without it `{ entities: { has: x } }`
+    // fell through to the identity check at the bottom and never matched, which
+    // emptied every /topic/<entity> archive and turned the ~500 topic URLs the
+    // sitemap advertises into 404s.
+    if ('has' in c) {
+      if (!Array.isArray(fieldValue)) return false;
+      return (fieldValue as unknown[]).includes(c.has);
+    }
+    if ('hasEvery' in c && Array.isArray(c.hasEvery)) {
+      if (!Array.isArray(fieldValue)) return false;
+      return (c.hasEvery as unknown[]).every((t) => (fieldValue as unknown[]).includes(t));
     }
   }
 
@@ -269,7 +299,16 @@ export function groupByRecords<T extends Rec>(data: T[], args: AnyArgs): Rec[] {
     const entry: Rec = {};
     for (const f of byFields) entry[f] = records[0][f];
     if (countField) {
-      entry._count = { [countField]: records.filter((r) => r[countField] != null).length };
+      // `_count: { _all: true }` counts rows, not non-null values of a column
+      // named "_all" — the old filter looked up a field that never exists and
+      // reported 0 for every group, which is why the sitemap listed no
+      // paginated category pages.
+      entry._count = {
+        [countField]:
+          countField === '_all'
+            ? records.length
+            : records.filter((r) => r[countField] != null).length,
+      };
     }
     if (maxField) {
       const vals = records.map((r) => r[maxField]).filter((v) => v != null);

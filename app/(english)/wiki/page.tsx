@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     'Reference entries for manga series and the people who make them: publication history, demographics, genres, magazines, and the creators behind each work.',
   alternates: { canonical: `${BASE}/wiki` },
   openGraph: {
+    siteName: 'Catzye',
+    locale: 'en_US',
+    type: 'website',
     title: 'Manga Wiki — Series & Creator Reference',
     description: 'Reference entries for manga series and their creators.',
     url: `${BASE}/wiki`,

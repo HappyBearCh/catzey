@@ -9,12 +9,31 @@ import { getAllGenres } from '@/lib/genre-info';
 import { getAllSeasons } from '@/lib/seasons';
 import { getAllAuthors } from '@/lib/authors';
 import { tagSlug } from '@/lib/tags';
+import { canonicalEntity, canonicalEntityCounts } from '@/lib/entity-canon';
+import { entityHref } from '@/lib/entity-slug';
+import { duplicateTagSlugs } from '@/lib/hub-duplicates';
+import { getTrendingArticles } from '@/lib/articles';
 import { getAllLearnTopics, getAllGlossaryTerms, getAllWorks, getAllCreators } from '@/lib/education';
 import { CATEGORY_PAGE_SIZE } from '@/components/CategoryArchive';
 
 export const revalidate = 3600;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
+
+// Next writes the `images` values into <image:loc> verbatim — it escapes
+// nothing. One scraped image URL carries utm parameters, and its raw
+// ampersands made the whole document malformed XML; a sitemap that fails to
+// parse takes all 2,200-odd URLs down with it, not just the offending entry.
+// Escaped here rather than by dropping the query string, because some hosts
+// need their parameters to serve the file at all.
+function xmlSafeUrl(url: string): string {
+  return url
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
 const MAX_PAGINATED_PAGES = 50;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -41,21 +60,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // the old SELECT ... UNNEST version threw whenever Postgres was unreachable
     // and took the rest of this block down with it. Counts over the 5000 rows
     // above rather than the whole table — the same set the sitemap can list.
-    const entityAgg = new Map<string, { count: number; last: Date }>();
+    //
+    // Keyed by the elected spelling, not the raw string: the archive writes
+    // "Weekly Shonen Jump" and "Weekly Shōnen Jump" for the same magazine, and
+    // listing both asks Google to crawl two URLs that now canonicalise to one.
+    const canonCounts = await canonicalEntityCounts();
+    const lastByCanon = new Map<string, Date>();
     for (const a of articles) {
       for (const entity of a.entities ?? []) {
-        const prev = entityAgg.get(entity);
-        if (!prev) entityAgg.set(entity, { count: 1, last: a.updatedAt });
-        else {
-          prev.count += 1;
-          if (a.updatedAt > prev.last) prev.last = a.updatedAt;
-        }
+        const name = await canonicalEntity(entity);
+        const prev = lastByCanon.get(name);
+        if (!prev || a.updatedAt > prev) lastByCanon.set(name, a.updatedAt);
       }
     }
-    entityRows = [...entityAgg.entries()]
-      .filter(([, v]) => v.count >= 2)
+    entityRows = [...canonCounts.entries()]
+      .filter(([, count]) => count >= 2)
       .slice(0, 500)
-      .map(([entity, v]) => ({ entity, last: v.last }));
+      .map(([entity]) => ({ entity, last: lastByCanon.get(entity) ?? new Date() }));
 
     const grouped = await prisma.article.groupBy({
       by: ['category'],
@@ -115,7 +136,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/wiki`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/numbers`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/sets`, changeFrequency: 'monthly' as const, priority: 0.85 },
-    { url: `${BASE}/trending`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.8 },
     { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${BASE}/numerology`, changeFrequency: 'monthly' as const, priority: 0.6 },
@@ -126,6 +146,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/contact`, changeFrequency: 'yearly' as const, priority: 0.3 },
     { url: `${BASE}/privacy`, changeFrequency: 'yearly' as const, priority: 0.2 },
   ];
+
+  // /trending noindexes itself when the 30-day window is empty, which it is
+  // whenever the archive has been quiet for a month. Listed only when it ranks
+  // something.
+  if ((await getTrendingArticles()).length > 0) {
+    staticPages.push({
+      url: `${BASE}/trending`,
+      lastModified: newestUpdate,
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    });
+  }
 
   // The twelve shelves are how the reference is arranged, so they rank with the
   // category pages rather than below them.
@@ -145,6 +177,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const categoryPages: MetadataRoute.Sitemap = [];
   for (const { slug } of CATEGORIES) {
     const stats = categoryStats.find((s) => s.category === slug);
+    // A category that has never carried an article renders an empty archive and
+    // noindexes itself. Listing it here would only ask Google to crawl a URL we
+    // have already told it not to keep.
+    if (!stats?.count) continue;
     categoryPages.push({
       url: `${BASE}/${slug}`,
       lastModified: stats?.last ?? undefined,
@@ -196,9 +232,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
   // Skip single-use tags: their pages self-noindex, so keep them out of the
-  // sitemap to concentrate crawl budget on indexable URLs.
+  // sitemap to concentrate crawl budget on indexable URLs. Skip the ones that
+  // canonicalise onto a same-named topic hub too — asking Google to crawl a URL
+  // we have already pointed somewhere else just spends budget twice.
+  const deferredToTopic = await duplicateTagSlugs();
   const tagPages: MetadataRoute.Sitemap = Array.from(tagStats.entries())
-    .filter(([, s]) => s.count >= 2)
+    .filter(([slug, s]) => s.count >= 2 && !deferredToTopic.has(slug))
     .map(([slug, s]) => ({
       url: `${BASE}/tag/${encodeURIComponent(slug)}`,
       lastModified: s.last,
@@ -209,7 +248,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const topicPages: MetadataRoute.Sitemap = entityRows
     .filter((r) => r.entity)
     .map((r) => ({
-      url: `${BASE}/topic/${encodeURIComponent(r.entity)}`,
+      url: `${BASE}${entityHref(r.entity)}`,
       lastModified: r.last,
       changeFrequency: 'daily' as const,
       priority: 0.55,
@@ -224,7 +263,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'weekly' as const,
     priority: 0.7,
     ...(a.imageUrl && {
-      images: [a.imageUrl.startsWith('http') ? a.imageUrl : `${BASE}${a.imageUrl}`],
+      images: [xmlSafeUrl(a.imageUrl.startsWith('http') ? a.imageUrl : `${BASE}${a.imageUrl}`)],
     }),
   }));
 
