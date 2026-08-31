@@ -34,7 +34,12 @@ import { metaDescription } from '@/lib/seo';
 import { canonicalEntity } from '@/lib/entity-canon';
 import { entityHref } from '@/lib/entity-slug';
 
-export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
+// The published edition is a checked-in file (see lib/db.ts), so an article's
+// rendered HTML cannot change between deploys. A time-based revalidate only
+// bought a re-render — and a billed ISR write, per region — every 24 hours for
+// output identical to what was already cached. A deploy is the only thing that
+// can change an article, and a deploy rebuilds the page anyway.
+export const revalidate = false;
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -47,21 +52,30 @@ function readingTime(content: string): number {
   return Math.max(1, Math.ceil(words / 200));
 }
 
-// Pre-render the most-read articles at build time for fast TTFB / better Core
-// Web Vitals. Other slugs are rendered on demand (dynamicParams defaults true).
+// Every article is prerendered, not just the most-read fifty. The edition is a
+// finite checked-in file, so the remaining slugs were not an open-ended long
+// tail — they were 870-odd pages that each cost a function invocation and an
+// ISR write the first time a crawler reached them, and another pair every time
+// the entry aged out. Rendering them at build makes them plain static files on
+// the CDN, which is both cheaper and faster.
+// Deliberately not wrapped in try/catch. Paired with dynamicParams = false
+// below, an empty list here does not degrade to on-demand rendering — it 404s
+// every article on the site. Failing the build is the safe direction.
 export async function generateStaticParams() {
-  try {
-    const top = await prisma.article.findMany({
-      where: { published: true },
-      orderBy: { views: 'desc' },
-      take: 50,
-      select: { slug: true },
-    });
-    return top.map((a) => ({ slug: a.slug }));
-  } catch {
-    return [];
+  const all = await prisma.article.findMany({
+    where: { published: true },
+    select: { slug: true },
+  });
+  if (all.length === 0) {
+    throw new Error('No published articles found — refusing to build an archive with no pages.');
   }
+  return all.map((a) => ({ slug: a.slug }));
 }
+
+// The slug set is closed, so anything outside it is a genuine 404 with nothing
+// to render on demand. Saying so lets Next 404 at the routing layer instead of
+// booting a function — and stops invented slugs from minting ISR entries.
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

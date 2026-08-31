@@ -50,7 +50,9 @@ const LEARN_ENTRY_POINTS = [
   },
 ];
 
-export const revalidate = 3600; // hourly; cron revalidatePath('/') covers new publishes
+// Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
+// so a timer only bought re-renders and ISR writes for identical output.
+export const revalidate = false;
 
 async function getArticles() {
   try {

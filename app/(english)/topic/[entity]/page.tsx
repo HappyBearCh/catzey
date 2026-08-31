@@ -9,10 +9,13 @@ import { getTopicArticles } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { Article, ReviewData } from '@/lib/types';
 import { metaDescription } from '@/lib/seo';
-import { canonicalEntity, entityFromSlug } from '@/lib/entity-canon';
+import { canonicalEntity, canonicalEntitySlugs, entityFromSlug } from '@/lib/entity-canon';
 import { entityHref } from '@/lib/entity-slug';
 
-export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
+// Hubs are assembled from a checked-in edition (see lib/db.ts) and cannot change
+// between deploys, so a daily revalidate only re-rendered identical output and
+// paid an ISR write per region for it. See the note on the tag route.
+export const revalidate = false;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
@@ -20,12 +23,13 @@ interface Props {
   params: Promise<{ entity: string }>;
 }
 
-// Entities are extracted from articles, so the set is open-ended and nothing is
-// prerendered at build. Declaring this anyway is what puts the route on ISR: a
-// dynamic segment with no generateStaticParams renders per request and is never
-// cached, which made `revalidate` above a no-op.
-export function generateStaticParams() {
-  return [] as { entity: string }[];
+// Entities are extracted from the articles, and the articles are a finite
+// checked-in file — so the hub set is known at build time after all. Every hub
+// the sitemap lists (the >=2 set, matching the page's own indexability cut) is
+// prerendered to a static file; the thin, noindexed remainder renders once on
+// demand and caches until the next deploy.
+export async function generateStaticParams() {
+  return (await canonicalEntitySlugs(2)).map((entity) => ({ entity }));
 }
 
 // The segment is a slug ("weekly-shonen-jump"). Legacy links carrying the raw

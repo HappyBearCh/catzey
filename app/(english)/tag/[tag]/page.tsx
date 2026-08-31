@@ -4,11 +4,16 @@ import { NumberReading } from '@/components/NumberReading';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
-import { tagSlug, tagHref, safeDecode, resolveTag } from '@/lib/tags';
+import { tagSlug, tagHref, safeDecode, resolveTag, allTagSlugs } from '@/lib/tags';
 import type { Article } from '@/lib/types';
 import { topicCanonicalForTag } from '@/lib/hub-duplicates';
 
-export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
+// The edition behind these archives is a checked-in file (see lib/db.ts), so a
+// tag page cannot change between deploys. A 24-hour revalidate re-rendered
+// every crawled tag once a day, per region, and paid an ISR write each time for
+// byte-identical output. `false` caches an entry until the next deploy replaces
+// it, which is the only event that can actually change one.
+export const revalidate = false;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
@@ -16,12 +21,14 @@ interface Props {
   params: Promise<{ tag: string }>;
 }
 
-// The tag space is open-ended, so nothing is prerendered at build. Declaring
-// this anyway is what puts the route on ISR: a dynamic segment with no
-// generateStaticParams is rendered per request and never cached, which made
-// `revalidate` above a no-op and billed a function call for every crawler hit.
-export function generateStaticParams() {
-  return [] as { tag: string }[];
+// The tag space looked open-ended, but it is derived from a finite checked-in
+// edition, so it is fully knowable here. Every archive the sitemap advertises —
+// the >=2 set, which is also the set the page lets Google index — is prerendered
+// to a static file and never touches a function or the ISR cache again. The
+// thin remainder is noindexed and barely crawled, so it is left to render once
+// on demand and cache until the next deploy rather than lengthening every build.
+export async function generateStaticParams() {
+  return (await allTagSlugs(2)).map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

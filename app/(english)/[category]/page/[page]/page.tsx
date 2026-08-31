@@ -4,10 +4,14 @@ import {
   CategoryArchive,
   CATEGORY_DESCRIPTIONS,
   categoryPageHref,
+  CATEGORY_PAGE_SIZE,
 } from '@/components/CategoryArchive';
 import { CATEGORIES, getCategoryLabel } from '@/lib/types';
+import { prisma } from '@/lib/db';
 
-export const revalidate = 21600;
+// Paginated archives are cut from a frozen edition, so they change only on
+// deploy. See the note on the article route.
+export const revalidate = false;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
@@ -15,11 +19,27 @@ interface Props {
   params: Promise<{ category: string; page: string }>;
 }
 
-// Nothing is prerendered at build — page counts move with every publish — but
-// declaring this is what opts the route into ISR at all. A dynamic segment with
-// no generateStaticParams is rendered per request and never cached.
-export function generateStaticParams() {
-  return [] as { category: string; page: string }[];
+// The archive is a checked-in file, so every page number that exists is known
+// here — there is no moving publish count. Enumerating them prerenders the whole
+// paginated archive as static files; previously nothing was prerendered and each
+// page cost a function invocation plus an ISR write on first crawl, and another
+// pair every six hours after that.
+export async function generateStaticParams() {
+  const counts = await prisma.article.groupBy({
+    by: ['category'],
+    where: { published: true },
+    _count: { _all: true },
+  });
+  const params: { category: string; page: string }[] = [];
+  for (const { category, _count } of counts) {
+    if (!CATEGORIES.some((c) => c.slug === category)) continue;
+    const pages = Math.ceil(_count._all / CATEGORY_PAGE_SIZE);
+    // Page 1 lives at the unpaginated URL and is redirected away below.
+    for (let page = 2; page <= pages; page++) {
+      params.push({ category, page: String(page) });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

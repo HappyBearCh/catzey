@@ -2,7 +2,9 @@ import { prisma } from '@/lib/db';
 import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
 import { buildRss, RSS_HEADERS, type RssArticle } from '@/lib/rss';
 
-export const revalidate = 21600;
+// Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
+// so a timer only bought re-renders and ISR writes for identical output.
+export const revalidate = false;
 export const runtime = 'nodejs';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';

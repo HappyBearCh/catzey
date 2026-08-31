@@ -9,7 +9,9 @@ import { prisma } from '@/lib/db';
 import { getCategoryLabel } from '@/lib/types';
 import { metaDescription } from '@/lib/seo';
 
-export const revalidate = 86400; // archive content; on-demand revalidation covers real changes
+// Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
+// so a timer only bought re-renders and ISR writes for identical output.
+export const revalidate = false;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 

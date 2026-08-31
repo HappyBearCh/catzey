@@ -8,7 +8,9 @@ import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
 import { tagHref } from '@/lib/tags';
 import type { Article } from '@/lib/types';
 
-export const revalidate = 21600;
+// Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
+// so a timer only bought re-renders and ISR writes for identical output.
+export const revalidate = false;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 

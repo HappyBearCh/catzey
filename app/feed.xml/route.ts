@@ -1,7 +1,8 @@
 import { prisma } from '@/lib/db';
 import { buildRss, RSS_HEADERS, type RssArticle } from '@/lib/rss';
 
-export const revalidate = 3600;
+// Frozen edition (see lib/db.ts) — the feed changes only on deploy.
+export const revalidate = false;
 export const runtime = 'nodejs';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';

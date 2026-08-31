@@ -156,3 +156,28 @@ async function computeCounts(): Promise<Map<string, number>> {
   }
   return counts;
 }
+
+/**
+ * Canonical entity slugs for hubs carrying at least `minCount` articles.
+ *
+ * The topic route's generateStaticParams. Entities are extracted from the
+ * articles, so the set is open-ended in principle — but the articles are a
+ * checked-in file, so it is fully known at build time, and prerendering it is
+ * what keeps the route off the ISR write path. The threshold matches the page's
+ * own indexability cut: thinner hubs are noindexed, so they render on demand
+ * once and cache permanently instead of lengthening every build.
+ */
+export const canonicalEntitySlugs = cache(async (minCount = 1): Promise<string[]> => {
+  try {
+    const counts = await canonicalEntityCounts();
+    const slugs = new Set<string>();
+    for (const [name, count] of counts) {
+      if (count < minCount) continue;
+      const slug = entitySlug(name);
+      if (slug) slugs.add(slug);
+    }
+    return [...slugs].sort();
+  } catch {
+    return [];
+  }
+});

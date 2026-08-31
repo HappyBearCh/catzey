@@ -9,7 +9,10 @@ import type { Article } from '@/lib/types';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
-export const revalidate = 3600;
+// Genuinely date-dependent — the window moves with the calendar even though the
+// edition behind it does not — so this keeps a timer, but a daily one. At hourly
+// it re-rendered and paid an ISR write 24 times for each day's single change.
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'Daily Numerology Analysis',
