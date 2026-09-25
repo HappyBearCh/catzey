@@ -81,7 +81,7 @@ export default async function CategoryPaginatedPage({ params }: Props) {
 
   const page = parseInt(pageStr);
   if (!Number.isFinite(page) || !/^\d+$/.test(pageStr) || page < 1) notFound();
-  if (page === 1) permanentRedirect(categoryPageHref(category, 1, 'latest'));
+  if (page === 1) permanentRedirect(categoryPageHref(category, 1));
 
-  return <CategoryArchive category={category} page={page} sort="latest" />;
+  return <CategoryArchive category={category} page={page} />;
 }

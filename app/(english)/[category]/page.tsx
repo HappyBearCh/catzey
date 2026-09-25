@@ -71,5 +71,5 @@ export default async function CategoryPage({ params }: Props) {
   // The breadcrumb trail is emitted by CategoryArchive, which renders on page 1
   // and on every paginated page alike. Emitting a second, near-identical
   // BreadcrumbList here only gave page 1 two conflicting trails.
-  return <CategoryArchive category={category} page={1} sort="latest" />;
+  return <CategoryArchive category={category} page={1} />;
 }

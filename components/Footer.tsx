@@ -3,7 +3,6 @@ import { Logo } from './Logo';
 import { CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 import { getCurrentSeason, getAllSeasons } from '@/lib/seasons';
-import { NewsletterForm } from './NewsletterForm';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,7 +10,7 @@ export function Footer() {
   return (
     <footer className="border-t-2 border-ink dark:border-parchment bg-paper-2 dark:bg-ground-2 text-ink-muted dark:text-parchment/55 mt-16">
       <div className="max-w-8xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           <div>
             <Link href="/" className="block mb-4">
               <Logo />
@@ -105,9 +104,6 @@ export function Footer() {
                 <Link href="/series" className="text-sm hover:text-gold transition-colors">Essay Series</Link>
               </li>
               <li>
-                <Link href="/trending" className="text-sm hover:text-gold transition-colors">Trending</Link>
-              </li>
-              <li>
                 <Link href="/calendar" className="text-sm hover:text-gold transition-colors">Release Calendar</Link>
               </li>
               <li>
@@ -134,14 +130,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <h2 className="eyebrow block mb-4">Newsletter</h2>
-            <p className="text-sm mb-3">
-              Weekly digest of the top manga &amp; anime stories.
-            </p>
-            <NewsletterForm />
           </div>
         </div>
 

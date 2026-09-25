@@ -32,22 +32,6 @@ export const categoryCount = cache(async (category: string): Promise<number> => 
   }
 });
 
-// The trending window is 30 days. With the archive closed that window can be
-// empty, and an empty ranking is not a page worth indexing — so the route and
-// the sitemap both ask here rather than each running their own query.
-export const getTrendingArticles = cache(async (): Promise<Article[]> => {
-  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-  try {
-    return (await prisma.article.findMany({
-      where: { published: true, publishedAt: { gte: thirtyDaysAgo }, views: { gt: 0 } },
-      orderBy: { views: 'desc' },
-      take: 24,
-    })) as Article[];
-  } catch {
-    return [];
-  }
-});
-
 export const getTopicArticles = cache(async (entity: string): Promise<Article[]> => {
   try {
     // Matched across every spelling of the entity, not just the one in the URL,

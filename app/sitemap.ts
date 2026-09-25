@@ -12,7 +12,6 @@ import { tagSlug } from '@/lib/tags';
 import { canonicalEntity, canonicalEntityCounts } from '@/lib/entity-canon';
 import { entityHref } from '@/lib/entity-slug';
 import { duplicateTagSlugs } from '@/lib/hub-duplicates';
-import { getTrendingArticles } from '@/lib/articles';
 import { getAllLearnTopics, getAllGlossaryTerms, getAllWorks, getAllCreators } from '@/lib/education';
 import { CATEGORY_PAGE_SIZE } from '@/components/CategoryArchive';
 
@@ -148,18 +147,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/contact`, changeFrequency: 'yearly' as const, priority: 0.3 },
     { url: `${BASE}/privacy`, changeFrequency: 'yearly' as const, priority: 0.2 },
   ];
-
-  // /trending noindexes itself when the 30-day window is empty, which it is
-  // whenever the archive has been quiet for a month. Listed only when it ranks
-  // something.
-  if ((await getTrendingArticles()).length > 0) {
-    staticPages.push({
-      url: `${BASE}/trending`,
-      lastModified: newestUpdate,
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
-    });
-  }
 
   // The twelve shelves are how the reference is arranged, so they rank with the
   // category pages rather than below them.

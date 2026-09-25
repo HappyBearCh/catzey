@@ -43,13 +43,15 @@ export default function PrivacyPage() {
         <h2>What we collect</h2>
         <ul>
           <li>
-            <strong>Newsletter subscriptions:</strong> if you subscribe, we store your email
-            address solely to send you the newsletter. Every email includes a one-click
-            unsubscribe link that permanently removes your address from our database.
+            <strong>Nothing about you.</strong> There is no account, no newsletter sign-up and no
+            per-article view counter. The only thing a page reports is Vercel Speed Insights&apos;
+            anonymous load-time measurements (how fast the page rendered), which carry no
+            identifier for you.
           </li>
           <li>
-            <strong>Article view counts:</strong> we count how many times each article is viewed.
-            These counts are aggregate numbers only and are not tied to you or your device.
+            <strong>Former newsletter subscribers:</strong> the newsletter has closed. If you
+            subscribed while it ran, your address is kept only so the unsubscribe link in any
+            email you received keeps working, and using it removes the address permanently.
           </li>
         </ul>
 
@@ -75,8 +77,8 @@ export default function PrivacyPage() {
 
         <h2>Questions</h2>
         <p>
-          If you have questions about your data — including a request to delete a newsletter
-          subscription manually — reach us via the contact page.
+          If you have questions about your data — including a request to delete a former
+          newsletter subscription manually — reach us via the contact page.
         </p>
       </div>
     </div>

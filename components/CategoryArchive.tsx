@@ -22,14 +22,14 @@ export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   seinen: 'Seinen manga news — Berserk, Vagabond, Dungeon Meshi, and mature title coverage.',
 };
 
-export type CategorySort = 'latest' | 'popular';
-
-// Sort lives in the path, not a query string. A page that reads searchParams is
-// opted out of static rendering entirely, so `?sort=` made every category view a
-// per-request function call — Next.js ignored both `revalidate` and
-// generateStaticParams on those routes. Path segments keep them on ISR.
-export function categoryPageHref(category: string, page: number, sort: CategorySort = 'latest'): string {
-  const base = sort === 'popular' ? `/${category}/popular` : `/${category}`;
+// Pagination lives in the path, not a query string. A page that reads
+// searchParams is opted out of static rendering entirely.
+//
+// There used to be a "Most Read" sort beside this one. It ranked by a view
+// counter that stopped moving when reads left Postgres, so it was ranking the
+// edition by noise; its URLs redirect here in next.config.ts.
+export function categoryPageHref(category: string, page: number): string {
+  const base = `/${category}`;
   return page <= 1 ? base : `${base}/page/${page}`;
 }
 
@@ -48,8 +48,8 @@ function pageWindow(current: number, total: number): (number | null)[] {
   return out;
 }
 
-async function getCategoryArticles(category: string, page: number, sort: CategorySort) {
-  const orderBy = sort === 'popular' ? { views: 'desc' as const } : { publishedAt: 'desc' as const };
+async function getCategoryArticles(category: string, page: number) {
+  const orderBy = { publishedAt: 'desc' as const };
   try {
     const skip = (page - 1) * CATEGORY_PAGE_SIZE;
     const [articles, total] = await Promise.all([
@@ -72,13 +72,11 @@ async function getCategoryArticles(category: string, page: number, sort: Categor
 export async function CategoryArchive({
   category,
   page,
-  sort,
 }: {
   category: string;
   page: number;
-  sort: CategorySort;
 }) {
-  const { articles, total, pages } = await getCategoryArticles(category, page, sort);
+  const { articles, total, pages } = await getCategoryArticles(category, page);
   const label = getCategoryLabel(category);
 
   const breadcrumbLd = {
@@ -94,7 +92,7 @@ export async function CategoryArchive({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: label,
-    url: `${BASE}${categoryPageHref(category, page, sort)}`,
+    url: `${BASE}${categoryPageHref(category, page)}`,
     numberOfItems: articles.length,
     itemListElement: articles.map((a, i) => ({
       '@type': 'ListItem',
@@ -128,30 +126,8 @@ export async function CategoryArchive({
       </div>
       <div className="flex items-center justify-between mb-6 ml-4 mr-0">
         <p className="text-site-gray text-sm">
-          Latest {label} news — {total.toLocaleString('en-US')} article{total !== 1 ? 's' : ''}
+          {label} — {total.toLocaleString('en-US')} text{total !== 1 ? 's' : ''}, newest first
         </p>
-        <div className="flex items-center gap-1.5">
-          <Link
-            href={categoryPageHref(category, 1, 'latest')}
-            className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
-              sort === 'latest'
-                ? 'bg-primary text-white border-primary'
-                : 'border-site-border text-gray-600 hover:border-primary hover:text-primary dark:border-gray-600 dark:text-gray-400'
-            }`}
-          >
-            Latest
-          </Link>
-          <Link
-            href={categoryPageHref(category, 1, 'popular')}
-            className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 border transition-colors ${
-              sort === 'popular'
-                ? 'bg-primary text-white border-primary'
-                : 'border-site-border text-gray-600 hover:border-primary hover:text-primary dark:border-gray-600 dark:text-gray-400'
-            }`}
-          >
-            Most Read
-          </Link>
-        </div>
       </div>
 
       {page === 1 && (
@@ -166,8 +142,8 @@ export async function CategoryArchive({
 
       {articles.length === 0 ? (
         <div className="py-20 text-center text-gray-500">
-          <p className="text-xl font-bold mb-2">No articles yet</p>
-          <p className="text-sm">The hourly scraper will populate this section automatically.</p>
+          <p className="text-xl font-bold mb-2">Nothing filed here yet</p>
+          <p className="text-sm">The section notes above are the reference for now.</p>
         </div>
       ) : (
         <>
@@ -188,7 +164,7 @@ export async function CategoryArchive({
             <nav aria-label="Pagination" className="flex flex-wrap items-center justify-center gap-2 mt-10">
               {page > 1 && (
                 <Link
-                  href={categoryPageHref(category, page - 1, sort)}
+                  href={categoryPageHref(category, page - 1)}
                   className="px-4 py-2 text-xs font-bold border border-site-border hover:border-primary hover:text-primary transition-colors"
                 >
                   ← Previous
@@ -202,7 +178,7 @@ export async function CategoryArchive({
                 ) : (
                   <Link
                     key={p}
-                    href={categoryPageHref(category, p, sort)}
+                    href={categoryPageHref(category, p)}
                     aria-current={p === page ? 'page' : undefined}
                     className={`w-9 h-9 flex items-center justify-center text-xs font-bold transition-colors ${
                       p === page
@@ -216,7 +192,7 @@ export async function CategoryArchive({
               )}
               {page < pages && (
                 <Link
-                  href={categoryPageHref(category, page + 1, sort)}
+                  href={categoryPageHref(category, page + 1)}
                   className="px-4 py-2 text-xs font-bold border border-site-border hover:border-primary hover:text-primary transition-colors"
                 >
                   Next →

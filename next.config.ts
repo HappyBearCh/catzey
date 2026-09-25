@@ -21,6 +21,17 @@ const config: NextConfig = {
     // blob mirror fails, so the hostname must stay open — but https only.
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
+  // Rankings retired: they sorted by a view counter that stopped moving when
+  // reads left Postgres, so they were ordering the edition by noise. Their URLs
+  // are permanent redirects rather than 404s because they were linked and
+  // crawled for months.
+  async redirects() {
+    return [
+      { source: '/trending', destination: '/', permanent: true },
+      { source: '/:category/popular', destination: '/:category', permanent: true },
+      { source: '/:category/popular/page/:page', destination: '/:category/page/:page', permanent: true },
+    ];
+  },
 };
 
 export default config;

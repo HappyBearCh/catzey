@@ -7,8 +7,6 @@ import { RelativeTime } from '@/components/RelativeTime';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { ShareButtons } from '@/components/ShareButtons';
-import { ViewTracker } from '@/components/ViewTracker';
-import { MostRead } from '@/components/MostRead';
 import { TagList } from '@/components/TagList';
 import { BookmarkButton } from '@/components/BookmarkButton';
 import { getCategoryLabel } from '@/lib/types';
@@ -18,7 +16,6 @@ import { BackToTop } from '@/components/BackToTop';
 import { ReadingProgress } from '@/components/ReadingProgress';
 import { ArticleStickyHeader } from '@/components/ArticleStickyHeader';
 import { TableOfContents } from '@/components/TableOfContents';
-import { NewsletterCTA } from '@/components/NewsletterCTA';
 import { InlineRelated } from '@/components/InlineRelated';
 import { SpoilerActivator } from '@/components/SpoilerActivator';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
@@ -416,7 +413,6 @@ export default async function ArticlePage({ params }: Props) {
               <BookmarkButton article={{ slug: article.slug, title: article.title, excerpt: article.excerpt, imageUrl: article.imageUrl, category: article.category, publishedAt: new Date(article.publishedAt).toISOString() }} />
             </div>
           </div>
-          <ViewTracker slug={article.slug} />
 
           <SpoilerActivator />
 
@@ -536,8 +532,6 @@ export default async function ArticlePage({ params }: Props) {
             className="mt-10"
           />
 
-          <NewsletterCTA />
-
           {/* Tags */}
           {article.tags.length > 0 && (
             <div className="mt-6 pt-4 border-t border-site-border">
@@ -653,7 +647,6 @@ export default async function ArticlePage({ params }: Props) {
               </>
             )}
 
-            <MostRead currentSlug={article.slug} />
           </div>
         </aside>
       </div>

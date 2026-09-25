@@ -2,7 +2,6 @@ import { prisma } from '@/lib/db';
 import { HeroSection } from '@/components/HeroSection';
 import { ArticleCard } from '@/components/ArticleCard';
 import { LoadMoreArticles } from '@/components/LoadMoreArticles';
-import { MostRead } from '@/components/MostRead';
 import { TodaysNumber } from '@/components/TodaysNumber';
 import { TodayPlate } from '@/components/TodayPlate';
 import { DAILY_CATEGORY } from '@/lib/daily-column';
@@ -203,16 +202,15 @@ export default async function HomePage() {
           </section>
         )}
 
-        {/* Most read + guides */}
-        <section className="my-8 border-t border-site-border pt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <MostRead />
+        {/* Guides */}
+        <section className="my-8 border-t border-site-border pt-6">
           <div className="mt-8">
             <div className="flex items-center gap-2 mb-4">
               <span className="block w-1 h-5 bg-primary" />
               <h2 className="text-sm font-semibold uppercase tracking-wider">Catzye Guides</h2>
             </div>
-            <ul>
-              {getAllStandaloneGuides().slice(0, 5).map((guide) => (
+            <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8">
+              {getAllStandaloneGuides().slice(0, 6).map((guide) => (
                 <li key={guide.slug}>
                   <Link
                     href={`/guides/${guide.slug}`}

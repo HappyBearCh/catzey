@@ -26,7 +26,8 @@ function legacyArchiveTarget(pathname: string, params: URLSearchParams): string 
   const legacyPage = parseInt(params.get('page') ?? '', 10);
   if (Number.isFinite(legacyPage) && legacyPage > 1) page = legacyPage;
 
-  const base = params.get('sort') === 'popular' ? `/${segments[0]}/popular` : `/${segments[0]}`;
+  // `?sort=popular` goes to the plain archive: the popular sort is retired.
+  const base = `/${segments[0]}`;
   return page > 1 ? `${base}/page/${page}` : base;
 }
 
