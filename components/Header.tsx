@@ -3,24 +3,19 @@ import { CategoryNav } from './CategoryNav';
 import { ThemeToggle } from './ThemeToggle';
 import { SearchInput } from './SearchInput';
 import { MobileMenu } from './MobileMenu';
-import { getTodaysNumber } from '@/lib/numerology';
+import { TodaySigil } from './TodaySigil';
 
 // The title plate of a book of correspondences: the wordmark between two
 // ornaments, gold rules above and below, and the day's number set in the
 // margin. The number is the real Universal Day figure, not decoration.
 export function Header() {
-  const today = getTodaysNumber();
-
   return (
     <header className="bg-paper dark:bg-ground border-b-2 border-ink dark:border-parchment">
       <div className="max-w-8xl mx-auto px-4">
         <div className="flex items-center justify-between gap-4 py-4 md:py-6">
           <div className="flex-1 flex items-center min-w-0">
             <MobileMenu />
-            <div className="hidden md:flex items-baseline gap-2">
-              <span className="eyebrow">Today</span>
-              <span className="sigil sigil-sm">{today.number}</span>
-            </div>
+            <TodaySigil />
           </div>
 
           <Link href="/" className="group flex-shrink-0 text-center">

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { NUMBER_PROFILES, getTodaysNumber } from '@/lib/numerology';
+import { NUMBER_PROFILES } from '@/lib/numerology';
 import { getGroup } from '@/lib/number-groups';
+import { TodayCallout } from '@/components/TodayCallout';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
@@ -27,8 +28,6 @@ export const metadata: Metadata = {
 const ORDER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33];
 
 export default function NumerologyPage() {
-  const today = getTodaysNumber();
-
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -65,28 +64,7 @@ export default function NumerologyPage() {
       </p>
 
       {/* Today's number callout */}
-      <div className="mb-10 border-2 border-ink dark:border-parchment bg-ground px-5 py-4 flex items-center gap-4">
-        <div
-          className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl font-semibold text-white"
-          style={{ backgroundColor: today.profile.color }}
-        >
-          {today.number}
-        </div>
-        <div className="min-w-0">
-          <p className="text-sm text-gray-200 leading-relaxed">
-            <span className="font-semibold text-primary-accent uppercase tracking-widest text-2xs block mb-0.5">
-              Today is a {today.number} day
-            </span>
-            {today.profile.title} — {today.profile.vibration}.
-          </p>
-          <Link
-            href="/numerology/daily"
-            className="mt-1 inline-block text-2xs font-bold uppercase tracking-widest text-primary-accent hover:underline"
-          >
-            Read today&apos;s news analysis →
-          </Link>
-        </div>
-      </div>
+      <TodayCallout />
 
       {/* Essay series callout */}
       <Link

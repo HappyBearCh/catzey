@@ -1,23 +1,28 @@
+'use client';
+
 import { NewsletterForm } from './NewsletterForm';
-import { getTodaysNumber } from '@/lib/numerology';
+import { useToday } from './useToday';
 import { getGroup } from '@/lib/number-groups';
 
 export function NewsletterCTA() {
   // The Universal Day figure, the same one the masthead carries. A weekly
-  // digest is a numbered thing whether or not anyone says so.
-  const today = getTodaysNumber();
-  const group = getGroup(today.number);
+  // digest is a numbered thing whether or not anyone says so. Read from the
+  // reader's clock rather than the render — see useToday.
+  const today = useToday();
+  const group = today ? getGroup(today.number) : null;
 
   return (
     <div className="my-8 p-6 bg-site-dark text-white">
       <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-2">
-        Newsletter · today is a {today.number}
+        Newsletter{today && <> · today is a {today.number}</>}
       </p>
       <h2 className="font-semibold text-xl mb-2">A week, read by its numbers</h2>
       <p className="text-gray-400 text-sm mb-4 max-w-sm">
-        Once a week: what was added to the reference, and which shelf it landed on. Today the
-        reference reads as {group.shelf.toLowerCase()} — {group.tagline}. No spam, unsubscribe any
-        time.
+        Once a week: what was added to the reference, and which shelf it landed on.
+        {group && (
+          <> Today the reference reads as {group.shelf.toLowerCase()} — {group.tagline}.</>
+        )}{' '}
+        No spam, unsubscribe any time.
       </p>
       <NewsletterForm />
     </div>

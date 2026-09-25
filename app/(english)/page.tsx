@@ -4,8 +4,8 @@ import { ArticleCard } from '@/components/ArticleCard';
 import { LoadMoreArticles } from '@/components/LoadMoreArticles';
 import { MostRead } from '@/components/MostRead';
 import { TodaysNumber } from '@/components/TodaysNumber';
-import { DAILY_CATEGORY } from '@/lib/daily-analysis';
-import { getTodaysNumber } from '@/lib/numerology';
+import { TodayPlate } from '@/components/TodayPlate';
+import { DAILY_CATEGORY } from '@/lib/daily-column';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 import { getAllEntries } from '@/lib/shelves';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
@@ -56,8 +56,9 @@ export const revalidate = false;
 
 async function getArticles() {
   try {
-    // The daily numerology column is surfaced via the Today's Number widget and
-    // /numerology/daily — keep it out of the hero, grid, and category sections.
+    // The daily numerology columns are an archive of their own at
+    // /numerology/daily — keep them out of the hero, grid, and category
+    // sections here.
     return await prisma.article.findMany({
       where: { published: true, category: { not: DAILY_CATEGORY } },
       orderBy: { publishedAt: 'desc' },
@@ -115,7 +116,6 @@ export default async function HomePage() {
     })),
   };
 
-  const today = getTodaysNumber();
   const [featured, ...rest] = articles;
   const secondary = rest.slice(0, 3);
   const gridArticles = rest.slice(3, 9);
@@ -140,16 +140,7 @@ export default async function HomePage() {
         <section className="py-12 md:py-20 text-center">
           <p className="eyebrow mb-8">Manga, read by the numbers</p>
 
-          <div className="flex items-center justify-center gap-5 mb-8" aria-hidden="true">
-            <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
-            <span className="sigil sigil-xl">
-              {today.number}
-            </span>
-            <span className="block w-10 h-0.5 bg-ink/30 dark:bg-parchment/30" />
-          </div>
-          <p className="eyebrow mb-10">
-            Today vibrates to {today.number} · {today.profile.keyword}
-          </p>
+          <TodayPlate />
 
           <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-wide leading-tight max-w-3xl mx-auto text-ink dark:text-parchment">
             A numerological reference to how manga works,

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { universalDayNumber } from '@/lib/numerology';
+import { useToday } from './useToday';
 
 interface Props {
   basePath?: string;
@@ -10,6 +10,7 @@ interface Props {
 
 export function BottomNav({ basePath = '' }: Props) {
   const pathname = usePathname();
+  const today = useToday();
   const isBosnian = basePath === '/bs';
   const homeHref = basePath || '/';
 
@@ -39,7 +40,7 @@ export function BottomNav({ basePath = '' }: Props) {
       href: `${basePath}/numbers`,
       icon: (
         <span className="w-5 h-5 flex items-center justify-center font-display text-base leading-none" aria-hidden="true">
-          {universalDayNumber()}
+          {today?.number ?? ''}
         </span>
       ),
     },

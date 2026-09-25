@@ -27,7 +27,7 @@ export function Footer() {
                 <Link href="/numerology" className="text-sm hover:text-gold transition-colors">Numerology Guide</Link>
               </li>
               <li>
-                <Link href="/numerology/daily" className="text-sm hover:text-gold transition-colors">Daily Analysis</Link>
+                <Link href="/numerology/daily" className="text-sm hover:text-gold transition-colors">The Daily Column</Link>
               </li>
               <li>
                 <Link href="/editorial-policy" className="text-sm hover:text-gold transition-colors">Editorial Policy</Link>
