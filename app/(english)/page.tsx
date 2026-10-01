@@ -1,16 +1,18 @@
 import { prisma } from '@/lib/db';
-import { HeroSection } from '@/components/HeroSection';
-import { ArticleCard } from '@/components/ArticleCard';
-import { LoadMoreArticles } from '@/components/LoadMoreArticles';
 import { TodaysNumber } from '@/components/TodaysNumber';
 import { TodayPlate } from '@/components/TodayPlate';
-import { DAILY_CATEGORY } from '@/lib/daily-column';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 import { getAllEntries } from '@/lib/shelves';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
+import {
+  LEARN_TRACKS,
+  getTopicsInTrack,
+  getAllWorks,
+  getAllCreators,
+  getAllGlossaryTerms,
+} from '@/lib/education';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import type { Article } from '@/lib/types';
 import { openGraph, twitter } from '@/lib/seo';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
@@ -53,71 +55,47 @@ const LEARN_ENTRY_POINTS = [
 // so a timer only bought re-renders and ISR writes for identical output.
 export const revalidate = false;
 
-async function getArticles() {
-  try {
-    // The daily numerology columns are an archive of their own at
-    // /numerology/daily — keep them out of the hero, grid, and category
-    // sections here.
-    return await prisma.article.findMany({
-      where: { published: true, category: { not: DAILY_CATEGORY } },
+// Only hand-written essays reach the front page; the machine-written ones stay
+// at their URLs but out of everything that promotes them (Article.generated).
+async function getEssays() {
+  const [essays, series] = await Promise.all([
+    prisma.article.findMany({
+      where: { published: true, generated: { not: true } },
       orderBy: { publishedAt: 'desc' },
-      take: 30,
-    });
-  } catch {
-    return [] as Article[];
+    }),
+    prisma.series.findMany({ orderBy: { createdAt: 'asc' } }),
+  ]);
+  const partsBySeries = new Map<string, number>();
+  for (const e of essays) {
+    if (e.seriesId) partsBySeries.set(e.seriesId, (partsBySeries.get(e.seriesId) ?? 0) + 1);
   }
+  return {
+    essays,
+    series: series
+      .filter((s) => partsBySeries.has(s.id))
+      .map((s) => ({ ...s, parts: partsBySeries.get(s.id)! })),
+  };
 }
 
+// The front page leads with the reference, not with dates: the edition is
+// finished work, so "latest" would only ever advertise how long ago it was.
 export default async function HomePage() {
-  const articles = await getArticles();
+  const { essays, series } = await getEssays();
 
-  // The archive is being retired, so an empty article table is an expected end
-  // state, not a misconfiguration. Send readers to the reference rather than
-  // showing them scraper instructions.
-  if (articles.length === 0) {
-    return (
-      <div className="max-w-8xl mx-auto px-4 py-24 text-center">
-        <p className="eyebrow mb-5">Manga, read by the numbers</p>
-        <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-wide max-w-2xl mx-auto text-ink dark:text-parchment">
-          A numerological reference to how manga works
-        </h1>
-        <div className="rule-ornament max-w-md mx-auto mt-10 mb-8">
-          <span className="text-seal text-sm" aria-hidden="true">✦</span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border max-w-4xl mx-auto text-left">
-          {LEARN_ENTRY_POINTS.map(({ href, title, blurb }, i) => (
-            <Link
-              key={href}
-              href={href}
-              className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
-            >
-              <span className="block font-display font-bold text-seal text-lg mb-2" aria-hidden="true">{i + 1}</span>
-              <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
-                {title}
-              </span>
-              <span className="block text-sm leading-relaxed text-ink-muted dark:text-paper-2/60">{blurb}</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    );
-  }
+  // One way in per learn track: its first explainer.
+  const startHere = LEARN_TRACKS.map((track) => ({
+    track,
+    topic: getTopicsInTrack(track.slug)[0],
+  })).filter((t) => t.topic);
 
-  const itemListLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Latest from Catzye',
-    itemListElement: articles.slice(0, 10).map((a, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      url: `${BASE}/article/${a.slug}`,
-      name: a.title,
-    })),
-  };
+  // The longest runs and the most prolific creators — the entries a reader is
+  // most likely to have come looking for.
+  const works = [...getAllWorks()].sort((a, b) => (b.volumes ?? 0) - (a.volumes ?? 0)).slice(0, 6);
+  const creators = [...getAllCreators()]
+    .sort((a, b) => b.notableWorks.length - a.notableWorks.length)
+    .slice(0, 6);
+  const glossary = getAllGlossaryTerms();
 
-  const [featured, ...rest] = articles;
-  const secondary = rest.slice(0, 3);
-  const gridArticles = rest.slice(3, 9);
   // The front page is arranged the way the reference is: by what each title
   // reduces to, not by what it is about. Explainers and glossary entries come
   // before reporting within a shelf because they are the part that keeps.
@@ -130,10 +108,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <div className="max-w-8xl mx-auto px-4">
-        {/* The educational sections lead the page — they are what the site is
-            for. The news archive stays below while it is still live. */}
         {/* The title plate. The numeral is the real Universal Day figure from
             lib/numerology, so the ornament is also the day's reading. */}
         <section className="py-12 md:py-20 text-center">
@@ -176,31 +151,72 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Today's numerological read of the news */}
-        <TodaysNumber articles={articles} />
-
-        {/* Hero section */}
-        <section className="my-4">
-          <HeroSection featured={featured} secondary={secondary} />
+        {/* Start here */}
+        <section className="my-12">
+          <SectionHead title="Start here" note="The first explainer on each track" href="/learn" link="All explainers" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border">
+            {startHere.map(({ track, topic }) => (
+              <Link
+                key={track.slug}
+                href={`/learn/${topic.slug}`}
+                className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
+              >
+                <span className="eyebrow block mb-2 text-ink-muted dark:text-parchment/45">{track.label}</span>
+                <span className="block font-display text-xl font-semibold leading-snug mb-2 text-ink dark:text-parchment group-hover:text-gold transition-colors">
+                  {topic.title}
+                </span>
+                <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55 line-clamp-3">
+                  {topic.summary}
+                </span>
+              </Link>
+            ))}
+          </div>
         </section>
 
-        {/* Top stories grid */}
-        {gridArticles.length > 0 && (
-          <section className="my-8">
-            <div className="flex items-baseline gap-4 mb-6 pb-2 border-b-2 border-ink dark:border-parchment">
-              <h2 className="eyebrow">From the archive</h2>
-              <span className="flex-1" />
-              <span className="font-display text-[0.8rem] tracking-wide text-ink-muted dark:text-parchment/45">
-                Reporting kept while it is still useful
-              </span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {gridArticles.map((article) => (
-                <ArticleCard key={article.id} article={article} size="large" />
-              ))}
-            </div>
-          </section>
-        )}
+        {/* The wiki */}
+        <section className="my-12">
+          <SectionHead
+            title="The wiki"
+            note={`${getAllWorks().length} series · ${getAllCreators().length} creators`}
+            href="/wiki"
+            link="Browse the wiki"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <EntryList
+              heading="Series"
+              items={works.map((w) => ({
+                href: `/wiki/series/${w.slug}`,
+                title: w.title,
+                meta: [w.startYear, w.volumes ? `${w.volumes} vols` : null].filter(Boolean).join(' · '),
+              }))}
+            />
+            <EntryList
+              heading="Creators"
+              items={creators.map((c) => ({
+                href: `/wiki/creator/${c.slug}`,
+                title: c.name,
+                meta: c.role,
+              }))}
+            />
+          </div>
+        </section>
+
+        {/* The glossary, as a strip of terms */}
+        <section className="my-12">
+          <SectionHead title="The glossary" note={`${glossary.length} terms`} href="/glossary" link="Every term" />
+          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            {glossary.map((t) => (
+              <li key={t.slug}>
+                <Link
+                  href={`/glossary/${t.slug}`}
+                  className="font-display text-[0.95rem] text-ink-2 dark:text-parchment/75 hover:text-gold transition-colors"
+                >
+                  {t.term}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         {/* Guides */}
         <section className="my-8 border-t border-site-border pt-6">
@@ -298,8 +314,69 @@ export default async function HomePage() {
           </p>
         </section>
 
-        <LoadMoreArticles initialSkip={30} />
+        {/* Essays */}
+        <section className="my-12">
+          <SectionHead title="Essay series" note="Long-form, read in order" href="/series" link="All series" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border">
+            {series.map((s) => (
+              <Link
+                key={s.id}
+                href={`/series/${s.slug}`}
+                className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
+              >
+                <span className="block font-display text-xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
+                  {s.title}
+                </span>
+                <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55 line-clamp-2 mb-3">
+                  {s.description}
+                </span>
+                <span className="eyebrow text-ink-muted dark:text-parchment/40">
+                  {s.parts} hand-written {s.parts === 1 ? 'part' : 'parts'}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* The day's number, read against the essays. */}
+        <TodaysNumber articles={essays} />
       </div>
     </>
+  );
+}
+
+function SectionHead({ title, note, href, link }: { title: string; note: string; href: string; link: string }) {
+  return (
+    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-6 pb-2 border-b-2 border-ink dark:border-parchment">
+      <h2 className="font-display text-2xl font-semibold tracking-wide text-ink dark:text-parchment">{title}</h2>
+      <span className="font-display text-[0.8rem] tracking-wide text-ink-muted dark:text-parchment/45">{note}</span>
+      <span className="flex-1" />
+      <Link href={href} className="eyebrow text-seal hover:opacity-70 transition-opacity">
+        {link} →
+      </Link>
+    </div>
+  );
+}
+
+function EntryList({ heading, items }: { heading: string; items: { href: string; title: string; meta: string }[] }) {
+  return (
+    <div>
+      <h3 className="eyebrow mb-2 text-ink-muted dark:text-parchment/45">{heading}</h3>
+      <ul>
+        {items.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className="group flex items-baseline gap-3 py-2.5 border-b border-rule/25 dark:border-rule/60"
+            >
+              <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors">
+                {item.title}
+              </span>
+              <span className="shrink-0 text-sm text-ink-muted dark:text-parchment/40">{item.meta}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

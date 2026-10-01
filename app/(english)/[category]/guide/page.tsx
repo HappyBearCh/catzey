@@ -5,7 +5,7 @@ import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import Image from 'next/image';
 import { getGuide, getAllGuides } from '@/lib/guides';
-import { CATEGORIES } from '@/lib/types';
+import { ARCHIVE_CATEGORIES, CATEGORIES } from '@/lib/types';
 
 function buildFaqSchema(html: string): object | null {
   const parts = html.split(/<h2[^>]*>/i);
@@ -83,6 +83,13 @@ export default async function GuidePage({ params }: Props) {
   const guide = getGuide(category);
   if (!guide) notFound();
 
+  // Seven of the ten guides sit on a slug with no archive behind it (the empty
+  // archive redirects back here), so they climb to the guides index instead.
+  const hasArchive = ARCHIVE_CATEGORIES.some((c) => c.slug === category);
+  const parent = hasArchive
+    ? { href: `/${category}`, label: validCategory.label }
+    : { href: '/guides', label: 'Guides' };
+
   const faqSchema = buildFaqSchema(guide.body);
 
   const breadcrumbLd = {
@@ -90,7 +97,7 @@ export default async function GuidePage({ params }: Props) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-      { '@type': 'ListItem', position: 2, name: validCategory.label, item: `${BASE}/${category}` },
+      { '@type': 'ListItem', position: 2, name: parent.label, item: `${BASE}${parent.href}` },
       { '@type': 'ListItem', position: 3, name: 'Guide', item: `${BASE}/${category}/guide` },
     ],
   };
@@ -112,8 +119,8 @@ export default async function GuidePage({ params }: Props) {
       <nav className="text-xs text-site-gray mb-6 flex items-center gap-2">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
         <span>/</span>
-        <Link href={`/${category}`} className="hover:text-primary transition-colors capitalize">
-          {validCategory.label}
+        <Link href={parent.href} className="hover:text-primary transition-colors capitalize">
+          {parent.label}
         </Link>
         <span>/</span>
         <span className="text-gray-900">Guide</span>
@@ -187,10 +194,10 @@ export default async function GuidePage({ params }: Props) {
       {/* Footer nav */}
       <div className="mt-12 pt-8 border-t border-site-border flex items-center justify-between">
         <Link
-          href={`/${category}`}
+          href={parent.href}
           className="text-xs font-bold text-site-gray hover:text-primary transition-colors flex items-center gap-1"
         >
-          ← Back to {validCategory.label} news
+          ← Back to {hasArchive ? validCategory.label : 'all guides'}
         </Link>
         <Link
           href="/"

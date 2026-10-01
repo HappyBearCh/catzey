@@ -25,7 +25,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ genre: 
 
   try {
     articles = await prisma.article.findMany({
-      where: { published: true, tags: { hasSome: info.relatedTags } },
+      where: { published: true, generated: { not: true }, tags: { hasSome: info.relatedTags } },
       orderBy: { publishedAt: 'desc' },
       take: 50,
       select: { title: true, slug: true, excerpt: true, category: true, publishedAt: true, imageUrl: true, tags: true },

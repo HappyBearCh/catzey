@@ -6,7 +6,7 @@ import {
   categoryPageHref,
   CATEGORY_PAGE_SIZE,
 } from '@/components/CategoryArchive';
-import { CATEGORIES, getCategoryLabel } from '@/lib/types';
+import { ARCHIVE_CATEGORIES, getCategoryLabel } from '@/lib/types';
 import { prisma } from '@/lib/db';
 
 // Paginated archives are cut from a frozen edition, so they change only on
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   });
   const params: { category: string; page: string }[] = [];
   for (const { category, _count } of counts) {
-    if (!CATEGORIES.some((c) => c.slug === category)) continue;
+    if (!ARCHIVE_CATEGORIES.some((c) => c.slug === category)) continue;
     const pages = Math.ceil(_count._all / CATEGORY_PAGE_SIZE);
     // Page 1 lives at the unpaginated URL and is redirected away below.
     for (let page = 2; page <= pages; page++) {
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CategoryPaginatedPage({ params }: Props) {
   const { category, page: pageStr } = await params;
 
-  const validCategory = CATEGORIES.find((c) => c.slug === category);
+  const validCategory = ARCHIVE_CATEGORIES.find((c) => c.slug === category);
   if (!validCategory) notFound();
 
   const page = parseInt(pageStr);

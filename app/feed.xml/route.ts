@@ -12,7 +12,7 @@ export async function GET() {
 
   try {
     articles = await prisma.article.findMany({
-      where: { published: true },
+      where: { published: true, generated: { not: true } },
       orderBy: { publishedAt: 'desc' },
       take: 50,
       select: { title: true, slug: true, excerpt: true, category: true, publishedAt: true, imageUrl: true, tags: true },

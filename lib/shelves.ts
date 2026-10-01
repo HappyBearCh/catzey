@@ -94,8 +94,10 @@ function setEntry(set: ReturnType<typeof getAllNumberedSets>[number]): ShelfEntr
  * this is cheap enough to build per request and React's cache keeps it to once.
  */
 export const getAllEntries = cache(async (): Promise<ShelfEntry[]> => {
+  // Machine-written texts stay readable at their URLs but are not part of the
+  // reference, so no shelf files them (see Article.generated).
   const reports = (await prisma.article.findMany({
-    where: { published: true },
+    where: { published: true, generated: { not: true } },
     orderBy: { publishedAt: 'desc' },
     select: { title: true, slug: true, excerpt: true, publishedAt: true },
   })) as { title: string; slug: string; excerpt: string; publishedAt: Date }[];

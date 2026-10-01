@@ -50,6 +50,10 @@ export interface Article {
   reviewData: any;
   seriesId: string | null;
   seriesOrder: number | null;
+  // Written by a generation API (Gemini, or Claude through the API) before the
+  // rule that every text on Catzye is written by hand. Kept readable at its URL,
+  // but out of the index, the sitemap, the feeds and the front page.
+  generated?: boolean;
 }
 
 export const CATEGORIES = [
@@ -66,6 +70,14 @@ export const CATEGORIES = [
 ] as const;
 
 export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
+
+// The sections that actually hold texts, and so have an archive, a feed and a
+// place in the navigation. The other seven slugs survive only as the home of a
+// hand-written guide at /{slug}/guide; their empty archives redirect there
+// (next.config.ts).
+const ARCHIVE_SLUGS: readonly CategorySlug[] = ['manga', 'anime', 'industry'];
+export const ARCHIVE_CATEGORIES = CATEGORIES.filter((c) => ARCHIVE_SLUGS.includes(c.slug));
+export const GUIDE_ONLY_CATEGORIES = CATEGORIES.filter((c) => !ARCHIVE_SLUGS.includes(c.slug));
 
 export function getCategoryLabel(slug: string): string {
   const known = CATEGORIES.find((c) => c.slug === slug);

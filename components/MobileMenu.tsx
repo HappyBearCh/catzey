@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { CATEGORIES } from '@/lib/types';
+import { ARCHIVE_CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 
 export function MobileMenu() {
@@ -109,7 +109,7 @@ export function MobileMenu() {
           </div>
 
           <div className="mx-5 my-2 border-t border-white/10" />
-          {CATEGORIES.map(({ label, slug }) => {
+          {ARCHIVE_CATEGORIES.map(({ label, slug }) => {
             const active = pathname === `/${slug}`;
             return (
               <Link

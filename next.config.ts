@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { GUIDE_ONLY_CATEGORIES } from './lib/types';
 
 const config: NextConfig = {
   images: {
@@ -17,16 +18,32 @@ const config: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [64, 96, 128, 256, 384],
     qualities: [75],
-    // Scraped article images are hotlinked from arbitrary news domains when the
-    // blob mirror fails, so the hostname must stay open — but https only.
-    remotePatterns: [{ protocol: 'https', hostname: '**' }],
+    // The guides' hero images are the only remote images left, and they come
+    // from two hosts.
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'upload.wikimedia.org' },
+    ],
   },
-  // Rankings retired: they sorted by a view counter that stopped moving when
-  // reads left Postgres, so they were ordering the edition by noise. Their URLs
-  // are permanent redirects rather than 404s because they were linked and
-  // crawled for months.
   async redirects() {
+    // Seven sections never carried a text; their archives rendered empty and
+    // noindexed themselves. Each keeps a hand-written guide, so the archive
+    // URL hands the reader to it rather than to an empty page.
+    const guideOnly = GUIDE_ONLY_CATEGORIES.flatMap(({ slug }) => [
+      { source: `/${slug}`, destination: `/${slug}/guide`, permanent: true },
+      { source: `/${slug}/page/:page`, destination: `/${slug}/guide`, permanent: true },
+      { source: `/${slug}/feed.xml`, destination: '/feed.xml', permanent: true },
+    ]);
     return [
+      ...guideOnly,
+      // The daily column desk ran five days in July 2026. Its columns were
+      // machine-written and are out of the index; the archive page listing only
+      // them folds into the numerology reference.
+      { source: '/numerology/daily', destination: '/numerology', permanent: true },
+      // Rankings retired: they sorted by a view counter that stopped moving when
+      // reads left Postgres, so they were ordering the edition by noise. Their
+      // URLs are permanent redirects rather than 404s because they were linked
+      // and crawled for months.
       { source: '/trending', destination: '/', permanent: true },
       { source: '/:category/popular', destination: '/:category', permanent: true },
       { source: '/:category/popular/page/:page', destination: '/:category/page/:page', permanent: true },

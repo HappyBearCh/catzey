@@ -39,13 +39,17 @@ async function getSeries(slug: string) {
         orderBy: { seriesOrder: 'asc' },
         select: {
           id: true, title: true, slug: true, excerpt: true,
-          imageUrl: true, seriesOrder: true, publishedAt: true, tags: true,
+          imageUrl: true, seriesOrder: true, publishedAt: true, tags: true, generated: true,
         },
       },
     },
   });
   if (!series) return null;
   return { ...series, topics: series.topics as string[], genres: (series.genres as string[]) ?? [] };
+}
+
+function isGeneratedSeries(parts: { generated?: boolean }[]): boolean {
+  return parts.length > 0 && parts.every((p) => p.generated);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -56,6 +60,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${series.title} — Essay Series`,
     description: metaDescription(series.description ?? `An essay series on ${series.title}.`),
     alternates: { canonical: `${BASE}/series/${slug}` },
+    // A series whose every part was machine-written indexes nothing its parts
+    // do not — see Article.generated.
+    ...(isGeneratedSeries(series.articles) && { robots: { index: false, follow: true } }),
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',

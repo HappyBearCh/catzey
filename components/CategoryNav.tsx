@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { CATEGORIES } from '@/lib/types';
+import { ARCHIVE_CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 
 // The educational sections lead the nav — they are what the site is for now.
@@ -69,7 +69,7 @@ export function CategoryNav() {
             <span className="block w-px h-4 bg-ink/25 dark:bg-parchment/25" />
           </li>
 
-          {CATEGORIES.map(({ label, slug }) => {
+          {ARCHIVE_CATEGORIES.map(({ label, slug }) => {
             const href = `/${slug}`;
             const active = pathname === href;
             return (

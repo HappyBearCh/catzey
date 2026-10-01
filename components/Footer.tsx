@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
-import { CATEGORIES } from '@/lib/types';
+import { ARCHIVE_CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 import { getCurrentSeason, getAllSeasons } from '@/lib/seasons';
 
@@ -24,9 +24,6 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/numerology" className="text-sm hover:text-gold transition-colors">Numerology Guide</Link>
-              </li>
-              <li>
-                <Link href="/numerology/daily" className="text-sm hover:text-gold transition-colors">The Daily Column</Link>
               </li>
               <li>
                 <Link href="/editorial-policy" className="text-sm hover:text-gold transition-colors">Editorial Policy</Link>
@@ -65,7 +62,7 @@ export function Footer() {
           <div>
             <h2 className="eyebrow block mb-4">Sections</h2>
             <ul className="space-y-2">
-              {CATEGORIES.slice(0, 5).map(({ label, slug }) => (
+              {ARCHIVE_CATEGORIES.map(({ label, slug }) => (
                 <li key={slug}>
                   <Link href={`/${slug}`} className="text-sm hover:text-gold transition-colors">
                     {label}
@@ -93,13 +90,6 @@ export function Footer() {
             </ul>
             <h2 className="eyebrow block mb-4">More</h2>
             <ul className="space-y-2">
-              {CATEGORIES.slice(5).map(({ label, slug }) => (
-                <li key={slug}>
-                  <Link href={`/${slug}`} className="text-sm hover:text-gold transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
               <li>
                 <Link href="/series" className="text-sm hover:text-gold transition-colors">Essay Series</Link>
               </li>

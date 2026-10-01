@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/db';
-import { CATEGORIES, getCategoryLabel } from '@/lib/types';
+import { ARCHIVE_CATEGORIES, getCategoryLabel } from '@/lib/types';
 import { buildRss, RSS_HEADERS, type RssArticle } from '@/lib/rss';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
@@ -10,13 +10,13 @@ export const runtime = 'nodejs';
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 export async function generateStaticParams() {
-  return CATEGORIES.map(({ slug }) => ({ category: slug }));
+  return ARCHIVE_CATEGORIES.map(({ slug }) => ({ category: slug }));
 }
 
 export async function GET(_req: Request, { params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
 
-  if (!CATEGORIES.some((c) => c.slug === category)) {
+  if (!ARCHIVE_CATEGORIES.some((c) => c.slug === category)) {
     return new Response('Not found', { status: 404 });
   }
 
@@ -25,7 +25,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ categor
 
   try {
     articles = await prisma.article.findMany({
-      where: { published: true, category },
+      where: { published: true, generated: { not: true }, category },
       orderBy: { publishedAt: 'desc' },
       take: 50,
       select: { title: true, slug: true, excerpt: true, category: true, publishedAt: true, imageUrl: true, tags: true },

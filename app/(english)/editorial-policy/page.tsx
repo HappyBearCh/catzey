@@ -84,12 +84,18 @@ export default function EditorialPolicyPage() {
 
         <h2>Use of AI</h2>
         <p>
-          Parts of the archive were drafted with AI assistance from source reporting and reviewed
-          before publication; those pieces remain linked to the outlets that reported them. The
-          reference material and the numerological readings are not model-generated. Images
-          generated with AI are labelled &ldquo;Illustration&rdquo; directly on the image. AI
-          assistance never replaces attribution — original reporting is always credited and
-          linked.
+          Everything in the reference — the learn topics, the glossary, the series and creator
+          entries, the numbered sets — is written by hand, and the numerological readings are
+          computed from each title in code. No language model writes any of it.
+        </p>
+        <p>
+          That was not always true of the essays. Before July 2026, several essay series were
+          drafted with a generation API: most of <em>The Numbers Behind the Manga</em>, all of{' '}
+          <em>The Grammar of the Page</em>, <em>The Grammar of the Screen</em> and{' '}
+          <em>The Serialization Machine</em>, and the five daily columns. Those texts stay readable
+          at their addresses, each carries a note saying how it was made, and they are kept out of
+          search engines, the sitemap, the feeds and the front page. Parts 274–317 of{' '}
+          <em>The Numbers Behind the Manga</em> and every later series were written by hand.
         </p>
 
         <h2>Corrections</h2>

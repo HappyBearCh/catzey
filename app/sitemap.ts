@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { prisma } from '@/lib/db';
-import { CATEGORIES } from '@/lib/types';
+import { ARCHIVE_CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS } from '@/lib/number-groups';
 import { getAllNumberedSets } from '@/lib/numbered-sets';
 import { getAllGuides } from '@/lib/guides';
@@ -38,15 +38,15 @@ function xmlSafeUrl(url: string): string {
 const MAX_PAGINATED_PAGES = 50;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let articles: { slug: string; updatedAt: Date; tags: string[]; entities: string[]; imageUrl: string | null }[] = [];
+  let articles: { slug: string; updatedAt: Date; tags: string[]; entities: string[]; imageUrl: string | null; generated?: boolean }[] = [];
   let entityRows: { entity: string; last: Date }[] = [];
   let categoryStats: { category: string; count: number; last: Date | null }[] = [];
-  let seriesList: { slug: string; updatedAt: Date }[] = [];
+  let seriesList: { id: string; slug: string; updatedAt: Date }[] = [];
 
   try {
     articles = await prisma.article.findMany({
       where: { published: true },
-      select: { slug: true, updatedAt: true, tags: true, entities: true, imageUrl: true },
+      select: { slug: true, updatedAt: true, tags: true, entities: true, imageUrl: true, generated: true },
       orderBy: { publishedAt: 'desc' },
       take: 5000,
     });
@@ -92,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
     seriesList = await prisma.series.findMany({
-      select: { slug: true, updatedAt: true },
+      select: { id: true, slug: true, updatedAt: true },
       orderBy: { updatedAt: 'desc' },
     });
   } catch {
@@ -131,7 +131,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE, lastModified: newestUpdate, changeFrequency: 'hourly' as const, priority: 1 },
+    { url: BASE, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 1 },
     { url: `${BASE}/learn`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.9 },
     { url: `${BASE}/glossary`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/wiki`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
@@ -140,7 +140,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${BASE}/numerology`, changeFrequency: 'monthly' as const, priority: 0.6 },
-    { url: `${BASE}/numerology/daily`, changeFrequency: 'yearly' as const, priority: 0.4 },
     { url: `${BASE}/series`, changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${BASE}/about`, changeFrequency: 'yearly' as const, priority: 0.4 },
     { url: `${BASE}/editorial-policy`, changeFrequency: 'yearly' as const, priority: 0.3 },
@@ -164,7 +163,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const categoryPages: MetadataRoute.Sitemap = [];
-  for (const { slug } of CATEGORIES) {
+  for (const { slug } of ARCHIVE_CATEGORIES) {
     const stats = categoryStats.find((s) => s.category === slug);
     // A category that has never carried an article renders an empty archive and
     // noindexes itself. Listing it here would only ask Google to crawl a URL we
@@ -246,7 +245,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Declaring the lead image makes the article eligible for Google Images,
   // which is a meaningful discovery surface for manga/anime coverage. Only
   // absolute URLs are valid in a sitemap, so relative uploads get prefixed.
-  const articlePages: MetadataRoute.Sitemap = articles.map((a) => ({
+  // Generated texts noindex themselves (see Article.generated), so listing them
+  // would only spend crawl budget on URLs we have asked Google not to keep.
+  const articlePages: MetadataRoute.Sitemap = articles.filter((a) => !a.generated).map((a) => ({
     url: `${BASE}/article/${a.slug}`,
     lastModified: a.updatedAt,
     changeFrequency: 'weekly' as const,
@@ -256,7 +257,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   }));
 
-  const seriesPages: MetadataRoute.Sitemap = seriesList.map((s) => ({
+  // Same rule as the series page's robots tag: a series with no hand-written
+  // part noindexes itself.
+  const handWrittenSeries = new Set(
+    (await prisma.article.findMany({ where: { published: true, generated: { not: true } }, select: { seriesId: true } }))
+      .map((a) => a.seriesId)
+      .filter(Boolean),
+  );
+  const seriesPages: MetadataRoute.Sitemap = seriesList.filter((s) => handWrittenSeries.has(s.id)).map((s) => ({
     url: `${BASE}/series/${s.slug}`,
     lastModified: s.updatedAt,
     changeFrequency: 'weekly' as const,

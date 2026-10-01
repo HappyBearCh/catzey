@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SearchInput } from '@/components/SearchInput';
-import { CATEGORIES } from '@/lib/types';
+import { ARCHIVE_CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 import { reduce } from '@/lib/numerology';
 
@@ -78,7 +78,7 @@ export default function NotFound() {
       <div className="pt-6 border-t-2 border-ink dark:border-parchment">
         <p className="eyebrow block mb-3">Browse by category</p>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
-          {CATEGORIES.map(({ label, slug }) => (
+          {ARCHIVE_CATEGORIES.map(({ label, slug }) => (
             <Link
               key={slug}
               href={`/${slug}`}

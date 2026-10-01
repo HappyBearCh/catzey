@@ -108,6 +108,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternates: {
         canonical: `${BASE}/article/${slug}`,
       },
+      ...(article.generated && { robots: { index: false, follow: true } }),
     };
   } catch {
     return {};
@@ -512,6 +513,15 @@ export default async function ArticlePage({ params }: Props) {
               </>
             )}
           </div>
+
+          {article.generated && (
+            <p className="mt-6 p-4 text-sm leading-relaxed border border-rule dark:border-ink-border text-ink-muted dark:text-paper-2/60">
+              This text was machine-written, before Catzye adopted the rule that everything on it is
+              written by hand. It stays in the archive for readers who arrived at it, but it is not
+              part of the reference and is not offered to search engines.{' '}
+              <Link href="/editorial-policy" className="underline hover:text-gold">Editorial policy</Link>
+            </p>
+          )}
 
           {article.editorNote && (
             <div className="mt-6 p-4 bg-gray-50 border border-site-border rounded-sm">

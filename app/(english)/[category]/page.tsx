@@ -4,7 +4,7 @@ import {
   CategoryArchive,
   CATEGORY_DESCRIPTIONS,
 } from '@/components/CategoryArchive';
-import { CATEGORIES, getCategoryLabel } from '@/lib/types';
+import { ARCHIVE_CATEGORIES, getCategoryLabel } from '@/lib/types';
 import { categoryCount } from '@/lib/articles';
 import { metaDescription, openGraph, twitter } from '@/lib/seo';
 
@@ -59,13 +59,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export function generateStaticParams() {
-  return CATEGORIES.map(({ slug }) => ({ category: slug }));
+  return ARCHIVE_CATEGORIES.map(({ slug }) => ({ category: slug }));
 }
 
 export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
 
-  const validCategory = CATEGORIES.find((c) => c.slug === category);
+  const validCategory = ARCHIVE_CATEGORIES.find((c) => c.slug === category);
   if (!validCategory) notFound();
 
   // The breadcrumb trail is emitted by CategoryArchive, which renders on page 1
