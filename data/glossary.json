@@ -271,7 +271,8 @@
       "mangaka",
       "serialization",
       "weekly-shonen-jump",
-      "one-shot"
+      "one-shot",
+      "nemu"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -446,7 +447,8 @@
       "shonen",
       "seinen",
       "anime-adaptation",
-      "harem"
+      "harem",
+      "light-novel"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -753,7 +755,8 @@
       "manga",
       "manhua",
       "panel",
-      "right-to-left-reading"
+      "right-to-left-reading",
+      "webtoon"
     ],
     "examples": [
       "solo-leveling",
@@ -829,7 +832,8 @@
       "tankobon",
       "canon",
       "mangaka",
-      "chapter"
+      "chapter",
+      "chibi"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -905,7 +909,8 @@
       "weeb",
       "doujinshi",
       "waifu",
-      "manga-cafe"
+      "manga-cafe",
+      "moe"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -1141,7 +1146,8 @@
       "shonen",
       "josei",
       "shojo",
-      "serialization"
+      "serialization",
+      "gekiga"
     ],
     "examples": [
       "berserk",
@@ -1197,7 +1203,9 @@
       "editor",
       "chapter",
       "tankobon",
-      "hiatus"
+      "hiatus",
+      "manga-magazine",
+      "reader-survey"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -1504,7 +1512,9 @@
       "chapter",
       "omake",
       "serialization",
-      "manga"
+      "manga",
+      "kanzenban",
+      "bunkoban"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -1664,7 +1674,9 @@
       "serialization",
       "editor",
       "simulpub",
-      "hiatus"
+      "hiatus",
+      "reader-survey",
+      "manga-magazine"
     ],
     "examples": [
       "one-piece",
@@ -1756,5 +1768,332 @@
       "shelf": "The Opening"
     },
     "shortDefSource": "A genre depicting romantic relationships between women, spanning subtle emotional intimacy through to explicit romance."
+  },
+  {
+    "slug": "yonkoma",
+    "term": "Yonkoma",
+    "shortDef": "A comic strip of four panels stacked vertically, built on a set-up, development, turn and punchline. 31 in the letters, reducing to 4.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Reduced, this term gives 4. It sits on The Structure with the rest of a structure.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Yonkoma (四コマ, \"four frames\", often written 4-koma) is the four-panel strip. The panels run top to bottom in a single column, and a page of a yonkoma manga usually carries two strips side by side.</p><h2>The four beats</h2><p>The form is organised around kishōtenketsu, a four-part structure borrowed from classical Chinese poetry: introduction, development, twist, conclusion. The third panel is where the strip turns, and the fourth lands the joke or the quiet observation that closes it.</p><h2>Where it comes from</h2><p>Yonkoma grew up in newspapers. Machiko Hasegawa's <em>Sazae-san</em>, which began in 1946, ran as a daily strip for decades and is the model most Japanese readers know. Later the form moved into dedicated magazines and into long-running comedies such as Kiyohiko Azuma's <em>Azumanga Daioh</em>.</p><h2>Why it matters</h2><p>Because each strip must stand alone, yonkoma favours character over plot: a cast is established once and then observed from strip to strip. That is why so much slice-of-life manga, and a good deal of the anime adapted from it, starts here.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Yonkoma</span><span class=\"num-word-value\">31</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">31 → 4</span></span></div><p>Counted letter by letter this term comes to 31 — 4 once reduced.</p><p>The reference files it as a structure. The number's contribution is structure, labour, and the building of lasting systems — and with it the 4's insistence that what lasts must be built patiently, which is the thread the reference follows here.</p><p>Split the term again and the vowels give a Heart's Desire of 4 (foundation) against a Personality of 9 (reckoning) in the consonants — the presentation folds back into the want: reckoning in service of foundation.</p><p>Read on the 4's terms, this entry asks you to look for the constraint the subject was working inside. The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "craft",
+    "aliases": [
+      "4-koma",
+      "four-panel manga"
+    ],
+    "related": [
+      "panel",
+      "slice-of-life",
+      "iyashikei",
+      "gutter"
+    ],
+    "examples": [
+      "azumanga-daioh"
+    ],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 31,
+      "heart": 4,
+      "personality": 9,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "A comic strip of four panels stacked vertically, built on a set-up, development, turn and punchline."
+  },
+  {
+    "slug": "gekiga",
+    "term": "Gekiga",
+    "shortDef": "\"Dramatic pictures\": the realist, adult-oriented comics movement that broke away from children's manga in the late 1950s. Filed under 4, the structure.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Reduced, this term gives 4. It sits on The Structure with the rest of a structure.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Gekiga (劇画) was coined in 1957 by Yoshihiro Tatsumi to name what he and his peers were drawing: long, serious stories for readers who had outgrown the comic strips and children's adventures that the word \"manga\" then implied.</p><h2>Where it came from</h2><p>The movement grew in the rental-book market, where comics were borrowed from lending libraries rather than bought. Working outside the magazine system gave artists room for crime, poverty and violence, drawn with cinematic framing and a grittier line. In 1959 Tatsumi and others, including Takao Saitō, formed the Gekiga Kōbō collective to promote the approach.</p><h2>What it changed</h2><p>Gekiga proved there was an adult audience for comics. When the rental market declined in the 1960s its artists moved into new magazines aimed at older readers, and the seinen demographic grew directly out of that migration.</p><h2>The word today</h2><p>The label is now used loosely for any hard-edged, realistically drawn manga, but historically it names a specific break: the moment Japanese comics claimed the right to grow up with their readers.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Gekiga</span><span class=\"num-word-value\">31</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">31 → 4</span></span></div><p>Set against the Pythagorean table, the term totals 31. Reduced, that is 4.</p><p>The reference files it as a structure. The number's contribution is structure, labour, and the building of lasting systems — and with it the 4's insistence that what lasts must be built patiently, which is the thread the reference follows here.</p><p>Beneath the 4 sit two smaller figures: 6 in the vowels, 7 in the consonants. Responsibility underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 4's terms, this entry asks you to look for the constraint the subject was working inside. The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "dramatic pictures"
+    ],
+    "related": [
+      "seinen",
+      "manga",
+      "mangaka"
+    ],
+    "examples": [
+      "a-drifting-life"
+    ],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 31,
+      "heart": 6,
+      "personality": 7,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "\"Dramatic pictures\": the realist, adult-oriented comics movement that broke away from children's manga in the late 1950s."
+  },
+  {
+    "slug": "webtoon",
+    "term": "Webtoon",
+    "shortDef": "A digital comic designed to be read by scrolling down a single long vertical strip, usually in full colour. 31 in the letters, reducing to 4.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Reduced, this term gives 4. It sits on The Structure with the rest of a structure.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>A webtoon is a comic made for the screen rather than the page. Instead of panels arranged on a spread, it runs as one continuous column that the reader scrolls through, one episode at a time.</p><h2>Where it came from</h2><p>The format took shape in South Korea in the early 2000s, when portals such as Daum and Naver began hosting comics for free online. Designed first for desktop browsers and then for phones, it became the dominant form of Korean comics and spread to China, Japan and the English-speaking market.</p><h2>How the scroll changes the craft</h2><p>Without a page to organise, pacing is controlled by vertical space: a long empty stretch between panels is a pause, and a reveal is placed just below the edge of the screen so the reader scrolls into it. Most webtoons are in full colour and released weekly in short episodes.</p><h2>Webtoon and manhwa</h2><p>The two words overlap but are not the same. Manhwa is any Korean comic; webtoon names the vertical digital format, which Korean creators dominate but which is now used everywhere. When a webtoon is printed, its panels have to be rearranged onto pages.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Webtoon</span><span class=\"num-word-value\">31</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">31 → 4</span></span></div><p>Counted letter by letter this term comes to 31 — 4 once reduced.</p><p>The reference files it as a structure. The number's contribution is structure, labour, and the building of lasting systems — and with it the 4's insistence that what lasts must be built patiently, which is the thread the reference follows here.</p><p>Split the term again and the vowels give a Heart's Desire of 8 (power) against a Personality of 5 (change) in the consonants — power underneath, change on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 4's terms, this entry asks you to look for the constraint the subject was working inside. The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "craft",
+    "aliases": [
+      "vertical scroll comic"
+    ],
+    "related": [
+      "manhwa",
+      "manhua",
+      "panel",
+      "gutter"
+    ],
+    "examples": [
+      "tower-of-god",
+      "solo-leveling"
+    ],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 31,
+      "heart": 8,
+      "personality": 5,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "A digital comic designed to be read by scrolling down a single long vertical strip, usually in full colour."
+  },
+  {
+    "slug": "light-novel",
+    "term": "Light Novel",
+    "shortDef": "A short Japanese prose novel for young readers, illustrated in an anime-and-manga style and published in pocket-sized paperbacks. Read from the inquiry, as a 7.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>A 7 by its term: analyst & seeker, and therefore the inquiry.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>A light novel (ライトノベル, often shortened to ranobe) is a prose novel aimed at teenagers and young adults. It is published in small bunko-size paperbacks, with a colour illustration at the front and black-and-white illustrations scattered through the text.</p><h2>How it is written</h2><p>Light novels lean on dialogue, short paragraphs and first-person narration, and they are published in series: a successful title can run to dozens of volumes. Imprints such as Kadokawa's Dengeki Bunko built whole lines around them.</p><h2>The web-novel pipeline</h2><p>Many recent light novels began as free web novels, posted chapter by chapter on sites such as Shōsetsuka ni Narō. A popular web novel is picked up by a publisher, revised into a light novel, then adapted as manga and anime. Much of the isekai boom travelled this route.</p><h2>Why it matters for manga readers</h2><p>When a manga is \"based on a light novel\", the novel is usually ahead of it, and the manga is one adaptation among several. It is also why some series have two competing manga versions of the same story.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Light</span><span class=\"num-word-value\">29</span></span><span class=\"num-word\"><span class=\"num-word-text\">Novel</span><span class=\"num-word-value\">23</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">52 → 7</span></span></div><p>Every letter here carries a digit; together they make 52, which folds down to 7. The weight sits in “Light”, which carries 29 on its own and reduces to 11.</p><p>What the 7 brings is inquiry. The reference files it as an open question. Whatever else this entry is doing, it is doing it with the 7's pull toward the hidden and the unresolved.</p><p>The vowels alone reduce to 2, the consonants to 5. Cooperation underneath, change on the surface. The gap between them is where the subject is most interesting.</p><p>The 7 asks you to sit with the part that was never explained. The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. The other entries that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "ranobe",
+      "LN"
+    ],
+    "related": [
+      "isekai",
+      "anime-adaptation",
+      "bunkoban",
+      "manga"
+    ],
+    "examples": [
+      "the-apothecary-diaries"
+    ],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 52,
+      "heart": 2,
+      "personality": 5,
+      "shelf": "The Inquiry"
+    },
+    "shortDefSource": "A short Japanese prose novel for young readers, illustrated in an anime-and-manga style and published in pocket-sized paperbacks."
+  },
+  {
+    "slug": "kanzenban",
+    "term": "Kanzenban",
+    "shortDef": "A \"perfect edition\" reprint of a finished manga: larger pages, thicker volumes, restored colour, new covers. Filed under 7, the inquiry.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>The letters of this term total 34, a 7 — the number of analysis, secrecy, and the search for truth.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Kanzenban (完全版) translates as \"perfect edition\". It is a premium reissue of a completed series, printed at a larger trim size than the standard volume and collected into fewer, thicker books.</p><h2>What is different</h2><p>The selling points are fidelity and extras. Colour pages that were printed in black and white in the ordinary volumes are restored, covers are newly drawn, and the paper and printing are better. Chapter title pages that were dropped from the first collection are sometimes put back.</p><h2>An example</h2><p>Akira Toriyama's <em>Dragon Ball</em> ran to 42 standard volumes; its kanzenban, published between 2002 and 2004, collects the same story in 34.</p><h2>Who it is for</h2><p>A kanzenban is a collector's edition, released once a work has become a classic. English publishers' deluxe or \"full-color\" editions play the same role, though they do not always follow the Japanese kanzenban's arrangement.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Kanzenban</span><span class=\"num-word-value\">34</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">34 → 7</span></span></div><p>Set against the Pythagorean table, the term totals 34. Reduced, that is 7.</p><p>The 7 governs analysis, secrecy, and the search for truth. The reference files it as an open question. It is a lens rather than a verdict, but it is a consistent one: the 7's pull toward the hidden and the unresolved is the pressure under this entry.</p><p>Beneath the 7 sit two smaller figures: 7 in the vowels, 9 in the consonants. The presentation folds back into the want: reckoning in service of inquiry.</p><p>The Inquiry asks one thing of everything on it: sit with the part that was never explained. The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. The other entries that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "perfect edition",
+      "deluxe edition"
+    ],
+    "related": [
+      "tankobon",
+      "bunkoban",
+      "color-spread"
+    ],
+    "examples": [
+      "dragon-ball"
+    ],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 34,
+      "heart": 7,
+      "personality": 9,
+      "shelf": "The Inquiry"
+    },
+    "shortDefSource": "A \"perfect edition\" reprint of a finished manga: larger pages, thicker volumes, restored colour, new covers."
+  },
+  {
+    "slug": "bunkoban",
+    "term": "Bunkoban",
+    "shortDef": "A small, cheap pocket-size reprint of a manga, usually of an older series, with more pages in each volume. Filed under 8, the ledger.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/8\" aria-label=\"Filed under 8, The Ledger\">8</a><span>Reduced, this term gives 8. It sits on The Ledger with the rest of a reckoning.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Bunko is the standard Japanese paperback size, roughly A6. A bunkoban is a manga reissued at that size: smaller than the usual volume, but thicker, so the whole series fits into fewer books.</p><h2>What it is for</h2><p>Where the kanzenban is a premium edition, the bunkoban is the economical one. It keeps older works in print cheaply and lets a reader own a long series in less shelf space.</p><h2>The trade-off</h2><p>The pages are reduced, so fine linework and dense lettering become harder to read. Colour is rarely restored, and extras are few.</p><h2>How to tell them apart</h2><p>If a series has a bunkoban, a kanzenban and a standard edition, they carry different volume counts for the same story. That is a common source of confusion when comparing how many volumes a manga \"has\".</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Bunkoban</span><span class=\"num-word-value\">26</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">26 → 8</span></span></div><p>Set against the Pythagorean table, the term totals 26. Reduced, that is 8.</p><p>The reference files it as a reckoning. The number's contribution is money, authority, and the machinery of ambition — and with it the 8's concern with power, money, and who is really in charge, which is the thread the reference follows here.</p><p>Beneath the 8 sit two smaller figures: 1 in the vowels, 7 in the consonants. Initiative underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 8's terms, this entry asks you to follow the money before you judge the decision. The 8 measures what is countable and calls the rest noise. Several entries record industries that optimised themselves into exhaustion. The other entries that reduce to 8 are collected on <a href=\"/number/8\">The Ledger</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "bunko edition",
+      "pocket edition"
+    ],
+    "related": [
+      "tankobon",
+      "kanzenban",
+      "light-novel"
+    ],
+    "examples": [],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 8,
+      "raw": 26,
+      "heart": 1,
+      "personality": 7,
+      "shelf": "The Ledger"
+    },
+    "shortDefSource": "A small, cheap pocket-size reprint of a manga, usually of an older series, with more pages in each volume."
+  },
+  {
+    "slug": "furigana",
+    "term": "Furigana",
+    "shortDef": "Small kana printed beside kanji to show how they are read, used on every kanji in manga for younger readers. The term reduces to 5 — the turn.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/5\" aria-label=\"Filed under 5, The Turn\">5</a><span>Five — change. That is the reduction of this term, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Furigana (振り仮名) are tiny hiragana or katakana set beside a kanji, or above it in horizontal text, to give its pronunciation. In a manga's vertical speech balloons they run down the right-hand side of the characters.</p><h2>Who gets them</h2><p>Magazines aimed at children and teenagers print furigana on every kanji, so a reader who has not yet learned a character can still read the dialogue. Shonen and shojo manga do this as a rule; seinen and josei titles often do not, which is why learners of Japanese are regularly pointed towards shonen.</p><h2>Readings that say two things</h2><p>Manga also use furigana creatively. A word can be written in kanji that carry one meaning while the furigana give a different reading: a technique's name spelled with serious characters but read as a foreign word, or \"enemy\" written in kanji and read as \"friend\". The reader takes in both at once.</p><h2>The translator's problem</h2><p>These double readings have no English equivalent. Translators choose one, add a note, or find a pun that does part of the work, which is one reason the same line can read quite differently in two translations.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Furigana</span><span class=\"num-word-value\">41</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">41 → 5</span></span></div><p>The arithmetic is unremarkable and worth doing anyway: 41 across 1 word, reducing to 5.</p><p>What the 5 brings is change. The reference files it as a turn. Whatever else this entry is doing, it is doing it with the 5's restlessness and hunger for change.</p><p>Heart's Desire 5, Personality 9: the presentation folds back into the want: reckoning in service of change.</p><p>The 5 asks you to ask what was abandoned, and whether it deserved to be. The 5 moves for the sake of moving. Not every break documented here led anywhere, and the reference says so where it did not. The other entries that reduce to 5 are collected on <a href=\"/number/5\">The Turn</a>.</p></section><!--/catzye:reading-->",
+    "category": "craft",
+    "aliases": [
+      "ruby",
+      "ruby text"
+    ],
+    "related": [
+      "shonen",
+      "official-translation",
+      "onomatopoeia"
+    ],
+    "examples": [],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 5,
+      "raw": 41,
+      "heart": 5,
+      "personality": 9,
+      "shelf": "The Turn"
+    },
+    "shortDefSource": "Small kana printed beside kanji to show how they are read, used on every kanji in manga for younger readers."
+  },
+  {
+    "slug": "nemu",
+    "term": "Nemu",
+    "shortDef": "The rough storyboard of a chapter, with panel layout and dialogue sketched in, which the editor approves before the art is drawn. Read from the ledger, as an 8.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/8\" aria-label=\"Filed under 8, The Ledger\">8</a><span>Filed under 8. The Ledger takes a reckoning, and this entry is commands one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Nemu (ネーム, from the English \"name\") is the stage where a chapter is designed. The mangaka works out the page layouts, the panels, the characters' positions and every line of dialogue, drawn roughly enough to change easily.</p><h2>The editor's stage</h2><p>The nemu is what the editor reads. Most of the story work between mangaka and editor happens here: scenes are cut, pacing is tightened, a reveal is moved to a page-turn. Only once the nemu is approved does drawing begin.</p><h2>Why it matters</h2><p>Many creators describe the nemu as the real writing of a manga, and the finished art as its execution. Some manga are credited to a separate writer and artist precisely because one person produces the nemu and the other draws from it.</p><h2>Where readers see it</h2><p>Nemu pages occasionally appear as bonus material in volumes or art books, and they are one of the clearest views of how a chapter was built before it was polished.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Nemu</span><span class=\"num-word-value\">17</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">17 → 8</span></span></div><p>Every letter here carries a digit; together they make 17, which folds down to 8.</p><p>Eight is visionary & achiever — money, authority, and the machinery of ambition. The reference files it as a reckoning. Read that way, what the entry is really recording is the 8's concern with power, money, and who is really in charge.</p><p>The vowels alone reduce to 8, the consonants to 9. The presentation folds back into the want: reckoning in service of power.</p><p>The 8 measures what is countable and calls the rest noise. Several entries record industries that optimised themselves into exhaustion. What the 8 still asks is that you follow the money before you judge the decision. The other entries that reduce to 8 are collected on <a href=\"/number/8\">The Ledger</a>.</p></section><!--/catzye:reading-->",
+    "category": "craft",
+    "aliases": [
+      "name",
+      "storyboard",
+      "thumbnails"
+    ],
+    "related": [
+      "editor",
+      "mangaka",
+      "panel",
+      "chapter"
+    ],
+    "examples": [],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 8,
+      "raw": 17,
+      "heart": 8,
+      "personality": 9,
+      "shelf": "The Ledger"
+    },
+    "shortDefSource": "The rough storyboard of a chapter, with panel layout and dialogue sketched in, which the editor approves before the art is drawn."
+  },
+  {
+    "slug": "reader-survey",
+    "term": "Reader Survey",
+    "shortDef": "The questionnaire in a manga magazine where readers rank their favourite series, used by editors to decide what continues and what is cancelled. Filed under 8, the ledger.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/8\" aria-label=\"Filed under 8, The Ledger\">8</a><span>Reduced, this term gives 8. It sits on The Ledger with the rest of a reckoning.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Japanese manga magazines include a reader questionnaire (アンケート, ankēto), traditionally a postcard and now also online, asking readers which series they enjoyed most in that issue. The results are tallied every week.</p><h2>How it is used</h2><p>The survey is best known from <em>Weekly Shonen Jump</em>, where it drives editorial decisions. Series that rank well get colour pages and prominent placement; series that rank poorly for several weeks are wound up, sometimes within a few months of starting.</p><h2>What it does to stories</h2><p>Because every chapter is judged by a vote, the pressure to end each one on a strong hook is constant. It pushes new series to establish their premise quickly, and it helps explain why so many shonen series introduce a tournament or a new rival when the numbers slip.</p><h2>The criticism</h2><p>The system rewards what is popular this week, not what might build over a year. Series that start slowly are cut before they find readers, and some creators have written openly about working under that pressure.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Reader</span><span class=\"num-word-value\">33</span></span><span class=\"num-word\"><span class=\"num-word-text\">Survey</span><span class=\"num-word-value\">29</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">62 → 8</span></span></div><p>Set against the Pythagorean table, the term totals 62. Reduced, that is 8. The weight sits in “Reader”, which carries 33 on its own and reduces to 33.</p><p>The 8 governs money, authority, and the machinery of ambition. The reference files it as a reckoning. It is a lens rather than a verdict, but it is a consistent one: the 8's concern with power, money, and who is really in charge is the pressure under this entry.</p><p>Beneath the 8 sit two smaller figures: 1 in the vowels, 7 in the consonants. Initiative underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>The Ledger asks one thing of everything on it: follow the money before you judge the decision. The 8 measures what is countable and calls the rest noise. Several entries record industries that optimised themselves into exhaustion. The other entries that reduce to 8 are collected on <a href=\"/number/8\">The Ledger</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "ankēto",
+      "questionnaire",
+      "reader poll"
+    ],
+    "related": [
+      "weekly-shonen-jump",
+      "serialization",
+      "editor",
+      "tournament-arc"
+    ],
+    "examples": [],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 8,
+      "raw": 62,
+      "heart": 1,
+      "personality": 7,
+      "shelf": "The Ledger"
+    },
+    "shortDefSource": "The questionnaire in a manga magazine where readers rank their favourite series, used by editors to decide what continues and what is cancelled."
+  },
+  {
+    "slug": "chibi",
+    "term": "Chibi",
+    "shortDef": "A deliberately squashed drawing of a character, with a huge head and a tiny body, used for comedy and cuteness. Read from the structure, as a 4.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Filed under 4. The Structure takes a structure, and this entry is holds one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Chibi (ちび, \"little one\") describes the super-deformed style in which a character is redrawn at two or three heads tall, with simplified features and exaggerated expressions. The style is also called SD, for super-deformed.</p><h2>How manga use it</h2><p>Inside a story, a switch to chibi signals that a scene has become comic: a character who is furious or embarrassed shrinks for a panel, then returns to normal proportions when the tension comes back. It lets a serious manga be funny without breaking its drawing style for good.</p><h2>Beyond the page</h2><p>Chibi drawings are a staple of omake pages, volume extras, merchandise and fan art, where the point is simply that the character is cute and recognisable at a small size.</p><h2>Reading it</h2><p>The change of proportions is a cue, like a change of music in a film. Readers learn to take a chibi panel as a joke or an aside, not as part of the story's real events.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Chibi</span><span class=\"num-word-value\">31</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">31 → 4</span></span></div><p>Every letter here carries a digit; together they make 31, which folds down to 4.</p><p>What the 4 brings is foundation. The reference files it as a structure. Whatever else this entry is doing, it is doing it with the 4's insistence that what lasts must be built patiently.</p><p>The vowels alone reduce to 9, the consonants to 4. Reckoning underneath, foundation on the surface. The gap between them is where the subject is most interesting.</p><p>The 4 asks you to look for the constraint the subject was working inside. The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [
+      "super-deformed",
+      "SD"
+    ],
+    "related": [
+      "omake",
+      "fanservice",
+      "otaku"
+    ],
+    "examples": [],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 31,
+      "heart": 9,
+      "personality": 4,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "A deliberately squashed drawing of a character, with a huge head and a tiny body, used for comedy and cuteness."
+  },
+  {
+    "slug": "moe",
+    "term": "Moe",
+    "shortDef": "A strong, protective affection felt for a fictional character, and the character designs built to provoke it. Read from the care, as a 6.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/6\" aria-label=\"Filed under 6, The Care\">6</a><span>Six — responsibility. That is the reduction of this term, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Moe (萌え, from a verb meaning \"to bud\") is fan vocabulary for the warm, protective attachment a reader feels towards a character. By extension it describes the characters, and the art styles, that are designed to produce that feeling.</p><h2>How it is built</h2><p>Moe characters tend to share visual and behavioural traits: large eyes, youthful features, and a recognisable personality type. Many of the character archetypes fans name, such as tsundere and dandere, are ways of sorting what kind of moe a character is designed to produce.</p><h2>Where it came from</h2><p>The word spread through otaku culture in the 1990s and 2000s, first online and then in marketing, as anime and manga increasingly aimed particular character designs at a particular audience.</p><h2>The debate</h2><p>Moe is argued over. Supporters see it as an honest name for a real kind of attachment to fiction; critics see it as a formula that flattens characters into marketable types. Both readings are common, and the word is used affectionately and pejoratively.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Moe</span><span class=\"num-word-value\">15</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">15 → 6</span></span></div><p>Every letter here carries a digit; together they make 15, which folds down to 6.</p><p>What the 6 brings is responsibility. The reference files it as an obligation. Whatever else this entry is doing, it is doing it with the 6's pull toward responsibility, care, and the people involved.</p><p>The vowels alone reduce to 11, the consonants to 4. Vision underneath, foundation on the surface. The gap between them is where the subject is most interesting.</p><p>The 6 asks you to name the people this was answerable to. The 6 smothers. The same instinct that protects a readership produces the paternalism several of these entries document. The other entries that reduce to 6 are collected on <a href=\"/number/6\">The Care</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "otaku",
+      "tsundere",
+      "dandere",
+      "waifu"
+    ],
+    "examples": [],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 6,
+      "raw": 15,
+      "heart": 11,
+      "personality": 4,
+      "shelf": "The Care"
+    },
+    "shortDefSource": "A strong, protective affection felt for a fictional character, and the character designs built to provoke it."
+  },
+  {
+    "slug": "manga-magazine",
+    "term": "Manga Magazine",
+    "shortDef": "A thick, cheaply printed anthology that serialises chapters of many series at once, weekly or monthly. The term reduces to 4 — the structure.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Filed under 4. The Structure takes a structure, and this entry is frames one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>In Japan, most manga first appear in a magazine: a thick anthology, printed on cheap recycled paper, that runs a chapter of a dozen or more series in each issue. The collected volumes come later.</p><h2>Weekly and monthly</h2><p>Weekly magazines such as <em>Weekly Shōnen Magazine</em> and <em>Weekly Shōnen Sunday</em>, both launched in 1959, and <em>Weekly Shōnen Jump</em>, launched in 1968, carry chapters of around twenty pages. Monthly magazines carry longer chapters, often forty pages or more, which gives a different rhythm to the stories they run.</p><h2>How the business works</h2><p>A magazine is priced low and makes little money on its own. It exists to find and test series; the profit comes from the collected volumes, adaptations and merchandise of the ones that succeed. Reader surveys tell the editors which series those are.</p><h2>Magazines and demographics</h2><p>Labels such as shonen, shojo, seinen and josei originally describe the magazine a manga ran in, not its content. A series is shonen because it ran in a shonen magazine.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Magazine</span><span class=\"num-word-value\">40</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">58 → 4</span></span></div><p>The arithmetic is unremarkable and worth doing anyway: 58 across 2 words, reducing to 4. The weight sits in “Magazine”, which carries 40 on its own and reduces to 4.</p><p>What the 4 brings is foundation. The reference files it as a structure. Whatever else this entry is doing, it is doing it with the 4's insistence that what lasts must be built patiently.</p><p>Heart's Desire 9, Personality 4: reckoning underneath, foundation on the surface. The gap between them is where the subject is most interesting.</p><p>The 4 asks you to look for the constraint the subject was working inside. The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "anthology magazine",
+      "manga anthology"
+    ],
+    "related": [
+      "serialization",
+      "weekly-shonen-jump",
+      "reader-survey",
+      "tankobon"
+    ],
+    "examples": [],
+    "updatedAt": "2026-09-29T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 58,
+      "heart": 9,
+      "personality": 4,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "A thick, cheaply printed anthology that serialises chapters of many series at once, weekly or monthly."
   }
 ]
