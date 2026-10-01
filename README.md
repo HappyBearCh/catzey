@@ -53,9 +53,8 @@ npm install
 npm run dev
 ```
 
-There is no database. `data/*.json` is the published edition and `lib/db.ts`
-reads it directly; the Prisma client is kept only for the `/admin` write path,
-and the site is fully functional with no `DATABASE_URL` set.
+There is no database and no admin panel. `data/*.json` is the published
+edition and `lib/db.ts` reads it directly; to change a text, edit the file.
 
 After editing anything in `data/`, regenerate the readings and commit the
 result:

@@ -1,7 +1,3 @@
-import { PrismaClient } from '@prisma/client';
-import { Pool, neonConfig } from '@neondatabase/serverless';
-import { PrismaNeon } from '@prisma/adapter-neon';
-import ws from 'ws';
 import fs from 'fs';
 import path from 'path';
 import {
@@ -11,6 +7,7 @@ import {
   groupByRecords,
   aggregateRecords,
 } from '@/lib/store';
+import type { Article, Series } from '@/lib/types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyArgs = any;
@@ -22,30 +19,17 @@ type Row = Record<string, unknown>;
 // in git, and every one of them carries a numerological reading composed from
 // its own title by scripts/numerologize.ts. That pipeline writes data/*.json,
 // which makes those files the published edition — so the site reads them
-// directly and never queries Postgres to render a page.
+// directly. There is no database behind it and no write path: to change a text,
+// edit the file and redeploy.
 //
 // Reads go through lib/store.ts, which implements the where/orderBy/select/
-// groupBy subset this app uses against plain arrays. The Prisma client below is
-// kept only for the admin write path, where an operator with a database
-// configured can still edit rows; nothing a reader sees depends on it, and with
-// no DATABASE_URL set the site is fully functional.
+// groupBy subset this app uses against plain arrays. The export keeps the
+// `prisma.article.findMany(...)` shape the call sites were written against.
 
-const globalForPrisma = globalThis as unknown as {
-  prisma?: PrismaClient;
+const globalEdition = globalThis as unknown as {
   articleEdition?: Row[];
   seriesEdition?: Row[];
 };
-
-function createPrisma(): PrismaClient {
-  const connectionString = process.env.DATABASE_URL;
-  if (!connectionString) return new PrismaClient();
-  neonConfig.webSocketConstructor = ws;
-  const adapter = new PrismaNeon(new Pool({ connectionString }));
-  return new PrismaClient({ adapter });
-}
-
-const realPrisma = globalForPrisma.prisma ?? createPrisma();
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = realPrisma;
 
 // ─── The published edition ───────────────────────────────────────────────────
 
@@ -81,10 +65,10 @@ function loadEdition(file: string): Row[] {
 // Parsed once per process and held in module memory. The files are a few
 // megabytes and never change at runtime, so re-reading them per request would
 // buy nothing.
-const articles: Row[] = (globalForPrisma.articleEdition ??= loadEdition(ARTICLES_FILE).sort(
+const articles: Row[] = (globalEdition.articleEdition ??= loadEdition(ARTICLES_FILE).sort(
   (a, b) => toTime(b.publishedAt) - toTime(a.publishedAt),
 ));
-const series: Row[] = (globalForPrisma.seriesEdition ??= loadEdition(SERIES_FILE));
+const series: Row[] = (globalEdition.seriesEdition ??= loadEdition(SERIES_FILE));
 
 // ─── Read delegates ──────────────────────────────────────────────────────────
 
@@ -137,30 +121,19 @@ const seriesReads = {
   },
 } as const;
 
-// Reads are served from the edition; anything else (create/update/delete, used
-// only by /admin) falls through to the real client.
-function delegate(real: unknown, reads: Record<string, unknown>) {
-  return new Proxy(real as Row, {
-    get(target, prop: string) {
-      if (prop in reads) return reads[prop];
-      const value = (target as Row)[prop];
-      return typeof value === 'function'
-        ? (value as (...a: unknown[]) => unknown).bind(target)
-        : value;
-    },
-  });
-}
+// Rows come back as the full record whatever `select` asked for, typed as the
+// record; groupBy and aggregate keep Prisma's loosely shaped results.
+type Reads<T> = {
+  findMany(args?: AnyArgs): Promise<T[]>;
+  findUnique(args: AnyArgs): Promise<T | null>;
+  findFirst(args?: AnyArgs): Promise<T | null>;
+  count(args?: AnyArgs): Promise<number>;
+};
 
-const articleDelegate = delegate(realPrisma.article, articleReads as unknown as Record<string, unknown>);
-const seriesDelegate = delegate(realPrisma.series, seriesReads as unknown as Record<string, unknown>);
-
-export const prisma = new Proxy(realPrisma, {
-  get(target, prop: string) {
-    if (prop === 'article') return articleDelegate;
-    if (prop === 'series') return seriesDelegate;
-    const value = (target as unknown as Row)[prop];
-    return typeof value === 'function'
-      ? (value as (...a: unknown[]) => unknown).bind(target)
-      : value;
+export const prisma = {
+  article: articleReads as unknown as Reads<Article> & {
+    groupBy(args: AnyArgs): Promise<AnyArgs[]>;
+    aggregate(args: AnyArgs): Promise<AnyArgs>;
   },
-}) as PrismaClient;
+  series: seriesReads as unknown as Reads<Series & { articles: Article[] }>,
+};

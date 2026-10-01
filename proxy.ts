@@ -82,20 +82,6 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {
-    const cookie = request.cookies.get('Catzye_admin')?.value;
-    const password = process.env.ADMIN_PASSWORD ?? process.env.CRON_SECRET ?? '';
-    const expected = Buffer.from(password).toString('base64');
-
-    if (!cookie || cookie !== expected) {
-      const url = new URL('/admin/login', request.url);
-      url.searchParams.set('from', pathname);
-      return NextResponse.redirect(url);
-    }
-
-    return NextResponse.next();
-  }
-
   const target = legacyArchiveTarget(pathname, searchParams);
   if (target && target !== pathname) {
     return NextResponse.redirect(new URL(target, request.url), 308);
@@ -108,13 +94,12 @@ export function proxy(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Scoped tightly: /admin, tag URLs that are visibly non-canonical, plus archive
+// Scoped tightly: tag URLs that are visibly non-canonical, plus archive
 // URLs that still carry a legacy `sort` or `page` query. Everything else skips
 // the proxy entirely, so ordinary traffic is served straight from the CDN
 // without a middleware invocation.
 export const config = {
   matcher: [
-    '/admin/:path*',
     // Only tag URLs containing an uppercase letter, a percent-escape or an
     // apostrophe can possibly need normalising — an already-canonical slug is
     // lowercase ASCII and skips the proxy entirely. Percent-escaped non-ASCII
