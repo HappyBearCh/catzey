@@ -55,6 +55,37 @@ const KANJI_STROKES: Record<string, number> = {
 
   // Added for Yoshihiro Tatsumi and 劇画漂流 (A Drifting Life).
   巳: 3, 辰: 7, 画: 8, 流: 10, 漂: 14, 劇: 15,
+
+  // Added for the October 2026 wiki batch: Tezuka, Araki, Furudate, Kui,
+  // Hara, Ito, Shirahama, Sorachi, Shirow, Akasaka, Urushibara and their works.
+  九: 2,
+  手: 4, 木: 4,
+  古: 5, 白: 5, 正: 5,
+  伊: 6, 虫: 6,
+  妙: 7, 呂: 7, 攻: 7, 告: 7, 赤: 7, 坂: 7,
+  奇: 8, 治: 8, 空: 8, 知: 8, 英: 8,
+  冒: 9, 飛: 9, 春: 9, 秋: 9,
+  原: 10, 泰: 10, 浜: 10,
+  険: 11, 殻: 11, 動: 11,
+  腕: 12, 飯: 12, 帽: 12, 塚: 12,
+  鉄: 13,
+  銀: 14, 魂: 14, 様: 14, 漆: 14,
+  諒: 15, 潤: 15, 鴎: 15,
+  機: 16, 舘: 16,
+  蟲: 18,
+
+  // Added for Takahashi, Mizuki, Hagio, Ikeda, Suetsugu, Hotta, Hayashida
+  // and their works.
+  叉: 3,
+  犬: 4, 水: 4,
+  代: 5, 末: 5, 由: 5,
+  池: 6, 次: 6,
+  刻: 8, 夜: 8, 林: 8,
+  留: 10,
+  族: 11, 望: 11, 都: 11, 理: 11, 球: 11,
+  萩: 12,
+  碁: 13,
+  橋: 16,
 };
 
 // ── Kana ─────────────────────────────────────────────────────────────────────

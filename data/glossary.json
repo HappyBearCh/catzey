@@ -10,7 +10,8 @@
       "filler",
       "canon",
       "chapter",
-      "manga"
+      "manga",
+      "sakuga"
     ],
     "examples": [
       "death-note",
@@ -97,7 +98,8 @@
       "yuri",
       "romance-manga",
       "josei",
-      "doujinshi"
+      "doujinshi",
+      "year-24-group"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -247,7 +249,8 @@
       "scanlation",
       "canon",
       "mangaka",
-      "one-shot"
+      "one-shot",
+      "comiket"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -274,7 +277,9 @@
       "one-shot",
       "nemu"
     ],
-    "examples": [],
+    "examples": [
+      "bakuman"
+    ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
       "value": 8,
@@ -421,9 +426,12 @@
       "screentone",
       "panel",
       "splash-page",
-      "shonen"
+      "shonen",
+      "yokai"
     ],
-    "examples": [],
+    "examples": [
+      "uzumaki"
+    ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
       "value": 11,
@@ -448,7 +456,8 @@
       "seinen",
       "anime-adaptation",
       "harem",
-      "light-novel"
+      "light-novel",
+      "villainess"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -474,7 +483,9 @@
       "slice-of-life",
       "seinen"
     ],
-    "examples": [],
+    "examples": [
+      "mushishi"
+    ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
       "value": 6,
@@ -499,7 +510,8 @@
       "licensing"
     ],
     "examples": [
-      "nana"
+      "nana",
+      "chihayafuru"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -910,7 +922,8 @@
       "doujinshi",
       "waifu",
       "manga-cafe",
-      "moe"
+      "moe",
+      "comiket"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -967,7 +980,8 @@
     ],
     "examples": [
       "hunter-x-hunter",
-      "fullmetal-alchemist"
+      "fullmetal-alchemist",
+      "jojos-bizarre-adventure"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -1071,7 +1085,8 @@
     ],
     "examples": [
       "fruits-basket",
-      "nana"
+      "nana",
+      "kaguya-sama-love-is-war"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -1258,12 +1273,14 @@
       "shonen",
       "seinen",
       "screentone",
-      "panel"
+      "panel",
+      "year-24-group"
     ],
     "examples": [
       "fruits-basket",
       "sailor-moon",
-      "cardcaptor-sakura"
+      "cardcaptor-sakura",
+      "the-rose-of-versailles"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -1487,7 +1504,8 @@
     ],
     "examples": [
       "slam-dunk",
-      "blue-lock"
+      "blue-lock",
+      "haikyu"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -1676,7 +1694,8 @@
       "simulpub",
       "hiatus",
       "reader-survey",
-      "manga-magazine"
+      "manga-magazine",
+      "friendship-effort-victory"
     ],
     "examples": [
       "one-piece",
@@ -1783,7 +1802,8 @@
       "panel",
       "slice-of-life",
       "iyashikei",
-      "gutter"
+      "gutter",
+      "gag-manga"
     ],
     "examples": [
       "azumanga-daioh"
@@ -1810,7 +1830,8 @@
     "related": [
       "seinen",
       "manga",
-      "mangaka"
+      "mangaka",
+      "kashihon"
     ],
     "examples": [
       "a-drifting-life"
@@ -2032,7 +2053,8 @@
     "related": [
       "omake",
       "fanservice",
-      "otaku"
+      "otaku",
+      "gag-manga"
     ],
     "examples": [],
     "updatedAt": "2026-09-29T00:00:00.000Z",
@@ -2095,5 +2117,392 @@
       "shelf": "The Structure"
     },
     "shortDefSource": "A thick, cheaply printed anthology that serialises chapters of many series at once, weekly or monthly."
+  },
+  {
+    "slug": "kashihon",
+    "term": "Kashihon",
+    "shortDef": "Rental books: the lending-library market of the 1950s where many postwar manga artists, and gekiga, got their start. Read from the structure, as a 4.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>A 4 by its term: builder & organizer, and therefore the structure.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Kashihon (貸本) are rental books, and kashihon-ya the small shops that lent them for a few yen a day. In the decade after the war, when few people could afford to buy books, these shops were everywhere in Japan, and manga drawn specifically for them were a large part of their stock.</p><h2>A separate market</h2><p>Rental manga were published as hardbound books or anthologies by small publishers, mainly in Osaka and Tokyo, and they were not subject to the standards of the children's magazines. Artists could draw longer, darker and more violent stories for an audience that included young working adults.</p><h2>Who came from it</h2><p>Yoshihiro Tatsumi and the gekiga movement grew directly out of the rental market, and Shigeru Mizuki, Sanpei Shirato and many others drew for it before moving to magazines. Its readers were among the first adults to read manga as a matter of course.</p><h2>Its end</h2><p>As incomes rose and weekly magazines arrived at the end of the 1950s, buying replaced borrowing and the rental shops declined through the 1960s. Their artists, and the older audience they had found, moved into the new magazines, where they helped create seinen manga.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Kashihon</span><span class=\"num-word-value\">40</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">40 → 4</span></span></div><p>Every letter here carries a digit; together they make 40, which folds down to 4.</p><p>Four is builder & organizer — structure, labour, and the building of lasting systems. The reference files it as a structure. Read that way, what the entry is really recording is the 4's insistence that what lasts must be built patiently.</p><p>The vowels alone reduce to 7, the consonants to 6. Inquiry underneath, responsibility on the surface. The gap between them is where the subject is most interesting.</p><p>The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. What the 4 still asks is that you look for the constraint the subject was working inside. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "rental manga",
+      "kashihon manga"
+    ],
+    "related": [
+      "gekiga",
+      "manga-magazine",
+      "seinen"
+    ],
+    "examples": [
+      "a-drifting-life"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 40,
+      "heart": 7,
+      "personality": 6,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "Rental books: the lending-library market of the 1950s where many postwar manga artists, and gekiga, got their start."
+  },
+  {
+    "slug": "comiket",
+    "term": "Comiket",
+    "shortDef": "Comic Market, the twice-yearly Tokyo fair for self-published work and the largest fan event of its kind in the world. Filed under 4, the structure.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Term sums to 31 and reduces to 4 — The Structure, where the reference files a structure.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Comiket, short for Comic Market, is a fair at which amateur and semi-professional groups, called circles, sell self-published work, above all doujinshi. It is held twice a year, in summer and winter, and since 1996 has taken place at Tokyo Big Sight.</p><h2>Where it came from</h2><p>The first Comic Market was held in December 1975 with a few hundred attendees. It was founded by a group of fans and critics who wanted an open venue for amateur work, and it has been run by volunteers on that principle since.</p><h2>How it works</h2><p>Tens of thousands of circles take part in each event, and attendance across its days runs into the hundreds of thousands. Most of what is sold is fan work based on existing series, alongside original comics, novels, music, games and cosplay, and the fair also has an area for commercial companies.</p><h2>Why it matters</h2><p>Comiket is where much of Japan's fan culture is made in public. Many professional mangaka sold doujinshi there first, and the tolerance publishers show towards fan works at the event is one of the defining features of the manga industry's relationship with its readers.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Comiket</span><span class=\"num-word-value\">31</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">31 → 4</span></span></div><p>Set against the Pythagorean table, the term totals 31. Reduced, that is 4.</p><p>The 4 governs structure, labour, and the building of lasting systems. The reference files it as a structure. It is a lens rather than a verdict, but it is a consistent one: the 4's insistence that what lasts must be built patiently is the pressure under this entry.</p><p>Beneath the 4 sit two smaller figures: 2 in the vowels, 11 in the consonants. Cooperation underneath, vision on the surface. The gap between them is where the subject is most interesting.</p><p>The Structure asks one thing of everything on it: look for the constraint the subject was working inside. The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [
+      "Comic Market",
+      "Komike"
+    ],
+    "related": [
+      "doujinshi",
+      "otaku",
+      "mangaka"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 31,
+      "heart": 2,
+      "personality": 11,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "Comic Market, the twice-yearly Tokyo fair for self-published work and the largest fan event of its kind in the world."
+  },
+  {
+    "slug": "manga-taisho",
+    "term": "Manga Taishō",
+    "shortDef": "The Manga Award chosen by bookshop staff, given since 2008 to a series of eight volumes or fewer that they most want to recommend. The term reduces to 9 — the closing.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/9\" aria-label=\"Filed under 9, The Closing\">9</a><span>Nine — reckoning. That is the reduction of this term, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>The Manga Taishō (マンガ大賞, \"Grand Prize for Manga\") is an annual award founded in 2008. Its judges are not critics or industry figures but bookshop staff and others who work closely with manga readers, and its question is simply which manga they most want to recommend.</p><h2>The rule</h2><p>To be eligible, a series must have no more than eight collected volumes at the time of nomination. The limit means the award favours recent and still-growing series, and it often arrives early in a work's life.</p><h2>Winners</h2><p>Its first winner was <em>Chihayafuru</em>. Later winners include <em>March Comes in Like a Lion</em>, <em>Golden Kamuy</em> and <em>Frieren: Beyond Journey's End</em>, and the award is widely watched as a sign of which series are about to break through.</p><h2>Why it matters</h2><p>Because it is chosen by people who sell manga to readers, the Taishō has a reputation as a reliable guide to what will actually be enjoyed. A win usually brings a substantial rise in sales.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Taishō</span><span class=\"num-word-value\">27</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">45 → 9</span></span></div><p>The arithmetic is unremarkable and worth doing anyway: 45 across 2 words, reducing to 9. The weight sits in “Taishō”, which carries 27 on its own and reduces to 9.</p><p>What the 9 brings is reckoning. The reference files it as a completion. Whatever else this entry is doing, it is doing it with the 9's sense of a cycle closing and something being released.</p><p>Heart's Desire 9, Personality 9: the subject wants exactly what it appears to want, which is reckoning — an unusually undivided reading.</p><p>The 9 asks you to work out what survived the ending. The 9 sentimentalises. An ending is not automatically a meaning, and the reference tries not to pretend otherwise. The other entries that reduce to 9 are collected on <a href=\"/number/9\">The Closing</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "Manga Award",
+      "Manga Taisho"
+    ],
+    "related": [
+      "tankobon",
+      "tezuka-osamu-cultural-prize"
+    ],
+    "examples": [
+      "march-comes-in-like-a-lion",
+      "golden-kamuy",
+      "frieren"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 9,
+      "raw": 45,
+      "heart": 9,
+      "personality": 9,
+      "shelf": "The Closing"
+    },
+    "shortDefSource": "The Manga Award chosen by bookshop staff, given since 2008 to a series of eight volumes or fewer that they most want to recommend."
+  },
+  {
+    "slug": "tezuka-osamu-cultural-prize",
+    "term": "Tezuka Osamu Cultural Prize",
+    "shortDef": "The Asahi Shimbun's annual manga award, founded in 1997 and named for Osamu Tezuka, whose Grand Prize is one of the medium's highest honours. Filed under 2, the pairing.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/2\" aria-label=\"Filed under 2, The Pairing\">2</a><span>Reduced, this term gives 2. It sits on The Pairing with the rest of a negotiation.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>The Tezuka Osamu Cultural Prize (手塚治虫文化賞) is an annual award established by the newspaper <em>Asahi Shimbun</em> in 1997, eight years after Osamu Tezuka's death. It is judged by a panel of critics, scholars and creators.</p><h2>The categories</h2><p>Its main award is the Grand Prize, given to a work of the previous year. Other prizes have recognised new creators, short works and special contributions to the culture of manga, and the categories have changed over time.</p><h2>Winners</h2><p>Grand Prize winners include Takehiko Inoue's <em>Vagabond</em>, Naoki Urasawa's <em>Pluto</em>, Yoshihiro Tatsumi's <em>A Drifting Life</em>, Yasuhisa Hara's <em>Kingdom</em> and Satoru Noda's <em>Golden Kamuy</em>.</p><h2>Why it matters</h2><p>Where the Manga Taishō asks what readers will enjoy, the Tezuka Prize is closer to a critics' award, and its winners tend to be works judged significant for the medium as a whole.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Tezuka</span><span class=\"num-word-value\">21</span></span><span class=\"num-word\"><span class=\"num-word-text\">Osamu</span><span class=\"num-word-value\">15</span></span><span class=\"num-word\"><span class=\"num-word-text\">Cultural</span><span class=\"num-word-value\">27</span></span><span class=\"num-word\"><span class=\"num-word-text\">Prize</span><span class=\"num-word-value\">38</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">101 → 2</span></span></div><p>Set against the Pythagorean table, the term totals 101. Reduced, that is 2. The weight sits in “Prize”, which carries 38 on its own and reduces to 11.</p><p>The 2 governs partnership, diplomacy, and the search for balance. The reference files it as a negotiation. It is a lens rather than a verdict, but it is a consistent one: the 2's search for balance between competing sides is the pressure under this entry.</p><p>Beneath the 2 sit two smaller figures: 4 in the vowels, 7 in the consonants. Foundation underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>The Pairing asks one thing of everything on it: find the second party, because there always is one. The 2 will keep a bad arrangement alive out of politeness. A number of these texts are about partnerships nobody ended in time. The other entries that reduce to 2 are collected on <a href=\"/number/2\">The Pairing</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "Tezuka Prize",
+      "Tezuka Osamu Bunkashō"
+    ],
+    "related": [
+      "manga-taisho",
+      "mangaka"
+    ],
+    "examples": [
+      "vagabond",
+      "pluto",
+      "a-drifting-life",
+      "kingdom",
+      "golden-kamuy"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 2,
+      "raw": 101,
+      "heart": 4,
+      "personality": 7,
+      "shelf": "The Pairing"
+    },
+    "shortDefSource": "The Asahi Shimbun's annual manga award, founded in 1997 and named for Osamu Tezuka, whose Grand Prize is one of the medium's highest honours."
+  },
+  {
+    "slug": "gag-manga",
+    "term": "Gag Manga",
+    "shortDef": "Comedy manga built on jokes rather than story, usually in short self-contained chapters. Filed under 33, the teaching.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/33\" aria-label=\"Filed under 33, The Teaching\">33</a><span>The letters of this term total 33 outright — the number of healing, teaching, and devotion to others.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Gag manga (ギャグ漫画) are comedies in which the joke, not the plot, is the unit of storytelling. Chapters are usually self-contained, characters rarely change, and logic, anatomy and continuity bend whenever a punchline needs them to.</p><h2>The tradition</h2><p>Fujio Akatsuka's <em>Tensai Bakabon</em> and the long-running <em>Kochira Katsushika-ku Kameari Kōen-mae Hashutsujo</em>, which ran in <em>Weekly Shōnen Jump</em> from 1976 to 2016 and reached 200 volumes, are landmarks of the form. Magazines have long kept at least one gag series in each issue as a change of pace.</p><h2>How it works</h2><p>Gag manga rely on timing, on the page-turn and the panel, on running jokes, and often on the comedy duo of the boke, who says something absurd, and the tsukkomi, who corrects them, usually with a slap. Art styles often shift abruptly within a chapter, into chibi drawings or sudden detailed realism, for effect.</p><h2>Hybrids</h2><p>Many popular series mix gag comedy with action or drama. <em>Gintama</em> is the best-known example of a series that can switch between pure gag chapters and serious arcs.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Gag</span><span class=\"num-word-value\">15</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">33</span></span></div><p>Set against the Pythagorean table, the term totals 33 exactly — nothing to reduce, which is rare enough to note. The weight sits in “Manga”, which carries 18 on its own and reduces to 9.</p><p>The 33 governs healing, teaching, and devotion to others. The reference files it as a transmission. It is a lens rather than a verdict, but it is a consistent one: the 33's devotion to lifting up everyone it touches is the pressure under this entry.</p><p>Beneath the 33 sit two smaller figures: 3 in the vowels, 3 in the consonants. The subject wants exactly what it appears to want, which is expression — an unusually undivided reading.</p><p>The Teaching asks one thing of everything on it: trace who learned from this and what they did with it. The 33 gives itself away entirely. The teachers here are frequently better remembered than read. The other entries that reduce to 33 are collected on <a href=\"/number/33\">The Teaching</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "comedy manga"
+    ],
+    "related": [
+      "yonkoma",
+      "chibi",
+      "one-shot",
+      "weekly-shonen-jump",
+      "boke-and-tsukkomi"
+    ],
+    "examples": [
+      "gintama"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 33,
+      "raw": 33,
+      "heart": 3,
+      "personality": 3,
+      "shelf": "The Teaching"
+    },
+    "shortDefSource": "Comedy manga built on jokes rather than story, usually in short self-contained chapters."
+  },
+  {
+    "slug": "kabedon",
+    "term": "Kabedon",
+    "shortDef": "The romance-manga trope of pinning someone against a wall with one hand, named after the sound it makes. 25 in the letters, reducing to 7.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>Term sums to 25 and reduces to 7 — The Inquiry, where the reference files an open question.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Kabedon (壁ドン) combines kabe, \"wall\", with don, the sound of a hand striking it. It names a stock romantic scene in which one character traps another against a wall by planting a hand beside their head, usually as a prelude to a confession.</p><h2>Where it came from</h2><p>The pose had long been common in shojo manga and romance drama. The word itself originally meant banging on a wall to complain about noisy neighbours, and its romantic sense spread online before becoming a mainstream buzzword in Japan in 2014.</p><h2>How it is used</h2><p>In shojo romance the kabedon is a moment of tension that shows the other character's intensity. It is also endlessly parodied, reversed or deflated in comedy, and the reverse version, where the less forceful character does the pinning, became a trope of its own.</p><h2>The debate</h2><p>Critics have pointed out that the move depends on intimidation, and many recent romance series either avoid it or use it knowingly. It remains one of the most recognisable visual shorthands in the genre.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Kabedon</span><span class=\"num-word-value\">25</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">25 → 7</span></span></div><p>Counted letter by letter this term comes to 25 — 7 once reduced.</p><p>The reference files it as an open question. The number's contribution is analysis, secrecy, and the search for truth — and with it the 7's pull toward the hidden and the unresolved, which is the thread the reference follows here.</p><p>Split the term again and the vowels give a Heart's Desire of 3 (expression) against a Personality of 4 (foundation) in the consonants — expression underneath, foundation on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 7's terms, this entry asks you to sit with the part that was never explained. The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. The other entries that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [
+      "wall slam"
+    ],
+    "related": [
+      "shojo",
+      "romance-manga",
+      "ship"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 25,
+      "heart": 3,
+      "personality": 4,
+      "shelf": "The Inquiry"
+    },
+    "shortDefSource": "The romance-manga trope of pinning someone against a wall with one hand, named after the sound it makes."
+  },
+  {
+    "slug": "chuunibyou",
+    "term": "Chūnibyō",
+    "shortDef": "\"Eighth-grader syndrome\": the grandiose fantasies and self-mythologising of early adolescence, and the characters who never grew out of them. The term reduces to 7 — the inquiry.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>Seven — inquiry. That is the reduction of this term, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Chūnibyō (中二病) means, roughly, \"second-year-of-middle-school sickness\", the age of thirteen or fourteen. It describes a phase of adolescence in which someone imagines they have hidden powers, a secret destiny or a dark past, and behaves accordingly.</p><h2>Where it came from</h2><p>The term was coined in 1999 by the comedian and radio host Hikaru Ijūin, who used it to describe embarrassing things listeners had done at that age. It later spread online as a label for the behaviour itself.</p><h2>In manga and anime</h2><p>Chūnibyō characters wear eyepatches they do not need, give their attacks elaborate names, and speak of sealed powers in their right arm. They are usually played for comedy, but the best stories treat the fantasy as a way of coping with something real, such as grief or loneliness.</p><h2>The self-awareness</h2><p>The term is also turned on the medium itself. Many battle manga are built on exactly the fantasies chūnibyō mocks, and readers use the word affectionately for a series whose names and poses are gloriously over the top.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Chūnibyō</span><span class=\"num-word-value\">43</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">43 → 7</span></span></div><p>The arithmetic is unremarkable and worth doing anyway: 43 across 1 word, reducing to 7.</p><p>What the 7 brings is inquiry. The reference files it as an open question. Whatever else this entry is doing, it is doing it with the 7's pull toward the hidden and the unresolved.</p><p>Heart's Desire 9, Personality 7: reckoning underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>The 7 asks you to sit with the part that was never explained. The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. The other entries that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [
+      "chuunibyou",
+      "eighth-grader syndrome"
+    ],
+    "related": [
+      "otaku",
+      "power-system",
+      "shonen-protagonist"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 43,
+      "heart": 9,
+      "personality": 7,
+      "shelf": "The Inquiry"
+    },
+    "shortDefSource": "\"Eighth-grader syndrome\": the grandiose fantasies and self-mythologising of early adolescence, and the characters who never grew out of them."
+  },
+  {
+    "slug": "sakuga",
+    "term": "Sakuga",
+    "shortDef": "Literally \"drawing pictures\": the animation itself, and in fan usage a scene of unusually fine or ambitious animation. Filed under 6, the care.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/6\" aria-label=\"Filed under 6, The Care\">6</a><span>Reduced, this term gives 6. It sits on The Care with the rest of an obligation.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Sakuga (作画) is the industry word for the drawing of animation, the work of key animators who draw the important frames of a movement. Among fans it has come to mean a passage where that work is exceptional: a fight, a transformation or a piece of everyday acting animated with unusual fluidity or invention.</p><h2>Why fans care</h2><p>Television anime is made on tight schedules and budgets, and most episodes are animated economically. A sakuga sequence stands out because someone, often a specific named key animator, was given the time to do much more. Fans track these animators by name and collect their scenes.</p><h2>Adaptation</h2><p>For manga readers, sakuga is often what an anime adaptation adds that the page cannot: the timing of a movement that the manga only implies between panels. A famous manga fight can become a famous anime fight largely because of who animated it.</p><h2>The opposite</h2><p>Fans use \"sakuga\" in contrast to episodes where the drawing breaks down under schedule pressure, with off-model faces and stiff motion. Both are signs of how anime production is organised.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Sakuga</span><span class=\"num-word-value\">15</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">15 → 6</span></span></div><p>Set against the Pythagorean table, the term totals 15. Reduced, that is 6.</p><p>The reference files it as an obligation. The number's contribution is care, community, and the weight of duty — and with it the 6's pull toward responsibility, care, and the people involved, which is the thread the reference follows here.</p><p>Beneath the 6 sit two smaller figures: 5 in the vowels, 1 in the consonants. Change underneath, initiative on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 6's terms, this entry asks you to name the people this was answerable to. The 6 smothers. The same instinct that protects a readership produces the paternalism several of these entries document. The other entries that reduce to 6 are collected on <a href=\"/number/6\">The Care</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [],
+    "related": [
+      "anime-adaptation",
+      "otaku"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 6,
+      "raw": 15,
+      "heart": 5,
+      "personality": 1,
+      "shelf": "The Care"
+    },
+    "shortDefSource": "Literally \"drawing pictures\": the animation itself, and in fan usage a scene of unusually fine or ambitious animation."
+  },
+  {
+    "slug": "year-24-group",
+    "term": "Year 24 Group",
+    "shortDef": "The generation of women shojo creators born around 1949 who transformed girls' manga in the 1970s. Filed under 9, the closing.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/9\" aria-label=\"Filed under 9, The Closing\">9</a><span>The letters of this term total 54, a 9 — the number of endings, compassion, and the closing of cycles.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>The Year 24 Group (花の24年組, Hana no Nijūyo-nen Gumi) is a loose label for women manga artists born around Shōwa 24, the year 1949, who rose to prominence in the early 1970s. It was never a formal collective; critics and fans grouped them together after the fact.</p><h2>Who is in it</h2><p>Moto Hagio, Keiko Takemiya and Yumiko Ōshima are at its core, and Riyoko Ikeda is often included. Until their generation, much shojo manga had been drawn by men; these were women making manga for girls about what they themselves wanted to read.</p><h2>What they changed</h2><p>They brought psychological depth, literary structure and difficult subjects into girls' magazines: science fiction, European historical settings, death, sexuality and identity. Takemiya's <em>Kaze to Ki no Uta</em> and Hagio's <em>The Heart of Thomas</em>, both set in boys' schools, are the forerunners of the boys' love genre.</p><h2>Why it matters</h2><p>Much of what shojo manga became, its interiority, its page layouts built around emotion rather than action, and its willingness to be serious, traces to this generation.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Year</span><span class=\"num-word-value\">22</span></span><span class=\"num-word\"><span class=\"num-word-text\">Group</span><span class=\"num-word-value\">32</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">54 → 9</span></span></div><p>Set against the Pythagorean table, the term totals 54. Reduced, that is 9. The weight sits in “Group”, which carries 32 on its own and reduces to 5.</p><p>The 9 governs endings, compassion, and the closing of cycles. The reference files it as a completion. It is a lens rather than a verdict, but it is a consistent one: the 9's sense of a cycle closing and something being released is the pressure under this entry.</p><p>Beneath the 9 sit two smaller figures: 6 in the vowels, 3 in the consonants. Responsibility underneath, expression on the surface. The gap between them is where the subject is most interesting.</p><p>The Closing asks one thing of everything on it: work out what survived the ending. The 9 sentimentalises. An ending is not automatically a meaning, and the reference tries not to pretend otherwise. The other entries that reduce to 9 are collected on <a href=\"/number/9\">The Closing</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "Hana no 24-nen Gumi",
+      "Magnificent 49ers"
+    ],
+    "related": [
+      "shojo",
+      "boys-love",
+      "mangaka"
+    ],
+    "examples": [
+      "the-poe-clan",
+      "the-rose-of-versailles"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 9,
+      "raw": 54,
+      "heart": 6,
+      "personality": 3,
+      "shelf": "The Closing"
+    },
+    "shortDefSource": "The generation of women shojo creators born around 1949 who transformed girls' manga in the 1970s."
+  },
+  {
+    "slug": "friendship-effort-victory",
+    "term": "Friendship, Effort, Victory",
+    "shortDef": "The three values often described as Weekly Shonen Jump's editorial formula for a successful story. Filed under 11, the signal.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/11\" aria-label=\"Filed under 11, The Signal\">11</a><span>The letters of this term total 137, an 11 — the number of inspiration, tension, and heightened awareness.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Yūjō, doryoku, shōri (友情・努力・勝利): friendship, effort, victory. The phrase is widely cited as the guiding principle of <em>Weekly Shōnen Jump</em>, said to come from a survey of young readers about what mattered to them, and it describes the shape of a classic <em>Jump</em> story.</p><h2>How it works in a story</h2><p>A hero sets an impossible goal, gathers companions whose bonds become a source of strength, trains and suffers to improve, and wins, usually at the end of a long fight against a stronger opponent. Each element feeds the next: friendship makes effort bearable, and victory proves the effort was worth it.</p><h2>Where to see it</h2><p>It is easy to trace through <em>Dragon Ball</em>, <em>One Piece</em>, <em>Naruto</em> and <em>My Hero Academia</em>. Even series that seem to resist it, such as <em>Chainsaw Man</em>, are often read as arguments with it.</p><h2>The critique</h2><p>Critics point out that the formula can make struggle look like a matter of willpower and present relentless work as a virtue in itself. It is also one reason <em>Jump</em> series are so readable: everyone knows the rules being played with.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Friendship,</span><span class=\"num-word-value\">63</span></span><span class=\"num-word\"><span class=\"num-word-text\">Effort,</span><span class=\"num-word-value\">34</span></span><span class=\"num-word\"><span class=\"num-word-text\">Victory</span><span class=\"num-word-value\">40</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">137 → 11</span></span></div><p>Set against the Pythagorean table, the term totals 137. Reduced, that is 11, a master number the system declines to reduce further. The weight sits in “Friendship,”, which carries 63 on its own and reduces to 9.</p><p>The 11 governs inspiration, tension, and heightened awareness. The reference files it as a signal received early. It is a lens rather than a verdict, but it is a consistent one: the 11's heightened, high-voltage intuition about what comes next is the pressure under this entry.</p><p>Beneath the 11 sit two smaller figures: 4 in the vowels, 7 in the consonants. Foundation underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>The Signal asks one thing of everything on it: remember that nobody noticed this at the time. The 11 is unstable and knows it. Being early and being wrong are indistinguishable until later. The other entries that reduce to 11 are collected on <a href=\"/number/11\">The Signal</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "yūjō doryoku shōri",
+      "the Jump formula"
+    ],
+    "related": [
+      "weekly-shonen-jump",
+      "shonen",
+      "shonen-protagonist",
+      "tournament-arc"
+    ],
+    "examples": [
+      "one-piece",
+      "naruto",
+      "my-hero-academia"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 11,
+      "raw": 137,
+      "heart": 4,
+      "personality": 7,
+      "shelf": "The Signal"
+    },
+    "shortDefSource": "The three values often described as Weekly Shonen Jump's editorial formula for a successful story."
+  },
+  {
+    "slug": "boke-and-tsukkomi",
+    "term": "Boke and Tsukkomi",
+    "shortDef": "The comic double act of manzai and manga: one character says something absurd, the other corrects them. Read from the closing, as a 9.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/9\" aria-label=\"Filed under 9, The Closing\">9</a><span>Filed under 9. The Closing takes a completion, and this entry is releases one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Boke (ボケ) is the fool, the one who misunderstands or says something ridiculous. Tsukkomi (ツッコミ) is the straight man, who points out the absurdity, often loudly and often with a slap or a smack of a folded paper fan. The pairing comes from manzai, the stand-up double act of Japanese comedy.</p><h2>In manga</h2><p>The rhythm is everywhere in manga comedy. A character makes an outrageous remark, and in the next panel another shouts the correction, sometimes in oversized lettering. In translation, a tsukkomi can look like random shouting; it is a set role, as recognisable to Japanese readers as a punchline.</p><h2>Who plays which part</h2><p>Many casts are built around it. In <em>Gintama</em>, Shinpachi's job is almost entirely tsukkomi; in many romantic comedies the heroine plays straight to a ridiculous lead. Characters can also switch roles from scene to scene.</p><h2>Why it matters</h2><p>Knowing the convention makes manga comedy much easier to read: the second panel is not a new joke but the completion of the first.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Boke</span><span class=\"num-word-value\">15</span></span><span class=\"num-word\"><span class=\"num-word-text\">and</span><span class=\"num-word-value\">10</span></span><span class=\"num-word\"><span class=\"num-word-text\">Tsukkomi</span><span class=\"num-word-value\">29</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">54 → 9</span></span></div><p>Every letter here carries a digit; together they make 54, which folds down to 9. The weight sits in “Tsukkomi”, which carries 29 on its own and reduces to 11.</p><p>What the 9 brings is reckoning. The reference files it as a completion. Whatever else this entry is doing, it is doing it with the 9's sense of a cycle closing and something being released.</p><p>The vowels alone reduce to 3, the consonants to 6. Expression underneath, responsibility on the surface. The gap between them is where the subject is most interesting.</p><p>The 9 asks you to work out what survived the ending. The 9 sentimentalises. An ending is not automatically a meaning, and the reference tries not to pretend otherwise. The other entries that reduce to 9 are collected on <a href=\"/number/9\">The Closing</a>.</p></section><!--/catzye:reading-->",
+    "category": "craft",
+    "aliases": [
+      "manzai",
+      "straight man"
+    ],
+    "related": [
+      "gag-manga",
+      "yonkoma",
+      "official-translation"
+    ],
+    "examples": [
+      "gintama"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 9,
+      "raw": 54,
+      "heart": 3,
+      "personality": 6,
+      "shelf": "The Closing"
+    },
+    "shortDefSource": "The comic double act of manzai and manga: one character says something absurd, the other corrects them."
+  },
+  {
+    "slug": "yokai",
+    "term": "Yokai",
+    "shortDef": "The spirits, monsters and uncanny creatures of Japanese folklore, and one of manga's richest sources of material. Read from the inquiry, as a 7.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>Seven — inquiry. That is the reduction of this term, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Yokai (妖怪) is a broad word for the supernatural beings of Japanese folklore: shape-shifting foxes and raccoon dogs, kappa in rivers, long-necked women, umbrellas that come to life, and hundreds more. Some are dangerous, some mischievous, some merely odd.</p><h2>Where the images come from</h2><p>Many yokai took visual form in the Edo period, when artists such as Toriyama Sekien published illustrated catalogues of them. In the twentieth century, Shigeru Mizuki's manga and encyclopaedias gave them their modern look, and his designs are what many Japanese readers picture when they hear the names.</p><h2>In manga</h2><p>Yokai appear across genres: as monsters to be fought in action series, as companions in comedies, as metaphors in quieter stories. <em>GeGeGe no Kitarō</em>, <em>Inuyasha</em> and the mushi of <em>Mushishi</em>, which borrow the logic of yokai without the folklore, show the range.</p><h2>Why it matters</h2><p>Yokai give manga a shared, recognisable vocabulary of the uncanny, much as Greek myth does for Western fiction. A reader who knows the main ones will catch references, puns and designs in a great many series.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Yokai</span><span class=\"num-word-value\">25</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">25 → 7</span></span></div><p>Every letter here carries a digit; together they make 25, which folds down to 7.</p><p>What the 7 brings is inquiry. The reference files it as an open question. Whatever else this entry is doing, it is doing it with the 7's pull toward the hidden and the unresolved.</p><p>The vowels alone reduce to 7, the consonants to 9. The presentation folds back into the want: reckoning in service of inquiry.</p><p>The 7 asks you to sit with the part that was never explained. The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. The other entries that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "youkai",
+      "ayakashi"
+    ],
+    "related": [
+      "horror-manga",
+      "manga"
+    ],
+    "examples": [
+      "gegege-no-kitaro",
+      "inuyasha",
+      "mushishi"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 25,
+      "heart": 7,
+      "personality": 9,
+      "shelf": "The Inquiry"
+    },
+    "shortDefSource": "The spirits, monsters and uncanny creatures of Japanese folklore, and one of manga's richest sources of material."
+  },
+  {
+    "slug": "tokiwa-so",
+    "term": "Tokiwa-sō",
+    "shortDef": "The Tokyo apartment house where Osamu Tezuka and a generation of young manga artists lived and worked in the 1950s. 32 in the letters, reducing to 5.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/5\" aria-label=\"Filed under 5, The Turn\">5</a><span>Reduced, this term gives 5. It sits on The Turn with the rest of a turn.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Tokiwa-sō (トキワ荘) was a modest two-storey wooden apartment building in Toshima, Tokyo. From 1953 Osamu Tezuka lived there, close to the publishers he worked for, and when he moved out, young artists who admired him moved in.</p><h2>Who lived there</h2><p>Its residents included Fujiko Fujio, the duo who later created <em>Doraemon</em>, Shōtarō Ishinomori, creator of <em>Cyborg 009</em> and <em>Kamen Rider</em>, and Fujio Akatsuka, the gag manga master behind <em>Tensai Bakabon</em>. Others visited constantly, and the group helped each other with work, deadlines and food.</p><h2>Why it matters</h2><p>Few buildings have had such an influence on a medium. The artists who passed through Tokiwa-sō shaped children's manga, science fiction, comedy and tokusatsu television for decades, and its story is retold often as the origin of the modern manga industry.</p><h2>Today</h2><p>The original building was demolished in 1982. A reconstruction, the Tokiwa-sō Manga Museum, opened near the original site in 2020.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Tokiwa-sō</span><span class=\"num-word-value\">32</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">32 → 5</span></span></div><p>Counted letter by letter this term comes to 32 — 5 once reduced.</p><p>The reference files it as a turn. The number's contribution is freedom, disruption, and restless movement — and with it the 5's restlessness and hunger for change, which is the thread the reference follows here.</p><p>Split the term again and the vowels give a Heart's Desire of 22 (construction) against a Personality of 1 (initiative) in the consonants — construction underneath, initiative on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 5's terms, this entry asks you to ask what was abandoned, and whether it deserved to be. The 5 moves for the sake of moving. Not every break documented here led anywhere, and the reference says so where it did not. The other entries that reduce to 5 are collected on <a href=\"/number/5\">The Turn</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "Tokiwaso"
+    ],
+    "related": [
+      "mangaka",
+      "manga",
+      "gag-manga"
+    ],
+    "examples": [
+      "astro-boy"
+    ],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 5,
+      "raw": 32,
+      "heart": 22,
+      "personality": 1,
+      "shelf": "The Turn"
+    },
+    "shortDefSource": "The Tokyo apartment house where Osamu Tezuka and a generation of young manga artists lived and worked in the 1950s."
+  },
+  {
+    "slug": "villainess",
+    "term": "Villainess",
+    "shortDef": "A subgenre in which the heroine wakes up as the doomed antagonist of a romance story and sets out to escape her fate. Filed under 5, the turn.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/5\" aria-label=\"Filed under 5, The Turn\">5</a><span>The letters of this term total 41, a 5 — the number of freedom, disruption, and restless movement.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>The villainess story (悪役令嬢, akuyaku reijō, \"villainous noble daughter\") begins when a woman realises she has been reborn as the villain of a romance novel or otome game, the scheming rival who is fated to be exposed, exiled or executed when the heroine wins the prince.</p><h2>How it works</h2><p>Knowing the plot in advance, the heroine sets out to avoid her ending: by being kind instead of cruel, by leaving the court, by befriending the original heroine, or by simply refusing the role. Much of the pleasure lies in watching the original story's characters react to someone who no longer plays her part.</p><h2>Where it came from</h2><p>The genre grew on web-novel sites in the 2010s as a counterpart to isekai, aimed largely at women readers, and then moved through light novels into manga and anime. Korean webtoons developed a parallel tradition of their own.</p><h2>Why it matters</h2><p>It is an example of the web-novel pipeline producing a genre almost from scratch, and of how genre awareness, the heroine's knowledge of the story she is in, can become a premise in itself.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Villainess</span><span class=\"num-word-value\">41</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">41 → 5</span></span></div><p>Set against the Pythagorean table, the term totals 41. Reduced, that is 5.</p><p>The reference files it as a turn. The number's contribution is freedom, disruption, and restless movement — and with it the 5's restlessness and hunger for change, which is the thread the reference follows here.</p><p>Beneath the 5 sit two smaller figures: 6 in the vowels, 8 in the consonants. Responsibility underneath, power on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 5's terms, this entry asks you to ask what was abandoned, and whether it deserved to be. The 5 moves for the sake of moving. Not every break documented here led anywhere, and the reference says so where it did not. The other entries that reduce to 5 are collected on <a href=\"/number/5\">The Turn</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "akuyaku reijō",
+      "otome isekai"
+    ],
+    "related": [
+      "isekai",
+      "light-novel",
+      "shojo",
+      "webtoon"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-02T00:00:00.000Z",
+    "numerology": {
+      "value": 5,
+      "raw": 41,
+      "heart": 6,
+      "personality": 8,
+      "shelf": "The Turn"
+    },
+    "shortDefSource": "A subgenre in which the heroine wakes up as the doomed antagonist of a romance story and sets out to escape her fate."
   }
 ]
