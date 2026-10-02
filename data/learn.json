@@ -1793,5 +1793,278 @@
       "shelf": "The Ledger"
     },
     "summarySource": "A starting shelf of twelve complete or easy-to-enter manga across different genres and demographics, chosen to show the range of the medium rather than a single taste."
+  },
+  {
+    "slug": "how-manga-went-digital",
+    "title": "How Manga Went Digital",
+    "question": "How do people read manga now, and how did apps change the industry?",
+    "summary": "Over the 2010s Japanese manga moved from paper magazines to phones. Publisher apps became magazines in their own right, simultaneous English releases answered piracy, and digital sales overtook print. The question reduces to 8 — the ledger.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/8\" aria-label=\"Filed under 8, The Ledger\">8</a><span>Eight — power. That is the reduction of this question, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>The paper era</h2><p>For half a century the manga industry ran on a simple cycle: chapters in a cheap weekly or monthly magazine, then collected volumes in bookshops. Magazine circulations peaked in the mid-1990s, when <em>Weekly Shōnen Jump</em> sold over six million copies a week, and declined steadily afterwards as readers' time went elsewhere.</p><h2>The piracy problem</h2><p>Meanwhile, readers outside Japan were reading manga long before any official translation existed, through scanlations posted online within days of a chapter's Japanese release. Later, commercial piracy sites hosting complete libraries drew enormous traffic in Japan itself. Publishers came to see that the problem was partly one of access: there was no legal way to read the latest chapters quickly.</p><h2>The apps arrive</h2><p>In the 2010s publishers launched their own apps. Shueisha's <em>Shōnen Jump+</em> (2014) carried the magazine digitally and, crucially, began publishing original series. Kodansha's <em>Magazine Pocket</em> (2015) and others followed, alongside platforms like LINE Manga and Piccoma that carry many publishers' work.</p><h2>Apps as magazines</h2><p>The app turned out to be more than a delivery method. <em>Shōnen Jump+</em> became a magazine with its own identity, launching hits such as <em>Spy × Family</em> and Tatsuki Fujimoto's work. Online, chapter lengths can vary, schedules can be irregular and experimental series can find an audience without displacing anything in a printed issue. Editors can see how many people read each chapter, and where they stop.</p><h2>Simultaneous release</h2><p>In 2019 Shueisha launched <em>MANGA Plus</em>, publishing chapters in English and other languages on the same day as Japan, with the latest chapters free. Simultaneous publication, or simulpub, had been tried before, but at this scale it changed the international market: the legal version was now as fast as the pirate one.</p><h2>Print today</h2><p>Digital sales of manga in Japan overtook print in the late 2010s, and the gap has widened since. Collected volumes still matter, both for revenue and as objects readers want to own, and big series still set print records. But for many new readers, a manga is something read on a phone, one chapter at a time.</p><h2>What it means for readers</h2><p>It has never been easier to read manga legally and quickly. The trade-off is fragmentation: series are spread across many apps with different pricing, and some exist only digitally.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>Where this explainer is shelved</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">How</span><span class=\"num-word-value\">19</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Went</span><span class=\"num-word-value\">17</span></span><span class=\"num-word\"><span class=\"num-word-text\">Digital</span><span class=\"num-word-value\">35</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">89 → 8</span></span></div><p>The arithmetic is unremarkable and worth doing anyway: 89 across 4 words, reducing to 8. The weight sits in “Digital”, which carries 35 on its own and reduces to 8.</p><p>What the 8 brings is power. The reference files it as a reckoning. Whatever else this explainer is doing, it is doing it with the 8's concern with power, money, and who is really in charge.</p><p>Heart's Desire 5, Personality 3: change underneath, expression on the surface. The gap between them is where the subject is most interesting.</p><p>The 8 asks you to follow the money before you judge the decision. The 8 measures what is countable and calls the rest noise. Several entries record industries that optimised themselves into exhaustion. The other explainers that reduce to 8 are collected on <a href=\"/number/8\">The Ledger</a>.</p></section><!--/catzye:reading-->",
+    "level": "beginner",
+    "track": "industry",
+    "order": 7,
+    "faq": [
+      {
+        "question": "What is Shonen Jump+?",
+        "answer": "Shueisha's manga app, launched in 2014. It carries Weekly Shonen Jump digitally and also publishes original series, including Spy × Family and Fire Punch, many of which never appear in print magazines."
+      },
+      {
+        "question": "What is MANGA Plus?",
+        "answer": "Shueisha's international app, launched in 2019, which releases chapters of its series in English and other languages on the same day as Japan, with the latest chapters free to read."
+      },
+      {
+        "question": "Is digital manga more popular than print now?",
+        "answer": "In Japan, digital sales overtook print in the late 2010s. Print volumes remain important, especially for popular series, but most new reading now happens on screens."
+      },
+      {
+        "question": "Why did publishers move online?",
+        "answer": "Falling magazine sales, the shift of reading to smartphones, and widespread piracy. Apps gave readers a fast, legal way to read new chapters and gave publishers direct data on what they read."
+      }
+    ],
+    "related": [
+      "manga-app",
+      "simulpub",
+      "scanlation",
+      "manga-magazine",
+      "official-translation"
+    ],
+    "seed": "How manga went digital",
+    "createdAt": "2026-10-03T00:00:00.000Z",
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 8,
+      "raw": 89,
+      "heart": 5,
+      "personality": 3,
+      "shelf": "The Ledger"
+    },
+    "summarySource": "Over the 2010s Japanese manga moved from paper magazines to phones. Publisher apps became magazines in their own right, simultaneous English releases answered piracy, and digital sales overtook print."
+  },
+  {
+    "slug": "the-tools-of-a-manga-artist",
+    "title": "The Tools of a Manga Artist",
+    "question": "What do manga artists actually draw with?",
+    "summary": "Traditional manga are drawn on B4 manuscript paper with dip pens, ink and adhesive screentone; most professionals now work digitally in software that reproduces those tools. The tools explain much of how manga looks. 88 in the letters, reducing to 7.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>Reduced, this question gives 7. It sits on The Inquiry with the rest of an open question.</span></p><!--/catzye:standfirst-->\n<h2>The manuscript</h2><p>A traditional manga page is drawn on genkō yōshi, manuscript paper, usually around B4 size, larger than the printed page. Printed guide lines in light blue, which do not reproduce in print, mark the trim, the bleed and the safe area where text must sit. Drawing large and reducing for print makes lines finer and more even.</p><h2>Pencils and the name</h2><p>Work starts from the name, the rough storyboard approved by the editor. The artist then lays out the page in pencil: panel borders, figures, backgrounds and space for balloons. Panel borders are inked with a ruler and a technical pen.</p><h2>Dip pens</h2><p>The characteristic manga line comes from steel dip-pen nibs dipped in ink. The G-pen is flexible and gives a line that swells and thins with pressure, used for figures and expressive strokes. The maru pen is fine and stiff, used for small details and hatching. The variation in line weight is a large part of what makes manga art look the way it does.</p><h2>Screentone</h2><p>Since manga are printed in black and white, shading and texture were traditionally added with screentone: adhesive sheets printed with dots, lines or patterns, cut out with a knife and pressed onto the page. Different densities stand for grey tones, and patterned tones create skies, effects and backgrounds. Scraping a tone away gives highlights and glows.</p><h2>White and corrections</h2><p>Mistakes and highlights are fixed with white ink applied with a brush or pen. Speed lines, effects and backgrounds are often drawn by assistants working on the same page.</p><h2>The digital shift</h2><p>Most professional manga are now drawn digitally, typically in software such as Clip Studio Paint on a pen tablet or display. The software reproduces the G-pen, rulers, perspective guides and screentone, which is why digital manga still look like ink and tone. Digital work removes the cost of tone sheets, makes corrections easy and lets assistants work remotely.</p><h2>Why it matters</h2><p>Knowing the tools helps you read the page: the swelling line of a G-pen, the dot pattern of a tone, the scraped highlight on a sword. Many aspiring artists still learn on dip pens to understand the line before moving to a tablet.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>Where this explainer is shelved</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">The</span><span class=\"num-word-value\">15</span></span><span class=\"num-word\"><span class=\"num-word-text\">Tools</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">of</span><span class=\"num-word-value\">12</span></span><span class=\"num-word\"><span class=\"num-word-text\">a</span><span class=\"num-word-value\">1</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Artist</span><span class=\"num-word-value\">24</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">88 → 7</span></span></div><p>Counted letter by letter this question comes to 88 — 7 once reduced. The weight sits in “Artist”, which carries 24 on its own and reduces to 6.</p><p>The reference files it as an open question. The number's contribution is analysis, secrecy, and the search for truth — and with it the 7's pull toward the hidden and the unresolved, which is the thread the reference follows here.</p><p>Split the question again and the vowels give a Heart's Desire of 9 (reckoning) against a Personality of 7 (inquiry) in the consonants — reckoning underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 7's terms, this explainer asks you to sit with the part that was never explained. The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. The other explainers that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "level": "intermediate",
+    "track": "craft",
+    "order": 6,
+    "faq": [
+      {
+        "question": "What pen do manga artists use?",
+        "answer": "Traditionally steel dip-pen nibs: the flexible G-pen for main lines and the fine maru pen for details. Most professionals now draw digitally with software brushes that imitate these pens."
+      },
+      {
+        "question": "What is screentone used for?",
+        "answer": "To add grey tones, shading and texture to black-and-white art. Traditionally it was adhesive patterned film cut and applied by hand; today it is usually applied digitally."
+      },
+      {
+        "question": "Do manga artists draw digitally?",
+        "answer": "Most do. Software such as Clip Studio Paint reproduces pens, rulers and screentone, so digital pages keep the traditional look while making corrections and collaboration easier."
+      },
+      {
+        "question": "Why is manga drawn larger than it is printed?",
+        "answer": "Drawing at a larger size and reducing it for print makes the lines finer and more consistent and hides small irregularities."
+      }
+    ],
+    "related": [
+      "screentone",
+      "speed-lines",
+      "nemu",
+      "assistant",
+      "panel"
+    ],
+    "seed": "The tools of a manga artist",
+    "createdAt": "2026-10-03T00:00:00.000Z",
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 88,
+      "heart": 9,
+      "personality": 7,
+      "shelf": "The Inquiry"
+    },
+    "summarySource": "Traditional manga are drawn on B4 manuscript paper with dip pens, ink and adhesive screentone; most professionals now work digitally in software that reproduces those tools. The tools explain much of how manga looks."
+  },
+  {
+    "slug": "manga-awards-explained",
+    "title": "Manga Awards Explained",
+    "question": "What are the major manga awards, and how are they different?",
+    "summary": "Japan's main manga prizes ask different questions: publishers' awards record industry favourites, the Tezuka Prize is closest to a critics' award, and the Manga Taishō is booksellers' recommendations. Abroad, the Eisners and Angoulême recognise translated manga. 84 in the letters, reducing to 3.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/3\" aria-label=\"Filed under 3, The Telling\">3</a><span>Reduced, this question gives 3. It sits on The Telling with the rest of an act of telling.</span></p><!--/catzye:standfirst-->\n<h2>Why awards are useful</h2><p>For a reader looking for something new, award lists are among the most reliable guides to good manga, as long as you know what each award is looking for. They differ in who judges, what they consider and what they reward.</p><h2>The publishers' awards</h2><p>The <strong>Shogakukan Manga Award</strong>, founded in 1955, and the <strong>Kodansha Manga Award</strong>, founded in 1977, are run by two of Japan's largest publishers. Each gives prizes in several categories, such as shonen, shojo and general, so several works win each year, and both consider titles from rival publishers. Their winner lists read like a history of popular manga: <em>Dr. Slump</em>, <em>Akira</em>, <em>Yawara!</em>, <em>Attack on Titan</em>.</p><h2>The critics' award</h2><p>The <strong>Tezuka Osamu Cultural Prize</strong>, founded by the <em>Asahi Shimbun</em> in 1997, is judged by a panel of critics, scholars and creators. Its Grand Prize tends to go to work seen as important to the medium: <em>Vagabond</em>, <em>Pluto</em>, <em>A Drifting Life</em>, <em>Kingdom</em>, <em>Golden Kamuy</em>.</p><h2>The booksellers' award</h2><p>The <strong>Manga Taishō</strong>, founded in 2008, is chosen by bookshop staff and others who recommend manga to readers. It only considers series with eight volumes or fewer, so it often spots a hit early. Winners include <em>Chihayafuru</em>, <em>Silver Spoon</em>, <em>Golden Kamuy</em> and <em>Frieren</em>.</p><h2>Government recognition</h2><p>The <strong>Japan Media Arts Festival</strong>, run by Japan's Agency for Cultural Affairs, gave awards in a manga division from 1997 until the festival ended in the early 2020s, and often recognised less commercial work, such as <em>Mushishi</em> and <em>Real</em>.</p><h2>Guides and rankings</h2><p>Not awards but just as influential is <em>Kono Manga ga Sugoi!</em> (\"This Manga Is Amazing!\"), an annual guide ranking the year's best manga for male and female readers based on polls of critics and industry figures.</p><h2>Abroad</h2><p>In the United States the <strong>Eisner Awards</strong> include a category for the best edition of international material from Asia, won by translations such as <em>Witch Hat Atelier</em> and Junji Ito's collections. In France the <strong>Angoulême International Comics Festival</strong> has honoured manga creators including Shigeru Mizuki, Jirō Taniguchi and Rumiko Takahashi, who won its Grand Prix in 2019.</p><h2>How to use them</h2><p>If you want a popular, accessible hit, look at the Taishō and the publishers' awards. If you want something ambitious, look at the Tezuka Prize and the Media Arts winners. Reading across all of them gives a reasonable map of the medium.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>Where this explainer is shelved</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Awards</span><span class=\"num-word-value\">21</span></span><span class=\"num-word\"><span class=\"num-word-text\">Explained</span><span class=\"num-word-value\">45</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">84 → 3</span></span></div><p>Counted letter by letter this question comes to 84 — 3 once reduced. The weight sits in “Explained”, which carries 45 on its own and reduces to 9.</p><p>The 3 governs communication, creativity, and the public stage. The reference files it as an act of telling. It is a lens rather than a verdict, but it is a consistent one: the 3's instinct to turn everything into a story worth telling is the pressure under this explainer.</p><p>Split the question again and the vowels give a Heart's Desire of 6 (responsibility) against a Personality of 6 (responsibility) in the consonants — the subject wants exactly what it appears to want, which is responsibility — an unusually undivided reading.</p><p>The Telling asks one thing of everything on it: watch the technique rather than the plot it is carrying. The 3 talks past the point. Where an entry here runs long, it is usually because the technique was more fun to describe than it was important. The other explainers that reduce to 3 are collected on <a href=\"/number/3\">The Telling</a>.</p></section><!--/catzye:reading-->",
+    "level": "beginner",
+    "track": "culture",
+    "order": 3,
+    "faq": [
+      {
+        "question": "What is the most prestigious manga award?",
+        "answer": "There is no single answer. The Tezuka Osamu Cultural Prize is closest to a critics' award, while the Shogakukan and Kodansha awards are the longest-running, and the Manga Taishō has a strong reputation with readers."
+      },
+      {
+        "question": "What is the Manga Taishō?",
+        "answer": "An annual award founded in 2008 and chosen by bookshop staff, given to the series they most want to recommend. Only series with eight volumes or fewer are eligible."
+      },
+      {
+        "question": "Do manga win Western comics awards?",
+        "answer": "Yes. Translated manga regularly win at the Eisner Awards, which have a category for international material from Asia, and manga creators have been honoured at the Angoulême festival in France."
+      },
+      {
+        "question": "What is Kono Manga ga Sugoi?",
+        "answer": "An annual guidebook that ranks the year's best manga, separately for male and female readers, based on polls of critics and industry figures. It is a ranking, not an award, but its lists are widely followed."
+      }
+    ],
+    "related": [
+      "manga-taisho",
+      "tezuka-osamu-cultural-prize",
+      "shogakukan-manga-award",
+      "kodansha-manga-award"
+    ],
+    "seed": "Manga awards explained",
+    "createdAt": "2026-10-03T00:00:00.000Z",
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 3,
+      "raw": 84,
+      "heart": 6,
+      "personality": 6,
+      "shelf": "The Telling"
+    },
+    "summarySource": "Japan's main manga prizes ask different questions: publishers' awards record industry favourites, the Tezuka Prize is closest to a critics' award, and the Manga Taishō is booksellers' recommendations. Abroad, the Eisners and Angoulême recognise translated manga."
+  },
+  {
+    "slug": "how-sports-manga-work",
+    "title": "How Sports Manga Work",
+    "question": "Why are sports manga so gripping, even about sports I don't care about?",
+    "summary": "Sports manga turn a game into character drama: a clear goal, a ladder of rivals, matches stretched across chapters, and inner monologue that makes every play a decision. The sport is the stage; the subject is people. Read from the structure, as a 4.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Filed under 4. The Structure takes a structure, and this explainer is holds one.</span></p><!--/catzye:standfirst-->\n<h2>A clear goal</h2><p>Almost every sports manga starts with a goal that can be stated in a sentence: reach Kōshien, win the national tournament, become Queen of karuta. The goal gives the story a spine and a calendar, and the reader always knows how far the characters are from it.</p><h2>The ladder of rivals</h2><p>The tournament provides structure: each opponent is stronger than the last, and each represents a different idea of the sport. A good sports manga gives rivals their own histories and reasons to play, so that losing teams matter too. <em>Haikyu!!</em> is famous for this, devoting whole chapters to the opponents' point of view.</p><h2>Time stretched</h2><p>A rally that takes seconds can last a chapter. Manga slow time down to show the decisions inside a play: what the player sees, what they remember, what they choose. Inner monologue, flashbacks and commentary from the bench turn an instant into a story. This is why you do not need to know the sport: the manga explains it as it goes, through the characters' thoughts.</p><h2>The body on the page</h2><p>Sports manga are drawn to show motion and effort: speed lines, sweat, a body stretched mid-jump, the impact of a ball. <em>Slam Dunk</em> set the standard for drawing athletes with real anatomy; <em>Ping Pong</em> distorts the page to show speed; <em>Real</em> shows the weight of a wheelchair in a collision.</p><h2>Growth, not just victory</h2><p>The best sports manga are about how people change through a sport: the lazy brother who takes up a responsibility in <em>Touch</em>, the city boy who finds purpose on a farm in <em>Silver Spoon</em>. Many end before the final victory, or with a defeat, because the point was the growth.</p><h2>Beyond physical sports</h2><p>The same structure works for anything competitive: go in <em>Hikaru no Go</em>, karuta in <em>Chihayafuru</em>, even making manga in <em>Bakuman</em>. If it has rules, rivals and a tournament, manga can make it thrilling.</p><h2>Where to start</h2><p><em>Haikyu!!</em> and <em>Slam Dunk</em> are the best entry points for team sports, <em>Touch</em> for sports romance, and <em>Chihayafuru</em> or <em>Hikaru no Go</em> to see the formula applied to a game you may never have heard of.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>Where this explainer is shelved</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">How</span><span class=\"num-word-value\">19</span></span><span class=\"num-word\"><span class=\"num-word-text\">Sports</span><span class=\"num-word-value\">26</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Work</span><span class=\"num-word-value\">22</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">85 → 4</span></span></div><p>Every letter here carries a digit; together they make 85, which folds down to 4. The weight sits in “Sports”, which carries 26 on its own and reduces to 8.</p><p>What the 4 brings is foundation. The reference files it as a structure. Whatever else this explainer is doing, it is doing it with the 4's insistence that what lasts must be built patiently.</p><p>The vowels alone reduce to 2, the consonants to 11. Cooperation underneath, vision on the surface. The gap between them is where the subject is most interesting.</p><p>The 4 asks you to look for the constraint the subject was working inside. The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. The other explainers that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "level": "beginner",
+    "track": "genres",
+    "order": 6,
+    "faq": [
+      {
+        "question": "Do I need to know the sport to enjoy a sports manga?",
+        "answer": "No. Sports manga explain the rules through the characters' thoughts and commentary, and the drama comes from the people. Many readers have taken up a sport after reading about it."
+      },
+      {
+        "question": "What is the best sports manga to start with?",
+        "answer": "Haikyu!! and Slam Dunk are the usual recommendations for team sports. Touch is the classic sports romance, and Chihayafuru and Hikaru no Go show the formula applied to games."
+      },
+      {
+        "question": "Why are matches so long in sports manga?",
+        "answer": "Because manga slow time down to show the decisions inside each play, through inner monologue, flashbacks and reactions. A single rally can become a chapter of character drama."
+      },
+      {
+        "question": "What is Kōshien?",
+        "answer": "Japan's national high-school baseball tournament, played at Hanshin Kōshien Stadium. Reaching it is the defining goal of many baseball manga, including Touch."
+      }
+    ],
+    "related": [
+      "sports-manga",
+      "koshien",
+      "tournament-arc",
+      "rival-character",
+      "speed-lines"
+    ],
+    "seed": "How sports manga work",
+    "createdAt": "2026-10-03T00:00:00.000Z",
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 85,
+      "heart": 2,
+      "personality": 11,
+      "shelf": "The Structure"
+    },
+    "summarySource": "Sports manga turn a game into character drama: a clear goal, a ladder of rivals, matches stretched across chapters, and inner monologue that makes every play a decision. The sport is the stage; the subject is people."
+  },
+  {
+    "slug": "how-manga-horror-works",
+    "title": "How Manga Horror Works",
+    "question": "What makes horror manga so frightening without sound or movement?",
+    "summary": "Manga horror relies on the page-turn reveal, the held-back image, faces drawn at the edge of reason, and dread that is never explained. From Kazuo Umezu to Junji Ito, the medium's tools are turned against the reader. The question reduces to 8 — the ledger.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/8\" aria-label=\"Filed under 8, The Ledger\">8</a><span>Filed under 8. The Ledger takes a reckoning, and this explainer is weighs one.</span></p><!--/catzye:standfirst-->\n<h2>The problem</h2><p>Horror films use sound, timing and movement; a manga has none of them. The reader controls the pace and can look away at any moment. Yet manga horror is among the most effective in any medium. It works by turning the tools of the page against the reader.</p><h2>The page-turn</h2><p>The most important device is the turn of the page. A manga page is read as a spread, and the reader cannot see the next one until they turn. Horror artists build each sequence towards that moment: a door opening, a character looking up, and then, over the page, the full image. Junji Ito's stories are constructed almost entirely around these reveals.</p><h2>Holding back</h2><p>What is not shown matters as much as what is. A panel of an empty corridor, a figure in the far background, a hand at the edge of a frame: the reader's imagination does the work. When the image finally comes, the build-up has made it worse.</p><h2>Faces</h2><p>Kazuo Umezu made the screaming face a signature of manga horror: eyes stretched wide, mouth open, lines radiating from the head. Reaction faces tell the reader how to feel before the cause is shown, and a sudden detailed face in an otherwise simple style can be shocking in itself.</p><h2>Unexplained dread</h2><p>Much manga horror refuses to explain itself. The spiral in <em>Uzumaki</em> has no motive; the curse simply spreads. There is no rule to learn and no monster to understand, and that helplessness is the source of fear. It owes something to folk tales of yokai and to the influence of writers like H. P. Lovecraft.</p><h2>Ordinary settings</h2><p>Manga horror often takes place in schools, homes and small towns, rendered with care. <em>The Drifting Classroom</em> tears a whole school out of time; <em>Uzumaki</em> poisons a seaside town. The familiar setting makes the violation of it more disturbing.</p><h2>Body horror</h2><p>Transformation is a recurring theme: bodies twisted, multiplied, melted or merged. Drawn with clean, careful lines, the grotesque becomes more convincing, not less.</p><h2>Where to start</h2><p>Junji Ito's <em>Uzumaki</em> and his short story collections are the usual introduction. Kazuo Umezu's <em>The Drifting Classroom</em> shows the older, more frantic style, and <em>Devilman</em> shows horror at the scale of an apocalypse.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>Where this explainer is shelved</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">How</span><span class=\"num-word-value\">19</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Horror</span><span class=\"num-word-value\">47</span></span><span class=\"num-word\"><span class=\"num-word-text\">Works</span><span class=\"num-word-value\">23</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">107 → 8</span></span></div><p>The arithmetic is unremarkable and worth doing anyway: 107 across 4 words, reducing to 8. The weight sits in “Horror”, which carries 47 on its own and reduces to 11.</p><p>What the 8 brings is power. The reference files it as a reckoning. Whatever else this explainer is doing, it is doing it with the 8's concern with power, money, and who is really in charge.</p><p>Heart's Desire 8, Personality 9: the presentation folds back into the want: reckoning in service of power.</p><p>The 8 asks you to follow the money before you judge the decision. The 8 measures what is countable and calls the rest noise. Several entries record industries that optimised themselves into exhaustion. The other explainers that reduce to 8 are collected on <a href=\"/number/8\">The Ledger</a>.</p></section><!--/catzye:reading-->",
+    "level": "intermediate",
+    "track": "craft",
+    "order": 7,
+    "faq": [
+      {
+        "question": "How can a manga be scary?",
+        "answer": "By controlling what the reader sees and when. The page-turn hides the next image until the reader commits, panels hold back the full picture, and reaction faces signal fear before the cause appears."
+      },
+      {
+        "question": "Who are the most important horror manga artists?",
+        "answer": "Kazuo Umezu, whose work in the 1960s and 1970s defined the genre, and Junji Ito, the best-known horror mangaka today. Hideshi Hino and Suehiro Maruo are other major names."
+      },
+      {
+        "question": "Where should I start with horror manga?",
+        "answer": "Junji Ito's Uzumaki, which is complete in three volumes, or one of his short story collections. The Drifting Classroom is the classic of the older style."
+      },
+      {
+        "question": "Why doesn't Junji Ito explain his horrors?",
+        "answer": "Because the fear comes from helplessness. A curse with no motive or rules cannot be understood or escaped, which is more unsettling than a monster that can be explained."
+      }
+    ],
+    "related": [
+      "horror-manga",
+      "yokai",
+      "splash-page",
+      "panel"
+    ],
+    "seed": "How manga horror works",
+    "createdAt": "2026-10-03T00:00:00.000Z",
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 8,
+      "raw": 107,
+      "heart": 8,
+      "personality": 9,
+      "shelf": "The Ledger"
+    },
+    "summarySource": "Manga horror relies on the page-turn reveal, the held-back image, faces drawn at the edge of reason, and dread that is never explained. From Kazuo Umezu to Junji Ito, the medium's tools are turned against the reader."
+  },
+  {
+    "slug": "manga-in-france",
+    "title": "Manga in France",
+    "question": "Why is manga so popular in France?",
+    "summary": "France is one of the largest manga markets outside Japan, built on a 1980s generation raised on anime, a strong comics culture of its own, and publishers who translated manga across every genre. Its readers and critics have also championed manga as art. Filed under 7, the inquiry.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>The letters of this question total 61, a 7 — the number of analysis, secrecy, and the search for truth.</span></p><!--/catzye:standfirst-->\n<h2>A huge market</h2><p>France has long been one of the biggest markets for manga in the world outside Japan, and manga account for a large share of all comics sold there. Walk into any French bookshop and the manga section is likely to be one of the largest.</p><h2>The anime generation</h2><p>It started on television. In 1978 <em>UFO Robo Grendizer</em>, broadcast as <em>Goldorak</em>, became a phenomenon among French children. Through the late 1980s and 1990s, the children's programme <em>Club Dorothée</em> on TF1 showed <em>Dragon Ball</em>, <em>Saint Seiya</em>, <em>City Hunter</em> and many more. A generation grew up on anime before they had ever read a manga.</p><h2>The first manga</h2><p>Publishers followed. Glénat published <em>Akira</em> in 1990 and <em>Dragon Ball</em> in 1993, and their success opened the floodgates. Other publishers such as Kana, Pika and Kurokawa built large catalogues, and today almost every major series appears in French.</p><h2>A comics culture</h2><p>France already had a strong comics tradition, the bande dessinée, with its own albums, festivals and critics, so comics were seen as a legitimate art for adults. Manga was received into that culture: reviewed, studied and given prizes. The Angoulême International Comics Festival has honoured manga creators including Shigeru Mizuki, Jirō Taniguchi and Rumiko Takahashi, who won its Grand Prix in 2019.</p><h2>Beyond action</h2><p>Because French readers and critics embraced manga broadly, quieter works found an audience there that they might not have elsewhere. Taniguchi was revered in France; the Nouvelle Manga movement linked Japanese and French cartoonists; and literary seinen and josei titles were translated early.</p><h2>Today</h2><p>Japan Expo, held in the Paris region since 1999, is one of the largest Japanese-culture events outside Japan. Young French readers continue to drive sales of new series, and French publishers increasingly commission original work from Japanese and French artists alike.</p><h2>Why it matters</h2><p>France shows how a country with its own comics tradition can make manga part of its culture, and its critical attention has helped establish manga as art worldwide.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>Where this explainer is shelved</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">in</span><span class=\"num-word-value\">14</span></span><span class=\"num-word\"><span class=\"num-word-text\">France</span><span class=\"num-word-value\">29</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">61 → 7</span></span></div><p>Set against the Pythagorean table, the question totals 61. Reduced, that is 7. The weight sits in “France”, which carries 29 on its own and reduces to 11.</p><p>The 7 governs analysis, secrecy, and the search for truth. The reference files it as an open question. It is a lens rather than a verdict, but it is a consistent one: the 7's pull toward the hidden and the unresolved is the pressure under this explainer.</p><p>Beneath the 7 sit two smaller figures: 8 in the vowels, 8 in the consonants. The subject wants exactly what it appears to want, which is power — an unusually undivided reading.</p><p>The Inquiry asks one thing of everything on it: sit with the part that was never explained. The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. The other explainers that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "level": "intermediate",
+    "track": "culture",
+    "order": 4,
+    "faq": [
+      {
+        "question": "Why is manga popular in France?",
+        "answer": "A generation grew up watching anime on French television in the 1980s and 1990s, France already treated comics as an art form for all ages, and publishers translated manga across every genre."
+      },
+      {
+        "question": "What was the first manga published in France?",
+        "answer": "A few appeared earlier, but Glénat's editions of Akira in 1990 and Dragon Ball in 1993 began the manga boom."
+      },
+      {
+        "question": "What is Goldorak?",
+        "answer": "The French name for the 1975 anime UFO Robo Grendizer, created by Go Nagai. Broadcast in France from 1978, it was a phenomenon and helped open the country to Japanese animation."
+      },
+      {
+        "question": "Which manga artists are famous in France?",
+        "answer": "Jirō Taniguchi was particularly revered. Shigeru Mizuki and Rumiko Takahashi have been honoured at the Angoulême festival, and many mainstream series sell in very large numbers."
+      }
+    ],
+    "related": [
+      "nouvelle-manga",
+      "official-translation",
+      "anime-adaptation",
+      "super-robot"
+    ],
+    "seed": "Manga in France",
+    "createdAt": "2026-10-03T00:00:00.000Z",
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 61,
+      "heart": 8,
+      "personality": 8,
+      "shelf": "The Inquiry"
+    },
+    "summarySource": "France is one of the largest manga markets outside Japan, built on a 1980s generation raised on anime, a strong comics culture of its own, and publishers who translated manga across every genre. Its readers and critics have also championed manga as art."
   }
 ]

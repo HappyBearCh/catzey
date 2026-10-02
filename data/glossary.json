@@ -201,7 +201,9 @@
       "slice-of-life",
       "tournament-arc"
     ],
-    "examples": [],
+    "examples": [
+      "delicious-in-dungeon"
+    ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
       "value": 11,
@@ -430,7 +432,9 @@
       "yokai"
     ],
     "examples": [
-      "uzumaki"
+      "uzumaki",
+      "the-drifting-classroom",
+      "devilman"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -459,7 +463,9 @@
       "light-novel",
       "villainess"
     ],
-    "examples": [],
+    "examples": [
+      "magic-knight-rayearth"
+    ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
       "value": 9,
@@ -511,7 +517,8 @@
     ],
     "examples": [
       "nana",
-      "chihayafuru"
+      "chihayafuru",
+      "ooku"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -641,7 +648,8 @@
     ],
     "examples": [
       "sailor-moon",
-      "cardcaptor-sakura"
+      "cardcaptor-sakura",
+      "magic-knight-rayearth"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -796,7 +804,9 @@
     "related": [
       "shonen",
       "seinen",
-      "anime-adaptation"
+      "anime-adaptation",
+      "tokusatsu",
+      "super-robot"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -873,7 +883,9 @@
       "mangaka",
       "editor"
     ],
-    "examples": [],
+    "examples": [
+      "look-back"
+    ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
       "value": 33,
@@ -1109,7 +1121,8 @@
       "official-translation",
       "simulpub",
       "licensing",
-      "doujinshi"
+      "doujinshi",
+      "manga-app"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -1280,7 +1293,8 @@
       "fruits-basket",
       "sailor-moon",
       "cardcaptor-sakura",
-      "the-rose-of-versailles"
+      "the-rose-of-versailles",
+      "banana-fish"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -1365,7 +1379,8 @@
       "official-translation",
       "scanlation",
       "licensing",
-      "weekly-shonen-jump"
+      "weekly-shonen-jump",
+      "manga-app"
     ],
     "examples": [],
     "updatedAt": "2026-08-17T00:00:00.000Z",
@@ -1500,12 +1515,17 @@
     "related": [
       "tournament-arc",
       "shonen",
-      "seinen"
+      "seinen",
+      "koshien"
     ],
     "examples": [
       "slam-dunk",
       "blue-lock",
-      "haikyu"
+      "haikyu",
+      "real",
+      "yawara",
+      "touch",
+      "ping-pong"
     ],
     "updatedAt": "2026-08-17T00:00:00.000Z",
     "numerology": {
@@ -2131,7 +2151,8 @@
     "related": [
       "gekiga",
       "manga-magazine",
-      "seinen"
+      "seinen",
+      "kamishibai"
     ],
     "examples": [
       "a-drifting-life"
@@ -2184,7 +2205,9 @@
     ],
     "related": [
       "tankobon",
-      "tezuka-osamu-cultural-prize"
+      "tezuka-osamu-cultural-prize",
+      "shogakukan-manga-award",
+      "kodansha-manga-award"
     ],
     "examples": [
       "march-comes-in-like-a-lion",
@@ -2213,7 +2236,9 @@
     ],
     "related": [
       "manga-taisho",
-      "mangaka"
+      "mangaka",
+      "shogakukan-manga-award",
+      "kodansha-manga-award"
     ],
     "examples": [
       "vagabond",
@@ -2466,7 +2491,8 @@
       "gag-manga"
     ],
     "examples": [
-      "astro-boy"
+      "astro-boy",
+      "cyborg-009"
     ],
     "updatedAt": "2026-10-02T00:00:00.000Z",
     "numerology": {
@@ -2492,7 +2518,8 @@
       "isekai",
       "light-novel",
       "shojo",
-      "webtoon"
+      "webtoon",
+      "otome-game"
     ],
     "examples": [],
     "updatedAt": "2026-10-02T00:00:00.000Z",
@@ -2504,5 +2531,314 @@
       "shelf": "The Turn"
     },
     "shortDefSource": "A subgenre in which the heroine wakes up as the doomed antagonist of a romance story and sets out to escape her fate."
+  },
+  {
+    "slug": "kamishibai",
+    "term": "Kamishibai",
+    "shortDef": "\"Paper theatre\": street storytelling with illustrated boards, popular before television and a training ground for early manga artists. Filed under 1, the opening.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/1\" aria-label=\"Filed under 1, The Opening\">1</a><span>The letters of this term total 46, a 1 — the number of beginnings, leadership, and the will to act alone.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Kamishibai (紙芝居) was a form of street entertainment in which a storyteller, usually travelling by bicycle, set up a small wooden frame and narrated a story while sliding illustrated boards through it one by one. Children paid by buying sweets from the storyteller.</p><h2>Its heyday</h2><p>Kamishibai flourished from around 1930 into the 1950s, especially in the hard years of the Depression and after the war, when it was cheap entertainment for children. Serialised stories ended on cliffhangers to bring the audience back the next day. <em>Golden Bat</em>, a skull-faced superhero created in 1930, was among its most famous characters.</p><h2>Its link to manga</h2><p>Many postwar manga artists started by painting kamishibai boards, including Shigeru Mizuki and Sanpei Shirato. Its techniques, a sequence of images, a cliffhanger, a narrator's voice, carried over into the rental-book manga and then into magazines. Mizuki's Kitarō began as a reworking of a kamishibai character.</p><h2>Its end</h2><p>Television replaced it in the late 1950s, and kamishibai faded from the streets. It survives in libraries, schools and revival performances, and as part of manga's family history.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Kamishibai</span><span class=\"num-word-value\">46</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">46 → 1</span></span></div><p>Set against the Pythagorean table, the term totals 46. Reduced, that is 1.</p><p>The reference files it as a first move. The number's contribution is beginnings, leadership, and the will to act alone — and with it the 1's appetite for a clean, decisive beginning, which is the thread the reference follows here.</p><p>Beneath the 1 sit two smaller figures: 11 in the vowels, 8 in the consonants. Vision underneath, power on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 1's terms, this entry asks you to notice what had to not exist for this to be possible. The 1 mistakes being first for being right. Several of these texts describe launches that mattered enormously for a year and then mattered to nobody. The other entries that reduce to 1 are collected on <a href=\"/number/1\">The Opening</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "paper theater",
+      "paper theatre"
+    ],
+    "related": [
+      "kashihon",
+      "gekiga",
+      "manga"
+    ],
+    "examples": [
+      "gegege-no-kitaro"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 1,
+      "raw": 46,
+      "heart": 11,
+      "personality": 8,
+      "shelf": "The Opening"
+    },
+    "shortDefSource": "\"Paper theatre\": street storytelling with illustrated boards, popular before television and a training ground for early manga artists."
+  },
+  {
+    "slug": "tokusatsu",
+    "term": "Tokusatsu",
+    "shortDef": "Japanese live-action film and television built on special effects: giant monsters, masked heroes and coloured teams in suits. Read from the telling, as a 3.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/3\" aria-label=\"Filed under 3, The Telling\">3</a><span>Filed under 3. The Telling takes an act of telling, and this entry is renders one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Tokusatsu (特撮) is short for \"special filming\", and it names a genre of Japanese live-action screen fiction built on practical effects: actors in monster suits, miniature cities, pyrotechnics and transforming heroes.</p><h2>The landmarks</h2><p><em>Godzilla</em> (1954) founded the giant-monster film. <em>Ultraman</em> (1966) brought a giant hero to television. <em>Kamen Rider</em> (1971) created the masked, motorcycle-riding hero, and the <em>Super Sentai</em> series, beginning in 1975, the colour-coded team that reached the West as <em>Power Rangers</em>.</p><h2>Its link to manga</h2><p>Tokusatsu and manga grew up together. Shōtarō Ishinomori created <em>Kamen Rider</em> as a manga alongside the television series, and many tokusatsu heroes had manga adaptations in children's magazines. Giant robots, transformation sequences and rival heroes passed back and forth between the two forms.</p><h2>Why it matters</h2><p>Much of the visual language of shonen action, from posed transformations to the team of heroes with signature colours, has tokusatsu roots. Recognising it helps explain many conventions in manga and anime.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Tokusatsu</span><span class=\"num-word-value\">21</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">21 → 3</span></span></div><p>Every letter here carries a digit; together they make 21, which folds down to 3.</p><p>What the 3 brings is expression. The reference files it as an act of telling. Whatever else this entry is doing, it is doing it with the 3's instinct to turn everything into a story worth telling.</p><p>The vowels alone reduce to 4, the consonants to 8. Foundation underneath, power on the surface. The gap between them is where the subject is most interesting.</p><p>The 3 asks you to watch the technique rather than the plot it is carrying. The 3 talks past the point. Where an entry here runs long, it is usually because the technique was more fun to describe than it was important. The other entries that reduce to 3 are collected on <a href=\"/number/3\">The Telling</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "special effects drama",
+      "kaiju"
+    ],
+    "related": [
+      "mecha",
+      "anime-adaptation",
+      "tokiwa-so",
+      "super-robot"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 3,
+      "raw": 21,
+      "heart": 4,
+      "personality": 8,
+      "shelf": "The Telling"
+    },
+    "shortDefSource": "Japanese live-action film and television built on special effects: giant monsters, masked heroes and coloured teams in suits."
+  },
+  {
+    "slug": "otome-game",
+    "term": "Otome Game",
+    "shortDef": "A romance video game aimed at women, in which the heroine is courted by a cast of male characters. Read from the structure, as a 4.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/4\" aria-label=\"Filed under 4, The Structure\">4</a><span>Filed under 4. The Structure takes a structure, and this entry is holds one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Otome games (乙女ゲーム, \"maiden games\") are story-driven games, usually visual novels, in which a female protagonist develops relationships with several potential love interests. The player's choices determine which route the story takes and which ending she reaches.</p><h2>Where it came from</h2><p><em>Angelique</em>, released by Koei in 1994 and developed by a team of women, is generally regarded as the first. The genre grew through the 2000s on consoles and handhelds and later on smartphones.</p><h2>The love interests</h2><p>Otome games are built on character types: the cold prince, the cheerful childhood friend, the mysterious stranger, the teacher. Each route develops one of them, and players' favourites drive merchandise, stage shows and anime adaptations.</p><h2>Its link to manga</h2><p>Otome games are the source of the villainess genre, whose heroines wake up as the rival character in a game they know. Many games are adapted as manga, and the genre's character types have spread into shojo and josei manga more widely.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Otome</span><span class=\"num-word-value\">23</span></span><span class=\"num-word\"><span class=\"num-word-text\">Game</span><span class=\"num-word-value\">17</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">40 → 4</span></span></div><p>Every letter here carries a digit; together they make 40, which folds down to 4. The weight sits in “Otome”, which carries 23 on its own and reduces to 5.</p><p>Four is builder & organizer — structure, labour, and the building of lasting systems. The reference files it as a structure. Read that way, what the entry is really recording is the 4's insistence that what lasts must be built patiently.</p><p>The vowels alone reduce to 5, the consonants to 8. Change underneath, power on the surface. The gap between them is where the subject is most interesting.</p><p>The 4 confuses the frame for the work. Structures outlive their usefulness, and several entries here describe conventions kept long past their reason. What the 4 still asks is that you look for the constraint the subject was working inside. The other entries that reduce to 4 are collected on <a href=\"/number/4\">The Structure</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [
+      "otome",
+      "dating sim for women"
+    ],
+    "related": [
+      "villainess",
+      "shojo",
+      "reverse-harem"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 4,
+      "raw": 40,
+      "heart": 5,
+      "personality": 8,
+      "shelf": "The Structure"
+    },
+    "shortDefSource": "A romance video game aimed at women, in which the heroine is courted by a cast of male characters."
+  },
+  {
+    "slug": "shogakukan-manga-award",
+    "term": "Shogakukan Manga Award",
+    "shortDef": "The publisher Shogakukan's annual manga prize, given since 1955 and one of the oldest in Japan. Read from the signal, as an 11.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/11\" aria-label=\"Filed under 11, The Signal\">11</a><span>An 11 by its term: visionary (master 11), and therefore the signal.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>The Shogakukan Manga Award (小学館漫画賞) is presented each year by the publisher Shogakukan. Founded in 1955, it is one of Japan's oldest manga awards.</p><h2>The categories</h2><p>It is divided by audience, with prizes for children's, shonen, shojo and general manga, so several works win each year. Despite being run by a publisher, it considers series from other companies too.</p><h2>Winners</h2><p>Past winners include <em>Dr. Slump</em>, <em>The Poe Clan</em>, <em>Yawara!</em>, <em>Silver Spoon</em> and many other landmark series, and the list of winners reads as a history of popular manga.</p><h2>Its place</h2><p>Alongside the Kodansha Manga Award it is one of the established publisher-run awards. Readers looking for a critics' prize usually turn to the Tezuka Osamu Cultural Prize, and for a booksellers' recommendation to the Manga Taishō.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Shogakukan</span><span class=\"num-word-value\">36</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Award</span><span class=\"num-word-value\">20</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">74 → 11</span></span></div><p>Every letter here carries a digit; together they make 74, which folds down to 11. The weight sits in “Shogakukan”, which carries 36 on its own and reduces to 9.</p><p>Eleven is visionary (master 11) — inspiration, tension, and heightened awareness. The reference files it as a signal received early. Read that way, what the entry is really recording is the 11's heightened, high-voltage intuition about what comes next.</p><p>The vowels alone reduce to 6, the consonants to 5. Responsibility underneath, change on the surface. The gap between them is where the subject is most interesting.</p><p>The 11 is unstable and knows it. Being early and being wrong are indistinguishable until later. What the 11 still asks is that you remember that nobody noticed this at the time. The other entries that reduce to 11 are collected on <a href=\"/number/11\">The Signal</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "Shogakukan Award"
+    ],
+    "related": [
+      "kodansha-manga-award",
+      "tezuka-osamu-cultural-prize",
+      "manga-taisho"
+    ],
+    "examples": [
+      "dr-slump",
+      "the-poe-clan",
+      "yawara",
+      "silver-spoon"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 11,
+      "raw": 74,
+      "heart": 6,
+      "personality": 5,
+      "shelf": "The Signal"
+    },
+    "shortDefSource": "The publisher Shogakukan's annual manga prize, given since 1955 and one of the oldest in Japan."
+  },
+  {
+    "slug": "kodansha-manga-award",
+    "term": "Kodansha Manga Award",
+    "shortDef": "The publisher Kodansha's annual manga prize, given since 1977 in shonen, shojo and general categories. Filed under 3, the telling.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/3\" aria-label=\"Filed under 3, The Telling\">3</a><span>Term sums to 66 and reduces to 3 — The Telling, where the reference files an act of telling.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>The Kodansha Manga Award (講談社漫画賞) is presented each year by the publisher Kodansha. It was established in 1977 and is one of the major publisher-run awards in Japan.</p><h2>The categories</h2><p>Its main categories are shonen, shojo and general, and a children's category has also been awarded. Like the Shogakukan award, it is not restricted to its own publisher's titles.</p><h2>Winners</h2><p>Winners include <em>Akira</em>, <em>Honey and Clover</em>, <em>Mushishi</em> and <em>Attack on Titan</em>, among many others.</p><h2>Its place</h2><p>Together with the Shogakukan award, it is a long-running record of what the industry itself considered its best work each year.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Kodansha</span><span class=\"num-word-value\">28</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">Award</span><span class=\"num-word-value\">20</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">66 → 3</span></span></div><p>Set against the Pythagorean table, the term totals 66. Reduced, that is 3. The weight sits in “Kodansha”, which carries 28 on its own and reduces to 1.</p><p>The reference files it as an act of telling. The number's contribution is communication, creativity, and the public stage — and with it the 3's instinct to turn everything into a story worth telling, which is the thread the reference follows here.</p><p>Beneath the 3 sit two smaller figures: 3 in the vowels, 9 in the consonants. The presentation folds back into the want: reckoning in service of expression.</p><p>Read on the 3's terms, this entry asks you to watch the technique rather than the plot it is carrying. The 3 talks past the point. Where an entry here runs long, it is usually because the technique was more fun to describe than it was important. The other entries that reduce to 3 are collected on <a href=\"/number/3\">The Telling</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "Kodansha Award"
+    ],
+    "related": [
+      "shogakukan-manga-award",
+      "tezuka-osamu-cultural-prize",
+      "manga-taisho"
+    ],
+    "examples": [
+      "akira",
+      "honey-and-clover",
+      "mushishi",
+      "attack-on-titan"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 3,
+      "raw": 66,
+      "heart": 3,
+      "personality": 9,
+      "shelf": "The Telling"
+    },
+    "shortDefSource": "The publisher Kodansha's annual manga prize, given since 1977 in shonen, shojo and general categories."
+  },
+  {
+    "slug": "manga-app",
+    "term": "Manga App",
+    "shortDef": "A publisher's or platform's smartphone app for reading manga chapters, now a major route for new series in Japan and abroad. 33 in the letters, with nothing left to reduce.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/33\" aria-label=\"Filed under 33, The Teaching\">33</a><span>Reduced, this term gives 33. It sits on The Teaching with the rest of a transmission.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Manga apps let readers read chapters on their phones, often free for recent chapters and paid for older ones or early access. Some belong to publishers, such as Shueisha's <em>Shōnen Jump+</em> and Kodansha's <em>Magazine Pocket</em>; others are platforms carrying many publishers' work.</p><h2>Apps as magazines</h2><p>The biggest publisher apps now function as magazines in their own right. <em>Shōnen Jump+</em>, launched in 2014, has published original hits including <em>Spy × Family</em>, <em>Fire Punch</em> and the second part of <em>Chainsaw Man</em>, and many of its series are never printed in a paper magazine at all.</p><h2>Going global</h2><p>In 2019 Shueisha launched <em>MANGA Plus</em>, which releases chapters of its series in English and other languages on the same day as Japan, free for the latest chapters. Simultaneous publication was a direct answer to piracy, and other publishers followed with similar services.</p><h2>Why it matters</h2><p>Apps changed who can debut and how. Series can run on irregular schedules, with chapters of any length, and editors can watch reader numbers in real time. They also made manga easier to read legally outside Japan than at any time before.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word\"><span class=\"num-word-text\">App</span><span class=\"num-word-value\">15</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">33</span></span></div><p>Counted letter by letter this term comes to 33 and stops there — the sum is already the number. The weight sits in “Manga”, which carries 18 on its own and reduces to 9.</p><p>The reference files it as a transmission. The number's contribution is healing, teaching, and devotion to others — and with it the 33's devotion to lifting up everyone it touches, which is the thread the reference follows here.</p><p>Split the term again and the vowels give a Heart's Desire of 3 (expression) against a Personality of 3 (expression) in the consonants — the subject wants exactly what it appears to want, which is expression — an unusually undivided reading.</p><p>Read on the 33's terms, this entry asks you to trace who learned from this and what they did with it. The 33 gives itself away entirely. The teachers here are frequently better remembered than read. The other entries that reduce to 33 are collected on <a href=\"/number/33\">The Teaching</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [
+      "Shonen Jump+",
+      "MANGA Plus",
+      "manga platform"
+    ],
+    "related": [
+      "simulpub",
+      "scanlation",
+      "official-translation",
+      "webtoon",
+      "manga-magazine"
+    ],
+    "examples": [
+      "spy-x-family",
+      "fire-punch",
+      "chainsaw-man"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 33,
+      "raw": 33,
+      "heart": 3,
+      "personality": 3,
+      "shelf": "The Teaching"
+    },
+    "shortDefSource": "A publisher's or platform's smartphone app for reading manga chapters, now a major route for new series in Japan and abroad."
+  },
+  {
+    "slug": "super-robot",
+    "term": "Super Robot",
+    "shortDef": "The giant robot of mecha's first era: a near-invincible machine with named weapons, piloted by a hot-blooded hero against a monster of the week. 50 in the letters, reducing to 5.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/5\" aria-label=\"Filed under 5, The Turn\">5</a><span>Reduced, this term gives 5. It sits on The Turn with the rest of a turn.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>A super robot is a giant fighting machine treated as a hero in its own right: often built by a lone genius, powered by a mysterious energy, armed with weapons whose names the pilot shouts as he uses them. Go Nagai's <em>Mazinger Z</em> (1972), in which a boy pilots a robot from a cockpit in its head, defined the type.</p><h2>The formula</h2><p>Each episode brings a new enemy machine or monster, the robot is damaged, and a signature attack wins the day. Combining robots, in which several vehicles join into one giant, followed with <em>Getter Robo</em> (1974), by Go Nagai and Ken Ishikawa, and toy companies made the designs central to the business.</p><h2>Super versus real</h2><p>In 1979 <em>Mobile Suit Gundam</em> introduced the \"real robot\": mass-produced military machines with logistics, limits and politics. Fans still divide mecha into the two traditions, though many series mix them.</p><h2>Why it matters</h2><p>Super robots were among the first Japanese exports to win huge audiences in Europe, the Middle East and Latin America, and their energy, from posed attacks to impossible odds, still runs through shonen action.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Super</span><span class=\"num-word-value\">25</span></span><span class=\"num-word\"><span class=\"num-word-text\">Robot</span><span class=\"num-word-value\">25</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">50 → 5</span></span></div><p>Counted letter by letter this term comes to 50 — 5 once reduced. The weight sits in “Super”, which carries 25 on its own and reduces to 7.</p><p>The reference files it as a turn. The number's contribution is freedom, disruption, and restless movement — and with it the 5's restlessness and hunger for change, which is the thread the reference follows here.</p><p>Split the term again and the vowels give a Heart's Desire of 2 (cooperation) against a Personality of 3 (expression) in the consonants — cooperation underneath, expression on the surface. The gap between them is where the subject is most interesting.</p><p>Read on the 5's terms, this entry asks you to ask what was abandoned, and whether it deserved to be. The 5 moves for the sake of moving. Not every break documented here led anywhere, and the reference says so where it did not. The other entries that reduce to 5 are collected on <a href=\"/number/5\">The Turn</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "giant robot"
+    ],
+    "related": [
+      "mecha",
+      "tokusatsu",
+      "anime-adaptation"
+    ],
+    "examples": [],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 5,
+      "raw": 50,
+      "heart": 2,
+      "personality": 3,
+      "shelf": "The Turn"
+    },
+    "shortDefSource": "The giant robot of mecha's first era: a near-invincible machine with named weapons, piloted by a hot-blooded hero against a monster of the week."
+  },
+  {
+    "slug": "koshien",
+    "term": "Kōshien",
+    "shortDef": "The national high-school baseball tournament played at Hanshin Kōshien Stadium, and the dream at the centre of countless sports manga. Read from the closing, as a 9.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/9\" aria-label=\"Filed under 9, The Closing\">9</a><span>Nine — reckoning. That is the reduction of this term, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Kōshien is the common name for Japan's national high-school baseball championships, held at Hanshin Kōshien Stadium in Nishinomiya, near Osaka. There are two each year: the spring invitational and the summer tournament, which draws teams from every prefecture and is broadcast nationally.</p><h2>Why it matters in Japan</h2><p>The summer tournament is a national event, followed far beyond baseball fans. Players are amateurs, the games are single elimination, and defeated teams famously scoop up a handful of the stadium's dirt to take home. Reaching Kōshien is the defining ambition of a high-school player.</p><h2>In manga</h2><p>\"Take me to Kōshien\" is one of the most familiar promises in manga. Mitsuru Adachi's <em>Touch</em>, <em>H2</em> and <em>Cross Game</em> are built around it, and the sports genre as a whole takes its shape from tournaments like it: a fixed goal, a bracket of rivals, and one chance a year.</p><h2>Beyond baseball</h2><p>The word is used for other national school championships too, so that a story about cooking or calligraphy may call its tournament the \"Kōshien\" of that field.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Kōshien</span><span class=\"num-word-value\">36</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">36 → 9</span></span></div><p>Every letter here carries a digit; together they make 36, which folds down to 9.</p><p>What the 9 brings is reckoning. The reference files it as a completion. Whatever else this entry is doing, it is doing it with the 9's sense of a cycle closing and something being released.</p><p>The vowels alone reduce to 2, the consonants to 7. Cooperation underneath, inquiry on the surface. The gap between them is where the subject is most interesting.</p><p>The 9 asks you to work out what survived the ending. The 9 sentimentalises. An ending is not automatically a meaning, and the reference tries not to pretend otherwise. The other entries that reduce to 9 are collected on <a href=\"/number/9\">The Closing</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "Koshien",
+      "National High School Baseball Championship"
+    ],
+    "related": [
+      "sports-manga",
+      "tournament-arc",
+      "rival-character"
+    ],
+    "examples": [
+      "touch"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 9,
+      "raw": 36,
+      "heart": 2,
+      "personality": 7,
+      "shelf": "The Closing"
+    },
+    "shortDefSource": "The national high-school baseball tournament played at Hanshin Kōshien Stadium, and the dream at the centre of countless sports manga."
+  },
+  {
+    "slug": "kemono",
+    "term": "Kemono",
+    "shortDef": "Anthropomorphic animal characters, with animal heads and bodies but human behaviour, and the fandom around them. Read from the opening, as a 1.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/1\" aria-label=\"Filed under 1, The Opening\">1</a><span>Filed under 1. The Opening takes a first move, and this entry is breaks ground one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Kemono (獣, \"beast\") describes characters who are animals given human posture, clothes, speech and society: a wolf student, a rabbit shopkeeper, a lion politician. It is close to what English-speaking fandom calls furry.</p><h2>Kemono and kemonomimi</h2><p>The word is distinguished from kemonomimi, \"animal ears\": human characters with only cat or fox ears and perhaps a tail. Kemono characters are animals first, with muzzles, fur and animal proportions.</p><h2>In manga</h2><p>Animal casts have a long history in Japanese art, back to the medieval scrolls of frolicking animals. In modern manga, <em>Beastars</em> used a kemono society to explore prejudice and instinct, and many children's series use animal characters. The approach lets a story talk about human differences through species.</p><h2>The fandom</h2><p>Kemono has its own artists, events and doujinshi circles in Japan, and its design traditions influence character design in games and anime.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Kemono</span><span class=\"num-word-value\">28</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">28 → 1</span></span></div><p>Every letter here carries a digit; together they make 28, which folds down to 1.</p><p>One is leader & pioneer — beginnings, leadership, and the will to act alone. The reference files it as a first move. Read that way, what the entry is really recording is the 1's appetite for a clean, decisive beginning.</p><p>The vowels alone reduce to 8, the consonants to 11. Power underneath, vision on the surface. The gap between them is where the subject is most interesting.</p><p>The 1 mistakes being first for being right. Several of these texts describe launches that mattered enormously for a year and then mattered to nobody. What the 1 still asks is that you notice what had to not exist for this to be possible. The other entries that reduce to 1 are collected on <a href=\"/number/1\">The Opening</a>.</p></section><!--/catzye:reading-->",
+    "category": "fandom",
+    "aliases": [
+      "furry",
+      "anthropomorphic"
+    ],
+    "related": [
+      "doujinshi",
+      "otaku"
+    ],
+    "examples": [
+      "beastars"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 1,
+      "raw": 28,
+      "heart": 8,
+      "personality": 11,
+      "shelf": "The Opening"
+    },
+    "shortDefSource": "Anthropomorphic animal characters, with animal heads and bodies but human behaviour, and the fandom around them."
+  },
+  {
+    "slug": "jidaigeki",
+    "term": "Jidaigeki",
+    "shortDef": "Period drama, usually set in Japan's Edo period: samurai, swordfights, courts and commoners. The term reduces to 11 — the signal.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/11\" aria-label=\"Filed under 11, The Signal\">11</a><span>Eleven — vision. That is the reduction of this term, and the shelf it is read from.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Jidaigeki (時代劇, \"period drama\") is the Japanese genre of historical fiction, most often set in the Edo period (1603–1868), though it can reach back further. Its world is samurai, rōnin, lords, merchants, swordsmen and the rules that bound them.</p><h2>On screen and on the page</h2><p>Jidaigeki was a mainstay of Japanese film and television, from Akira Kurosawa's samurai films to long-running TV dramas. Its sword-fighting subgenre is called chanbara. Manga took up both its stories and its visual language: the drawn sword, the stand-off, the sudden cut.</p><h2>In manga</h2><p><em>Lone Wolf and Cub</em> is the classic jidaigeki manga, and <em>Vagabond</em>, Takehiko Inoue's life of Miyamoto Musashi, its great modern example. <em>Ōoku</em> reimagines the genre through alternate history, and <em>Gintama</em> parodies it by filling Edo with aliens.</p><h2>Why it matters</h2><p>Much of manga's action vocabulary, from duels decided in a single stroke to the honour codes of its heroes, comes from jidaigeki, and knowing the genre helps with reading a great deal of shonen and seinen.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Jidaigeki</span><span class=\"num-word-value\">47</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">47 → 11</span></span></div><p>The arithmetic is unremarkable and worth doing anyway: 47 across 1 word, reducing to 11.</p><p>Eleven is visionary (master 11) — inspiration, tension, and heightened awareness. The reference files it as a signal received early. Read that way, what the entry is really recording is the 11's heightened, high-voltage intuition about what comes next.</p><p>Heart's Desire 33, Personality 5: service underneath, change on the surface. The gap between them is where the subject is most interesting.</p><p>The 11 is unstable and knows it. Being early and being wrong are indistinguishable until later. What the 11 still asks is that you remember that nobody noticed this at the time. The other entries that reduce to 11 are collected on <a href=\"/number/11\">The Signal</a>.</p></section><!--/catzye:reading-->",
+    "category": "genre",
+    "aliases": [
+      "period drama",
+      "chanbara",
+      "samurai drama"
+    ],
+    "related": [
+      "seinen",
+      "gekiga"
+    ],
+    "examples": [
+      "vagabond",
+      "ooku",
+      "gintama"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 11,
+      "raw": 47,
+      "heart": 33,
+      "personality": 5,
+      "shelf": "The Signal"
+    },
+    "shortDefSource": "Period drama, usually set in Japan's Edo period: samurai, swordfights, courts and commoners."
+  },
+  {
+    "slug": "nouvelle-manga",
+    "term": "Nouvelle Manga",
+    "shortDef": "A movement, named in 2001, that brought together Japanese manga of everyday life and French comics of the same spirit. Read from the inquiry, as a 7.",
+    "body": "<!--catzye:standfirst--><p class=\"num-standfirst\"><a class=\"num-sigil\" href=\"/number/7\" aria-label=\"Filed under 7, The Inquiry\">7</a><span>Filed under 7. The Inquiry takes an open question, and this entry is examines one.</span></p><!--/catzye:standfirst-->\n<h2>What it means</h2><p>Nouvelle Manga is a term coined by the French cartoonist Frédéric Boilet, who lived in Japan, in a 2001 manifesto. It named an affinity between Japanese manga about ordinary adult life and French-language comics working in a similar register, and argued for exchange between the two.</p><h2>Who was involved</h2><p>Jirō Taniguchi was its most prominent Japanese figure, along with artists such as Kiriko Nananan and Kan Takahama, whose quiet, observational work found readers in France. French creators, including Boilet himself, drew stories set in Japan.</p><h2>What it changed</h2><p>The movement helped make the reflective, literary strand of manga visible in Europe, beyond the action series that dominated translations. It encouraged French publishers to translate works that might have seemed too quiet for export.</p><h2>Why it matters</h2><p>It is one reason manga in France is read across such a wide range, and why artists like Taniguchi are celebrated there as auteurs.</p>\n<!--catzye:reading--><section class=\"num-reading\" aria-label=\"Numerological reading\"><h2>The term by its numbers</h2><div class=\"num-working\" role=\"group\" aria-label=\"Letter values of the title\"><span class=\"num-word\"><span class=\"num-word-text\">Nouvelle</span><span class=\"num-word-value\">34</span></span><span class=\"num-word\"><span class=\"num-word-text\">Manga</span><span class=\"num-word-value\">18</span></span><span class=\"num-word num-word-total\"><span class=\"num-word-text\">total</span><span class=\"num-word-value\">52 → 7</span></span></div><p>Every letter here carries a digit; together they make 52, which folds down to 7. The weight sits in “Nouvelle”, which carries 34 on its own and reduces to 7.</p><p>Seven is analyst & seeker — analysis, secrecy, and the search for truth. The reference files it as an open question. Read that way, what the entry is really recording is the 7's pull toward the hidden and the unresolved.</p><p>The vowels alone reduce to 3, the consonants to 4. Expression underneath, foundation on the surface. The gap between them is where the subject is most interesting.</p><p>The 7 mistakes withholding for depth. Some works filed here are obscure because they are unfinished, not because they are deep. What the 7 still asks is that you sit with the part that was never explained. The other entries that reduce to 7 are collected on <a href=\"/number/7\">The Inquiry</a>.</p></section><!--/catzye:reading-->",
+    "category": "industry",
+    "aliases": [],
+    "related": [
+      "seinen",
+      "slice-of-life",
+      "official-translation"
+    ],
+    "examples": [
+      "a-distant-neighborhood"
+    ],
+    "updatedAt": "2026-10-03T00:00:00.000Z",
+    "numerology": {
+      "value": 7,
+      "raw": 52,
+      "heart": 3,
+      "personality": 4,
+      "shelf": "The Inquiry"
+    },
+    "shortDefSource": "A movement, named in 2001, that brought together Japanese manga of everyday life and French comics of the same spirit."
   }
 ]
