@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  /* Theme-dependent colour slots, as space-separated RGB so Tailwind's opacity
+     modifiers still work. Each pair clears 4.5:1 against its own ground. */
+  :root {
+    --accent: 208 52 44;     /* #d0342c on paper: 4.5:1 */
+    --gray-400: 111 103 94;  /* #6f675e on paper: 5.1:1 */
+    --gray-500: 98 91 83;    /* #625b53 on paper: 6.1:1 */
+  }
+  .dark {
+    --accent: 236 106 95;    /* #ec6a5f on ink: 6.1:1 */
+    --gray-400: 168 162 154; /* #a8a29a on ink: 7.4:1 */
+    --gray-500: 150 144 136; /* #969088 on ink: 6.0:1 */
+  }
+
   html {
     font-family: var(--font-serif), 'Iowan Old Style', Georgia, serif;
     -webkit-font-smoothing: antialiased;

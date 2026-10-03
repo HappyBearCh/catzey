@@ -148,7 +148,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
         <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-wide text-ink dark:text-parchment">
           {group.shelf}
         </h1>
-        <p className="mt-4 text-lg italic text-gold/90 dark:text-gold-pale/80">{group.tagline}</p>
+        <p className="mt-4 text-lg italic text-gold dark:text-gold-pale/80">{group.tagline}</p>
       </header>
 
       <section className="max-w-reading mx-auto ref-prose mb-12">
@@ -181,7 +181,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
               <div className="flex items-baseline gap-4 mb-5 pb-2 border-b-2 border-ink dark:border-parchment">
                 <h2 className="eyebrow">{section.heading}</h2>
                 <span className="flex-1" />
-                <span className="eyebrow text-ink-muted dark:text-parchment/45">
+                <span className="eyebrow text-ink-muted dark:text-parchment/55">
                   {section.items.length}
                 </span>
               </div>
@@ -194,7 +194,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
                       className="group flex gap-4 py-4 border-b border-rule/40 dark:border-rule last:border-0 hover:bg-seal/10 transition-colors -mx-2 px-2"
                     >
                       <span
-                        className="shrink-0 font-display text-sm text-gold/60 tabular-nums w-12 pt-1 text-right"
+                        className="shrink-0 font-display text-sm text-gold tabular-nums w-12 pt-1 text-right"
                         aria-hidden="true"
                       >
                         {item.raw}

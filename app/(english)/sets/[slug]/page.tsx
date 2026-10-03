@@ -220,7 +220,7 @@ export default async function NumberedSetPage({ params }: { params: Promise<{ sl
                   href={`/sets/${other.slug}`}
                   className="group flex items-baseline gap-3 py-2.5 border-b border-rule/30 dark:border-rule"
                 >
-                  <span className="eyebrow shrink-0 w-8 text-ink-muted dark:text-parchment/40">
+                  <span className="eyebrow shrink-0 w-8 text-ink-muted dark:text-parchment/55">
                     {other.count}
                   </span>
                   <span className="min-w-0 font-display text-[0.95rem] leading-snug text-ink dark:text-parchment group-hover:text-gold transition-colors">

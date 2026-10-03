@@ -154,7 +154,7 @@ export default async function NumbersIndexPage() {
                 <span className="block text-sm leading-relaxed text-ink-2 dark:text-parchment/70 mt-1.5">
                   {group.tagline}
                 </span>
-                <span className="block eyebrow mt-3 text-ink-muted dark:text-parchment/45">
+                <span className="block eyebrow mt-3 text-ink-muted dark:text-parchment/55">
                   {count?.total ?? 0} {count?.total === 1 ? 'text' : 'texts'}
                   {count && count.byKind.length > 0 && (
                     <> · {count.byKind.map((k) => `${k.count} ${plural(k.label, k.count)}`).join(', ')}</>

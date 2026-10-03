@@ -46,7 +46,7 @@ export function InlineRelated({ articles }: Props) {
               <div className="min-w-0">
                 <span className="text-2xs font-bold uppercase tracking-widest text-primary block mb-0.5">
                   {label}
-                  <span className="text-gold/70 font-normal"> · {titleValue(article.title)}</span>
+                  <span className="text-gold font-normal"> · {titleValue(article.title)}</span>
                 </span>
                 <p className="font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors text-gray-900 dark:text-gray-100">
                   {article.title}

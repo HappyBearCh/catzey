@@ -51,7 +51,7 @@ export async function ShelfNeighbours({ title, selfHref, limit = 6, className = 
               href={item.href}
               className="group flex items-baseline gap-3 py-2.5 border-b border-rule/30 dark:border-rule"
             >
-              <span className="eyebrow shrink-0 whitespace-nowrap basis-[5.5rem] text-ink-muted dark:text-parchment/40">
+              <span className="eyebrow shrink-0 whitespace-nowrap basis-[5.5rem] text-ink-muted dark:text-parchment/55">
                 {item.kindLabel}
               </span>
               <span className="min-w-0 font-display text-[0.95rem] leading-snug text-ink dark:text-parchment group-hover:text-gold transition-colors line-clamp-2">

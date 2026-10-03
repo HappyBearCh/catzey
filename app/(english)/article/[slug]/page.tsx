@@ -521,7 +521,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
 
           {article.generated && (
-            <p className="mt-6 p-4 text-sm leading-relaxed border border-rule dark:border-ink-border text-ink-muted dark:text-paper-2/60">
+            <p className="mt-6 p-4 text-sm leading-relaxed border border-rule dark:border-ink-border text-ink-muted dark:text-parchment/60">
               This text was machine-written, before Catzye adopted the rule that everything on it is
               written by hand. It stays in the archive for readers who arrived at it, but it is not
               part of the reference and is not offered to search engines.{' '}
@@ -598,7 +598,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="mt-8 pt-6 border-t border-site-border grid grid-cols-2 gap-4">
               {seriesCtx.prev ? (
                 <Link href={`/article/${seriesCtx.prev.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all">
-                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-300">← Previous part</span>
+                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">← Previous part</span>
                   <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                     {seriesCtx.prev.title}
                   </span>
@@ -606,7 +606,7 @@ export default async function ArticlePage({ params }: Props) {
               ) : <div />}
               {seriesCtx.next ? (
                 <Link href={`/article/${seriesCtx.next.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all text-right">
-                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-300">Next part →</span>
+                  <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">Next part →</span>
                   <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                     {seriesCtx.next.title}
                   </span>

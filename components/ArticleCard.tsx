@@ -31,7 +31,7 @@ function formatViews(v: number): string {
  */
 function ShelfMark({ n }: { n: number }) {
   return (
-    <span className="text-gold/70 font-normal" aria-label={`filed under ${n}`}>
+    <span className="text-gold font-normal" aria-label={`filed under ${n}`}>
       {' · '}
       {n}
     </span>

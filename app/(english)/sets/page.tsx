@@ -127,18 +127,18 @@ export default function SetsIndexPage() {
                         {set.name}
                       </span>
                       {set.nativeName && (
-                        <span className="text-sm text-ink-muted dark:text-parchment/45">
+                        <span className="text-sm text-ink-muted dark:text-parchment/55">
                           {set.nativeName}
                         </span>
                       )}
                     </span>
                     {set.work && (
-                      <span className="block eyebrow mt-1 text-ink-muted dark:text-parchment/40">
+                      <span className="block eyebrow mt-1 text-ink-muted dark:text-parchment/55">
                         {set.work} · {set.form}
                       </span>
                     )}
                     {!set.work && (
-                      <span className="block eyebrow mt-1 text-ink-muted dark:text-parchment/40">
+                      <span className="block eyebrow mt-1 text-ink-muted dark:text-parchment/55">
                         the medium at large · {set.form}
                       </span>
                     )}

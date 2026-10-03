@@ -88,7 +88,7 @@ export default async function SeriesIndexPage() {
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-2xs font-semibold uppercase tracking-widest text-primary">
                       {getCategoryLabel(s.category)}
-                      <span className="text-gold/70 font-normal"> · {titleValue(s.title)}</span>
+                      <span className="text-gold font-normal"> · {titleValue(s.title)}</span>
                     </span>
                     <span className="text-gray-300 text-xs">·</span>
                     <span className="text-2xs text-gray-400">{publishedCount} of {totalParts} parts</span>

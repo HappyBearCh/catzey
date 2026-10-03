@@ -6,7 +6,7 @@ import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import { SafeImage } from '@/components/SafeImage';
-import { getWork, getAllWorks, getCreatorsBySlugs } from '@/lib/education';
+import { getWork, getAllWorks, getCreatorsBySlugs, getSimilarWorks, type Work, type Creator } from '@/lib/education';
 import { getGenreInfo } from '@/lib/genre-info';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -63,6 +63,84 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const AUDIENCE: Record<string, string> = {
+  shonen: 'teenage boys',
+  seinen: 'adult men',
+  shojo: 'teenage girls',
+  josei: 'adult women',
+};
+
+function list(items: string[]): string {
+  if (items.length <= 1) return items.join('');
+  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
+}
+
+/**
+ * The questions people search about a series, answered from the entry's own
+ * fields. Nothing here is written per series, so an answer can only be as
+ * wrong as the record it is built from — and it changes when the record does.
+ */
+function quickAnswers(work: Work, creators: Creator[]): { question: string; answer: string }[] {
+  const qa: { question: string; answer: string }[] = [];
+  const t = work.title;
+  const volumes = work.volumes ? (work.volumes === 1 ? 'a single volume' : `${work.volumes} volumes`) : null;
+
+  if (work.startYear && work.status) {
+    // A completed series with no recorded end year ran for longer than the
+    // record can say, so it is described by when it began, not as one year.
+    const span = !work.endYear
+      ? `began in ${work.startYear}`
+      : work.endYear !== work.startYear
+        ? `ran from ${work.startYear} to ${work.endYear}`
+        : `ran in ${work.startYear}`;
+    const answer =
+      work.status === 'completed'
+        ? `Yes. ${t} ${span}${volumes ? ` and is complete in ${volumes}` : ' and is complete'}.`
+        : work.status === 'hiatus'
+          ? `Not yet. ${t} began in ${work.startYear} and its serialisation is on hiatus.`
+          : `No. ${t} began in ${work.startYear} and is still being serialised.`;
+    qa.push({ question: `Is ${t} finished?`, answer });
+  }
+
+  if (volumes && work.status === 'completed') {
+    qa.push({ question: `How many volumes does ${t} have?`, answer: `${t} is complete in ${volumes}.` });
+  }
+
+  if (creators.length > 0) {
+    const writer = creators.find((c) => c.role === 'writer');
+    const artist = creators.find((c) => c.role === 'illustrator');
+    const answer =
+      creators.length === 2 && writer && artist
+        ? `${t} is written by ${writer.name} and drawn by ${artist.name}.`
+        : `${t} was created by ${list(creators.map((c) => c.name))}.`;
+    qa.push({ question: `Who created ${t}?`, answer });
+  }
+
+  if (work.magazine) {
+    // Several magazines means the series moved, in the order recorded — not
+    // that it ran in all of them at once.
+    const [first, ...later] = work.magazine.split(';').map((m) => m.trim()).filter(Boolean);
+    const answer =
+      later.length === 0
+        ? `${t} ${work.status === 'ongoing' ? 'is' : 'was'} serialised in ${first}.`
+        : work.status === 'ongoing'
+          ? `${t} began in ${first} and is now serialised in ${later[later.length - 1]}.`
+          : `${t} was serialised in ${first}, and later in ${list(later)}.`;
+    qa.push({ question: `Where was ${t} serialised?`, answer });
+  }
+
+  if (work.demographic || work.genres.length > 0) {
+    const demographic =
+      work.demographic && AUDIENCE[work.demographic]
+        ? `${t} is a ${work.demographic} manga, published for a readership of ${AUDIENCE[work.demographic]}.`
+        : '';
+    const genres = work.genres.length > 0 ? ` Its genres are ${list(work.genres.map((g) => g.toLowerCase()))}.` : '';
+    qa.push({ question: `What kind of manga is ${t}?`, answer: `${demographic}${genres}`.trim() });
+  }
+
+  return qa;
+}
+
 export default async function WorkPage({ params }: Props) {
   const { slug } = await params;
   const work = await getWork(slug);
@@ -70,6 +148,18 @@ export default async function WorkPage({ params }: Props) {
 
   const creators = await getCreatorsBySlugs(work.creatorSlugs);
   const run = years(work.startYear, work.endYear, work.status);
+  const answers = quickAnswers(work, creators);
+  const similar = getSimilarWorks(work);
+
+  const faqLd = answers.length > 0 && {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: answers.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
+    })),
+  };
 
   const workLd = {
     '@context': 'https://schema.org',
@@ -118,6 +208,7 @@ export default async function WorkPage({ params }: Props) {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(workLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
 
       <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -184,6 +275,50 @@ export default async function WorkPage({ params }: Props) {
         className="ref-prose"
         dangerouslySetInnerHTML={{ __html: linkReferenceMentions(work.body, `/wiki/series/${work.slug}`) }}
       />
+
+      {answers.length > 0 && (
+        <section className="mt-12" aria-labelledby="quick-answers">
+          <h2 id="quick-answers" className="eyebrow mb-4 pb-2 border-b-2 border-ink dark:border-parchment">
+            Quick answers
+          </h2>
+          <dl className="divide-y divide-rule/25 dark:divide-rule">
+            {answers.map(({ question, answer }) => (
+              <div key={question} className="py-3">
+                <dt className="font-display font-semibold text-ink dark:text-parchment">{question}</dt>
+                <dd className="mt-1 text-ink-2 dark:text-parchment/80 leading-relaxed">{answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
+      {similar.length > 0 && (
+        <section className="mt-12" aria-labelledby="similar-series">
+          <h2 id="similar-series" className="eyebrow mb-4 pb-2 border-b-2 border-ink dark:border-parchment">
+            If you like {work.title}
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule/25 dark:bg-rule border border-rule/25 dark:border-rule">
+            {similar.map((w) => (
+              <li key={w.slug} className="bg-paper dark:bg-ground">
+                <Link
+                  href={`/wiki/series/${w.slug}`}
+                  className="group block p-4 h-full hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors"
+                >
+                  <span className="block font-display text-lg font-semibold text-ink dark:text-parchment group-hover:text-gold transition-colors">
+                    {w.title}
+                  </span>
+                  <span className="block text-xs text-gray-500 mb-1.5">
+                    {[w.startYear, w.demographic, w.genres.slice(0, 2).join(', ').toLowerCase()].filter(Boolean).join(' · ')}
+                  </span>
+                  <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/70 line-clamp-2">
+                    {w.synopsisSource ?? w.synopsis}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <ShelfNeighbours
         title={work.title}

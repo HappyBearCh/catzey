@@ -89,7 +89,7 @@ export function CategoryInfo({ slug }: Props) {
                     className="text-xs font-semibold px-2.5 py-1 bg-site-light text-primary border border-site-border rounded-sm hover:border-seal transition-colors"
                   >
                     {work}
-                    <span className="text-gold/70 font-normal"> · {n}</span>
+                    <span className="text-gold font-normal"> · {n}</span>
                   </Link>
                 );
               })}

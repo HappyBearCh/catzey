@@ -80,7 +80,7 @@ export function CategoryNav() {
                   className={`${linkBase} ${
                     active
                       ? 'text-gold'
-                      : 'text-ink-muted hover:text-ink dark:text-parchment/45 dark:hover:text-parchment'
+                      : 'text-ink-muted hover:text-ink dark:text-parchment/55 dark:hover:text-parchment'
                   }`}
                 >
                   {label}
@@ -97,7 +97,7 @@ export function CategoryNav() {
       <div className="border-t border-ink/20 dark:border-parchment/20 bg-paper-2 dark:bg-ground-2">
         <div className="max-w-8xl mx-auto px-4">
           <ul className="flex items-center justify-center gap-1 md:gap-1.5 py-1.5 whitespace-nowrap">
-            <li className="eyebrow text-ink-muted dark:text-parchment/40 pr-2 hidden sm:block">
+            <li className="eyebrow text-ink-muted dark:text-parchment/55 pr-2 hidden sm:block">
               Filed by number
             </li>
             {GROUP_NUMBERS.map((n) => {

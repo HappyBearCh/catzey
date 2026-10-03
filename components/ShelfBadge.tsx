@@ -29,7 +29,7 @@ export function ShelfBadge({ title, showSum = false, className = '' }: Props) {
       </span>
       <span className="eyebrow text-ink-2 dark:text-parchment/70 group-hover:text-gold transition-colors">
         {group.shelf}
-        {sum !== null && <span className="text-ink-muted dark:text-parchment/40"> · {sum}</span>}
+        {sum !== null && <span className="text-ink-muted dark:text-parchment/55"> · {sum}</span>}
       </span>
     </Link>
   );

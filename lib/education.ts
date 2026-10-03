@@ -209,6 +209,33 @@ export function getWorksBySlugs(slugs: string[]): Work[] {
   return slugs.flatMap((s) => bySlug.get(s) ?? []);
 }
 
+/**
+ * Series a reader of `work` is most likely to want next, scored on what the
+ * entries record rather than on anyone's taste: a shared genre counts 2, the
+ * same demographic 1, a shared creator 3. Ties go to the series that started
+ * closest in time, so a 1990s shonen surfaces other 1990s shonen first. Only
+ * series sharing at least a genre or a creator qualify.
+ */
+export function getSimilarWorks(work: Work, limit = 4): Work[] {
+  const genres = new Set(work.genres);
+  const creators = new Set(work.creatorSlugs);
+  return WORKS.filter((w) => w.slug !== work.slug)
+    .map((w) => {
+      const sharedGenres = w.genres.filter((g) => genres.has(g)).length;
+      const sharedCreators = w.creatorSlugs.filter((c) => creators.has(c)).length;
+      const score =
+        sharedGenres * 2 +
+        sharedCreators * 3 +
+        (work.demographic && w.demographic === work.demographic ? 1 : 0);
+      const gap = Math.abs((w.startYear ?? 0) - (work.startYear ?? 0));
+      return { w, score, gap, qualifies: sharedGenres > 0 || sharedCreators > 0 };
+    })
+    .filter((x) => x.qualifies && x.score >= 2)
+    .sort((a, b) => b.score - a.score || a.gap - b.gap || a.w.title.localeCompare(b.w.title))
+    .slice(0, limit)
+    .map((x) => x.w);
+}
+
 // ─── Creators ────────────────────────────────────────────────────────────────
 
 export function getCreator(slug: string): Creator | null {

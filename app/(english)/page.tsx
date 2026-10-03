@@ -137,7 +137,7 @@ export default async function HomePage() {
                 href={href}
                 className="group p-6 hover:bg-seal/10 transition-colors border-b-2 sm:border-b-0 border-ink/20 dark:border-parchment/20 last:border-b-0"
               >
-                <span className="block font-display text-gold/60 text-lg mb-2 tracking-wide" aria-hidden="true">
+                <span className="block font-display text-gold text-lg mb-2 tracking-wide" aria-hidden="true">
                   {i + 1}
                 </span>
                 <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
@@ -161,7 +161,7 @@ export default async function HomePage() {
                 href={`/learn/${topic.slug}`}
                 className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
               >
-                <span className="eyebrow block mb-2 text-ink-muted dark:text-parchment/45">{track.label}</span>
+                <span className="eyebrow block mb-2 text-ink-muted dark:text-parchment/55">{track.label}</span>
                 <span className="block font-display text-xl font-semibold leading-snug mb-2 text-ink dark:text-parchment group-hover:text-gold transition-colors">
                   {topic.title}
                 </span>
@@ -285,7 +285,7 @@ export default async function HomePage() {
                         href={entry.href}
                         className="group flex items-baseline gap-2.5 py-2 border-b border-rule/25 dark:border-rule/60"
                       >
-                        <span className="eyebrow shrink-0 whitespace-nowrap basis-[5.5rem] text-ink-muted dark:text-parchment/35">
+                        <span className="eyebrow shrink-0 whitespace-nowrap basis-[5.5rem] text-ink-muted dark:text-parchment/55">
                           {entry.kindLabel}
                         </span>
                         <span className="min-w-0 font-display text-[0.95rem] leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors line-clamp-2">
@@ -330,7 +330,7 @@ export default async function HomePage() {
                 <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55 line-clamp-2 mb-3">
                   {s.description}
                 </span>
-                <span className="eyebrow text-ink-muted dark:text-parchment/40">
+                <span className="eyebrow text-ink-muted dark:text-parchment/55">
                   {s.parts} hand-written {s.parts === 1 ? 'part' : 'parts'}
                 </span>
               </Link>
@@ -349,7 +349,7 @@ function SectionHead({ title, note, href, link }: { title: string; note: string;
   return (
     <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-6 pb-2 border-b-2 border-ink dark:border-parchment">
       <h2 className="font-display text-2xl font-semibold tracking-wide text-ink dark:text-parchment">{title}</h2>
-      <span className="font-display text-[0.8rem] tracking-wide text-ink-muted dark:text-parchment/45">{note}</span>
+      <span className="font-display text-[0.8rem] tracking-wide text-ink-muted dark:text-parchment/55">{note}</span>
       <span className="flex-1" />
       <Link href={href} className="eyebrow text-seal hover:opacity-70 transition-opacity">
         {link} →
@@ -361,7 +361,7 @@ function SectionHead({ title, note, href, link }: { title: string; note: string;
 function EntryList({ heading, items }: { heading: string; items: { href: string; title: string; meta: string }[] }) {
   return (
     <div>
-      <h3 className="eyebrow mb-2 text-ink-muted dark:text-parchment/45">{heading}</h3>
+      <h3 className="eyebrow mb-2 text-ink-muted dark:text-parchment/55">{heading}</h3>
       <ul>
         {items.map((item) => (
           <li key={item.href}>
@@ -372,7 +372,7 @@ function EntryList({ heading, items }: { heading: string; items: { href: string;
               <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors">
                 {item.title}
               </span>
-              <span className="shrink-0 text-sm text-ink-muted dark:text-parchment/40">{item.meta}</span>
+              <span className="shrink-0 text-sm text-ink-muted dark:text-parchment/55">{item.meta}</span>
             </Link>
           </li>
         ))}

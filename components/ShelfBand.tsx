@@ -55,7 +55,7 @@ export function ShelfBand({ titles, noun, className = '' }: Props) {
                   <span className="block font-display text-ink dark:text-parchment">
                     {group.shelf}
                   </span>
-                  <span className="block text-ink-muted dark:text-parchment/45">
+                  <span className="block text-ink-muted dark:text-parchment/55">
                     {count} {noun}
                   </span>
                 </span>

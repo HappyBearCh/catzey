@@ -48,7 +48,7 @@ export function MobileMenu() {
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="text-ink-muted hover:text-gold dark:text-gold/60 transition-colors"
+            className="text-ink-muted hover:text-gold dark:text-gold transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -61,7 +61,7 @@ export function MobileMenu() {
           <Link
             href="/"
             className={`flex items-center gap-3 px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-colors ${
-              pathname === '/' ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-gold dark:text-gold/60 hover:bg-white/5'
+              pathname === '/' ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-gold dark:text-gold hover:bg-white/5'
             }`}
           >
             Home
@@ -81,7 +81,7 @@ export function MobileMenu() {
                 key={href}
                 href={href}
                 className={`flex items-center gap-3 px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-colors ${
-                  active ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-gold dark:text-gold/60 hover:bg-white/5'
+                  active ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-gold dark:text-gold hover:bg-white/5'
                 }`}
               >
                 {label}
@@ -90,7 +90,7 @@ export function MobileMenu() {
           })}
 
           <div className="mx-5 my-2 border-t border-white/10" />
-          <p className="px-5 pb-2 text-2xs uppercase tracking-widest text-gold/60">Filed by number</p>
+          <p className="px-5 pb-2 text-2xs uppercase tracking-widest text-gold">Filed by number</p>
           <div className="px-5 pb-3 grid grid-cols-4 gap-1.5">
             {GROUP_NUMBERS.map((n) => (
               <Link
@@ -100,7 +100,7 @@ export function MobileMenu() {
                 className={`flex items-center justify-center h-9 border text-sm font-display transition-colors ${
                   pathname === `/number/${n}`
                     ? 'border-seal bg-seal text-white'
-                    : 'border-ink dark:border-parchment text-gold/70 hover:border-seal hover:text-gold'
+                    : 'border-ink dark:border-parchment text-gold hover:border-seal hover:text-gold'
                 }`}
               >
                 {n}
@@ -116,7 +116,7 @@ export function MobileMenu() {
                 key={slug}
                 href={`/${slug}`}
                 className={`flex items-center gap-3 px-5 py-3.5 text-sm font-bold uppercase tracking-wider transition-colors ${
-                  active ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-gold dark:text-gold/60 hover:bg-white/5'
+                  active ? 'text-white bg-white/5 border-l-2 border-primary' : 'text-ink-muted hover:text-gold dark:text-gold hover:bg-white/5'
                 }`}
               >
                 {label}

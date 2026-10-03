@@ -28,7 +28,10 @@ const config: Config = {
         'ground-3': '#2b2521',
 
         // The single accent. `gold` is the slot every accent already uses.
-        gold: '#d0342c',
+        // It is a variable so dark mode can lift it: vermilion on the ink
+        // ground is 3.8:1, under the 4.5:1 that small text needs, so the dark
+        // theme uses a lighter vermilion (see --accent in globals.css).
+        gold: 'rgb(var(--accent) / <alpha-value>)',
         'gold-dim': '#9c2620',
         'gold-pale': '#f0a49e',
 
@@ -67,6 +70,15 @@ const config: Config = {
         'ink-bg-2': '#1e1a17',
         'ink-border': '#3a332e',
         'rule-strong': '#14110f',
+
+        // Tailwind's gray-400/500 are used across older templates for quiet
+        // text, on paper and (through dark: variants) on ink alike. No single
+        // grey reaches 4.5:1 on both grounds, so these two shades follow the
+        // theme too (see globals.css).
+        gray: {
+          400: 'rgb(var(--gray-400) / <alpha-value>)',
+          500: 'rgb(var(--gray-500) / <alpha-value>)',
+        },
       },
       fontFamily: {
         // Japanese textbooks set headings in Gothic and body in Mincho. This

@@ -54,7 +54,7 @@ export function TableOfContents({ headings }: Props) {
                   : 'text-gray-600 dark:text-gray-400'
               }`}
             >
-              <span className="text-gold/60 font-display mr-1.5" aria-hidden="true">
+              <span className="text-gold font-display mr-1.5" aria-hidden="true">
                 {titleValue(text)}
               </span>
               {text}

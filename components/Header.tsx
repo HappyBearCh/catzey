@@ -33,7 +33,7 @@ export function Header() {
           <div className="flex-1 flex items-center justify-end gap-3">
             <a
               href="/search"
-              className="md:hidden text-ink-muted dark:text-gold/60 hover:text-gold transition-colors"
+              className="md:hidden text-ink-muted dark:text-gold hover:text-gold transition-colors"
               aria-label="Search"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

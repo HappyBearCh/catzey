@@ -154,7 +154,7 @@ export function SearchInput({
             autoComplete="off"
             className="text-xs bg-transparent text-ink dark:text-parchment placeholder-ink-muted dark:placeholder-parchment/35 border-0 border-b-2 border-ink dark:border-parchment px-1 py-1.5 w-full focus:outline-none focus:border-gold transition-colors pr-10"
           />
-          <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-parchment/35 font-mono hidden md:block">/</kbd>
+          <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-parchment/55 font-mono hidden md:block">/</kbd>
         </div>
       </form>
 
@@ -203,7 +203,7 @@ export function SearchInput({
                 <span className="text-2xs font-semibold uppercase tracking-widest text-primary mb-0.5">
                   {isShelf ? 'Shelf' : getCategoryLabel(s.category)}
                   {!isShelf && s.shelf !== undefined && (
-                    <span className="text-gold/70 font-normal"> · {s.shelf}</span>
+                    <span className="text-gold font-normal"> · {s.shelf}</span>
                   )}
                 </span>
                 <span className="text-xs font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 leading-snug">

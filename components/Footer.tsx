@@ -44,7 +44,7 @@ export function Footer() {
                     href={`/number/${n}`}
                     className="text-sm hover:text-gold transition-colors flex items-baseline gap-2"
                   >
-                    <span className="font-display text-gold/60 w-5 tabular-nums" aria-hidden="true">{n}</span>
+                    <span className="font-display text-gold w-5 tabular-nums" aria-hidden="true">{n}</span>
                     <span>{getGroup(n).shelf}</span>
                   </Link>
                 </li>
