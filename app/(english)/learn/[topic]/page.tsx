@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
@@ -42,21 +43,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!topic) return {};
   const url = `${BASE}/learn/${topic.slug}`;
   const ogImage = `/og?title=${encodeURIComponent(topic.title)}`;
+  const description = metaDescription(topic.summarySource ?? topic.summary);
   return {
     title: topic.title,
-    description: metaDescription(topic.summary),
+    description,
     alternates: { canonical: url },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       title: topic.title,
-      description: topic.summary,
+      description,
       url,
       type: 'article',
       modifiedTime: topic.updatedAt,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-    twitter: { card: 'summary_large_image', title: topic.title, description: topic.summary, images: [ogImage] },
+    twitter: { card: 'summary_large_image', title: topic.title, description, images: [ogImage] },
   };
 }
 
@@ -78,7 +80,7 @@ export default async function LearnTopicPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': ['Article', 'LearningResource'],
     headline: topic.title,
-    description: topic.summary,
+    description: topic.summarySource ?? topic.summary,
     url: `${BASE}/learn/${topic.slug}`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/learn/${topic.slug}` },
     learningResourceType: 'Explainer',
@@ -163,7 +165,7 @@ export default async function LearnTopicPage({ params }: Props) {
 
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: topic.body }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(topic.body, `/learn/${topic.slug}`) }}
       />
 
       <ShelfNeighbours

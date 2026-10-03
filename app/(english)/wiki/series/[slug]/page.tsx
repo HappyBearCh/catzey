@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { linkReferenceMentions } from '@/lib/reference-links';
+import { metaDescription } from '@/lib/seo';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
@@ -42,22 +44,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work = await getWork(slug);
   if (!work) return {};
   const url = `${BASE}/wiki/series/${work.slug}`;
-  const title = `${work.title} — Series Guide`;
+  // "<title> Manga" is how the series is searched for; the creator and run
+  // are what tell a reader from the results page that this is the reference.
+  const creators = getCreatorsBySlugs(work.creatorSlugs).map((c) => c.name).join(' & ');
+  const title = `${work.title} Manga${creators ? ` by ${creators}` : ''}`;
+  const description = metaDescription(work.synopsisSource ?? work.synopsis);
   const ogImage = `/og?title=${encodeURIComponent(work.title)}`;
   return {
     title,
-    description: work.synopsis,
+    description,
     alternates: { canonical: url },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       title,
-      description: work.synopsis,
+      description,
       url,
       type: 'article',
       images: [{ url: work.imageUrl ?? ogImage, width: 1200, height: 630 }],
     },
-    twitter: { card: 'summary_large_image', title, description: work.synopsis, images: [work.imageUrl ?? ogImage] },
+    twitter: { card: 'summary_large_image', title, description, images: [work.imageUrl ?? ogImage] },
   };
 }
 
@@ -74,7 +80,7 @@ export default async function WorkPage({ params }: Props) {
     '@type': 'CreativeWorkSeries',
     name: work.title,
     ...(work.altTitles.length > 0 && { alternateName: work.altTitles }),
-    description: work.synopsis,
+    description: work.synopsisSource ?? work.synopsis,
     url: `${BASE}/wiki/series/${work.slug}`,
     ...(work.imageUrl && { image: work.imageUrl }),
     ...(work.startYear && { datePublished: String(work.startYear) }),
@@ -176,7 +182,7 @@ export default async function WorkPage({ params }: Props) {
 
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: work.body }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(work.body, `/wiki/series/${work.slug}`) }}
       />
 
       <ShelfNeighbours

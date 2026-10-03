@@ -8,6 +8,7 @@ import {
 } from '@/components/CategoryArchive';
 import { ARCHIVE_CATEGORIES, getCategoryLabel } from '@/lib/types';
 import { prisma } from '@/lib/db';
+import { categoryCount } from '@/lib/articles';
 
 // Paginated archives are cut from a frozen edition, so they change only on
 // deploy. See the note on the article route.
@@ -51,10 +52,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${BASE}/${category}/page/${page}`;
   const ogImage = `/og?title=${encodeURIComponent(label)}&category=${category}`;
 
+  // Same rule as the first page: an archive with no hand-written text noindexes.
+  const handWritten = await categoryCount(category);
+
   return {
     title: `${label} — Page ${page}`,
     description: `${description} Page ${page} of the ${label} archive.`,
     alternates: { canonical: canonicalUrl },
+    ...(handWritten === 0 && { robots: { index: false, follow: true } }),
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',

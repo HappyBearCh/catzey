@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { linkReferenceMentions } from '@/lib/reference-links';
+import { metaDescription } from '@/lib/seo';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
@@ -42,22 +44,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const term = await getGlossaryTerm(slug);
   if (!term) return {};
   const url = `${BASE}/glossary/${term.slug}`;
-  const title = `${term.term} — Meaning & Explanation`;
+  const title = `${term.term}: Meaning in Manga & Anime`;
+  const description = metaDescription(term.shortDefSource ?? term.shortDef);
   const ogImage = `/og?title=${encodeURIComponent(term.term)}`;
   return {
     title,
-    description: term.shortDef,
+    description,
     alternates: { canonical: url },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       title,
-      description: term.shortDef,
+      description,
       url,
       type: 'article',
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
-    twitter: { card: 'summary_large_image', title, description: term.shortDef, images: [ogImage] },
+    twitter: { card: 'summary_large_image', title, description, images: [ogImage] },
   };
 }
 
@@ -77,7 +80,7 @@ export default async function GlossaryTermPage({ params }: Props) {
     '@type': 'DefinedTerm',
     '@id': `${BASE}/glossary/${term.slug}`,
     name: term.term,
-    description: term.shortDef,
+    description: term.shortDefSource ?? term.shortDef,
     url: `${BASE}/glossary/${term.slug}`,
     inDefinedTermSet: {
       '@type': 'DefinedTermSet',
@@ -135,7 +138,7 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: term.body }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(term.body, `/glossary/${term.slug}`) }}
       />
 
       <ShelfNeighbours

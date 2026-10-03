@@ -10,9 +10,9 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const CATEGORY_PAGE_SIZE = 12;
 
 export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  manga: 'Latest manga news — new releases, chapter updates, licensing announcements, and industry coverage.',
-  anime: 'Latest anime news — season announcements, episode updates, streaming releases, and studio news.',
-  industry: 'Manga and anime industry news — publisher deals, sales figures, licensing, and business coverage.',
+  manga: 'Essays on how manga work: the grammar of the page, what stories believe, and what changes when manga cross languages — long-form, in series.',
+  anime: 'Essays on anime as an art of adaptation: what the screen adds to a manga, what it loses, and how audiences answer back.',
+  industry: 'Essays on the business of manga: serialization, editors, reader surveys, licensing and the economics of the collected volume.',
   reviews: 'Manga and anime reviews — new titles, ongoing series, and classic recommendations.',
   'light-novels': 'Light novel news — new releases, anime adaptations, licensing, and isekai coverage.',
   manhwa: 'Manhwa and webtoon news — Korean comics, Solo Leveling, Tower of God, and platform updates.',

@@ -13,8 +13,10 @@ import creatorsData from '@/data/creators.json';
 export interface GlossaryTerm {
   term: string;
   slug: string;
-  /** One sentence, used on cards, in DefinedTerm, and as the meta description. */
+  /** One sentence, used on cards and in DefinedTerm; ends with the reading. */
   shortDef: string;
+  /** shortDef as written, before scripts/numerologize.ts appended the reading. */
+  shortDefSource?: string;
   /** Long-form HTML explanation. */
   body: string;
   /** demographic | genre | craft | industry | fandom */
@@ -34,6 +36,8 @@ export interface LearnTopic {
   title: string;
   question: string;
   summary: string;
+  /** summary as written, before the reading was appended. */
+  summarySource?: string;
   body: string;
   /** beginner | intermediate | advanced */
   level: string;
@@ -54,6 +58,8 @@ export interface Work {
   title: string;
   altTitles: string[];
   synopsis: string;
+  /** synopsis as written, before the reading was appended. */
+  synopsisSource?: string;
   body: string;
   demographic: string | null;
   genres: string[];
@@ -74,6 +80,8 @@ export interface Creator {
   nativeName: string | null;
   role: string;
   bio: string;
+  /** bio as written, before the reading was appended. */
+  bioSource?: string;
   body: string;
   bornYear: number | null;
   notableWorks: string[];

@@ -135,8 +135,10 @@ async function computeCounts(): Promise<Map<string, number>> {
   const { preferred, variants } = await buildCanon();
   const counts = new Map<string, number>();
   try {
+    // Hand-written texts only: these counts decide which topic hubs are worth
+    // indexing, and a hub of machine-written texts lists nothing indexable.
     const rows = await prisma.article.findMany({
-      where: { published: true },
+      where: { published: true, generated: { not: true } },
       select: { entities: true },
     });
     for (const row of rows) {

@@ -81,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const grouped = await prisma.article.groupBy({
       by: ['category'],
-      where: { published: true },
+      where: { published: true, generated: { not: true } },
       _count: { _all: true },
       _max: { updatedAt: true },
     });
@@ -100,6 +100,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const newestUpdate = articles[0]?.updatedAt;
+
+  // The index pages change when the reference does, not when an essay does —
+  // the essays stopped in July while the reference keeps growing.
+  const newest = (dates: (string | Date | undefined)[]) =>
+    dates.reduce<Date | undefined>((max, d) => {
+      if (!d) return max;
+      const t = new Date(d);
+      return !max || t > max ? t : max;
+    }, undefined);
+  const learnUpdated = newest(getAllLearnTopics().map((t) => t.updatedAt));
+  const glossaryUpdated = newest(getAllGlossaryTerms().map((t) => t.updatedAt));
+  const wikiUpdated = newest([...getAllWorks(), ...getAllCreators()].map((e) => e.updatedAt));
+  const referenceUpdated = newest([learnUpdated, glossaryUpdated, wikiUpdated, newestUpdate]);
 
   // Educational content — the reference + guides layer, read from the checked-in
   // JSON rather than the database, so this costs no query.
@@ -131,11 +144,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 1 },
-    { url: `${BASE}/learn`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.9 },
-    { url: `${BASE}/glossary`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
-    { url: `${BASE}/wiki`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
-    { url: `${BASE}/numbers`, lastModified: newestUpdate, changeFrequency: 'weekly' as const, priority: 0.85 },
+    { url: BASE, lastModified: referenceUpdated, changeFrequency: 'weekly' as const, priority: 1 },
+    { url: `${BASE}/learn`, lastModified: learnUpdated, changeFrequency: 'weekly' as const, priority: 0.9 },
+    { url: `${BASE}/glossary`, lastModified: glossaryUpdated, changeFrequency: 'weekly' as const, priority: 0.85 },
+    { url: `${BASE}/wiki`, lastModified: wikiUpdated, changeFrequency: 'weekly' as const, priority: 0.85 },
+    { url: `${BASE}/numbers`, lastModified: referenceUpdated, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/sets`, changeFrequency: 'monthly' as const, priority: 0.85 },
     { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
@@ -151,7 +164,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // category pages rather than below them.
   const shelfPages: MetadataRoute.Sitemap = GROUP_NUMBERS.map((n) => ({
     url: `${BASE}/number/${n}`,
-    lastModified: newestUpdate,
+    lastModified: referenceUpdated,
     changeFrequency: 'weekly' as const,
     priority: 0.75,
   }));
@@ -207,6 +220,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // the sitemap advertising the same page under two URLs.
   const tagStats = new Map<string, { last: Date; count: number }>();
   for (const a of articles) {
+    // Counted on hand-written texts only, the same rule the tag page uses.
+    if (a.generated) continue;
     for (const tag of a.tags) {
       const slug = tagSlug(tag);
       if (!slug) continue;

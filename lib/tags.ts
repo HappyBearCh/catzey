@@ -9,7 +9,7 @@ export interface ResolvedTag {
   label: string;
   /** Every stored spelling that shares this slug. */
   labels: string[];
-  /** Articles carrying any of those spellings. */
+  /** Hand-written articles carrying any of those spellings. */
   count: number;
 }
 
@@ -25,14 +25,20 @@ async function resolveTagFromRows(slug: string): Promise<ResolvedTag | null> {
   try {
     const rows = await prisma.article.findMany({
       where: { published: true },
-      select: { tags: true },
+      select: { tags: true, generated: true },
     });
     const counts = new Map<string, number>();
+    // Only hand-written texts count towards whether the archive is thin: one
+    // made of machine-written texts lists nothing indexable (Article.generated).
+    let handWritten = 0;
     for (const row of rows) {
+      let carries = false;
       for (const tag of row.tags ?? []) {
         if (tagSlugOf(tag) !== slug) continue;
         counts.set(tag, (counts.get(tag) ?? 0) + 1);
+        carries = true;
       }
+      if (carries && !row.generated) handWritten++;
     }
     if (counts.size === 0) return null;
     const ordered = [...counts.entries()].sort(
@@ -41,7 +47,7 @@ async function resolveTagFromRows(slug: string): Promise<ResolvedTag | null> {
     return {
       label: ordered[0][0],
       labels: ordered.map(([tag]) => tag),
-      count: ordered.reduce((sum, [, n]) => sum + n, 0),
+      count: handWritten,
     };
   } catch {
     return null;

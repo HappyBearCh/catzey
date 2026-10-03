@@ -40,7 +40,7 @@ export default async function GlossaryIndexPage() {
     hasDefinedTerm: terms.slice(0, 100).map((t) => ({
       '@type': 'DefinedTerm',
       name: t.term,
-      description: t.shortDef,
+      description: t.shortDefSource ?? t.shortDef,
       url: `${BASE}/glossary/${t.slug}`,
     })),
   };

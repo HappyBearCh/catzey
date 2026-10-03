@@ -54,6 +54,8 @@ export interface Article {
   // rule that every text on Catzye is written by hand. Kept readable at its URL,
   // but out of the index, the sitemap, the feeds and the front page.
   generated?: boolean;
+  /** excerpt as written, before scripts/numerologize.ts led it with the number. */
+  excerptSource?: string;
 }
 
 export const CATEGORIES = [

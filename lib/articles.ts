@@ -24,9 +24,15 @@ export const getArticleBySlug = cache(async (slug: string): Promise<Article | nu
 // How many published articles a category actually holds. Six of the declared
 // ten hold none, and both the category page's robots block and the sitemap need
 // to know that before they advertise the URL.
+/**
+ * Hand-written texts in a category — the number that decides whether its
+ * archive is worth indexing. Machine-written texts still list there but are
+ * noindexed themselves, so an archive made only of them is a page of links to
+ * pages we have asked search engines to skip (see Article.generated).
+ */
 export const categoryCount = cache(async (category: string): Promise<number> => {
   try {
-    return await prisma.article.count({ where: { published: true, category } });
+    return await prisma.article.count({ where: { published: true, category, generated: { not: true } } });
   } catch {
     return 0;
   }

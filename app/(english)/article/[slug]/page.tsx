@@ -21,6 +21,7 @@ import { SpoilerActivator } from '@/components/SpoilerActivator';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
+import { linkReferenceMentions } from '@/lib/reference-links';
 import { resolveAuthor } from '@/lib/authors';
 import { getArticleBySlug } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
@@ -80,16 +81,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const article = await prisma.article.findUnique({ where: { slug } });
     if (!article) return {};
     const author = resolveAuthor(article);
+    // The stored excerpt leads with the number; the snippet a searcher reads
+    // should lead with what the text is about.
+    const description = metaDescription(article.excerptSource ?? article.excerpt);
     const ogImageUrl = `${BASE}/og?title=${encodeURIComponent(article.title)}&category=${article.category}${article.imageUrl ? `&img=${encodeURIComponent(article.imageUrl)}` : ''}`;
     return {
       title: article.title,
-      description: metaDescription(article.excerpt),
+      description,
       authors: [{ name: author.name, url: `${BASE}/author/${author.slug}` }],
       openGraph: {
         siteName: 'Catzye',
         locale: 'en_US',
         title: article.title,
-        description: article.excerpt,
+        description,
         url: `${BASE}/article/${slug}`,
         type: 'article',
         publishedTime: new Date(article.publishedAt).toISOString(),
@@ -102,7 +106,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       twitter: {
         card: 'summary_large_image',
         title: article.title,
-        description: article.excerpt,
+        description,
         images: [ogImageUrl],
       },
       alternates: {
@@ -202,7 +206,9 @@ export default async function ArticlePage({ params }: Props) {
     : article.content.split(/\n+/).map((p) => p.trim()).filter(Boolean).filter((p) => !/^sources?\s*:/i.test(p));
 
   const processedHtml = contentIsHtml
-    ? injectHeadingIds(linkEntitiesInHtml(article.content, article.entities))
+    ? injectHeadingIds(
+        linkReferenceMentions(linkEntitiesInHtml(article.content, article.entities), `/article/${article.slug}`),
+      )
     : '';
   const headings = contentIsHtml ? extractHeadings(processedHtml) : [];
   // The pull quote and the related rail interrupt the reporting after its third

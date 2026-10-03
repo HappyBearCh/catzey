@@ -53,9 +53,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = `/og?title=${encodeURIComponent(name)}`;
   const info = getTopicInfo(name);
   const description = info?.intro ?? `Everything on Catzye about ${name} — reporting, explainers and reference entries, filed by number.`;
-  // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
+  // Thin archives (0–1 hand-written articles) are noindexed to avoid low-value
   // pages eating crawl budget, but stay followable so link equity flows.
-  const count = (await getTopicArticles(name)).length;
+  const count = (await getTopicArticles(name)).filter((a) => !a.generated).length;
   return {
     title: `${name} — Manga & Anime`,
     description: metaDescription(description),

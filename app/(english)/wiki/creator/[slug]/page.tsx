@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
@@ -29,27 +30,37 @@ export async function generateStaticParams() {
   return creators.map((c) => ({ slug: c.slug }));
 }
 
+const ROLE_TITLE: Record<string, string> = {
+  mangaka: 'Manga Artist',
+  writer: 'Manga Writer',
+  illustrator: 'Illustrator',
+  studio: 'Manga Studio',
+  director: 'Director',
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const creator = await getCreator(slug);
   if (!creator) return {};
   const url = `${BASE}/wiki/creator/${creator.slug}`;
-  const title = `${creator.name} — ${creator.role}`;
+  const role = ROLE_TITLE[creator.role] ?? creator.role;
+  const title = `${creator.name}: ${role}, Works & Biography`;
+  const description = metaDescription(creator.bioSource ?? creator.bio);
   const ogImage = `/og?title=${encodeURIComponent(creator.name)}`;
   return {
     title,
-    description: metaDescription(creator.bio),
+    description,
     alternates: { canonical: url },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       title,
-      description: creator.bio,
+      description,
       url,
       type: 'profile',
       images: [{ url: creator.imageUrl ?? ogImage, width: 1200, height: 630 }],
     },
-    twitter: { card: 'summary_large_image', title, description: creator.bio, images: [creator.imageUrl ?? ogImage] },
+    twitter: { card: 'summary_large_image', title, description, images: [creator.imageUrl ?? ogImage] },
   };
 }
 
@@ -79,7 +90,7 @@ export default async function CreatorPage({ params }: Props) {
     ...(creator.nativeName && { alternateName: creator.nativeName }),
     url: `${BASE}/wiki/creator/${creator.slug}`,
     jobTitle: creator.role,
-    description: creator.bio,
+    description: creator.bioSource ?? creator.bio,
     ...(creator.imageUrl && { image: creator.imageUrl }),
     ...(creator.bornYear && { birthDate: String(creator.bornYear) }),
     ...(works.length > 0 && {
@@ -128,7 +139,7 @@ export default async function CreatorPage({ params }: Props) {
 
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: creator.body }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(creator.body, `/wiki/creator/${creator.slug}`) }}
       />
 
       <ShelfNeighbours
