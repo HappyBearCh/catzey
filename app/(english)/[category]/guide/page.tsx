@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { documentTitle, guideDescription } from '@/lib/seo';
 import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
@@ -50,14 +51,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!guide) return {};
   const url = `${BASE}/${category}/guide`;
   return {
-    title: guide.title,
-    description: guide.subtitle,
+    title: documentTitle(guide.title),
+    description: guideDescription(guide.subtitle, guide.body),
     alternates: { canonical: url },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       title: guide.title,
-      description: guide.subtitle,
+      description: guideDescription(guide.subtitle, guide.body),
       url,
       type: 'article',
       images: [{ url: guide.heroImage.src, width: 1200, height: 630, alt: guide.title }],
@@ -65,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: guide.title,
-      description: guide.subtitle,
+      description: guideDescription(guide.subtitle, guide.body),
       images: [guide.heroImage.src],
     },
   };

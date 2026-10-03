@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { documentTitle, guideDescription } from '@/lib/seo';
 import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
@@ -64,15 +65,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!guide) return {};
   const ogImage = `/og?title=${encodeURIComponent(guide.title)}`;
   return {
-    title: guide.title,
-    description: guide.subtitle,
+    title: documentTitle(guide.title),
+    description: guideDescription(guide.subtitle, guide.body),
     alternates: { canonical: `${BASE}/guides/${slug}` },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       type: 'website',
       title: guide.title,
-      description: guide.subtitle,
+      description: guideDescription(guide.subtitle, guide.body),
       url: `${BASE}/guides/${slug}`,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
@@ -82,11 +83,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Every valid slug comes from a closed, file-backed set, so anything outside
 // generateStaticParams is a genuine 404 and there is nothing to render on
-// demand. Saying so lets Next 404 at the routing layer — which is also what
-// makes the sibling loading.tsx safe: a loading boundary flushes a 200 shell,
-// and once that is sent notFound() can no longer set a status. The article, tag
-// and topic routes solve the same problem with gating layouts; here the params
-// are finite, so the simpler answer applies.
+// demand. Saying so lets Next 404 at the routing layer.
 export const dynamicParams = false;
 
 export function generateStaticParams() {

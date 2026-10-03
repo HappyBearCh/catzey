@@ -27,11 +27,7 @@ function years(startYear: number | null, endYear: number | null, status: string 
 // Prerendered at build, ISR thereafter — see the note on the glossary route.
 // Every valid slug comes from a closed, file-backed set, so anything outside
 // generateStaticParams is a genuine 404 and there is nothing to render on
-// demand. Saying so lets Next 404 at the routing layer — which is also what
-// makes the sibling loading.tsx safe: a loading boundary flushes a 200 shell,
-// and once that is sent notFound() can no longer set a status. The article, tag
-// and topic routes solve the same problem with gating layouts; here the params
-// are finite, so the simpler answer applies.
+// demand. Saying so lets Next 404 at the routing layer.
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -77,18 +73,22 @@ export default async function WorkPage({ params }: Props) {
 
   const workLd = {
     '@context': 'https://schema.org',
-    '@type': 'CreativeWorkSeries',
+    // ComicSeries is schema.org's type for a serialised comic. The series and
+    // creator entities carry @ids so the two pages describe one graph.
+    '@type': 'ComicSeries',
+    '@id': `${BASE}/wiki/series/${work.slug}#series`,
     name: work.title,
     ...(work.altTitles.length > 0 && { alternateName: work.altTitles }),
     description: work.synopsisSource ?? work.synopsis,
     url: `${BASE}/wiki/series/${work.slug}`,
     ...(work.imageUrl && { image: work.imageUrl }),
-    ...(work.startYear && { datePublished: String(work.startYear) }),
+    ...(work.startYear && { startDate: String(work.startYear) }),
+    ...(work.endYear && work.status === 'completed' && { endDate: String(work.endYear) }),
     ...(work.genres.length > 0 && { genre: work.genres }),
-    ...(work.volumes && { numberOfEpisodes: work.volumes }),
     ...(creators.length > 0 && {
       author: creators.map((c) => ({
         '@type': 'Person',
+        '@id': `${BASE}/wiki/creator/${c.slug}#person`,
         name: c.name,
         url: `${BASE}/wiki/creator/${c.slug}`,
       })),

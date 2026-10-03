@@ -113,3 +113,24 @@ export function breadcrumbLd(trail: { name: string; url: string }[]) {
     })),
   };
 }
+
+// The root layout appends " | Catzye". Google shows about 60 characters of a
+// title, so on a long title the suffix would push the end of the title itself
+// out of view; those titles go out alone instead.
+const TITLE_SUFFIX = ' | Catzye';
+const TITLE_LIMIT = 62;
+export function documentTitle(title: string): NonNullable<Metadata['title']> {
+  return title.length + TITLE_SUFFIX.length <= TITLE_LIMIT ? title : { absolute: title };
+}
+
+// A subtitle alone is too short to describe a guide in search results; adding
+// the guide's opening paragraph gives the snippet something to say.
+export function guideDescription(subtitle: string, bodyHtml: string): string {
+  // Skip the reading apparatus (num-standfirst and friends) that
+  // scripts/numerologize.ts puts at the top of a body.
+  const withoutReading = bodyHtml.replace(/<!--catzye:(\w+)-->[\s\S]*?<!--\/catzye:\1-->/g, '');
+  const firstParagraph =
+    [...withoutReading.matchAll(/<p([^>]*)>([\s\S]*?)<\/p>/g)].find(([, attrs]) => !/num-/.test(attrs))?.[2] ?? '';
+  const lead = subtitle.replace(/[.\s]+$/, '');
+  return metaDescription(`${lead}. ${firstParagraph}`);
+}

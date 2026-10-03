@@ -28,7 +28,7 @@ import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { ReviewData } from '@/lib/types';
 import { STANDFIRST_OPEN, splitOffReading } from '@/lib/numerologize';
 import { titleValue, getGroup } from '@/lib/number-groups';
-import { metaDescription } from '@/lib/seo';
+import { metaDescription, documentTitle } from '@/lib/seo';
 import { canonicalEntity } from '@/lib/entity-canon';
 import { entityHref } from '@/lib/entity-slug';
 
@@ -86,7 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const description = metaDescription(article.excerptSource ?? article.excerpt);
     const ogImageUrl = `${BASE}/og?title=${encodeURIComponent(article.title)}&category=${article.category}${article.imageUrl ? `&img=${encodeURIComponent(article.imageUrl)}` : ''}`;
     return {
-      title: article.title,
+      title: documentTitle(article.title),
       description,
       authors: [{ name: author.name, url: `${BASE}/author/${author.slug}` }],
       openGraph: {

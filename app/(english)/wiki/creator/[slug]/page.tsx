@@ -18,11 +18,7 @@ interface Props {
 // Prerendered at build, ISR thereafter — see the note on the glossary route.
 // Every valid slug comes from a closed, file-backed set, so anything outside
 // generateStaticParams is a genuine 404 and there is nothing to render on
-// demand. Saying so lets Next 404 at the routing layer — which is also what
-// makes the sibling loading.tsx safe: a loading boundary flushes a 200 shell,
-// and once that is sent notFound() can no longer set a status. The article, tag
-// and topic routes solve the same problem with gating layouts; here the params
-// are finite, so the simpler answer applies.
+// demand. Saying so lets Next 404 at the routing layer.
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -86,16 +82,16 @@ export default async function CreatorPage({ params }: Props) {
   const personLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': `${BASE}/wiki/creator/${creator.slug}#person`,
     name: creator.name,
     ...(creator.nativeName && { alternateName: creator.nativeName }),
     url: `${BASE}/wiki/creator/${creator.slug}`,
-    jobTitle: creator.role,
+    jobTitle: ROLE_TITLE[creator.role] ?? creator.role,
     description: creator.bioSource ?? creator.bio,
     ...(creator.imageUrl && { image: creator.imageUrl }),
     ...(creator.bornYear && { birthDate: String(creator.bornYear) }),
-    ...(works.length > 0 && {
-      knowsAbout: works.map((w) => w.title),
-    }),
+    // The works point back here through their own `author` @id; listing them
+    // as knowsAbout would claim them as subjects rather than creations.
   };
 
   const breadcrumbLd = {

@@ -20,9 +20,15 @@ const serif = Source_Serif_4({
 // body in Mincho, which is the opposite of what this site used to do — and it
 // means the kanji in the stroke-count readings render in the same voice as the
 // headings around them rather than dropping to a system fallback.
+//
+// Not preloaded: Google serves this CJK face as about ninety unicode-range
+// slices per weight, and preloading them put 360-odd font requests in front of
+// every page. Left to its CSS, the browser fetches only the slices a page
+// actually uses.
 const display = Zen_Kaku_Gothic_New({
   subsets: ['latin'],
   display: 'swap',
+  preload: false,
   variable: '--font-display',
   weight: ['400', '500', '700', '900'],
 });
@@ -100,10 +106,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${serif.variable} ${display.variable} ${sans.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://public.blob.vercel-storage.com" crossOrigin="" />
-        <link rel="dns-prefetch" href="https://public.blob.vercel-storage.com" />
       </head>
       <body className="min-h-screen flex flex-col bg-paper text-ink dark:bg-ground dark:text-parchment transition-colors">
         {children}

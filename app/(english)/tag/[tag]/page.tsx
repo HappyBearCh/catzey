@@ -48,9 +48,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `${BASE}/topic/${encodeURIComponent(duplicateOfTopic)}`
     : `${BASE}/tag/${encodeURIComponent(slug)}`;
   const ogImage = `/og?title=${encodeURIComponent('#' + label)}`;
-  const description = `Browse all manga and anime articles tagged "${label}" on Catzye.`;
+  // Say what is actually here: how many hand-written essays, about what.
+  const essays = `${resolved.count} hand-written ${resolved.count === 1 ? 'essay' : 'essays'}`;
+  const description = `${essays} on ${label} from Catzye: how manga and anime work, read closely and in series, each filed by the number its title reduces to.`;
   return {
-    title: `#${label} — Manga & Anime`,
+    title: `${label}: Essays on Manga & Anime`,
     description,
     alternates: { canonical: canonicalUrl },
     // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
