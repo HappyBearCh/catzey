@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
@@ -194,7 +195,7 @@ export default async function StandaloneGuidePage({ params }: Props) {
           prose-a:text-primary prose-a:no-underline hover:prose-a:underline
           prose-strong:text-gray-900
           prose-ul:text-gray-700 prose-li:mb-1"
-        dangerouslySetInnerHTML={{ __html: guide.body }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(guide.body, `/guides/${guide.slug}`) }}
       />
 
       <ShelfNeighbours

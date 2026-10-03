@@ -47,7 +47,7 @@ function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-let cached: { series: Target[]; prose: Target[] } | null = null;
+let cached: { series: Target[]; prose: Target[]; creatorPages: Map<string, string> } | null = null;
 
 function targets() {
   if (cached) return cached;
@@ -71,7 +71,8 @@ function targets() {
   ];
   // Longest pattern first, so "Weekly Shōnen Jump" wins over "Shōnen".
   prose.sort((a, b) => b.pattern!.source.length - a.pattern!.source.length);
-  cached = { series, prose };
+  const creatorPages = new Map(getAllCreators().map((c) => [c.name, `/wiki/creator/${c.slug}`]));
+  cached = { series, prose, creatorPages };
   return cached;
 }
 
@@ -97,9 +98,21 @@ function proseTextNodes($: CheerioAPI): Text[] {
  * an entry never links to itself; `skip` lists further hrefs to leave alone.
  */
 export function linkReferenceMentions(html: string, selfHref: string, skip: string[] = []): string {
-  const { series, prose } = targets();
+  const { series, prose, creatorPages } = targets();
   const used = new Set([selfHref, ...skip]);
   const $ = load(html, null, false);
+
+  // Outbound encyclopaedia links for things the reference has its own entry
+  // for are pointed at that entry instead: the reader stays in the reference,
+  // and the entry gets the link.
+  $('a[href^="https://en.wikipedia.org/"]').each((_, el) => {
+    const $el = $(el);
+    const text = $el.text().trim();
+    const own = series.find((t) => t.titles!.includes(text))?.href ?? creatorPages.get(text);
+    if (!own || own === selfHref) return;
+    $el.attr('href', own).removeAttr('target').removeAttr('rel').addClass('ref-link');
+    used.add(own);
+  });
 
   // Series: an <em> whose whole text is a known title.
   $('em').each((_, el) => {

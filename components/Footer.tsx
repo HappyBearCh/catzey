@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { Logo } from './Logo';
 import { ARCHIVE_CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
-import { getCurrentSeason, getAllSeasons } from '@/lib/seasons';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -94,17 +93,10 @@ export function Footer() {
                 <Link href="/series" className="text-sm hover:text-gold transition-colors">Essay Series</Link>
               </li>
               <li>
-                <Link href="/calendar" className="text-sm hover:text-gold transition-colors">Release Calendar</Link>
+                <Link href="/learn/twelve-manga-to-start-with" className="text-sm hover:text-gold transition-colors">Where to Start</Link>
               </li>
               <li>
-                {/* Driven off the season data rather than hardcoded, so this
-                    stops pointing at last season the moment one rolls over. */}
-                <Link
-                  href={`/season/${getCurrentSeason()?.slug ?? getAllSeasons()[0]?.slug ?? ''}`}
-                  className="text-sm hover:text-gold transition-colors"
-                >
-                  Season Guide
-                </Link>
+                <Link href="/learn/where-to-read-manga-legally" className="text-sm hover:text-gold transition-colors">Where to Read Legally</Link>
               </li>
             </ul>
           </div>

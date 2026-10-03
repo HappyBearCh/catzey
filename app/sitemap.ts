@@ -6,7 +6,6 @@ import { getAllNumberedSets } from '@/lib/numbered-sets';
 import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { getAllGenres } from '@/lib/genre-info';
-import { getAllSeasons } from '@/lib/seasons';
 import { getAllAuthors } from '@/lib/authors';
 import { tagSlug } from '@/lib/tags';
 import { canonicalEntity, canonicalEntityCounts } from '@/lib/entity-canon';
@@ -150,7 +149,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/wiki`, lastModified: wikiUpdated, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/numbers`, lastModified: referenceUpdated, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${BASE}/sets`, changeFrequency: 'monthly' as const, priority: 0.85 },
-    { url: `${BASE}/calendar`, lastModified: newestUpdate, changeFrequency: 'daily' as const, priority: 0.7 },
     { url: `${BASE}/guides`, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${BASE}/numerology`, changeFrequency: 'monthly' as const, priority: 0.6 },
     { url: `${BASE}/series`, changeFrequency: 'weekly' as const, priority: 0.7 },
@@ -293,12 +291,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  const seasonPages: MetadataRoute.Sitemap = getAllSeasons().map((s) => ({
-    url: `${BASE}/season/${s.slug}`,
-    changeFrequency: s.status === 'current' ? ('weekly' as const) : ('monthly' as const),
-    priority: s.status === 'current' ? 0.7 : 0.5,
-  }));
-
   const authorPages: MetadataRoute.Sitemap = getAllAuthors().map((a) => ({
     url: `${BASE}/author/${a.slug}`,
     lastModified: newestUpdate,
@@ -306,5 +298,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...eduPages, ...shelfPages, ...setPages, ...categoryPages, ...genrePages, ...seasonPages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
+  return [...staticPages, ...eduPages, ...shelfPages, ...setPages, ...categoryPages, ...genrePages, ...guidePages, ...seriesPages, ...authorPages, ...tagPages, ...topicPages, ...articlePages];
 }

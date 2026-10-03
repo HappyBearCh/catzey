@@ -110,45 +110,6 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
     `,
   },
   {
-    slug: 'best-manga-2025',
-    title: 'Best Manga of 2025: Essential Reading List',
-    subtitle: 'The standout series, new releases, and hidden gems of the year',
-    readingTime: 5,
-    heroImage: {
-      src: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&q=80&fit=crop&auto=format',
-      alt: 'Stack of books on a wooden surface',
-      credit: 'Thought Catalog',
-      creditUrl: 'https://unsplash.com/@thoughtcatalog',
-      license: 'Unsplash License',
-    },
-    body: `
-<p>2025 has been a year of transitions in manga: major long-running series have reached milestone chapters, new titles have broken through from web novel origins, and a handful of completed series have earned the kind of retrospective praise usually reserved for classics. This list covers the essential reading of 2025 — ongoing juggernauts, satisfying completions, and breakout new titles worth your time.</p>
-
-<h2>Best Ongoing Manga in 2025</h2>
-<p><strong>One Piece</strong> (Eiichiro Oda) continued its Final Saga in 2025 with revelations that rewarded readers who have followed the series since 1997. Oda has described this as the most ambitious arc he has ever written, and the chapter-by-chapter release has generated consistent viral moments on social media. If you have been waiting to catch up, 2025 is arguably the best time to do so — the story's accumulated mythology pays off in ways that earlier arcs only hinted at.</p>
-<p><strong>Jujutsu Kaisen</strong> (Gege Akutami) delivered some of its most technically accomplished fight sequences in 2025, with Akutami's panel composition reaching new levels of kinetic complexity. The series entered its concluding arc with a focus and urgency that dispelled concerns about late-series pacing.</p>
-<p><strong>Dungeon Meshi</strong> (Ryōko Kui), though completed in 2023, continued to attract new readers in 2025 following its acclaimed anime adaptation. Its exploration of ecology, ethics, and community through the frame of a party that cooks and eats dungeon monsters is unlike anything else in the medium.</p>
-
-<h2>Best New Manga of 2025</h2>
-<p>Several new series launched in 2025 that warranted immediate attention. <strong>Sakamoto Days</strong>, while launched in 2020, reached mainstream Western attention in 2025 through its anime adaptation and is the rare action comedy that is genuinely funny and genuinely exciting in equal measure — following a retired assassin who now runs a convenience store. New launches in Weekly Shōnen Jump and Jump+ continued the trend of tightly plotted series designed for completion rather than indefinite continuation.</p>
-<p>The isekai category saw several notable 2025 launches that distinguished themselves from the genre's repetitive mainstream: stories that used the transported-to-another-world frame to explore economics, ecology, or political systems rather than combat progression. The slow diversification of isekai away from pure power fantasy continued at pace.</p>
-
-<h2>Best Completed Series to Catch Up On in 2025</h2>
-<p>2025 is an excellent year to read manga that ended in the previous two years, when enough critical perspective has accumulated to know which completions were satisfying. The shortlist:</p>
-<ul>
-  <li><strong>Chainsaw Man Part 1</strong> (Tatsuki Fujimoto, 97 chapters) — the most formally ambitious Weekly Shōnen Jump series in years, deliberately subverting every genre expectation. Its nihilism is earned rather than performative, and its ending is divisive in exactly the way that meaningful artistic choices are divisive.</li>
-  <li><strong>Spy x Family</strong> (Tatsuya Endo) — ongoing but excellent for binge-reading. A spy assembles a fake family — adopting a telepathic daughter and marrying an assassin — for a mission. The comedy of their mutual deception is warm and brilliantly constructed.</li>
-  <li><strong>Frieren: Beyond Journey's End</strong> (Kanehito Yamada and Tsukasa Abe) — an elven mage reflects on a hero's journey decades after its completion, exploring what adventure and loss mean across a lifespan measured in centuries. Quietly devastating and unlike anything else being published.</li>
-</ul>
-
-<h2>Best Manga for Readers New to the Medium in 2025</h2>
-<p>For readers approaching manga for the first time in 2025, the accessibility of the current landscape is better than it has ever been. Legal digital platforms offer complete series at low cost; physical volumes are widely available. The best starting points for 2025 newcomers remain <em>Demon Slayer</em> (23 volumes, complete, extraordinary anime adaptation to follow), <em>Fullmetal Alchemist</em> (27 volumes, complete, universally acclaimed), and <em>Frieren: Beyond Journey's End</em> (ongoing, accessible even without prior manga experience).</p>
-
-<h2>Where to Read These Series</h2>
-<p>All titles mentioned are available through <strong>Manga Plus</strong> (free, official, Shueisha titles), the <strong>Viz Manga app</strong> ($2.99/month, extensive library), <strong>Crunchyroll Manga</strong>, and <strong>Amazon Kindle</strong> (individual volume purchases). Physical volumes are available from most major bookshops and Amazon. Reading legally supports the creators who make the medium possible.</p>
-    `,
-  },
-  {
     slug: 'new-to-one-piece',
     title: "New to One Piece? Your Complete Starting Guide",
     subtitle: 'How to start one of the longest — and most rewarding — stories in manga history',
@@ -161,7 +122,7 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
       license: 'Unsplash License',
     },
     body: `
-<p>One Piece has been running since 1997 and currently sits at over 1,100 chapters — which makes it one of the most intimidating starting points in manga. But it is also, by total copies sold (more than 530 million), the best-selling manga series in history, and its fans are among the most passionate in any medium. This guide tells you how to approach it, what to expect, and what not to worry about.</p>
+<p>One Piece has been running since 1997 and now runs to well over 1,100 chapters — which makes it one of the most intimidating starting points in manga. But it is also, by total copies sold (more than 500 million), the best-selling manga series in history, and its fans are among the most passionate in any medium. This guide tells you how to approach it, what to expect, and what not to worry about.</p>
 
 <h2>What Is One Piece About?</h2>
 <p>Monkey D. Luffy wants to become King of the Pirates — the person who finds the legendary treasure "One Piece" and claims freedom beyond any authority. After eating a Devil Fruit that turned his body into rubber, Luffy sets out to sea and builds a crew: a swordsman, a navigator, a sniper, a cook, a doctor, an archaeologist, a shipwright, a musician, and a helmsman. Together, the Straw Hat Pirates sail the Grand Line through increasingly dangerous and emotionally complex arcs.</p>
@@ -200,15 +161,15 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
       license: 'Unsplash License',
     },
     body: `
-<p>Jujutsu Kaisen arrived in Weekly Shōnen Jump in 2018 and almost immediately became one of the fastest-growing manga series in history. By 2021, it had outsold One Piece in Japan for that year — a feat almost no series has achieved. This guide explains what the series is, why it matters, and how to start.</p>
+<p>Jujutsu Kaisen ran in Weekly Shōnen Jump from 2018 to 2024 and almost immediately became one of the fastest-growing manga series in history. It is complete in 30 volumes. By 2021, it had outsold One Piece in Japan for that year — a feat almost no series has achieved. This guide explains what the series is, why it matters, and how to start.</p>
 
 <h2>What Is Jujutsu Kaisen About?</h2>
 <p>Yuji Itadori is a physically extraordinary high schooler who, in a single bad night, swallows a cursed object — a finger belonging to the most powerful and evil sorcerer in history, Ryomen Sukuna. Rather than being killed, Yuji becomes Sukuna's vessel, able to contain the curse. Tokyo Jujutsu High recruits him on one condition: he must swallow all of Sukuna's 20 fingers before being executed. What follows is a dark action story about sorcerers who exorcise monsters made of accumulated human malice.</p>
 <p>The series is written and drawn by Gege Akutami, who is known for subverting shōnen conventions: characters die permanently, protagonists do not always win, and the story's emotional register is closer to tragedy than triumph. This gives it an edge that distinguishes it from peers.</p>
 
 <h2>Manga or Anime?</h2>
-<p>The anime adaptation by MAPPA is excellent — arguably one of the best-produced shōnen anime of the decade. The fight choreography and visual design are exceptional. Either entry point works well. The manga moves faster and has the complete story; the anime offers spectacular production values for the arcs it covers.</p>
-<p>Recommendation: the anime is an excellent starting point for the first two seasons. Continue with the manga from where the anime leaves off, as the later manga arcs have not yet been animated.</p>
+<p>The anime adaptation by MAPPA is excellent — arguably one of the best-produced shōnen anime of the decade. The fight choreography and visual design are exceptional. Either entry point works well. The manga moves faster and tells the complete story; the anime offers spectacular production values for the arcs it has adapted.</p>
+<p>Recommendation: the anime is an excellent way in. To finish the story, continue with the manga from the point where the anime you have watched leaves off.</p>
 
 <h2>What Makes It Different from Other Shōnen?</h2>
 <p>Three things: the curse system is based on negative human emotions rather than generic magic, which gives the worldbuilding a psychological coherence. The power hierarchy is clear and consistent, meaning fight outcomes feel earned. And the series is genuinely willing to harm its characters — not just temporarily, but permanently. This raises the stakes in a way that most shōnen intentionally avoid. It makes every major battle feel consequential rather than predetermined.</p>
@@ -217,13 +178,13 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
 <ul>
   <li><strong>Manga Plus</strong> — Free, official, includes first and latest chapters.</li>
   <li><strong>Viz Manga</strong> — Complete archive, $2.99/month. Recommended.</li>
-  <li><strong>Crunchyroll</strong> — Both seasons of the anime are available. Season 2 covers the Shibuya Incident, widely considered one of the strongest arcs in recent shōnen manga.</li>
+  <li><strong>Crunchyroll</strong> — The anime streams here. Its second season covers the Shibuya Incident, widely considered one of the strongest arcs in recent shōnen manga.</li>
 </ul>
     `,
   },
   {
     slug: 'your-first-anime',
-    title: 'Your First Anime: Where to Start in 2025',
+    title: 'Your First Anime: Where to Start',
     subtitle: 'A practical guide to entering one of the world\'s most popular storytelling mediums',
     readingTime: 6,
     heroImage: {
@@ -242,12 +203,12 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
 <h2>The Best First Anime by What You Already Like</h2>
 <p>The fastest path to finding anime you love is to map your existing tastes onto the medium:</p>
 <ul>
-  <li><strong>If you liked Avengers or superhero action:</strong> <em>My Hero Academia</em> — a superhero school story with excellent character dynamics and escalating stakes. Available on Crunchyroll. 7 seasons.</li>
-  <li><strong>If you liked Breaking Bad or morally complex drama:</strong> <em>Death Note</em> — a high school student finds a notebook that kills anyone whose name he writes in it. A 37-episode cat-and-mouse psychological thriller. Available on Netflix and Crunchyroll.</li>
-  <li><strong>If you liked Lord of the Rings or epic fantasy:</strong> <em>Frieren: Beyond Journey's End</em> — an elven mage reflects on a completed hero's journey decades later. Emotionally sophisticated, visually beautiful. Available on Crunchyroll.</li>
-  <li><strong>If you liked The Office or relaxed comedy:</strong> <em>Spy × Family</em> — a spy assembles a fake family for a mission, not knowing his adopted daughter is a telepath and his fake wife is an assassin. Available on Crunchyroll.</li>
-  <li><strong>If you liked Game of Thrones or political intrigue:</strong> <em>Vinland Saga</em> — a Viking revenge story that becomes a meditation on violence and what it means to live without enemies. Available on Netflix and Prime Video.</li>
-  <li><strong>If you want pure spectacle and don't mind some emotional devastation:</strong> <em>Demon Slayer</em> — a boy trains to become a demon hunter to cure his sister. The animation is genuinely among the most technically accomplished ever produced for television. Available on Crunchyroll.</li>
+  <li><strong>If you liked Avengers or superhero action:</strong> <em>My Hero Academia</em> — a superhero school story with excellent character dynamics and escalating stakes.</li>
+  <li><strong>If you liked Breaking Bad or morally complex drama:</strong> <em>Death Note</em> — a high school student finds a notebook that kills anyone whose name he writes in it. A 37-episode cat-and-mouse psychological thriller.</li>
+  <li><strong>If you liked Lord of the Rings or epic fantasy:</strong> <em>Frieren: Beyond Journey's End</em> — an elven mage reflects on a completed hero's journey decades later. Emotionally sophisticated, visually beautiful.</li>
+  <li><strong>If you liked The Office or relaxed comedy:</strong> <em>Spy × Family</em> — a spy assembles a fake family for a mission, not knowing his adopted daughter is a telepath and his fake wife is an assassin.</li>
+  <li><strong>If you liked Game of Thrones or political intrigue:</strong> <em>Vinland Saga</em> — a Viking revenge story that becomes a meditation on violence and what it means to live without enemies.</li>
+  <li><strong>If you want pure spectacle and don't mind some emotional devastation:</strong> <em>Demon Slayer</em> — a boy trains to become a demon hunter to cure his sister. The animation is genuinely among the most technically accomplished ever produced for television.</li>
 </ul>
 
 <h2>Subtitles or Dub?</h2>
@@ -256,8 +217,8 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
 <h2>Where to Watch</h2>
 <ul>
   <li><strong>Crunchyroll</strong> — The largest anime streaming platform. Simulcasts (same-day as Japan) for most major series. Essential for following current seasons.</li>
-  <li><strong>Netflix</strong> — Strong catalogue, original anime productions, and exclusive licenses (Demon Slayer, Vinland Saga).</li>
-  <li><strong>Prime Video</strong> — Includes Vinland Saga, some Studio Ghibli films, and a growing catalogue.</li>
+  <li><strong>Netflix</strong> — A strong catalogue and its own original anime productions.</li>
+  <li><strong>Prime Video</strong> — A growing anime catalogue. Which service carries a given series changes over time, so check before subscribing.</li>
   <li><strong>Funimation</strong> — Now merged with Crunchyroll; dub-focused library accessible via Crunchyroll.</li>
 </ul>
 

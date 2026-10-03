@@ -40,6 +40,15 @@ const config: NextConfig = {
       // machine-written and are out of the index; the archive page listing only
       // them folds into the numerology reference.
       { source: '/numerology/daily', destination: '/numerology', permanent: true },
+      // The weekly release calendar and the anime season guides were news
+      // features: they went stale within months (a season still marked
+      // "current" two seasons later) and a hand-written reference cannot keep
+      // them true. Each lands on the nearest page that stays accurate.
+      // A dated best-of list that had gone stale and wrong; the starter list
+      // replaces it.
+      { source: '/guides/best-manga-2025', destination: '/learn/twelve-manga-to-start-with', permanent: true },
+      { source: '/calendar', destination: '/learn/where-to-read-manga-legally', permanent: true },
+      { source: '/season/:season', destination: '/learn/manga-vs-anime-what-changes-in-adaptation', permanent: true },
       // Rankings retired: they sorted by a view counter that stopped moving when
       // reads left Postgres, so they were ordering the edition by noise. Their
       // URLs are permanent redirects rather than 404s because they were linked

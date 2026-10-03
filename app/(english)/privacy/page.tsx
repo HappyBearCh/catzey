@@ -49,9 +49,9 @@ export default function PrivacyPage() {
             identifier for you.
           </li>
           <li>
-            <strong>Former newsletter subscribers:</strong> the newsletter has closed. If you
-            subscribed while it ran, your address is kept only so the unsubscribe link in any
-            email you received keeps working, and using it removes the address permanently.
+            <strong>Former newsletter subscribers:</strong> the newsletter has closed, the site no
+            longer uses its subscriber list, and no further emails will be sent. The unsubscribe
+            link in any old email still works and confirms this.
           </li>
         </ul>
 
@@ -77,8 +77,8 @@ export default function PrivacyPage() {
 
         <h2>Questions</h2>
         <p>
-          If you have questions about your data — including a request to delete a former
-          newsletter subscription manually — reach us via the contact page.
+          If you have questions about your data — including a request that any record of a
+          former newsletter subscription be deleted — reach us via the contact page.
         </p>
       </div>
     </div>

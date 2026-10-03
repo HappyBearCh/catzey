@@ -259,7 +259,7 @@ export default async function HomePage() {
               Twelve shelves
             </h2>
             <p className="mt-4 text-ink-2 dark:text-parchment/70 leading-relaxed">
-              Every text here — explainer, glossary entry, reference page, report —
+              Every text here — explainer, glossary entry, reference page, essay —
               is filed by the number its title reduces to. Titles that reduce alike
               turn out to be doing alike, which is the only claim this arrangement makes.
             </p>

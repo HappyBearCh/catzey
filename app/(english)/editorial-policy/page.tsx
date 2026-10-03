@@ -39,9 +39,9 @@ export default function EditorialPolicyPage() {
         <p>
           Reference entries — explainers, glossary terms, series and creator pages — are written
           against published scholarship, publisher and studio material, and the works themselves.
-          Archived reporting is based on established industry outlets or official announcements
-          from publishers, studios, and creators, and each report links to its original source so
-          readers can verify it. We do not publish rumours as fact.
+          The essays argue from the works themselves and from the same published record, and
+          name the series, creators and events they discuss so that every claim can be checked.
+          We do not publish rumours as fact.
         </p>
 
         <h2>The numerological readings</h2>
@@ -77,7 +77,7 @@ export default function EditorialPolicyPage() {
 
         <h2>Where facts and readings are kept separate</h2>
         <p>
-          A reading never alters the reporting or the reference material it accompanies. It is
+          A reading never alters the essay or the reference material it accompanies. It is
           fitted around the text — above it and below it — and is marked as apparatus wherever it
           appears. Quotations, figures, dates and names are never rephrased to suit a number.
         </p>
@@ -117,8 +117,8 @@ export default function EditorialPolicyPage() {
 
         <h2>Images</h2>
         <p>
-          Images are sourced from the original reporting, from openly licensed photography, or
-          generated as labelled illustrations. If you are a rights holder and believe an image is
+          The few photographs on the site, on the guides, come from openly licensed sources
+          and are credited where they appear. If you are a rights holder and believe an image is
           used in error, <Link href="/contact">contact us</Link> and we will review it promptly.
         </p>
       </div>
