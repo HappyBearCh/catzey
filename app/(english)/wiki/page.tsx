@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShelfBand } from '@/components/ShelfBand';
-import { titleValue } from '@/lib/number-groups';
 import { getAllWorks, getAllCreators } from '@/lib/education';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -75,62 +73,71 @@ export default async function WikiIndexPage() {
       </nav>
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Manga Wiki</h1>
-      <p className="text-gray-600 dark:text-gray-300 mb-10 max-w-2xl">
+      <p className="text-ink-2 dark:text-parchment/80 mb-5 max-w-2xl">
         Reference entries for the works themselves and the people who make them — what a
         series is, when it ran, where it was serialised, and who drew it.
       </p>
+      {/* Two long lists on one page: say how long, and let the reader jump. */}
+      <p className="mb-10 flex gap-6">
+        <a href="#series" className="eyebrow text-gold hover:opacity-70">{works.length} series ↓</a>
+        <a href="#creators" className="eyebrow text-gold hover:opacity-70">{creators.length} creators ↓</a>
+      </p>
 
-      <ShelfBand
-        titles={[...works.map((w) => w.title), ...creators.map((c) => c.name)]}
-        noun="entries"
-        className="mb-10"
-      />
-
-      <section className="mb-12">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="block w-1 h-6 bg-primary" />
-          <h2 className="text-xl font-semibold tracking-tight">Series</h2>
-          <span className="text-2xs font-bold text-gray-400 uppercase tracking-wider">{works.length}</span>
-        </div>
-        {works.length === 0 ? (
-          <p className="text-sm text-gray-400 italic ml-3">Entries are being written.</p>
-        ) : (
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {works.map((w) => (
-              <li key={w.slug}>
-                <Link href={`/wiki/series/${w.slug}`} className="block panel p-3 h-full hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors group">
-                  <span className="font-bold text-sm block group-hover:text-seal transition-colors">{w.title}</span>
-                  <span className="ml-2 text-2xs font-bold text-seal">{titleValue(w.title)}</span>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{w.synopsis}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+      <section id="series" className="mb-14 scroll-mt-4">
+        <h2 className="font-display text-2xl font-semibold mb-2 pb-2 border-b-2 border-ink dark:border-parchment">Series</h2>
+        <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
+          {works.map((w) => (
+            <li key={w.slug}>
+              <Link
+                href={`/wiki/series/${w.slug}`}
+                className="group block py-3 border-b border-rule/25 dark:border-rule/60"
+              >
+                <span className="flex items-baseline gap-3">
+                  <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink dark:text-parchment group-hover:text-gold transition-colors">
+                    {w.title}
+                  </span>
+                  <span className="shrink-0 text-sm text-gray-500">
+                    {[w.startYear, w.volumes ? `${w.volumes} vols` : null].filter(Boolean).join(' · ')}
+                  </span>
+                </span>
+                <span className="block mt-0.5 text-sm text-ink-muted dark:text-parchment/65 line-clamp-1">
+                  {w.synopsisSource ?? w.synopsis}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <section>
-        <div className="flex items-center gap-2 mb-4">
-          <span className="block w-1 h-6 bg-primary" />
-          <h2 className="text-xl font-semibold tracking-tight">Creators</h2>
-          <span className="text-2xs font-bold text-gray-400 uppercase tracking-wider">{creators.length}</span>
-        </div>
-        {creators.length === 0 ? (
-          <p className="text-sm text-gray-400 italic ml-3">Entries are being written.</p>
-        ) : (
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {creators.map((c) => (
-              <li key={c.slug}>
-                <Link href={`/wiki/creator/${c.slug}`} className="block panel p-3 h-full hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors group">
-                  <span className="font-bold text-sm block group-hover:text-seal transition-colors">{c.name}</span>
-                  <span className="ml-2 text-2xs font-bold text-seal">{titleValue(c.name)}</span>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{c.bio}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+      <section id="creators" className="mb-14 scroll-mt-4">
+        <h2 className="font-display text-2xl font-semibold mb-2 pb-2 border-b-2 border-ink dark:border-parchment">Creators</h2>
+        <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
+          {creators.map((c) => (
+            <li key={c.slug}>
+              <Link
+                href={`/wiki/creator/${c.slug}`}
+                className="group block py-3 border-b border-rule/25 dark:border-rule/60"
+              >
+                <span className="flex items-baseline gap-3">
+                  <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink dark:text-parchment group-hover:text-gold transition-colors">
+                    {c.name}
+                  </span>
+                  {c.nativeName && <span className="shrink-0 text-sm text-gray-500">{c.nativeName}</span>}
+                </span>
+                <span className="block mt-0.5 text-sm text-ink-muted dark:text-parchment/65 line-clamp-1">
+                  {c.bioSource ?? c.bio}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
+
+      <p className="text-ink-muted dark:text-parchment/65">
+        Also in the reference:{' '}
+        <Link href="/sets" className="text-gold hover:underline">numbered sets</Link>, the groups manga count
+        by — the Four Emperors, the Hashira, the Gotei 13.
+      </p>
     </div>
   );
 }

@@ -99,28 +99,28 @@ export const getAllEntries = cache(async (): Promise<ShelfEntry[]> => {
   const reports = (await prisma.article.findMany({
     where: { published: true, generated: { not: true } },
     orderBy: { publishedAt: 'desc' },
-    select: { title: true, slug: true, excerpt: true, publishedAt: true },
-  })) as { title: string; slug: string; excerpt: string; publishedAt: Date }[];
+    select: { title: true, slug: true, excerpt: true, excerptSource: true, publishedAt: true },
+  })) as { title: string; slug: string; excerpt: string; excerptSource?: string; publishedAt: Date }[];
 
   return [
     ...getAllLearnTopics().map((t) =>
-      entry(t.title, `/learn/${t.slug}`, 'lesson', t.summary, t.updatedAt),
+      entry(t.title, `/learn/${t.slug}`, 'lesson', t.summarySource ?? t.summary, t.updatedAt),
     ),
     ...getAllGlossaryTerms().map((t) =>
-      entry(t.term, `/glossary/${t.slug}`, 'glossary', t.shortDef, t.updatedAt),
+      entry(t.term, `/glossary/${t.slug}`, 'glossary', t.shortDefSource ?? t.shortDef, t.updatedAt),
     ),
     ...getAllWorks().map((w) =>
-      entry(w.title, `/wiki/series/${w.slug}`, 'work', w.synopsis, w.updatedAt),
+      entry(w.title, `/wiki/series/${w.slug}`, 'work', w.synopsisSource ?? w.synopsis, w.updatedAt),
     ),
     ...getAllCreators().map((c) =>
-      entry(c.name, `/wiki/creator/${c.slug}`, 'creator', c.bio, c.updatedAt),
+      entry(c.name, `/wiki/creator/${c.slug}`, 'creator', c.bioSource ?? c.bio, c.updatedAt),
     ),
     ...getAllNumberedSets().map(setEntry),
     ...getAllStandaloneGuides().map((g) => entry(g.title, `/guides/${g.slug}`, 'guide', g.subtitle)),
     // Category guides live at /{category}/guide rather than under /guides.
     ...getAllGuides().map((g) => entry(g.title, `/${g.slug}/guide`, 'guide', g.subtitle)),
     ...reports.map((a) =>
-      entry(a.title, `/article/${a.slug}`, 'article', a.excerpt, new Date(a.publishedAt).toISOString()),
+      entry(a.title, `/article/${a.slug}`, 'article', a.excerptSource ?? a.excerpt, new Date(a.publishedAt).toISOString()),
     ),
   ];
 });

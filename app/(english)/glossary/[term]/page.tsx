@@ -154,7 +154,7 @@ export default async function GlossaryTermPage({ params }: Props) {
                   className="block p-3 border border-site-border rounded-sm hover:border-primary/40 transition-colors"
                 >
                   <span className="font-bold text-sm block">{w.title}</span>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{w.synopsis}</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{w.synopsisSource ?? w.synopsis}</span>
                 </Link>
               </li>
             ))}

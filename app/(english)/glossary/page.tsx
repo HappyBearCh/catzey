@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShelfBand } from '@/components/ShelfBand';
 import { getAllGlossaryTerms, groupByInitial, GLOSSARY_CATEGORIES } from '@/lib/education';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -71,7 +70,6 @@ export default async function GlossaryIndexPage() {
         when it actually applies. {terms.length} entries and counting.
       </p>
 
-      <ShelfBand titles={terms.map((t) => t.term)} noun="terms" className="mb-8" />
 
       {terms.length === 0 ? (
         <p className="text-sm text-gray-500">The glossary is being written. Check back shortly.</p>
@@ -112,7 +110,7 @@ export default async function GlossaryIndexPage() {
                         {t.term}
                       </Link>
                     </dt>
-                    <dd className="text-sm text-gray-600 dark:text-gray-300 leading-snug">{t.shortDef}</dd>
+                    <dd className="text-sm text-gray-600 dark:text-gray-300 leading-snug">{t.shortDefSource ?? t.shortDef}</dd>
                   </div>
                 ))}
               </dl>

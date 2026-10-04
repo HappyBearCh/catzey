@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShelfBand } from '@/components/ShelfBand';
 import { getAllLearnTopics, LEARN_TRACKS } from '@/lib/education';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -64,7 +63,6 @@ export default async function LearnHubPage() {
         jump to the one question you came for.
       </p>
 
-      <ShelfBand titles={topics.map((t) => t.title)} noun="explainers" className="mb-10" />
 
       <div className="space-y-10">
         {LEARN_TRACKS.map((track) => {
@@ -98,7 +96,7 @@ export default async function LearnHubPage() {
                             {t.title}
                           </span>
                           <span className="block text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-0.5">
-                            {t.summary}
+                            {t.summarySource ?? t.summary}
                           </span>
                         </span>
                         <span className="ml-auto flex-shrink-0 text-2xs font-bold uppercase tracking-wider text-gray-400 self-center">

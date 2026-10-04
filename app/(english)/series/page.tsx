@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShelfBand } from '@/components/ShelfBand';
 import { titleValue } from '@/lib/number-groups';
 import Image from 'next/image';
 import { prisma } from '@/lib/db';
@@ -57,9 +56,6 @@ export default async function SeriesIndexPage() {
         <p className="text-gray-500 text-sm max-w-xl">
           Long-form explorations of manga history, culture, and society — one series, multiple deep dives.
         </p>
-        {allSeries.length > 0 && (
-          <ShelfBand titles={allSeries.map((s) => s.title)} noun="sequences" className="mt-6" />
-        )}
       </div>
 
       {allSeries.length === 0 ? (

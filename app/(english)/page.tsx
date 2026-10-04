@@ -165,7 +165,7 @@ export default async function HomePage() {
                   {topic.title}
                 </span>
                 <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55 line-clamp-3">
-                  {topic.summary}
+                  {topic.summarySource ?? topic.summary}
                 </span>
               </Link>
             ))}
