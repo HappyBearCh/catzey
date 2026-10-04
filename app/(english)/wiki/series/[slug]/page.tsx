@@ -224,7 +224,7 @@ export default async function WorkPage({ params }: Props) {
       )}
 
       <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-6">
-        {work.synopsis}
+        {work.synopsisSource ?? work.synopsis}
       </p>
 
       {work.imageUrl && (

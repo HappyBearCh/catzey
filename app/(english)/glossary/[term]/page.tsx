@@ -129,7 +129,7 @@ export default async function GlossaryTermPage({ params }: Props) {
       {/* The one-line definition is what gets quoted in featured snippets, so it
           sits first, alone, and reads as a complete sentence. */}
       <p className="text-lg md:text-xl font-semibold leading-snug border-l-4 border-primary pl-4 pr-4 py-3 tone-fill mb-8">
-        {term.shortDef}
+        {term.shortDefSource ?? term.shortDef}
       </p>
 
       <div

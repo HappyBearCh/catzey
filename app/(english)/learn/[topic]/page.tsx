@@ -156,7 +156,7 @@ export default async function LearnTopicPage({ params }: Props) {
       <ShelfBadge title={topic.title} showSum className="mb-5" />
 
       <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 pr-4 py-3 tone-fill mb-8">
-        {topic.summary}
+        {topic.summarySource ?? topic.summary}
       </p>
 
       <div

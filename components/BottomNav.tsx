@@ -2,79 +2,42 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useToday } from './useToday';
+import { isActive } from './CategoryNav';
 
-interface Props {
-  basePath?: string;
-}
+const icon = (d: string) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
+    <path strokeLinecap="round" strokeLinejoin="round" d={d} />
+  </svg>
+);
 
-export function BottomNav({ basePath = '' }: Props) {
+// The phone's main navigation: the reference first, then search. Essays and
+// the shelves are in the menu, one tap further.
+const ITEMS = [
+  { label: 'Home', href: '/', icon: icon('M3 11.5 12 4l9 7.5M5.5 9.5V20h13V9.5') },
+  { label: 'Learn', href: '/learn', icon: icon('M12 6.25v13m0-13C10.8 5.5 9.2 5 7.5 5S4.2 5.5 3 6.25v13C4.2 18.5 5.8 18 7.5 18s3.3.5 4.5 1.25m0-13C13.2 5.5 14.8 5 16.5 5s3.3.5 4.5 1.25v13C19.8 18.5 18.2 18 16.5 18s-3.3.5-4.5 1.25') },
+  { label: 'Wiki', href: '/wiki', icon: icon('M4 5h16M4 10h16M4 15h10M4 20h7') },
+  { label: 'Glossary', href: '/glossary', icon: icon('M7 4h10a2 2 0 0 1 2 2v14l-7-3-7 3V6a2 2 0 0 1 2-2z') },
+  { label: 'Search', href: '/search', icon: icon('M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z') },
+];
+
+export function BottomNav() {
   const pathname = usePathname();
-  const today = useToday();
-  const isBosnian = basePath === '/bs';
-  const homeHref = basePath || '/';
-
-  const items = [
-    {
-      label: isBosnian ? 'Početna' : 'Home',
-      href: homeHref,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Manga',
-      href: `${basePath}/manga`,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
-    },
-    // The shelves take a tab of their own on mobile: they are the arrangement,
-    // and the category tabs below are the older cross-cut.
-    {
-      label: isBosnian ? 'Brojevi' : 'Shelves',
-      href: `${basePath}/numbers`,
-      icon: (
-        <span className="w-5 h-5 flex items-center justify-center font-display text-base leading-none" aria-hidden="true">
-          {today?.number ?? ''}
-        </span>
-      ),
-    },
-    {
-      label: isBosnian ? 'Traži' : 'Search',
-      href: `${basePath}/search`,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-        </svg>
-      ),
-    },
-    {
-      label: isBosnian ? 'Sačuvano' : 'Saved',
-      href: `${basePath}/saved`,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-        </svg>
-      ),
-    },
-  ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper dark:bg-ground border-t-2 border-ink dark:border-parchment border-t border-white/10 safe-area-inset-bottom">
+    <nav
+      aria-label="Main"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper dark:bg-ground border-t-2 border-ink dark:border-parchment safe-area-inset-bottom"
+    >
       <ul className="flex items-center">
-        {items.map(({ label, href, icon }) => {
-          const active = pathname === href;
+        {ITEMS.map(({ label, href, icon }) => {
+          const active = href === '/' ? pathname === '/' : isActive(pathname, href);
           return (
             <li key={href} className="flex-1">
               <Link
                 href={href}
+                aria-current={active ? 'page' : undefined}
                 className={`flex flex-col items-center gap-0.5 py-2.5 transition-colors ${
-                  active ? 'text-gold' : 'text-ink-muted hover:text-ink dark:text-parchment/55 dark:hover:text-parchment'
+                  active ? 'text-gold' : 'text-ink-muted hover:text-ink dark:text-parchment/70 dark:hover:text-parchment'
                 }`}
               >
                 {icon}

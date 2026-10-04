@@ -130,7 +130,7 @@ export default async function CreatorPage({ params }: Props) {
       )}
 
       <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-8">
-        {creator.bio}
+        {creator.bioSource ?? creator.bio}
       </p>
 
       <div

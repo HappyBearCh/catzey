@@ -31,15 +31,6 @@ export function Header() {
           </Link>
 
           <div className="flex-1 flex items-center justify-end gap-3">
-            <a
-              href="/search"
-              className="md:hidden text-ink-muted dark:text-gold hover:text-gold transition-colors"
-              aria-label="Search"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-              </svg>
-            </a>
             <div className="hidden md:block w-56">
               <SearchInput placeholder="Search the reference…" action="/search" articleBasePath="/article" />
             </div>

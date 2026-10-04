@@ -1,6 +1,5 @@
 import { prisma } from '@/lib/db';
 import { TodaysNumber } from '@/components/TodaysNumber';
-import { TodayPlate } from '@/components/TodayPlate';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 import { getAllEntries } from '@/lib/shelves';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
@@ -51,6 +50,14 @@ const LEARN_ENTRY_POINTS = [
   },
 ];
 
+// The terms a newcomer runs into first, in roughly the order they meet them.
+// The full list is one click away.
+const COMMON_TERMS = [
+  'mangaka', 'tankobon', 'serialization', 'one-shot', 'shonen', 'shojo', 'seinen', 'josei',
+  'isekai', 'manhwa', 'webtoon', 'light-novel', 'anime-adaptation', 'scanlation', 'simulpub',
+  'doujinshi', 'yonkoma', 'omake', 'tsundere', 'otaku',
+];
+
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
 // so a timer only bought re-renders and ISR writes for identical output.
 export const revalidate = false;
@@ -95,6 +102,8 @@ export default async function HomePage() {
     .sort((a, b) => b.notableWorks.length - a.notableWorks.length)
     .slice(0, 6);
   const glossary = getAllGlossaryTerms();
+  const bySlug = new Map(glossary.map((t) => [t.slug, t]));
+  const commonTerms = COMMON_TERMS.flatMap((slug) => bySlug.get(slug) ?? []);
 
   // The front page is arranged the way the reference is: by what each title
   // reduces to, not by what it is about. Explainers and glossary entries come
@@ -109,13 +118,10 @@ export default async function HomePage() {
   return (
     <>
       <div className="max-w-8xl mx-auto px-4">
-        {/* The title plate. The numeral is the real Universal Day figure from
-            lib/numerology, so the ornament is also the day's reading. */}
-        <section className="py-12 md:py-20 text-center">
-          <p className="eyebrow mb-8">Manga, read by the numbers</p>
-
-          <TodayPlate />
-
+        {/* Headline, one sentence of what is here, and the three ways in. The
+            day's number is in the header and closes the page, so it is not
+            repeated here. */}
+        <section className="pt-10 pb-6 md:pt-16 md:pb-10 text-center">
           <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-wide leading-tight max-w-3xl mx-auto text-ink dark:text-parchment">
             A numerological reference to how manga works,
             <span className="italic text-gold"> and where it came from</span>
@@ -126,20 +132,13 @@ export default async function HomePage() {
             each one read against its numbers.
           </p>
 
-          <div className="rule-ornament max-w-md mx-auto mt-12 mb-10">
-            <span className="text-gold text-sm" aria-hidden="true">✦</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto text-left border-y-2 border-ink dark:border-parchment sm:divide-x-2 sm:divide-ink dark:sm:divide-parchment">
-            {LEARN_ENTRY_POINTS.map(({ href, title, blurb }, i) => (
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto text-left border-y-2 border-ink dark:border-parchment sm:divide-x-2 sm:divide-ink dark:sm:divide-parchment">
+            {LEARN_ENTRY_POINTS.map(({ href, title, blurb }) => (
               <Link
                 key={href}
                 href={href}
                 className="group p-6 hover:bg-seal/10 transition-colors border-b-2 sm:border-b-0 border-ink/20 dark:border-parchment/20 last:border-b-0"
               >
-                <span className="block font-display text-gold text-lg mb-2 tracking-wide" aria-hidden="true">
-                  {i + 1}
-                </span>
                 <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
                   {title}
                 </span>
@@ -203,9 +202,9 @@ export default async function HomePage() {
 
         {/* The glossary, as a strip of terms */}
         <section className="my-12">
-          <SectionHead title="The glossary" note={`${glossary.length} terms`} href="/glossary" link="Every term" />
+          <SectionHead title="The glossary" note="The terms you will meet first" href="/glossary" link={`All ${glossary.length} terms`} />
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {glossary.map((t) => (
+            {commonTerms.map((t) => (
               <li key={t.slug}>
                 <Link
                   href={`/glossary/${t.slug}`}
@@ -219,36 +218,23 @@ export default async function HomePage() {
         </section>
 
         {/* Guides */}
-        <section className="my-8 border-t border-site-border pt-6">
-          <div className="mt-8">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="block w-1 h-5 bg-primary" />
-              <h2 className="text-sm font-semibold uppercase tracking-wider">Catzye Guides</h2>
-            </div>
-            <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8">
-              {getAllStandaloneGuides().slice(0, 6).map((guide) => (
-                <li key={guide.slug}>
-                  <Link
-                    href={`/guides/${guide.slug}`}
-                    className="group block py-3 border-b border-site-border last:border-0"
-                  >
-                    <p className="font-bold text-sm leading-snug group-hover:text-primary transition-colors">
-                      {guide.title}
-                    </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">
-                      {guide.subtitle} · {guide.readingTime} min read
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/guides"
-              className="mt-4 block text-center text-xs font-bold uppercase tracking-wider text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors"
-            >
-              All Guides →
-            </Link>
-          </div>
+        <section className="my-12">
+          <SectionHead title="Guides" note="Longer reads, start to finish" href="/guides" link="All guides" />
+          <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8">
+            {getAllStandaloneGuides().slice(0, 6).map((guide) => (
+              <li key={guide.slug}>
+                <Link
+                  href={`/guides/${guide.slug}`}
+                  className="group flex items-baseline gap-3 py-2.5 border-b border-rule/25 dark:border-rule/60"
+                >
+                  <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors">
+                    {guide.title}
+                  </span>
+                  <span className="shrink-0 text-sm text-gray-500">{guide.readingTime} min</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* The reference, shelf by shelf */}
