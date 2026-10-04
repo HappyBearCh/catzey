@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { GROUP_NUMBERS, getGroup, titleNumbers } from '@/lib/number-groups';
-import { getShelfCounts } from '@/lib/shelves';
+import { getShelfCounts, getAllEntries } from '@/lib/shelves';
+import { TitleCalculator, type ShelfExample } from '@/components/TitleCalculator';
 
 export const revalidate = false; // the edition is baked in at build time
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 export const metadata: Metadata = {
-  title: 'The Twelve Shelves — Everything Filed by Its Number',
+  title: 'Manga Title Numerology Calculator & the Twelve Shelves',
   description:
-    'Every text on Catzye filed by the numerological value of its title: twelve shelves, the nine cardinal numbers plus the master numbers 11, 22 and 33.',
+    'Type any manga or anime title to see its Pythagorean numerology, worked letter by letter, and the shelf it files to — then browse everything Catzye files under each of the twelve numbers.',
   alternates: { canonical: `${BASE}/numbers` },
   openGraph: {
     siteName: 'Catzye',
@@ -40,6 +41,17 @@ export default async function NumbersIndexPage() {
   const byNumber = new Map(counts.map((c) => [c.n, c]));
   const total = counts.reduce((s, c) => s + c.total, 0);
   const example = titleNumbers(EXAMPLE_TITLE);
+
+  // A few reference entries per shelf for the calculator to point into —
+  // explainers and wiki entries first, since getAllEntries lists them first.
+  const entries = await getAllEntries();
+  const examples: Record<number, ShelfExample[]> = {};
+  for (const n of GROUP_NUMBERS) {
+    examples[n] = entries
+      .filter((e) => e.value === n)
+      .slice(0, 4)
+      .map((e) => ({ title: e.title, href: e.href, kindLabel: e.kindLabel }));
+  }
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',
@@ -123,6 +135,17 @@ export default async function NumbersIndexPage() {
           </Link>
           . Nothing about the magazine changes; the shelf only decides what it gets read next to.
         </p>
+      </section>
+
+      {/* The rule as a tool. */}
+      <section className="max-w-2xl mx-auto mb-16" aria-labelledby="calculator">
+        <h2 id="calculator" className="font-display text-3xl font-semibold tracking-wide text-center mb-2 text-ink dark:text-parchment">
+          Read any title
+        </h2>
+        <p className="text-center text-ink-muted dark:text-parchment/60 mb-8">
+          The same arithmetic, on whatever you type. It is worked in your browser and sent nowhere.
+        </p>
+        <TitleCalculator examples={examples} placeholder="Fullmetal Alchemist" />
       </section>
 
       {/* The shelves themselves. */}

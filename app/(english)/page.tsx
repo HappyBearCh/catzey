@@ -308,8 +308,8 @@ export default async function HomePage() {
           </div>
 
           <p className="text-center mt-8">
-            <Link href="/numbers" className="eyebrow text-gold hover:underline">
-              How a text gets its number →
+            <Link href="/numbers#calculator" className="eyebrow text-gold hover:underline">
+              Work out any title&apos;s number →
             </Link>
           </p>
         </section>
