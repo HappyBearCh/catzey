@@ -244,7 +244,7 @@ export default async function WorkPage({ params }: Props) {
       {/* A compact fact table is what readers scan first on a reference page and
           what assistants tend to lift as the answer. */}
       {facts.length > 0 && (
-        <dl className="mb-10 border-t-2 border-ink dark:border-parchment">
+        <dl className="mb-10 border-t border-line">
           {facts.map(([k, v]) => (
             <div key={k} className="datarow">
               <dt className="eyebrow">{k}</dt>
@@ -278,7 +278,7 @@ export default async function WorkPage({ params }: Props) {
 
       {answers.length > 0 && (
         <section className="mt-12" aria-labelledby="quick-answers">
-          <h2 id="quick-answers" className="eyebrow mb-4 pb-2 border-b-2 border-ink dark:border-parchment">
+          <h2 id="quick-answers" className="eyebrow mb-4 pb-2 border-b border-line">
             Quick answers
           </h2>
           <dl className="divide-y divide-rule/25 dark:divide-rule">
@@ -294,10 +294,10 @@ export default async function WorkPage({ params }: Props) {
 
       {similar.length > 0 && (
         <section className="mt-12" aria-labelledby="similar-series">
-          <h2 id="similar-series" className="eyebrow mb-4 pb-2 border-b-2 border-ink dark:border-parchment">
+          <h2 id="similar-series" className="eyebrow mb-4 pb-2 border-b border-line">
             If you like {work.title}
           </h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule/25 dark:bg-rule border border-rule/25 dark:border-rule">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule/25 dark:bg-rule border border-line">
             {similar.map((w) => (
               <li key={w.slug} className="bg-paper dark:bg-ground">
                 <Link

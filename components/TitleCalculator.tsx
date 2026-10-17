@@ -74,7 +74,7 @@ export function TitleCalculator({ examples, placeholder }: Props) {
         placeholder={placeholder}
         autoComplete="off"
         spellCheck={false}
-        className="w-full bg-transparent border-b-2 border-ink dark:border-parchment px-1 py-2 font-display text-2xl text-ink dark:text-parchment placeholder:text-gray-400 focus:outline-none focus:border-gold"
+        className="w-full bg-transparent border-b border-line px-1 py-2 font-display text-2xl text-ink dark:text-parchment placeholder:text-gray-400 focus:outline-none focus:border-gold"
       />
 
       <div aria-live="polite" className="mt-6">
@@ -123,7 +123,7 @@ export function TitleCalculator({ examples, placeholder }: Props) {
                     <li key={e.href}>
                       <Link
                         href={e.href}
-                        className="group flex items-baseline gap-3 py-2 border-b border-rule/25 dark:border-rule"
+                        className="group flex items-baseline gap-3 py-2 border-b border-line"
                       >
                         <span className="eyebrow shrink-0 basis-24 text-gray-500">{e.kindLabel}</span>
                         <span className="font-display text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors">

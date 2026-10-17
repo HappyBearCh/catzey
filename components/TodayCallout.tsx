@@ -12,7 +12,7 @@ export function TodayCallout() {
 
   return (
     <div
-      className="mb-10 border-2 border-ink dark:border-parchment bg-ground px-5 py-4 flex items-center gap-4"
+      className="mb-10 border border-line bg-ground px-5 py-4 flex items-center gap-4"
       aria-busy={!today}
     >
       <div

@@ -52,12 +52,12 @@ function TextThumbnail({
   className: string;
 }) {
   return (
-    <div className={`${className} bg-black flex flex-col items-center justify-center p-4 text-center`}>
+    <div className={`${className} rounded-xl bg-paper-2 dark:bg-ground-2 flex flex-col items-center justify-center p-4 text-center`}>
       <span className="text-primary text-2xs font-semibold uppercase tracking-widest mb-2 block">
         {categoryLabel}
         <ShelfMark n={titleValue(title)} />
       </span>
-      <p className="text-white font-semibold leading-snug line-clamp-4 text-lg">
+      <p className="font-display text-ink dark:text-parchment font-semibold leading-snug line-clamp-4 text-lg">
         {title}
       </p>
     </div>
@@ -122,7 +122,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
     return (
       <Link href={href} className="group flex flex-col panel p-2 hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors">
         {article.imageUrl ? (
-          <div className="relative overflow-hidden aspect-video mb-3 bg-gray-200 dark:bg-gray-800 border-2 border-ink dark:border-parchment">
+          <div className="relative overflow-hidden aspect-video mb-3 bg-gray-200 dark:bg-gray-800 border border-line">
             <SafeImage
               src={article.imageUrl}
               alt={article.title}
@@ -140,7 +140,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
             )}
           </div>
         ) : (
-          <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-3 border-2 border-ink dark:border-parchment" />
+          <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-3 border border-line" />
         )}
         <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
           {categoryLabel}
@@ -194,7 +194,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
             )}
           </div>
         ) : (
-          <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="flex-shrink-0 w-20 h-14" />
+          <span className="sigil sigil-md flex-shrink-0 mt-0.5" aria-hidden="true">{shelf}</span>
         )}
         <div className="min-w-0">
           <span className="text-2xs font-bold uppercase tracking-widest text-primary block mb-0.5">
@@ -216,7 +216,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
   return (
     <Link href={href} className="group flex flex-col panel p-2 hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors">
       {article.imageUrl ? (
-        <div className="relative overflow-hidden aspect-video mb-2 bg-gray-200 dark:bg-gray-800 border-2 border-ink dark:border-parchment">
+        <div className="relative overflow-hidden aspect-video mb-2 bg-gray-200 dark:bg-gray-800 border border-line">
           <SafeImage
             src={article.imageUrl}
             alt={article.imageAlt ?? article.title}
@@ -234,7 +234,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
           )}
         </div>
       ) : (
-        <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-2 border-2 border-ink dark:border-parchment" />
+        <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="aspect-video mb-2 border border-line" />
       )}
       <span className="text-2xs font-bold uppercase tracking-widest text-primary mb-1">
         {categoryLabel}

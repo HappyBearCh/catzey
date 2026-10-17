@@ -84,13 +84,13 @@ export default async function WikiIndexPage() {
       </p>
 
       <section id="series" className="mb-14 scroll-mt-4">
-        <h2 className="font-display text-2xl font-semibold mb-2 pb-2 border-b-2 border-ink dark:border-parchment">Series</h2>
+        <h2 className="font-display text-2xl font-semibold mb-2 pb-2 border-b border-line">Series</h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
           {works.map((w) => (
             <li key={w.slug}>
               <Link
                 href={`/wiki/series/${w.slug}`}
-                className="group block py-3 border-b border-rule/25 dark:border-rule/60"
+                className="group block py-3 border-b border-line"
               >
                 <span className="flex items-baseline gap-3">
                   <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink dark:text-parchment group-hover:text-gold transition-colors">
@@ -110,13 +110,13 @@ export default async function WikiIndexPage() {
       </section>
 
       <section id="creators" className="mb-14 scroll-mt-4">
-        <h2 className="font-display text-2xl font-semibold mb-2 pb-2 border-b-2 border-ink dark:border-parchment">Creators</h2>
+        <h2 className="font-display text-2xl font-semibold mb-2 pb-2 border-b border-line">Creators</h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
           {creators.map((c) => (
             <li key={c.slug}>
               <Link
                 href={`/wiki/creator/${c.slug}`}
-                className="group block py-3 border-b border-rule/25 dark:border-rule/60"
+                className="group block py-3 border-b border-line"
               >
                 <span className="flex items-baseline gap-3">
                   <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink dark:text-parchment group-hover:text-gold transition-colors">

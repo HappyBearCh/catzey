@@ -178,7 +178,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
 
           {sections.map((section) => (
             <section key={section.kind} className="mb-12">
-              <div className="flex items-baseline gap-4 mb-5 pb-2 border-b-2 border-ink dark:border-parchment">
+              <div className="flex items-baseline gap-4 mb-5 pb-2 border-b border-line">
                 <h2 className="eyebrow">{section.heading}</h2>
                 <span className="flex-1" />
                 <span className="eyebrow text-ink-muted dark:text-parchment/55">
@@ -191,7 +191,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="group flex gap-4 py-4 border-b border-rule/40 dark:border-rule last:border-0 hover:bg-seal/10 transition-colors -mx-2 px-2"
+                      className="group flex gap-4 py-4 border-b border-line last:border-0 hover:bg-seal/10 transition-colors -mx-2 px-2"
                     >
                       <span
                         className="shrink-0 font-display text-sm text-gold tabular-nums w-12 pt-1 text-right"
@@ -216,7 +216,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
         </>
       )}
 
-      <nav className="flex items-stretch justify-between gap-4 border-t-2 border-ink dark:border-parchment pt-6 mt-14">
+      <nav className="flex items-stretch justify-between gap-4 border-t border-line pt-6 mt-14">
         {prev ? (
           <Link href={`/number/${prev}`} className="group flex-1 text-left">
             <span className="eyebrow block mb-1">Previous shelf</span>

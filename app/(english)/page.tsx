@@ -117,30 +117,30 @@ export default async function HomePage() {
 
   return (
     <>
-      <div className="max-w-8xl mx-auto px-4">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6">
         {/* Headline, one sentence of what is here, and the three ways in. The
             day's number is in the header and closes the page, so it is not
             repeated here. */}
-        <section className="pt-10 pb-6 md:pt-16 md:pb-10 text-center">
-          <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-wide leading-tight max-w-3xl mx-auto text-ink dark:text-parchment">
-            A numerological reference to how manga works,
-            <span className="italic text-gold"> and where it came from</span>
+        <section className="pt-14 pb-8 md:pt-24 md:pb-12 text-center">
+          <p className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 font-sans text-xs text-ink-muted dark:text-parchment/60 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-seal" aria-hidden="true" />
+            A hand-written manga reference, filed by number
+          </p>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] max-w-3xl mx-auto text-ink dark:text-parchment">
+            How manga works, <span className="text-gold">and where it came from</span>
           </h1>
-          <p className="mt-6 max-w-xl mx-auto text-lg leading-relaxed text-ink-2 dark:text-parchment/75">
+          <p className="mt-6 max-w-xl mx-auto text-lg leading-relaxed text-ink-2 dark:text-parchment/70">
             Explainers written to be read in order, a glossary of every term you will
             meet, and reference entries for the series and the people who drew them —
             each one read against its numbers.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto text-left border-y-2 border-ink dark:border-parchment sm:divide-x-2 sm:divide-ink dark:sm:divide-parchment">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto text-left">
             {LEARN_ENTRY_POINTS.map(({ href, title, blurb }) => (
-              <Link
-                key={href}
-                href={href}
-                className="group p-6 hover:bg-seal/10 transition-colors border-b-2 sm:border-b-0 border-ink/20 dark:border-parchment/20 last:border-b-0"
-              >
-                <span className="block font-display text-2xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
+              <Link key={href} href={href} className={`group ${CARD} p-6`}>
+                <span className="flex items-center justify-between font-display text-xl font-bold mb-1.5 text-ink dark:text-parchment">
                   {title}
+                  <Arrow />
                 </span>
                 <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55">
                   {blurb}
@@ -151,17 +151,13 @@ export default async function HomePage() {
         </section>
 
         {/* Start here */}
-        <section className="my-12">
+        <section className="my-16">
           <SectionHead title="Start here" note="The first explainer on each track" href="/learn" link="All explainers" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {startHere.map(({ track, topic }) => (
-              <Link
-                key={track.slug}
-                href={`/learn/${topic.slug}`}
-                className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
-              >
-                <span className="eyebrow block mb-2 text-ink-muted dark:text-parchment/55">{track.label}</span>
-                <span className="block font-display text-xl font-semibold leading-snug mb-2 text-ink dark:text-parchment group-hover:text-gold transition-colors">
+              <Link key={track.slug} href={`/learn/${topic.slug}`} className={`group ${CARD} p-6`}>
+                <span className="block mb-2 font-sans text-xs font-medium text-gold">{track.label}</span>
+                <span className="block font-display text-xl font-bold leading-snug mb-2 text-ink dark:text-parchment">
                   {topic.title}
                 </span>
                 <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55 line-clamp-3">
@@ -173,14 +169,14 @@ export default async function HomePage() {
         </section>
 
         {/* The wiki */}
-        <section className="my-12">
+        <section className="my-16">
           <SectionHead
             title="The wiki"
             note={`${getAllWorks().length} series · ${getAllCreators().length} creators`}
             href="/wiki"
             link="Browse the wiki"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <EntryList
               heading="Series"
               items={works.map((w) => ({
@@ -201,14 +197,14 @@ export default async function HomePage() {
         </section>
 
         {/* The glossary, as a strip of terms */}
-        <section className="my-12">
+        <section className="my-16">
           <SectionHead title="The glossary" note="The terms you will meet first" href="/glossary" link={`All ${glossary.length} terms`} />
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          <ul className="flex flex-wrap gap-2">
             {commonTerms.map((t) => (
               <li key={t.slug}>
                 <Link
                   href={`/glossary/${t.slug}`}
-                  className="font-display text-[0.95rem] text-ink-2 dark:text-parchment/75 hover:text-gold transition-colors"
+                  className="inline-block rounded-full border border-line bg-[#fbf9f5] dark:bg-ground-2 px-3.5 py-1.5 font-sans text-sm text-ink-2 dark:text-parchment/75 hover:border-gold/40 hover:text-gold transition-colors"
                 >
                   {t.term}
                 </Link>
@@ -218,19 +214,19 @@ export default async function HomePage() {
         </section>
 
         {/* Guides */}
-        <section className="my-12">
+        <section className="my-16">
           <SectionHead title="Guides" note="Longer reads, start to finish" href="/guides" link="All guides" />
-          <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8">
+          <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
             {getAllStandaloneGuides().slice(0, 6).map((guide) => (
               <li key={guide.slug}>
                 <Link
                   href={`/guides/${guide.slug}`}
-                  className="group flex items-baseline gap-3 py-2.5 border-b border-rule/25 dark:border-rule/60"
+                  className="group flex items-baseline gap-3 py-3.5 border-b border-line"
                 >
-                  <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors">
+                  <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink-2 dark:text-parchment/85 group-hover:text-gold transition-colors">
                     {guide.title}
                   </span>
-                  <span className="shrink-0 text-sm text-gray-500">{guide.readingTime} min</span>
+                  <span className="shrink-0 font-sans text-xs text-gray-500">{guide.readingTime} min</span>
                 </Link>
               </li>
             ))}
@@ -238,10 +234,10 @@ export default async function HomePage() {
         </section>
 
         {/* The reference, shelf by shelf */}
-        <section className="my-12 border-t-2 border-ink dark:border-parchment pt-10">
+        <section className="my-20 rounded-3xl bg-paper-2/70 dark:bg-ground-2/60 px-4 py-12 sm:px-8 md:py-16">
           <div className="text-center max-w-xl mx-auto mb-10">
-            <p className="eyebrow mb-4">The whole reference, by number</p>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-wide text-ink dark:text-parchment">
+            <p className="font-sans text-xs font-medium text-gold mb-3">The whole reference, by number</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-ink dark:text-parchment">
               Twelve shelves
             </h2>
             <p className="mt-4 text-ink-2 dark:text-parchment/70 leading-relaxed">
@@ -251,40 +247,39 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {shelves.map(({ n, group, entries: shelfEntries }) => (
-              <div key={n} className="panel tone-fill flex flex-col">
-                {/* A stamped title bar, the way a chapter is ruled off. */}
-                <Link href={`/number/${n}`} className="panel-head hover:opacity-80 transition-opacity">
-                  <span className="text-base leading-none">{n}</span>
-                  <span>{group.shelf}</span>
+              <div key={n} className="panel flex flex-col">
+                <Link href={`/number/${n}`} className="panel-head group">
+                  <span className="sigil sigil-sm">{n}</span>
+                  <span className="group-hover:text-gold transition-colors">{group.shelf}</span>
                 </Link>
-                <div className="p-5 flex flex-col flex-1">
-                  <p className="text-sm leading-snug text-ink-muted dark:text-parchment/50 mb-4">
+                <div className="px-5 pb-5 pt-1 flex flex-col flex-1">
+                  <p className="text-sm leading-snug text-ink-muted dark:text-parchment/55 mb-3">
                     {group.tagline}
                   </p>
 
-                <ul className="flex-1">
-                  {shelfEntries.map((entry) => (
-                    <li key={entry.href}>
-                      <Link
-                        href={entry.href}
-                        className="group flex items-baseline gap-2.5 py-2 border-b border-rule/25 dark:border-rule/60"
-                      >
-                        <span className="eyebrow shrink-0 whitespace-nowrap basis-[5.5rem] text-ink-muted dark:text-parchment/55">
-                          {entry.kindLabel}
-                        </span>
-                        <span className="min-w-0 font-display text-[0.95rem] leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors line-clamp-2">
-                          {entry.title}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="flex-1">
+                    {shelfEntries.map((entry) => (
+                      <li key={entry.href}>
+                        <Link
+                          href={entry.href}
+                          className="group flex items-baseline gap-2.5 py-2 border-t border-line"
+                        >
+                          <span className="shrink-0 whitespace-nowrap basis-[5.5rem] font-sans text-xs text-ink-muted dark:text-parchment/55">
+                            {entry.kindLabel}
+                          </span>
+                          <span className="min-w-0 font-display text-[0.95rem] leading-snug text-ink-2 dark:text-parchment/85 group-hover:text-gold transition-colors line-clamp-2">
+                            {entry.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
 
                   <Link
                     href={`/number/${n}`}
-                    className="eyebrow mt-4 text-seal hover:opacity-70 transition-opacity"
+                    className="mt-3 font-sans text-sm font-medium text-gold hover:underline underline-offset-4"
                   >
                     The whole shelf →
                   </Link>
@@ -293,30 +288,30 @@ export default async function HomePage() {
             ))}
           </div>
 
-          <p className="text-center mt-8">
-            <Link href="/numbers#calculator" className="eyebrow text-gold hover:underline">
+          <p className="text-center mt-10">
+            <Link
+              href="/numbers#calculator"
+              className="inline-block rounded-full bg-ink text-paper dark:bg-parchment dark:text-ink px-5 py-2.5 font-sans text-sm font-medium hover:opacity-85 transition-opacity"
+            >
               Work out any title&apos;s number →
             </Link>
           </p>
         </section>
 
         {/* Essays */}
-        <section className="my-12">
+        <section className="my-16">
           <SectionHead title="Essay series" note="Long-form, read in order" href="/series" link="All series" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rule dark:bg-ink-border border border-rule dark:border-ink-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {series.map((s) => (
-              <Link
-                key={s.id}
-                href={`/series/${s.slug}`}
-                className="group bg-paper dark:bg-ink-bg p-6 hover:bg-paper-2 dark:hover:bg-ink-bg-2 transition-colors"
-              >
-                <span className="block font-display text-xl font-semibold mb-1.5 text-ink dark:text-parchment group-hover:text-gold transition-colors">
+              <Link key={s.id} href={`/series/${s.slug}`} className={`group ${CARD} p-6`}>
+                <span className="flex items-center justify-between gap-3 font-display text-xl font-bold mb-1.5 text-ink dark:text-parchment">
                   {s.title}
+                  <Arrow />
                 </span>
                 <span className="block text-sm leading-relaxed text-ink-muted dark:text-parchment/55 line-clamp-2 mb-3">
                   {s.description}
                 </span>
-                <span className="eyebrow text-ink-muted dark:text-parchment/55">
+                <span className="font-sans text-xs text-ink-muted dark:text-parchment/55">
                   {s.parts} hand-written {s.parts === 1 ? 'part' : 'parts'}
                 </span>
               </Link>
@@ -331,13 +326,31 @@ export default async function HomePage() {
   );
 }
 
+// A card: a hairline, a soft corner, and a small lift on hover. Every block of
+// links on the page uses it, so they read as one family.
+const CARD =
+  'block rounded-2xl border border-line bg-[#fbf9f5] dark:bg-ground-2 hover:border-gold/30 hover:shadow-[0_10px_30px_-14px_rgba(20,17,15,0.25)] hover:-translate-y-0.5 transition-all duration-200';
+
+function Arrow() {
+  return (
+    <span
+      className="shrink-0 text-base text-gold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
+      aria-hidden="true"
+    >
+      →
+    </span>
+  );
+}
+
 function SectionHead({ title, note, href, link }: { title: string; note: string; href: string; link: string }) {
   return (
-    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-6 pb-2 border-b-2 border-ink dark:border-parchment">
-      <h2 className="font-display text-2xl font-semibold tracking-wide text-ink dark:text-parchment">{title}</h2>
-      <span className="font-display text-[0.8rem] tracking-wide text-ink-muted dark:text-parchment/55">{note}</span>
+    <div className="flex flex-wrap items-end gap-x-4 gap-y-2 mb-6">
+      <div className="min-w-0">
+        <h2 className="font-display text-2xl md:text-[1.75rem] font-bold tracking-tight text-ink dark:text-parchment">{title}</h2>
+        <p className="mt-1 font-sans text-sm text-ink-muted dark:text-parchment/55">{note}</p>
+      </div>
       <span className="flex-1" />
-      <Link href={href} className="eyebrow text-seal hover:opacity-70 transition-opacity">
+      <Link href={href} className="font-sans text-sm font-medium text-gold hover:underline underline-offset-4">
         {link} →
       </Link>
     </div>
@@ -346,19 +359,19 @@ function SectionHead({ title, note, href, link }: { title: string; note: string;
 
 function EntryList({ heading, items }: { heading: string; items: { href: string; title: string; meta: string }[] }) {
   return (
-    <div>
-      <h3 className="eyebrow mb-2 text-ink-muted dark:text-parchment/55">{heading}</h3>
+    <div className="rounded-2xl border border-line bg-[#fbf9f5] dark:bg-ground-2 px-5 pt-4 pb-2">
+      <h3 className="mb-1 font-sans text-xs font-medium text-ink-muted dark:text-parchment/55">{heading}</h3>
       <ul>
         {items.map((item) => (
-          <li key={item.href}>
+          <li key={item.href} className="border-b border-line last:border-0">
             <Link
               href={item.href}
-              className="group flex items-baseline gap-3 py-2.5 border-b border-rule/25 dark:border-rule/60"
+              className="group flex items-baseline gap-3 py-3"
             >
-              <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink-2 dark:text-parchment/80 group-hover:text-gold transition-colors">
+              <span className="min-w-0 flex-1 font-display text-lg leading-snug text-ink-2 dark:text-parchment/85 group-hover:text-gold transition-colors">
                 {item.title}
               </span>
-              <span className="shrink-0 text-sm text-ink-muted dark:text-parchment/55">{item.meta}</span>
+              <span className="shrink-0 font-sans text-xs text-ink-muted dark:text-parchment/55">{item.meta}</span>
             </Link>
           </li>
         ))}

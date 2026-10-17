@@ -16,18 +16,19 @@ export function InlineRelated({ articles }: Props) {
 
   return (
     <div className="my-8 not-prose">
-      <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-3">More Stories</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-site-light dark:bg-gray-800 border-l-4 border-primary">
+      <span className="eyebrow block mb-3">Read next</span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {articles.slice(0, 2).map((article) => {
           const label = getCategoryLabel(article.category);
           return (
             <Link
               key={article.id}
               href={`/article/${article.slug}`}
-              className="group flex gap-3 items-start"
+              className="group flex gap-3 items-start rounded-2xl border border-line p-4 no-underline hover:border-gold/30 transition-colors"
+              style={{ textDecoration: 'none' }}
             >
               {article.imageUrl ? (
-                <div className="relative flex-shrink-0 w-20 h-14 overflow-hidden bg-gray-200 dark:bg-gray-700">
+                <div className="relative flex-shrink-0 w-20 h-14 overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-700">
                   <Image
                     src={article.imageUrl}
                     alt={article.title}
@@ -39,18 +40,15 @@ export function InlineRelated({ articles }: Props) {
                   />
                 </div>
               ) : (
-                <div className="flex-shrink-0 w-20 h-14 bg-black flex items-center justify-center">
-                  <span className="text-primary text-2xs font-semibold uppercase">{label}</span>
-                </div>
+                <span className="sigil sigil-md flex-shrink-0" aria-hidden="true">{titleValue(article.title)}</span>
               )}
               <div className="min-w-0">
-                <span className="text-2xs font-bold uppercase tracking-widest text-primary block mb-0.5">
+                <span className="text-2xs font-semibold uppercase tracking-widest text-ink-muted dark:text-parchment/55 block mb-1">
                   {label}
-                  <span className="text-gold font-normal"> · {titleValue(article.title)}</span>
                 </span>
-                <p className="font-bold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors text-gray-900 dark:text-gray-100">
+                <span className="block font-display font-bold text-[0.95rem] leading-snug line-clamp-2 group-hover:text-primary transition-colors text-ink dark:text-parchment">
                   {article.title}
-                </p>
+                </span>
                 <time className="text-xs text-gray-500 dark:text-gray-400 mt-1 block">
                   {formatDistanceToNow(new Date(article.publishedAt), { addSuffix: true })}
                 </time>

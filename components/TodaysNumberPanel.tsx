@@ -25,7 +25,7 @@ export function TodaysNumberPanel({ matches }: Props) {
 
   return (
     <section
-      className="my-4 rounded-sm overflow-hidden border-2 border-ink dark:border-parchment bg-ground"
+      className="my-4 rounded-sm overflow-hidden border border-line bg-ground"
       aria-label="Today's number"
       aria-busy={!today}
     >

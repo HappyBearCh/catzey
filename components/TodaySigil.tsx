@@ -9,14 +9,11 @@ export function TodaySigil() {
   const today = useToday();
 
   return (
-    <div className="hidden md:flex items-baseline gap-2">
+    <div className="hidden md:flex items-center w-7 h-7">
       {today && (
-        <>
-          <span className="eyebrow">Today</span>
-          <span className="sigil sigil-sm" title={today.dateLabel}>
-            {today.number}
-          </span>
-        </>
+        <span className="sigil sigil-sm" title={`Today's number · ${today.dateLabel}`}>
+          {today.number}
+        </span>
       )}
     </div>
   );

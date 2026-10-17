@@ -63,12 +63,12 @@ export function MobileMenu() {
       )}
 
       <div
-        className={`md:hidden fixed top-0 left-0 z-50 h-full w-72 bg-paper dark:bg-ground border-r-2 border-ink dark:border-parchment flex flex-col transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-0 left-0 z-50 h-full w-72 bg-paper dark:bg-ground border-r border-line flex flex-col transition-transform duration-300 ease-in-out ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
         aria-hidden={!open}
       >
-        <div className="flex items-center justify-between px-5 h-14 border-b border-rule/25 dark:border-rule flex-shrink-0">
+        <div className="flex items-center justify-between px-5 h-14 border-b border-line flex-shrink-0">
           <span className="eyebrow">Menu</span>
           <button
             onClick={() => setOpen(false)}
@@ -84,7 +84,7 @@ export function MobileMenu() {
         <nav aria-label="Menu" className="flex-1 overflow-y-auto py-3">
           {item('Home', '/')}
           {PRIMARY_LINKS.map(({ label, href }) => item(label, href))}
-          <div className="mx-5 my-3 border-t border-rule/25 dark:border-rule" />
+          <div className="mx-5 my-3 border-t border-line" />
           {MORE_LINKS.map(({ label, href }) => item(label, href))}
         </nav>
       </div>

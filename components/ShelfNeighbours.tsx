@@ -27,7 +27,7 @@ export async function ShelfNeighbours({ title, selfHref, limit = 6, className = 
 
   return (
     <aside
-      className={`border-t-2 border-ink dark:border-parchment pt-5 ${className}`}
+      className={`border-t border-line pt-5 ${className}`}
       aria-label={`Also filed under ${n}`}
     >
       <div className="flex items-baseline gap-3 mb-4">
@@ -49,7 +49,7 @@ export async function ShelfNeighbours({ title, selfHref, limit = 6, className = 
           <li key={item.href}>
             <Link
               href={item.href}
-              className="group flex items-baseline gap-3 py-2.5 border-b border-rule/30 dark:border-rule"
+              className="group flex items-baseline gap-3 py-2.5 border-b border-line"
             >
               <span className="eyebrow shrink-0 whitespace-nowrap basis-[5.5rem] text-ink-muted dark:text-parchment/55">
                 {item.kindLabel}

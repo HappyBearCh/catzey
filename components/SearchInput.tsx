@@ -152,14 +152,14 @@ export function SearchInput({
             onFocus={onFocus}
             placeholder={placeholder}
             autoComplete="off"
-            className="text-xs bg-transparent text-ink dark:text-parchment placeholder-ink-muted dark:placeholder-parchment/35 border-0 border-b-2 border-ink dark:border-parchment px-1 py-1.5 w-full focus:outline-none focus:border-gold transition-colors pr-10"
+            className="text-sm font-sans bg-ink/[0.04] dark:bg-parchment/[0.06] text-ink dark:text-parchment placeholder-ink-muted dark:placeholder-parchment/40 border border-transparent rounded-full pl-4 pr-10 py-1.5 w-full focus:outline-none focus:border-line focus:bg-paper dark:focus:bg-ground transition-colors"
           />
-          <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-parchment/55 font-mono hidden md:block">/</kbd>
+          <kbd className="pointer-events-none absolute right-3 text-2xs text-ink-muted dark:text-parchment/55 font-mono hidden md:block border border-line rounded px-1.5 leading-4">/</kbd>
         </div>
       </form>
 
       {open && (showRecent || showSuggestions) && (
-        <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-gray-900 border border-site-border dark:border-gray-700 shadow-xl z-50 max-h-72 overflow-y-auto">
+        <div className="absolute left-0 right-0 top-full mt-2 bg-paper dark:bg-ground-2 border border-line rounded-xl shadow-xl z-50 max-h-72 overflow-y-auto">
           {showRecent && (
             <>
               <div className="flex items-center justify-between px-3 py-1.5 border-b border-site-border dark:border-gray-700">

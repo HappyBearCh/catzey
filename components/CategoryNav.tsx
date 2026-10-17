@@ -29,8 +29,8 @@ export function CategoryNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Main" className="hidden md:block border-t-2 border-ink dark:border-parchment">
-      <ul className="max-w-8xl mx-auto px-4 flex items-center justify-center gap-8">
+    <nav aria-label="Main" className="hidden md:block">
+      <ul className="flex items-center gap-1 ml-4">
         {PRIMARY_LINKS.map(({ label, href }) => {
           const active = isActive(pathname, href);
           return (
@@ -38,10 +38,10 @@ export function CategoryNav() {
               <Link
                 href={href}
                 aria-current={active ? 'page' : undefined}
-                className={`block py-3 font-display text-[0.85rem] font-semibold uppercase tracking-label transition-colors ${
+                className={`block px-3 py-1.5 rounded-full font-sans text-[0.9rem] font-medium transition-colors ${
                   active
-                    ? 'text-gold'
-                    : 'text-ink-2 hover:text-gold dark:text-parchment/80 dark:hover:text-gold'
+                    ? 'bg-seal/10 text-gold'
+                    : 'text-ink-2 hover:text-ink hover:bg-ink/5 dark:text-parchment/75 dark:hover:text-parchment dark:hover:bg-parchment/5'
                 }`}
               >
                 {label}

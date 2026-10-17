@@ -69,19 +69,19 @@ export default async function LearnHubPage() {
           const inTrack = topics.filter((t) => t.track === track.slug);
           return (
             <section key={track.slug}>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="block w-1 h-6 bg-primary" />
-                <h2 className="text-xl font-semibold tracking-tight">{track.label}</h2>
+              <div className="flex items-baseline gap-3 mb-1">
+
+                <h2 className="font-display text-2xl font-bold tracking-tight">{track.label}</h2>
                 <span className="text-2xs font-bold text-gray-400 uppercase tracking-wider">
                   {inTrack.length} {inTrack.length === 1 ? 'lesson' : 'lessons'}
                 </span>
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 ml-3">{track.blurb}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{track.blurb}</p>
 
               {inTrack.length === 0 ? (
-                <p className="text-sm text-gray-400 ml-3 italic">Coming soon.</p>
+                <p className="text-sm text-gray-400 italic">Coming soon.</p>
               ) : (
-                <ol className="border border-site-border rounded-sm divide-y divide-site-border">
+                <ol className="border border-site-border rounded-2xl overflow-hidden divide-y divide-site-border bg-[#fbf9f5] dark:bg-ground-2">
                   {inTrack.map((t, i) => (
                     <li key={t.slug}>
                       <Link
@@ -92,7 +92,7 @@ export default async function LearnHubPage() {
                           {i + 1}
                         </span>
                         <span className="min-w-0">
-                          <span className="block font-bold leading-snug group-hover:text-primary transition-colors">
+                          <span className="block font-display font-bold text-[1.05rem] leading-snug group-hover:text-primary transition-colors">
                             {t.title}
                           </span>
                           <span className="block text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-0.5">

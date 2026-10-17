@@ -9,11 +9,13 @@
     --accent: 208 52 44;     /* #d0342c on paper: 4.5:1 */
     --gray-400: 111 103 94;  /* #6f675e on paper: 5.1:1 */
     --gray-500: 98 91 83;    /* #625b53 on paper: 6.1:1 */
+    --line: 226 220 210;     /* #e2dcd2, a hairline on paper */
   }
   .dark {
     --accent: 236 106 95;    /* #ec6a5f on ink: 6.1:1 */
     --gray-400: 168 162 154; /* #a8a29a on ink: 7.4:1 */
     --gray-500: 150 144 136; /* #969088 on ink: 6.0:1 */
+    --line: 52 46 41;        /* #342e29, a hairline on ink */
   }
 
   html {
@@ -61,11 +63,11 @@
   /* A Gothic run-in label. Study guides mark their sections with a short heavy
      word, not with letterspaced small caps. */
   .eyebrow {
-    font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-family: var(--font-sans), 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     @apply text-ink-muted dark:text-parchment-dim;
   }
 
@@ -77,26 +79,21 @@
   .rule-ornament::after {
     content: '';
     flex: 1 1 auto;
-    height: 2px;
-    background: currentColor;
-    @apply text-ink dark:text-parchment;
-    opacity: 0.85;
+    height: 1px;
+    background: rgb(var(--line));
   }
   .rule-ornament > * {
     font-size: 0 !important;
-    width: 0.6rem;
-    height: 0.6rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
     background: #d0342c;
     flex: 0 0 auto;
   }
 
   /* Reference-entry metadata: label left, value right, hairline between. */
   .datarow {
-    @apply flex items-baseline justify-between gap-4 py-2 border-b;
-    border-color: rgba(20, 17, 15, 0.15);
-  }
-  .dark .datarow {
-    border-color: rgba(247, 244, 238, 0.15);
+    @apply flex items-baseline justify-between gap-4 py-2.5 border-b border-line;
   }
 
   /* The figure a numeral sits in — a thin gold circle, as on a chart. */
@@ -106,7 +103,7 @@
   .sigil {
     @apply inline-flex items-center justify-center rounded-full font-display font-bold;
     color: #d0342c;
-    border: 2px solid #d0342c;
+    border: 1.5px solid #d0342c;
     box-shadow: none;
     letter-spacing: -0.02em;
     /* Default: the size most call sites want. */
@@ -139,7 +136,7 @@
     width: 5rem;
     height: 5rem;
     font-size: 2.5rem;
-    border-width: 3px;
+    border-width: 2px;
   }
   @media (min-width: 768px) {
     .sigil-xl {
@@ -153,50 +150,40 @@
   /* A panel. Manga borders are drawn with a pen and meant to be seen — the
      whole grammar of the page is boxes and the gutters between them. */
   .panel {
-    border: 2px solid #14110f;
-    background: #f7f4ee;
+    border: 1px solid rgb(var(--line));
+    border-radius: 1rem;
+    background: #fbf9f5;
+    overflow: hidden;
   }
   .dark .panel {
-    border-color: #f7f4ee;
-    background: #14110f;
+    background: #1a1613;
   }
 
   /* A panel's title bar: solid ink, reversed out, like a chapter rule. */
   .panel-head {
-    @apply flex items-center gap-2 px-3 py-1.5;
-    background: #14110f;
-    color: #f7f4ee;
+    @apply flex items-center gap-2.5 px-5 pt-5 pb-1;
+    color: #14110f;
     font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-    font-size: 0.7rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
   }
   .dark .panel-head {
-    background: #f7f4ee;
-    color: #14110f;
+    color: #f7f4ee;
   }
 
   /* Screentone. Shading was done with adhesive sheets of printed dots because
      the presses could only manage black, and it became the look of the medium. */
+  /* Screentone has been retired as a texture: flat stock reads cleaner. The
+     classes stay so call sites need no change. */
   .tone {
-    background-image: radial-gradient(currentColor 1px, transparent 1.2px);
-    background-size: 5px 5px;
-    opacity: 0.14;
+    display: none;
   }
   .tone-fill {
     position: relative;
     isolation: isolate;
   }
   .tone-fill::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-image: radial-gradient(currentColor 1px, transparent 1.2px);
-    background-size: 5px 5px;
-    opacity: 0.12;
-    pointer-events: none;
+    content: none;
   }
 
 @layer utilities {
@@ -305,20 +292,6 @@
   position: relative;
   isolation: isolate;
 }
-.article-prose blockquote::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: radial-gradient(#14110f 1px, transparent 1.2px);
-  background-size: 5px 5px;
-  opacity: 0.07;
-  pointer-events: none;
-}
-.dark .article-prose blockquote::before {
-  background-image: radial-gradient(#f7f4ee 1px, transparent 1.2px);
-  opacity: 0.09;
-}
 .article-prose blockquote {
   border-left: 2px solid #d0342c;
   padding-left: 1.15rem;
@@ -395,16 +368,13 @@
 }
 
 .ref-prose h2 {
-  font-size: 0.82rem;
+  font-size: 1.4rem;
   font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-top: 2.5rem;
-  margin-bottom: 0.9rem;
-  padding-bottom: 0.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
   @apply text-ink dark:text-parchment;
-  border-bottom: 2px solid #d0342c;
 }
 
 .ref-prose h2:first-child {
@@ -446,20 +416,6 @@
   border-left: 3px solid #d0342c;
   font-style: italic;
 }
-.ref-prose blockquote::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: radial-gradient(#14110f 1px, transparent 1.2px);
-  background-size: 5px 5px;
-  opacity: 0.07;
-  pointer-events: none;
-}
-.dark .ref-prose blockquote::before {
-  background-image: radial-gradient(#f7f4ee 1px, transparent 1.2px);
-  opacity: 0.09;
-}
 
 .ref-prose ul, .ref-prose ol {
   margin-bottom: 1.15rem;
@@ -470,10 +426,9 @@
 .ref-prose li { margin-bottom: 0.5rem; }
 
 .ref-prose blockquote {
-  border-left: 2px solid #d0342c;
-  padding-left: 1.15rem;
-  margin: 1.5rem 0;
-  font-style: italic;
+  border-left-width: 2px;
+  border-radius: 0 0.75rem 0.75rem 0;
+  @apply bg-paper-2 dark:bg-ground-2;
 }
 
 /* WYSIWYG editor content styles */
@@ -710,7 +665,7 @@
   gap: 0.85rem;
   margin: 0 0 1.6rem;
   padding-bottom: 1.1rem;
-  border-bottom: 2px solid #14110f;
+  border-bottom: 1px solid rgb(var(--line));
   font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   font-size: 0.98rem;
   font-weight: 500;
@@ -734,7 +689,7 @@
   justify-content: center;
   width: 2.4rem;
   height: 2.4rem;
-  border: 2px solid #d0342c;
+  border: 1.5px solid #d0342c;
   border-radius: 9999px;
   font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   font-size: 1.15rem;
@@ -767,13 +722,8 @@
      width those rules run past the last cell and read as an empty one. */
   width: fit-content;
   max-width: 100%;
-  border-top: 2px solid #14110f;
-  border-left: 2px solid #14110f;
+  gap: 0.375rem;
   margin: 1.4rem 0 1.6rem;
-}
-.dark .num-working {
-  border-top-color: #f7f4ee;
-  border-left-color: #f7f4ee;
 }
 .num-word {
   /* Cells share the row evenly, but a two-word title must not stretch two of
@@ -785,13 +735,13 @@
   align-items: center;
   gap: 0.2rem;
   min-width: 4.25rem;
-  padding: 0.5rem 0.6rem;
-  border-right: 2px solid #14110f;
-  border-bottom: 2px solid #14110f;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgb(var(--line));
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.55);
 }
 .dark .num-word {
-  border-right-color: #f7f4ee;
-  border-bottom-color: #f7f4ee;
+  background: rgba(255, 255, 255, 0.03);
 }
 .num-word-text {
   font-size: 0.7rem;
@@ -817,8 +767,10 @@
 }
 /* A figure that landed on the same number the text is filed under. That
    agreement is the reason the two rows are printed together, so it is marked. */
-.num-word-match {
+.num-word-match,
+.dark .num-word-match {
   background: rgba(208, 52, 44, 0.09);
+  border-color: rgba(208, 52, 44, 0.3);
 }
 .num-word-match .num-word-value {
   color: #d0342c;
@@ -830,7 +782,7 @@
 /* The second row — numbers the subject carries rather than ones derived from
    its letters — is set tight under the first so they read as one working. */
 .num-working-figures {
-  margin-top: -1.6rem;
+  margin-top: -1.2rem;
 }
 
 .num-word-total .num-word-text {
@@ -848,27 +800,13 @@
    from it — a rule above, the same measure, slightly quieter type. */
 .num-reading {
   margin-top: 2.75rem;
-  padding: 1.4rem 1.5rem 1.5rem;
-  border: 2px solid #14110f;
-  position: relative;
-  isolation: isolate;
-}
-.num-reading::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: radial-gradient(#14110f 1px, transparent 1.2px);
-  background-size: 5px 5px;
-  opacity: 0.06;
-  pointer-events: none;
+  padding: 1.5rem 1.6rem 1.6rem;
+  border: 1px solid rgb(var(--line));
+  border-radius: 1rem;
+  background: #fbf9f5;
 }
 .dark .num-reading {
-  border-color: #f7f4ee;
-}
-.dark .num-reading::before {
-  background-image: radial-gradient(#f7f4ee 1px, transparent 1.2px);
-  opacity: 0.08;
+  background: #1a1613;
 }
 .num-reading > h2 {
   font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
@@ -904,4 +842,11 @@
 }
 .dark .num-reading a {
   color: #f0a49e;
+}
+
+/* Small uppercase labels — badges, breadcrumbs, levels, metadata keys — are
+   set in the sans. Letterspaced capitals in a text serif read as shouting;
+   in a grotesque they read as interface. */
+.uppercase {
+  font-family: var(--font-sans), 'Helvetica Neue', Arial, sans-serif;
 }

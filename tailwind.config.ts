@@ -43,6 +43,10 @@ const config: Config = {
         // Rules. Manga panels are drawn, not hinted at — these are meant to be
         // seen, unlike the hairlines they replace.
         rule: '#3a332e',
+
+        // The hairline every divider uses. A variable so one class reads as a
+        // quiet rule on paper and on ink alike.
+        line: 'rgb(var(--line) / <alpha-value>)',
         'rule-gold': '#6b241f',
 
         // Paper mode.
@@ -65,10 +69,10 @@ const config: Config = {
         'site-dark-2': '#1e1a17',
         'site-gray': '#6f675e',
         'site-light': '#ece7dd',
-        'site-border': '#ddd7cb',
+        'site-border': 'rgb(var(--line) / <alpha-value>)',
         'ink-bg': '#14110f',
         'ink-bg-2': '#1e1a17',
-        'ink-border': '#3a332e',
+        'ink-border': 'rgb(var(--line) / <alpha-value>)',
         'rule-strong': '#14110f',
 
         // Tailwind's gray-400/500 are used across older templates for quiet
@@ -93,16 +97,20 @@ const config: Config = {
       fontSize: {
         '2xs': '0.65rem',
       },
+      // Soft corners throughout. Older templates ask for `rounded-sm` and
+      // `rounded`; both are lifted here so every box on the site shares one
+      // gentle radius without touching each call site.
+      borderRadius: {
+        sm: '0.625rem',
+        DEFAULT: '0.5rem',
+      },
       letterSpacing: {
         label: '0.14em',
         wide2: '0.3em',
       },
       maxWidth: {
-        '8xl': '104rem',
+        '8xl': '72rem',
         reading: '38rem',
-      },
-      borderRadius: {
-        none: '0',
       },
       backgroundImage: {
         // Screentone. The defining texture of the medium: shading done with

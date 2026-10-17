@@ -358,7 +358,7 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* Series banner */}
           {seriesCtx && (
-            <div className="mb-4 p-3 bg-primary/10 border border-primary/30 rounded-sm flex items-center gap-3">
+            <div className="mb-5 p-3 border border-site-border rounded-2xl flex items-center gap-3">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">
                 {article.seriesOrder}
               </div>
@@ -382,19 +382,19 @@ export default async function ArticlePage({ params }: Props) {
           {/* What it is about, then what it reduces to — the two taxonomies the
               reference keeps side by side. */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5">
+            <span className="inline-block rounded-full bg-ink/5 dark:bg-parchment/10 text-ink-2 dark:text-parchment/80 text-2xs font-semibold uppercase tracking-widest px-2.5 py-1">
               {categoryLabel}
             </span>
             <Link
               href={`/number/${shelfNumber}`}
-              className="inline-flex items-center gap-1.5 text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 border border-seal text-gold hover:bg-seal/10 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full text-2xs font-semibold uppercase tracking-widest px-2.5 py-1 bg-seal/10 text-gold hover:bg-seal/15 transition-colors"
             >
               <span aria-hidden="true">{shelfNumber}</span>
               <span>{shelf.shelf}</span>
             </Link>
           </div>
 
-          <h1 className="text-2xl md:text-4xl font-semibold leading-tight mb-4">
+          <h1 className="text-3xl md:text-[2.75rem] font-bold tracking-tight leading-[1.15] mb-4">
             {article.title}
           </h1>
 
@@ -456,7 +456,7 @@ export default async function ArticlePage({ params }: Props) {
             );
           })()}
 
-          <figure className="mb-6">
+          <figure className={article.imageUrl ? 'mb-6' : 'hidden'}>
             {article.imageUrl ? (
               <div className="relative w-full aspect-video overflow-hidden">
                 <SafeImage
@@ -479,12 +479,7 @@ export default async function ArticlePage({ params }: Props) {
                   </span>
                 )}
               </div>
-            ) : (
-              <div className="w-full h-64 md:h-80 bg-black flex flex-col items-center justify-center text-center px-8 rounded-sm">
-                <span className="text-primary text-xs font-semibold uppercase tracking-widest mb-3 block">{categoryLabel}</span>
-                <p className="text-white font-semibold text-xl md:text-3xl leading-snug">{article.title}</p>
-              </div>
-            )}
+            ) : null}
           </figure>
 
           <div className="article-prose text-gray-800 dark:text-gray-200">
@@ -521,7 +516,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
 
           {article.generated && (
-            <p className="mt-6 p-4 text-sm leading-relaxed border border-rule dark:border-ink-border text-ink-muted dark:text-parchment/60">
+            <p className="mt-6 p-4 text-sm leading-relaxed border border-line rounded-xl text-ink-muted dark:text-parchment/60">
               This text was machine-written, before Catzye adopted the rule that everything on it is
               written by hand. It stays in the archive for readers who arrived at it, but it is not
               part of the reference and is not offered to search engines.{' '}
@@ -618,7 +613,6 @@ export default async function ArticlePage({ params }: Props) {
           {related.length > 0 && (
             <div className="mt-10 pt-6 border-t border-site-border">
               <div className="flex items-center gap-2 mb-5">
-                <span className="block w-1 h-5 bg-primary" />
                 <h2 className="text-sm font-semibold uppercase tracking-wider">You May Also Like</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -628,7 +622,7 @@ export default async function ArticlePage({ params }: Props) {
               </div>
               <Link
                 href={`/${article.category}`}
-                className="mt-5 block text-center text-xs font-bold uppercase tracking-wider text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors"
+                className="mt-5 block text-center text-sm font-sans font-medium text-primary rounded-full border border-site-border px-4 py-2 hover:border-primary/40 transition-colors"
               >
                 All of {categoryLabel} →
               </Link>
@@ -644,8 +638,7 @@ export default async function ArticlePage({ params }: Props) {
             {related.length > 0 && (
               <>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="block w-1 h-5 bg-primary" />
-                  <h2 className="text-sm font-semibold uppercase tracking-wider">
+                    <h2 className="text-sm font-semibold uppercase tracking-wider">
                     More in {categoryLabel}
                   </h2>
                 </div>
@@ -656,7 +649,7 @@ export default async function ArticlePage({ params }: Props) {
                 </div>
                 <Link
                   href={`/${article.category}`}
-                  className="mt-4 block text-center text-xs font-bold uppercase tracking-wider text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-white transition-colors"
+                  className="mt-4 block text-center text-sm font-sans font-medium text-primary rounded-full border border-site-border px-4 py-2 hover:border-primary/40 transition-colors"
                 >
                   All of {categoryLabel} →
                 </Link>

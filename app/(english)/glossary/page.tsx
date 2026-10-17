@@ -80,7 +80,7 @@ export default async function GlossaryIndexPage() {
               <a
                 key={l}
                 href={`#letter-${l}`}
-                className="w-8 h-8 flex items-center justify-center text-sm font-bold border border-site-border hover:bg-primary hover:text-white hover:border-primary transition-colors rounded-sm"
+                className="w-8 h-8 flex items-center justify-center font-sans text-sm font-medium border border-site-border hover:bg-primary hover:text-white hover:border-primary transition-colors rounded-full"
               >
                 {l}
               </a>
@@ -92,7 +92,7 @@ export default async function GlossaryIndexPage() {
               const n = terms.filter((t) => t.category === c.slug).length;
               if (n === 0) return null;
               return (
-                <span key={c.slug} className="text-2xs font-bold uppercase tracking-wider px-2.5 py-1 bg-site-light dark:bg-gray-800 text-primary border border-primary/30 rounded-sm">
+                <span key={c.slug} className="text-2xs font-bold uppercase tracking-wider px-3 py-1 bg-seal/[0.04] text-primary border border-primary/30 rounded-full">
                   {c.label} · {n}
                 </span>
               );
@@ -101,11 +101,11 @@ export default async function GlossaryIndexPage() {
 
           {[...groups.entries()].map(([letter, items]) => (
             <section key={letter} id={`letter-${letter}`} className="mb-10 scroll-mt-24">
-              <h2 className="text-2xl font-semibold text-primary mb-4 pb-2 border-b border-site-border">{letter}</h2>
+              <h2 className="font-display text-2xl font-bold text-primary mb-4 pb-2 border-b border-site-border">{letter}</h2>
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                 {items.map((t) => (
                   <div key={t.slug}>
-                    <dt className="font-bold">
+                    <dt className="font-display font-bold">
                       <Link href={`/glossary/${t.slug}`} className="hover:text-primary transition-colors">
                         {t.term}
                       </Link>

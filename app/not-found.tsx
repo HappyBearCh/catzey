@@ -58,7 +58,7 @@ export default function NotFound() {
       </div>
 
       {/* Browse by shelf — the way the reference is actually arranged. */}
-      <div className="pt-6 border-t-2 border-ink dark:border-parchment mb-6">
+      <div className="pt-6 border-t border-line mb-6">
         <p className="eyebrow block mb-3">Or browse by number</p>
         <div className="flex flex-wrap justify-center gap-1.5">
           {GROUP_NUMBERS.map((n) => (
@@ -75,7 +75,7 @@ export default function NotFound() {
       </div>
 
       {/* Browse by category */}
-      <div className="pt-6 border-t-2 border-ink dark:border-parchment">
+      <div className="pt-6 border-t border-line">
         <p className="eyebrow block mb-3">Browse by category</p>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
           {ARCHIVE_CATEGORIES.map(({ label, slug }) => (

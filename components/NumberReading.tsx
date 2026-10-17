@@ -38,7 +38,7 @@ export function NumberReading({
 
   return (
     <section
-      className={`border-y-2 border-ink dark:border-parchment py-6 ${className}`}
+      className={`border-y border-line py-6 ${className}`}
       aria-label={`Numerological reading of ${title}`}
     >
       <div className="flex items-start gap-5">

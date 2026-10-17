@@ -151,7 +151,7 @@ export default async function NumberedSetPage({ params }: { params: Promise<{ sl
       </p>
 
       {/* The point of the section, stated once per entry. */}
-      <section className="border-y-2 border-ink dark:border-parchment py-5 mb-8" aria-label="How this entry is filed">
+      <section className="border-y border-line py-5 mb-8" aria-label="How this entry is filed">
         <p className="eyebrow mb-3">Filed by its count, not its title</p>
         <div className="num-working">
           <span className="num-word num-word-match">
@@ -209,7 +209,7 @@ export default async function NumberedSetPage({ params }: { params: Promise<{ sl
       <div className="ref-prose" dangerouslySetInnerHTML={{ __html: set.body }} />
 
       {neighbours.length > 0 && (
-        <aside className="border-t-2 border-ink dark:border-parchment pt-5 mt-10" aria-label={`Other sets on ${group.shelf}`}>
+        <aside className="border-t border-line pt-5 mt-10" aria-label={`Other sets on ${group.shelf}`}>
           <p className="eyebrow mb-4">
             Also filed under {n} · {group.shelf}
           </p>
@@ -218,7 +218,7 @@ export default async function NumberedSetPage({ params }: { params: Promise<{ sl
               <li key={other.slug}>
                 <Link
                   href={`/sets/${other.slug}`}
-                  className="group flex items-baseline gap-3 py-2.5 border-b border-rule/30 dark:border-rule"
+                  className="group flex items-baseline gap-3 py-2.5 border-b border-line"
                 >
                   <span className="eyebrow shrink-0 w-8 text-ink-muted dark:text-parchment/55">
                     {other.count}
@@ -233,7 +233,7 @@ export default async function NumberedSetPage({ params }: { params: Promise<{ sl
         </aside>
       )}
 
-      <nav className="flex items-center justify-between gap-4 border-t-2 border-ink dark:border-parchment pt-6 mt-10">
+      <nav className="flex items-center justify-between gap-4 border-t border-line pt-6 mt-10">
         <Link href="/sets" className="eyebrow hover:text-gold transition-colors">
           ← All numbered sets
         </Link>

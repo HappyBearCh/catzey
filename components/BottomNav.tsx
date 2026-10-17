@@ -26,7 +26,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Main"
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper dark:bg-ground border-t-2 border-ink dark:border-parchment safe-area-inset-bottom"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper/90 dark:bg-ground/90 backdrop-blur-md border-t border-line safe-area-inset-bottom"
     >
       <ul className="flex items-center">
         {ITEMS.map(({ label, href, icon }) => {

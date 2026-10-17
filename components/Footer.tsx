@@ -1,123 +1,91 @@
 import Link from 'next/link';
-import { Logo } from './Logo';
-import { ARCHIVE_CATEGORIES } from '@/lib/types';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
+
+const COLUMNS = [
+  {
+    heading: 'Reference',
+    links: [
+      { label: 'Learn', href: '/learn' },
+      { label: 'Glossary', href: '/glossary' },
+      { label: 'Series & creators', href: '/wiki' },
+      { label: 'Guides', href: '/guides' },
+      { label: 'Essays', href: '/series' },
+    ],
+  },
+  {
+    heading: 'Browse',
+    links: [
+      { label: 'Manga', href: '/manga' },
+      { label: 'Anime', href: '/anime' },
+      { label: 'Shonen', href: '/genre/shonen' },
+      { label: 'Isekai', href: '/genre/isekai' },
+      { label: 'Horror', href: '/genre/horror' },
+      { label: 'Numbered sets', href: '/sets' },
+    ],
+  },
+  {
+    heading: 'About',
+    links: [
+      { label: 'About', href: '/about' },
+      { label: 'How filing works', href: '/numbers' },
+      { label: 'Numerology guide', href: '/numerology' },
+      { label: 'Editorial policy', href: '/editorial-policy' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t-2 border-ink dark:border-parchment bg-paper-2 dark:bg-ground-2 text-ink-muted dark:text-parchment/55 mt-16">
-      <div className="max-w-8xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
-          <div>
-            <Link href="/" className="block mb-4">
-              <Logo />
+    <footer className="mt-24 border-t border-line text-ink-muted dark:text-parchment/60">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-x-8 gap-y-10">
+          <div className="col-span-2 md:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-2 mb-3">
+              <span className="block w-2.5 h-2.5 rounded-full bg-seal" aria-hidden="true" />
+              <span className="font-display text-xl font-black tracking-tight text-ink dark:text-parchment">Catzye</span>
             </Link>
-            <p className="text-sm leading-relaxed mb-4">
+            <p className="text-sm leading-relaxed max-w-xs">
               A reference to how manga works, and where it came from — each entry read against its numbers.
             </p>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-sm hover:text-gold transition-colors">About</Link>
-              </li>
-              <li>
-                <Link href="/numerology" className="text-sm hover:text-gold transition-colors">Numerology Guide</Link>
-              </li>
-              <li>
-                <Link href="/editorial-policy" className="text-sm hover:text-gold transition-colors">Editorial Policy</Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm hover:text-gold transition-colors">Contact</Link>
-              </li>
-            </ul>
-          </div>
 
-          {/* The shelves get the first column after the masthead: they are the
-              arrangement, and the category list below is the older cross-cut. */}
-          <div>
-            <h2 className="eyebrow block mb-4">The Shelves</h2>
-            <ul className="space-y-1.5 mb-4">
+            {/* The twelve shelves, as a row of seals. */}
+            <ul className="mt-5 flex flex-wrap gap-1.5" aria-label="The shelves">
               {GROUP_NUMBERS.map((n) => (
                 <li key={n}>
                   <Link
                     href={`/number/${n}`}
-                    className="text-sm hover:text-gold transition-colors flex items-baseline gap-2"
+                    title={getGroup(n).shelf}
+                    className="sigil sigil-xs hover:bg-seal hover:text-white transition-colors"
                   >
-                    <span className="font-display text-gold w-5 tabular-nums" aria-hidden="true">{n}</span>
-                    <span>{getGroup(n).shelf}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link href="/numbers" className="eyebrow hover:text-gold transition-colors">
-              How filing works →
-            </Link>
-            <Link href="/sets" className="eyebrow hover:text-gold transition-colors block mt-2">
-              Numbered sets →
-            </Link>
-          </div>
-
-          <div>
-            <h2 className="eyebrow block mb-4">Sections</h2>
-            <ul className="space-y-2">
-              {ARCHIVE_CATEGORIES.map(({ label, slug }) => (
-                <li key={slug}>
-                  <Link href={`/${slug}`} className="text-sm hover:text-gold transition-colors">
-                    {label}
+                    {n}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h2 className="eyebrow block mb-4">Learn</h2>
-            <ul className="space-y-2 mb-6">
-              <li>
-                <Link href="/learn" className="text-sm hover:text-gold transition-colors">All Explainers</Link>
-              </li>
-              <li>
-                <Link href="/glossary" className="text-sm hover:text-gold transition-colors">Manga Glossary</Link>
-              </li>
-              <li>
-                <Link href="/wiki" className="text-sm hover:text-gold transition-colors">Series &amp; Creators</Link>
-              </li>
-              <li>
-                <Link href="/guides" className="text-sm hover:text-gold transition-colors">Guides</Link>
-              </li>
-            </ul>
-            <h2 className="eyebrow block mb-4">More</h2>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/series" className="text-sm hover:text-gold transition-colors">Essay Series</Link>
-              </li>
-              <li>
-                <Link href="/learn/twelve-manga-to-start-with" className="text-sm hover:text-gold transition-colors">Where to Start</Link>
-              </li>
-              <li>
-                <Link href="/learn/where-to-read-manga-legally" className="text-sm hover:text-gold transition-colors">Where to Read Legally</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="hidden md:block">
-            <h2 className="eyebrow block mb-4">Genres</h2>
-            <ul className="space-y-2">
-              {['isekai', 'shonen', 'romance', 'horror', 'slice-of-life', 'sports', 'mecha', 'seinen'].map((g) => (
-                <li key={g}>
-                  <Link href={`/genre/${g}`} className="text-sm hover:text-gold transition-colors capitalize">
-                    {g.replace('-', ' ')}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {COLUMNS.map(({ heading, links }) => (
+            <div key={heading}>
+              <h2 className="mb-3 font-sans text-xs font-semibold text-ink dark:text-parchment">{heading}</h2>
+              <ul className="space-y-2">
+                {links.map(({ label, href }) => (
+                  <li key={href}>
+                    <Link href={href} className="font-sans text-sm hover:text-gold transition-colors">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs">
+        <div className="mt-12 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-2 font-sans text-xs">
           <p>© {currentYear} Catzye — Manga, filed by number</p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             <Link href="/privacy" className="hover:text-gold transition-colors">Privacy</Link>
             <Link href="/feed.xml" className="hover:text-gold transition-colors">RSS</Link>
           </div>
