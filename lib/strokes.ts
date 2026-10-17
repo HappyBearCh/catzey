@@ -156,6 +156,19 @@ const KANJI_STROKES: Record<string, number> = {
   種: 14,
   戯: 15, 穂: 15,
   蘭: 19,
+
+  // Added for Fukumoto, Oku, Yagi, Shimizu and 賭博黙示録カイジ, はたらく細胞,
+  // 日常, 鉄コン筋クリート, トーマの心臓 and 富江.
+  広: 5, 示: 5,
+  江: 6,
+  胞: 9, 茜: 9,
+  浩: 10,
+  細: 11, 常: 11, 清: 11,
+  富: 12, 筋: 12,
+  福: 13,
+  黙: 15,
+  賭: 16, 録: 16,
+  臓: 19,
 };
 
 // ── Kana ─────────────────────────────────────────────────────────────────────
@@ -163,6 +176,7 @@ const KANJI_STROKES: Record<string, number> = {
 // kana are decomposed to their base plus a combining mark (NFD), and the marks
 // add strokes by the standard convention: dakuten two, handakuten one. Small
 // kana count as their full-size form, and the long vowel mark is one stroke.
+// The obsolete ゐ is listed too, because Keiichi Arawi writes his name with it.
 const HIRAGANA_STROKES: Record<string, number> = {
   あ: 3, い: 2, う: 2, え: 2, お: 3,
   か: 3, き: 4, く: 1, け: 3, こ: 2,
@@ -174,6 +188,7 @@ const HIRAGANA_STROKES: Record<string, number> = {
   や: 3, ゆ: 2, よ: 2,
   ら: 2, り: 2, る: 1, れ: 2, ろ: 1,
   わ: 2, を: 3, ん: 1,
+  ゐ: 1,
 };
 
 const KATAKANA_STROKES: Record<string, number> = {
