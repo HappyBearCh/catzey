@@ -29,17 +29,19 @@ export default function SavedPage() {
     localStorage.setItem(KEY, JSON.stringify(next));
   }
 
-  if (!ready) return null;
-
+  // The heading is server-rendered; only what depends on local storage waits
+  // for the browser, so the page is never an empty document before hydration.
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
         <h1 className="text-3xl font-semibold uppercase tracking-tight">Saved Articles</h1>
       </div>
+      {ready && (
       <p className="text-site-gray text-sm mb-6 ml-4">
         {articles.length} article{articles.length !== 1 ? 's' : ''} saved
       </p>
+      )}
 
       {/* What the reader has been keeping, by number. Computed in the browser
           from local storage — the site never sees this list. */}
@@ -51,7 +53,7 @@ export default function SavedPage() {
         }
         const [top, count] = [...byShelf.entries()].sort((a, b) => b[1] - a[1])[0];
         return (
-          <section className="border-y-2 border-ink dark:border-parchment py-4 mb-8" aria-label="What you have been saving">
+          <section className="border-y border-line py-4 mb-8" aria-label="What you have been saving">
             <p className="eyebrow mb-2">What you have been keeping</p>
             <p className="text-sm text-ink-2 dark:text-parchment/70 leading-relaxed">
               {count} of your {articles.length} saved {articles.length === 1 ? 'piece' : 'pieces'}{' '}
@@ -66,7 +68,7 @@ export default function SavedPage() {
         );
       })()}
 
-      {articles.length === 0 ? (
+      {!ready ? null : articles.length === 0 ? (
         <div className="py-20 text-center text-gray-400">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />

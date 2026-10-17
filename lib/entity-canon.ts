@@ -13,11 +13,17 @@ import { entitySlug } from '@/lib/entity-slug';
 // working as URLs but point their canonical tag at the elected one.
 
 function normalizeKey(name: string): string {
-  return name
+  const folded = name
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '');
+    .replace(/[̀-ͯ]/g, '');
+  // The ASCII key is what folds "Akira (アキラ)" into "Akira". A name written
+  // only in Japanese has no ASCII to key on and would be dropped from the canon
+  // entirely, which 404s its hub, so it keys on its own letters instead.
+  return (
+    folded.replace(/[^a-z0-9]+/g, '') ||
+    folded.normalize('NFC').replace(/[^\p{L}\p{Nd}]+/gu, '')
+  );
 }
 
 interface Canon {

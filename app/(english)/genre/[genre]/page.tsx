@@ -5,7 +5,8 @@ import { NumberReading } from '@/components/NumberReading';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
-import { tagHref } from '@/lib/tags';
+import { tagHref, tagSlug, allTagSlugs } from '@/lib/tags';
+import { getAllWorks } from '@/lib/education';
 import type { Article } from '@/lib/types';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
@@ -58,6 +59,17 @@ export default async function GenrePage({ params }: Props) {
   }) as Article[];
 
   const allGenres = getAllGenres();
+
+  // The genre lists are written by hand and name works and tags the edition may
+  // never have covered; an archive with no articles is a 404, so only link to
+  // pages that exist. A notable work prefers its wiki entry over its tag.
+  const liveTags = new Set(await allTagSlugs());
+  const wikiByTitle = new Map(
+    getAllWorks().flatMap((w) => [w.title, ...w.altTitles].map((t) => [t.toLowerCase(), `/wiki/series/${w.slug}`] as const)),
+  );
+  const workHref = (work: string) =>
+    wikiByTitle.get(work.toLowerCase()) ?? (liveTags.has(tagSlug(work)) ? tagHref(work) : null);
+  const relatedTags = info.relatedTags.filter((tag) => liveTags.has(tagSlug(tag)));
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -150,29 +162,40 @@ export default async function GenrePage({ params }: Props) {
                 <h2 className="text-sm font-semibold uppercase tracking-wider">Essential {info.label}</h2>
               </div>
               <ul className="space-y-1">
-                {info.notableWorks.map((work) => (
-                  <li key={work}>
-                    <Link
-                      href={tagHref(work)}
-                      className="flex items-center gap-2 py-2 border-b border-site-border dark:border-gray-800 text-sm font-semibold hover:text-primary transition-colors group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
-                      {work}
-                    </Link>
-                  </li>
-                ))}
+                {info.notableWorks.map((work) => {
+                  const href = workHref(work);
+                  return (
+                    <li key={work}>
+                      {href ? (
+                        <Link
+                          href={href}
+                          className="flex items-center gap-2 py-2 border-b border-site-border dark:border-gray-800 text-sm font-semibold hover:text-primary transition-colors group"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
+                          {work}
+                        </Link>
+                      ) : (
+                        <span className="flex items-center gap-2 py-2 border-b border-site-border dark:border-gray-800 text-sm font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary/40" />
+                          {work}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
 
           {/* Related tags */}
+          {relatedTags.length > 0 && (
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <span className="block w-1 h-5 bg-primary" />
               <h2 className="text-sm font-semibold uppercase tracking-wider">Related Tags</h2>
             </div>
             <div className="flex flex-wrap gap-1.5">
-              {info.relatedTags.map((tag) => (
+              {relatedTags.map((tag) => (
                 <Link
                   key={tag}
                   href={tagHref(tag)}
@@ -183,6 +206,7 @@ export default async function GenrePage({ params }: Props) {
               ))}
             </div>
           </div>
+          )}
 
           {/* Other genres */}
           <div>

@@ -25,6 +25,9 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
+  // Any unknown top-level path lands here before the page 404s; without this
+  // its not-found response carried a canonical and OG tags for "Zzz Nope".
+  if (!ARCHIVE_CATEGORIES.some((c) => c.slug === category)) return {};
   const label = getCategoryLabel(category);
   const description = metaDescription(
     CATEGORY_DESCRIPTIONS[category] ?? `Everything Catzye files under ${label}.`,
