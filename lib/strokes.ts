@@ -169,6 +169,32 @@ const KANJI_STROKES: Record<string, number> = {
   黙: 15,
   賭: 16, 録: 16,
   臓: 19,
+
+  // Added for Yokoyari, Tatsu, Suzuki, Inagaki, Matsui, Matsumoto and
+  // 【推しの子】, 約束のネバーランド, 暗殺教室 and 怪獣8号. 龍 is the form Tatsu
+  // signs with, not 竜.
+  也: 3,
+  号: 5,
+  束: 7,
+  怪: 8, 征: 8,
+  約: 9, 祐: 9,
+  殺: 10,
+  推: 11,
+  暗: 13, 鈴: 13,
+  槍: 14, 稲: 14,
+  横: 15,
+  龍: 16,
+
+  // Added for Nakazawa, Kojima, Mizuki, Usui, Nakamura, Shirato, Matsumoto and
+  // 子連れ狼, ガラスの仮面 and カムイ伝.
+  夕: 3, 土: 3,
+  中: 4,
+  仮: 6, 伝: 6, 臼: 6, 光: 6,
+  杏: 7,
+  面: 9, 泉: 9,
+  連: 10, 狼: 10, 島: 10,
+  啓: 11,
+  儀: 15,
 };
 
 // ── Kana ─────────────────────────────────────────────────────────────────────
