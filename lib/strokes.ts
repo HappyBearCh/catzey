@@ -209,6 +209,86 @@ const KANJI_STROKES: Record<string, number> = {
   楠: 13,
   篤: 16,
   難: 18,
+
+  // Added for Fujimaki, Hoshino, Kusanagi, Amagakure, Tsukuda, Saeki and 岳,
+  // 海月姫, 黒子のバスケ, 暁のヨナ, 甘々と稲妻 and 食戟のソーマ.
+  甘: 5,
+  凪: 6,
+  佐: 7, 伯: 7,
+  岳: 8, 妻: 8, 忠: 8, 雨: 8, 附: 8,
+  食: 9, 巻: 9, 俊: 9, 草: 9,
+  姫: 10, 桂: 10,
+  黒: 11,
+  暁: 12, 戟: 12,
+  隠: 14,
+
+  // Added for Kariya, Hanasaki, Konomi and 美味しんぼ, きのう何食べた? and
+  // さよなら絵梨.
+  何: 7, 花: 7,
+  味: 8,
+  咲: 9,
+  梨: 11, 許: 11,
+  絵: 12, 雁: 12, 斐: 12,
+  // Added for Arakawa, Haruba, Katō, Tabata and 四月は君の嘘, 五等分の花嫁,
+  // 青の祓魔師, まじっく快斗 and アルスラーン戦記.
+  分: 4,
+  加: 5,
+  快: 7,
+  祓: 9,
+  記: 10, 恵: 10, 畠: 10,
+  基: 11,
+  等: 12, 裕: 12,
+  嘘: 14,
+  // Added for Shimabukuro and 西洋骨董洋菓子店, ご近所物語 and 東京卍リベンジャーズ.
+  卍: 6, 西: 6,
+  近: 7,
+  店: 8, 物: 8,
+  骨: 10,
+  菓: 11, 袋: 11,
+  董: 12,
+  // Added for Ichikawa, Ohtaka and 境界のRINNE, バオー来訪者 and 宝石の国.
+  市: 5,
+  来: 7, 忍: 7,
+  者: 8, 宝: 8, 国: 8,
+  界: 9,
+  訪: 11,
+  境: 14,
+  // Added for Akamatsu, Midorikawa, Oshimi, Yamamoto and 炎炎ノ消防隊,
+  // 魔人探偵脳噛ネウロ, 魔法先生ネギま!, 夏目友人帳 and 惡の華 (traditional 惡).
+  目: 5,
+  先: 6,
+  防: 7,
+  炎: 8, 押: 8,
+  消: 10, 華: 10, 修: 10, 造: 10, 朗: 10,
+  脳: 11, 帳: 11, 崇: 11,
+  惡: 12,
+  緑: 14,
+  噛: 15,
+  // Added for Shiibashi, Watase, Hino, Tanemura, Kitoh and 家庭教師ヒットマン,
+  // ぬらりひょんの孫 and 神風怪盗ジャンヌ.
+  家: 10, 庭: 10, 孫: 10, 莫: 10,
+  盗: 11, 悠: 11, 菜: 11,
+  渡: 12,
+  寛: 13,
+  樋: 15,
+  瀬: 19,
+  // Added for Yoshizumi, Tamura and 花より男子 and 電影少女.
+  男: 7,
+  渉: 11, 隆: 11,
+  電: 13,
+  // Added for Asagiri, Oh! great and 血界戦線, 血の轍, 妖しのセレス and 満月をさがして.
+  血: 6,
+  妖: 7,
+  満: 12, 朝: 12,
+  暮: 14, 維: 14,
+  線: 15,
+  轍: 19, 霧: 19,
+  // Added for Nagasaki, coolkyousinnjya, Oshikiri and Suzuki.
+  切: 4,
+  央: 5,
+  尚: 8,
+  信: 9,
+  蓮: 13,
 };
 
 // ── Kana ─────────────────────────────────────────────────────────────────────
