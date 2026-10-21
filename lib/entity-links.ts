@@ -15,10 +15,14 @@ function escapeHtml(s: string): string {
 
 /**
  * Links the first mention of each entity inside article body HTML to its
- * /topic page. Only touches text nodes that are direct children of <p>
+ * /topic page, or to the page `hrefFor` names instead. Only touches text nodes that are direct children of <p>
  * elements, so headings, existing links, and inline markup are left alone.
  */
-export function linkEntitiesInHtml(html: string, entities: string[]): string {
+export function linkEntitiesInHtml(
+  html: string,
+  entities: string[],
+  hrefFor: (entity: string) => string = entityHref,
+): string {
   const candidates = entities
     .map((e) => e.trim())
     .filter((e) => e.length >= 3)
@@ -62,7 +66,7 @@ export function linkEntitiesInHtml(html: string, entities: string[]): string {
           }
           parts.push(escapeHtml(text.slice(cursor, next.index)));
           parts.push(
-            `<a href="${entityHref(next.entity)}" class="entity-link">${escapeHtml(next.entity)}</a>`,
+            `<a href="${hrefFor(next.entity)}" class="entity-link">${escapeHtml(next.entity)}</a>`,
           );
           remaining.delete(next.entity);
           cursor = next.index + next.entity.length;

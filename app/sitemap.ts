@@ -8,11 +8,13 @@ import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { getAllGenres } from '@/lib/genre-info';
 import { getAllAuthors } from '@/lib/authors';
 import { tagSlug } from '@/lib/tags';
-import { canonicalEntity, canonicalEntityCounts } from '@/lib/entity-canon';
+import { canonicalEntity, canonicalEntityCounts, hubName } from '@/lib/entity-canon';
+import { getAllTopicInfo } from '@/lib/topic-info';
 import { entityHref } from '@/lib/entity-slug';
 import { duplicateTagSlugs } from '@/lib/hub-duplicates';
 import { getAllLearnTopics, getAllGlossaryTerms, getAllWorks, getAllCreators } from '@/lib/education';
 import { CATEGORY_PAGE_SIZE } from '@/components/CategoryArchive';
+import { HUB_MIN_TEXTS } from '@/lib/seo';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
 // so a timer only bought re-renders and ISR writes for identical output.
@@ -50,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       take: 5000,
     });
 
-    // Only list topics that clear the same >=2 threshold the topic page uses to
+    // Only list topics that clear the same HUB_MIN_TEXTS threshold the topic page uses to
     // decide indexability. Advertising thin, self-noindexed URLs in the sitemap
     // just burns crawl budget and depresses Google's quality impression of the
     // site ("Discovered - currently not indexed").
@@ -74,9 +76,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }
     entityRows = [...canonCounts.entries()]
-      .filter(([, count]) => count >= 2)
+      .filter(([, count]) => count >= HUB_MIN_TEXTS)
       .slice(0, 500)
       .map(([entity]) => ({ entity, last: lastByCanon.get(entity) ?? new Date() }));
+    // Curated hubs are indexable at any essay count (see the topic route), so
+    // they are listed whether or not they clear the threshold.
+    for (const t of getAllTopicInfo()) {
+      const entity = await hubName(t.name);
+      if (!entityRows.some((r) => r.entity === entity)) {
+        entityRows.push({ entity, last: lastByCanon.get(entity) ?? new Date() });
+      }
+    }
 
     const grouped = await prisma.article.groupBy({
       by: ['category'],
@@ -232,13 +242,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }
   }
-  // Skip single-use tags: their pages self-noindex, so keep them out of the
+  // Skip thin tags: their pages self-noindex, so keep them out of the
   // sitemap to concentrate crawl budget on indexable URLs. Skip the ones that
   // canonicalise onto a same-named topic hub too — asking Google to crawl a URL
   // we have already pointed somewhere else just spends budget twice.
   const deferredToTopic = await duplicateTagSlugs();
   const tagPages: MetadataRoute.Sitemap = Array.from(tagStats.entries())
-    .filter(([slug, s]) => s.count >= 2 && !deferredToTopic.has(slug))
+    .filter(([slug, s]) => s.count >= HUB_MIN_TEXTS && !deferredToTopic.has(slug))
     .map(([slug, s]) => ({
       url: `${BASE}/tag/${encodeURIComponent(slug)}`,
       lastModified: s.last,

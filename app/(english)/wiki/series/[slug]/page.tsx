@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { linkReferenceMentions } from '@/lib/reference-links';
-import { metaDescription } from '@/lib/seo';
+import { metaDescription, splitReading, documentTitle } from '@/lib/seo';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
+import { UpdatedLine } from '@/components/UpdatedLine';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import { SafeImage } from '@/components/SafeImage';
-import { getWork, getAllWorks, getCreatorsBySlugs, getSimilarWorks, type Work, type Creator } from '@/lib/education';
+import { getWork, getAllWorks, getCreatorsBySlugs, getSimilarWorks, getLearnTopic, type Work, type Creator } from '@/lib/education';
 import { getGenreInfo } from '@/lib/genre-info';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -43,11 +44,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // "<title> Manga" is how the series is searched for; the creator and run
   // are what tell a reader from the results page that this is the reference.
   const creators = getCreatorsBySlugs(work.creatorSlugs).map((c) => c.name).join(' & ');
-  const title = `${work.title} Manga${creators ? ` by ${creators}` : ''}`;
-  const description = metaDescription(work.synopsisSource ?? work.synopsis);
+  // Two credited creators can push the title past what a results page shows,
+  // and then the series name is all that survives the cut. Credit the first
+  // creator alone in that case, and none if even that does not fit.
+  const firstCreator = getCreatorsBySlugs(work.creatorSlugs)[0]?.name;
+  const title =
+    [creators, firstCreator, '']
+      .map((by) => `${work.title} Manga${by ? ` by ${by}` : ''}`)
+      .find((t) => t.length <= 62) ?? `${work.title} Manga`;
+  const description = metaDescription(`${workLead(work, creators)} ${work.synopsisSource ?? work.synopsis}`);
   const ogImage = `/og?title=${encodeURIComponent(work.title)}`;
   return {
-    title,
+    title: documentTitle(title),
     description,
     alternates: { canonical: url },
     openGraph: {
@@ -69,6 +77,26 @@ const AUDIENCE: Record<string, string> = {
   shojo: 'teenage girls',
   josei: 'adult women',
 };
+
+/**
+ * One sentence that says what the entry is about before the synopsis says what
+ * happens in it: the run, the readership, the leading genre and the creator are
+ * the words a search for the series is made of, and the synopsis alone carries
+ * none of them.
+ */
+function workLead(work: Work, creators: string): string {
+  const run = years(work.startYear, work.endYear, work.status);
+  const kind = [work.demographic, work.genres[0]?.toLowerCase()].filter(Boolean).join(' ');
+  const article = /^[aeiou]/i.test(kind) ? 'an' : 'a';
+  const by = creators ? ` by ${creators}` : '';
+  const complete =
+    work.status === 'completed' && work.volumes
+      ? `, complete in ${work.volumes === 1 ? 'one volume' : `${work.volumes} volumes`}`
+      : work.status === 'ongoing'
+        ? ', still running'
+        : '';
+  return `${work.title}${run ? ` (${run})` : ''} is ${kind ? `${article} ${kind} ` : 'a '}manga${by}${complete}.`;
+}
 
 function list(items: string[]): string {
   if (items.length <= 1) return items.join('');
@@ -150,6 +178,8 @@ export default async function WorkPage({ params }: Props) {
   const run = years(work.startYear, work.endYear, work.status);
   const answers = quickAnswers(work, creators);
   const similar = getSimilarWorks(work);
+  const { body, reading } = splitReading(work.body);
+  const guides = creators.flatMap((c) => getLearnTopic(`where-to-start-with-${c.slug}`) ?? []);
 
   const faqLd = answers.length > 0 && {
     '@context': 'https://schema.org',
@@ -271,9 +301,30 @@ export default async function WorkPage({ params }: Props) {
         </div>
       )}
 
+      {guides.map((guide) => (
+        <Link
+          key={guide.slug}
+          href={`/learn/${guide.slug}`}
+          className="group block mb-8 p-4 border border-line rounded-sm hover:border-primary/40 transition-colors"
+        >
+          <span className="eyebrow block mb-1">Reading guide</span>
+          <span className="font-display text-lg font-semibold text-ink dark:text-parchment group-hover:text-primary transition-colors">
+            {guide.title} →
+          </span>
+        </Link>
+      ))}
+
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(work.body, `/wiki/series/${work.slug}`) }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(body, `/wiki/series/${work.slug}`) }}
+      />
+
+      <UpdatedLine
+        url={`${BASE}/wiki/series/${work.slug}`}
+        name={work.title}
+        updatedAt={work.updatedAt}
+        about={`${BASE}/wiki/series/${work.slug}#series`}
+        className="mt-6"
       />
 
       {answers.length > 0 && (
@@ -319,6 +370,8 @@ export default async function WorkPage({ params }: Props) {
           </ul>
         </section>
       )}
+
+      {reading && <div className="ref-prose mt-12" dangerouslySetInnerHTML={{ __html: reading }} />}
 
       <ShelfNeighbours
         title={work.title}

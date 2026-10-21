@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { tagHref } from '@/lib/tags';
+import { tagHref, tagSlug } from '@/lib/tags';
 import { GROUP_NUMBERS, getGroup } from '@/lib/number-groups';
 
 // scripts/numerologize.ts stamps every article with "Number N" and its shelf
@@ -19,13 +19,15 @@ function shelfFor(tag: string): number | null {
 interface TagListProps {
   tags: string[];
   basePath?: string;
+  /** Tag slugs worth linking (indexableTagSlugs); other keyword tags are left out. */
+  linkable?: Set<string>;
 }
 
-export function TagList({ tags, basePath = '' }: TagListProps) {
+export function TagList({ tags, basePath = '', linkable }: TagListProps) {
   if (!tags || tags.length === 0) return null;
 
   const shelfTags = tags.filter((t) => shelfFor(t) !== null);
-  const keywordTags = tags.filter((t) => shelfFor(t) === null);
+  const keywordTags = tags.filter((t) => shelfFor(t) === null && (!linkable || linkable.has(tagSlug(t))));
 
   return (
     <div className="flex flex-wrap gap-2 mt-4">

@@ -4,9 +4,10 @@ import { NumberReading } from '@/components/NumberReading';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
-import { tagSlug, tagHref, safeDecode, resolveTag, allTagSlugs } from '@/lib/tags';
+import { tagSlug, tagHref, safeDecode, resolveTag, allTagSlugs, indexableTagSlugs } from '@/lib/tags';
 import type { Article } from '@/lib/types';
 import { topicCanonicalForTag } from '@/lib/hub-duplicates';
+import { HUB_MIN_TEXTS, capitalise } from '@/lib/seo';
 
 // The edition behind these archives is a checked-in file (see lib/db.ts), so a
 // tag page cannot change between deploys. A 24-hour revalidate re-rendered
@@ -23,12 +24,12 @@ interface Props {
 
 // The tag space looked open-ended, but it is derived from a finite checked-in
 // edition, so it is fully knowable here. Every archive the sitemap advertises —
-// the >=2 set, which is also the set the page lets Google index — is prerendered
+// the HUB_MIN_TEXTS set, which is also the set the page lets Google index — is prerendered
 // to a static file and never touches a function or the ISR cache again. The
 // thin remainder is noindexed and barely crawled, so it is left to render once
 // on demand and cache until the next deploy rather than lengthening every build.
 export async function generateStaticParams() {
-  return (await allTagSlugs(2)).map((tag) => ({ tag }));
+  return (await allTagSlugs(HUB_MIN_TEXTS)).map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -52,12 +53,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const essays = `${resolved.count} hand-written ${resolved.count === 1 ? 'essay' : 'essays'}`;
   const description = `${essays} on ${label} from Catzye: how manga and anime work, read closely and in series, each filed by the number its title reduces to.`;
   return {
-    title: `${label}: Essays on Manga & Anime`,
+    title: `${capitalise(label)}: Essays on Manga & Anime`,
     description,
     alternates: { canonical: canonicalUrl },
-    // Thin archives (0–1 articles) are noindexed to avoid low-value/duplicate
+    // Thin archives (below HUB_MIN_TEXTS) are noindexed to avoid low-value/duplicate
     // pages eating crawl budget, but stay followable so link equity flows.
-    ...(resolved.count < 2 && { robots: { index: false, follow: true } }),
+    ...(resolved.count < HUB_MIN_TEXTS && { robots: { index: false, follow: true } }),
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
@@ -115,7 +116,9 @@ export default async function TagPage({ params }: Props) {
       else tagCounts.set(s, { label: t, count: 1 });
     }
   }
+  const linkable = await indexableTagSlugs();
   const relatedTags = [...tagCounts.values()]
+    .filter((t) => linkable.has(tagSlug(t.label)))
     .sort((a, b) => b.count - a.count)
     .slice(0, 12)
     .map((t) => t.label);

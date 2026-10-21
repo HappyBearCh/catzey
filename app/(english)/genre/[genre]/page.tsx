@@ -5,8 +5,9 @@ import { NumberReading } from '@/components/NumberReading';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
-import { tagHref, tagSlug, allTagSlugs } from '@/lib/tags';
+import { tagHref, tagSlug, indexableTagSlugs } from '@/lib/tags';
 import { getAllWorks } from '@/lib/education';
+import { documentTitle } from '@/lib/seo';
 import type { Article } from '@/lib/types';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const info = getGenreInfo(genre);
   if (!info) return {};
   return {
-    title: `${info.label} Manga & Anime — Guides, Series & Reference`,
+    title: documentTitle(`${info.label} Manga & Anime — Guides, Series & Reference`),
     description: info.description,
     alternates: {
       canonical: `${BASE}/genre/${genre}`,
@@ -63,7 +64,7 @@ export default async function GenrePage({ params }: Props) {
   // The genre lists are written by hand and name works and tags the edition may
   // never have covered; an archive with no articles is a 404, so only link to
   // pages that exist. A notable work prefers its wiki entry over its tag.
-  const liveTags = new Set(await allTagSlugs());
+  const liveTags = await indexableTagSlugs();
   const wikiByTitle = new Map(
     getAllWorks().flatMap((w) => [w.title, ...w.altTitles].map((t) => [t.toLowerCase(), `/wiki/series/${w.slug}`] as const)),
   );

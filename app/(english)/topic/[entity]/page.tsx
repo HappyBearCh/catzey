@@ -4,13 +4,13 @@ import { NumberReading } from '@/components/NumberReading';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
-import { getTopicInfo } from '@/lib/topic-info';
+import { getTopicInfo, getAllTopicInfo } from '@/lib/topic-info';
 import { getTopicArticles } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { Article, ReviewData } from '@/lib/types';
-import { metaDescription } from '@/lib/seo';
-import { canonicalEntity, canonicalEntitySlugs, entityFromSlug } from '@/lib/entity-canon';
-import { entityHref } from '@/lib/entity-slug';
+import { metaDescription, HUB_MIN_TEXTS } from '@/lib/seo';
+import { canonicalEntity, canonicalEntitySlugs, entityFromSlug, isIndexableEntity, hubName } from '@/lib/entity-canon';
+import { entityHref, entitySlug } from '@/lib/entity-slug';
 
 // Hubs are assembled from a checked-in edition (see lib/db.ts) and cannot change
 // between deploys, so a daily revalidate only re-rendered identical output and
@@ -25,11 +25,14 @@ interface Props {
 
 // Entities are extracted from the articles, and the articles are a finite
 // checked-in file — so the hub set is known at build time after all. Every hub
-// the sitemap lists (the >=2 set, matching the page's own indexability cut) is
+// the sitemap lists (the HUB_MIN_TEXTS set, matching the page's own indexability cut) is
 // prerendered to a static file; the thin, noindexed remainder renders once on
 // demand and caches until the next deploy.
 export async function generateStaticParams() {
-  return (await canonicalEntitySlugs(2)).map((entity) => ({ entity }));
+  // Curated hubs are indexable at any essay count, so they are prerendered too.
+  const curated = await Promise.all(getAllTopicInfo().map(async (t) => entitySlug(await canonicalEntity(t.name))));
+  const slugs = new Set([...(await canonicalEntitySlugs(HUB_MIN_TEXTS)), ...curated.filter(Boolean)]);
+  return [...slugs].map((entity) => ({ entity }));
 }
 
 // The segment is a slug ("weekly-shonen-jump"). Legacy links carrying the raw
@@ -55,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // The layout 404s these; the metadata must not describe a hub that isn't there.
   if (!info && (await getTopicArticles(name)).length === 0) return {};
   const description = info?.intro ?? `Everything on Catzye about ${name} — essays and reference entries, filed by number.`;
-  // Thin archives (0–1 hand-written articles) are noindexed to avoid low-value
+  // Thin archives (below HUB_MIN_TEXTS hand-written articles) are noindexed to avoid low-value
   // pages eating crawl budget, but stay followable so link equity flows.
   const count = (await getTopicArticles(name)).filter((a) => !a.generated).length;
   return {
@@ -64,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: canonicalUrl },
     // Thin archives are noindexed — but a curated hub is substantial content, so
     // it stays indexable even before it has accumulated its own articles.
-    ...(count < 2 && !info && { robots: { index: false, follow: true } }),
+    ...(count < HUB_MIN_TEXTS && !info && { robots: { index: false, follow: true } }),
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
@@ -103,10 +106,19 @@ export default async function TopicPage({ params }: Props) {
       entityCounts.set(e, (entityCounts.get(e) ?? 0) + 1);
     }
   }
-  const relatedTopics = [...entityCounts.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 12)
-    .map(([e]) => e);
+  // Folded to the elected spelling, so a hub is linked once and at the URL
+  // that does not redirect.
+  const self = await hubName(name);
+  const relatedCandidates = [
+    ...new Set(
+      await Promise.all([...entityCounts.entries()].sort((a, b) => b[1] - a[1]).map(([e]) => hubName(e))),
+    ),
+  ].filter((e) => e !== self);
+  const relatedTopics = (
+    await Promise.all(relatedCandidates.map(async (e) => ((await isIndexableEntity(e)) ? e : null)))
+  )
+    .filter((e): e is string => e !== null)
+    .slice(0, 12);
 
   const topicInfo = getTopicInfo(name);
 

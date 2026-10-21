@@ -8,6 +8,7 @@ import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { ShareButtons } from '@/components/ShareButtons';
 import { TagList } from '@/components/TagList';
+import { indexableTagSlugs } from '@/lib/tags';
 import { BookmarkButton } from '@/components/BookmarkButton';
 import { getCategoryLabel } from '@/lib/types';
 import { getGuide } from '@/lib/guides';
@@ -21,7 +22,7 @@ import { SpoilerActivator } from '@/components/SpoilerActivator';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { extractHeadings, injectHeadingIds, splitHtmlAfterNthParagraph } from '@/lib/headings';
 import { linkEntitiesInHtml } from '@/lib/entity-links';
-import { linkReferenceMentions } from '@/lib/reference-links';
+import { linkReferenceMentions, referencePageFor } from '@/lib/reference-links';
 import { resolveAuthor } from '@/lib/authors';
 import { getArticleBySlug } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
@@ -29,7 +30,7 @@ import type { ReviewData } from '@/lib/types';
 import { STANDFIRST_OPEN, splitOffReading } from '@/lib/numerologize';
 import { titleValue, getGroup } from '@/lib/number-groups';
 import { metaDescription, documentTitle } from '@/lib/seo';
-import { canonicalEntity } from '@/lib/entity-canon';
+import { canonicalEntity, isIndexableEntity, hubName } from '@/lib/entity-canon';
 import { entityHref } from '@/lib/entity-slug';
 
 // The published edition is a checked-in file (see lib/db.ts), so an article's
@@ -86,7 +87,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const description = metaDescription(article.excerptSource ?? article.excerpt);
     const ogImageUrl = `${BASE}/og?title=${encodeURIComponent(article.title)}&category=${article.category}${article.imageUrl ? `&img=${encodeURIComponent(article.imageUrl)}` : ''}`;
     return {
-      title: documentTitle(article.title),
+      // "Part 317: " spends a tenth of the visible title on a position in the
+      // series, so the search result leads with what the essay is about and
+      // the part number follows — it stays, because two series can share a
+      // part title.
+      title: documentTitle(article.title.replace(/^Part (\d+):\s*(.+)$/, '$2 (Part $1)')),
       description,
       authors: [{ name: author.name, url: `${BASE}/author/${author.slug}` }],
       openGraph: {
@@ -201,13 +206,22 @@ export default async function ArticlePage({ params }: Props) {
   const categoryLabel = getCategoryLabel(article.category);
   const guide = getGuide(article.category);
   const contentIsHtml = article.content.trimStart().startsWith('<');
+  // An entity links to its wiki entry where the reference has one, otherwise
+  // to its topic hub — but only a hub that is indexable (HUB_MIN_TEXTS).
+  const entityLinks = new Map<string, string>();
+  for (const e of article.entities) {
+    const href = referencePageFor(e) ?? ((await isIndexableEntity(e)) ? entityHref(await hubName(e)) : null);
+    if (href) entityLinks.set(e, href);
+  }
+  const linkedEntities = [...entityLinks.keys()];
+  const linkableTags = await indexableTagSlugs();
   const paragraphs = contentIsHtml
     ? []
     : article.content.split(/\n+/).map((p) => p.trim()).filter(Boolean).filter((p) => !/^sources?\s*:/i.test(p));
 
   const processedHtml = contentIsHtml
     ? injectHeadingIds(
-        linkReferenceMentions(linkEntitiesInHtml(article.content, article.entities), `/article/${article.slug}`),
+        linkReferenceMentions(linkEntitiesInHtml(article.content, linkedEntities, (e) => entityLinks.get(e)!), `/article/${article.slug}`),
       )
     : '';
   const headings = contentIsHtml ? extractHeadings(processedHtml) : [];
@@ -546,19 +560,19 @@ export default async function ArticlePage({ params }: Props) {
           {/* Tags */}
           {article.tags.length > 0 && (
             <div className="mt-6 pt-4 border-t border-site-border">
-              <TagList tags={article.tags} />
+              <TagList tags={article.tags} linkable={linkableTags} />
             </div>
           )}
 
           {/* Entities */}
-          {article.entities.length > 0 && (
+          {linkedEntities.length > 0 && (
             <div className="mt-3">
               <p className="text-2xs font-bold uppercase tracking-wider text-gray-600 mb-2">People & Places</p>
               <div className="flex flex-wrap gap-2">
-                {article.entities.map((entity) => (
+                {linkedEntities.map((entity) => (
                   <Link
                     key={entity}
-                    href={entityHref(entity)}
+                    href={entityLinks.get(entity)!}
                     className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors rounded-sm"
                   >
                     {entity}

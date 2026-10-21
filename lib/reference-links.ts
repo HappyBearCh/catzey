@@ -146,3 +146,20 @@ export function linkReferenceMentions(html: string, selfHref: string, skip: stri
 
   return $.html();
 }
+
+/**
+ * The wiki page for a name, when the reference has one: a series by its title
+ * or a romanised alternative title, a creator by name. Essays tag their
+ * subjects as entities whose topic hubs are lists of essays; where the same
+ * subject has a wiki entry, that entry is the page worth sending readers and
+ * crawlers to.
+ */
+let byName: Map<string, string> | null = null;
+export function referencePageFor(name: string): string | null {
+  if (!byName) {
+    byName = new Map();
+    for (const t of targets().series) for (const title of t.titles ?? []) byName.set(title.toLowerCase(), t.href);
+    for (const [creator, href] of targets().creatorPages) byName.set(creator.toLowerCase(), href);
+  }
+  return byName.get(name.trim().toLowerCase()) ?? null;
+}

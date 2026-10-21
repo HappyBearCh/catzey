@@ -1,6 +1,7 @@
 import { cache } from 'react';
 import { prisma } from '@/lib/db';
 import { tagSlug as tagSlugOf } from '@/lib/tag-slug';
+import { HUB_MIN_TEXTS } from '@/lib/seo';
 
 export { tagSlug, tagHref, safeDecode } from '@/lib/tag-slug';
 
@@ -85,5 +86,29 @@ export const allTagSlugs = cache(async (minCount = 1): Promise<string[]> => {
       .sort();
   } catch {
     return [];
+  }
+});
+
+/**
+ * Tag slugs whose archive is indexable: HUB_MIN_TEXTS or more hand-written
+ * texts. Pages link a tag only when it is in this set. A link to a thin
+ * archive sends readers to a list of one or two essays they were already
+ * next to, and sends crawlers to a page that asks not to be indexed.
+ */
+export const indexableTagSlugs = cache(async (): Promise<Set<string>> => {
+  try {
+    const rows = await prisma.article.findMany({
+      where: { published: true, generated: { not: true } },
+      select: { tags: true },
+    });
+    const counts = new Map<string, number>();
+    for (const row of rows) {
+      for (const slug of new Set((row.tags ?? []).map(tagSlugOf).filter(Boolean))) {
+        counts.set(slug, (counts.get(slug) ?? 0) + 1);
+      }
+    }
+    return new Set([...counts].filter(([, n]) => n >= HUB_MIN_TEXTS).map(([slug]) => slug));
+  } catch {
+    return new Set();
   }
 });

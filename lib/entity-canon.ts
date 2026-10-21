@@ -1,6 +1,8 @@
 import { cache } from 'react';
 import { prisma } from '@/lib/db';
 import { entitySlug } from '@/lib/entity-slug';
+import { getTopicInfo } from '@/lib/topic-info';
+import { HUB_MIN_TEXTS } from '@/lib/seo';
 
 // Entity strings were written by hand across 900-odd articles, so the same
 // thing is spelled several ways: "Weekly Shonen Jump" on 44 of them and
@@ -188,4 +190,25 @@ export const canonicalEntitySlugs = cache(async (minCount = 1): Promise<string[]
   } catch {
     return [];
   }
+});
+
+/**
+ * Whether an entity's topic hub is indexable — the same test the topic page
+ * applies to itself — and so whether a page should link to it. See
+ * indexableTagSlugs in lib/tags.ts for why thin hubs get no links.
+ */
+export const isIndexableEntity = cache(async (name: string): Promise<boolean> => {
+  const canonical = await canonicalEntity(name);
+  if (getTopicInfo(name) || getTopicInfo(canonical)) return true;
+  return ((await canonicalEntityCounts()).get(canonical) ?? 0) >= HUB_MIN_TEXTS;
+});
+
+/**
+ * The name a link to an entity's hub should use: a curated hub's own name when
+ * the entity is one of its aliases ("Spy x Family" → its "Spy×Family" hub),
+ * then the elected spelling — so the link lands on the prerendered page and
+ * not on a variant that has to be redirected.
+ */
+export const hubName = cache(async (name: string): Promise<string> => {
+  return canonicalEntity(getTopicInfo(name)?.name ?? name);
 });

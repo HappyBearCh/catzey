@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { linkReferenceMentions } from '@/lib/reference-links';
-import { metaDescription } from '@/lib/seo';
+import { metaDescription, splitReading, documentTitle } from '@/lib/seo';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
+import { UpdatedLine } from '@/components/UpdatedLine';
 import { notFound } from 'next/navigation';
 import {
   getGlossaryTerm,
@@ -41,10 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!term) return {};
   const url = `${BASE}/glossary/${term.slug}`;
   const title = `${term.term}: Meaning in Manga & Anime`;
-  const description = metaDescription(term.shortDefSource ?? term.shortDef);
+  // "<term>: <definition>" — the snippet then answers the query it matched
+  // with the word itself in front, as a dictionary entry does.
+  const description = metaDescription(`${term.term}: ${term.shortDefSource ?? term.shortDef}`);
   const ogImage = `/og?title=${encodeURIComponent(term.term)}`;
   return {
-    title,
+    title: documentTitle(title),
     description,
     alternates: { canonical: url },
     openGraph: {
@@ -64,6 +67,7 @@ export default async function GlossaryTermPage({ params }: Props) {
   const { term: slug } = await params;
   const term = await getGlossaryTerm(slug);
   if (!term) notFound();
+  const { body, reading } = splitReading(term.body);
 
   const [related, examples] = await Promise.all([
     getGlossaryTermsBySlugs(term.related),
@@ -134,14 +138,17 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(term.body, `/glossary/${term.slug}`) }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(body, `/glossary/${term.slug}`) }}
       />
 
-      <ShelfNeighbours
-        title={term.term}
-        selfHref={`/glossary/${term.slug}`}
-        className="mt-10"
+      <UpdatedLine
+        url={`${BASE}/glossary/${term.slug}`}
+        name={term.term}
+        updatedAt={term.updatedAt}
+        about={`${BASE}/glossary/${term.slug}`}
+        className="mt-6"
       />
+
 
       {examples.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
@@ -178,6 +185,16 @@ export default async function GlossaryTermPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {reading && (
+        <div className="ref-prose mt-12" dangerouslySetInnerHTML={{ __html: reading }} />
+      )}
+
+      <ShelfNeighbours
+        title={term.term}
+        selfHref={`/glossary/${term.slug}`}
+        className="mt-10"
+      />
 
       <Link
         href="/glossary"

@@ -2,6 +2,7 @@ import { cache } from 'react';
 import { prisma } from '@/lib/db';
 import { tagSlug } from '@/lib/tag-slug';
 import { entitySlug } from '@/lib/entity-slug';
+import { HUB_MIN_TEXTS } from '@/lib/seo';
 
 // Tags and entities are two hand-written lists on the same articles, and they
 // overlap heavily: "Astarion" is filed as both. Now that topic URLs are slugged
@@ -59,10 +60,10 @@ async function computeDuplicateMap(): Promise<Map<string, string>> {
   const duplicates = new Map<string, string>();
   for (const [slug, tagged] of byTag) {
     const entitled = byEntity.get(slug);
-    // Both sides have to clear the same >=2 threshold the two routes use to
+    // Both sides have to clear the same HUB_MIN_TEXTS threshold the two routes use to
     // decide indexability; collapsing onto a page that noindexes itself would
     // strand the tag archive.
-    if (!entitled || tagged.size < 2 || entitled.size < 2) continue;
+    if (!entitled || tagged.size < HUB_MIN_TEXTS || entitled.size < HUB_MIN_TEXTS) continue;
     let shared = 0;
     for (const s of tagged) if (entitled.has(s)) shared += 1;
     const union = tagged.size + entitled.size - shared;

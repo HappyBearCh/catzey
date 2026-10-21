@@ -126,3 +126,8 @@ for (const t of TOPICS) {
 export function getTopicInfo(entity: string): TopicInfo | undefined {
   return TOPIC_LOOKUP.get(entity.trim().toLowerCase());
 }
+
+/** Every curated hub. Each is indexable whatever its essay count, so each is prerendered. */
+export function getAllTopicInfo(): TopicInfo[] {
+  return TOPICS;
+}

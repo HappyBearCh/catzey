@@ -134,3 +134,26 @@ export function guideDescription(subtitle: string, bodyHtml: string): string {
   const lead = subtitle.replace(/[.\s]+$/, '');
   return metaDescription(`${lead}. ${firstParagraph}`);
 }
+
+// A tag or topic hub is a list of other pages plus a sentence of framing. With
+// two essays behind it, it rendered about 200 words and competed in the index
+// with the essays it lists; three is the point where the hub says something
+// the essays alone do not. Every place that decides a hub's indexability — the
+// pages, the sitemap, prerendering and the tag/topic de-duplication — reads it
+// from here, so they cannot drift apart.
+export const HUB_MIN_TEXTS = 3;
+
+// scripts/numerologize.ts appends the title reading to every reference body
+// between <!--catzye:reading--> markers. Pages split it off so the entry's own
+// content and quick answers come first and the reading follows them.
+export function splitReading(html: string): { body: string; reading: string } {
+  const match = html.match(/<!--catzye:reading-->[\s\S]*?<!--\/catzye:reading-->/);
+  if (!match) return { body: html, reading: '' };
+  return { body: html.replace(match[0], ''), reading: match[0] };
+}
+
+// A tag label is
+// stored as typed — often lower case — so titles capitalise the first letter.
+export function capitalise(label: string): string {
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}

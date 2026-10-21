@@ -3,6 +3,7 @@ import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
+import { UpdatedLine } from '@/components/UpdatedLine';
 import { notFound } from 'next/navigation';
 import {
   getLearnTopic,
@@ -12,7 +13,7 @@ import {
   getTrack,
   parseFaq,
 } from '@/lib/education';
-import { metaDescription } from '@/lib/seo';
+import { metaDescription, splitReading, documentTitle } from '@/lib/seo';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
 
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = `/og?title=${encodeURIComponent(topic.title)}`;
   const description = metaDescription(topic.summarySource ?? topic.summary);
   return {
-    title: topic.title,
+    title: documentTitle(topic.title),
     description,
     alternates: { canonical: url },
     openGraph: {
@@ -62,6 +63,7 @@ export default async function LearnTopicPage({ params }: Props) {
   const { topic: slug } = await params;
   const topic = await getLearnTopic(slug);
   if (!topic) notFound();
+  const { body, reading } = splitReading(topic.body);
 
   const track = getTrack(topic.track);
   const [{ prev, next, position, total }, related] = await Promise.all([
@@ -161,14 +163,11 @@ export default async function LearnTopicPage({ params }: Props) {
 
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(topic.body, `/learn/${topic.slug}`) }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(body, `/learn/${topic.slug}`) }}
       />
 
-      <ShelfNeighbours
-        title={topic.title}
-        selfHref={`/learn/${topic.slug}`}
-        className="mt-10"
-      />
+      <UpdatedLine url={`${BASE}/learn/${topic.slug}`} name={topic.title} updatedAt={topic.updatedAt} className="mt-6" />
+
 
       {faq.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
@@ -200,6 +199,16 @@ export default async function LearnTopicPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {reading && (
+        <div className="ref-prose mt-12" dangerouslySetInnerHTML={{ __html: reading }} />
+      )}
+
+      <ShelfNeighbours
+        title={topic.title}
+        selfHref={`/learn/${topic.slug}`}
+        className="mt-10"
+      />
 
       {(prev || next) && (
         <nav className="mt-10 pt-6 border-t border-site-border grid grid-cols-2 gap-4">
