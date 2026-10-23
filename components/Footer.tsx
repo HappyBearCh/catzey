@@ -70,10 +70,12 @@ export function Footer() {
           {COLUMNS.map(({ heading, links }) => (
             <div key={heading}>
               <h2 className="mb-3 font-sans text-xs font-semibold text-ink dark:text-parchment">{heading}</h2>
-              <ul className="space-y-2">
+              {/* Each link is a full-height row so neighbouring links are not
+                  too close to tap apart on a phone. */}
+              <ul>
                 {links.map(({ label, href }) => (
                   <li key={href}>
-                    <Link href={href} className="font-sans text-sm hover:text-gold transition-colors">
+                    <Link href={href} className="inline-block py-1.5 font-sans text-sm hover:text-gold transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -86,8 +88,8 @@ export function Footer() {
         <div className="mt-12 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-2 font-sans text-xs">
           <p>© {currentYear} Catzye — Manga, filed by number</p>
           <div className="flex items-center gap-5">
-            <Link href="/privacy" className="hover:text-gold transition-colors">Privacy</Link>
-            <Link href="/feed.xml" className="hover:text-gold transition-colors">RSS</Link>
+            <Link href="/privacy" className="inline-block py-1.5 hover:text-gold transition-colors">Privacy</Link>
+            <Link href="/feed.xml" className="inline-block py-1.5 hover:text-gold transition-colors">RSS</Link>
           </div>
         </div>
       </div>

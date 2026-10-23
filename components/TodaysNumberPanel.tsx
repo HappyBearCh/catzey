@@ -74,12 +74,12 @@ export function TodaysNumberPanel({ matches }: Props) {
               <p className="text-2xs font-semibold uppercase tracking-widest text-primary-accent mb-1">
                 Texts vibrating to {today.number}
               </p>
-              <ul className="space-y-0.5">
+              <ul>
                 {vibrating.map((a) => (
                   <li key={a.slug}>
                     <Link
                       href={`/article/${a.slug}`}
-                      className="text-xs text-gray-300 hover:text-primary-accent transition-colors line-clamp-1"
+                      className="py-1.5 text-sm text-gray-300 hover:text-primary-accent transition-colors line-clamp-1"
                     >
                       › {a.title}
                     </Link>
@@ -92,14 +92,14 @@ export function TodaysNumberPanel({ matches }: Props) {
             {today && (
               <Link
                 href={`/number/${today.number}`}
-                className="inline-block text-2xs font-bold uppercase tracking-widest text-primary-accent hover:underline"
+                className="inline-block py-1.5 text-2xs font-bold uppercase tracking-widest text-primary-accent hover:underline"
               >
                 Open the {today.number} shelf →
               </Link>
             )}
             <Link
               href="/numerology"
-              className="inline-block text-2xs font-bold uppercase tracking-widest text-gray-400 hover:text-primary-accent"
+              className="inline-block py-1.5 text-2xs font-bold uppercase tracking-widest text-gray-400 hover:text-primary-accent"
             >
               What the numbers mean →
             </Link>

@@ -187,6 +187,16 @@
   }
 
 @layer utilities {
+  /* Tailwind's own line-clamp-1 sets display before .block in the cascade, so
+     a "block line-clamp-1" span silently showed its whole text. Defined here
+     with the others, it comes after .block and the clamp holds. */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -379,6 +389,18 @@
 
 .ref-prose h2:first-child {
   margin-top: 0;
+}
+
+/* A jump link lands the heading below the sticky header, not under it. */
+.ref-prose h2[id],
+.ref-prose h3[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
 }
 
 .ref-prose h3 {

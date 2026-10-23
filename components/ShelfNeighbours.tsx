@@ -64,7 +64,7 @@ export async function ShelfNeighbours({ title, selfHref, limit = 6, className = 
 
       <Link
         href={`/number/${n}`}
-        className="inline-block eyebrow mt-4 text-gold hover:text-seal dark:hover:text-gold-pale transition-colors"
+        className="inline-block py-2 eyebrow mt-2 text-gold hover:text-seal dark:hover:text-gold-pale transition-colors"
       >
         The whole shelf →
       </Link>

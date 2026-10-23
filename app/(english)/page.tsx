@@ -279,7 +279,7 @@ export default async function HomePage() {
 
                   <Link
                     href={`/number/${n}`}
-                    className="mt-3 font-sans text-sm font-medium text-gold hover:underline underline-offset-4"
+                    className="mt-2 inline-block py-1.5 font-sans text-sm font-medium text-gold hover:underline underline-offset-4"
                   >
                     The whole shelf →
                   </Link>
@@ -350,7 +350,7 @@ function SectionHead({ title, note, href, link }: { title: string; note: string;
         <p className="mt-1 font-sans text-sm text-ink-muted dark:text-parchment/55">{note}</p>
       </div>
       <span className="flex-1" />
-      <Link href={href} className="font-sans text-sm font-medium text-gold hover:underline underline-offset-4">
+      <Link href={href} className="inline-block py-1.5 font-sans text-sm font-medium text-gold hover:underline underline-offset-4">
         {link} →
       </Link>
     </div>
