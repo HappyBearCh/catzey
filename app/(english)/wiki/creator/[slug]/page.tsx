@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
-import { ShelfBadge } from '@/components/ShelfBadge';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { OnThisPage } from '@/components/OnThisPage';
+import { extractHeadings, injectHeadingIds, splitStandfirst } from '@/lib/headings';
 import { UpdatedLine } from '@/components/UpdatedLine';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
@@ -125,7 +127,11 @@ export default async function CreatorPage({ params }: Props) {
     seen.add(w.slug);
     return true;
   });
-  const { body, reading } = splitReading(creator.body);
+  const split = splitReading(creator.body);
+  const body = injectHeadingIds(split.body);
+  const reading = split.reading;
+  const headings = extractHeadings(body);
+  const { standfirst, rest } = splitStandfirst(body);
   const guide = getLearnTopic(`where-to-start-with-${creator.slug}`);
   const answers = quickAnswers(creator, works);
   const faqLd = answers.length > 0 && {
@@ -153,35 +159,25 @@ export default async function CreatorPage({ params }: Props) {
     // as knowsAbout would claim them as subjects rather than creations.
   };
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-      { '@type': 'ListItem', position: 2, name: 'Wiki', item: `${BASE}/wiki` },
-      { '@type': 'ListItem', position: 3, name: creator.name, item: `${BASE}/wiki/creator/${creator.slug}` },
-    ],
-  };
-
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/wiki" className="hover:text-primary transition-colors">Wiki</Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Wiki', href: '/wiki' },
+          { name: creator.name, href: `/wiki/creator/${creator.slug}` },
+        ]}
+      />
 
-      <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 mb-3">
+      <span className="inline-block eyebrow text-gold mb-2">
         {creator.role}
       </span>
 
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-1">{creator.name}</h1>
+      <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment mb-2">{creator.name}</h1>
 
-      <ShelfBadge title={creator.name} showSum className="mt-3 mb-4" />
       {creator.nativeName && (
         <p className="text-lg text-gray-500 dark:text-gray-400 mb-3">{creator.nativeName}</p>
       )}
@@ -189,7 +185,7 @@ export default async function CreatorPage({ params }: Props) {
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Born {creator.bornYear}</p>
       )}
 
-      <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-8">
+      <p className="mt-4 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85 mb-8">
         {creator.bioSource ?? creator.bio}
       </p>
 
@@ -205,9 +201,13 @@ export default async function CreatorPage({ params }: Props) {
         </Link>
       )}
 
+      {standfirst && <div className="ref-prose" dangerouslySetInnerHTML={{ __html: standfirst }} />}
+
+      <OnThisPage headings={headings} />
+
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(body, `/wiki/creator/${creator.slug}`) }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(rest, `/wiki/creator/${creator.slug}`) }}
       />
 
       <UpdatedLine

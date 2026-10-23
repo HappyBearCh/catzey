@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { linkReferenceMentions } from '@/lib/reference-links';
 import { metaDescription, splitReading, documentTitle } from '@/lib/seo';
 import Link from 'next/link';
-import { ShelfBadge } from '@/components/ShelfBadge';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { OnThisPage } from '@/components/OnThisPage';
+import { extractHeadings, injectHeadingIds, splitStandfirst } from '@/lib/headings';
 import { UpdatedLine } from '@/components/UpdatedLine';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
@@ -178,7 +180,11 @@ export default async function WorkPage({ params }: Props) {
   const run = years(work.startYear, work.endYear, work.status);
   const answers = quickAnswers(work, creators);
   const similar = getSimilarWorks(work);
-  const { body, reading } = splitReading(work.body);
+  const split = splitReading(work.body);
+  const body = injectHeadingIds(split.body);
+  const reading = split.reading;
+  const headings = extractHeadings(body);
+  const { standfirst, rest } = splitStandfirst(body);
   const guides = creators.flatMap((c) => getLearnTopic(`where-to-start-with-${c.slug}`) ?? []);
 
   const faqLd = answers.length > 0 && {
@@ -216,44 +222,35 @@ export default async function WorkPage({ params }: Props) {
     inLanguage: 'ja',
   };
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-      { '@type': 'ListItem', position: 2, name: 'Wiki', item: `${BASE}/wiki` },
-      { '@type': 'ListItem', position: 3, name: work.title, item: `${BASE}/wiki/series/${work.slug}` },
-    ],
-  };
-
   const facts: Array<[string, string]> = [
     ...(run ? [['Published', run] as [string, string]] : []),
-    ...(work.demographic ? [['Demographic', work.demographic] as [string, string]] : []),
-    ...(work.magazine ? [['Magazine', work.magazine] as [string, string]] : []),
-    ...(work.volumes ? [['Volumes', String(work.volumes)] as [string, string]] : []),
     ...(work.status ? [['Status', work.status] as [string, string]] : []),
+    ...(work.volumes ? [['Volumes', String(work.volumes)] as [string, string]] : []),
+    ...(work.demographic ? [['Demographic', work.demographic] as [string, string]] : []),
+    ...(work.magazine ? [['Magazine', work.magazine.split(';').map((m) => m.trim()).join(', ')] as [string, string]] : []),
   ];
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(workLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/wiki" className="hover:text-primary transition-colors">Wiki</Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Wiki', href: '/wiki' },
+          { name: work.title, href: `/wiki/series/${work.slug}` },
+        ]}
+      />
 
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">{work.title}</h1>
-
-      <ShelfBadge title={work.title} showSum className="mb-4" />
+      <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment">
+        {work.title}
+      </h1>
       {work.altTitles.length > 0 && (
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{work.altTitles.join(' · ')}</p>
+        <p className="mt-1 text-sm text-ink-muted dark:text-parchment/60">{work.altTitles.join(' · ')}</p>
       )}
 
-      <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 py-2 bg-primary/5 mb-6">
+      <p className="mt-5 mb-6 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85">
         {work.synopsisSource ?? work.synopsis}
       </p>
 
@@ -273,32 +270,37 @@ export default async function WorkPage({ params }: Props) {
 
       {/* A compact fact table is what readers scan first on a reference page and
           what assistants tend to lift as the answer. */}
-      {facts.length > 0 && (
-        <dl className="mb-10 border-t border-line">
+      {/* A compact fact box is what readers scan first on a reference page and
+          what assistants tend to lift as the answer. Two columns on a phone keep
+          it to a few lines, so the entry itself starts on the first screen. */}
+      {(facts.length > 0 || creators.length > 0) && (
+        // Cells wrap and grow to fill their row, so a short last row never
+        // leaves an empty box; each draws its own top and left hairline, and
+        // the negative margins tuck the outer ones under the frame.
+        <dl className="mb-8 flex flex-wrap overflow-hidden rounded-2xl border border-line [&>div]:-mt-px [&>div]:-ml-px [&>div]:border-t [&>div]:border-l [&>div]:border-line">
+          {creators.length > 0 && (
+            <div className="basis-full px-4 py-3">
+              <dt className="eyebrow mb-1">{creators.length > 1 ? 'Creators' : 'Creator'}</dt>
+              <dd className="flex flex-wrap gap-x-4 gap-y-1">
+                {creators.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/wiki/creator/${c.slug}`}
+                    className="font-display text-lg text-gold hover:underline underline-offset-4"
+                  >
+                    {c.name}
+                  </Link>
+                ))}
+              </dd>
+            </div>
+          )}
           {facts.map(([k, v]) => (
-            <div key={k} className="datarow">
-              <dt className="eyebrow">{k}</dt>
-              <dd className="font-display text-lg capitalize text-ink dark:text-parchment">{v}</dd>
+            <div key={k} className={`grow px-4 py-3 ${k === 'Magazine' ? 'basis-[14rem]' : 'basis-[9rem]'}`}>
+              <dt className="eyebrow mb-1">{k}</dt>
+              <dd className="font-display text-base capitalize text-ink dark:text-parchment">{v}</dd>
             </div>
           ))}
         </dl>
-      )}
-
-      {creators.length > 0 && (
-        <div className="mb-8">
-          <p className="text-2xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Created by</p>
-          <div className="flex flex-wrap gap-2">
-            {creators.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/wiki/creator/${c.slug}`}
-                className="text-sm font-bold px-3 py-1.5 border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors rounded-sm"
-              >
-                {c.name}
-              </Link>
-            ))}
-          </div>
-        </div>
       )}
 
       {guides.map((guide) => (
@@ -314,9 +316,13 @@ export default async function WorkPage({ params }: Props) {
         </Link>
       ))}
 
+      {standfirst && <div className="ref-prose" dangerouslySetInnerHTML={{ __html: standfirst }} />}
+
+      <OnThisPage headings={headings} />
+
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(body, `/wiki/series/${work.slug}`) }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(rest, `/wiki/series/${work.slug}`) }}
       />
 
       <UpdatedLine

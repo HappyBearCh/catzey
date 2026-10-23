@@ -31,6 +31,17 @@ export function injectHeadingIds(html: string): string {
   });
 }
 
+/**
+ * Separates an entry's filing line (the standfirst the numerology pass writes
+ * at the top of every body) from the text under it, so a page can put its
+ * jump links between the two rather than between the filing line and the
+ * first section.
+ */
+export function splitStandfirst(html: string): { standfirst: string; rest: string } {
+  const m = html.match(/^\s*<!--catzye:standfirst-->[\s\S]*?<!--\/catzye:standfirst-->/);
+  return m ? { standfirst: m[0], rest: html.slice(m[0].length) } : { standfirst: '', rest: html };
+}
+
 export function splitHtmlAfterNthParagraph(html: string, n: number): [string, string] {
   let search = 0;
   for (let i = 0; i < n; i++) {

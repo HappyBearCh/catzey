@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { linkReferenceMentions } from '@/lib/reference-links';
 import { metaDescription, splitReading, documentTitle } from '@/lib/seo';
 import Link from 'next/link';
-import { ShelfBadge } from '@/components/ShelfBadge';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { OnThisPage } from '@/components/OnThisPage';
+import { extractHeadings, injectHeadingIds, splitStandfirst } from '@/lib/headings';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { UpdatedLine } from '@/components/UpdatedLine';
 import { notFound } from 'next/navigation';
@@ -67,7 +69,11 @@ export default async function GlossaryTermPage({ params }: Props) {
   const { term: slug } = await params;
   const term = await getGlossaryTerm(slug);
   if (!term) notFound();
-  const { body, reading } = splitReading(term.body);
+  const split = splitReading(term.body);
+  const body = injectHeadingIds(split.body);
+  const reading = split.reading;
+  const headings = extractHeadings(body);
+  const { standfirst, rest } = splitStandfirst(body);
 
   const [related, examples] = await Promise.all([
     getGlossaryTermsBySlugs(term.related),
@@ -93,36 +99,26 @@ export default async function GlossaryTermPage({ params }: Props) {
     inLanguage: 'en',
   };
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-      { '@type': 'ListItem', position: 2, name: 'Glossary', item: `${BASE}/glossary` },
-      { '@type': 'ListItem', position: 3, name: term.term, item: `${BASE}/glossary/${term.slug}` },
-    ],
-  };
-
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(termLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/glossary" className="hover:text-primary transition-colors">Glossary</Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Glossary', href: '/glossary' },
+          { name: term.term, href: `/glossary/${term.slug}` },
+        ]}
+      />
 
       {category && (
-        <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5 mb-3">
+        <span className="inline-block eyebrow text-gold mb-2">
           {category.label}
         </span>
       )}
 
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">{term.term}</h1>
+      <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment mb-2">{term.term}</h1>
 
-      <ShelfBadge title={term.term} showSum className="mb-4" />
 
       {term.aliases.length > 0 && (
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -132,13 +128,17 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       {/* The one-line definition is what gets quoted in featured snippets, so it
           sits first, alone, and reads as a complete sentence. */}
-      <p className="text-lg md:text-xl font-semibold leading-snug border-l-4 border-primary pl-4 pr-4 py-3 tone-fill mb-8">
+      <p className="mt-4 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85 mb-8">
         {term.shortDefSource ?? term.shortDef}
       </p>
 
+      {standfirst && <div className="ref-prose" dangerouslySetInnerHTML={{ __html: standfirst }} />}
+
+      <OnThisPage headings={headings} />
+
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(body, `/glossary/${term.slug}`) }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(rest, `/glossary/${term.slug}`) }}
       />
 
       <UpdatedLine

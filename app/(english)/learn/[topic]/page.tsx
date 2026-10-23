@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
-import { ShelfBadge } from '@/components/ShelfBadge';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { OnThisPage } from '@/components/OnThisPage';
+import { extractHeadings, injectHeadingIds, splitStandfirst } from '@/lib/headings';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { UpdatedLine } from '@/components/UpdatedLine';
 import { notFound } from 'next/navigation';
@@ -63,7 +65,11 @@ export default async function LearnTopicPage({ params }: Props) {
   const { topic: slug } = await params;
   const topic = await getLearnTopic(slug);
   if (!topic) notFound();
-  const { body, reading } = splitReading(topic.body);
+  const split = splitReading(topic.body);
+  const body = injectHeadingIds(split.body);
+  const reading = split.reading;
+  const headings = extractHeadings(body);
+  const { standfirst, rest } = splitStandfirst(body);
 
   const track = getTrack(topic.track);
   const [{ prev, next, position, total }, related] = await Promise.all([
@@ -96,17 +102,6 @@ export default async function LearnTopicPage({ params }: Props) {
     },
   };
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-      { '@type': 'ListItem', position: 2, name: 'Learn', item: `${BASE}/learn` },
-      ...(track ? [{ '@type': 'ListItem', position: 3, name: track.label, item: `${BASE}/learn#${track.slug}` }] : []),
-      { '@type': 'ListItem', position: track ? 4 : 3, name: topic.title, item: `${BASE}/learn/${topic.slug}` },
-    ],
-  };
-
   // Only emitted when the page really is question-and-answer shaped; thin or
   // invented Q&A in FAQPage schema risks a structured-data manual action.
   const faqLd = faq.length >= 3
@@ -124,25 +119,21 @@ export default async function LearnTopicPage({ params }: Props) {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(topicLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {faqLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       )}
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/learn" className="hover:text-primary transition-colors">Learn</Link>
-        {track && (
-          <>
-            <span aria-hidden="true">›</span>
-            <span>{track.label}</span>
-          </>
-        )}
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Learn', href: '/learn' },
+          ...(track ? [{ name: track.label, href: `/learn#${track.slug}` }] : []),
+          { name: topic.title, href: `/learn/${topic.slug}` },
+        ]}
+      />
 
       <div className="flex items-center gap-2 mb-3">
-        <span className="inline-block bg-primary text-white text-2xs font-semibold uppercase tracking-widest px-2 py-0.5">
+        <span className="inline-block eyebrow text-gold">
           {topic.level}
         </span>
         {total > 0 && (
@@ -153,17 +144,20 @@ export default async function LearnTopicPage({ params }: Props) {
         )}
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-4">{topic.title}</h1>
+      <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment mb-2">{topic.title}</h1>
 
-      <ShelfBadge title={topic.title} showSum className="mb-5" />
 
-      <p className="text-lg font-semibold leading-snug border-l-4 border-primary pl-4 pr-4 py-3 tone-fill mb-8">
+      <p className="mt-4 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85 mb-8">
         {topic.summarySource ?? topic.summary}
       </p>
 
+      {standfirst && <div className="ref-prose" dangerouslySetInnerHTML={{ __html: standfirst }} />}
+
+      <OnThisPage headings={headings} />
+
       <div
         className="ref-prose"
-        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(body, `/learn/${topic.slug}`) }}
+        dangerouslySetInnerHTML={{ __html: linkReferenceMentions(rest, `/learn/${topic.slug}`) }}
       />
 
       <UpdatedLine url={`${BASE}/learn/${topic.slug}`} name={topic.title} updatedAt={topic.updatedAt} className="mt-6" />
