@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { MangaCover } from '@/components/MangaCover';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { titleValue } from '@/lib/number-groups';
 import Image from 'next/image';
 import { prisma } from '@/lib/db';
@@ -51,8 +53,9 @@ export default async function SeriesIndexPage() {
     <div className="max-w-5xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Essay series', href: '/series' }]} />
       <div className="mb-8">
-        <h1 className="text-3xl font-semibold mb-2">Essay Series</h1>
+        <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment mb-2">Essay Series</h1>
         <p className="text-gray-500 text-sm max-w-xl">
           Long-form explorations of manga history, culture, and society — one series, multiple deep dives.
         </p>
@@ -69,16 +72,14 @@ export default async function SeriesIndexPage() {
               <Link
                 key={s.id}
                 href={`/series/${s.slug}`}
-                className="group bg-white border-2 border-[rgb(var(--ink-line))] rounded-sm overflow-hidden hover:shadow-md transition-shadow"
+                className="group manga-panel block"
               >
                 {s.imageUrl ? (
                   <div className="relative w-full aspect-video">
                     <Image src={s.imageUrl} alt={s.title} fill className="object-cover group-hover:scale-[1.02] transition-transform duration-300" />
                   </div>
                 ) : (
-                  <div className="w-full aspect-video bg-site-dark flex items-center justify-center px-6">
-                    <p className="text-white font-semibold text-xl text-center leading-snug">{s.title}</p>
-                  </div>
+                  <MangaCover number={titleValue(s.title)} label={getCategoryLabel(s.category)} className="w-full aspect-[16/7] border-b-2 border-[rgb(var(--ink-line))]" />
                 )}
                 <div className="p-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -95,15 +96,7 @@ export default async function SeriesIndexPage() {
                   {s.description && (
                     <p className="text-sm text-gray-500 line-clamp-2">{s.description}</p>
                   )}
-                  {/* Progress dots */}
-                  <div className="flex gap-1 mt-3">
-                    {Array.from({ length: totalParts }, (_, i) => (
-                      <span
-                        key={i}
-                        className={`w-2 h-2 rounded-full ${i < publishedCount ? 'bg-primary' : 'bg-gray-200'}`}
-                      />
-                    ))}
-                  </div>
+
                 </div>
               </Link>
             );

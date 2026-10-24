@@ -1032,3 +1032,31 @@
   border-width: 0.8rem 0.25rem 0 0.75rem;
   border-color: rgb(var(--panel)) transparent transparent transparent;
 }
+
+/* A cover without a picture: ink ground, focus lines in paper white running
+   into a clear centre where the seal sits. Stays ink in both themes, as a
+   printed cover would. */
+/* :where() keeps this at zero specificity so a call site's "absolute" wins. */
+:where(.manga-cover) {
+  position: relative;
+}
+.manga-cover {
+  isolation: isolate;
+  overflow: hidden;
+  background: #14110f;
+}
+.manga-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(247, 244, 238, 0.55) 0deg 0.8deg,
+    transparent 0.8deg 5deg
+  );
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 18%, #000 75%);
+  mask-image: radial-gradient(circle at 50% 50%, transparent 18%, #000 75%);
+  opacity: 0.45;
+}

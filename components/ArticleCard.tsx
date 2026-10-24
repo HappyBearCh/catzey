@@ -4,6 +4,7 @@ import { formatDistanceToNow } from 'date-fns';
 import type { Article } from '@/lib/types';
 import { getCategoryLabel } from '@/lib/types';
 import { titleValue } from '@/lib/number-groups';
+import { MangaCover } from '@/components/MangaCover';
 
 interface ArticleCardProps {
   article: Article;
@@ -42,26 +43,20 @@ function isAiImage(url: string | null | undefined) {
   return !!url?.includes('/articles/ai-');
 }
 
+// A card without a picture used to print its own title a second time in the
+// image slot; it now gets a drawn cover instead, and the title appears once.
 function TextThumbnail({
   title,
   categoryLabel,
   className,
+  align,
 }: {
   title: string;
   categoryLabel: string;
   className: string;
+  align?: 'center' | 'top';
 }) {
-  return (
-    <div className={`${className} rounded-xl bg-paper-2 dark:bg-ground-2 flex flex-col items-center justify-center p-4 text-center`}>
-      <span className="text-primary text-2xs font-semibold uppercase tracking-widest mb-2 block">
-        {categoryLabel}
-        <ShelfMark n={titleValue(title)} />
-      </span>
-      <p className="font-display text-ink dark:text-parchment font-semibold leading-snug line-clamp-4 text-lg">
-        {title}
-      </p>
-    </div>
-  );
+  return <MangaCover number={titleValue(title)} label={categoryLabel} align={align} className={className} />;
 }
 
 export function ArticleCard({ article, size = 'medium', articleBasePath = '/article' }: ArticleCardProps) {
@@ -71,7 +66,7 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
 
   if (size === 'hero') {
     return (
-      <Link href={href} className="group relative block overflow-hidden panel bg-black h-[60vw] max-h-[540px] min-h-[320px]">
+      <Link href={href} className="group relative block overflow-hidden panel !bg-black h-[60vw] max-h-[540px] min-h-[320px]">
         {article.imageUrl ? (
           <SafeImage
             src={article.imageUrl}
@@ -80,10 +75,10 @@ export function ArticleCard({ article, size = 'medium', articleBasePath = '/arti
             sizes="(max-width: 1024px) 100vw, 66vw"
             className="object-cover object-top opacity-75 group-hover:opacity-65 transition-opacity duration-300"
             priority
-            fallback={<TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" />}
+            fallback={<TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" align="top" />}
           />
         ) : (
-          <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" />
+          <TextThumbnail title={article.title} categoryLabel={categoryLabel} className="absolute inset-0" align="top" />
         )}
         {isAiImage(article.imageUrl) && (
           <span className="absolute top-3 right-3 z-10 bg-black/60 text-white text-2xs italic px-2 py-0.5">

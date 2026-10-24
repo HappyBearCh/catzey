@@ -67,13 +67,16 @@ export function MobileMenu() {
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
         aria-hidden={!open}
+        // Hidden is not enough: without inert, keyboard focus still walks into
+        // the closed drawer's links.
+        inert={!open}
       >
         <div className="flex items-center justify-between px-5 h-14 border-b border-line flex-shrink-0">
           <span className="eyebrow">Menu</span>
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="text-ink-muted hover:text-gold dark:text-parchment/70 transition-colors"
+            className="flex items-center justify-center w-10 h-10 -mr-2 text-ink-muted hover:text-gold dark:text-parchment/70 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
