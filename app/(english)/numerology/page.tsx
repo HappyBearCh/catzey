@@ -123,7 +123,7 @@ export default function NumerologyPage() {
           return (
             <div
               key={n}
-              className="rounded-sm border border-site-border dark:border-primary/20 p-4 flex gap-4 bg-white dark:bg-site-dark-2"
+              className="rounded-sm border-2 border-[rgb(var(--ink-line))] dark:border-primary/20 p-4 flex gap-4 bg-white dark:bg-site-dark-2"
             >
               <div
                 className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xl font-semibold text-white"
@@ -153,7 +153,7 @@ export default function NumerologyPage() {
                   {p.keywords.slice(0, 4).map((k) => (
                     <span
                       key={k}
-                      className="text-2xs font-semibold px-1.5 py-0.5 bg-site-light text-primary border border-site-border rounded-sm dark:bg-primary/10 dark:border-primary/30 dark:text-primary-accent"
+                      className="text-2xs font-semibold px-1.5 py-0.5 bg-site-light text-primary border-2 border-[rgb(var(--ink-line))] rounded-sm dark:bg-primary/10 dark:border-primary/30 dark:text-primary-accent"
                     >
                       {k}
                     </span>
@@ -165,7 +165,7 @@ export default function NumerologyPage() {
         })}
       </div>
 
-      <div className="rounded-sm border border-site-border dark:border-primary/20 p-5 bg-site-light dark:bg-site-dark-2">
+      <div className="rounded-sm border-2 border-[rgb(var(--ink-line))] dark:border-primary/20 p-5 bg-site-light dark:bg-site-dark-2">
         <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
           Every text on Catzye carries a reading of its title — the working printed underneath it,
           computed rather than written — and every one of them lives on the shelf its number

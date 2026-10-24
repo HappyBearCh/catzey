@@ -362,7 +362,7 @@ export default async function ArticlePage({ params }: Props) {
         {/* Main article */}
         <article className="lg:col-span-2">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
+          <nav className="flex flex-wrap items-center gap-2 font-sans text-sm text-ink-muted dark:text-parchment/60 mb-4">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <span aria-hidden="true">›</span>
             <Link href={`/${article.category}`} className="hover:text-primary transition-colors">
@@ -372,7 +372,7 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* Series banner */}
           {seriesCtx && (
-            <div className="mb-5 p-3 border border-site-border rounded-2xl flex items-center gap-3">
+            <div className="mb-5 p-3 border-2 border-[rgb(var(--ink-line))] rounded-2xl flex items-center gap-3">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">
                 {article.seriesOrder}
               </div>
@@ -501,7 +501,7 @@ export default async function ArticlePage({ params }: Props) {
               <>
                 <div dangerouslySetInnerHTML={{ __html: htmlPart1 }} />
                 {article.pullQuote && (
-                  <blockquote className="my-6 border-l-4 border-primary pl-5 py-3 bg-primary/5 not-prose">
+                  <blockquote className="my-6 bubble not-prose">
                     <p className="text-lg md:text-xl font-bold text-gray-900 leading-snug italic">
                       &ldquo;{article.pullQuote}&rdquo;
                     </p>
@@ -515,7 +515,7 @@ export default async function ArticlePage({ params }: Props) {
               <>
                 {paragraphs.slice(0, 3).map((para, i) => <p key={i}>{para}</p>)}
                 {article.pullQuote && (
-                  <blockquote className="my-6 border-l-4 border-primary pl-5 py-3 bg-primary/5 not-prose">
+                  <blockquote className="my-6 bubble not-prose">
                     <p className="text-lg md:text-xl font-bold text-gray-900 leading-snug italic">
                       &ldquo;{article.pullQuote}&rdquo;
                     </p>
@@ -530,7 +530,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
 
           {article.generated && (
-            <p className="mt-6 p-4 text-sm leading-relaxed border border-line rounded-xl text-ink-muted dark:text-parchment/60">
+            <p className="mt-6 p-4 text-sm leading-relaxed border-2 border-[rgb(var(--ink-line))] rounded-xl text-ink-muted dark:text-parchment/60">
               This text was machine-written, before Catzye adopted the rule that everything on it is
               written by hand. It stays in the archive for readers who arrived at it, but it is not
               part of the reference and is not offered to search engines.{' '}
@@ -539,7 +539,7 @@ export default async function ArticlePage({ params }: Props) {
           )}
 
           {article.editorNote && (
-            <div className="mt-6 p-4 bg-gray-50 border border-site-border rounded-sm">
+            <div className="mt-6 p-4 bg-gray-50 border-2 border-[rgb(var(--ink-line))] rounded-sm">
               <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-2 flex items-center gap-1.5">
                 <span className="inline-block w-3 h-3 bg-primary rounded-full" />
                 Catzye Take
@@ -584,7 +584,7 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* Guide callout */}
           {guide && (
-            <div className="mt-6 p-4 border-l-4 border-primary bg-primary/5">
+            <div className="mt-6 bubble">
               <p className="text-2xs font-semibold uppercase tracking-widest text-primary mb-1">Want to learn more?</p>
               <Link
                 href={`/${article.category}/guide`}
@@ -606,7 +606,7 @@ export default async function ArticlePage({ params }: Props) {
           {seriesCtx && (seriesCtx.prev || seriesCtx.next) && (
             <div className="mt-8 pt-6 border-t border-site-border grid grid-cols-2 gap-4">
               {seriesCtx.prev ? (
-                <Link href={`/article/${seriesCtx.prev.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all">
+                <Link href={`/article/${seriesCtx.prev.slug}`} className="group flex flex-col gap-1 p-3 border-2 border-[rgb(var(--ink-line))] rounded-sm hover:border-primary/40 hover:shadow-sm transition-all">
                   <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">← Previous part</span>
                   <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                     {seriesCtx.prev.title}
@@ -614,7 +614,7 @@ export default async function ArticlePage({ params }: Props) {
                 </Link>
               ) : <div />}
               {seriesCtx.next ? (
-                <Link href={`/article/${seriesCtx.next.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 hover:shadow-sm transition-all text-right">
+                <Link href={`/article/${seriesCtx.next.slug}`} className="group flex flex-col gap-1 p-3 border-2 border-[rgb(var(--ink-line))] rounded-sm hover:border-primary/40 hover:shadow-sm transition-all text-right">
                   <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">Next part →</span>
                   <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                     {seriesCtx.next.title}
@@ -636,7 +636,7 @@ export default async function ArticlePage({ params }: Props) {
               </div>
               <Link
                 href={`/${article.category}`}
-                className="mt-5 block text-center text-sm font-sans font-medium text-primary rounded-full border border-site-border px-4 py-2 hover:border-primary/40 transition-colors"
+                className="mt-5 block text-center text-sm font-sans font-medium text-primary rounded-full border-2 border-[rgb(var(--ink-line))] px-4 py-2 hover:border-primary/40 transition-colors"
               >
                 All of {categoryLabel} →
               </Link>
@@ -663,7 +663,7 @@ export default async function ArticlePage({ params }: Props) {
                 </div>
                 <Link
                   href={`/${article.category}`}
-                  className="mt-4 block text-center text-sm font-sans font-medium text-primary rounded-full border border-site-border px-4 py-2 hover:border-primary/40 transition-colors"
+                  className="mt-4 block text-center text-sm font-sans font-medium text-primary rounded-full border-2 border-[rgb(var(--ink-line))] px-4 py-2 hover:border-primary/40 transition-colors"
                 >
                   All of {categoryLabel} →
                 </Link>

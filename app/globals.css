@@ -9,13 +9,17 @@
     --accent: 208 52 44;     /* #d0342c on paper: 4.5:1 */
     --gray-400: 111 103 94;  /* #6f675e on paper: 5.1:1 */
     --gray-500: 98 91 83;    /* #625b53 on paper: 6.1:1 */
-    --line: 226 220 210;     /* #e2dcd2, a hairline on paper */
+    --line: 205 197 185;     /* #cdc5b9, a ruled line on paper */
+    --ink-line: 20 17 15;    /* the pen: panel borders and their shadow */
+    --panel: 255 255 253;    /* a panel is whiter than the page around it */
   }
   .dark {
     --accent: 236 106 95;    /* #ec6a5f on ink: 6.1:1 */
     --gray-400: 168 162 154; /* #a8a29a on ink: 7.4:1 */
     --gray-500: 150 144 136; /* #969088 on ink: 6.0:1 */
-    --line: 52 46 41;        /* #342e29, a hairline on ink */
+    --line: 64 57 51;        /* #403933, a ruled line on ink */
+    --ink-line: 214 207 196; /* chalk on the dark page */
+    --panel: 30 26 23;
   }
 
   html {
@@ -37,11 +41,16 @@
     background-image: none;
   }
 
-  /* The display face carries every heading. */
+  /* The display face carries every heading. Titles take its heaviest cut, the
+     way a manga sets a chapter title: black and tight. */
   h1, h2, h3, h4 {
     font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
     font-weight: 700;
     letter-spacing: -0.01em;
+  }
+  h1 {
+    font-weight: 900 !important;
+    letter-spacing: -0.02em;
   }
 
   * { box-sizing: border-box; }
@@ -149,26 +158,132 @@
 
   /* A panel. Manga borders are drawn with a pen and meant to be seen — the
      whole grammar of the page is boxes and the gutters between them. */
-  .panel {
-    border: 1px solid rgb(var(--line));
-    border-radius: 1rem;
-    background: #fbf9f5;
+  .panel,
+  .manga-panel {
+    border: 2px solid rgb(var(--ink-line));
+    border-radius: 3px;
+    background: rgb(var(--panel));
+    box-shadow: 4px 4px 0 0 rgb(var(--ink-line));
     overflow: hidden;
   }
-  .dark .panel {
-    background: #1a1613;
+  /* A panel you can open lifts off the page a little further, the way a
+     frame is pushed forward when the next one is turned to. */
+  a.manga-panel {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  a.manga-panel:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 rgb(var(--ink-line));
+  }
+  a.manga-panel:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 0 rgb(var(--ink-line));
   }
 
   /* A panel's title bar: solid ink, reversed out, like a chapter rule. */
   .panel-head {
-    @apply flex items-center gap-2.5 px-5 pt-5 pb-1;
-    color: #14110f;
+    @apply flex items-center gap-2.5 px-5 py-3;
+    background: rgb(var(--ink-line));
+    color: rgb(var(--panel));
     font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 900;
   }
-  .dark .panel-head {
-    color: #f7f4ee;
+  .panel-head .sigil {
+    border-color: rgb(var(--panel));
+    color: rgb(var(--panel));
+  }
+
+  /* A chapter title card: a heavy title in the display face, set on a bar
+     of solid ink with the type reversed out. */
+  .chapter-title {
+    display: inline-block;
+    padding: 0.2em 0.6em 0.25em;
+    background: rgb(var(--ink-line));
+    color: rgb(var(--panel));
+    font-weight: 900;
+    transform: skewX(-6deg);
+  }
+  .chapter-title > * {
+    display: inline-block;
+    transform: skewX(6deg);
+  }
+
+  /* A speech balloon. The line a series is summed up in is what a character
+     would say about it, so it is set the way manga set speech: a white
+     balloon, a pen outline and a tail pointing back at the speaker. */
+  .bubble {
+    position: relative;
+    padding: 1rem 1.25rem;
+    border: 2px solid rgb(var(--ink-line));
+    border-radius: 1.75rem;
+    background: rgb(var(--panel));
+    margin-bottom: 2.25rem !important;
+  }
+  .bubble::before,
+  .bubble::after {
+    content: '';
+    position: absolute;
+    left: 2.25rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  .bubble::before {
+    bottom: -1.05rem;
+    border-width: 1.05rem 0.4rem 0 1rem;
+    border-color: rgb(var(--ink-line)) transparent transparent transparent;
+  }
+  .bubble::after {
+    bottom: -0.78rem;
+    left: calc(2.25rem + 2.5px);
+    border-width: 0.8rem 0.25rem 0 0.75rem;
+    border-color: rgb(var(--panel)) transparent transparent transparent;
+  }
+
+  /* Focus lines (集中線): ink strokes radiating from a clear centre, the
+     device a page uses to say "look here". Drawn with gradients, so no
+     image is fetched. */
+  .speedlines {
+    position: relative;
+    isolation: isolate;
+  }
+  .speedlines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: repeating-conic-gradient(
+      from 0deg at 50% 42%,
+      rgb(var(--ink-line) / 0.55) 0deg 0.7deg,
+      transparent 0.7deg 4.3deg
+    );
+    -webkit-mask-image: radial-gradient(ellipse 70% 62% at 50% 42%, transparent 52%, #000 100%);
+    mask-image: radial-gradient(ellipse 70% 62% at 50% 42%, transparent 52%, #000 100%);
+    opacity: 0.35;
+  }
+
+  /* Screentone: shading done with printed dots, because the presses could
+     only manage black. Used as a band behind a section. */
+  .screentone {
+    background-color: rgb(var(--panel));
+    background-image: radial-gradient(rgb(var(--ink-line) / 0.16) 1.1px, transparent 1.4px);
+    background-size: 7px 7px;
+  }
+
+  /* A small tag drawn as a panel in miniature. */
+  .chip {
+    display: inline-block;
+    border: 1.5px solid rgb(var(--ink-line));
+    border-radius: 9999px;
+    background: rgb(var(--panel));
+    font-family: var(--font-sans), 'Helvetica Neue', Arial, sans-serif;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .chip:hover {
+    background: rgb(var(--ink-line));
+    color: rgb(var(--panel));
   }
 
   /* Screentone. Shading was done with adhesive sheets of printed dots because
@@ -377,10 +492,13 @@
   @apply text-ink dark:text-parchment;
 }
 
+/* Section heads carry an ink bar at the left, as a chapter break does. */
 .ref-prose h2 {
   font-size: 1.4rem;
   font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  font-weight: 700;
+  font-weight: 900;
+  padding-left: 0.65rem;
+  border-left: 6px solid rgb(var(--ink-line));
   line-height: 1.3;
   margin-top: 2.75rem;
   margin-bottom: 0.75rem;
@@ -823,12 +941,10 @@
 .num-reading {
   margin-top: 2.75rem;
   padding: 1.5rem 1.6rem 1.6rem;
-  border: 1px solid rgb(var(--line));
-  border-radius: 1rem;
-  background: #fbf9f5;
-}
-.dark .num-reading {
-  background: #1a1613;
+  border: 2px solid rgb(var(--ink-line));
+  border-radius: 3px;
+  background: rgb(var(--panel));
+  box-shadow: 4px 4px 0 0 rgb(var(--ink-line));
 }
 .num-reading > h2 {
   font-family: var(--font-display), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
@@ -871,4 +987,48 @@
    in a grotesque they read as interface. */
 .uppercase {
   font-family: var(--font-sans), 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Quotations are speech: a balloon with a pen outline and a tail, the way a
+   page sets what someone said. Last in the file so it wins over the older
+   caption-box rules above. */
+.article-prose blockquote,
+.ref-prose blockquote {
+  position: relative;
+  margin: 1.75rem 0 2.25rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgb(var(--ink-line));
+  border-radius: 1.75rem;
+  background: rgb(var(--panel));
+  color: rgb(var(--ink-line));
+}
+.dark .article-prose blockquote,
+.dark .ref-prose blockquote {
+  border-color: rgb(var(--ink-line));
+  background: rgb(var(--panel));
+  color: #ece5d4;
+}
+.article-prose blockquote::before,
+.ref-prose blockquote::before,
+.article-prose blockquote::after,
+.ref-prose blockquote::after {
+  content: '';
+  position: absolute;
+  left: 2.25rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.article-prose blockquote::before,
+.ref-prose blockquote::before {
+  bottom: -1.05rem;
+  border-width: 1.05rem 0.4rem 0 1rem;
+  border-color: rgb(var(--ink-line)) transparent transparent transparent;
+}
+.article-prose blockquote::after,
+.ref-prose blockquote::after {
+  bottom: -0.78rem;
+  left: calc(2.25rem + 2.5px);
+  border-width: 0.8rem 0.25rem 0 0.75rem;
+  border-color: rgb(var(--panel)) transparent transparent transparent;
 }

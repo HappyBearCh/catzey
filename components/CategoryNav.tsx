@@ -40,7 +40,7 @@ export function CategoryNav() {
                 aria-current={active ? 'page' : undefined}
                 className={`block px-3 py-1.5 rounded-full font-sans text-[0.9rem] font-medium transition-colors ${
                   active
-                    ? 'bg-seal/10 text-gold'
+                    ? 'bg-ink text-paper dark:bg-parchment dark:text-ink'
                     : 'text-ink-2 hover:text-ink hover:bg-ink/5 dark:text-parchment/75 dark:hover:text-parchment dark:hover:bg-parchment/5'
                 }`}
               >

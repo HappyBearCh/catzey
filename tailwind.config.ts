@@ -97,12 +97,18 @@ const config: Config = {
       fontSize: {
         '2xs': '0.65rem',
       },
-      // Soft corners throughout. Older templates ask for `rounded-sm` and
-      // `rounded`; both are lifted here so every box on the site shares one
-      // gentle radius without touching each call site.
+      // Panel corners. A manga frame is ruled, not rounded: every box radius
+      // the templates ask for is pulled down to the slight softening a pen
+      // gives a corner, so cards across the site read as panels on a page
+      // without touching each call site. Pills (rounded-full) stay round.
       borderRadius: {
-        sm: '0.625rem',
-        DEFAULT: '0.5rem',
+        sm: '3px',
+        DEFAULT: '3px',
+        md: '3px',
+        lg: '4px',
+        xl: '4px',
+        '2xl': '4px',
+        '3xl': '6px',
       },
       letterSpacing: {
         label: '0.14em',

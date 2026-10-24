@@ -18,7 +18,7 @@ export function OnThisPage({ headings, className = '' }: { headings: Heading[]; 
           <li key={id}>
             <a
               href={`#${id}`}
-              className="inline-block rounded-full border border-line px-3 py-1.5 font-sans text-sm text-ink-2 dark:text-parchment/75 hover:border-gold/40 hover:text-gold transition-colors"
+              className="chip px-3 py-1.5 text-sm text-ink-2 dark:text-parchment/80"
             >
               {text}
             </a>

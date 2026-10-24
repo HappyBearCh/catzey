@@ -24,7 +24,7 @@ export function InlineRelated({ articles }: Props) {
             <Link
               key={article.id}
               href={`/article/${article.slug}`}
-              className="group flex gap-3 items-start rounded-2xl border border-line p-4 no-underline hover:border-gold/30 transition-colors"
+              className="group flex gap-3 items-start rounded-2xl border-2 border-[rgb(var(--ink-line))] p-4 no-underline hover:border-gold/30 transition-colors"
               style={{ textDecoration: 'none' }}
             >
               {article.imageUrl ? (

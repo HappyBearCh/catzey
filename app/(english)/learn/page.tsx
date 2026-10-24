@@ -51,7 +51,7 @@ export default async function LearnHubPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listLd) }} />
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
+      <nav className="flex flex-wrap items-center gap-2 font-sans text-sm text-ink-muted dark:text-parchment/60 mb-4">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
         <span aria-hidden="true">›</span>
         <span>Learn</span>
@@ -81,7 +81,7 @@ export default async function LearnHubPage() {
               {inTrack.length === 0 ? (
                 <p className="text-sm text-gray-400 italic">Coming soon.</p>
               ) : (
-                <ol className="border border-site-border rounded-2xl overflow-hidden divide-y divide-site-border bg-[#fbf9f5] dark:bg-ground-2">
+                <ol className="border-2 border-[rgb(var(--ink-line))] rounded-2xl overflow-hidden divide-y divide-site-border bg-[#fbf9f5] dark:bg-ground-2">
                   {inTrack.map((t, i) => (
                     <li key={t.slug}>
                       <Link

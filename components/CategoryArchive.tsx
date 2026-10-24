@@ -165,7 +165,7 @@ export async function CategoryArchive({
               {page > 1 && (
                 <Link
                   href={categoryPageHref(category, page - 1)}
-                  className="px-4 py-2 text-xs font-bold border border-site-border hover:border-primary hover:text-primary transition-colors"
+                  className="px-4 py-2 text-xs font-bold border-2 border-[rgb(var(--ink-line))] hover:border-primary hover:text-primary transition-colors"
                 >
                   ← Previous
                 </Link>
@@ -193,7 +193,7 @@ export async function CategoryArchive({
               {page < pages && (
                 <Link
                   href={categoryPageHref(category, page + 1)}
-                  className="px-4 py-2 text-xs font-bold border border-site-border hover:border-primary hover:text-primary transition-colors"
+                  className="px-4 py-2 text-xs font-bold border-2 border-[rgb(var(--ink-line))] hover:border-primary hover:text-primary transition-colors"
                 >
                   Next →
                 </Link>

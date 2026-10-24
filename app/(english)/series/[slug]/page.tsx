@@ -220,7 +220,7 @@ export default async function SeriesPage({ params }: Props) {
             <Link
               key={i}
               href={`/article/${article.slug}`}
-              className="flex items-start gap-4 p-4 bg-white border border-site-border rounded-sm hover:shadow-sm hover:border-primary/30 transition-all group"
+              className="flex items-start gap-4 p-4 bg-white border-2 border-[rgb(var(--ink-line))] rounded-sm hover:shadow-sm hover:border-primary/30 transition-all group"
             >
               <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">
                 {partNum}
@@ -249,7 +249,7 @@ export default async function SeriesPage({ params }: Props) {
           <Link
             key={article.id}
             href={`/article/${article.slug}`}
-            className="flex items-start gap-4 p-4 bg-white border border-site-border rounded-sm hover:shadow-sm hover:border-primary/30 transition-all group"
+            className="flex items-start gap-4 p-4 bg-white border-2 border-[rgb(var(--ink-line))] rounded-sm hover:shadow-sm hover:border-primary/30 transition-all group"
           >
             <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">
               {article.seriesOrder}

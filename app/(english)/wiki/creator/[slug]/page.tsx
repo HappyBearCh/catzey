@@ -185,14 +185,14 @@ export default async function CreatorPage({ params }: Props) {
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Born {creator.bornYear}</p>
       )}
 
-      <p className="mt-4 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85 mb-8">
+      <p className="mt-4 bubble text-lg md:text-xl leading-relaxed text-ink dark:text-parchment/90 mb-8">
         {creator.bioSource ?? creator.bio}
       </p>
 
       {guide && (
         <Link
           href={`/learn/${guide.slug}`}
-          className="group block mb-8 p-4 border border-line rounded-sm hover:border-primary/40 transition-colors"
+          className="group block mb-8 p-4 border-2 border-[rgb(var(--ink-line))] rounded-sm hover:border-primary/40 transition-colors"
         >
           <span className="eyebrow block mb-1">Reading guide</span>
           <span className="font-display text-lg font-semibold text-ink dark:text-parchment group-hover:text-primary transition-colors">
@@ -221,7 +221,7 @@ export default async function CreatorPage({ params }: Props) {
       {works.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
           <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Works</h2>
-          <ul className="border border-site-border rounded-sm divide-y divide-site-border">
+          <ul className="border-2 border-[rgb(var(--ink-line))] rounded-sm divide-y divide-site-border">
             {works.map((w) => (
               <li key={w.slug}>
                 <Link href={`/wiki/series/${w.slug}`} className="flex items-baseline gap-3 p-3 hover:bg-primary/5 transition-colors group">
@@ -238,10 +238,10 @@ export default async function CreatorPage({ params }: Props) {
 
       {answers.length > 0 && (
         <section className="mt-12" aria-labelledby="quick-answers">
-          <h2 id="quick-answers" className="eyebrow mb-4 pb-2 border-b border-line">
-            Quick answers
+          <h2 id="quick-answers" className="chapter-title text-xl mb-5">
+            <span>Quick answers</span>
           </h2>
-          <dl className="divide-y divide-rule/25 dark:divide-rule">
+          <dl className="manga-panel px-5 divide-y divide-line">
             {answers.map(({ question, answer }) => (
               <div key={question} className="py-3">
                 <dt className="font-display font-semibold text-ink dark:text-parchment">{question}</dt>

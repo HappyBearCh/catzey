@@ -10,7 +10,7 @@ import { TodaySigil } from './TodaySigil';
 // the way out of any entry is always one tap away.
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 dark:bg-ground/85 backdrop-blur-md supports-[backdrop-filter]:bg-paper/75 dark:supports-[backdrop-filter]:bg-ground/70">
+    <header className="sticky top-0 z-40 border-b-2 border-[rgb(var(--ink-line))] bg-paper/85 dark:bg-ground/85 backdrop-blur-md supports-[backdrop-filter]:bg-paper/75 dark:supports-[backdrop-filter]:bg-ground/70">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center gap-4">
         <MobileMenu />
 

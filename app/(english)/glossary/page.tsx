@@ -58,7 +58,7 @@ export default async function GlossaryIndexPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(setLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-300 mb-4 uppercase tracking-wider">
+      <nav className="flex flex-wrap items-center gap-2 font-sans text-sm text-ink-muted dark:text-parchment/60 mb-4">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
         <span aria-hidden="true">›</span>
         <span>Glossary</span>
@@ -80,7 +80,7 @@ export default async function GlossaryIndexPage() {
               <a
                 key={l}
                 href={`#letter-${l}`}
-                className="w-8 h-8 flex items-center justify-center font-sans text-sm font-medium border border-site-border hover:bg-primary hover:text-white hover:border-primary transition-colors rounded-full"
+                className="w-8 h-8 flex items-center justify-center font-sans text-sm font-medium border-2 border-[rgb(var(--ink-line))] hover:bg-primary hover:text-white hover:border-primary transition-colors rounded-full"
               >
                 {l}
               </a>

@@ -121,8 +121,8 @@ export default async function HomePage() {
         {/* Headline, one sentence of what is here, and the three ways in. The
             day's number is in the header and closes the page, so it is not
             repeated here. */}
-        <section className="pt-14 pb-8 md:pt-24 md:pb-12 text-center">
-          <p className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 font-sans text-xs text-ink-muted dark:text-parchment/60 mb-6">
+        <section className="speedlines -mx-4 sm:-mx-6 px-4 sm:px-6 pt-14 pb-10 md:pt-24 md:pb-14 text-center">
+          <p className="chip inline-flex items-center gap-2 px-3 py-1 text-xs text-ink-2 dark:text-parchment/75 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-seal" aria-hidden="true" />
             A hand-written manga reference, filed by number
           </p>
@@ -204,7 +204,7 @@ export default async function HomePage() {
               <li key={t.slug}>
                 <Link
                   href={`/glossary/${t.slug}`}
-                  className="inline-block rounded-full border border-line bg-[#fbf9f5] dark:bg-ground-2 px-3.5 py-1.5 font-sans text-sm text-ink-2 dark:text-parchment/75 hover:border-gold/40 hover:text-gold transition-colors"
+                  className="chip px-3.5 py-1.5 text-sm text-ink-2 dark:text-parchment/80"
                 >
                   {t.term}
                 </Link>
@@ -234,11 +234,11 @@ export default async function HomePage() {
         </section>
 
         {/* The reference, shelf by shelf */}
-        <section className="my-20 rounded-3xl bg-paper-2/70 dark:bg-ground-2/60 px-4 py-12 sm:px-8 md:py-16">
+        <section className="my-20 screentone border-y-2 border-[rgb(var(--ink-line))] -mx-4 sm:mx-0 sm:border-2 sm:rounded-3xl px-4 py-12 sm:px-8 md:py-16">
           <div className="text-center max-w-xl mx-auto mb-10">
             <p className="font-sans text-xs font-medium text-gold mb-3">The whole reference, by number</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-ink dark:text-parchment">
-              Twelve shelves
+            <h2 className="chapter-title text-3xl md:text-4xl tracking-tight">
+              <span>Twelve shelves</span>
             </h2>
             <p className="mt-4 text-ink-2 dark:text-parchment/70 leading-relaxed">
               Every text here — explainer, glossary entry, reference page, essay —
@@ -326,10 +326,10 @@ export default async function HomePage() {
   );
 }
 
-// A card: a hairline, a soft corner, and a small lift on hover. Every block of
-// links on the page uses it, so they read as one family.
-const CARD =
-  'block rounded-2xl border border-line bg-[#fbf9f5] dark:bg-ground-2 hover:border-gold/30 hover:shadow-[0_10px_30px_-14px_rgba(20,17,15,0.25)] hover:-translate-y-0.5 transition-all duration-200';
+// A card is a panel: an inked frame with a hard shadow, lifted a little on
+// hover. Every block of links on the page uses it, so the front page reads as
+// a page of panels.
+const CARD = 'block manga-panel';
 
 function Arrow() {
   return (
@@ -346,8 +346,8 @@ function SectionHead({ title, note, href, link }: { title: string; note: string;
   return (
     <div className="flex flex-wrap items-end gap-x-4 gap-y-2 mb-6">
       <div className="min-w-0">
-        <h2 className="font-display text-2xl md:text-[1.75rem] font-bold tracking-tight text-ink dark:text-parchment">{title}</h2>
-        <p className="mt-1 font-sans text-sm text-ink-muted dark:text-parchment/55">{note}</p>
+        <h2 className="chapter-title text-2xl md:text-[1.75rem] tracking-tight"><span>{title}</span></h2>
+        <p className="mt-2 font-sans text-sm text-ink-muted dark:text-parchment/55">{note}</p>
       </div>
       <span className="flex-1" />
       <Link href={href} className="inline-block py-1.5 font-sans text-sm font-medium text-gold hover:underline underline-offset-4">
@@ -359,7 +359,7 @@ function SectionHead({ title, note, href, link }: { title: string; note: string;
 
 function EntryList({ heading, items }: { heading: string; items: { href: string; title: string; meta: string }[] }) {
   return (
-    <div className="rounded-2xl border border-line bg-[#fbf9f5] dark:bg-ground-2 px-5 pt-4 pb-2">
+    <div className="manga-panel px-5 pt-4 pb-2">
       <h3 className="mb-1 font-sans text-xs font-medium text-ink-muted dark:text-parchment/55">{heading}</h3>
       <ul>
         {items.map((item) => (

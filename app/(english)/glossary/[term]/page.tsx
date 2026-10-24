@@ -128,7 +128,7 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       {/* The one-line definition is what gets quoted in featured snippets, so it
           sits first, alone, and reads as a complete sentence. */}
-      <p className="mt-4 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85 mb-8">
+      <p className="mt-4 bubble text-lg md:text-xl leading-relaxed text-ink dark:text-parchment/90 mb-8">
         {term.shortDefSource ?? term.shortDef}
       </p>
 
@@ -158,7 +158,7 @@ export default async function GlossaryTermPage({ params }: Props) {
               <li key={w.slug}>
                 <Link
                   href={`/wiki/series/${w.slug}`}
-                  className="block p-3 border border-site-border rounded-sm hover:border-primary/40 transition-colors"
+                  className="block p-3 border-2 border-[rgb(var(--ink-line))] rounded-sm hover:border-primary/40 transition-colors"
                 >
                   <span className="font-bold text-sm block">{w.title}</span>
                   <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{w.synopsisSource ?? w.synopsis}</span>

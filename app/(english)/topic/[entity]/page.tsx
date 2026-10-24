@@ -187,7 +187,7 @@ export default async function TopicPage({ params }: Props) {
       <NumberReading title={name} label="subject" className="mb-8 ml-4 max-w-3xl" />
 
       {topicInfo && (
-        <div className="mb-8 ml-4 p-5 bg-site-light dark:bg-gray-900 border border-site-border dark:border-gray-700 rounded-sm">
+        <div className="mb-8 ml-4 p-5 bg-site-light dark:bg-gray-900 border-2 border-[rgb(var(--ink-line))] dark:border-gray-700 rounded-sm">
           <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
             {topicInfo.intro}
           </p>

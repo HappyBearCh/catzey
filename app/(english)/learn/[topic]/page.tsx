@@ -147,7 +147,7 @@ export default async function LearnTopicPage({ params }: Props) {
       <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment mb-2">{topic.title}</h1>
 
 
-      <p className="mt-4 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85 mb-8">
+      <p className="mt-4 bubble text-lg md:text-xl leading-relaxed text-ink dark:text-parchment/90 mb-8">
         {topic.summarySource ?? topic.summary}
       </p>
 
@@ -168,7 +168,7 @@ export default async function LearnTopicPage({ params }: Props) {
           <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Common questions</h2>
           <dl className="space-y-4">
             {faq.map(({ question, answer }) => (
-              <div key={question} className="border border-site-border rounded-sm p-4">
+              <div key={question} className="border-2 border-[rgb(var(--ink-line))] rounded-sm p-4">
                 <dt className="font-bold mb-1">{question}</dt>
                 <dd className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{answer}</dd>
               </div>
@@ -207,7 +207,7 @@ export default async function LearnTopicPage({ params }: Props) {
       {(prev || next) && (
         <nav className="mt-10 pt-6 border-t border-site-border grid grid-cols-2 gap-4">
           {prev ? (
-            <Link href={`/learn/${prev.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 transition-all">
+            <Link href={`/learn/${prev.slug}`} className="group flex flex-col gap-1 p-3 border-2 border-[rgb(var(--ink-line))] rounded-sm hover:border-primary/40 transition-all">
               <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">← Previous</span>
               <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                 {prev.title}
@@ -215,7 +215,7 @@ export default async function LearnTopicPage({ params }: Props) {
             </Link>
           ) : <div />}
           {next ? (
-            <Link href={`/learn/${next.slug}`} className="group flex flex-col gap-1 p-3 border border-site-border rounded-sm hover:border-primary/40 transition-all text-right">
+            <Link href={`/learn/${next.slug}`} className="group flex flex-col gap-1 p-3 border-2 border-[rgb(var(--ink-line))] rounded-sm hover:border-primary/40 transition-all text-right">
               <span className="text-2xs font-bold uppercase tracking-wider text-gray-400">Next →</span>
               <span className="text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                 {next.title}

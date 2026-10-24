@@ -250,7 +250,7 @@ export default async function WorkPage({ params }: Props) {
         <p className="mt-1 text-sm text-ink-muted dark:text-parchment/60">{work.altTitles.join(' · ')}</p>
       )}
 
-      <p className="mt-5 mb-6 text-lg md:text-xl leading-relaxed text-ink-2 dark:text-parchment/85">
+      <p className="mt-5 mb-6 bubble text-lg md:text-xl leading-relaxed text-ink dark:text-parchment/90">
         {work.synopsisSource ?? work.synopsis}
       </p>
 
@@ -277,7 +277,7 @@ export default async function WorkPage({ params }: Props) {
         // Cells wrap and grow to fill their row, so a short last row never
         // leaves an empty box; each draws its own top and left hairline, and
         // the negative margins tuck the outer ones under the frame.
-        <dl className="mb-8 flex flex-wrap overflow-hidden rounded-2xl border border-line [&>div]:-mt-px [&>div]:-ml-px [&>div]:border-t [&>div]:border-l [&>div]:border-line">
+        <dl className="mb-10 flex flex-wrap manga-panel [&>div]:-mt-px [&>div]:-ml-px [&>div]:border-t [&>div]:border-l [&>div]:border-line">
           {creators.length > 0 && (
             <div className="basis-full px-4 py-3">
               <dt className="eyebrow mb-1">{creators.length > 1 ? 'Creators' : 'Creator'}</dt>
@@ -307,7 +307,7 @@ export default async function WorkPage({ params }: Props) {
         <Link
           key={guide.slug}
           href={`/learn/${guide.slug}`}
-          className="group block mb-8 p-4 border border-line rounded-sm hover:border-primary/40 transition-colors"
+          className="group block mb-8 p-4 border-2 border-[rgb(var(--ink-line))] rounded-sm hover:border-primary/40 transition-colors"
         >
           <span className="eyebrow block mb-1">Reading guide</span>
           <span className="font-display text-lg font-semibold text-ink dark:text-parchment group-hover:text-primary transition-colors">
@@ -335,10 +335,10 @@ export default async function WorkPage({ params }: Props) {
 
       {answers.length > 0 && (
         <section className="mt-12" aria-labelledby="quick-answers">
-          <h2 id="quick-answers" className="eyebrow mb-4 pb-2 border-b border-line">
-            Quick answers
+          <h2 id="quick-answers" className="chapter-title text-xl mb-5">
+            <span>Quick answers</span>
           </h2>
-          <dl className="divide-y divide-rule/25 dark:divide-rule">
+          <dl className="manga-panel px-5 divide-y divide-line">
             {answers.map(({ question, answer }) => (
               <div key={question} className="py-3">
                 <dt className="font-display font-semibold text-ink dark:text-parchment">{question}</dt>
@@ -351,15 +351,15 @@ export default async function WorkPage({ params }: Props) {
 
       {similar.length > 0 && (
         <section className="mt-12" aria-labelledby="similar-series">
-          <h2 id="similar-series" className="eyebrow mb-4 pb-2 border-b border-line">
-            If you like {work.title}
+          <h2 id="similar-series" className="chapter-title text-xl mb-5">
+            <span>If you like {work.title}</span>
           </h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule/25 dark:bg-rule border border-line">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {similar.map((w) => (
-              <li key={w.slug} className="bg-paper dark:bg-ground">
+              <li key={w.slug}>
                 <Link
                   href={`/wiki/series/${w.slug}`}
-                  className="group block p-4 h-full hover:bg-paper-2 dark:hover:bg-ground-2 transition-colors"
+                  className="group manga-panel block p-4 h-full"
                 >
                   <span className="block font-display text-lg font-semibold text-ink dark:text-parchment group-hover:text-gold transition-colors">
                     {w.title}
@@ -396,17 +396,17 @@ export default async function WorkPage({ params }: Props) {
           <div className="flex flex-wrap gap-2">
             {work.genres.map((g) => {
               const slug = g.toLowerCase().replace(/\s+/g, '-');
-              const chip = 'text-xs px-2.5 py-1 bg-site-light dark:bg-gray-800 border rounded-sm';
+              const chip = 'chip text-xs px-3 py-1';
               return getGenreInfo(slug) ? (
                 <Link
                   key={g}
                   href={`/genre/${slug}`}
-                  className={`${chip} text-primary border-primary/30 hover:bg-primary hover:text-white transition-colors`}
+                  className={`${chip} text-ink dark:text-parchment`}
                 >
                   {g}
                 </Link>
               ) : (
-                <span key={g} className={`${chip} text-ink-muted dark:text-gray-400 border-site-border dark:border-gray-700`}>
+                <span key={g} className={`${chip} !border-dashed text-ink-muted dark:text-gray-400 hover:!bg-transparent hover:!text-ink-muted`}>
                   {g}
                 </span>
               );

@@ -89,7 +89,7 @@ export default function GuidesPage() {
             <Link
               key={guide.slug}
               href={`/guides/${guide.slug}`}
-              className="group border border-site-border hover:border-primary transition-colors rounded-sm overflow-hidden"
+              className="group border-2 border-[rgb(var(--ink-line))] hover:border-primary transition-colors rounded-sm overflow-hidden"
             >
               <div className="relative w-full h-40 overflow-hidden">
                 <Image
@@ -123,7 +123,7 @@ export default function GuidesPage() {
               <Link
                 key={guide.slug}
                 href={`/${guide.slug}/guide`}
-                className="group border border-site-border hover:border-primary transition-colors rounded-sm overflow-hidden"
+                className="group border-2 border-[rgb(var(--ink-line))] hover:border-primary transition-colors rounded-sm overflow-hidden"
               >
                 <div className="relative w-full h-40 overflow-hidden">
                   <Image

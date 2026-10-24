@@ -125,8 +125,8 @@ function Section({ id, title, items }: { id: string; title: string; items: Item[
 
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="mb-14 scroll-mt-20">
-      <h2 id={`${id}-title`} className="font-display text-2xl font-bold tracking-tight mb-3 text-ink dark:text-parchment capitalize">
-        {title}
+      <h2 id={`${id}-title`} className="chapter-title text-2xl tracking-tight mb-4 capitalize">
+        <span>{title}</span>
       </h2>
       <nav aria-label={`Jump to a letter in ${id}`} className="mb-4">
         <ul className="flex flex-wrap gap-1">
@@ -134,7 +134,7 @@ function Section({ id, title, items }: { id: string; title: string; items: Item[
             <li key={l}>
               <a
                 href={`#${id}-${l === '#' ? 'num' : l.toLowerCase()}`}
-                className="flex items-center justify-center w-9 h-9 rounded-lg border border-line font-sans text-sm text-ink-2 dark:text-parchment/75 hover:border-gold/40 hover:text-gold transition-colors"
+                className="chip !rounded-sm flex items-center justify-center w-9 h-9 text-sm font-semibold text-ink-2 dark:text-parchment/80"
               >
                 {l}
               </a>

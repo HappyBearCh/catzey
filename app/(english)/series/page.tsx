@@ -69,7 +69,7 @@ export default async function SeriesIndexPage() {
               <Link
                 key={s.id}
                 href={`/series/${s.slug}`}
-                className="group bg-white border border-site-border rounded-sm overflow-hidden hover:shadow-md transition-shadow"
+                className="group bg-white border-2 border-[rgb(var(--ink-line))] rounded-sm overflow-hidden hover:shadow-md transition-shadow"
               >
                 {s.imageUrl ? (
                   <div className="relative w-full aspect-video">
