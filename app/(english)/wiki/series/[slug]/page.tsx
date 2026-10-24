@@ -387,7 +387,7 @@ export default async function WorkPage({ params }: Props) {
 
       {work.genres.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Genres</h2>
+          <h2 className="chapter-title text-lg mb-4"><span>Genres</span></h2>
           {/* Only eight genre hubs exist. This used to mint a link for every
               genre on the work regardless, so a page tagged "drama, action,
               supernatural" shipped three dead links — twelve distinct 404s

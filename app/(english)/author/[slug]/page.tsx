@@ -6,6 +6,7 @@ import { prisma } from '@/lib/db';
 import { ArticleCard } from '@/components/ArticleCard';
 import { getAuthor, getAllAuthors, resolveAuthor } from '@/lib/authors';
 import type { Article } from '@/lib/types';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 import { metaDescription } from '@/lib/seo';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
@@ -119,13 +120,8 @@ export default async function AuthorPage({ params }: Props) {
     <div className="max-w-6xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span className="text-primary font-bold">{author.name}</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <header className="flex flex-col sm:flex-row items-start gap-5 pb-8 mb-8 border-b border-site-border">
         <div

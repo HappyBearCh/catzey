@@ -11,6 +11,7 @@ import { getGroup, titleValue, titleNumbers } from '@/lib/number-groups';
 import { getWork } from '@/lib/education';
 import { getCreator } from '@/lib/education';
 import { countStrokes } from '@/lib/strokes';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 export const revalidate = false; // the edition is baked in at build time
 
@@ -88,16 +89,9 @@ export default async function NumberedSetPage({ params }: { params: Promise<{ sl
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
 
-      <nav className="eyebrow flex items-center gap-2 mb-6">
-        <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/sets" className="hover:text-gold transition-colors">Sets</Link>
-        <span aria-hidden="true">›</span>
-        <span>{set.count}</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <header className="mb-8">
         <div className="flex items-start gap-5">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllLearnTopics, LEARN_TRACKS } from '@/lib/education';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
 
@@ -48,14 +49,9 @@ export default async function LearnHubPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listLd) }} />
 
-      <nav className="flex flex-wrap items-center gap-2 font-sans text-sm text-ink-muted dark:text-parchment/60 mb-4">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span>Learn</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Learn Manga</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-10 max-w-2xl">
@@ -68,10 +64,9 @@ export default async function LearnHubPage() {
         {LEARN_TRACKS.map((track) => {
           const inTrack = topics.filter((t) => t.track === track.slug);
           return (
-            <section key={track.slug}>
-              <div className="flex items-baseline gap-3 mb-1">
-
-                <h2 className="font-display text-2xl font-bold tracking-tight">{track.label}</h2>
+            <section key={track.slug} id={track.slug} className="scroll-mt-24">
+              <div className="flex items-center gap-3 mb-2">
+                <h2 className="chapter-title text-2xl tracking-tight"><span>{track.label}</span></h2>
                 <span className="text-2xs font-bold text-gray-400 uppercase tracking-wider">
                   {inTrack.length} {inTrack.length === 1 ? 'lesson' : 'lessons'}
                 </span>
@@ -81,7 +76,7 @@ export default async function LearnHubPage() {
               {inTrack.length === 0 ? (
                 <p className="text-sm text-gray-400 italic">Coming soon.</p>
               ) : (
-                <ol className="border-2 border-[rgb(var(--ink-line))] rounded-2xl overflow-hidden divide-y divide-site-border bg-[#fbf9f5] dark:bg-ground-2">
+                <ol className="manga-panel divide-y divide-site-border">
                   {inTrack.map((t, i) => (
                     <li key={t.slug}>
                       <Link

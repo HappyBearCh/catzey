@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { NUMBER_PROFILES } from '@/lib/numerology';
 import { getGroup } from '@/lib/number-groups';
 import { TodayCallout } from '@/components/TodayCallout';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
@@ -45,11 +46,7 @@ export default function NumerologyPage() {
     <div className="max-w-4xl mx-auto px-4 py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span className="text-primary font-bold">Numerology</span>
-      </nav>
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Numerology', href: '/numerology' }]} className="mb-5" />
 
       <h1 className="text-3xl md:text-4xl font-semibold mb-4">The Numbers Behind the Manga</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">

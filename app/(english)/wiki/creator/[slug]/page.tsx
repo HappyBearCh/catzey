@@ -220,7 +220,7 @@ export default async function CreatorPage({ params }: Props) {
 
       {works.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Works</h2>
+          <h2 className="chapter-title text-lg mb-5"><span>Works</span></h2>
           <ul className="border-2 border-[rgb(var(--ink-line))] rounded-sm divide-y divide-site-border">
             {works.map((w) => (
               <li key={w.slug}>

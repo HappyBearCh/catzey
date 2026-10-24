@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getSetsByCount, getAllNumberedSets } from '@/lib/numbered-sets';
 import { getGroup } from '@/lib/number-groups';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 export const revalidate = false; // the edition is baked in at build time
 
@@ -51,14 +52,9 @@ export default function SetsIndexPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listLd) }} />
 
-      <nav className="eyebrow flex items-center gap-2 mb-8">
-        <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span>Numbered Sets</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <header className="text-center max-w-2xl mx-auto mb-14">
         <p className="eyebrow mb-6">The numerology manga practises on itself</p>
@@ -106,8 +102,8 @@ export default function SetsIndexPage() {
               <span className="sigil sigil-md shrink-0" aria-hidden="true">
                 {count}
               </span>
-              <h2 className="font-display text-2xl text-ink dark:text-parchment">
-                Sets of {count}
+              <h2 className="chapter-title text-2xl">
+                <span>Sets of {count}</span>
               </h2>
               <span className="flex-1" />
               <Link href={`/number/${value}`} className="eyebrow hover:text-gold transition-colors">

@@ -8,6 +8,7 @@ import { tagSlug, tagHref, safeDecode, resolveTag, allTagSlugs, indexableTagSlug
 import type { Article } from '@/lib/types';
 import { topicCanonicalForTag } from '@/lib/hub-duplicates';
 import { HUB_MIN_TEXTS, capitalise } from '@/lib/seo';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 // The edition behind these archives is a checked-in file (see lib/db.ts), so a
 // tag page cannot change between deploys. A 24-hour revalidate re-rendered
@@ -142,11 +143,9 @@ export default async function TagPage({ params }: Props) {
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }} />
-      <div className="flex items-center gap-3 mb-2">
-        <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-semibold tracking-tight">#{label}</h1>
-      </div>
-      <p className="text-site-gray text-sm mb-8 ml-4">
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: `#${label}`, href: tagHref(label) }]} />
+      <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment mb-2">#{label}</h1>
+      <p className="text-site-gray text-sm mb-8">
         {articles.length} article{articles.length !== 1 ? 's' : ''} tagged with &quot;{label}&quot;
       </p>
 
@@ -160,7 +159,7 @@ export default async function TagPage({ params }: Props) {
 
       {relatedTags.length > 0 && (
         <div className="mt-12 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Related Tags</h2>
+          <h2 className="chapter-title text-lg mb-4"><span>Related Tags</span></h2>
           <div className="flex flex-wrap gap-2">
             {relatedTags.map((t) => (
               <Link

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 import { getAllGlossaryTerms, groupByInitial, GLOSSARY_CATEGORIES } from '@/lib/education';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -56,13 +57,8 @@ export default async function GlossaryIndexPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(setLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <nav className="flex flex-wrap items-center gap-2 font-sans text-sm text-ink-muted dark:text-parchment/60 mb-4">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span>Glossary</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Manga Glossary</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
@@ -101,7 +97,7 @@ export default async function GlossaryIndexPage() {
 
           {[...groups.entries()].map(([letter, items]) => (
             <section key={letter} id={`letter-${letter}`} className="mb-10 scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold text-primary mb-4 pb-2 border-b border-site-border">{letter}</h2>
+              <h2 className="chapter-title text-2xl mb-4"><span>{letter}</span></h2>
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                 {items.map((t) => (
                   <div key={t.slug}>

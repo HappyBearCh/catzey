@@ -9,6 +9,7 @@ import {
 } from '@/lib/number-groups';
 import { getShelf, type ShelfEntry } from '@/lib/shelves';
 import { metaDescription } from '@/lib/seo';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 export const revalidate = false; // the edition is baked in at build time
 
@@ -123,16 +124,9 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listLd) }} />
 
-      <nav className="eyebrow flex items-center gap-2 mb-8">
-        <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/numbers" className="hover:text-gold transition-colors">Shelves</Link>
-        <span aria-hidden="true">›</span>
-        <span>{n}</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <header className="text-center max-w-2xl mx-auto mb-12">
         <div className="flex items-center justify-center gap-5 mb-7" aria-hidden="true">
@@ -179,7 +173,7 @@ export default async function ShelfPage({ params }: { params: Promise<{ n: strin
           {sections.map((section) => (
             <section key={section.kind} className="mb-12">
               <div className="flex items-baseline gap-4 mb-5 pb-2 border-b border-line">
-                <h2 className="eyebrow">{section.heading}</h2>
+                <h2 className="chapter-title text-lg"><span>{section.heading}</span></h2>
                 <span className="flex-1" />
                 <span className="eyebrow text-ink-muted dark:text-parchment/55">
                   {section.items.length}

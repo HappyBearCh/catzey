@@ -5,6 +5,7 @@ import { getAllGuides } from '@/lib/guides';
 import { getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { CATEGORIES } from '@/lib/types';
 import { breadcrumbLd } from '@/lib/seo';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 export const revalidate = false;
 
@@ -61,13 +62,8 @@ export default function GuidesPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
-      <nav className="text-xs text-site-gray mb-6 flex items-center gap-2">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span>/</span>
-        <span className="text-gray-900">Guides</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(crumbs)} className="mb-5" />
 
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
@@ -80,9 +76,8 @@ export default function GuidesPage() {
 
       {/* Standalone guides */}
       <section className="mb-12">
-        <h2 className="text-lg font-semibold uppercase tracking-wide mb-5 flex items-center gap-3">
-          <span className="block w-1 h-5 bg-primary" />
-          Essential Reading
+        <h2 className="chapter-title text-xl mb-5">
+          <span>Essential Reading</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {standaloneGuides.map((guide) => (
@@ -112,9 +107,8 @@ export default function GuidesPage() {
 
       {/* Category guides */}
       <section>
-        <h2 className="text-lg font-semibold uppercase tracking-wide mb-5 flex items-center gap-3">
-          <span className="block w-1 h-5 bg-primary" />
-          Category Guides
+        <h2 className="chapter-title text-xl mb-5">
+          <span>Category Guides</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {categoryGuides.map((guide) => {

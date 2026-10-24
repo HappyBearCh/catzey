@@ -165,7 +165,7 @@ export default async function LearnTopicPage({ params }: Props) {
 
       {faq.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Common questions</h2>
+          <h2 className="chapter-title text-lg mb-5"><span>Common questions</span></h2>
           <dl className="space-y-4">
             {faq.map(({ question, answer }) => (
               <div key={question} className="border-2 border-[rgb(var(--ink-line))] rounded-sm p-4">
@@ -179,7 +179,7 @@ export default async function LearnTopicPage({ params }: Props) {
 
       {related.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Terms used here</h2>
+          <h2 className="chapter-title text-lg mb-4"><span>Terms used here</span></h2>
           <div className="flex flex-wrap gap-2">
             {related.map((r) => (
               <Link

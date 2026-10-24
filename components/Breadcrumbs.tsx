@@ -33,7 +33,7 @@ export function Breadcrumbs({ items, className = '' }: { items: Crumb[]; classNa
         {items.map((c, i) => {
           const last = i === items.length - 1;
           return (
-            <li key={c.href} className="flex items-center min-w-0">
+            <li key={`${i}-${c.href}`} className="flex items-center min-w-0">
               {last ? (
                 <span aria-current="page" className="py-1.5 truncate max-w-[16rem] text-ink-2 dark:text-parchment/80">
                   {c.name}
@@ -52,4 +52,12 @@ export function Breadcrumbs({ items, className = '' }: { items: Crumb[]; classNa
       </ol>
     </nav>
   );
+}
+
+/**
+ * The visible trail for a page that already builds its own BreadcrumbList: the
+ * same names and URLs, read back from the data, so the two cannot drift apart.
+ */
+export function crumbsFromLd(ld: { itemListElement: { name: string; item: string }[] }): Crumb[] {
+  return ld.itemListElement.map((i) => ({ name: i.name, href: i.item.replace(BASE, '') || '/' }));
 }

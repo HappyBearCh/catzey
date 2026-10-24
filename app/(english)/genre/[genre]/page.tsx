@@ -8,6 +8,7 @@ import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
 import { tagHref, tagSlug, indexableTagSlugs } from '@/lib/tags';
 import { getAllWorks } from '@/lib/education';
 import { documentTitle } from '@/lib/seo';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 import type { Article } from '@/lib/types';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
@@ -86,24 +87,16 @@ export default async function GenrePage({ params }: Props) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-      { '@type': 'ListItem', position: 2, name: 'Genres', item: `${BASE}/genre/${genre}` },
-      { '@type': 'ListItem', position: 3, name: info.label, item: `${BASE}/genre/${genre}` },
+      { '@type': 'ListItem', position: 2, name: info.label, item: `${BASE}/genre/${genre}` },
     ],
   };
 
   return (
     <div className="max-w-8xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span>Genre</span>
-        <span aria-hidden="true">›</span>
-        <span className="text-gray-800 dark:text-gray-200">{info.label}</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Main content */}

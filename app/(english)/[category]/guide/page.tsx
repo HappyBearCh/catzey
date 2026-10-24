@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { documentTitle, guideDescription } from '@/lib/seo';
 import { linkReferenceMentions } from '@/lib/reference-links';
 import Link from 'next/link';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 import { ShelfBadge } from '@/components/ShelfBadge';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import Image from 'next/image';
@@ -112,21 +113,7 @@ export default async function GuidePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-
-      {/* Breadcrumb */}
-      <nav className="text-xs text-site-gray mb-6 flex items-center gap-2">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span>/</span>
-        <Link href={parent.href} className="hover:text-primary transition-colors capitalize">
-          {parent.label}
-        </Link>
-        <span>/</span>
-        <span className="text-gray-900">Guide</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       {/* Hero image */}
       <div className="relative w-full h-72 md:h-96 mb-8 rounded-sm overflow-hidden">

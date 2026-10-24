@@ -11,6 +11,7 @@ import type { Article, ReviewData } from '@/lib/types';
 import { metaDescription, HUB_MIN_TEXTS } from '@/lib/seo';
 import { canonicalEntity, canonicalEntitySlugs, entityFromSlug, isIndexableEntity, hubName } from '@/lib/entity-canon';
 import { entityHref, entitySlug } from '@/lib/entity-slug';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 // Hubs are assembled from a checked-in edition (see lib/db.ts) and cannot change
 // between deploys, so a daily revalidate only re-rendered identical output and
@@ -170,11 +171,7 @@ export default async function TopicPage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(workLd) }} />
       )}
 
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span className="text-primary font-bold">{name}</span>
-      </nav>
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name, href: entityHref(name) }]} className="mb-5" />
 
       <div className="flex items-center gap-3 mb-2">
         <span className="block w-1 h-8 bg-primary" />
@@ -222,7 +219,7 @@ export default async function TopicPage({ params }: Props) {
 
       {relatedTopics.length > 0 && (
         <div className="mt-12 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Related Topics</h2>
+          <h2 className="chapter-title text-lg mb-4"><span>Related Topics</span></h2>
           <div className="flex flex-wrap gap-2">
             {relatedTopics.map((e) => (
               <Link

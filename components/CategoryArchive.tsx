@@ -5,6 +5,7 @@ import { CategoryInfo } from '@/components/CategoryInfo';
 import { NumberReading } from '@/components/NumberReading';
 import { getCategoryLabel } from '@/lib/types';
 import type { Article } from '@/lib/types';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const CATEGORY_PAGE_SIZE = 12;
@@ -104,22 +105,10 @@ export async function CategoryArchive({
 
   return (
     <div className="max-w-8xl mx-auto px-4 py-6">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
-      <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">›</span>
-        <span className="text-primary font-bold">{label}</span>
-        {page > 1 && (
-          <>
-            <span aria-hidden="true">›</span>
-            <span>Page {page}</span>
-          </>
-        )}
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} />
       <div className="flex items-center gap-3 mb-2">
-        <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-semibold uppercase tracking-tight">
+        <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment">
           {label}
           {page > 1 && <span className="text-gray-500 dark:text-gray-400"> — Page {page}</span>}
         </h1>

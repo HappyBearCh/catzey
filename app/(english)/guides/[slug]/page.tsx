@@ -8,6 +8,7 @@ import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import Image from 'next/image';
 import { getStandaloneGuide, getAllStandaloneGuides } from '@/lib/standalone-guides';
 import { resolveAuthor } from '@/lib/authors';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 export const revalidate = false;
 
@@ -132,15 +133,8 @@ export default async function StandaloneGuidePage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <nav className="text-xs text-site-gray mb-6 flex items-center gap-2">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <span aria-hidden="true">/</span>
-        <Link href="/guides" className="hover:text-primary transition-colors">Guides</Link>
-        <span aria-hidden="true">/</span>
-        <span className="text-gray-900 truncate max-w-xs">{guide.title}</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       <div className="relative w-full h-72 md:h-96 mb-8 rounded-sm overflow-hidden">
         <Image

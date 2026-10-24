@@ -31,6 +31,7 @@ import { STANDFIRST_OPEN, splitOffReading } from '@/lib/numerologize';
 import { titleValue, getGroup } from '@/lib/number-groups';
 import { metaDescription, documentTitle } from '@/lib/seo';
 import { canonicalEntity, isIndexableEntity, hubName } from '@/lib/entity-canon';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 import { entityHref } from '@/lib/entity-slug';
 
 // The published edition is a checked-in file (see lib/db.ts), so an article's
@@ -354,7 +355,6 @@ export default async function ArticlePage({ params }: Props) {
       <ArticleStickyHeader title={article.title} url={`${BASE}/article/${article.slug}`} />
       <BackToTop />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {reviewLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewLd) }} />
       )}
@@ -362,13 +362,7 @@ export default async function ArticlePage({ params }: Props) {
         {/* Main article */}
         <article className="lg:col-span-2">
           {/* Breadcrumb */}
-          <nav className="flex flex-wrap items-center gap-2 font-sans text-sm text-ink-muted dark:text-parchment/60 mb-4">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <span aria-hidden="true">›</span>
-            <Link href={`/${article.category}`} className="hover:text-primary transition-colors">
-              {categoryLabel}
-            </Link>
-          </nav>
+          <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
           {/* Series banner */}
           {seriesCtx && (

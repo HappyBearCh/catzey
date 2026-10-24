@@ -152,7 +152,7 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       {examples.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-4">Seen in</h2>
+          <h2 className="chapter-title text-lg mb-5"><span>Seen in</span></h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {examples.map((w) => (
               <li key={w.slug}>
@@ -171,7 +171,7 @@ export default async function GlossaryTermPage({ params }: Props) {
 
       {related.length > 0 && (
         <section className="mt-10 pt-6 border-t border-site-border">
-          <h2 className="text-sm font-semibold uppercase tracking-wider mb-3">Related terms</h2>
+          <h2 className="chapter-title text-lg mb-4"><span>Related terms</span></h2>
           <div className="flex flex-wrap gap-2">
             {related.map((r) => (
               <Link

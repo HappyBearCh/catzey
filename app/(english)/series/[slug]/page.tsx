@@ -8,6 +8,7 @@ import { format } from 'date-fns';
 import { prisma } from '@/lib/db';
 import { getCategoryLabel } from '@/lib/types';
 import { metaDescription } from '@/lib/seo';
+import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
 // so a timer only bought re-renders and ISR writes for identical output.
@@ -112,16 +113,9 @@ export default async function SeriesPage({ params }: Props) {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs text-gray-500 mb-6 uppercase tracking-wider">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/series" className="hover:text-primary">Series</Link>
-        <span aria-hidden="true">›</span>
-        <span className="text-gray-800">{series.title}</span>
-      </nav>
+      <Breadcrumbs items={crumbsFromLd(breadcrumbLd)} className="mb-5" />
 
       {/* Hero */}
       <div className="mb-8">
