@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Source_Serif_4, Zen_Kaku_Gothic_New, Inter } from 'next/font/google';
+import { Source_Serif_4, Inter } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
@@ -12,32 +12,23 @@ const serif = Source_Serif_4({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-serif',
-  weight: ['400', '600', '700'],
+  // Variable: one file per style carries every weight, where three static
+  // weights cost three downloads each.
   style: ['normal', 'italic'],
 });
 
-// A Japanese Gothic for display. Textbooks there set headings in Gothic and
-// body in Mincho, which is the opposite of what this site used to do — and it
-// means the kanji in the stroke-count readings render in the same voice as the
-// headings around them rather than dropping to a system fallback.
-//
-// Not preloaded: Google serves this CJK face as about ninety unicode-range
-// slices per weight, and preloading them put 360-odd font requests in front of
-// every page. Left to its CSS, the browser fetches only the slices a page
-// actually uses.
-const display = Zen_Kaku_Gothic_New({
-  subsets: ['latin'],
-  display: 'swap',
-  preload: false,
-  variable: '--font-display',
-  weight: ['400', '500', '700', '900'],
-});
-
+// The grotesque carries the interface and, at its heaviest cuts, every heading
+// (globals.css points --font-display at it). Headings used to be set in a
+// Japanese Gothic, but Google ships that face as some 120 unicode-range slices
+// per weight: 484 @font-face rules, a 364 KB stylesheet that blocked every
+// page from rendering, for headings that are nearly all Latin. The rare kana
+// and kanji now fall through to the system's Japanese Gothic (Hiragino, Yu
+// Gothic, Noto Sans CJK), which every phone and desktop has.
+// Variable, so no weight list: one file covers 100–900.
 const sans = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
-  weight: ['400', '500', '600'],
 });
 
 const DEFAULT_OG = '/og?title=Catzye%20%E2%80%94%20Learn%20Manga';
@@ -103,7 +94,7 @@ const themeScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${serif.variable} ${display.variable} ${sans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${serif.variable} ${sans.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

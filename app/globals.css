@@ -11,6 +11,9 @@
     --gray-500: 98 91 83;    /* #625b53 on paper: 6.1:1 */
     --line: 205 197 185;     /* #cdc5b9, a ruled line on paper */
     --ink-line: 20 17 15;    /* the pen: panel borders and their shadow */
+    /* Headings are set in the interface grotesque at its heaviest cuts; kana
+       and kanji fall through to the system Japanese Gothic in each stack. */
+    --font-display: var(--font-sans);
     --panel: 255 255 253;    /* a panel is whiter than the page around it */
   }
   .dark {
