@@ -105,6 +105,7 @@ export default async function StandaloneGuidePage({ params }: Props) {
     headline: guide.title,
     description: guide.subtitle,
     image: [guide.heroImage.src],
+    datePublished: guide.publishedAt,
     url: `${BASE}/guides/${slug}`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/guides/${slug}` },
     author: { '@type': 'Person', name: author.name, url: `${BASE}/author/${author.slug}`, jobTitle: author.role },
@@ -164,6 +165,10 @@ export default async function StandaloneGuidePage({ params }: Props) {
           <Link href={`/author/${author.slug}`} rel="author" className="font-semibold hover:text-primary transition-colors">
             {author.name}
           </Link>
+          {' · '}
+          <time dateTime={guide.publishedAt}>
+            {new Date(guide.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+          </time>
           {' · '}{guide.readingTime} min read
         </span>
         <h1 className="text-3xl md:text-4xl font-semibold leading-tight mt-3 mb-3">{guide.title}</h1>

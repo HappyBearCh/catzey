@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { linkReferenceMentions } from '@/lib/reference-links';
-import { metaDescription, splitReading, documentTitle } from '@/lib/seo';
+import { fullerDescription, bodyProse, splitReading, documentTitle } from '@/lib/seo';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { OnThisPage } from '@/components/OnThisPage';
@@ -15,6 +15,7 @@ import {
   getWorksBySlugs,
   GLOSSARY_CATEGORIES,
 } from '@/lib/education';
+import { guideFor } from '@/lib/guides';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
 
@@ -45,8 +46,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `${BASE}/glossary/${term.slug}`;
   const title = `${term.term}: Meaning in Manga & Anime`;
   // "<term>: <definition>" — the snippet then answers the query it matched
-  // with the word itself in front, as a dictionary entry does.
-  const description = metaDescription(`${term.term}: ${term.shortDefSource ?? term.shortDef}`);
+  // with the word itself in front, as a dictionary entry does. The series it is
+  // seen in follow, since that is what a reader looking it up usually knows.
+  const seenIn = (await getWorksBySlugs(term.examples)).slice(0, 2).map((w) => w.title);
+  const description = fullerDescription(
+    `${term.term}: ${term.shortDefSource ?? term.shortDef}`,
+    seenIn.length > 0 ? `Seen in ${seenIn.join(' and ')}.` : null,
+    bodyProse(term.body),
+  );
   const ogImage = `/og?title=${encodeURIComponent(term.term)}`;
   return {
     title: documentTitle(title),
@@ -75,10 +82,17 @@ export default async function GlossaryTermPage({ params }: Props) {
   const headings = extractHeadings(body);
   const { standfirst, rest } = splitStandfirst(body);
 
-  const [related, examples] = await Promise.all([
+  const [ownRelated, examples] = await Promise.all([
     getGlossaryTermsBySlugs(term.related),
     getWorksBySlugs(term.examples),
   ]);
+  // Relatedness runs both ways, but each entry lists only its own picks; an
+  // entry that names this one is related to it too. Without this a narrow term
+  // that lists broad ones was never linked back from any of them.
+  const related = [
+    ...ownRelated,
+    ...getAllGlossaryTerms().filter((t) => t.related.includes(term.slug) && !term.related.includes(t.slug)),
+  ];
   const category = GLOSSARY_CATEGORIES.find((c) => c.slug === term.category);
 
   const termLd = {
@@ -140,6 +154,17 @@ export default async function GlossaryTermPage({ params }: Props) {
         className="ref-prose"
         dangerouslySetInnerHTML={{ __html: linkReferenceMentions(rest, `/glossary/${term.slug}`) }}
       />
+
+      {guideFor(term.slug) && (
+        <p className="mt-6">
+          <Link
+            href={`/${guideFor(term.slug)!.slug}/guide`}
+            className="inline-block py-1.5 font-sans text-sm font-semibold text-gold hover:underline underline-offset-4"
+          >
+            The full guide: {guideFor(term.slug)!.title} →
+          </Link>
+        </p>
+      )}
 
       <UpdatedLine
         url={`${BASE}/glossary/${term.slug}`}

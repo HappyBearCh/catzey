@@ -14,19 +14,30 @@ function toId(text: string): string {
 }
 
 export function extractHeadings(html: string): Heading[] {
+  // Numbered the way injectHeadingIds numbers them, so each link finds its section.
+  const seen = new Map<string, number>();
   return [...html.matchAll(/<h([23])[^>]*>([\s\S]*?)<\/h[23]>/gi)]
     .map(([, level, inner]) => {
       const text = inner.replace(/<[^>]+>/g, '').trim();
-      return { level: parseInt(level), text, id: toId(text) };
+      const base = toId(text);
+      const n = (seen.get(base) ?? 0) + 1;
+      seen.set(base, n);
+      return { level: parseInt(level), text, id: n === 1 ? base : `${base}-${n}` };
     })
     .filter((h) => h.text.length > 0);
 }
 
 export function injectHeadingIds(html: string): string {
+  // Two sections may share a heading; a repeated id would send both jump links
+  // to the first, so later ones are numbered.
+  const seen = new Map<string, number>();
   return html.replace(/<h([23])([^>]*?)>([\s\S]*?)<\/h\1>/gi, (_, level, attrs, inner) => {
     if (attrs.includes('id=')) return `<h${level}${attrs}>${inner}</h${level}>`;
     const text = inner.replace(/<[^>]+>/g, '').trim();
-    const id = toId(text);
+    const base = toId(text);
+    const n = (seen.get(base) ?? 0) + 1;
+    seen.set(base, n);
+    const id = n === 1 ? base : `${base}-${n}`;
     return `<h${level}${attrs} id="${id}">${inner}</h${level}>`;
   });
 }

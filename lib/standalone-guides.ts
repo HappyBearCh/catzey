@@ -2,6 +2,8 @@ import { injectReading } from '@/lib/numerologize';
 
 export interface StandaloneGuide {
   slug: string;
+  /** When the guide was first published (YYYY-MM-DD). */
+  publishedAt: string;
   title: string;
   subtitle: string;
   readingTime: number;
@@ -12,6 +14,7 @@ export interface StandaloneGuide {
 const STANDALONE_GUIDES: StandaloneGuide[] = [
   {
     slug: 'how-to-start-reading-manga',
+    publishedAt: '2026-06-11',
     title: 'How to Start Reading Manga: A Complete Beginner\'s Guide',
     subtitle: 'Everything you need to know before picking up your first volume',
     readingTime: 6,
@@ -61,6 +64,7 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
   },
   {
     slug: 'what-is-isekai',
+    publishedAt: '2026-06-11',
     title: 'What Is Isekai? The Complete Guide to the Genre',
     subtitle: 'From humble web novel origins to the genre that conquered anime',
     readingTime: 6,
@@ -111,6 +115,7 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
   },
   {
     slug: 'new-to-one-piece',
+    publishedAt: '2026-06-14',
     title: "New to One Piece? Your Complete Starting Guide",
     subtitle: 'How to start one of the longest — and most rewarding — stories in manga history',
     readingTime: 5,
@@ -150,6 +155,7 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
   },
   {
     slug: 'new-to-jujutsu-kaisen',
+    publishedAt: '2026-06-14',
     title: 'New to Jujutsu Kaisen? Everything You Need to Know',
     subtitle: 'The dark shōnen that changed what action manga could look like',
     readingTime: 4,
@@ -184,6 +190,7 @@ const STANDALONE_GUIDES: StandaloneGuide[] = [
   },
   {
     slug: 'your-first-anime',
+    publishedAt: '2026-06-14',
     title: 'Your First Anime: Where to Start',
     subtitle: 'A practical guide to entering one of the world\'s most popular storytelling mediums',
     readingTime: 6,

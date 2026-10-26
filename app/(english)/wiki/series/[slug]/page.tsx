@@ -9,7 +9,7 @@ import { UpdatedLine } from '@/components/UpdatedLine';
 import { ShelfNeighbours } from '@/components/ShelfNeighbours';
 import { notFound } from 'next/navigation';
 import { SafeImage } from '@/components/SafeImage';
-import { getWork, getAllWorks, getCreatorsBySlugs, getSimilarWorks, getLearnTopic, type Work, type Creator } from '@/lib/education';
+import { getWork, getAllWorks, workRun, getCreatorsBySlugs, getSimilarWorks, getLearnTopic, type Work, type Creator } from '@/lib/education';
 import { getGenreInfo } from '@/lib/genre-info';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
@@ -18,13 +18,6 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-function years(startYear: number | null, endYear: number | null, status: string | null): string {
-  if (!startYear) return '';
-  if (status === 'ongoing' || (!endYear && status !== 'completed')) return `${startYear}–present`;
-  if (endYear && endYear !== startYear) return `${startYear}–${endYear}`;
-  return `${startYear}`;
 }
 
 // Prerendered at build, ISR thereafter — see the note on the glossary route.
@@ -87,7 +80,7 @@ const AUDIENCE: Record<string, string> = {
  * none of them.
  */
 function workLead(work: Work, creators: string): string {
-  const run = years(work.startYear, work.endYear, work.status);
+  const run = workRun(work);
   const kind = [work.demographic, work.genres[0]?.toLowerCase()].filter(Boolean).join(' ');
   const article = /^[aeiou]/i.test(kind) ? 'an' : 'a';
   const by = creators ? ` by ${creators}` : '';
@@ -177,7 +170,7 @@ export default async function WorkPage({ params }: Props) {
   if (!work) notFound();
 
   const creators = await getCreatorsBySlugs(work.creatorSlugs);
-  const run = years(work.startYear, work.endYear, work.status);
+  const run = workRun(work);
   const answers = quickAnswers(work, creators);
   const similar = getSimilarWorks(work);
   const split = splitReading(work.body);

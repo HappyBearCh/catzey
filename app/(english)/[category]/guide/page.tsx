@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!guide) return {};
   const url = `${BASE}/${category}/guide`;
   return {
-    title: documentTitle(guide.title),
+    title: documentTitle(guide.resultTitle ?? guide.title),
     description: guideDescription(guide.subtitle, guide.body),
     alternates: { canonical: url },
     openGraph: {
@@ -121,9 +121,9 @@ export default async function GuidePage({ params }: Props) {
           src={guide.heroImage.src}
           alt={guide.heroImage.alt}
           fill
+          sizes="(max-width: 896px) 100vw, 896px"
           className="object-cover"
           priority
-          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         {/* Image credit */}
@@ -180,17 +180,32 @@ export default async function GuidePage({ params }: Props) {
         className="mt-10"
       />
 
+      <nav aria-label="More section guides" className="mt-10 pt-6 border-t border-site-border">
+        <h2 className="chapter-title text-lg mb-4"><span>More section guides</span></h2>
+        <ul className="flex flex-wrap gap-2">
+          {getAllGuides()
+            .filter((g) => g.slug !== guide.slug)
+            .map((g) => (
+              <li key={g.slug}>
+                <Link href={`/${g.slug}/guide`} className="chip px-3.5 py-1.5 text-sm text-ink-2 dark:text-parchment/80">
+                  {CATEGORIES.find((c) => c.slug === g.slug)?.label ?? g.title}
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </nav>
+
       {/* Footer nav */}
       <div className="mt-12 pt-8 border-t border-site-border flex items-center justify-between">
         <Link
           href={parent.href}
-          className="text-xs font-bold text-site-gray hover:text-primary transition-colors flex items-center gap-1"
+          className="py-1.5 text-xs font-bold text-site-gray hover:text-primary transition-colors flex items-center gap-1"
         >
           ← Back to {hasArchive ? validCategory.label : 'all guides'}
         </Link>
         <Link
           href="/"
-          className="text-xs font-bold text-site-gray hover:text-primary transition-colors"
+          className="py-1.5 text-xs font-bold text-site-gray hover:text-primary transition-colors"
         >
           Home
         </Link>

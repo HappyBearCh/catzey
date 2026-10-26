@@ -8,10 +8,12 @@ import { getTopicInfo, getAllTopicInfo } from '@/lib/topic-info';
 import { getTopicArticles } from '@/lib/articles';
 import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { Article, ReviewData } from '@/lib/types';
-import { metaDescription, HUB_MIN_TEXTS } from '@/lib/seo';
+import { metaDescription, fullerDescription, essayLdRef, HUB_MIN_TEXTS } from '@/lib/seo';
 import { canonicalEntity, canonicalEntitySlugs, entityFromSlug, isIndexableEntity, hubName } from '@/lib/entity-canon';
 import { entityHref, entitySlug } from '@/lib/entity-slug';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { HubIntro } from '@/components/HubIntro';
+import { findHubReference, getHubIntro, getHubIntroText } from '@/lib/hub-intro';
 
 // Hubs are assembled from a checked-in edition (see lib/db.ts) and cannot change
 // between deploys, so a daily revalidate only re-rendered identical output and
@@ -43,7 +45,9 @@ export async function generateStaticParams() {
 async function resolveEntity(raw: string): Promise<string> {
   let decoded = raw;
   try { decoded = decodeURIComponent(raw); } catch {}
-  return (await entityFromSlug(decoded)) ?? decoded;
+  // A curated hub with no essays yet has no entity to resolve to; its curated
+  // name ("Frieren") beats the raw segment ("frieren") as the page's name.
+  return (await entityFromSlug(decoded)) ?? getTopicInfo(decoded)?.name ?? decoded;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -57,18 +61,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = `/og?title=${encodeURIComponent(name)}`;
   const info = getTopicInfo(name);
   // The layout 404s these; the metadata must not describe a hub that isn't there.
-  if (!info && (await getTopicArticles(name)).length === 0) return {};
-  const description = info?.intro ?? `Everything on Catzye about ${name} — essays and reference entries, filed by number.`;
+  const all = await getTopicArticles(name);
+  const listed = all.filter((a) => !a.generated);
+  if (!info && all.length === 0) return {};
+  // With no intro of its own, the hub is described by what it holds. Essay
+  // titles lead with their place in a series, which a snippet does not need.
+  const essay = (a: Article) => `“${a.title.replace(/^Part \d+:\s*/, '')}”`;
+  const holds =
+    listed.length > 0
+      ? `${listed.length} essay${listed.length === 1 ? '' : 's'} on ${name}, among them ${essay(listed[0])}.`
+      : null;
+  const description =
+    info?.intro ??
+    getHubIntroText('topic', entitySlug(name)) ??
+    (findHubReference(name) ? `Essays on ${name}. ${findHubReference(name)!.summary}` : null) ??
+    (holds && fullerDescription(holds, listed.slice(1, 3).map((a) => `Also ${essay(a)}.`).join(' '))) ??
+    `Everything on Catzye about ${name} — essays and reference entries, filed by number.`;
   // Thin archives (below HUB_MIN_TEXTS hand-written articles) are noindexed to avoid low-value
   // pages eating crawl budget, but stay followable so link equity flows.
-  const count = (await getTopicArticles(name)).filter((a) => !a.generated).length;
+  const count = listed.length;
   return {
     title: `${name} — Manga & Anime`,
     description: metaDescription(description),
     alternates: { canonical: canonicalUrl },
-    // Thin archives are noindexed — but a curated hub is substantial content, so
-    // it stays indexable even before it has accumulated its own articles.
-    ...(count < HUB_MIN_TEXTS && !info && { robots: { index: false, follow: true } }),
+    // Thin archives are noindexed. A curated hub carries its own intro and facts,
+    // so it is indexable from its first essay; with none it is a shorter copy of
+    // the series' wiki entry, which is the page that should answer the search.
+    ...((count === 0 || (count < HUB_MIN_TEXTS && !info)) && { robots: { index: false, follow: true } }),
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
@@ -146,11 +165,7 @@ export default async function TopicPage({ params }: Props) {
     url: `${BASE}${entityHref(name)}`,
     numberOfItems: articles.length,
     ...(articles.length > 0 && {
-      hasPart: articles.slice(0, 10).map((a) => ({
-        '@type': 'Article',
-        headline: a.title,
-        url: `${BASE}/article/${a.slug}`,
-      })),
+      hasPart: articles.slice(0, 10).map(essayLdRef),
     }),
   };
 
@@ -173,18 +188,13 @@ export default async function TopicPage({ params }: Props) {
 
       <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name, href: entityHref(name) }]} className="mb-5" />
 
-      <div className="flex items-center gap-3 mb-2">
-        <span className="block w-1 h-8 bg-primary" />
-        <h1 className="text-3xl font-semibold tracking-tight">{name}</h1>
-      </div>
-      <p className="text-site-gray text-sm mb-6 ml-4">
+      <h1 className="font-display text-3xl md:text-[2.6rem] font-bold tracking-tight leading-tight text-ink dark:text-parchment mb-2">{name}</h1>
+      <p className="text-site-gray text-sm mb-6">
         {articles.length} article{articles.length !== 1 ? 's' : ''} about {name}
       </p>
 
-      <NumberReading title={name} label="subject" className="mb-8 ml-4 max-w-3xl" />
-
       {topicInfo && (
-        <div className="mb-8 ml-4 p-5 bg-site-light dark:bg-gray-900 border-2 border-[rgb(var(--ink-line))] dark:border-gray-700 rounded-sm">
+        <div className="mb-8 manga-panel p-5 max-w-3xl">
           <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
             {topicInfo.intro}
           </p>
@@ -200,6 +210,14 @@ export default async function TopicPage({ params }: Props) {
           </dl>
         </div>
       )}
+
+      <HubIntro
+        intro={topicInfo ? null : getHubIntro('topic', entitySlug(name))}
+        reference={findHubReference(name)}
+        className="mb-8"
+      />
+
+      <NumberReading title={name} label="subject" className="mb-8 max-w-3xl" />
 
       {articles.length === 0 ? (
         <div className="py-20 text-center text-gray-400">

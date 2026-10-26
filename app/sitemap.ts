@@ -79,11 +79,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .filter(([, count]) => count >= HUB_MIN_TEXTS)
       .slice(0, 500)
       .map(([entity]) => ({ entity, last: lastByCanon.get(entity) ?? new Date() }));
-    // Curated hubs are indexable at any essay count (see the topic route), so
-    // they are listed whether or not they clear the threshold.
+    // Curated hubs are indexable from their first essay (see the topic route),
+    // so they are listed below the threshold, but not with none.
     for (const t of getAllTopicInfo()) {
       const entity = await hubName(t.name);
-      if (!entityRows.some((r) => r.entity === entity)) {
+      if ((canonCounts.get(entity) ?? 0) > 0 && !entityRows.some((r) => r.entity === entity)) {
         entityRows.push({ entity, last: lastByCanon.get(entity) ?? new Date() });
       }
     }

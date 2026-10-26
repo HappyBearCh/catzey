@@ -198,6 +198,18 @@ export function getWork(slug: string): Work | null {
   return WORKS.find((w) => w.slug === slug) ?? null;
 }
 
+/**
+ * A series' run as printed: "1997–present", "2009–2021", "2021". A finished
+ * series with no recorded end ran across separate runs the record cannot date,
+ * so it is given from its start rather than as a single year.
+ */
+export function workRun(work: Pick<Work, 'startYear' | 'endYear' | 'status'>): string {
+  if (!work.startYear) return '';
+  if (work.status === 'ongoing') return `${work.startYear}–present`;
+  if (work.endYear) return work.endYear !== work.startYear ? `${work.startYear}–${work.endYear}` : String(work.startYear);
+  return work.status === 'completed' ? `from ${work.startYear}` : `${work.startYear}–present`;
+}
+
 export function getAllWorks(): Work[] {
   return [...WORKS].sort((a, b) => a.title.localeCompare(b.title));
 }

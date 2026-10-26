@@ -47,7 +47,12 @@ function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-let cached: { series: Target[]; prose: Target[]; creatorPages: Map<string, string> } | null = null;
+let cached: {
+  series: Target[];
+  prose: Target[];
+  creatorPages: Map<string, string>;
+  italicTerms: Map<string, string>;
+} | null = null;
 
 function targets() {
   if (cached) return cached;
@@ -72,7 +77,23 @@ function targets() {
   // Longest pattern first, so "Weekly Shōnen Jump" wins over "Shōnen".
   prose.sort((a, b) => b.pattern!.source.length - a.pattern!.source.length);
   const creatorPages = new Map(getAllCreators().map((c) => [c.name, `/wiki/creator/${c.slug}`]));
-  cached = { series, prose, creatorPages };
+  // Magazines and Japanese words are set in italics, which the running-text
+  // pass does not enter. An italic whose whole text is a term, or one of its
+  // other spellings, is that term named on purpose.
+  const italicTerms = new Map<string, string>();
+  // A term's own name, with or without its macrons, outranks another term's
+  // alias: "Shonen Jump+" is the Shōnen Jump+ entry, not one of its examples.
+  const plain = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const terms = getAllGlossaryTerms().filter((t) => !GENERIC_TERMS.has(t.slug));
+  for (const names of [(t: (typeof terms)[number]) => [t.term, plain(t.term)], (t: (typeof terms)[number]) => t.aliases]) {
+    for (const t of terms) {
+      for (const name of names(t)) {
+        const key = name.toLowerCase();
+        if (!italicTerms.has(key)) italicTerms.set(key, `/glossary/${t.slug}`);
+      }
+    }
+  }
+  cached = { series, prose, creatorPages, italicTerms };
   return cached;
 }
 
@@ -98,7 +119,7 @@ function proseTextNodes($: CheerioAPI): Text[] {
  * an entry never links to itself; `skip` lists further hrefs to leave alone.
  */
 export function linkReferenceMentions(html: string, selfHref: string, skip: string[] = []): string {
-  const { series, prose, creatorPages } = targets();
+  const { series, prose, creatorPages, italicTerms } = targets();
   const used = new Set([selfHref, ...skip]);
   const $ = load(html, null, false);
 
@@ -114,15 +135,16 @@ export function linkReferenceMentions(html: string, selfHref: string, skip: stri
     used.add(own);
   });
 
-  // Series: an <em> whose whole text is a known title.
+  // Series: an <em> whose whole text is a known title; failing that, a term.
   $('em').each((_, el) => {
     const $el = $(el);
     if ($el.closest('a, .num-reading, .num-standfirst, h1, h2, h3').length) return;
     const text = $el.text().trim();
-    const hit = series.find((t) => !used.has(t.href) && t.titles!.includes(text));
-    if (!hit) return;
-    used.add(hit.href);
-    $el.wrap(`<a href="${hit.href}" class="ref-link"></a>`);
+    const work = series.find((t) => t.titles!.includes(text));
+    const href = work ? work.href : italicTerms.get(text.toLowerCase());
+    if (!href || used.has(href)) return;
+    used.add(href);
+    $el.wrap(`<a href="${href}" class="ref-link"></a>`);
   });
 
   // Creators and glossary terms: first mention in running text.

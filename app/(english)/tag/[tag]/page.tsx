@@ -7,8 +7,10 @@ import { ArticleCard } from '@/components/ArticleCard';
 import { tagSlug, tagHref, safeDecode, resolveTag, allTagSlugs, indexableTagSlugs } from '@/lib/tags';
 import type { Article } from '@/lib/types';
 import { topicCanonicalForTag } from '@/lib/hub-duplicates';
-import { HUB_MIN_TEXTS, capitalise } from '@/lib/seo';
+import { HUB_MIN_TEXTS, capitalise, metaDescription, essayLdRef } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { HubIntro } from '@/components/HubIntro';
+import { findHubReference, getHubIntro, getHubIntroText } from '@/lib/hub-intro';
 
 // The edition behind these archives is a checked-in file (see lib/db.ts), so a
 // tag page cannot change between deploys. A 24-hour revalidate re-rendered
@@ -52,7 +54,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = `/og?title=${encodeURIComponent('#' + label)}`;
   // Say what is actually here: how many hand-written essays, about what.
   const essays = `${resolved.count} hand-written ${resolved.count === 1 ? 'essay' : 'essays'}`;
-  const description = `${essays} on ${label} from Catzye: how manga and anime work, read closely and in series, each filed by the number its title reduces to.`;
+  // Lead with what the subject is when the hub can say so, from its own
+  // framing or the reference entry it points to.
+  const about = getHubIntroText('tag', slug) ?? findHubReference(label)?.summary;
+  const description = about
+    ? metaDescription(`${essays} on ${label}. ${about}`)
+    : `${essays} on ${label} from Catzye: how manga and anime work, read closely and in series, each filed by the number its title reduces to.`;
   return {
     title: `${capitalise(label)}: Essays on Manga & Anime`,
     description,
@@ -132,11 +139,7 @@ export default async function TagPage({ params }: Props) {
     url: `${BASE}/tag/${encodeURIComponent(slug)}`,
     numberOfItems: articles.length,
     ...(articles.length > 0 && {
-      hasPart: articles.slice(0, 10).map((a) => ({
-        '@type': 'Article',
-        headline: a.title,
-        url: `${BASE}/article/${a.slug}`,
-      })),
+      hasPart: articles.slice(0, 10).map(essayLdRef),
     }),
   };
 
@@ -149,7 +152,9 @@ export default async function TagPage({ params }: Props) {
         {articles.length} article{articles.length !== 1 ? 's' : ''} tagged with &quot;{label}&quot;
       </p>
 
-      <NumberReading title={label} label="tag" className="mb-8 ml-4 max-w-3xl" />
+      <HubIntro intro={getHubIntro('tag', slug)} reference={findHubReference(label)} className="mb-8" />
+
+      <NumberReading title={label} label="tag" className="mb-8 max-w-3xl" />
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {articles.map((article) => (

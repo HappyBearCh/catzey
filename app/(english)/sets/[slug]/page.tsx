@@ -12,6 +12,7 @@ import { getWork } from '@/lib/education';
 import { getCreator } from '@/lib/education';
 import { countStrokes } from '@/lib/strokes';
 import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
+import { fullerDescription, bodyProse, ogImageFor, ORGANIZATION_AUTHOR } from '@/lib/seo';
 
 export const revalidate = false; // the edition is baked in at build time
 
@@ -34,16 +35,17 @@ export async function generateMetadata({
   const set = getNumberedSet((await params).slug);
   if (!set) return { title: 'Not found' };
   const title = `${set.name}${set.nativeName ? ` (${set.nativeName})` : ''}`;
+  const description = fullerDescription(`${set.name}, ${set.work}: ${set.shortDef}`, bodyProse(set.body));
   return {
     title,
-    description: set.shortDef,
+    description,
     alternates: { canonical: `${BASE}/sets/${set.slug}` },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       type: 'website',
       title: `${title} | Catzye`,
-      description: set.shortDef,
+      description,
       url: `${BASE}/sets/${set.slug}`,
       images: [{ url: `/og?title=${encodeURIComponent(set.name)}`, width: 1200, height: 630 }],
     },
@@ -84,6 +86,11 @@ export default async function NumberedSetPage({ params }: { params: Promise<{ sl
     headline: set.name,
     description: set.shortDef,
     url: `${BASE}/sets/${set.slug}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/sets/${set.slug}` },
+    image: [ogImageFor(set.name)],
+    author: ORGANIZATION_AUTHOR,
+    publisher: ORGANIZATION_AUTHOR,
+    inLanguage: 'en',
     isPartOf: { '@type': 'CollectionPage', name: 'Numbered sets in manga', url: `${BASE}/sets` },
   };
 

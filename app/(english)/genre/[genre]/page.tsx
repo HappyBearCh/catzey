@@ -7,7 +7,8 @@ import { ArticleCard } from '@/components/ArticleCard';
 import { getGenreInfo, getAllGenres } from '@/lib/genre-info';
 import { tagHref, tagSlug, indexableTagSlugs } from '@/lib/tags';
 import { getAllWorks } from '@/lib/education';
-import { documentTitle } from '@/lib/seo';
+import { guideFor } from '@/lib/guides';
+import { documentTitle, fullerDescription } from '@/lib/seo';
 import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 import type { Article } from '@/lib/types';
 
@@ -27,9 +28,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { genre } = await params;
   const info = getGenreInfo(genre);
   if (!info) return {};
+  const works = info.notableWorks.slice(0, 3);
+  const description = fullerDescription(
+    info.description,
+    `Series include ${works.slice(0, -1).join(', ')} and ${works.at(-1)}.`,
+    info.longDescription,
+  );
   return {
     title: documentTitle(`${info.label} Manga & Anime — Guides, Series & Reference`),
-    description: info.description,
+    description,
     alternates: {
       canonical: `${BASE}/genre/${genre}`,
       types: { 'application/rss+xml': `${BASE}/genre/${genre}/feed.xml` },
@@ -40,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       images: [{ url: `/og?title=${encodeURIComponent(info.label + ' Manga & Anime')}`, width: 1200, height: 630 }],
       title: `${info.label} | Catzye`,
-      description: info.description,
+      description,
       url: `${BASE}/genre/${genre}`,
     },
   };
@@ -113,6 +120,16 @@ export default async function GenrePage({ params }: Props) {
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl ml-4">
               {info.longDescription}
             </p>
+            {guideFor(info.slug) && (
+              <p className="mt-4 ml-4">
+                <Link
+                  href={`/${guideFor(info.slug)!.slug}/guide`}
+                  className="inline-block py-1.5 font-sans text-sm font-semibold text-gold hover:underline underline-offset-4"
+                >
+                  Read the guide: {guideFor(info.slug)!.title} →
+                </Link>
+              </p>
+            )}
 
             <NumberReading
               title={info.label}

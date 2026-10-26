@@ -12,7 +12,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://catzye.com';
 export const metadata: Metadata = {
   title: 'Manga Title Numerology Calculator & the Twelve Shelves',
   description:
-    'Type any manga or anime title to see its Pythagorean numerology, worked letter by letter, and the shelf it files to — then browse everything Catzye files under each of the twelve numbers.',
+    'Type any manga or anime title to see its Pythagorean numerology worked letter by letter, then browse everything Catzye files under each of the twelve numbers.',
   alternates: { canonical: `${BASE}/numbers` },
   openGraph: {
     siteName: 'Catzye',

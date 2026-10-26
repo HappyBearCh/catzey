@@ -29,7 +29,7 @@ import { reviewOverall, RATING_SCALE } from '@/lib/reviews';
 import type { ReviewData } from '@/lib/types';
 import { STANDFIRST_OPEN, splitOffReading } from '@/lib/numerologize';
 import { titleValue, getGroup } from '@/lib/number-groups';
-import { metaDescription, documentTitle } from '@/lib/seo';
+import { metaDescription, documentTitle, essayTitle, essayHeadline } from '@/lib/seo';
 import { canonicalEntity, isIndexableEntity, hubName } from '@/lib/entity-canon';
 import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
 import { entityHref } from '@/lib/entity-slug';
@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       // series, so the search result leads with what the essay is about and
       // the part number follows — it stays, because two series can share a
       // part title.
-      title: documentTitle(article.title.replace(/^Part (\d+):\s*(.+)$/, '$2 (Part $1)')),
+      title: documentTitle(essayTitle(article.title, article.slug)),
       description,
       authors: [{ name: author.name, url: `${BASE}/author/${author.slug}` }],
       openGraph: {
@@ -279,7 +279,9 @@ export default async function ArticlePage({ params }: Props) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: article.title,
+    // Google cuts a headline past 110 characters; the shorter result title is
+    // the same essay named the way search results already name it.
+    headline: essayHeadline(article.title, article.slug),
     description: article.excerpt,
     image: article.imageUrl
       ? [{
@@ -289,7 +291,7 @@ export default async function ArticlePage({ params }: Props) {
           height: 675,
           caption: article.imageAlt ?? article.title,
         }]
-      : undefined,
+      : [`${BASE}/og?title=${encodeURIComponent(article.title)}&category=${article.category}`],
     thumbnailUrl: article.imageUrl ?? undefined,
     mainEntityOfPage: {
       '@type': 'WebPage',

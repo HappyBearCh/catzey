@@ -15,7 +15,7 @@ import {
   getTrack,
   parseFaq,
 } from '@/lib/education';
-import { metaDescription, splitReading, documentTitle } from '@/lib/seo';
+import { fullerDescription, bodyProse, splitReading, documentTitle, ogImageFor, ORGANIZATION_AUTHOR } from '@/lib/seo';
 
 export const revalidate = false; // content is baked in at build time — never revalidate
 
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!topic) return {};
   const url = `${BASE}/learn/${topic.slug}`;
   const ogImage = `/og?title=${encodeURIComponent(topic.title)}`;
-  const description = metaDescription(topic.summarySource ?? topic.summary);
+  const description = fullerDescription(topic.summarySource ?? topic.summary, bodyProse(topic.body));
   return {
     title: documentTitle(topic.title),
     description,
@@ -87,6 +87,8 @@ export default async function LearnTopicPage({ params }: Props) {
     description: topic.summarySource ?? topic.summary,
     url: `${BASE}/learn/${topic.slug}`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/learn/${topic.slug}` },
+    image: [ogImageFor(topic.title)],
+    author: ORGANIZATION_AUTHOR,
     learningResourceType: 'Explainer',
     educationalLevel: topic.level,
     ...(track && { about: { '@type': 'Thing', name: track.label } }),

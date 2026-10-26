@@ -65,6 +65,119 @@ export function metaDescription(text: string | null | undefined, limit = 158): s
   return `${cut.slice(0, lastSpace > limit * 0.6 ? lastSpace : limit).replace(/[,;:.\-–—]$/, '')}…`;
 }
 
+// A one-line definition fills half a snippet, and Google fills a short tag
+// from wherever on the page it likes. Follow the lead with the next sentences
+// we wrote, whole ones while they fit; if the snippet is still short, the
+// first one that did not fit ends it, trimmed on a word.
+const SNIPPET_FULL = 120;
+// Below this a snippet reads as unfinished, and a trimmed sentence is better.
+const SNIPPET_SHORT = 105;
+export function fullerDescription(lead: string, ...more: (string | null | undefined)[]): string {
+  const clean = (t: string) => t.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').replace(/\s+([,.;:!?])/g, '$1').trim();
+  let out = clean(lead);
+  if (out.length >= SNIPPET_FULL) return metaDescription(out);
+  if (!/[.!?…]$/.test(out)) out += '.';
+  let overflow = '';
+  for (const text of more) {
+    if (!text) continue;
+    // Split after a full stop that ends a sentence, not "No." or "Vol.".
+    for (const sentence of clean(text).split(/(?<=(?<!\b(?:No|Vol|vs|Mr|Dr|St))[.!?])\s+(?=[A-Z0-9“"‘(])/)) {
+      if (out.includes(sentence)) continue;
+      if (out.length + 1 + sentence.length > 158) {
+        // Skipping it would leave the next sentence without what it refers to.
+        overflow ||= sentence;
+        break;
+      }
+      out += ` ${sentence}`;
+    }
+  }
+  return out.length < SNIPPET_SHORT && overflow ? metaDescription(`${out} ${overflow}`) : out;
+}
+
+/** The prose of a reference body, without the reading apparatus or headings. */
+export function bodyProse(bodyHtml: string): string {
+  return [...bodyHtml.replace(/<!--catzye:(\w+)-->[\s\S]*?<!--\/catzye:\1-->/g, '').matchAll(/<p([^>]*)>([\s\S]*?)<\/p>/g)]
+    .filter(([, attrs]) => !/num-/.test(attrs))
+    .map(([, , inner]) => inner)
+    .join(' ');
+}
+
+const RESULT_TITLE_MAX = 60;
+
+/**
+ * The <title> for an essay. Google shows about sixty characters, and most
+ * essay headlines run longer, so the results page cut them mid-phrase or
+ * rewrote them. In order of preference: the headline with its part number
+ * moved to the end; the headline alone; then, for a two-part headline, the
+ * half after the colon, which is where these essays name the work they read
+ * ("Spirited Away and the Villain Who Was a Numerologist"); then the half
+ * before it. Failing all of those, the headline goes out whole and Google
+ * trims it. The page's own h1 keeps the full headline either way.
+ */
+// Headlines whose halves are each too long or too vague to stand alone,
+// shortened by hand. Keyed by slug.
+const RESULT_TITLES: Record<string, string> = {
+  'part-274-the-rarest-number-march-comes-in-like-a-lion-and-the-boy-who-could-not-':
+    'March Comes in Like a Lion and the Rarest Number in Manga',
+  'part-275-hardness-3-5-land-of-the-lustrous-and-the-numbers-of-a-body-that-will-n':
+    'Land of the Lustrous and a Body That Will Not Hold',
+  'part-277-the-triple-nine-takehiko-inoue-real-and-the-sports-manga-that-refuses-t':
+    'Real and the Sports Manga That Refuses to Be Inspiring',
+  'part-296-the-master-teacher-parasyte-the-number-33-and-the-alien-that-taught-a-b':
+    'Parasyte and the Alien That Taught a Boy What a Human Is',
+  'part-6-the-shelf-is-a-self-portrait-you-assemble-from-other-people-s-products':
+    'The Shelf Is a Self-Portrait: Collecting Manga (Part 6)',
+};
+
+export function essayTitle(title: string, slug?: string): string {
+  if (slug && RESULT_TITLES[slug]) return RESULT_TITLES[slug];
+  const m = title.match(/^Part (\d+):\s*(.+)$/);
+  const headline = m ? m[2] : title;
+  const fits = (t: string) => t.length <= RESULT_TITLE_MAX;
+  // A few headlines set their two halves apart with a dash instead of a colon.
+  const sep = [': ', ' – ', ' — '].find((s) => headline.includes(s)) ?? ': ';
+  const [before, ...rest] = headline.split(sep);
+  const after = rest.join(sep);
+  const candidates = [
+    m ? `${headline} (Part ${m[1]})` : headline,
+    headline,
+    after.length >= 20 ? after : '',
+    after && before.length >= 20 ? before : '',
+  ];
+  return candidates.find((t) => t && fits(t)) ?? headline;
+}
+
+// Google asks an Article for an image, a date and an author. A page with no
+// photograph of its own still has the drawn share card its metadata gives it,
+// and a page with no byline is written by the reference itself.
+export function ogImageFor(title: string): string {
+  return `${SITE_URL}/og?title=${encodeURIComponent(title)}`;
+}
+
+export const ORGANIZATION_AUTHOR = { '@type': 'Organization', name: SITE_NAME, url: SITE_URL } as const;
+
+/**
+ * An essay's JSON-LD headline. Google cuts one past 110 characters, so a longer
+ * headline goes out as its search title, or failing that cut on a word.
+ */
+export function essayHeadline(title: string, slug: string): string {
+  if (title.length <= 110) return title;
+  const short = essayTitle(title, slug);
+  if (short.length <= 110) return short;
+  return short.slice(0, short.lastIndexOf(' ', 110)).replace(/[,;:–—-]$/, '').trim();
+}
+
+/** An essay as an item of a hub's JSON-LD. */
+export function essayLdRef(a: { title: string; slug: string; publishedAt: Date | string; imageUrl: string | null }) {
+  return {
+    '@type': 'Article',
+    headline: essayHeadline(a.title, a.slug),
+    url: `${SITE_URL}/article/${a.slug}`,
+    image: a.imageUrl ?? ogImageFor(a.title),
+    datePublished: new Date(a.publishedAt).toISOString(),
+  };
+}
+
 export const organizationLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',

@@ -9,6 +9,7 @@ import {
 import { ARCHIVE_CATEGORIES, getCategoryLabel } from '@/lib/types';
 import { prisma } from '@/lib/db';
 import { categoryCount } from '@/lib/articles';
+import { metaDescription } from '@/lib/seo';
 
 // Paginated archives are cut from a frozen edition, so they change only on
 // deploy. See the note on the article route.
@@ -57,7 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${label} — Page ${page}`,
-    description: `${description} Page ${page} of the ${label} archive.`,
+    // The page number leads, so it survives when the snippet is cut.
+    description: metaDescription(`Page ${page} of the ${label} archive. ${description}`),
     alternates: { canonical: canonicalUrl },
     ...(handWritten === 0 && { robots: { index: false, follow: true } }),
     openGraph: {

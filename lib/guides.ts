@@ -14,6 +14,8 @@ export interface Guide {
   subtitle: string;
   heroImage: GuideImage;
   readingTime: number;
+  /** A shorter title for search results, when the title runs past about 60 characters. */
+  resultTitle?: string;
   body: string; // HTML content
 }
 
@@ -113,6 +115,7 @@ const GUIDES: Record<string, Guide> = {
 
   industry: {
     slug: 'industry',
+    resultTitle: 'Inside the Manga and Anime Industry: How It Really Works',
     title: 'Inside the Manga and Anime Industry: How the Business Really Works',
     subtitle: 'Publishers, production committees, studios, and the economics of global pop culture',
     heroImage: {
@@ -159,6 +162,7 @@ const GUIDES: Record<string, Guide> = {
 
   reviews: {
     slug: 'reviews',
+    resultTitle: 'How Manga and Anime Criticism Works',
     title: 'How Manga and Anime Criticism Works: From Fanzines to Video Essays',
     subtitle: 'The evolving art of taking Japanese popular culture seriously',
     heroImage: {
@@ -201,6 +205,7 @@ const GUIDES: Record<string, Guide> = {
 
   'light-novels': {
     slug: 'light-novels',
+    resultTitle: 'Light Novels: Japan\'s Illustrated Prose, Explained',
     title: 'Light Novels: Japan\'s Illustrated Prose That Became an Anime Pipeline',
     subtitle: 'The fast-paced literary format powering the isekai age',
     heroImage: {
@@ -293,6 +298,7 @@ const GUIDES: Record<string, Guide> = {
 
   events: {
     slug: 'events',
+    resultTitle: 'Manga and Anime Conventions and Events: A Global Guide',
     title: 'Manga and Anime Events: The Conventions That Build a Global Community',
     subtitle: 'From a 700-person Tokyo basement to the world\'s largest fan gatherings',
     heroImage: {
@@ -337,6 +343,7 @@ const GUIDES: Record<string, Guide> = {
 
   creators: {
     slug: 'creators',
+    resultTitle: 'Manga and Anime Creators Who Changed Storytelling',
     title: 'The Creators of Manga and Anime: Visionaries Who Changed Storytelling Forever',
     subtitle: 'From the God of Manga to the artists rewriting records today',
     heroImage: {
@@ -379,6 +386,7 @@ const GUIDES: Record<string, Guide> = {
 
   shonen: {
     slug: 'shonen',
+    resultTitle: 'Shōnen: The Genre Built on Friendship and Power',
     title: 'Shōnen: The Genre That Conquered the World with Friendship and Power',
     subtitle: 'A 70-year history of the manga demographic that became a global template',
     heroImage: {
@@ -479,6 +487,23 @@ const READ_GUIDES: Record<string, Guide> = Object.fromEntries(
 
 export function getGuide(slug: string): Guide | null {
   return READ_GUIDES[slug] ?? null;
+}
+
+// Glossary entries and genres whose subject a section guide covers at length.
+const GUIDE_FOR: Record<string, string> = {
+  manga: 'manga',
+  mangaka: 'creators',
+  manhwa: 'manhwa',
+  webtoon: 'manhwa',
+  shonen: 'shonen',
+  seinen: 'seinen',
+  'light-novel': 'light-novels',
+  comiket: 'events',
+};
+
+/** The section guide that covers a glossary term or genre, if one does. */
+export function guideFor(slug: string): Guide | null {
+  return getGuide(GUIDE_FOR[slug] ?? '');
 }
 
 export function getAllGuides(): Guide[] {

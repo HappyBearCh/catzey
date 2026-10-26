@@ -7,7 +7,7 @@ import { ArticleCard } from '@/components/ArticleCard';
 import { getAuthor, getAllAuthors, resolveAuthor } from '@/lib/authors';
 import type { Article } from '@/lib/types';
 import { Breadcrumbs, crumbsFromLd } from '@/components/Breadcrumbs';
-import { metaDescription } from '@/lib/seo';
+import { fullerDescription } from '@/lib/seo';
 
 // Frozen edition (see lib/db.ts) — nothing here changes until the next deploy,
 // so a timer only bought re-renders and ISR writes for identical output.
@@ -29,15 +29,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!author) return {};
   const canonicalUrl = `${BASE}/author/${slug}`;
   const ogImage = `/og?title=${encodeURIComponent(author.name + ' — ' + author.role)}`;
+  const description = fullerDescription(`${author.name}, ${author.role} at Catzye. ${author.bio}`, author.longBio);
   return {
     title: `${author.name} — ${author.role}`,
-    description: metaDescription(author.bio),
+    description,
     alternates: { canonical: canonicalUrl },
     openGraph: {
       siteName: 'Catzye',
       locale: 'en_US',
       title: `${author.name} — ${author.role} | Catzye`,
-      description: author.bio,
+      description,
       url: canonicalUrl,
       type: 'profile',
       images: [{ url: ogImage, width: 1200, height: 630 }],
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: `${author.name} — ${author.role} | Catzye`,
-      description: author.bio,
+      description,
       images: [ogImage],
     },
   };

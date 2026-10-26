@@ -199,8 +199,11 @@ export const canonicalEntitySlugs = cache(async (minCount = 1): Promise<string[]
  */
 export const isIndexableEntity = cache(async (name: string): Promise<boolean> => {
   const canonical = await canonicalEntity(name);
-  if (getTopicInfo(name) || getTopicInfo(canonical)) return true;
-  return ((await canonicalEntityCounts()).get(canonical) ?? 0) >= HUB_MIN_TEXTS;
+  const count = (await canonicalEntityCounts()).get(canonical) ?? 0;
+  // A curated hub is indexable from its first essay; an empty one is noindexed
+  // in favour of the wiki entry (see the topic route), so it gets no links.
+  if (getTopicInfo(name) || getTopicInfo(canonical)) return count > 0;
+  return count >= HUB_MIN_TEXTS;
 });
 
 /**
